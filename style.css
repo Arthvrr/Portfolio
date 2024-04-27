@@ -1,0 +1,343 @@
+/*Import des Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Oswald:wght@200..700&display=swap');
+/* Style général */
+body {
+    margin: 0;
+    font-family: 'Oswald',Arial, sans-serif;
+    background-color: white;
+}
+
+/* Style de l'en-tête */
+header {
+    padding: 20px;
+    text-align: center;
+    height: 30px; /* Hauteur ajustée */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#7bfcb3 ;
+}
+
+.logo-title-link {
+    text-decoration: none; /* Supprimer la décoration de lien */
+    color: inherit; /* Utiliser la couleur de texte par défaut */
+    display: flex; /* Utiliser Flexbox pour aligner les éléments horizontalement */
+    align-items: center; /* Aligner verticalement le contenu */
+    padding-left: 12%;
+}
+
+.logo-title-link img {
+    width: 50px; /* Ajuster la taille du logo selon vos besoins */
+    height: auto; /* Pour conserver le ratio hauteur/largeur */
+}
+
+.logo-title-link h1 {
+    margin: 0; /* Supprimer les marges par défaut */
+    font-size: 1.75em; /* Ajuster la taille du texte du titre */
+    text-decoration: none;
+    margin-left: 5px; /* Réduire l'espace négatif */
+}
+
+/* Style pour les onglets */
+.onglets {
+    display: flex;
+    padding-right: 10%;
+    font-size: 1.5em;
+}
+
+.onglets a {
+    color: #000000;
+    text-decoration: none;
+    padding: 10px;
+    margin-right: 10px;
+    font-weight: bold;
+    transition: color 0.7s ease; /* Transition fondu de 0.3 seconde */
+
+}
+
+
+
+.bouton {
+    color:black;
+    text-decoration: none;
+}
+
+/* START.HTML */
+
+/* Styles pour la vidéo en arrière-plan */
+.video-bg {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* 100% de la hauteur de la fenêtre visible */
+    overflow: hidden; /* Pour cacher le débordement de la vidéo */
+}
+
+.video-bg__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Pour placer la vidéo en arrière-plan */
+    object-fit: cover; /* Pour couvrir toute la zone du conteneur */
+}
+
+/* Styles pour le contenu au-dessus de la vidéo */
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff; /* Couleur du texte */
+    z-index: 1; /* Pour placer le contenu au-dessus de la vidéo */
+    padding: 20px;
+}
+
+.content h1 {
+    font-size: 2.5em; /* Taille de police du titre */
+    margin: 0; /* Supprimer les marges par défaut */
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
+    color: yellow;
+    text-decoration: underline;
+    font-weight: bold;
+    background-color: black;
+    overflow: hidden; /* Masquer le texte débordant */
+    animation: slide-in 4s ease forwards; /* Utiliser une animation pour faire apparaître le texte */
+}
+
+.content h3 {
+    margin-top: 45px; /* Espacement entre le titre et le paragraphe */
+    font-size: 1.75em; /* Taille de police du titre */
+    animation: fade-in 5s ease forwards;
+    font-weight: bold;
+}
+
+.content h3 a {
+    text-decoration: none;
+    color: red;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0; /* Début de l'animation: opacité à 0 (invisible) */
+    }
+    to {
+        opacity: 1; /* Fin de l'animation: opacité à 1 (texte entièrement visible) */
+    }
+}
+
+@keyframes slide-in {
+    from {
+        width: 0; /* Début de l'animation: largeur nulle (invisible) */
+    }
+    to {
+        width: 100%; /* Fin de l'animation: largeur totale (texte entièrement visible) */
+    }
+}
+
+.change-color {
+    transition: color 0.75s ease;
+}
+
+.change-color:hover {
+    color:#9AFFC6;
+}
+
+.footer-start {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0; /* Ajuster le padding selon vos besoins */
+    z-index: 1; /* Pour placer le pied de page au-dessus de la vidéo */
+}
+
+.footer-start .copyright-start {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-start .copyright-start img {
+    width: 30px; /* Ajustez la taille du logo selon vos besoins */
+    margin-right: 10px; /* Espace entre le logo et le texte */
+}
+/*STRATEGY.HTML*/
+
+.strategy-expl {
+    background-color: #d7d7d7;
+    border: 2px solid black;
+    margin-top: 100px;
+    margin-left: 15%;
+    margin-right: 15%;
+    /* padding-top: 1000px; */
+    
+}
+
+.subtitle {
+    color: black;
+    padding-left: 3%;
+    padding-top: 25px;
+    font-size: 1.4em;
+    text-decoration: underline;
+
+}
+
+.strategy-text {
+    padding-top: 20px;
+    padding-left: 2%;
+    padding-right: 2%;
+    font-size: 1.25em;
+    text-align: justify;
+}
+
+
+.strategy-pic{
+    width:55%;
+    display: block; /* Pour que les propriétés de marge fonctionnent correctement */
+    margin: 0 auto;
+}
+
+.pic-legend{
+    color: blue;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.1em;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.bold-text {
+    color:red;
+    font-style: italic;
+}
+
+.footer {
+    position: relative; 
+    left: 0;
+    width: 100%;
+    color: #000000;
+    text-align: center;
+    z-index: 1; /* Pour placer le pied de page au-dessus de la vidéo */
+}
+
+.footer .copyright {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    margin-bottom: 30px;
+}
+
+.footer .copyright img {
+    width: 30px; /* Ajustez la taille du logo selon vos besoins */
+    margin-right: 10px; /* Espace entre le logo et le texte */
+}
+
+/* WALLET.HTML */
+
+.wallet-intro {
+    width: 60%;
+    border-collapse: collapse; /* Fusionner les bordures de cellules */
+    border: 2px solid black; /* Bordure du tableau */
+    background-color: #f0f0f0; /* Couleur de fond */
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    table-layout: fixed; /* Fixer la taille des colonnes */
+}
+td {
+    border: 1px solid black; /* Bordure des cellules */
+    padding: 8px; /* Espacement interne */
+    font-weight: bold;
+    font-size: 1.15em;
+    height: 50px;
+    text-align: center;
+}
+
+.accordion {
+    color: #000000;
+    cursor: pointer;
+    width: 60%;
+    border: none;
+    outline: none;
+    font-size: 1.2em;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.panel {
+    margin: 0 auto;
+    width: 60%;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+    border : 1px solid black;
+}
+
+
+.stocks-info {
+    width: 100%;
+    border-collapse: collapse; /* Fusionner les bordures de cellules */
+    border: 1px solid black; /* Bordure du tableau */
+    background-color: #f0f0f0; /* Couleur de fond */
+    margin: 0 auto;
+    table-layout: fixed; /* Fixer la taille des colonnes */
+    margin-bottom: 10px;
+
+}
+
+.stocks-info td {
+    background-color: rgb(219, 219, 219);
+    font-weight: bold;
+    text-align: center;
+    border: 0.5px solid black;
+    padding: 5px; /* Réduire l'espacement interne des cellules */
+    font-size: 1.05em; /* Réduire la taille de la police du texte */
+    height: auto; /* Redéfinir la hauteur automatique pour s'adapter au contenu */
+}
+
+.stocks-pic {
+    width:40%;
+}
+
+.stocks-header {
+    background-color: #b7b7b7;
+    width: 60%;
+    outline: none;
+    font-size: 1.05em;
+    text-align: center;
+    margin: 0 auto;
+    table-layout: fixed; /* Fixer la taille des colonnes */
+    margin-bottom: 10px;
+    margin-top: 100px;
+}
+
+.stocks-header th {
+    padding: 10px; /* Espacement interne */
+    text-align: center;
+    border: 0.5px solid black;
+}
+
+.donut-container {
+    display: grid;
+    grid-template-columns: auto auto; /* Deux colonnes égales */
+    justify-content: center; /* Alignement au centre */
+    width:350px;
+    margin: 0 auto; /* Centre la div horizontalement */
+    grid-column-gap: 100px;
+}
+
+.semititle {
+    font-size: 2em;
+    text-decoration: underline;
+    text-align: center;
+    margin-top:100px;
+}
+
+#invested, #wallet-value, #cash, #total-value {
+    background-color: #d1d1d1;
+}
