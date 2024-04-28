@@ -153,6 +153,10 @@
         <canvas id="thirdChart"></canvas>
         <canvas id="fourthChart"></canvas>
     </div>
+    <div class="bar-container">
+        <canvas id="fifthChart"></canvas>
+        <canvas id="sixthChart"></canvas>
+    </div>
 
     <div class="footer">
         <div class="copyright">
@@ -237,7 +241,13 @@ var finalValue = 0; // valeur actuelle du portefeuille, en €
 var diffList = [];
 var diffPercentList = [];
 
-var totalGain = 0;
+var dividendPerShares = [0.96,2.64,3.00,2.08]; // liste pour stocker les dividendes versés par actions
+
+var totalDividendPerShares = [];
+
+var yieldOfShares = [];
+
+var years = [2022,2023,2024]; // liste des années, pour les graphes de retours annuels et invested vs wallet value
 
 
 //FONCTIONS 
@@ -326,6 +336,31 @@ function calculatePerformanceForAllStocks(currentPrices, pruList, numberOfShares
     };
 }
 
+
+function calculateTotalDividendPerShare(exchangeRate) {
+    totalDividendPerShares.length = 0; // Réinitialiser le tableau des totaux de dividendes par action
+    
+    for (let i = 0; i < numberOfShares.length; i++) {
+        const totalDividend = Number(((numberOfShares[i] * dividendPerShares[i]) * exchangeRate).toFixed(2)); // Calculer le total des dividendes pour cette action
+        totalDividendPerShares.push(totalDividend); // Ajouter le total des dividendes au tableau
+    }
+}
+
+// Fonction pour calculer le rendement de chaque action
+function calculateYieldOfShares() {
+    yieldOfShares.length = 0; // Réinitialiser le tableau des rendements par action
+    
+    for (let i = 0; i < numberOfShares.length; i++) {
+        const yield = Number((100 * (dividendPerShares[i] / stocksPrice[i])).toFixed(2)); // Calculer le rendement pour cette action
+        yieldOfShares.push(yield); // Ajouter le rendement au tableau
+    }
+}
+
+
+
+
+
+
 // Fonction pour remplir le tableau des prix actuels des actions
 function fillStockPrices() {
     // Sélectionner tous les éléments <td> avec l'ID "price"
@@ -387,7 +422,6 @@ function fillValueOfStocks(stockPrices,exchangeRate) {
 
     // Parcourir chaque élément <td> et mettre à jour son contenu avec le prix correspondant
     priceCells.forEach(function(cell, index) {
-        console.log(index,valueOfStocks[index])
         // Vérifier si l'index est valide dans le tableau stockPrices
         if (index < stocksPrice.length) {
             // Mettre à jour le contenu de la cellule avec le prix correspondant
@@ -480,11 +514,11 @@ function drawSecond(totalInvested,diffEuro) {
             datasets: [{
                 data: [totalInvested, diffEuro],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.5)', // Couleur pour totalInvested
+                    'rgba(200, 200, 200, 0.5)', // Couleur pour totalInvested
                     'rgba(75, 192, 192, 0.5)'  // Couleur pour Gain
                 ],
                 borderColor: [
-                    'rgba(255, 99, 132, 1)', // Couleur de bordure pour totalInvested
+                    'rgba(200, 200, 200, 1)', // Couleur de bordure pour totalInvested
                     'rgba(75, 192, 192, 1)'  // Couleur de bordure pour Gain
                 ],
                 borderWidth: 1
@@ -513,25 +547,29 @@ function drawThird(finalValueOfStocks) {
                 data: finalValueOfStocks,
                 backgroundColor: [
                     'rgba(54, 162, 235, 0.5)', // Bleu pour la première valeur de stocks
-                    'rgba(75, 192, 192, 0.5)', // Vert pour le premier gain
-                    'rgba(255, 99, 132, 0.5)', // Rouge pour la deuxième valeur de stocks
+                    'rgba(128, 0, 128, 0.5)', // Violet pour le premier gain
+                    'rgba(255, 143, 0, 0.5)', // Orange pour la deuxième valeur de stocks
                     'rgba(255, 205, 86, 0.5)'  // Jaune pour le deuxième gain
                 ],
                 borderColor: [
                     'rgba(54, 162, 235, 1)', // Bordure bleue pour la première valeur de stocks
-                    'rgba(75, 192, 192, 1)', // Bordure verte pour le premier gain
-                    'rgba(255, 99, 132, 1)', // Bordure rouge pour la deuxième valeur de stocks
+                    'rgba(128, 0, 128, 1)', // Bordure violete pour le premier gain
+                    'rgba(255, 143, 0, 1)', // Bordure orange pour la deuxième valeur de stocks
                     'rgba(255, 205, 86, 1)'  // Bordure jaune pour le deuxième gain
                 ],
                 borderWidth: 1
             }]
         },
         options: {
+            maintainAspectRatio: false,
             plugins: {
+                legend : {
+                    display : false,
+                },
                 title : {
                     display:true,
                     text:'Valeur Totale par Actions',
-                    position : 'bottom'
+                    position : 'top'
                 }
             }
         }
@@ -569,11 +607,15 @@ function drawFourth(diffListEuro) {
             }]
         },
         options: {
+            maintainAspectRatio: false,
             plugins: {
+                legend : {
+                    display : false,
+                },
                 title : {
                     display:true,
                     text:'Retour sur Investissement par Actions',
-                    position : 'bottom'
+                    position : 'top'
                 }
             }
         }
@@ -601,6 +643,11 @@ async function main() {
 
     const diffListEuro = diffPerformance.diffList.map(diff => Number((diff * exchangeRate).toFixed(2)));
 
+    calculateTotalDividendPerShare(exchangeRate); // Calculer les totaux de dividendes par action
+    calculateYieldOfShares(); // Calculer les rendements par action
+
+    console.log(yieldOfShares);
+
     //CHANGER COULEURS
     changeBackgroundColor(diffEuro,diffPercent);
 
@@ -617,7 +664,6 @@ async function main() {
 
     fillReturnInPercent(diffPercentList);
 
-    console.log(diffListEuro);
 
 
     //DESSINER GRAPHES

@@ -346,6 +346,7 @@ td {
     grid-template-columns: auto auto; /* Deux colonnes égales */
     justify-content: center; /* Alignement au centre */
     width:420px;
+    height : 250px;
     margin: 0 auto; /* Centre la div horizontalement */
     grid-column-gap: 20px;
     padding-top: 75px;
