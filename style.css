@@ -171,8 +171,8 @@ header {
     background-color: #d7d7d7;
     border: 2px solid black;
     margin-top: 100px;
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 20%;
+    margin-right: 20%;
     /* padding-top: 1000px; */
     
 }
@@ -278,6 +278,14 @@ td {
     border : 1px solid black;
 }
 
+.panel p {
+    font-size: 1.05em;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 15px;
+    text-align: justify;
+}
+
 
 .stocks-info {
     width: 100%;
@@ -325,13 +333,13 @@ td {
     display: grid;
     grid-template-columns: auto auto; /* Deux colonnes égales */
     justify-content: center; /* Alignement au centre */
-    width:250px;
+    width:18%;
     margin: 0 auto; /* Centre la div horizontalement */
     grid-column-gap: 100px;
 }
 
 .semititle {
-    font-size: 2em;
+    font-size: 2.2em;
     text-decoration: underline;
     text-align: center;
     margin-top:100px;
@@ -345,12 +353,37 @@ td {
     display: grid;
     grid-template-columns: auto auto; /* Deux colonnes égales */
     justify-content: center; /* Alignement au centre */
-    width:420px;
+    width:29%;
     height : 250px;
     margin: 0 auto; /* Centre la div horizontalement */
     grid-column-gap: 20px;
     padding-top: 75px;
 }
 
+.big-chart-container {
+    display: grid;
+    grid-template-columns: auto auto; /* Deux colonnes égales */
+    justify-content: center; /* Alignement au centre */
+    width:60%;
+    height : 300px;
+    margin: 0 auto; /* Centre la div horizontalement */
+    grid-column-gap: 20px;
+    padding-top: 75px;
+}
 
+.link-page {
+    display: flex; /* Utiliser flexbox */
+    justify-content: center; /* Aligner horizontalement au centre */
+}
 
+.link-page a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.1em;
+    margin:0 10px;
+}
+
+.link-page h3:not(:last-child)::after {
+    content: "•"; /* Ajouter un point médian après chaque élément, sauf le dernier */
+    margin-left: 5px; /* Ajouter un espace entre le point médian et l'élément */
+}
