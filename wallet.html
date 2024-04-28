@@ -27,7 +27,7 @@
         <h3><a href="#intro">Performance Globale</a></h3>
         <h3><a href="#stocks-detail">Détails du Portefeuille</a></h3>
         <h3><a href="#dividend">Dividendes</a></h3>
-        <h3><a href="#annual-perf">Performance Globale</a></h3>
+        <h3><a href="#annual-perf">Retours Annuels</a></h3>
     </div>
 
     <table class="wallet-intro" id="intro">
@@ -144,6 +144,9 @@
         <canvas id="thirdChart"></canvas>
         <canvas id="fourthChart"></canvas>
     </div>
+    <div class="big-chart-container">
+        <canvas id="eighthChart"></canvas>
+    </div>
     <div class="big-chart-container" id="dividend">
         <canvas id="seventhChart"></canvas>
     </div>
@@ -159,6 +162,7 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     
     <script>
 
@@ -583,6 +587,7 @@ function drawThird(finalValueOfStocks) {
         data: {
             labels: tickerOfShares,
             datasets: [{
+                label:'Valeur par action en €',
                 data: finalValueOfStocks,
                 backgroundColor: [
                     'rgba(54, 162, 235, 0.5)', // Bleu pour la première valeur de stocks
@@ -603,7 +608,8 @@ function drawThird(finalValueOfStocks) {
             maintainAspectRatio: false,
             plugins: {
                 legend : {
-                    display : false,
+                    display : true,
+                    position : 'bottom'
                 },
                 title : {
                     display:true,
@@ -638,6 +644,7 @@ function drawFourth(diffListEuro) {
         data: {
             labels: tickerOfShares, // Assurez-vous que tickerOfShares est défini quelque part
             datasets: [{
+                label:'Performance par action en €',
                 data: diffListEuro,
                 backgroundColor: backgroundColors,
                 borderColor: borderColors,
@@ -648,7 +655,8 @@ function drawFourth(diffListEuro) {
             maintainAspectRatio: false,
             plugins: {
                 legend : {
-                    display : false,
+                    display : true,
+                    position : 'bottom'
                 },
                 title : {
                     display:true,
@@ -668,6 +676,7 @@ function drawFifth(totalDividendPerShares) {
         data: {
             labels: tickerOfShares,
             datasets: [{
+                label:'Dividende par action',
                 data: totalDividendPerShares,
                 backgroundColor: [
                     'rgba(51, 70, 79,0.5)'
@@ -682,7 +691,8 @@ function drawFifth(totalDividendPerShares) {
             maintainAspectRatio: false,
             plugins: {
                 legend : {
-                    display : false,
+                    display : true,
+                    position : 'bottom'
                 },
                 title : {
                     display:true,
@@ -702,6 +712,7 @@ function drawSixth(yieldOfShares) {
         data: {
             labels: tickerOfShares,
             datasets: [{
+                label:'Rendement du dividende en %',
                 data: yieldOfShares,
                 backgroundColor: [
                     'rgba(54, 162, 235, 0.5)', // Bleu pour la première valeur de stocks
@@ -722,7 +733,8 @@ function drawSixth(yieldOfShares) {
             maintainAspectRatio: false,
             plugins: {
                 legend : {
-                    display : false,
+                    display : true,
+                    position : 'bottom'
                 },
                 title : {
                     display:true,
@@ -742,6 +754,7 @@ function drawSeventh(dividendPerMonth) {
         data: {
             labels: months,
             datasets: [{
+                label:'Dividende par mois',
                 data: dividendPerMonth,
                 backgroundColor: [
                     'rgba(0, 17, 255, 0.5)', // Bleu pour la première valeur de stocks
@@ -756,7 +769,8 @@ function drawSeventh(dividendPerMonth) {
             maintainAspectRatio: false,
             plugins: {
                 legend : {
-                    display : false,
+                    display : true,
+                    position : 'bottom'
                 },
                 title : {
                     display:true,
@@ -767,6 +781,56 @@ function drawSeventh(dividendPerMonth) {
         }
     });
 }
+
+function drawEighth(stocksPrice) {
+    var ctx = document.getElementById('eighthChart').getContext('2d');
+
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: tickerOfShares,
+            datasets: [{
+                label : 'PRU',
+                data: pruOfShares,
+                backgroundColor: [
+                    'rgba(214, 0, 0, 0.5)', // Bleu pour la première valeur de stocks
+                ],
+                borderColor: [
+                    'rgba(214, 0, 0, 1)', // Bordure bleue pour la première valeur de stocks
+                ],
+                borderWidth: 1
+            },{
+                label : 'Stocks Price',
+                data: stocksPrice,
+                backgroundColor: [
+                    'rgba(0, 214, 207, 0.5)', // Violet pour la première valeur de stocks
+                ],
+                borderColor: [
+                    'rgba(0, 214, 207, 1)', // Bordure violette pour la première valeur de stocks
+                ],
+                borderWidth: 1
+            }
+            
+        ]
+        },
+        options: {
+            maintainAspectRatio: false,
+            plugins: {
+                legend : {
+                    display : true,
+                    position : 'bottom'
+                },
+                title : {
+                    display:true,
+                    text:'Prix des actions VS PRU',
+                    position : 'top'
+                }
+            }
+        }
+    });
+}
+
+
 
 // Appel de la fonction pour récupérer les prix de toutes les actions
 async function main() {
@@ -825,6 +889,7 @@ async function main() {
     drawFifth(totalDividendPerShares);
     drawSixth(yieldOfShares);
     drawSeventh(dividendPerMonth);
+    drawEighth(stocksPrice);
 
 }
 
