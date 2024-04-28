@@ -149,6 +149,10 @@
             Integer scelerisque porta leo. Vivamus ac imperdiet risus, non vestibulum ligula. Proin est lectus, tincidunt at bibendum porttitor, mollis a felis. Maecenas ac nisl et justo placerat placerat a non orci. Nam volutpat pellentesque tellus, sed pretium odio tristique sit amet. Sed tempor sapien arcu, ornare rhoncus nibh accumsan nec. Integer euismod, ipsum ac viverra maximus, ipsum diam commodo arcu, ut dictum sem nulla ac magna. Nunc maximus, tellus eget consectetur eleifend, neque massa dignissim massa, non interdum ligula lorem nec lectus. Quisque tincidunt quam lacinia diam accumsan cursus.
             </p>
     </div>
+    <div class="bar-container">
+        <canvas id="thirdChart"></canvas>
+        <canvas id="fourthChart"></canvas>
+    </div>
 
     <div class="footer">
         <div class="copyright">
@@ -224,9 +228,10 @@ var pruOfShares = [176.6352, 411.6737, 321.36, 229.595]; // PRU des 4 actions
 
 var stocksPrice = []; // prix actuels des 4 actions, en $
 let totalPRU = 0;
-const valueOfStocks = []; // liste pour stocker les valeurs des actions
+const valueOfStocks = []; // liste pour stocker les valeurs des actions, en $
 let totalValue = 0; // valeur actuelle du portefeuille, en $
 
+var finalValueOfStocks = []; // liste pour stocker les valeurs des actions, en €
 var finalValue = 0; // valeur actuelle du portefeuille, en €
 
 var diffList = [];
@@ -376,7 +381,7 @@ function fillNumberOfShares() {
 }
 
 // Fonction pour remplir le tableau de la valeur totale par action
-function fillValueOfStocks(stockPrices) {
+function fillValueOfStocks(stockPrices,exchangeRate) {
     // Sélectionner tous les éléments <td> avec l'ID "price"
     var priceCells = document.querySelectorAll('#value');
 
@@ -386,7 +391,9 @@ function fillValueOfStocks(stockPrices) {
         // Vérifier si l'index est valide dans le tableau stockPrices
         if (index < stocksPrice.length) {
             // Mettre à jour le contenu de la cellule avec le prix correspondant
-            cell.textContent = valueOfStocks[index];
+            toAdd = Number((valueOfStocks[index] * exchangeRate).toFixed(2));
+            cell.textContent = toAdd;
+            finalValueOfStocks.push(toAdd);
         } else {
             // Afficher un message d'erreur si l'index est en dehors des limites du tableau
             console.error('Index out of range for stock prices array.');
@@ -438,7 +445,7 @@ function drawFirst(CashOnHand,finalValue) {
     var myChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: ['Cash Disponible', 'Placement en Actions'],
+            labels: ['Cash Dispo', 'Placements'],
             datasets: [{
                 data: [CashOnHand, finalValue],
                 backgroundColor: [
@@ -451,10 +458,14 @@ function drawFirst(CashOnHand,finalValue) {
                 ],
                 borderWidth: 1
             }]
-        },options: {
-            title: {
-                display: true,
-                text: "Répartition de l'investissement"
+        },
+        options: {
+            plugins: {
+                title : {
+                    display:true,
+                    text:'Cash Disponible VS Placements en Actions',
+                    position : 'bottom'
+                }
             }
         }
     });
@@ -465,7 +476,7 @@ function drawSecond(totalInvested,diffEuro) {
     var myChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: ['Argent Investi', 'Gain'],
+            labels: ['Argent Investi', 'Gain Total'],
             datasets: [{
                 data: [totalInvested, diffEuro],
                 backgroundColor: [
@@ -478,10 +489,96 @@ function drawSecond(totalInvested,diffEuro) {
                 ],
                 borderWidth: 1
             }]
+        },
+        options: {
+            plugins: {
+                title : {
+                    display:true,
+                    text:'Source de la valeur actuelle du Portefeuille',
+                    position : 'bottom'
+                }
+            }
         }
     });
 }
 
+function drawThird(finalValueOfStocks) {
+    var ctx = document.getElementById('thirdChart').getContext('2d');
+
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: tickerOfShares,
+            datasets: [{
+                data: finalValueOfStocks,
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.5)', // Bleu pour la première valeur de stocks
+                    'rgba(75, 192, 192, 0.5)', // Vert pour le premier gain
+                    'rgba(255, 99, 132, 0.5)', // Rouge pour la deuxième valeur de stocks
+                    'rgba(255, 205, 86, 0.5)'  // Jaune pour le deuxième gain
+                ],
+                borderColor: [
+                    'rgba(54, 162, 235, 1)', // Bordure bleue pour la première valeur de stocks
+                    'rgba(75, 192, 192, 1)', // Bordure verte pour le premier gain
+                    'rgba(255, 99, 132, 1)', // Bordure rouge pour la deuxième valeur de stocks
+                    'rgba(255, 205, 86, 1)'  // Bordure jaune pour le deuxième gain
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            plugins: {
+                title : {
+                    display:true,
+                    text:'Valeur Totale par Actions',
+                    position : 'bottom'
+                }
+            }
+        }
+    });
+}
+
+
+function drawFourth(diffListEuro) {
+    var ctx = document.getElementById('fourthChart').getContext('2d');
+
+    var backgroundColors = [];
+    var borderColors = [];
+
+    for (var i = 0; i < diffListEuro.length; i++) {
+        if (diffListEuro[i] >= 0) {
+            // Si la valeur est positive, utiliser la couleur verte
+            backgroundColors.push('rgba(75, 192, 192, 0.5)'); // Vert
+            borderColors.push('rgba(75, 192, 192, 1)'); // Bordure verte
+        } else {
+            // Si la valeur est négative, utiliser la couleur rouge
+            backgroundColors.push('rgba(255, 99, 132, 0.5)'); // Rouge
+            borderColors.push('rgba(255, 99, 132, 1)'); // Bordure rouge
+        }
+    }
+
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: tickerOfShares, // Assurez-vous que tickerOfShares est défini quelque part
+            datasets: [{
+                data: diffListEuro,
+                backgroundColor: backgroundColors,
+                borderColor: borderColors,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            plugins: {
+                title : {
+                    display:true,
+                    text:'Retour sur Investissement par Actions',
+                    position : 'bottom'
+                }
+            }
+        }
+    });
+}
 
 // Appel de la fonction pour récupérer les prix de toutes les actions
 async function main() {
@@ -502,7 +599,7 @@ async function main() {
 
     diffPerformance = calculatePerformanceForAllStocks(stocksPrice, pruOfShares, numberOfShares);
 
-    const diffListEuro = diffPerformance.diffList.map(diff => (diff * exchangeRate).toFixed(2));
+    const diffListEuro = diffPerformance.diffList.map(diff => Number((diff * exchangeRate).toFixed(2)));
 
     //CHANGER COULEURS
     changeBackgroundColor(diffEuro,diffPercent);
@@ -514,18 +611,20 @@ async function main() {
 
     fillNumberOfShares();
 
-    console.log(valueOfStocks);
-
-    fillValueOfStocks(stocksPrice);
+    fillValueOfStocks(stocksPrice,exchangeRate);
 
     fillReturnInEuros(diffListEuro);
 
     fillReturnInPercent(diffPercentList);
 
+    console.log(diffListEuro);
+
 
     //DESSINER GRAPHES
     drawFirst(CashOnHand,finalValue);
     drawSecond(totalInvested,diffEuro);
+    drawThird(finalValueOfStocks);
+    drawFourth(diffListEuro);
 
 }
 
