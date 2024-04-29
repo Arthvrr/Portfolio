@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Portefeuille</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
     <link rel="icon" type="image/png" href="./media/icon.png">
 </head>
 <body>
@@ -155,6 +154,16 @@
         <canvas id="fifthChart"></canvas>
     </div>
 
+    <div class="big-chart-container" id="annual-perf">
+        <canvas id="ninethChart"></canvas>
+    </div>
+    <div class="big-chart-container">
+        <canvas id="tenthChart"></canvas>
+    </div>
+    <div class="big-chart-container">
+        <canvas id="eleventhChart"></canvas>
+    </div>
+
     <div class="footer">
         <div class="copyright">
             <img src="./media/logo-black.png" alt="Logo QualityInvest">
@@ -176,13 +185,8 @@ document.querySelectorAll('.link-page a').forEach(anchor => {
     });
 });
 
-
-
-
-
 //GÉRER L'ACCORDÉON
 var accordions = document.getElementsByClassName("accordion");
-
 for (var i = 0; i < accordions.length; i++) {
     accordions[i].addEventListener("click", function() {
         this.classList.toggle("active");
@@ -224,6 +228,7 @@ function changeBackgroundColor(diffEuro,diffPercent){
     }
 }
 
+
 //TOUTES LES VARIABLES UTILISÉES
 var totalInvested = 5600; // montant total investi
 var totalInvestedCell = document.getElementById("invested");
@@ -255,11 +260,22 @@ var totalDividendPerShares = [];
 
 var yieldOfShares = [];
 
-var years = [2022,2023,2024]; // liste des années, pour les graphes de retours annuels et invested vs wallet value
+var years = [2022,2023]; // liste des années, pour les graphes de retours annuels et invested vs wallet value
 
 var months = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
 
 var dividendPerMonth = [];
+
+var annualReturnEuro = [0,442.03]; // liste des retours annuels, en euro
+
+var annualReturnPercent = [0,8.26]; //liste des retours annuels, en pourcent
+
+var annualDividendReceived = [12.35, 41.31]; //liste des dividendes annuels nets reçus
+
+var annualInvested = [0,5350]; //liste qui stocke le nombres d'euros investi par an
+
+var walletEndYear = [0,5792.03] //liste qui stocke la valeur du portefeuille à la fin de chaque année
+
 
 
 //FONCTIONS 
@@ -393,7 +409,6 @@ function calculateDividendPerMonth() {
         if (monthV.includes(currentMonth)) {
             monthlyDividend += totalDividendPerShares[3] / 4;
         }
-        console.log(monthlyDividend);
         toAdd = Number(monthlyDividend.toFixed(2));
         // Stocker le dividende total pour ce mois
         dividendPerMonth.push(toAdd);
@@ -840,6 +855,136 @@ function drawEighth(stocksPrice) {
     });
 }
 
+function drawNineth() {
+    var ctx = document.getElementById('ninethChart').getContext('2d');
+
+    // Définition des couleurs en fonction de la valeur
+    var backgroundColors = annualReturnEuro.map(value => value >= 0 ? 'rgba(75, 192, 192, 0.5)' : 'rgba(255, 99, 132, 0.5)');
+    var borderColors = annualReturnEuro.map(value => value >= 0 ? 'rgba(75, 192, 192, 1)' : 'rgba(255, 99, 132, 1)');
+
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: years, // Utilisation de la liste "years" pour l'axe x
+            datasets: [{
+                label: 'Retour Annuels en €',
+                data: annualReturnEuro,
+                backgroundColor: backgroundColors, // Utilisation des couleurs définies
+                borderColor: borderColors, // Utilisation des couleurs de bordure définies
+                borderWidth: 1
+            },
+            {
+                label: 'Retour Annuels en %',
+                data: annualReturnPercent,
+                type: 'line', // Type de graphique en ligne pour les pourcentages
+                fill: false, // Pas de remplissage sous la ligne
+                borderColor: 'rgba(255, 99, 132, 1)', // Couleur de la ligne pour les pourcentages
+                borderWidth: 2,
+                yAxisID: 'y-axis-1' // Utilisation de l'axe y de droite pour les pourcentages
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                },
+                title: {
+                    display: true,
+                    text: 'Retours Annuels en Euro et en Pourcentage', // Modification du titre du graphique
+                    position: 'top'
+                }
+            }            
+        }
+    });
+}
+
+function drawTenth(annualInvested,walletEndYear) {
+    var ctx = document.getElementById('tenthChart').getContext('2d');
+
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: years,
+            datasets: [{
+                label : 'Montant Investi',
+                data: annualInvested,
+                backgroundColor: [
+                    'rgba(47, 0, 255, 0.5)', // Bleu pour la première valeur de stocks
+                ],
+                borderColor: [
+                    'rgba(47, 0, 255, 1)', // Bordure bleue pour la première valeur de stocks
+                ],
+                borderWidth: 1
+            },{
+                label : 'Value du Portefeuille',
+                data: walletEndYear,
+                backgroundColor: [
+                    'rgba(0, 214, 207, 0.5)', // Violet pour la première valeur de stocks
+                ],
+                borderColor: [
+                    'rgba(0, 214, 207, 1)', // Bordure violette pour la première valeur de stocks
+                ],
+                borderWidth: 1
+            }
+            
+        ]
+        },
+        options: {
+            maintainAspectRatio: false,
+            plugins: {
+                legend : {
+                    display : true,
+                    position : 'bottom'
+                },
+                title : {
+                    display:true,
+                    text:'Montant Investi VS Valeur du Portefeuille par an',
+                    position : 'top'
+                }
+            }
+        }
+    });
+}
+
+function drawEleventh(annualDividendReceived) {
+    var ctx = document.getElementById('eleventhChart').getContext('2d');
+
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: years,
+            datasets: [{
+                label:'Dividende Nets reçus en €',
+                data: annualDividendReceived,
+                backgroundColor: [
+                    'rgba(0, 17, 255, 0.5)', // Bleu pour la première valeur de stocks
+                ],
+                borderColor: [
+                    'rgba(0, 17, 255, 1)', // Bordure bleue pour la première valeur de stocks
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            plugins: {
+                legend : {
+                    display : true,
+                    position : 'bottom'
+                },
+                title : {
+                    display:true,
+                    text:'Dividendes Nets reçus par an',
+                    position : 'top'
+                }
+            }
+        }
+    });
+}
+
+
 
 
 // Appel de la fonction pour récupérer les prix de toutes les actions
@@ -865,8 +1010,6 @@ async function main() {
 
     calculateTotalDividendPerShare(exchangeRate);
     calculateYieldOfShares();
-
-    console.log(dividendPerMonth);
 
     calculateDividendPerMonth();
 
@@ -900,6 +1043,9 @@ async function main() {
     drawSixth(yieldOfShares);
     drawSeventh(dividendPerMonth);
     drawEighth(stocksPrice);
+    drawNineth(annualReturnEuro,annualReturnPercent);
+    drawTenth(annualInvested,walletEndYear);
+    drawEleventh(annualDividendReceived);
 
 }
 
