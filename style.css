@@ -5,6 +5,7 @@ body {
     margin: 0;
     font-family: 'Oswald',Arial, sans-serif;
     background-color: white;
+    color:black;
 }
 
 /* Style de l'en-tête */
@@ -196,7 +197,7 @@ header {
 
 
 .strategy-pic{
-    width:55%;
+    width:40%;
     display: block; /* Pour que les propriétés de marge fonctionnent correctement */
     margin: 0 auto;
 }
