@@ -409,11 +409,6 @@ td {
 
 
 
-
-
-
-
-
 /*RESPONSIVE POUR LES ÉCRANS > 1950px*/
 @media screen and (min-width: 1950px) {
     /* Sélecteur pour votre div */
@@ -429,4 +424,21 @@ td {
         width: 19%;
     }
 
-  }
+}
+
+/*RESPONSIVE POUR LES ÉCRANS < 1000px*/
+@media screen and (max-width: 1000px) {
+    /* Sélecteur pour votre div */
+    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container {
+      width: 90%;
+    }
+
+    .donut-container {
+        width:42%
+    }
+
+    .bar-container {
+        width: 42%;
+    }
+
+}
