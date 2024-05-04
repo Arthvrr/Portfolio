@@ -169,7 +169,7 @@ header {
 /*STRATEGY.HTML*/
 
 .strategy-expl {
-    background-color: #d7d7d7;
+    background-color: #f0f0f0;
     border: 2px solid black;
     margin-top: 100px;
     margin-left: 20%;
@@ -274,7 +274,7 @@ td {
     margin: 0 auto;
     width: 60%;
     display: none;
-    background-color: rgba(241, 241, 241, 0.575);
+    background-color: #f0f0f0;
     overflow: hidden;
     border : 1px solid black;
 }
@@ -417,6 +417,11 @@ td {
     font-size: 1.1em;
     font-weight: normal;
     border: none;
+    height:25px;
+}
+
+.panel-table td:first-child, .panel-table th:first-child {
+    border-right: 1px solid black;
 }
 
 #asset {
@@ -435,11 +440,11 @@ td {
     display: grid;
     grid-template-columns: auto auto; /* Deux colonnes égales */
     justify-content: center; /* Alignement au centre */
-    height : 350px;
+    height : 320px;
     margin: 0 auto; /* Centre la div horizontalement */
     grid-column-gap: 20px;
     margin-bottom: 20px;
-    width: 50%;
+    width: 40%;
 }
   
 .progress-container {

@@ -721,11 +721,11 @@ function drawSecond(totalInvested,diffEuro) {
                 data: [totalInvested, diffEuro],
                 backgroundColor: [
                     'rgba(200, 200, 200, 0.5)', // Couleur pour totalInvested
-                    'rgba(75, 192, 192, 0.5)'  // Couleur pour Gain
+                    'rgba(0,99,27, 0.5)'  // Couleur pour Gain
                 ],
                 borderColor: [
                     'rgba(200, 200, 200, 1)', // Couleur de bordure pour totalInvested
-                    'rgba(75, 192, 192, 1)'  // Couleur de bordure pour Gain
+                    'rgba(0,99,27, 1)'  // Couleur de bordure pour Gain
                 ],
                 borderWidth: 1
             }]
@@ -797,8 +797,8 @@ function drawFourth(diffListEuro) {
     for (var i = 0; i < diffListEuro.length; i++) {
         if (diffListEuro[i] >= 0) {
             // Si la valeur est positive, utiliser la couleur verte
-            backgroundColors.push('rgba(75, 192, 192, 0.5)'); // Vert
-            borderColors.push('rgba(75, 192, 192, 1)'); // Bordure verte
+            backgroundColors.push('rgba(0, 99, 27,0.5)'); // Vert
+            borderColors.push('rgba(0, 99, 27, 1)'); // Bordure verte
         } else {
             // Si la valeur est négative, utiliser la couleur rouge
             backgroundColors.push('rgba(255, 99, 132, 0.5)'); // Rouge
@@ -951,7 +951,6 @@ function drawSeventh(dividendPerMonth) {
 
 function drawEighth(stocksPrice) {
     var ctx = document.getElementById('eighthChart').getContext('2d');
-
     var myChart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -960,25 +959,25 @@ function drawEighth(stocksPrice) {
                 label : 'PRU',
                 data: pruOfShares,
                 backgroundColor: [
-                    'rgba(214, 0, 0, 0.5)', // Bleu pour la première valeur de stocks
+                    'rgba(214, 0, 0, 0.5)',
                 ],
                 borderColor: [
-                    'rgba(214, 0, 0, 1)', // Bordure bleue pour la première valeur de stocks
+                    'rgba(214, 0, 0, 1)',
                 ],
                 borderWidth: 1
             },{
                 label : "Prix de l'Action",
                 data: stocksPrice,
+                fill: '-1',
                 backgroundColor: [
-                    'rgba(0, 214, 207, 0.5)', // Violet pour la première valeur de stocks
+                    'rgba(0, 99, 27, 0.5)',
                 ],
                 borderColor: [
-                    'rgba(0, 214, 207, 1)', // Bordure violette pour la première valeur de stocks
+                    'rgba(0, 99, 27, 1)',
                 ],
                 borderWidth: 1
-            }
+            }]
             
-        ]
         },
         options: {
             maintainAspectRatio: false,
@@ -1001,8 +1000,8 @@ function drawNineth() {
     var ctx = document.getElementById('ninethChart').getContext('2d');
 
     // Définition des couleurs en fonction de la valeur
-    var backgroundColors = annualReturnEuro.map(value => value >= 0 ? 'rgba(75, 192, 192, 0.5)' : 'rgba(255, 99, 132, 0.5)');
-    var borderColors = annualReturnEuro.map(value => value >= 0 ? 'rgba(75, 192, 192, 1)' : 'rgba(255, 99, 132, 1)');
+    var backgroundColors = annualReturnEuro.map(value => value >= 0 ? 'rgba(0, 99, 27, 0.5)' : 'rgba(255, 99, 132, 0.5)');
+    var borderColors = annualReturnEuro.map(value => value >= 0 ? 'rgba(, 99, 27, 1)' : 'rgba(255, 99, 132, 1)');
 
     var myChart = new Chart(ctx, {
         type: 'bar',
@@ -1020,7 +1019,7 @@ function drawNineth() {
                 data: annualReturnPercent,
                 type: 'line', // Type de graphique en ligne pour les pourcentages
                 fill: false, // Pas de remplissage sous la ligne
-                borderColor: 'rgba(255, 99, 132, 1)', // Couleur de la ligne pour les pourcentages
+                borderColor: 'rgba(0, 10, 156, 1)', // Couleur de la ligne pour les pourcentages
                 borderWidth: 2,
                 yAxisID: 'y-axis-1' // Utilisation de l'axe y de droite pour les pourcentages
             }]
@@ -1034,7 +1033,7 @@ function drawNineth() {
                 },
                 title: {
                     display: true,
-                    text: 'Retours Annuels en Euro et en Pourcentage', // Modification du titre du graphique
+                    text: 'Retours Annuels en Euro et en Pourcentage par an', // Modification du titre du graphique
                     position: 'top'
                 }
             }            
@@ -1053,20 +1052,22 @@ function drawTenth(annualInvested,walletEndYear) {
                 label : 'Montant Investi',
                 data: annualInvested,
                 backgroundColor: [
-                    'rgba(47, 0, 255, 0.5)', // Bleu pour la première valeur de stocks
+                    'rgba(200, 200, 200, 1)',
                 ],
+                fill:true,
                 borderColor: [
-                    'rgba(47, 0, 255, 1)', // Bordure bleue pour la première valeur de stocks
+                    'rgba(200, 200, 200, 1)',
                 ],
                 borderWidth: 1
             },{
                 label : 'Value du Portefeuille',
                 data: walletEndYear,
                 backgroundColor: [
-                    'rgba(0, 214, 207, 0.5)', // Violet pour la première valeur de stocks
+                    'rgba(0, 99, 27, 0.5)',
                 ],
+                fill:true,
                 borderColor: [
-                    'rgba(0, 214, 207, 1)', // Bordure violette pour la première valeur de stocks
+                    'rgba(0, 99, 27, 1)',
                 ],
                 borderWidth: 1
             }
@@ -1412,8 +1413,6 @@ async function main() {
     fillFirstProgressBar(totalWallet, 10000);
     fillSecondProgressBar(totalInvested, 6000);
     //fillThirdProgressBar(diffPercent, 20);
-
-    console.log(diffPercent);
 
     //DESSINER GRAPHES
     drawFirst(CashOnHand, finalValue);
