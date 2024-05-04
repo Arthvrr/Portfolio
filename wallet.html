@@ -47,7 +47,18 @@
             <td id="return-percent"></td>
         </tr>
     </table>
-
+    <div class="progress-container">
+        <h2 class="progress-title">Atteindre les 10 000€ de valeur du Portefeuille</h2>
+        <progress id="firstProgressBar" value="0" max="0" class="progress-bar"></progress>
+        <span id="firstProgressText">0%</span>
+        <h2 class="progress-title">Investir un total de 6000€</h2>
+        <progress id="secondProgressBar" value="0" max="0" class="progress-bar"></progress>
+        <span id="secondProgressText">0%</span>
+        <h2 class="progress-title">Passer la barre des 20% de retour sur Investissement</h2>
+        <progress id="thirdProgressBar" value="0" max="0" class="progress-bar"></progress>
+        <span id="thirdProgressText">0%</span>
+    </div>
+    
     <div class="donut-container">
         <canvas id="firstChart"></canvas>
         <canvas id="secondChart"></canvas>
@@ -1279,6 +1290,51 @@ function drawFifteenth(stocksCotation) {
 }
 
 
+// Fonction pour animer la barre de progression
+function animateProgressBar(progressBar, finalValue, goal) {
+    let currentValue = progressBar.value;
+    const step = (finalValue - currentValue) / 100; // Calcul du pas de progression
+
+    function updateProgress() {
+        if (currentValue <= finalValue) {
+            progressBar.value = currentValue;
+            currentValue += step;
+            requestAnimationFrame(updateProgress); // Mettre à jour l'animation
+        }
+    }
+
+    updateProgress(); // Démarrer l'animation
+}
+
+// Fonction pour remplir la première barre de progression
+function fillFirstProgressBar(totalWallet, goal) {
+    const firstProgressBar = document.getElementById('firstProgressBar');
+    const progressText = document.getElementById('firstProgressText');
+    firstProgressBar.max = goal;
+    const percentage = Math.round((totalWallet / goal) * 100);
+    progressText.textContent = percentage + "%";
+    animateProgressBar(firstProgressBar, totalWallet, goal);
+}
+
+// Fonction pour remplir la deuxième barre de progression
+function fillSecondProgressBar(totalInvested, goal) {
+    const secondProgressBar = document.getElementById('secondProgressBar');
+    const progressText = document.getElementById('secondProgressText');
+    secondProgressBar.max = goal;
+    const percentage = Math.round((totalInvested / goal)*100);
+    progressText.textContent = percentage + "%";
+    animateProgressBar(secondProgressBar, totalInvested, goal);
+}
+
+// Fonction pour remplir la troisième barre de progression
+function fillThirdProgressBar(diffPercent, goal) {
+    const thirdProgressBar = document.getElementById('thirdProgressBar');
+    const progressText = document.getElementById('thirdProgressText');
+    thirdProgressBar.max = goal;
+    const percentage = Math.round((diffPercent / goal)*100);
+    progressText.textContent = percentage + "%";
+    animateProgressBar(thirdProgressBar, diffPercent, goal);
+}
 
 // Appel de la fonction pour récupérer les prix de toutes les actions
 async function main() {
@@ -1306,47 +1362,44 @@ async function main() {
 
     calculateDividendPerMonth();
 
-
-
-
     //CHANGER COULEURS
-    changeBackgroundColor(diffEuro,diffPercent);
+    changeBackgroundColor(diffEuro, diffPercent);
 
     //REMPLIR TABLEAUX
     fillStockPrices();
-
     fillAveragePrices();
-
     fillNumberOfShares();
-
-    fillValueOfStocks(stocksPrice,exchangeRate);
-
+    fillValueOfStocks(stocksPrice, exchangeRate);
     fillReturnInEuros(diffListEuro);
-
     fillReturnInPercent(diffPercentList);
 
+    //REMPLIR BARRES DE PROGRESSION
+    fillFirstProgressBar(totalWallet, 10000);
+    fillSecondProgressBar(totalInvested, 6000);
+    fillThirdProgressBar(diffPercent, 20);
 
+    console.log(diffPercent);
 
     //DESSINER GRAPHES
-    drawFirst(CashOnHand,finalValue);
-    drawSecond(totalInvested,diffEuro);
+    drawFirst(CashOnHand, finalValue);
+    drawSecond(totalInvested, diffEuro);
     drawThird(finalValueOfStocks);
     drawFourth(diffListEuro);
     drawFifth(totalDividendPerShares);
     drawSixth(yieldOfShares);
     drawSeventh(dividendPerMonth);
     drawEighth(stocksPrice);
-    drawNineth(annualReturnEuro,annualReturnPercent);
-    drawTenth(annualInvested,walletEndYear);
+    drawNineth();
+    drawTenth(annualInvested, walletEndYear);
     drawEleventh(annualDividendReceived);
     drawTwelfth(AAPLCotation);
     drawThirteenth(MACotation);
     drawFourteenth(MSFTCotation);
     drawFifteenth(VCotation);
-
 }
 
 main();
+
 
     </script>
 </body>

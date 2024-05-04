@@ -438,8 +438,59 @@ td {
     height : 350px;
     margin: 0 auto; /* Centre la div horizontalement */
     grid-column-gap: 20px;
-    padding-bottom: 40px;
+    margin-bottom: 120px;
 }
+  
+.progress-container {
+    margin: 0 auto;
+    background: rgba(255,255,255,0.1);
+    border-radius: 100px;
+    display: flex;
+    flex-direction: column; /* Affichage en colonne */
+    align-items: center;
+    height: auto; /* Ajuster la hauteur en fonction du contenu */
+    width: 40%;
+    padding: 20px 5px 50px; /* Modification des marges */
+}
+
+.progress-bar {
+    background: #fff;
+    height: 25px;
+    width: 100%;
+    margin-bottom: 20px; /* Espace entre les barres de progression */
+}
+    
+
+
+.progress-title {
+    font-size: 1.2em;
+}
+
+progress::-webkit-progress-value { background: rgba(0, 179, 72, 0.574); }
+
+.progress-bar::-webkit-progress-bar { background: rgb(230, 230, 230); /* Couleur de la partie non remplie */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
