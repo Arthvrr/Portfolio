@@ -967,7 +967,7 @@ function drawEighth(stocksPrice) {
                 ],
                 borderWidth: 1
             },{
-                label : 'Stocks Price',
+                label : "Prix de l'Action",
                 data: stocksPrice,
                 backgroundColor: [
                     'rgba(0, 214, 207, 0.5)', // Violet pour la première valeur de stocks
@@ -1339,7 +1339,7 @@ function fillFirstProgressBar(totalWallet, goal) {
     const firstProgressBar = document.getElementById('firstProgressBar');
     const progressText = document.getElementById('firstProgressText');
     firstProgressBar.max = goal;
-    const percentage =  ((totalWallet / goal) * 100).toFixed(2);
+    const percentage = ((totalWallet / goal) * 100).toFixed(2);
     progressText.textContent = percentage + "%";
     animateProgressBar(firstProgressBar, totalWallet, goal);
 }
