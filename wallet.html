@@ -48,15 +48,12 @@
         </tr>
     </table>
     <div class="progress-container">
-        <h2 class="progress-title">Atteindre les 10 000€ de valeur du Portefeuille</h2>
-        <progress id="firstProgressBar" value="0" max="0" class="progress-bar"></progress>
-        <span id="firstProgressText">0%</span>
-        <h2 class="progress-title">Investir un total de 6000€</h2>
+        <h2 class="progress-title">Atteindre les 10 000€ de valeur du Portefeuille : <span id="firstProgressText">0%</span></h2>
+        <progress id="firstProgressBar" value="0" max="0" class="progress-bar"></progress>  
+        <h2 class="progress-title">Investir un total de 6000€ : <span id="secondProgressText">0%</span></h2>
         <progress id="secondProgressBar" value="0" max="0" class="progress-bar"></progress>
-        <span id="secondProgressText">0%</span>
-        <h2 class="progress-title">Passer la barre des 20% de retour sur Investissement</h2>
-        <progress id="thirdProgressBar" value="0" max="0" class="progress-bar"></progress>
-        <span id="thirdProgressText">0%</span>
+        <!-- <h2 class="progress-title">Passer la barre des 20% de retour sur Investissement : <span id="thirdProgressText">0%</span></h2>
+        <progress id="thirdProgressBar" value="0" max="0" class="progress-bar"></progress> -->
     </div>
     
     <div class="donut-container">
@@ -1290,28 +1287,59 @@ function drawFifteenth(stocksCotation) {
 }
 
 
-// Fonction pour animer la barre de progression
-function animateProgressBar(progressBar, finalValue, goal) {
-    let currentValue = progressBar.value;
-    const step = (finalValue - currentValue) / 100; // Calcul du pas de progression
+// Fonction d'interpolation qui ralentit sur les derniers pourcentages
+function easeOutCubic(t) {
+    return (--t) * t * t + 1;
+}
 
-    function updateProgress() {
-        if (currentValue <= finalValue) {
-            progressBar.value = currentValue;
-            currentValue += step;
-            requestAnimationFrame(updateProgress); // Mettre à jour l'animation
+// Fonction pour animer la barre de progression de manière fluide avec une transition ralentie
+function animateProgressBar(progressBar, finalValue, goal) {
+    let startTime;
+    const duration = 2000; // Durée de l'animation en millisecondes
+
+    // Récupérer la valeur actuelle de la barre de progression
+    const currentValue = progressBar.value;
+
+    // Calculer le pas de progression en fonction de la durée et de la différence entre les valeurs actuelle et finale
+    const step = (finalValue - currentValue) / 100;
+
+    function updateProgress(timestamp) {
+        // Initialiser le temps de départ au premier appel de la fonction
+        if (!startTime) startTime = timestamp;
+
+        // Calculer le temps écoulé depuis le début de l'animation
+        const elapsedTime = timestamp - startTime;
+
+        // Calculer le pourcentage d'avancement en fonction du temps écoulé
+        let progress = Math.min(elapsedTime / duration, 1); // Limiter le progrès à 1
+
+        // Appliquer une fonction d'interpolation pour ralentir sur les derniers pourcentages
+        progress = easeOutCubic(progress);
+
+        // Calculer la valeur interpolée entre la valeur actuelle et la valeur finale
+        const interpolatedValue = currentValue + (finalValue - currentValue) * progress;
+
+        // Mettre à jour la valeur de la barre de progression
+        progressBar.value = interpolatedValue;
+
+        // Vérifier si l'animation doit continuer
+        if (elapsedTime < duration) {
+            // Continuer l'animation en appelant la fonction de mise à jour à la prochaine trame d'animation
+            requestAnimationFrame(updateProgress);
         }
     }
 
-    updateProgress(); // Démarrer l'animation
+    // Démarrer l'animation en appelant la fonction de mise à jour pour la première fois
+    requestAnimationFrame(updateProgress);
 }
+
 
 // Fonction pour remplir la première barre de progression
 function fillFirstProgressBar(totalWallet, goal) {
     const firstProgressBar = document.getElementById('firstProgressBar');
     const progressText = document.getElementById('firstProgressText');
     firstProgressBar.max = goal;
-    const percentage = Math.round((totalWallet / goal) * 100);
+    const percentage =  ((totalWallet / goal) * 100).toFixed(2);
     progressText.textContent = percentage + "%";
     animateProgressBar(firstProgressBar, totalWallet, goal);
 }
@@ -1321,7 +1349,7 @@ function fillSecondProgressBar(totalInvested, goal) {
     const secondProgressBar = document.getElementById('secondProgressBar');
     const progressText = document.getElementById('secondProgressText');
     secondProgressBar.max = goal;
-    const percentage = Math.round((totalInvested / goal)*100);
+    const percentage = ((totalInvested / goal)*100).toFixed(2);
     progressText.textContent = percentage + "%";
     animateProgressBar(secondProgressBar, totalInvested, goal);
 }
@@ -1331,10 +1359,17 @@ function fillThirdProgressBar(diffPercent, goal) {
     const thirdProgressBar = document.getElementById('thirdProgressBar');
     const progressText = document.getElementById('thirdProgressText');
     thirdProgressBar.max = goal;
-    const percentage = Math.round((diffPercent / goal)*100);
+    const percentage = ((diffPercent / goal)*100).toFixed(2);
     progressText.textContent = percentage + "%";
     animateProgressBar(thirdProgressBar, diffPercent, goal);
 }
+
+
+
+
+
+
+
 
 // Appel de la fonction pour récupérer les prix de toutes les actions
 async function main() {
@@ -1376,7 +1411,7 @@ async function main() {
     //REMPLIR BARRES DE PROGRESSION
     fillFirstProgressBar(totalWallet, 10000);
     fillSecondProgressBar(totalInvested, 6000);
-    fillThirdProgressBar(diffPercent, 20);
+    //fillThirdProgressBar(diffPercent, 20);
 
     console.log(diffPercent);
 

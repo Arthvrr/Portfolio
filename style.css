@@ -4,7 +4,7 @@
 body {
     margin: 0;
     font-family: 'Oswald',Arial, sans-serif;
-    background-color: white;
+    background-color:white;
     color:black;
 }
 
@@ -274,7 +274,7 @@ td {
     margin: 0 auto;
     width: 60%;
     display: none;
-    background-color: rgba(209, 220, 255, 0.575);
+    background-color: rgba(241, 241, 241, 0.575);
     overflow: hidden;
     border : 1px solid black;
 }
@@ -339,7 +339,7 @@ td {
     display: grid;
     grid-template-columns: auto auto; /* Deux colonnes égales */
     justify-content: center; /* Alignement au centre */
-    width:18%;
+    width:22%;
     margin: 0 auto; /* Centre la div horizontalement */
     grid-column-gap: 100px;
 }
@@ -438,39 +438,30 @@ td {
     height : 350px;
     margin: 0 auto; /* Centre la div horizontalement */
     grid-column-gap: 20px;
-    margin-bottom: 120px;
+    margin-bottom: 20px;
+    width: 50%;
 }
   
 .progress-container {
     margin: 0 auto;
     background: rgba(255,255,255,0.1);
-    border-radius: 100px;
     display: flex;
     flex-direction: column; /* Affichage en colonne */
     align-items: center;
     height: auto; /* Ajuster la hauteur en fonction du contenu */
-    width: 40%;
+    width: 60%;
     padding: 20px 5px 50px; /* Modification des marges */
+    padding-bottom: 100px;
 }
 
 .progress-bar {
-    background: #fff;
-    height: 25px;
+    height: 50px;
     width: 100%;
-    margin-bottom: 20px; /* Espace entre les barres de progression */
 }
-    
-
 
 .progress-title {
     font-size: 1.2em;
 }
-
-progress::-webkit-progress-value { background: rgba(0, 179, 72, 0.574); }
-
-.progress-bar::-webkit-progress-bar { background: rgb(230, 230, 230); /* Couleur de la partie non remplie */}
-
-
 
 
 
@@ -499,7 +490,7 @@ progress::-webkit-progress-value { background: rgba(0, 179, 72, 0.574); }
 /*RESPONSIVE POUR LES ÉCRANS > 1950px*/
 @media screen and (min-width: 1950px) {
     /* Sélecteur pour votre div */
-    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container {
+    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container, .progress-container {
       width: 40%;
     }
 
