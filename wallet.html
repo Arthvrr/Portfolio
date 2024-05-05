@@ -392,6 +392,8 @@ let totalValue = 0; // valeur actuelle du portefeuille, en $
 var finalValueOfStocks = []; // liste pour stocker les valeurs des actions, en €
 var finalValue = 0; // valeur actuelle du portefeuille, en €
 
+var averageValuePerStocks //valeur moyenne par action
+
 var diffList = [];
 var diffPercentList = [];
 
@@ -760,6 +762,8 @@ function drawSecond(totalInvested,diffEuro) {
 function drawThird(finalValueOfStocks) {
     var ctx = document.getElementById('thirdChart').getContext('2d');
 
+    var averageData = Array(tickerOfShares.length).fill(averageValuePerStocks);
+
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
@@ -780,6 +784,17 @@ function drawThird(finalValueOfStocks) {
                     'rgba(255, 205, 86, 1)'  // Bordure jaune pour le deuxième gain
                 ],
                 borderWidth: 1
+            },
+            {
+                type: 'line',
+                label: 'Valeur Moyenne',
+                data: averageData,
+                backgroundColor: 'rgba(255, 99, 132, 0.2)', // Couleur de fond pour la ligne
+                borderColor: 'rgba(255, 99, 132, 1)', // Couleur de la bordure pour la ligne
+                borderWidth: 2,
+                borderDash: [5, 5], // Utilisez un trait pointillé
+                fill: false, // Ne pas remplir l'espace sous la ligne
+                pointRadius: 0, // Aucun point pour la ligne constante
             }]
         },
         options: {
@@ -946,11 +961,11 @@ function drawSeventh(dividendPerMonth, averageDividend) {
                 borderWidth: 1
             }, {
                 type: 'line',
-                label: 'Moyenne',
+                label: 'Moyenne mensuelle',
                 data: averageData,
                 backgroundColor: 'rgba(255, 99, 132, 0.2)', // Couleur de fond pour la ligne
                 borderColor: 'rgba(255, 99, 132, 1)', // Couleur de la bordure pour la ligne
-                borderWidth: 1,
+                borderWidth: 2,
                 borderDash: [5, 5], // Utilisez un trait pointillé
                 fill: false, // Ne pas remplir l'espace sous la ligne
                 pointRadius: 0, // Aucun point pour la ligne constante
@@ -1432,6 +1447,9 @@ async function main() {
     yieldOfWallet = Number((totalDividend/totalWallet)*100);
 
     document.getElementById("yield-wallet").textContent = yieldOfWallet.toFixed(2) + "%";
+
+    averageValuePerStocks = finalValue / tickerOfShares.length;
+    console.log(averageValuePerStocks);
 
 
     //CHANGER COULEURS
