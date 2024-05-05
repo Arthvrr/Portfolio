@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Sélection</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="./media/icon.png">
+</head>
+<body>
+    <header>
+        <a href="start.html" class="logo-title-link">
+            <img src="./media/logo-black.png" alt="Logo QualityInvest">
+            <h1>QUALIFY</h1>
+        </a>
+        <div class="onglets">
+            <a href="wallet.html">Portefeuille</a>
+            <a href="selection.html">Sélection</a>
+            <a href="analyse.html">Analyseur</a>
+        </div>
+    </header>
+    <div class="container">
+        <h2 class="semititle">Calcule le score de Qualité d'une action !</h2>
+
+        <div class="link-page">
+            <h3><a href="#basics">Bases</a></h3>
+            <h3><a href="#growth">Croissance</a></h3>
+            <h3><a href="#profitability">Rentabilité</a></h3>
+            <h3><a href="#solvency">Solvabilité</a></h3>
+            <h3><a href="#dividende">Dividende</a></h3>
+        </div>
+        <div class="analyse-section" id="basics">
+            <h3 class="subtitle">BASES</h3>
+            <table>
+                <tr>
+                    <th>Performance VS le S&P 500 sur les 5 dernières années</th>
+                    <th>Diminution du nombre d'actions en circulation</th>
+                    <th>Chiffre d'Affaires diversifié géographiquement</th>
+                </tr>
+                <tr>
+                    <td>
+                        <form>
+                            <label for="performance_oui">Surperformance x2</label>
+                            <input type="radio" id="x2" name="performance" value="oui">
+                            <label for="performance_non">Superformance x1</label>
+                            <input type="radio" id="x1" name="performance" value="non">
+                            <label for="performance_non">Sous-Performance</label>
+                            <input type="radio" id="performance_non" name="performance" value="non">
+                        </form>
+                    </td>
+                    <td>
+                        <form>
+                            <label for="diminution_oui">Oui</label>
+                            <input type="radio" id="diminution_oui" name="diminution" value="oui">
+                            <label for="diminution_non">Non</label>
+                            <input type="radio" id="diminution_non" name="diminution" value="non">
+                        </form>
+                    </td>
+                    <td>
+                        <form>
+                            <label for="diversifie_oui">Oui</label>
+                            <input type="radio" id="diversifie_oui" name="diversifie" value="oui">
+                            <label for="diversifie_non">Non</label>
+                            <input type="radio" id="diversifie_non" name="diversifie" value="non">
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="analyse-section" id="growth">
+            <h3 class="subtitle">CROISSANCE</h3>
+            <table>
+                <tr>
+                    <th>Nombre d'années de croissance du Chiffres d'Affaires sur les 10 dernières années</th>
+                    <th>Nombre d'années de croissance du Bénéfice par Actions sur les 10 dernières années</th>
+                    <th>Nombre d'années de croissance du Free-Cash-Flow sur les 10 dernières années</th>
+                </tr>
+                <tr>
+                    <td>
+                        <form class="formulaire">
+                            <input type="number" name="chiffre_affaires" min="0" max="10">
+                        </form>
+                    </td>
+                    <td>
+                        <form class="formulaire">
+                            <input type="number" name="chiffre_affaires" min="0" max="10">
+                        </form>
+                    </td>
+                    <td>
+                        <form class="formulaire">
+                            <input type="number" name="chiffre_affaires" min="0" max="10">
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="analyse-section" id="profitability">
+            <h3 class="subtitle">RENTABILITÉ</h3>
+            <table>
+                <tr>
+                    <th>Marge Nette en %</th>
+                    <th>Free-Cash-Flow Margin en %</th>
+                    <th>Return On Invested Capital en %</th>
+                </tr>
+                <tr>
+                    <td>
+                        <form class="formulaire">
+                            <input type="number" name="chiffre_affaires" min="0" max="100">
+                        </form>
+                    </td>
+                    <td>
+                        <form class="formulaire">
+                            <input type="number" name="chiffre_affaires" min="0" max="100">
+                        </form>
+                    </td>
+                    <td>
+                        <form class="formulaire">
+                            <input type="number" name="chiffre_affaires" min="0" max="100">
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="analyse-section" id="solvency">
+            <h3 class="subtitle">SOLVABILITÉ</h3>
+            <table>
+                <tr>
+                    <th>Leverage</th>
+                    <th>Debt To Equity</th>
+                    <th>Ratio de Couverture des Intérêts</th>
+                </tr>
+                <tr>
+                    <td>
+                        <form class="formulaire">
+                            <input type="number" name="chiffre_affaires" min="0">
+                        </form>
+                    </td>
+                    <td>
+                        <form class="formulaire">
+                            <input type="number" name="chiffre_affaires" min="0">
+                        </form>
+                    </td>
+                    <td>
+                        <form class="formulaire">
+                            <input type="number" name="chiffre_affaires" min="0">
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="analyse-section" id="dividende">
+            <h3 class="subtitle">DIVIDENDE</h3>
+            <table>
+                <tr>
+                    <th>Payout Ratio en %</th>
+                    <th>Payout Ratio du Free-Cash-Flow en %</th>
+                    <th>Croissance du Dividende sur les 5 dernières années en %</th>
+                </tr>
+                <tr>
+                    <td>
+                        <form class="formulaire">
+                            <input type="number" name="chiffre_affaires" min="0" max="100">
+                        </form>
+                    </td>
+                    <td>
+                        <form class="formulaire">
+                            <input type="number" name="chiffre_affaires" min="0" max="100">
+                        </form>
+                    </td>
+                    <td>
+                        <form class="formulaire">
+                            <input type="number" name="chiffre_affaires" min="0" max="100">
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+
+
+//TRANSITION FLUIDE POUR ALLER À ENDROITS DE LA PAGE
+document.querySelectorAll('.link-page a').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+    </script>
+</body>
+</html>

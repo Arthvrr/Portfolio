@@ -166,55 +166,6 @@ header {
     width: 30px; /* Ajustez la taille du logo selon vos besoins */
     margin-right: 10px; /* Espace entre le logo et le texte */
 }
-/*STRATEGY.HTML*/
-
-.strategy-expl {
-    background-color: #f0f0f0;
-    border: 2px solid black;
-    margin-top: 100px;
-    margin-left: 20%;
-    margin-right: 20%;
-    /* padding-top: 1000px; */
-    
-}
-
-.subtitle {
-    color: black;
-    padding-left: 3%;
-    padding-top: 25px;
-    font-size: 1.4em;
-    text-decoration: underline;
-
-}
-
-.strategy-text {
-    padding-top: 20px;
-    padding-left: 2%;
-    padding-right: 2%;
-    font-size: 1.25em;
-    text-align: justify;
-}
-
-
-.strategy-pic{
-    width:40%;
-    display: block; /* Pour que les propriétés de marge fonctionnent correctement */
-    margin: 0 auto;
-}
-
-.pic-legend{
-    color: blue;
-    font-weight: bold;
-    font-style: italic;
-    font-size: 1.1em;
-    text-align: center;
-    padding-top: 10px;
-}
-
-.bold-text {
-    color:red;
-    font-style: italic;
-}
 
 .footer {
     position: relative; 
@@ -343,7 +294,7 @@ td {
 }
 
 .semititle {
-    font-size: 2.2em;
+    font-size: 2.1em;
     text-decoration: underline;
     text-align: center;
     margin-top:100px;
@@ -378,7 +329,7 @@ td {
 .link-page {
     display: flex; /* Utiliser flexbox */
     justify-content: center; /* Aligner horizontalement au centre */
-    padding-bottom: 50px;
+    padding-bottom: 75px;
 }
 
 .link-page a{
@@ -465,16 +416,85 @@ td {
 .progress-title {
     font-size: 1.2em;
 }
+/*SELECTION.HTML*/
+.container {
+    /* background-color: #f0f0f0;
+    border: 2px solid black;     */
+    margin-left: 20%;
+    margin-right: 20%;
+    margin: 0 auto;
+    margin-top: 150px;
+}
 
+.container-text{
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 20px;
+    font-size: 1.15em;
+    padding-bottom: 50px;
+}
 
+.subtitle {
+    padding-left: 3%;
+    font-size: 1.4em;
+    text-decoration: underline;
+    padding-bottom: 20px;
+    text-align: center;
+}
 
+.analyse-section {
+    border: 1px solid;
+    margin-bottom: 50px;
+}
 
+.analyse-section table {
+    width: 100%;
+    table-layout: fixed; /* Fixer la taille des colonnes */
+}
 
+.analyse-section th {
+    border:1px solid;
+    font-size: 1.1em;
+}
 
+#basics {
+    background-color: rgb(200, 232, 255);
+}
 
+#growth {
+    background-color: rgb(200, 255, 194);
+}
 
+#profitability{
+    background-color: rgb(240, 221, 255);
+}
 
+#solvency {
+    background-color:rgb(255, 227, 175) ;
+}
 
+#dividende {
+    background-color: rgb(255, 210, 210);
+}
+
+.formulaire {
+    border: none; /* Retire les bordures du formulaire */
+}
+
+.formulaire input {
+    background-color: transparent;
+    border: none; /* Retire les bordures du formulaire */
+    width: 100%;
+    height:100px;
+}
+
+input[type="number"] {
+    font-family: 'Oswald',Arial, sans-serif;;
+    border: none; /* Retire les bordures des champs de saisie de type "number" */
+    vertical-align: middle; /* Centre verticalement */
+    font-size: 50px; /* Définit une taille de police plus grande */
+    text-align: center;
+}
 
 
 
@@ -493,7 +513,7 @@ td {
 /*RESPONSIVE POUR LES ÉCRANS > 1950px*/
 @media screen and (min-width: 1950px) {
     /* Sélecteur pour votre div */
-    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container, .progress-container {
+    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container, .progress-container, .container {
       width: 40%;
     }
 
@@ -510,7 +530,7 @@ td {
 /*RESPONSIVE POUR LES ÉCRANS < 1000px*/
 @media screen and (max-width: 1000px) {
     /* Sélecteur pour votre div */
-    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container {
+    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container,.container {
       width: 90%;
     }
 
