@@ -295,7 +295,6 @@ td {
     background-color: #f0f0f0; /* Couleur de fond */
     margin: 0 auto;
     table-layout: fixed; /* Fixer la taille des colonnes */
-    margin-bottom: 10px;
 }
 
 .stocks-info td {
@@ -314,7 +313,7 @@ td {
 }
 
 .stocks-pic {
-    width:40%;
+    width:50%;
 }
 
 .stocks-header {
@@ -325,7 +324,6 @@ td {
     text-align: center;
     margin: 0 auto;
     table-layout: fixed; /* Fixer la taille des colonnes */
-    margin-bottom: 10px;
     margin-top: 120px;
 }
 
@@ -351,7 +349,7 @@ td {
     margin-top:100px;
 }
 
-#invested, #wallet-value, #cash, #total-value {
+#invested, #wallet-value, #cash, #total-value,#total-div, #yield-wallet {
     background-color: #d1d1d1;
 }
 
@@ -363,7 +361,7 @@ td {
     height : 320px;
     margin: 0 auto; /* Centre la div horizontalement */
     grid-column-gap: 20px;
-    padding-top: 120px;
+    padding-top: 100px;
 }
 
 .big-chart-container {
@@ -374,7 +372,7 @@ td {
     height : 300px;
     margin: 0 auto; /* Centre la div horizontalement */
     grid-column-gap: 20px;
-    padding-top: 75px;
+    padding-top: 100px;
 }
 
 .link-page {
@@ -460,7 +458,7 @@ td {
 }
 
 .progress-bar {
-    height: 25px;
+    height: 35px;
     width: 100%;
 }
 

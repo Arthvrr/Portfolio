@@ -11,7 +11,7 @@
     <header>
         <a href="start.html" class="logo-title-link">
             <img src="./media/logo-black.png" alt="Logo QualityInvest">
-            <h1>QualityInvest</h1>
+            <h1>PrimePicks</h1>
         </a>
         <div class="onglets">
             <a href="wallet.html">Portefeuille</a>
@@ -20,7 +20,7 @@
         </div>
     </header>
 
-    <h2 class="semititle">Portefeuille à Dividende Quality 💎 by QualityInvest</h2>
+    <h2 class="semititle">Portefeuille à Dividende Quality 💎 by Arthur</h2>
 
     <div class="link-page">
         <h3><a href="#intro">Performance Globale</a></h3>
@@ -35,6 +35,8 @@
             <td id="invested"></td>
             <td>Cash disponible</td>
             <td id="cash"></td>
+            <td>Dividendes Annuels</td>
+            <td id="total-div"></td>
             <td>Gain Total en €</td>
             <td id="return-euro"></td>
         </tr>
@@ -43,6 +45,8 @@
             <td id="wallet-value"></td>
             <td>Valeur Totale</td>
             <td id="total-value"></td>
+            <td>Rendement Portefeuille</td>
+            <td id="yield-wallet"></td>
             <td>Gain Total en %</td>
             <td id="return-percent"></td>
         </tr>
@@ -159,15 +163,15 @@
                <th id="panel-table-title">Risques</th> 
             </tr>
             <tr>
-                <td id="asset">Fixation des prix</td>
-                <td id="risk">Dépendance à l'iPhone</td>
+                <td id="asset">Duopole avec Visa</td>
+                <td id="risk">Cryptomonnaies</td>
             </tr>
             <tr>
-                <td id="asset">Fidélité Client</td>
-                <td id="risk">Ventes en Chine</td>
+                <td id="asset">Marges stratosphériques</td>
+                <td id="risk">Dette non négligeable</td>
             </tr>
             <tr>
-                <td id="asset">Qualité des Produits</td>
+                <td id="asset">Business-Model solide</td>
                 <td id="risk">Enjeu de l'IA</td>
             </tr>
         </table>
@@ -380,7 +384,6 @@ var tickerOfShares = ["AAPL", "MA", "MSFT", "V"]; // tickers
 var numberOfShares = [9, 4, 5, 5]; // nombres d'actions
 var pruOfShares = [176.6352, 411.6737, 321.36, 229.595]; // PRU des 4 actions
 
-
 var stocksPrice = []; // prix actuels des 4 actions, en $
 let totalPRU = 0;
 const valueOfStocks = []; // liste pour stocker les valeurs des actions, en $
@@ -396,7 +399,12 @@ var dividendPerShares = [1,2.64,3.00,2.08]; // liste pour stocker les dividendes
 
 var totalDividendPerShares = [];
 
+var totalDividend = 0; //motant total des dividendes touchés par an
+var averageDividendPerMonth = 0;
+
 var yieldOfShares = [];
+
+var yieldOfWallet = 0; //Rendement total du portefeuille
 
 var years = [2022,2023]; // liste des années, pour les graphes de retours annuels et invested vs wallet value
 
@@ -415,7 +423,7 @@ var annualInvested = [0,5350]; //liste qui stocke le nombres d'euros investi par
 var walletEndYear = [0,5792.03] //liste qui stocke la valeur du portefeuille à la fin de chaque année
 
 var AAPLCotation = [100, 33, 67, 83, 83]; //liste des scores par secteur pour le ScoreCard
-var MACotation = [83,100,100,33,100]
+var MACotation = [83,100,100,50,100]
 var MSFTCotation = [100,100,67,100,83]
 var VCotation = [83,67,83,100,100]
 
@@ -510,9 +518,12 @@ function calculatePerformanceForAllStocks(currentPrices, pruList, numberOfShares
 function calculateTotalDividendPerShare(exchangeRate) {
     totalDividendPerShares.length = 0; // Réinitialiser le tableau des totaux de dividendes par action
     
+    
     for (let i = 0; i < numberOfShares.length; i++) {
-        const totalDividend = Number(((numberOfShares[i] * dividendPerShares[i]) * exchangeRate).toFixed(2)); // Calculer le total des dividendes pour cette action
-        totalDividendPerShares.push(totalDividend); // Ajouter le total des dividendes au tableau
+        const toPush = Number(((numberOfShares[i] * dividendPerShares[i]) * exchangeRate).toFixed(2)); // Calculer le total des dividendes pour cette action
+        totalDividendPerShares.push(toPush); // Ajouter le total des dividendes au tableau
+        totalDividend += toPush;
+        
     }
 }
 
@@ -913,8 +924,11 @@ function drawSixth(yieldOfShares) {
     });
 }
 
-function drawSeventh(dividendPerMonth) {
+function drawSeventh(dividendPerMonth, averageDividend) {
     var ctx = document.getElementById('seventhChart').getContext('2d');
+
+    // Création d'un tableau contenant la moyenne de tous les dividendes par mois
+    var averageData = Array(dividendPerMonth.length).fill(averageDividendPerMonth);
 
     var myChart = new Chart(ctx, {
         type: 'bar',
@@ -930,6 +944,16 @@ function drawSeventh(dividendPerMonth) {
                     'rgba(0, 17, 255, 1)', // Bordure bleue pour la première valeur de stocks
                 ],
                 borderWidth: 1
+            }, {
+                type: 'line',
+                label: 'Moyenne',
+                data: averageData,
+                backgroundColor: 'rgba(255, 99, 132, 0.2)', // Couleur de fond pour la ligne
+                borderColor: 'rgba(255, 99, 132, 1)', // Couleur de la bordure pour la ligne
+                borderWidth: 1,
+                borderDash: [5, 5], // Utilisez un trait pointillé
+                fill: false, // Ne pas remplir l'espace sous la ligne
+                pointRadius: 0, // Aucun point pour la ligne constante
             }]
         },
         options: {
@@ -945,9 +969,11 @@ function drawSeventh(dividendPerMonth) {
                     position : 'top'
                 }
             }
+            
         }
     });
 }
+
 
 function drawEighth(stocksPrice) {
     var ctx = document.getElementById('eighthChart').getContext('2d');
@@ -991,7 +1017,7 @@ function drawEighth(stocksPrice) {
                     text:'Prix des actions VS PRU',
                     position : 'top'
                 }
-            }
+            },
         }
     });
 }
@@ -1021,7 +1047,8 @@ function drawNineth() {
                 fill: false, // Pas de remplissage sous la ligne
                 borderColor: 'rgba(0, 10, 156, 1)', // Couleur de la ligne pour les pourcentages
                 borderWidth: 2,
-                yAxisID: 'y-axis-1' // Utilisation de l'axe y de droite pour les pourcentages
+                yAxisID: 'y-axis-1', // Utilisation de l'axe y de droite pour les pourcentages
+
             }]
         },
         options: {
@@ -1036,7 +1063,7 @@ function drawNineth() {
                     text: 'Retours Annuels en Euro et en Pourcentage par an', // Modification du titre du graphique
                     position: 'top'
                 }
-            }            
+            },        
         }
     });
 }
@@ -1060,7 +1087,7 @@ function drawTenth(annualInvested,walletEndYear) {
                 ],
                 borderWidth: 1
             },{
-                label : 'Value du Portefeuille',
+                label : 'Valeur du Portefeuille',
                 data: walletEndYear,
                 backgroundColor: [
                     'rgba(0, 99, 27, 0.5)',
@@ -1387,7 +1414,7 @@ async function main() {
     document.getElementById("return-euro").textContent = diffEuro.toFixed(2);
 
     diffPercent = (diffEuro / totalInvested) * 100;
-    document.getElementById("return-percent").textContent = diffPercent.toFixed(2);
+    document.getElementById("return-percent").textContent = diffPercent.toFixed(2) + "%";
 
     diffPerformance = calculatePerformanceForAllStocks(stocksPrice, pruOfShares, numberOfShares);
 
@@ -1397,6 +1424,15 @@ async function main() {
     calculateYieldOfShares();
 
     calculateDividendPerMonth();
+
+    averageDividendPerMonth = Number((totalDividend / 12));
+
+    document.getElementById("total-div").textContent = totalDividend.toFixed(2);
+
+    yieldOfWallet = Number((totalDividend/totalWallet)*100);
+
+    document.getElementById("yield-wallet").textContent = yieldOfWallet.toFixed(2) + "%";
+
 
     //CHANGER COULEURS
     changeBackgroundColor(diffEuro, diffPercent);
