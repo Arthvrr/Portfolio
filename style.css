@@ -49,7 +49,7 @@ header {
 .onglets a {
     color: #000000;
     text-decoration: none;
-    padding: 35px;
+    padding: 20px;
     margin-right: 10px;
     font-weight: bold;
 }
@@ -402,7 +402,7 @@ td {
     align-items: center;
     height: auto; /* Ajuster la hauteur en fonction du contenu */
     width: 60%;
-    padding: 20px 5px 50px; /* Modification des marges */
+    padding: 20px 5px 50px;  /* Modification des marges */
     padding-bottom: 100px;
 }
 
@@ -455,23 +455,23 @@ td {
 }
 
 #basics {
-    background-color: rgb(200, 232, 255);
+    background-color: rgb(215, 232, 255);
 }
 
 #growth {
-    background-color: rgb(200, 255, 194);
+    background-color: rgb(230, 255, 227);
 }
 
 #profitability{
-    background-color: rgb(240, 221, 255);
+    background-color: rgb(241, 230, 249);
 }
 
 #solvency {
-    background-color:rgb(255, 227, 175) ;
+    background-color:rgb(254, 241, 216) ;
 }
 
 #dividende {
-    background-color: rgb(255, 210, 210);
+    background-color: rgb(254, 231, 231);
 }
 
 .formulaire {
@@ -488,17 +488,53 @@ td {
 input[type="number"] {
     font-family: 'Oswald',Arial, sans-serif;;
     border: none; /* Retire les bordures des champs de saisie de type "number" */
+    outline: none; 
     vertical-align: middle; /* Centre verticalement */
     font-size: 50px; /* Définit une taille de police plus grande */
     text-align: center;
 }
 
+input[type="radio"] {
+    font-family: 'Oswald',Arial, sans-serif;;
+    border: none; /* Retire les bordures des champs de saisie de type "number" */
+    outline: none; 
+    vertical-align: middle; /* Centre verticalement */
+    width: 25px; /* Largeur */
+    height: 25px; /* Hauteur */
+    position: relative; /* Position absolue pour l'input */
+}
+
+.selection-accordion {
+    width: 100%;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-size: 1.4em;
+    padding-top: 25px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.selection-panel {
+    margin: 0 auto;
+    display: none;
+    background-color: transparent;
+    overflow: hidden;
+    padding-top: 35px;
+    font-size: 1.1em;
+    padding-left: 2%;
+    padding-right: 2%;
+    text-align: justify;
+}
 
 
-
-
-
-
+.criteria-explanation {
+    padding-top: 50px;
+    font-size: 1.1em;
+    padding-left: 2%;
+    padding-right: 2%;
+    text-align: justify;
+}
 
 
 

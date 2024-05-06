@@ -30,7 +30,7 @@
         </div>
         <div class="analyse-section" id="basics">
             <h3 class="subtitle">BASES</h3>
-            <table>
+            <table class="radio-container">
                 <tr>
                     <th>Performance VS le S&P 500 sur les 5 dernières années</th>
                     <th>Diminution du nombre d'actions en circulation</th>
@@ -39,32 +39,37 @@
                 <tr>
                     <td>
                         <form>
-                            <label for="performance_oui">Surperformance x2</label>
                             <input type="radio" id="x2" name="performance" value="oui">
-                            <label for="performance_non">Superformance x1</label>
+                            <label for="performance_oui">Surperformance x2</label><br>
                             <input type="radio" id="x1" name="performance" value="non">
-                            <label for="performance_non">Sous-Performance</label>
+                            <label for="performance_non">Surperformance x1</label><br>
                             <input type="radio" id="performance_non" name="performance" value="non">
+                            <label for="performance_non">Sous-Performance</label>
                         </form>
                     </td>
                     <td>
                         <form>
-                            <label for="diminution_oui">Oui</label>
                             <input type="radio" id="diminution_oui" name="diminution" value="oui">
-                            <label for="diminution_non">Non</label>
+                            <label for="diminution_oui">Oui</label><br>
                             <input type="radio" id="diminution_non" name="diminution" value="non">
+                            <label for="diminution_non">Non</label><br>
                         </form>
                     </td>
                     <td>
                         <form>
-                            <label for="diversifie_oui">Oui</label>
                             <input type="radio" id="diversifie_oui" name="diversifie" value="oui">
-                            <label for="diversifie_non">Non</label>
+                            <label for="diversifie_oui">Oui</label><br>
                             <input type="radio" id="diversifie_non" name="diversifie" value="non">
+                            <label for="diversifie_non">Non</label><br>
                         </form>
                     </td>
                 </tr>
             </table>
+            <button class="selection-accordion">Explication des critères</button>
+            <div class="selection-panel">
+                La Performance d'une action est l'un des deux moyens de gagner de l'argent en Bourse avec le dividende. Nous voulons les deux : des actions qui versent des dividendes en fortes augmentations, et qui parviennent à battre le marché. Ici on va se réfèrer au S&P 500, l'indice de référence du marché US. <br><br><br>
+                Une entreprise de qualité ne va pas diluer les parts des actionnaires en émattant des actions mais au contraire, en rachetant ses propres actions. Cela fait monter mécaniquement le cours de l'action, ça augmente notre part dans la société, et nous ne sommes pas taxés dessus, tout bénef pour nous ! <br><br><br>
+            </div>
         </div>
         <div class="analyse-section" id="growth">
             <h3 class="subtitle">CROISSANCE</h3>
@@ -92,13 +97,19 @@
                     </td>
                 </tr>
             </table>
+            <button class="selection-accordion">Explication des critères</button>
+            <div class="selection-panel">
+                Une Croissance du Revenu saine et durable sur les 10 dernières années est attendu pour des sociétés performantes. Cela signifie que l'entreprise continue de croître et de grandir. C'est assez logique que nous voulons pas des sociétés en perte de vitesse au fil des ans. <br><br><br>
+                Le Bénéfice par Action est simplement le revenu net divisé par le nombre d'actions en circulation. Il permet d'évaluer la rentabilité d'une société. Il permet aux investisseurs de quantifier la réelle croissance de leurs parts dans la société. Si l'entreprise augmente son revenu mais émet beaucoup de nouvelles actions, alors l'investisseur y est perdant et il permettra de le voir via cet indicateur (ce qui ne sera pas visible en regardant juste le revenu). Comme pour le Chiffre d'Affaires, on attend une belle croissance sur les 10 dernières années.<br><br><br>
+                Le Free-Cash-Flow est la pièce maitresses des investisseurs qui souhtaitent recevoir des dividendes. Le Free-Cash-Flow représente l'excédent de trésorie dégagé après une péiode donnée par une société. Nous voulons de prime abord un Free-Cash-Flow positif, indiquant que l'entreprise génère plus de liquidités qu'elle n'en dépense dans ses activités opérationnelles et ses investissements. Encore mieux, une augmentation du Free-Cash-Flow indique que la firme gère encore mieux ses liquidités et est un signe d'une santé financière solide. C'est avec cet excédent de trésorerie que la société va pouvoir rembourser des dettes, investir dans de nouvelles opportunités de croissance, racheter des actions, distribuer des dividendes aux actionnaires,... C'est pourquoi c'est un indicateur particulièrement surveillé par les investisseurs. <br><br><br>
+            </div>
         </div>
         <div class="analyse-section" id="profitability">
             <h3 class="subtitle">RENTABILITÉ</h3>
             <table>
                 <tr>
                     <th>Marge Nette en %</th>
-                    <th>Free-Cash-Flow Margin en %</th>
+                    <th>Marge du Free-Cash-Flow en %</th>
                     <th>Return On Invested Capital en %</th>
                 </tr>
                 <tr>
@@ -119,6 +130,11 @@
                     </td>
                 </tr>
             </table>
+            <button class="selection-accordion">Explication des critères</button>
+            <div class="selection-panel">
+                La Marge Nette fait référence à la différence entre le revenu total d'une firme et ses dépenses totales. C'est le pourcentage des revenus qui reste après que toutes les dépenses, y compris les coûts d'exploitation, les intérêts et les impôts, ont été déduits. C'est un indicateur important de rentabilité d'une société : au plus elle est élevée, au plus la société est rentable. Elle exprime, pour 1€ de revenu réalisé, le montant que la société va mettre dans sa poche. Dans l'approche Quality, on va chercher des sociétés à marge nette très élevée, c'est signe d'un gros avantage compétitif et d'un vrai MOAT détenu par l'entreprise. On veut des sociétés qui font preuve d'une énorme rentabilité, qui ne perdent pas la grosse majorité de leur bénéfice dans le paiement des dépenses. <br><br><br>
+                La Marge du Free-Cash-Flow est comme son nom l'indique, le pourcentage du bénéfice total converti en Free-Cash-Flow par l'entreprise. Les investisseurs en bourse recherchent des entreprises qui parviennent à transformer leur bénéfice en cash utilisable, pour en faire plein de choses. On va pouvoir observer cela en regardant ce critère. Les sociétés qui génèrent un flux de trésorerie important, auront une marge du Free-Cash-Flow très élevée. On veut des sociétés qui ont de gros excédent de trésorerie, on en veut aussi qui parviennent à optimiser leurs dépenses pour transformer le plus possible du bénéfice en cash directement utilisable.
+            </div>
         </div>
         <div class="analyse-section" id="solvency">
             <h3 class="subtitle">SOLVABILITÉ</h3>
@@ -146,6 +162,12 @@
                     </td>
                 </tr>
             </table>
+            <button class="selection-accordion">Explication des critères</button>
+            <div class="selection-panel">
+                Une Croissance du Revenu saine et durable sur les 10 dernières années est attendu pour des sociétés performantes. Cela signifie que l'entreprise continue de croître et de grandir. C'est assez logique que nous voulons pas des sociétés en perte de vitesse au fil des ans. <br><br><br>
+                Le Bénéfice par Action est simplement le revenu net divisé par le nombre d'actions en circulation. Il permet d'évaluer la rentabilité d'une société. Il permet aux investisseurs de quantifier la réelle croissance de leurs parts dans la société. Si l'entreprise augmente son revenu mais émet beaucoup de nouvelles actions, alors l'investisseur y est perdant et il permettra de le voir via cet indicateur (ce qui ne sera pas visible en regardant juste le revenu). Comme pour le Chiffre d'Affaires, on attend une belle croissance sur les 10 dernières années.<br><br><br>
+                Le Free-Cash-Flow est la pièce maitresses des investisseurs qui souhtaitent recevoir des dividendes. Le Free-Cash-Flow représente l'excédent de trésorie dégagé après une péiode donnée par une société. Nous voulons de prime abord un Free-Cash-Flow positif, indiquant que l'entreprise génère plus de liquidités qu'elle n'en dépense dans ses activités opérationnelles et ses investissements. Encore mieux, une augmentation du Free-Cash-Flow indique que la firme gère encore mieux ses liquidités et est un signe d'une santé financière solide. C'est avec cet excédent de trésorerie que la société va pouvoir rembourser des dettes, investir dans de nouvelles opportunités de croissance, racheter des actions, distribuer des dividendes aux actionnaires,... C'est pourquoi c'est un indicateur particulièrement surveillé par les investisseurs. <br><br><br>
+            </div>
         </div>
         <div class="analyse-section" id="dividende">
             <h3 class="subtitle">DIVIDENDE</h3>
@@ -173,6 +195,12 @@
                     </td>
                 </tr>
             </table>
+            <button class="selection-accordion">Explication des critères</button>
+            <div class="selection-panel">
+                Une Croissance du Revenu saine et durable sur les 10 dernières années est attendu pour des sociétés performantes. Cela signifie que l'entreprise continue de croître et de grandir. C'est assez logique que nous voulons pas des sociétés en perte de vitesse au fil des ans. <br><br><br>
+                Le Bénéfice par Action est simplement le revenu net divisé par le nombre d'actions en circulation. Il permet d'évaluer la rentabilité d'une société. Il permet aux investisseurs de quantifier la réelle croissance de leurs parts dans la société. Si l'entreprise augmente son revenu mais émet beaucoup de nouvelles actions, alors l'investisseur y est perdant et il permettra de le voir via cet indicateur (ce qui ne sera pas visible en regardant juste le revenu). Comme pour le Chiffre d'Affaires, on attend une belle croissance sur les 10 dernières années.<br><br><br>
+                Le Free-Cash-Flow est la pièce maitresses des investisseurs qui souhtaitent recevoir des dividendes. Le Free-Cash-Flow représente l'excédent de trésorie dégagé après une péiode donnée par une société. Nous voulons de prime abord un Free-Cash-Flow positif, indiquant que l'entreprise génère plus de liquidités qu'elle n'en dépense dans ses activités opérationnelles et ses investissements. Encore mieux, une augmentation du Free-Cash-Flow indique que la firme gère encore mieux ses liquidités et est un signe d'une santé financière solide. C'est avec cet excédent de trésorerie que la société va pouvoir rembourser des dettes, investir dans de nouvelles opportunités de croissance, racheter des actions, distribuer des dividendes aux actionnaires,... C'est pourquoi c'est un indicateur particulièrement surveillé par les investisseurs. <br><br><br>
+            </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -189,6 +217,37 @@ document.querySelectorAll('.link-page a').forEach(anchor => {
         });
     });
 });
+
+var acc = document.getElementsByClassName("selection-accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </script>
 </body>
 </html>
