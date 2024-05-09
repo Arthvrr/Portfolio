@@ -285,12 +285,12 @@ td {
 
 .donut-container {
     display: grid;
-    grid-template-columns: auto auto; /* Deux colonnes égales */
+    grid-template-columns: auto auto auto; /* Deux colonnes égales */
     justify-content: center; /* Alignement au centre */
-    width:22%;
+    width:100%;
     height : 300px;
     margin: 0 auto; /* Centre la div horizontalement */
-    grid-column-gap: 100px;
+    grid-column-gap: 10px;
 }
 
 .semititle {
