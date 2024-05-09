@@ -287,10 +287,11 @@ td {
     display: grid;
     grid-template-columns: auto auto auto; /* Deux colonnes égales */
     justify-content: center; /* Alignement au centre */
-    width:100%;
+    width:20%;
     height : 300px;
     margin: 0 auto; /* Centre la div horizontalement */
-    grid-column-gap: 10px;
+    grid-column-gap: 10%;
+    padding-bottom: 20px; /* Ajoute de l'espace en bas */
 }
 
 .semititle {
@@ -570,12 +571,15 @@ input[type="radio"] {
 /*RESPONSIVE POUR LES ÉCRANS < 1000px*/
 @media screen and (max-width: 1000px) {
     /* Sélecteur pour votre div */
-    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container,.container {
+    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container,.container, .progress-container, .radar-container{
       width: 90%;
     }
 
     .donut-container {
-        width:42%
+        width:90%;
+        grid-template-columns: auto;
+        height: 350px;
+        margin-bottom: 750px;
     }
 
     .bar-container {
