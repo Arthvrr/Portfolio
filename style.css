@@ -16,7 +16,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color:#60a1fc ;
+    /* background-color:#60a1fc ; */
+    background-color: #4d4d4d;
 }
 
 .logo-title-link {
@@ -203,7 +204,7 @@ td {
     border: 1px solid black; /* Bordure des cellules */
     padding: 8px; /* Espacement interne */
     font-weight: bold;
-    font-size: 1.10em;
+    font-size: 1.15em;
     height: 50px;
     text-align: center;
 }
@@ -214,7 +215,7 @@ td {
     width: 60%;
     border: none;
     outline: none;
-    font-size: 1.2em;
+    font-size: 1.15em;
     margin: 0 auto;
     text-align: center;
 }
@@ -253,7 +254,7 @@ td {
     text-align: center;
     border: 0.5px solid black;
     padding: 5px; /* Réduire l'espacement interne des cellules */
-    font-size: 1.05em; /* Réduire la taille de la police du texte */
+    font-size: 1.15em; /* Réduire la taille de la police du texte */
     height: auto; /* Redéfinir la hauteur automatique pour s'adapter au contenu */
 }
 
@@ -336,7 +337,7 @@ td {
 .link-page a{
     text-decoration: none;
     color: black;
-    font-size: 1.1em;
+    font-size: 1.25em;
     margin:0 10px;
 }
 

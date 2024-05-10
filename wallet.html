@@ -385,11 +385,11 @@ function changeBackgroundColor(diffEuro,diffPercent){
 
 //TOUTES LES VARIABLES UTILISÉES
 
-var totalInvested = 5600; // montant total investi
+var totalInvested = 5700; // montant total investi
 var totalInvestedCell = document.getElementById("invested");
 totalInvestedCell.textContent = totalInvested;
 
-var CashOnHand = 222.10; // cash disponible
+var CashOnHand = 322.10; // cash disponible
 var cashCell = document.getElementById("cash");
 cashCell.textContent = CashOnHand.toFixed(2);
 
@@ -1089,6 +1089,7 @@ function drawNineth() {
                 borderWidth: 3,
                 yAxisID: 'y-axis-1', // Utilisation de l'axe y de droite pour les pourcentages
 
+
             }]
         },
         options: {
@@ -1103,8 +1104,7 @@ function drawNineth() {
                     text: 'Retours Annuels en Euro et en Pourcentage par an', // Modification du titre du graphique
                     position: 'top'
                 }
-            },   
-     
+            }
         }
     });
 }
