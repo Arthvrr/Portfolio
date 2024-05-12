@@ -353,14 +353,14 @@ td {
     color: blue;
 }
 
-.link-page-details {
+.link-page-aapl, .link-page-ma,.link-page-msft,.link-page-v {
     display: flex; /* Utiliser flexbox */
     justify-content: center; /* Aligner horizontalement au centre */
     margin: 0 auto;
     width: 100%;
 }
 
-.link-page-details a{
+.link-page-aapl a, .link-page-ma a,.link-page-msft a,.link-page-v a {
     text-decoration: none;
     color: black;
     font-size: 1.1em;
@@ -368,12 +368,12 @@ td {
     transition: 0.5s ease;
 }
 
-.link-page-details h3:not(:last-child)::after {
+.link-page-aapl h3:not(:last-child)::after, .link-page-ma h3:not(:last-child)::after, .link-page-msft h3:not(:last-child)::after, .link-page-v h3:not(:last-child)::after {
     content: "|"; /* Ajouter un point médian après chaque élément, sauf le dernier */
     margin-left: 5px; /* Ajouter un espace entre le point médian et l'élément */
 }
 
-.link-page-details a:hover{
+.link-page-aapl a:hover, .link-page-ma a:hover, .link-page-msft a:hover, .link-page-v a:hover{
     color: blue;
 }
 
