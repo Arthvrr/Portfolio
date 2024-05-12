@@ -1,9 +1,8 @@
 wallet.html :
-lier script.js à wallet.html
-ajouter une transition pour l'ouverture des panel
-changer couleur entre pru et stocks price au rouge si pru > stocks price
-décaler l'axe des pourcentage à droite dans graphe Retours Annuels en Euro et en Pourcentage par an
-
+- changer couleur entre pru et stocks price au rouge si pru > stocks price
+- ajouter avis perso microsoft et visa
+- ajouter couleur hover ligne tableau
+- dans scorecard qualité action, ajouter form pour comparer radar avec une autre action
 
 
 
@@ -19,6 +18,9 @@ donner des étoiles
 
 parler des points faibles
 parler des points forts
+
+ajouter graphe scorecard
+ajouter graphe qualité empilé
 
 
 autres : 

@@ -16,8 +16,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background-color:#60a1fc ; */
-    background-color: #4d4d4d;
+    background-color:#60a1fc ;
+    /* background-color: #4d4d4d; */
 }
 
 .logo-title-link {
@@ -204,12 +204,13 @@ td {
     border: 1px solid black; /* Bordure des cellules */
     padding: 8px; /* Espacement interne */
     font-weight: bold;
-    font-size: 1.15em;
+    font-size: 1em;
     height: 50px;
     text-align: center;
 }
 
 .accordion {
+    background-color: #f0f0f0;
     color: #000000;
     cursor: pointer;
     width: 60%;
@@ -227,6 +228,7 @@ td {
     background-color: #f0f0f0;
     overflow: hidden;
     border : 1px solid black;
+    transition: max-height 0.75s ease; /* Ajout de transition pour la hauteur maximale */
 }
 
 .panel p {
@@ -236,8 +238,6 @@ td {
     padding-top: 15px;
     text-align: justify;
 }
-
-
 
 .stocks-info {
     width: 100%;
@@ -332,18 +332,49 @@ td {
     display: flex; /* Utiliser flexbox */
     justify-content: center; /* Aligner horizontalement au centre */
     padding-bottom: 75px;
+    margin: 0 auto;
+    width:100%;
 }
 
 .link-page a{
     text-decoration: none;
     color: black;
-    font-size: 1.25em;
+    font-size: 1.12em;
     margin:0 10px;
+    transition: 0.5s ease;
 }
 
 .link-page h3:not(:last-child)::after {
     content: "•"; /* Ajouter un point médian après chaque élément, sauf le dernier */
     margin-left: 5px; /* Ajouter un espace entre le point médian et l'élément */
+}
+
+.link-page a:hover{
+    color: blue;
+}
+
+.link-page-details {
+    display: flex; /* Utiliser flexbox */
+    justify-content: center; /* Aligner horizontalement au centre */
+    margin: 0 auto;
+    width: 100%;
+}
+
+.link-page-details a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.1em;
+    margin:0 10px;
+    transition: 0.5s ease;
+}
+
+.link-page-details h3:not(:last-child)::after {
+    content: "|"; /* Ajouter un point médian après chaque élément, sauf le dernier */
+    margin-left: 5px; /* Ajouter un espace entre le point médian et l'élément */
+}
+
+.link-page-details a:hover{
+    color: blue;
 }
 
 .panel-subtitle {
@@ -567,6 +598,18 @@ input[type="radio"] {
         width: 19%;
     }
 
+    .stocks-pic{
+        width: 40%;
+    }
+
+    .link-page a {
+        font-size: 1.5em;
+    }
+
+    .wallet-intro td {
+        font-size: 1.2em;
+    }
+
 }
 
 /*RESPONSIVE POUR LES ÉCRANS < 1000px*/
@@ -585,6 +628,18 @@ input[type="radio"] {
 
     .bar-container {
         width: 42%;
+    }
+
+    .link-page {
+        display: none;
+    }
+
+    .wallet-intro {
+        margin-top: 100px;
+    }
+
+    .wallet-intro td {
+        font-size: 1em;
     }
 
 }
