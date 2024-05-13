@@ -1,9 +1,8 @@
 wallet.html :
 - changer couleur entre pru et stocks price au rouge si pru > stocks price
 - ajouter avis perso microsoft et visa
-- ajouter couleur hover ligne tableau
-- dans scorecard qualité action, ajouter form pour comparer radar avec une autre action
-
+- régler pb responsive header (> 610px)
+- ajouter encore un graphe dans partie qualité
 
 
 analyse.html 

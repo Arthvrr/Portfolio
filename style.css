@@ -258,11 +258,6 @@ td {
     height: auto; /* Redéfinir la hauteur automatique pour s'adapter au contenu */
 }
 
-.stocks-info #ticker {
-    /* color: blue; */
-    font-style: italic;
-}
-
 .stocks-pic {
     width:45%;
 }
@@ -341,7 +336,8 @@ td {
     color: black;
     font-size: 1.12em;
     margin:0 10px;
-    transition: 0.5s ease;
+    border-bottom: 3px solid transparent;
+    transition: border-bottom 0.75s ease;
 }
 
 .link-page h3:not(:last-child)::after {
@@ -350,7 +346,7 @@ td {
 }
 
 .link-page a:hover{
-    color: blue;
+    border-bottom: 3px solid black;
 }
 
 .link-page-aapl, .link-page-ma,.link-page-msft,.link-page-v {
@@ -365,7 +361,8 @@ td {
     color: black;
     font-size: 1.1em;
     margin:0 10px;
-    transition: 0.5s ease;
+    border-bottom: 3px solid transparent;
+    transition: border-bottom 0.75s ease;
 }
 
 .link-page-aapl h3:not(:last-child)::after, .link-page-ma h3:not(:last-child)::after, .link-page-msft h3:not(:last-child)::after, .link-page-v h3:not(:last-child)::after {
@@ -374,7 +371,7 @@ td {
 }
 
 .link-page-aapl a:hover, .link-page-ma a:hover, .link-page-msft a:hover, .link-page-v a:hover{
-    color: blue;
+    border-bottom: 3px solid black;
 }
 
 .panel-subtitle {
@@ -449,6 +446,18 @@ td {
 .progress-title {
     font-size: 1.2em;
 }
+
+.held-since {
+    text-align: center;
+    font-size: 1.15em;
+    padding-top: 20px;
+    font-weight: normal;
+}
+
+
+
+
+
 
 /*SELECTION.HTML*/
 .container {
