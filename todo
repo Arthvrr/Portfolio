@@ -1,6 +1,6 @@
 wallet.html :
-- changer couleur entre pru et stocks price au rouge si pru > stocks price
 - ajouter avis perso microsoft et visa
+- changer couleur entre pru et stocks price au rouge si pru > stocks price
 - régler pb responsive header (> 610px)
 - ajouter encore un graphe dans partie qualité
 

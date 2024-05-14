@@ -230,15 +230,15 @@
                <th id="panel-table-title">Risques</th> 
             </tr>
             <tr>
-                <td id="asset">Fixation des prix</td>
+                <td id="asset">Diversité des Revenus</td>
                 <td id="risk">Dépendance à l'iPhone</td>
             </tr>
             <tr>
-                <td id="asset">Fidélité Client</td>
+                <td id="asset">Fondamentaux Exceptionnels</td>
                 <td id="risk">Ventes en Chine</td>
             </tr>
             <tr>
-                <td id="asset">Qualité des Produits</td>
+                <td id="asset">Position Stratégie dans l'IA</td>
                 <td id="risk">Enjeu de l'IA</td>
             </tr>
         </table>
@@ -287,15 +287,15 @@
                <th id="panel-table-title">Risques</th> 
             </tr>
             <tr>
-                <td id="asset">Fixation des prix</td>
+                <td id="asset">Numéro 1 sur son marché</td>
                 <td id="risk">Dépendance à l'iPhone</td>
             </tr>
             <tr>
-                <td id="asset">Fidélité Client</td>
+                <td id="asset">Duopole avec Mastercard</td>
                 <td id="risk">Ventes en Chine</td>
             </tr>
             <tr>
-                <td id="asset">Qualité des Produits</td>
+                <td id="asset">Effet de Réseau</td>
                 <td id="risk">Enjeu de l'IA</td>
             </tr>
         </table>
@@ -338,10 +338,9 @@
     <div class="big-chart-container">
         <canvas id="seventeenthChart"></canvas>
     </div>
-    <!-- <div class="big-chart-container">
-        <canvas id="nineteenthChart"></canvas>
-    </div> -->
-
+    <div class="big-radar-container">
+        <canvas id="twentiethChart"></canvas>
+    </div>
     
 
     <div class="footer">
@@ -351,8 +350,8 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-treemap"></script>  
     <script>
-
 
 //TRANSITION FLUIDE POUR ALLER À ENDROITS DE LA PAGE
 document.querySelectorAll('.link-page a').forEach(anchor => {
@@ -525,6 +524,9 @@ var stocksCotation = [AAPLCotation,MACotation,MSFTCotation,VCotation];
 
 var annualMarketReturnPercent = [-19.44,24.23]; //retour annuels du S&P500 en pourcent (source : https://www.macrotrends.net/2526/sp-500-historical-annual-returns)
 
+var weightOfStocks = []; //liste qui représente le poids de chaque action du Portefeuille en % (valeurs : [0.24,0.26,0.3,0.2])
+var weightedAverages = [];
+
 
 
 
@@ -637,6 +639,7 @@ function calculateYieldOfShares() {
     }
 }
 
+// fonction pour calculer le montant en dividende par mois reçus
 function calculateDividendPerMonth() {
     var monthAAPL = ["Février","Mai","Août","Novembre"];
     var monthMA = ["Février","Mai","Août","Novembre"];
@@ -669,10 +672,6 @@ function calculateDividendPerMonth() {
 }
 
 
-
-
-
-
 // Fonction pour remplir le tableau des prix actuels des actions
 function fillStockPrices() {
     // Sélectionner tous les éléments <td> avec l'ID "price"
@@ -683,7 +682,7 @@ function fillStockPrices() {
         // Vérifier si l'index est valide dans le tableau stockPrices
         if (index < stocksPrice.length) {
             // Mettre à jour le contenu de la cellule avec le prix correspondant
-            cell.textContent = stocksPrice[index];
+            cell.textContent = (stocksPrice[index]).toFixed(2);
         } else {
             // Afficher un message d'erreur si l'index est en dehors des limites du tableau
             console.error('Index out of range for stock prices array.');
@@ -782,6 +781,35 @@ function fillReturnInPercent(diffListEuro) {
         }
     });
 }
+
+// fonction pour calculer le poids en pourcentage de chaque action du portefeuille
+function calculateWeightOfStocks(finalValueOfStocks,finalValue) {
+
+    for (let i = 0; i < tickerOfShares.length; i++){
+        var toAdd = Number((finalValueOfStocks[i] / finalValue).toFixed(2));
+        weightOfStocks.push(toAdd);
+    }
+}
+
+// fonction pour calculer le score pondéré de chaque critère de mon portefeuille
+function calculateWeightedAverage(stocksCotation) {
+        const numberOfStocks = stocksCotation.length;
+        const numberOfSectors = stocksCotation[0].length;
+
+        for (let i = 0; i < numberOfSectors; i++) {
+            let totalWeightedSum = 0;
+            let totalWeight = 0;
+
+            for (let j = 0; j < numberOfStocks; j++) {
+                totalWeightedSum += stocksCotation[j][i] * weightOfStocks[j];
+                totalWeight += weightOfStocks[j];
+            }
+
+            weightedAverages.push(Number((totalWeightedSum / totalWeight).toFixed(2)));
+        }
+
+    }
+
 
 // GRAPHIQUES
 // Données pour le premier graphique
@@ -1010,7 +1038,7 @@ function drawSixth(yieldOfShares) {
         data: {
             labels: tickerOfShares,
             datasets: [{
-                label:'Rendement du dividende en %',
+                label:'Rendement dividende en %',
                 data: yieldOfShares,
                 backgroundColor: [
                     'rgba(54, 162, 235, 0.5)', // Bleu pour la première valeur de stocks
@@ -1028,7 +1056,7 @@ function drawSixth(yieldOfShares) {
                 fill:true
             }, {
                 type: 'line',
-                label: 'Rendement moyen en %',
+                label: 'Rendement Portefeuille en %',
                 data: averageYieldOfWallet,
                 borderColor: 'rgba(255, 99, 132, 1)', // Rouge pour la ligne moyenne
                 borderWidth: 3,
@@ -1649,7 +1677,7 @@ function drawNineteenth(annualReturnPercent, annualMarketReturnPercent) {
                 data: annualReturnPercent,
                 backgroundColor: 'rgba(255, 160, 122, 0.5)',
                 borderColor: 'rgba(255, 160, 122, 1)',
-                borderWidth: 2
+                borderWidth: 2,
             }, {
                 label: 'Performance du S&P500 en %',
                 data: annualMarketReturnPercent,
@@ -1667,7 +1695,7 @@ function drawNineteenth(annualReturnPercent, annualMarketReturnPercent) {
                 },
                 title: {
                     display: true,
-                    text: 'Comparaison des performances du Portefeuille VS le S&P500',
+                    text: 'Retours annuels du Portefeuille et du S&P 500',
                     position: 'top'
                 }
             },
@@ -1682,6 +1710,65 @@ function drawNineteenth(annualReturnPercent, annualMarketReturnPercent) {
         }
     });
 }
+
+function drawTwentieth(weightedAverages) {
+    var ctx = document.getElementById('twentiethChart').getContext('2d');
+
+    var myChart = new Chart(ctx, {
+        type: 'polarArea',
+        data: {
+            labels: ['Bases', 'Croissance', 'Rentabilité', 'Solvabilité', 'Dividende'],
+            datasets: [{
+                label: 'Score Pondéré',
+                data: weightedAverages,
+                backgroundColor: [
+                'rgba(255, 99, 132, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(255, 205, 86, 0.5)',
+                'rgba(75, 192, 192, 0.5)',
+                'rgba(153, 102, 255, 0.5)',
+
+                ],
+                borderColor:[
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 205, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                ],
+                borderWidth: 2
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                },
+                title: {
+                    display: true,
+                    text: "ScoreCard pondéré du Portefeuille",
+                    position: 'top'
+                }
+            },
+            scale: {
+                ticks: {
+                    beginAtZero: true,
+                },
+                min: 0,
+                max: 100,
+                stepSize: 20
+            }
+        }
+    });
+}
+
+
+
+
+
+
 
 
 
@@ -1806,7 +1893,7 @@ async function main() {
     averageValuePerStocks = finalValue / tickerOfShares.length;
 
     totalGainWithoutDividend = (diffEuro - totalDividendReceived).toFixed(2); //le gain total en plus-value = gain total - dividendes nets reçus
-
+    
     //CHANGER COULEURS
     changeBackgroundColor(diffEuro, diffPercent);
 
@@ -1817,6 +1904,12 @@ async function main() {
     fillValueOfStocks(stocksPrice, exchangeRate);
     fillReturnInEuros(diffListEuro);
     fillReturnInPercent(diffPercentList);
+
+    //OBTENIR POIDS DE CHAQUE ACTIONS
+    calculateWeightOfStocks(finalValueOfStocks,finalValue);
+
+    calculateWeightedAverage(stocksCotation);
+    console.log(weightedAverages);
 
     //REMPLIR BARRES DE PROGRESSION
     fillFirstProgressBar(totalWallet, 10000);
@@ -1842,8 +1935,9 @@ async function main() {
     drawSixteenth(stocksCotation);
     drawSeventeenth(stocksCotation);
     drawEighteenth(totalDividendReceived,totalGainWithoutDividend);
-
     drawNineteenth(annualReturnPercent,annualMarketReturnPercent);
+    drawTwentieth(weightedAverages)
+
 }
 
 main();

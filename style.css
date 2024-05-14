@@ -323,6 +323,17 @@ td {
     padding-top: 100px;
 }
 
+.big-radar-container {
+    display: grid;
+    grid-template-columns: auto auto; /* Deux colonnes égales */
+    justify-content: center; /* Alignement au centre */
+    width:60%;
+    height : 400px;
+    margin: 0 auto; /* Centre la div horizontalement */
+    grid-column-gap: 20px;
+    padding-top: 100px;
+}
+
 .link-page {
     display: flex; /* Utiliser flexbox */
     justify-content: center; /* Aligner horizontalement au centre */
