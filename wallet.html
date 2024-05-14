@@ -819,7 +819,7 @@ function draw1(CashOnHand,finalValue) {
     var myChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: ['Cash Dispo en €', 'Placements en €'],
+            labels: ['Cash dispo en €', 'Placements en €'],
             datasets: [{
                 data: [CashOnHand, finalValue],
                 backgroundColor: [
@@ -843,7 +843,7 @@ function draw1(CashOnHand,finalValue) {
                 },
                 title : {
                     display:true,
-                    text:'Cash Disponible VS Placements en Actions',
+                    text:'Cash disponible VS placement en actions',
                     position : 'top'
                 }
             }
@@ -899,7 +899,7 @@ function draw3(finalValueOfStocks) {
         data: {
             labels: tickerOfShares,
             datasets: [{
-                label:'Valeur par action en €',
+                label:'Valeur par action',
                 data: finalValueOfStocks,
                 backgroundColor: [
                     'rgba(54, 162, 235, 0.5)', // Bleu pour la première valeur de stocks
@@ -917,7 +917,7 @@ function draw3(finalValueOfStocks) {
             },
             {
                 type: 'line',
-                label: 'Valeur Moyenne  en €',
+                label: 'Valeur Moyenne',
                 data: averageData,
                 backgroundColor: 'rgba(255, 99, 132, 0.2)', // Couleur de fond pour la ligne
                 borderColor: 'rgba(255, 99, 132, 1)', // Couleur de la bordure pour la ligne
@@ -936,7 +936,7 @@ function draw3(finalValueOfStocks) {
                 },
                 title : {
                     display:true,
-                    text:'Valeur Totale par Actions',
+                    text:'Valeur Totale par action en €',
                     position : 'top'
                 }
             }
@@ -967,7 +967,7 @@ function draw4(diffListEuro) {
         data: {
             labels: tickerOfShares, // Assurez-vous que tickerOfShares est défini quelque part
             datasets: [{
-                label:'Performance par action en €',
+                label:'Performance par action',
                 data: diffListEuro,
                 backgroundColor: backgroundColors,
                 borderColor: borderColors,
@@ -983,7 +983,7 @@ function draw4(diffListEuro) {
                 },
                 title : {
                     display:true,
-                    text:'Retour sur Investissement par Actions',
+                    text:'Retour sur investissement par action',
                     position : 'top'
                 }
             }
@@ -999,7 +999,7 @@ function draw5(totalDividendPerShares) {
         data: {
             labels: tickerOfShares,
             datasets: [{
-                label:'Dividende par action en €',
+                label:'Dividende par action',
                 data: totalDividendPerShares,
                 backgroundColor: [
                     'rgba(51, 70, 79,0.5)'
@@ -1019,7 +1019,7 @@ function draw5(totalDividendPerShares) {
                 },
                 title : {
                     display:true,
-                    text:'Dividendes reçus par Actions',
+                    text:'Dividendes reçu par action en €',
                     position : 'top'
                 }
             }
@@ -1038,7 +1038,7 @@ function draw6(yieldOfShares) {
         data: {
             labels: tickerOfShares,
             datasets: [{
-                label:'Rendement dividende en %',
+                label:'Rendement par action',
                 data: yieldOfShares,
                 backgroundColor: [
                     'rgba(54, 162, 235, 0.5)', // Bleu pour la première valeur de stocks
@@ -1056,7 +1056,7 @@ function draw6(yieldOfShares) {
                 fill:true
             }, {
                 type: 'line',
-                label: 'Rendement Portefeuille en %',
+                label: 'Rendement Portefeuille',
                 data: averageYieldOfWallet,
                 borderColor: 'rgba(255, 99, 132, 1)', // Rouge pour la ligne moyenne
                 borderWidth: 3,
@@ -1074,7 +1074,7 @@ function draw6(yieldOfShares) {
                 },
                 title : {
                     display:true,
-                    text:'Rendement par Actions',
+                    text:'Rendement par action en %',
                     position : 'top'
                 }
             }
@@ -1123,7 +1123,7 @@ function draw7(dividendPerMonth, averageDividend) {
                 },
                 title : {
                     display:true,
-                    text:'Dividendes Mensuels',
+                    text:'Dividendes mensuel en €',
                     position : 'top'
                 }
             }
@@ -1140,7 +1140,7 @@ function draw8(stocksPrice) {
         data: {
             labels: tickerOfShares,
             datasets: [{
-                label : 'PRU en $',
+                label : 'PRU',
                 data: pruOfShares,
                 backgroundColor: [
                     'rgba(214, 0, 0, 0.5)',
@@ -1150,7 +1150,7 @@ function draw8(stocksPrice) {
                 ],
                 borderWidth: 2
             },{
-                label : "Prix de l'Action en $",
+                label : "Prix de l'action",
                 data: stocksPrice,
                 fill: '-1',
                 backgroundColor: [
@@ -1172,7 +1172,7 @@ function draw8(stocksPrice) {
                 },
                 title : {
                     display:true,
-                    text:'Prix des actions VS PRU',
+                    text:'Prix des actions VS PRU en $',
                     position : 'top'
                 }
             },
@@ -1547,7 +1547,7 @@ function draw16(stocksCotation) {
                 },
                 title: {
                     display: true,
-                    text: "Qualité par Segment de chaque Action en %",
+                    text: "Qualité par segment de chaque action en %",
                     position: 'top'
                 }
             },
@@ -1611,7 +1611,7 @@ function draw17(stocksCotations) {
                 },
                 title: {
                     display: true,
-                    text: "Qualité des Actions par Segment en %",
+                    text: "Qualité des actions par segment en %",
                     position: 'top'
                 }
             },
@@ -1657,7 +1657,7 @@ function draw18(totalDividendReceived,totalGainWithoutDividend){
                 },
                 title : {
                     display:true,
-                    text:'Provenance des Gains du Portefeuille',
+                    text:'Provenance des gains du Portefeuille',
                     position : 'top'
                 }
             }
