@@ -61,9 +61,9 @@
     
     
     <div class="donut-container">
-        <canvas id="firstChart"></canvas>
-        <canvas id="secondChart"></canvas>
-        <canvas id="eighteenthChart"></canvas>
+        <canvas id="1Chart"></canvas>
+        <canvas id="2Chart"></canvas>
+        <canvas id="18Chart"></canvas>
     </div>
 
 
@@ -131,7 +131,7 @@
         </table>
         <h3 class="panel-subtitle" id="quality-score-aapl">Score de Qualité</h3>
         <div class="radar-container">
-            <canvas id="twelfthChart"></canvas>
+            <canvas id="12Chart"></canvas>
         </div>
         <h4 class="held-since">Action détenue depuis : 27 mars 2023</h4>
     </div>
@@ -187,7 +187,7 @@
         </table>
         <h3 class="panel-subtitle" id="quality-score-ma">Score de Qualité</h3>
         <div class="radar-container">
-            <canvas id="thirteenthChart"></canvas>
+            <canvas id="13Chart"></canvas>
         </div>
         <h4 class="held-since">Action détenue depuis : 28 avril 2023</h4>
     </div>
@@ -244,7 +244,7 @@
         </table>
         <h3 class="panel-subtitle" id="quality-score-msft">Score de Qualité</h3>
         <div class="radar-container">
-            <canvas id="fourteenthChart"></canvas>
+            <canvas id="14Chart"></canvas>
         </div>
         <h4 class="held-since">Action détenue depuis : 27 mars 2023</h4>
     </div>
@@ -301,45 +301,46 @@
         </table>
         <h3 class="panel-subtitle" id="quality-score-v">Score de Qualité</h3>
         <div class="radar-container">
-            <canvas id="fifteenthChart"></canvas>
+            <canvas id="15Chart"></canvas>
         </div>
         <h4 class="held-since">Action détenue depuis : 27 mars 2023</h4>
     </div>
     <div class="bar-container">
-        <canvas id="thirdChart"></canvas>
-        <canvas id="fourthChart"></canvas>
+        <canvas id="3Chart"></canvas>
+        <canvas id="4Chart"></canvas>
     </div>
     <div class="big-chart-container">
-        <canvas id="eighthChart"></canvas>
+        <canvas id="8Chart"></canvas>
     </div>
+
     <div class="big-chart-container" id="dividend">
-        <canvas id="seventhChart"></canvas>
+        <canvas id="7Chart"></canvas>
     </div>
     <div class="bar-container">
-        <canvas id="sixthChart"></canvas>
-        <canvas id="fifthChart"></canvas>
+        <canvas id="6Chart"></canvas>
+        <canvas id="5Chart"></canvas>
     </div>
 
     <div class="big-chart-container" id="annual-perf">
-        <canvas id="ninethChart"></canvas>
+        <canvas id="9Chart"></canvas>
     </div>
     <div class="big-chart-container" id="annual-perf">
-        <canvas id="nineteenthChart"></canvas>
+        <canvas id="19Chart"></canvas>
     </div>
     <div class="big-chart-container">
-        <canvas id="tenthChart"></canvas>
+        <canvas id="10Chart"></canvas>
     </div>
     <div class="big-chart-container">
-        <canvas id="eleventhChart"></canvas>
+        <canvas id="11Chart"></canvas>
     </div>
     <div class="big-chart-container" id="quality">
-        <canvas id="sixteenthChart"></canvas>
+        <canvas id="16Chart"></canvas>
     </div>
     <div class="big-chart-container">
-        <canvas id="seventeenthChart"></canvas>
+        <canvas id="17Chart"></canvas>
     </div>
     <div class="big-radar-container">
-        <canvas id="twentiethChart"></canvas>
+        <canvas id="20Chart"></canvas>
     </div>
     
 
@@ -786,9 +787,10 @@ function fillReturnInPercent(diffListEuro) {
 function calculateWeightOfStocks(finalValueOfStocks,finalValue) {
 
     for (let i = 0; i < tickerOfShares.length; i++){
-        var toAdd = Number((finalValueOfStocks[i] / finalValue).toFixed(2));
+        var toAdd = Number((finalValueOfStocks[i] / finalValue).toFixed(3));
         weightOfStocks.push(toAdd);
     }
+    console.log(weightOfStocks);
 }
 
 // fonction pour calculer le score pondéré de chaque critère de mon portefeuille
@@ -804,17 +806,15 @@ function calculateWeightedAverage(stocksCotation) {
                 totalWeightedSum += stocksCotation[j][i] * weightOfStocks[j];
                 totalWeight += weightOfStocks[j];
             }
-
             weightedAverages.push(Number((totalWeightedSum / totalWeight).toFixed(2)));
         }
-
     }
 
 
 // GRAPHIQUES
 // Données pour le premier graphique
-function drawFirst(CashOnHand,finalValue) {
-    var ctx = document.getElementById('firstChart').getContext('2d');
+function draw1(CashOnHand,finalValue) {
+    var ctx = document.getElementById('1Chart').getContext('2d');
 
     var myChart = new Chart(ctx, {
         type: 'doughnut',
@@ -851,8 +851,8 @@ function drawFirst(CashOnHand,finalValue) {
     });
 }
 
-function drawSecond(totalInvested,diffEuro) {
-    var ctx = document.getElementById('secondChart').getContext('2d');
+function draw2(totalInvested,diffEuro) {
+    var ctx = document.getElementById('2Chart').getContext('2d');
 
     var myChart = new Chart(ctx, {
         type: 'doughnut',
@@ -889,8 +889,8 @@ function drawSecond(totalInvested,diffEuro) {
     });
 }
 
-function drawThird(finalValueOfStocks) {
-    var ctx = document.getElementById('thirdChart').getContext('2d');
+function draw3(finalValueOfStocks) {
+    var ctx = document.getElementById('3Chart').getContext('2d');
 
     var averageData = Array(tickerOfShares.length).fill(averageValuePerStocks);
 
@@ -944,8 +944,8 @@ function drawThird(finalValueOfStocks) {
     });
 }
 
-function drawFourth(diffListEuro) {
-    var ctx = document.getElementById('fourthChart').getContext('2d');
+function draw4(diffListEuro) {
+    var ctx = document.getElementById('4Chart').getContext('2d');
 
     var backgroundColors = [];
     var borderColors = [];
@@ -991,8 +991,8 @@ function drawFourth(diffListEuro) {
     });
 }
 
-function drawFifth(totalDividendPerShares) {
-    var ctx = document.getElementById('fifthChart').getContext('2d');
+function draw5(totalDividendPerShares) {
+    var ctx = document.getElementById('5Chart').getContext('2d');
 
     var myChart = new Chart(ctx, {
         type: 'bar',
@@ -1027,11 +1027,11 @@ function drawFifth(totalDividendPerShares) {
     });
 }
 
-function drawSixth(yieldOfShares) {
+function draw6(yieldOfShares) {
 
     var averageYieldOfWallet = Array(yieldOfShares.length).fill(yieldOfWallet);
 
-    var ctx = document.getElementById('sixthChart').getContext('2d');
+    var ctx = document.getElementById('6Chart').getContext('2d');
 
     var myChart = new Chart(ctx, {
         type: 'line',
@@ -1082,8 +1082,8 @@ function drawSixth(yieldOfShares) {
     });
 }
 
-function drawSeventh(dividendPerMonth, averageDividend) {
-    var ctx = document.getElementById('seventhChart').getContext('2d');
+function draw7(dividendPerMonth, averageDividend) {
+    var ctx = document.getElementById('7Chart').getContext('2d');
 
     // Création d'un tableau contenant la moyenne de tous les dividendes par mois
     var averageData = Array(dividendPerMonth.length).fill(averageDividendPerMonth);
@@ -1133,8 +1133,8 @@ function drawSeventh(dividendPerMonth, averageDividend) {
 }
 
 
-function drawEighth(stocksPrice) {
-    var ctx = document.getElementById('eighthChart').getContext('2d');
+function draw8(stocksPrice) {
+    var ctx = document.getElementById('8Chart').getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -1180,8 +1180,8 @@ function drawEighth(stocksPrice) {
     });
 }
 
-function drawNineth() {
-    var ctx = document.getElementById('ninethChart').getContext('2d');
+function draw9() {
+    var ctx = document.getElementById('9Chart').getContext('2d');
 
     // Définition des couleurs en fonction de la valeur
     var backgroundColors = annualReturnEuro.map(value => value >= 0 ? 'rgba(0, 99, 27, 0.5)' : 'rgba(255, 99, 132, 0.5)');
@@ -1246,8 +1246,8 @@ function drawNineth() {
 }
 
 
-function drawTenth(annualInvested,walletEndYear) {
-    var ctx = document.getElementById('tenthChart').getContext('2d');
+function draw10(annualInvested,walletEndYear) {
+    var ctx = document.getElementById('10Chart').getContext('2d');
 
     var myChart = new Chart(ctx, {
         type: 'line',
@@ -1297,8 +1297,8 @@ function drawTenth(annualInvested,walletEndYear) {
     });
 }
 
-function drawEleventh(annualDividendReceived) {
-    var ctx = document.getElementById('eleventhChart').getContext('2d');
+function draw11(annualDividendReceived) {
+    var ctx = document.getElementById('11Chart').getContext('2d');
 
     var myChart = new Chart(ctx, {
         type: 'bar',
@@ -1333,8 +1333,8 @@ function drawEleventh(annualDividendReceived) {
     });
 }
 
-function drawTwelfth(stocksCotation) {
-    var ctx = document.getElementById('twelfthChart').getContext('2d');
+function draw12(stocksCotation) {
+    var ctx = document.getElementById('12Chart').getContext('2d');
 
     var myChart = new Chart(ctx, {
         type: 'radar',
@@ -1373,8 +1373,8 @@ function drawTwelfth(stocksCotation) {
     });
 }
 
-function drawThirteenth(stocksCotation) {
-    var ctx = document.getElementById('thirteenthChart').getContext('2d');
+function draw13(stocksCotation) {
+    var ctx = document.getElementById('13Chart').getContext('2d');
 
     var myChart = new Chart(ctx, {
         type: 'radar',
@@ -1413,8 +1413,8 @@ function drawThirteenth(stocksCotation) {
     });
 }
 
-function drawFourteenth(stocksCotation) {
-    var ctx = document.getElementById('fourteenthChart').getContext('2d');
+function draw14(stocksCotation) {
+    var ctx = document.getElementById('14Chart').getContext('2d');
 
     var myChart = new Chart(ctx, {
         type: 'radar',
@@ -1453,8 +1453,8 @@ function drawFourteenth(stocksCotation) {
     });
 }
 
-function drawFifteenth(stocksCotation) {
-    var ctx = document.getElementById('fifteenthChart').getContext('2d');
+function draw15(stocksCotation) {
+    var ctx = document.getElementById('15Chart').getContext('2d');
 
     var myChart = new Chart(ctx, {
         type: 'radar',
@@ -1493,8 +1493,8 @@ function drawFifteenth(stocksCotation) {
     });
 }
 
-function drawSixteenth(stocksCotation) {
-    var ctx = document.getElementById('sixteenthChart').getContext('2d');
+function draw16(stocksCotation) {
+    var ctx = document.getElementById('16Chart').getContext('2d');
 
     var myChart = new Chart(ctx, {
         type: 'bar',
@@ -1564,8 +1564,8 @@ function drawSixteenth(stocksCotation) {
     });
 }
 
-function drawSeventeenth(stocksCotations) {
-    var ctx = document.getElementById('seventeenthChart').getContext('2d');
+function draw17(stocksCotations) {
+    var ctx = document.getElementById('17Chart').getContext('2d');
 
     var myChart = new Chart(ctx, {
         type: 'line',
@@ -1627,8 +1627,8 @@ function drawSeventeenth(stocksCotations) {
     });
 }
 
-function drawEighteenth(totalDividendReceived,totalGainWithoutDividend){
-    var ctx = document.getElementById('eighteenthChart').getContext('2d');
+function draw18(totalDividendReceived,totalGainWithoutDividend){
+    var ctx = document.getElementById('18Chart').getContext('2d');
 
     var myChart = new Chart(ctx, {
         type: 'doughnut',
@@ -1665,8 +1665,8 @@ function drawEighteenth(totalDividendReceived,totalGainWithoutDividend){
     });
 }
 
-function drawNineteenth(annualReturnPercent, annualMarketReturnPercent) {
-    var ctx = document.getElementById('nineteenthChart').getContext('2d');
+function draw19(annualReturnPercent, annualMarketReturnPercent) {
+    var ctx = document.getElementById('19Chart').getContext('2d');
 
     var myChart = new Chart(ctx, {
         type: 'bar',
@@ -1711,8 +1711,8 @@ function drawNineteenth(annualReturnPercent, annualMarketReturnPercent) {
     });
 }
 
-function drawTwentieth(weightedAverages) {
-    var ctx = document.getElementById('twentiethChart').getContext('2d');
+function draw20(weightedAverages) {
+    var ctx = document.getElementById('20Chart').getContext('2d');
 
     var myChart = new Chart(ctx, {
         type: 'polarArea',
@@ -1763,14 +1763,6 @@ function drawTwentieth(weightedAverages) {
         }
     });
 }
-
-
-
-
-
-
-
-
 
 // Fonction d'interpolation qui ralentit sur les derniers pourcentages
 function easeOutCubic(t) {
@@ -1907,9 +1899,7 @@ async function main() {
 
     //OBTENIR POIDS DE CHAQUE ACTIONS
     calculateWeightOfStocks(finalValueOfStocks,finalValue);
-
     calculateWeightedAverage(stocksCotation);
-    console.log(weightedAverages);
 
     //REMPLIR BARRES DE PROGRESSION
     fillFirstProgressBar(totalWallet, 10000);
@@ -1917,26 +1907,26 @@ async function main() {
     //fillThirdProgressBar(diffPercent, 20);
 
     //DESSINER GRAPHES
-    drawFirst(CashOnHand, finalValue);
-    drawSecond(totalInvested, diffEuro);
-    drawThird(finalValueOfStocks);
-    drawFourth(diffListEuro);
-    drawFifth(totalDividendPerShares);
-    drawSixth(yieldOfShares);
-    drawSeventh(dividendPerMonth);
-    drawEighth(stocksPrice);
-    drawNineth();
-    drawTenth(annualInvested, walletEndYear);
-    drawEleventh(annualDividendReceived);
-    drawTwelfth(AAPLCotation);
-    drawThirteenth(MACotation);
-    drawFourteenth(MSFTCotation);
-    drawFifteenth(VCotation);
-    drawSixteenth(stocksCotation);
-    drawSeventeenth(stocksCotation);
-    drawEighteenth(totalDividendReceived,totalGainWithoutDividend);
-    drawNineteenth(annualReturnPercent,annualMarketReturnPercent);
-    drawTwentieth(weightedAverages)
+    draw1(CashOnHand, finalValue);
+    draw2(totalInvested, diffEuro);
+    draw3(finalValueOfStocks);
+    draw4(diffListEuro);
+    draw5(totalDividendPerShares);
+    draw6(yieldOfShares);
+    draw7(dividendPerMonth);
+    draw8(stocksPrice);
+    draw9();
+    draw10(annualInvested, walletEndYear);
+    draw11(annualDividendReceived);
+    draw12(AAPLCotation);
+    draw13(MACotation);
+    draw14(MSFTCotation);
+    draw15(VCotation);
+    draw16(stocksCotation);
+    draw17(stocksCotation);
+    draw18(totalDividendReceived,totalGainWithoutDividend);
+    draw19(annualReturnPercent,annualMarketReturnPercent);
+    draw20(weightedAverages);
 
 }
 
