@@ -324,7 +324,7 @@
     <div class="big-chart-container" id="annual-perf">
         <canvas id="9Chart"></canvas>
     </div>
-    <div class="big-chart-container" id="annual-perf">
+    <div class="big-chart-container">
         <canvas id="19Chart"></canvas>
     </div>
     <div class="big-chart-container">
@@ -461,11 +461,11 @@ function changeBackgroundColor(diffEuro,diffPercent){
 
 //TOUTES LES VARIABLES UTILISÉES
 
-var totalInvested = 5700; // montant total investi
+var totalInvested = 5750; // montant total investi
 var totalInvestedCell = document.getElementById("invested");
 totalInvestedCell.textContent = totalInvested;
 
-var CashOnHand = 323.66; // cash disponible
+var CashOnHand = 373.66; // cash disponible
 var cashCell = document.getElementById("cash");
 cashCell.textContent = CashOnHand.toFixed(2);
 
@@ -1219,7 +1219,7 @@ function draw9() {
                 },
                 title: {
                     display: true,
-                    text: 'Retours Annuels en Euro et en Pourcentage par an', // Modification du titre du graphique
+                    text: 'Retours Annuels en Pourcentage par an', // Modification du titre du graphique
                     position: 'top'
                 }
             },
@@ -1695,7 +1695,7 @@ function draw19(annualReturnPercent, annualMarketReturnPercent) {
                 },
                 title: {
                     display: true,
-                    text: 'Retours annuels du Portefeuille et du S&P 500',
+                    text: 'Retours Annuels du Portefeuille et du S&P 500',
                     position: 'top'
                 }
             },
