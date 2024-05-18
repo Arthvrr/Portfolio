@@ -352,8 +352,7 @@ Concernant les risques de la société à ce jour, je pense que le principal est
             <span id="copyright">StocksPickeur &copy; 2024</span>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-treemap"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
     <script>
 
 //TRANSITION FLUIDE POUR ALLER À ENDROITS DE LA PAGE
@@ -927,6 +926,7 @@ function draw3(finalValueOfStocks) {
                 borderWidth: 3,
                 borderDash: [5, 5], // Utilisez un trait pointillé
                 fill: false, // Ne pas remplir l'espace sous la ligne
+                spanGaps:true,
                 pointRadius: 0, // Aucun point pour la ligne constante
             }]
         },
@@ -941,6 +941,13 @@ function draw3(finalValueOfStocks) {
                     display:true,
                     text:'Valeur Totale par action en €',
                     position : 'top'
+                }
+            },
+            scales: {
+                x: {
+                    type: 'category',
+                    labels: tickerOfShares,
+                    offset: true // Pour que la ligne commence et se termine aux bords du graphique
                 }
             }
         }
@@ -1218,6 +1225,8 @@ function draw8(stocksPrice) {
     });
 }
 
+
+
 function draw9() {
     var ctx = document.getElementById('9Chart').getContext('2d');
 
@@ -1243,7 +1252,7 @@ function draw9() {
                 type: 'line', // Type de graphique en ligne pour les pourcentages
                 fill: false, // Pas de remplissage sous la ligne
                 borderColor: 'rgba(0, 10, 156, 1)', // Couleur de la ligne pour les pourcentages
-                borderWidth: 3,
+                borderWidth: 2,
                 yAxisID: 'percent-y-axis', // Utilisation de l'axe Y des pourcentages
                 hidden:  false, // Cacher la ligne des pourcentages par défaut
             }]
@@ -1338,41 +1347,76 @@ function draw10(annualInvested,walletEndYear) {
     });
 }
 
+
 function draw11(annualDividendReceived) {
     var ctx = document.getElementById('11Chart').getContext('2d');
+
+    // Calculer les pourcentages de variation d'une année à l'autre
+    var percentageChanges = [0];
+    for (var i = 1; i < annualDividendReceived.length; i++) {
+        var change = ((annualDividendReceived[i] - annualDividendReceived[i - 1]) / annualDividendReceived[i - 1]) * 100;
+        percentageChanges.push(parseFloat(change.toFixed(2))); // Convertir la chaîne en nombre flottant
+    }
 
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: years,
             datasets: [{
-                label:'Dividende Nets reçus en €',
+                label: 'Dividende Nets reçus en €',
                 data: annualDividendReceived,
-                backgroundColor: [
-                    'rgba(0, 17, 255, 0.5)', // Bleu pour la première valeur de stocks
-                ],
-                borderColor: [
-                    'rgba(0, 17, 255, 1)', // Bordure bleue pour la première valeur de stocks
-                ],
-                borderWidth: 2
+                backgroundColor: 'rgba(0, 17, 255, 0.5)',
+                borderColor: 'rgba(0, 17, 255, 1)',
+                borderWidth: 2,
+                yAxisID:'dividend-amount'
+            }, {
+                label: 'Variation en %',
+                data: percentageChanges,
+                type: 'line',
+                fill: false,
+                borderColor: 'rgba(102, 2, 60, 1)', // Rouge pour la ligne de variation
+                borderWidth: 2,
+                yAxisID:'percent-variation'
             }]
         },
         options: {
             maintainAspectRatio: false,
             plugins: {
-                legend : {
-                    display : true,
-                    position : 'bottom'
+                legend: {
+                    display: true,
+                    position: 'bottom'
                 },
-                title : {
-                    display:true,
-                    text:'Dividendes Nets reçus par an',
-                    position : 'top'
+                title: {
+                    display: true,
+                    text: 'Dividendes Nets reçus par an',
+                    position: 'top'
+                }
+            },
+            scales: {
+                'dividend-amount': {
+                    type: 'linear',
+                    display: true,
+                    position: 'left',
+                    ticks: {
+                        beginAtZero: true
+                    }
+                },
+                'percent-variation': {
+                    type: 'linear',
+                    display: true, // Cacher l'axe Y des pourcentages
+                    position: 'right',
+                    ticks: {
+                        beginAtZero: true
+                    },
+                    grid: {
+                        drawOnChartArea: false // Empêcher les lignes de la grille sur le graphique
+                    }
                 }
             }
         }
     });
 }
+
 
 function draw12(stocksCotation) {
     var ctx = document.getElementById('12Chart').getContext('2d');
@@ -1872,17 +1916,6 @@ function fillSecondProgressBar(totalInvested, goal) {
     animateProgressBar(secondProgressBar, totalInvested, goal);
 }
 
-// Fonction pour remplir la troisième barre de progression
-function fillThirdProgressBar(diffPercent, goal) {
-    const thirdProgressBar = document.getElementById('thirdProgressBar');
-    const progressText = document.getElementById('thirdProgressText');
-    thirdProgressBar.max = goal;
-    const percentage = ((diffPercent / goal)*100).toFixed(2);
-    progressText.textContent = percentage + "%";
-    animateProgressBar(thirdProgressBar, diffPercent, goal);
-}
-
-
 
 
 
@@ -1946,7 +1979,6 @@ async function main() {
     //REMPLIR BARRES DE PROGRESSION
     fillFirstProgressBar(totalWallet, 10000);
     fillSecondProgressBar(totalInvested, 6000);
-    //fillThirdProgressBar(diffPercent, 20);
 
     //DESSINER GRAPHES
     draw1(CashOnHand, finalValue);
@@ -1956,7 +1988,7 @@ async function main() {
     draw5(totalDividendPerShares);
     draw6(yieldOfShares);
     draw7(dividendPerMonth);
-    draw8(stocksPrice);
+    draw8(stocksPrice,pruOfShares);
     draw9();
     draw10(annualInvested, walletEndYear);
     draw11(annualDividendReceived);

@@ -303,7 +303,7 @@ td {
 }
 
 .semititle {
-    font-size: 2.75em;
+    font-size: 2.25em;
     text-align: center;
     margin-top:80px;
     margin-bottom: 50px;
@@ -353,10 +353,10 @@ td {
     grid-template-columns: auto auto; /* Deux colonnes égales */
     justify-content: center; /* Alignement au centre */
     width:60%;
-    height : 400px;
+    height : 350px;
     margin: 0 auto; /* Centre la div horizontalement */
     grid-column-gap: 20px;
-    padding-top: 80px;
+    padding-bottom: 80px;
 }
 
 .link-page {
