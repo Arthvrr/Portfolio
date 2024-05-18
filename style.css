@@ -200,6 +200,7 @@ header {
     margin-top: 20px;
     margin-bottom: 50px;
     table-layout: fixed; /* Fixer la taille des colonnes */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Ombre légère */
 }
 td {
     border: 1px solid black; /* Bordure des cellules */
@@ -251,6 +252,7 @@ td {
     background-color: #f0f0f0; /* Couleur de fond */
     margin: 0 auto;
     table-layout: fixed; /* Fixer la taille des colonnes */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Ombre légère */
 }
 
 .stocks-info td {
@@ -280,6 +282,8 @@ td {
     margin: 0 auto;
     table-layout: fixed; /* Fixer la taille des colonnes */
     margin-top: 80px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Ombre légère */
+    
 }
 
 .stocks-header th {
@@ -300,10 +304,22 @@ td {
 
 .semititle {
     font-size: 2.75em;
-    text-decoration: underline;
     text-align: center;
     margin-top:80px;
     margin-bottom: 50px;
+    position: relative;
+    margin-left: 20%;
+    margin-right: 20%;
+    border: 3px solid black; /* Bordure de 1 pixel solide noire */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Ombre légère */
+    background-color: white; /* Couleur initiale */
+    overflow: hidden;
+    transition: background-color 3s, color 3s;
+}
+
+.semititle:hover {
+    background-color: #60a1fc;
+    color: white; 
 }
 
 #invested, #wallet-value, #cash, #total-value,#total-div, #yield-wallet {

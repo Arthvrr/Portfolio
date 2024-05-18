@@ -1,6 +1,7 @@
 wallet.html :
 - ajouter avis perso visa
 - changer couleur entre pru et stocks price au rouge si pru > stocks price
+- ajouter effet empilé dans graphe des dividendes mensuels (3eu AAPL et 2eu MA)
 
 
 analyse.html 

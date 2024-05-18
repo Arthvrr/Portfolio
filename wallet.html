@@ -18,7 +18,7 @@
             <!-- <a href="analyse.html">Analyseur</a> -->
         </div>
     </header>
-
+    
     <h2 class="semititle">Portefeuille à Dividendes Quality 💎</h2>
 
     <div class="link-page">
@@ -511,7 +511,9 @@ var annualReturnPercent = [0,8.26]; //liste des retours annuels, en pourcent
 
 var annualDividendReceived = [12.35, 41.31]; //liste des dividendes annuels nets reçus
 
-var totalDividendReceived = (annualDividendReceived.reduce((acc, val) => acc + val, 0)).toFixed(2); //somme de la liste annualDividendReceived
+var tempDividendReceived = 16.66 //dividende reçu durant le cours de l'année actuelle, pour le troisième donut
+
+var totalDividendReceived = ((annualDividendReceived.reduce((acc, val) => acc + val, 0)) + tempDividendReceived).toFixed(2); //somme de la liste annualDividendReceived
 
 var totalGainWithoutDividend = 0; //gain total en bourse des plus-value (sans dividendes reçus)
 
@@ -792,7 +794,6 @@ function calculateWeightOfStocks(finalValueOfStocks,finalValue) {
         var toAdd = Number((finalValueOfStocks[i] / finalValue).toFixed(3));
         weightOfStocks.push(toAdd);
     }
-    console.log(weightOfStocks);
 }
 
 // fonction pour calculer le score pondéré de chaque critère de mon portefeuille
@@ -969,11 +970,22 @@ function draw4(diffListEuro) {
         data: {
             labels: tickerOfShares, // Assurez-vous que tickerOfShares est défini quelque part
             datasets: [{
-                label:'Performance par action',
+                label:'Retour en €',
                 data: diffListEuro,
                 backgroundColor: backgroundColors,
                 borderColor: borderColors,
-                borderWidth: 2
+                borderWidth: 2,
+                yAxisID:'euro-y-axis'
+            },
+            {
+                label: 'Retour en %',
+                data: diffPercentList,
+                backgroundColor: 'rgba(0, 128, 128,0.25)', // Bleu
+                borderColor: 'rgba(0, 128, 128, 1)', // Bordure bleue
+                borderWidth: 2,
+                type: 'line', // Utiliser un graphique de type ligne
+                fill:true,
+                yAxisID:'percent-y-axis'
             }]
         },
         options: {
@@ -989,9 +1001,32 @@ function draw4(diffListEuro) {
                     position : 'top'
                 }
             }
+            ,scales: {
+                'euro-y-axis': {
+                    type: 'linear',
+                    display: true,
+                    position: 'left',
+                    ticks: {
+                        beginAtZero: true
+                    }
+                },
+                'percent-y-axis': {
+                    type: 'linear',
+                    display: true, // Cacher l'axe Y des pourcentages
+                    position: 'right',
+                    ticks: {
+                        beginAtZero: true
+                    },
+                    grid: {
+                        drawOnChartArea: false // Empêcher les lignes de la grille sur le graphique
+                    }
+                }
+            },
         }
     });
 }
+
+
 
 function draw5(totalDividendPerShares) {
     var ctx = document.getElementById('5Chart').getContext('2d');
@@ -1060,6 +1095,7 @@ function draw6(yieldOfShares) {
                 type: 'line',
                 label: 'Rendement Portefeuille',
                 data: averageYieldOfWallet,
+                
                 borderColor: 'rgba(255, 99, 132, 1)', // Rouge pour la ligne moyenne
                 borderWidth: 3,
                 borderDash: [5, 5], // Style de la ligne en pointillé
@@ -1221,7 +1257,7 @@ function draw9() {
                 },
                 title: {
                     display: true,
-                    text: 'Retours Annuels en Pourcentage par an', // Modification du titre du graphique
+                    text: 'Retours Annuels en Euros et Pourcentage par an', // Modification du titre du graphique
                     position: 'top'
                 }
             },
@@ -1236,10 +1272,13 @@ function draw9() {
                 },
                 'percent-y-axis': {
                     type: 'linear',
-                    display: true, // Cacher l'axe Y des pourcentages
+                    display: true,
                     position: 'right',
                     ticks: {
                         beginAtZero: true
+                    },
+                    grid: {
+                        drawOnChartArea: false // Empêcher les lignes de la grille sur le graphique
                     }
                 }
             },
@@ -1898,6 +1937,7 @@ async function main() {
     fillValueOfStocks(stocksPrice, exchangeRate);
     fillReturnInEuros(diffListEuro);
     fillReturnInPercent(diffPercentList);
+    console.log(diffPercentList);
 
     //OBTENIR POIDS DE CHAQUE ACTIONS
     calculateWeightOfStocks(finalValueOfStocks,finalValue);
