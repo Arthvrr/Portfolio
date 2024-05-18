@@ -38,29 +38,29 @@
                 </tr>
                 <tr>
                     <td>
-                        <form>
+                        <form id="form-performance">
                             <input type="radio" id="x2" name="performance" value="oui">
-                            <label for="performance_oui">Surperformance x2</label><br>
+                            <label for="x2">Surperformance x2</label><br>
                             <input type="radio" id="x1" name="performance" value="non">
-                            <label for="performance_non">Surperformance x1</label><br>
-                            <input type="radio" id="performance_non" name="performance" value="non">
-                            <label for="performance_non">Sous-Performance</label>
+                            <label for="x1">Surperformance x1</label><br>
+                            <input type="radio" id="no" name="performance" value="non">
+                            <label for="no">Sous-Performance</label>
                         </form>
                     </td>
                     <td>
-                        <form>
-                            <input type="radio" id="diminution_oui" name="diminution" value="oui">
-                            <label for="diminution_oui">Oui</label><br>
-                            <input type="radio" id="diminution_non" name="diminution" value="non">
-                            <label for="diminution_non">Non</label><br>
+                        <form id="form-diminution">
+                            <input type="radio" id="yes-diminution" name="diminution" value="oui">
+                            <label for="yes-diminution">Oui</label><br>
+                            <input type="radio" id="no-diminution" name="diminution" value="non">
+                            <label for="no-diminution">Non</label><br>
                         </form>
                     </td>
                     <td>
-                        <form>
-                            <input type="radio" id="diversifie_oui" name="diversifie" value="oui">
-                            <label for="diversifie_oui">Oui</label><br>
-                            <input type="radio" id="diversifie_non" name="diversifie" value="non">
-                            <label for="diversifie_non">Non</label><br>
+                        <form id="form-diversifie">
+                            <input type="radio" id="yes-diversifie" name="diversifie" value="oui">
+                            <label for="yes-diversifie">Oui</label><br>
+                            <input type="radio" id="no-diversifie" name="diversifie" value="non">
+                            <label for="no-diversifie">Non</label><br>
                         </form>
                     </td>
                 </tr>
@@ -75,9 +75,9 @@
             <h3 class="subtitle">CROISSANCE</h3>
             <table>
                 <tr>
-                    <th>Nombre d'années de croissance du Chiffres d'Affaires sur les 10 dernières années</th>
-                    <th>Nombre d'années de croissance du Bénéfice par Actions sur les 10 dernières années</th>
-                    <th>Nombre d'années de croissance du Free-Cash-Flow sur les 10 dernières années</th>
+                    <th>Années de croissance du Chiffres d'Affaires sur les 10 dernières années</th>
+                    <th>Années de croissance du Bénéfice par Actions sur les 10 dernières années</th>
+                    <th>Années de croissance du Free-Cash-Flow sur les 10 dernières années</th>
                 </tr>
                 <tr>
                     <td>
@@ -202,10 +202,12 @@
                 Le Free-Cash-Flow est la pièce maitresses des investisseurs qui souhtaitent recevoir des dividendes. Le Free-Cash-Flow représente l'excédent de trésorie dégagé après une péiode donnée par une société. Nous voulons de prime abord un Free-Cash-Flow positif, indiquant que l'entreprise génère plus de liquidités qu'elle n'en dépense dans ses activités opérationnelles et ses investissements. Encore mieux, une augmentation du Free-Cash-Flow indique que la firme gère encore mieux ses liquidités et est un signe d'une santé financière solide. C'est avec cet excédent de trésorerie que la société va pouvoir rembourser des dettes, investir dans de nouvelles opportunités de croissance, racheter des actions, distribuer des dividendes aux actionnaires,... C'est pourquoi c'est un indicateur particulièrement surveillé par les investisseurs. <br><br><br>
             </div>
         </div>
-        <button>Calculer le Score de Qualité</button>
+        <div class="button-container">
+            <button class="score-button">Calculer le Score de Qualité</button>
+        </div>
         <div class="result-score">
 
-            <!-- Le score de Qualité de l'Action est de x sur 3!
+            <!-- Le score de Qualité de l'Action est de x sur 30 !
             ajouter scorecard
             ajouter qualité pour chaque critères
             ajouter progression linéaire circulaire pour afficher le score https://apexcharts.com/javascript-chart-demos/radialbar-charts/basic/ -->
@@ -259,6 +261,42 @@ var divScore = 0;
 
 
 
+function getBasisValue() {
+    const performanceValue = document.querySelector('input[name="performance"]:checked');
+    const diminutionValue = document.querySelector('input[name="diminution"]:checked');
+    const diversifieValue = document.querySelector('input[name="diversifie"]:checked');
+
+    if (performanceValue) {
+        console.log('Performance:', performanceValue.value);
+    } else {
+        console.log('Performance: non sélectionné');
+    }
+
+    if (diminutionValue) {
+        console.log('Diminution:', diminutionValue.value);
+    } else {
+        console.log('Diminution: non sélectionné');
+    }
+
+    if (diversifieValue) {
+        console.log('Diversifié:', diversifieValue.value);
+    } else {
+        console.log('Diversifié: non sélectionné');
+    }
+}
+
+
+
+
+
+
+
+
+
+
+async function main() {
+    getBasisValue();
+}
 
 
 
