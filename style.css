@@ -275,7 +275,7 @@ td {
     text-align: center;
     margin: 0 auto;
     table-layout: fixed; /* Fixer la taille des colonnes */
-    margin-top: 120px;
+    margin-top: 100px;
 }
 
 .stocks-header th {
@@ -292,7 +292,6 @@ td {
     height : 300px;
     margin: 0 auto; /* Centre la div horizontalement */
     grid-column-gap: 10%;
-    padding-bottom: 20px; /* Ajoute de l'espace en bas */
 }
 
 .semititle {
@@ -350,7 +349,7 @@ td {
 .link-page a{
     text-decoration: none;
     color: black;
-    font-size: 1.12em;
+    font-size: 1.25em;
     margin:0 10px;
     border-bottom: 3px solid transparent;
     transition: border-bottom 0.75s ease;
@@ -375,7 +374,7 @@ td {
 .link-page-aapl a, .link-page-ma a,.link-page-msft a,.link-page-v a {
     text-decoration: none;
     color: black;
-    font-size: 1.2em;
+    font-size: 1.15em;
     margin:0 10px;
     border-bottom: 3px solid transparent;
     transition: border-bottom 0.75s ease;
