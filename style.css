@@ -222,6 +222,10 @@ td {
     text-align: center;
 }
 
+#last-accordion {
+    margin-bottom: 80px;
+}
+
 .panel {
     margin: 0 auto;
     width: 60%;
@@ -275,7 +279,7 @@ td {
     text-align: center;
     margin: 0 auto;
     table-layout: fixed; /* Fixer la taille des colonnes */
-    margin-top: 100px;
+    margin-top: 80px;
 }
 
 .stocks-header th {
@@ -295,10 +299,11 @@ td {
 }
 
 .semititle {
-    font-size: 2.5em;
+    font-size: 2.75em;
     text-decoration: underline;
     text-align: center;
-    margin-top:100px;
+    margin-top:80px;
+    margin-bottom: 50px;
 }
 
 #invested, #wallet-value, #cash, #total-value,#total-div, #yield-wallet {
@@ -313,7 +318,7 @@ td {
     height : 350px;
     margin: 0 auto; /* Centre la div horizontalement */
     grid-column-gap: 20px;
-    padding-top: 100px;
+    padding-bottom: 80px;
 }
 
 .big-chart-container {
@@ -324,7 +329,7 @@ td {
     height : 350px;
     margin: 0 auto; /* Centre la div horizontalement */
     grid-column-gap: 20px;
-    padding-top: 100px;
+    padding-bottom: 80px;
 }
 
 .big-radar-container {
@@ -335,13 +340,13 @@ td {
     height : 400px;
     margin: 0 auto; /* Centre la div horizontalement */
     grid-column-gap: 20px;
-    padding-top: 100px;
+    padding-top: 80px;
 }
 
 .link-page {
     display: flex; /* Utiliser flexbox */
     justify-content: center; /* Aligner horizontalement au centre */
-    padding-bottom: 75px;
+    padding-bottom: 40px;
     margin: 0 auto;
     width:100%;
 }
@@ -349,7 +354,7 @@ td {
 .link-page a{
     text-decoration: none;
     color: black;
-    font-size: 1.25em;
+    font-size: 1.37em;
     margin:0 10px;
     border-bottom: 3px solid transparent;
     transition: border-bottom 0.75s ease;
@@ -451,7 +456,7 @@ td {
     height: auto; /* Ajuster la hauteur en fonction du contenu */
     width: 60%;
     padding: 20px 5px 50px;  /* Modification des marges */
-    padding-bottom: 100px;
+    padding-bottom: 50px;
 }
 .progress-bar {
     height: 50px;
