@@ -679,6 +679,12 @@ input[type="radio"] {
         font-size: 1.2em;
     }
 
+    .semititle {
+        font-size: 3em;
+        margin-left: 30%;
+        margin-right: 30%;
+    }
+
 }
 
 /*RESPONSIVE POUR LES ÉCRANS < 1000px*/
@@ -686,6 +692,12 @@ input[type="radio"] {
     /* Sélecteur pour votre div */
     .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container,.container, .progress-container, .radar-container,.semititle{
       width: 90%;
+    }
+
+    .semititle {
+        font-size: 3em;
+        margin-left: 5%;
+        margin-right: 5%;
     }
 
     .donut-container {
