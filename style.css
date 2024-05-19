@@ -224,7 +224,7 @@ td {
 }
 
 #last-accordion {
-    margin-bottom: 80px;
+    margin-top: 80px;
 }
 
 .panel {
@@ -303,7 +303,7 @@ td {
 }
 
 .semititle {
-    font-size: 2.25em;
+    font-size: 2em;
     text-align: center;
     margin-top:80px;
     margin-bottom: 50px;
@@ -457,7 +457,7 @@ td {
     display: grid;
     grid-template-columns: auto auto; /* Deux colonnes égales */
     justify-content: center; /* Alignement au centre */
-    height : 350px;
+    height : 300px;
     margin: 0 auto; /* Centre la div horizontalement */
     grid-column-gap: 20px;
     width: 40%;
@@ -655,7 +655,7 @@ input[type="radio"] {
 /*RESPONSIVE POUR LES ÉCRANS > 1950px*/
 @media screen and (min-width: 1950px) {
     /* Sélecteur pour votre div */
-    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container, .progress-container, .container {
+    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container, .progress-container, .container,.semititle {
       width: 40%;
     }
 
@@ -684,7 +684,7 @@ input[type="radio"] {
 /*RESPONSIVE POUR LES ÉCRANS < 1000px*/
 @media screen and (max-width: 1000px) {
     /* Sélecteur pour votre div */
-    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container,.container, .progress-container, .radar-container{
+    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container,.container, .progress-container, .radar-container,.semititle{
       width: 90%;
     }
 

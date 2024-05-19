@@ -16,6 +16,7 @@
         <div class="onglets">
             <a href="wallet.html">Portefeuille</a>
             <!-- <a href="analyse.html">Analyseur</a> -->
+
         </div>
     </header>
     
@@ -250,7 +251,7 @@ Concernant les risques de la société à ce jour, je pense que le principal est
         </div>
         <h4 class="held-since">Action détenue depuis le : 27 mars 2023</h4>
     </div>
-    <div class="accordion" id="last-accordion">
+    <div class="accordion">
         <table class="stocks-info">
             <tr>
                 <td><img src="./media/Logo/V.png" alt="" class="stocks-pic"></td>
@@ -307,7 +308,7 @@ Concernant les risques de la société à ce jour, je pense que le principal est
         </div>
         <h4 class="held-since">Action détenue depuis le : 27 mars 2023</h4>
     </div>
-    <div class="bar-container">
+    <div class="bar-container" id="last-accordion">
         <canvas id="3Chart"></canvas>
         <canvas id="4Chart"></canvas>
     </div>
@@ -992,7 +993,7 @@ function draw4(diffListEuro) {
                 borderWidth: 2,
                 type: 'line', // Utiliser un graphique de type ligne
                 fill:true,
-                yAxisID:'percent-y-axis'
+                yAxisID:'percent-y-axis',
             }]
         },
         options: {
@@ -1662,7 +1663,7 @@ function draw17(stocksCotations) {
                     data: stocksCotations[0],
                     backgroundColor: 'rgba(54, 162, 235, 0.5)',
                     borderColor: 'rgba(54, 162, 235, 1)',
-                    tension: 0.5
+                    tension: 0.5,
                 },
                 {
                     label: 'MA',
