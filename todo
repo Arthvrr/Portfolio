@@ -1,9 +1,6 @@
 wallet.html :
 - ajouter avis perso visa
-- changer couleur entre pru et stocks price au rouge si pru > stocks price (jsp si faisable)
-- ajouter effet empilé dans graphe des dividendes mensuels (3eu AAPL et 2eu MA)
-- prolonger ligne moyenne jusqu'au bout (essayer, jsp si faisable) 
-
+- ajouter lien vers dividende et qualité générale pour chaque action où tout les autres labels deviennent hidden
 
 analyse.html 
 ajouter des graphes à la fin du résultat

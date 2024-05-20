@@ -354,6 +354,7 @@ Concernant les risques de la société à ce jour, je pense que le principal est
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+    
     <script>
 
 //TRANSITION FLUIDE POUR ALLER À ENDROITS DE LA PAGE
@@ -490,10 +491,9 @@ var diffPercentList = [];
 
 var dividendPerShares = [1,2.64,3.00,2.08]; // liste pour stocker les dividendes versés par actions en $
 
-var totalDividendPerShares = [];
+var totalDividendPerShares = []; //liste pour stocker les dividendes versés par action en €
 
 var totalDividend = 0; //motant total des dividendes touchés par an
-var averageDividendPerMonth = 0;
 
 var yieldOfShares = [];
 
@@ -531,6 +531,10 @@ var annualMarketReturnPercent = [-19.44,24.23]; //retour annuels du S&P500 en po
 
 var weightOfStocks = []; //liste qui représente le poids de chaque action du Portefeuille en % (valeurs : [0.24,0.26,0.3,0.2])
 var weightedAverages = [];
+
+
+var dividendData = Array(months.length).fill(0).map(() => Array(4).fill(0)); //Matrice qui représente qui pour chaque action le montant versé en dividende pour tout les mois
+
 
 
 
@@ -675,6 +679,26 @@ function calculateDividendPerMonth() {
         dividendPerMonth.push(toAdd);
     }
 }
+
+function calculateStackedDividendPerMonth() {
+    var monthAAPL = ["Février", "Mai", "Août", "Novembre"];
+    var monthMA = ["Février", "Mai", "Août", "Novembre"];
+    var monthMSFT = ["Mars", "Juin", "Septembre", "Décembre"];
+    var monthV = ["Mars", "Juin", "Septembre", "Décembre"];
+
+    for (let i = 0; i < months.length; i++) {
+        var currentMonth = months[i];
+
+        // Stocker les dividendes dans la matrice pour chaque action
+        dividendData[i][0] = monthAAPL.includes(currentMonth) ? Number((totalDividendPerShares[0]/4).toFixed(2)) : 0;
+        dividendData[i][1] = monthMA.includes(currentMonth) ? Number((totalDividendPerShares[1]/4).toFixed(2)) : 0;
+        dividendData[i][2] = monthMSFT.includes(currentMonth) ? Number((totalDividendPerShares[2]/4).toFixed(2)) : 0;
+        dividendData[i][3] = monthV.includes(currentMonth) ? Number((totalDividendPerShares[3]/4).toFixed(2)) : 0;
+    }
+    return dividendData;
+}
+
+
 
 
 // Fonction pour remplir le tableau des prix actuels des actions
@@ -1128,55 +1152,93 @@ function draw6(yieldOfShares) {
     });
 }
 
-function draw7(dividendPerMonth, averageDividend) {
+function draw7(dividendData) {
     var ctx = document.getElementById('7Chart').getContext('2d');
 
-    // Création d'un tableau contenant la moyenne de tous les dividendes par mois
-    var averageData = Array(dividendPerMonth.length).fill(averageDividendPerMonth);
+    var dividendAAPL = dividendData.map(data => data[0]);
+    var dividendMA = dividendData.map(data => data[1]);
+    var dividendMSFT = dividendData.map(data => data[2]);
+    var dividendV = dividendData.map(data => data[3]);
 
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: months,
-            datasets: [{
-                label:'Dividende par mois en €',
-                data: dividendPerMonth,
-                backgroundColor: [
-                    'rgba(0, 17, 255, 0.5)', // Bleu pour la première valeur de stocks
-                ],
-                borderColor: [
-                    'rgba(0, 17, 255, 1)', // Bordure bleue pour la première valeur de stocks
-                ],
-                borderWidth: 2
-            }, {
-                type: 'line',
-                label: 'Moyenne mensuelle en €',
-                data: averageData,
-                backgroundColor: 'rgba(255, 99, 132, 0.2)', // Couleur de fond pour la ligne
-                borderColor: 'rgba(255, 99, 132, 1)', // Couleur de la bordure pour la ligne
-                borderWidth: 3,
-                borderDash: [5, 5], // Utilisez un trait pointillé
-                fill: false, // Ne pas remplir l'espace sous la ligne
-                pointRadius: 0, // Aucun point pour la ligne constante
-            }]
+            datasets: [
+                {
+                    label: 'AAPL',
+                    data: dividendAAPL,
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)', // Couleur pour AAPL
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 2
+                },
+                {
+                    label: 'MA',
+                    data: dividendMA,
+                    backgroundColor: 'rgba(128, 0, 128, 0.5)', // Couleur pour MA
+                    borderColor: 'rgba(128, 0, 128, 1)',
+                    borderWidth: 2
+                },
+                {
+                    label: 'MSFT',
+                    data: dividendMSFT,
+                    backgroundColor: 'rgba(255, 143, 0, 0.5)', // Couleur pour MSFT
+                    borderColor: 'rgba(255, 143, 0, 1)',
+                    borderWidth: 2
+                },
+                {
+                    label: 'V',
+                    data: dividendV,
+                    backgroundColor: 'rgba(255, 205, 86, 0.5)', // Couleur pour V
+                    borderColor: 'rgba(255, 205, 86, 1)',
+                    borderWidth: 2
+                },
+                {
+                    type:'line',
+                    label:'Montant total',
+                    data:dividendPerMonth,
+                    backgroundColor:'rgba(0, 17, 255, 0.25)',
+                    borderColor:'rgba(0, 17, 255, 1)',
+                    hidden:'true',
+                    fill:'false',
+                    borderWidth:3,
+                },
+            ]
         },
         options: {
             maintainAspectRatio: false,
             plugins: {
-                legend : {
-                    display : true,
-                    position : 'bottom'
+                legend: {
+                    display: true,
+                    position: 'bottom'
                 },
-                title : {
-                    display:true,
-                    text:'Dividendes mensuel en €',
-                    position : 'top'
+                title: {
+                    display: true,
+                    text: 'Dividendes mensuels en €',
+                    position: 'top'
+                },
+            },
+            scales: {
+                x: {
+                    stacked: true
+                },
+                y: {
+                    stacked: true
                 }
-            }
-            
+            },
         }
     });
 }
+
+
+
+
+
+
+
+
+
+
 
 
 function draw8(stocksPrice) {
@@ -1194,7 +1256,7 @@ function draw8(stocksPrice) {
                 borderColor: [
                     'rgba(214, 0, 0, 1)',
                 ],
-                borderWidth: 2
+                borderWidth: 2,
             },{
                 label : "Prix de l'action",
                 data: stocksPrice,
@@ -1205,7 +1267,7 @@ function draw8(stocksPrice) {
                 borderColor: [
                     'rgba(0, 99, 27, 1)',
                 ],
-                borderWidth: 2
+                borderWidth: 2,
             }]
             
         },
@@ -1949,8 +2011,6 @@ async function main() {
 
     calculateDividendPerMonth();
 
-    averageDividendPerMonth = Number((totalDividend / 12));
-
     document.getElementById("total-div").textContent = totalDividend.toFixed(2);
 
     yieldOfWallet = Number((totalDividend/totalWallet)*100);
@@ -1960,6 +2020,8 @@ async function main() {
     averageValuePerStocks = finalValue / tickerOfShares.length;
 
     totalGainWithoutDividend = (diffEuro - totalDividendReceived).toFixed(2); //le gain total en plus-value = gain total - dividendes nets reçus
+
+    calculateStackedDividendPerMonth();
     
     //CHANGER COULEURS
     changeBackgroundColor(diffEuro, diffPercent);
@@ -1971,7 +2033,6 @@ async function main() {
     fillValueOfStocks(stocksPrice, exchangeRate);
     fillReturnInEuros(diffListEuro);
     fillReturnInPercent(diffPercentList);
-    console.log(diffPercentList);
 
     //OBTENIR POIDS DE CHAQUE ACTIONS
     calculateWeightOfStocks(finalValueOfStocks,finalValue);
@@ -1988,7 +2049,7 @@ async function main() {
     draw4(diffListEuro);
     draw5(totalDividendPerShares);
     draw6(yieldOfShares);
-    draw7(dividendPerMonth);
+    draw7(dividendData);
     draw8(stocksPrice,pruOfShares);
     draw9();
     draw10(annualInvested, walletEndYear);
