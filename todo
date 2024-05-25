@@ -1,6 +1,8 @@
 wallet.html :
+- texte responsive link-page
 - ajouter avis perso visa
-- ajouter lien vers dividende et qualité générale pour chaque action où tout les autres labels deviennent hidden
+
+
 
 analyse.html 
 ajouter des graphes à la fin du résultat
@@ -29,6 +31,9 @@ A CHANGER :
 - retour annuels euro et %
 - dividendes annuels touchés
 - dividendes par action
+- perf par actions
+- valeur pf en fin d'année
+- dividendes reçus en cours d'année
 
 
 

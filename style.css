@@ -322,7 +322,7 @@ td {
     color: white; 
 }
 
-#invested, #wallet-value, #cash, #total-value,#total-div, #yield-wallet {
+#invested, #wallet-value, #cash, #total-value,#total-div, #yield-wallet, #return-euro, #return-percent {
     background-color: #d1d1d1;
 }
 
@@ -364,13 +364,12 @@ td {
     justify-content: center; /* Aligner horizontalement au centre */
     padding-bottom: 40px;
     margin: 0 auto;
-    width:100%;
 }
 
 .link-page a{
     text-decoration: none;
     color: black;
-    font-size: 1.37em;
+    font-size: 1.35em;
     margin:0 10px;
     border-bottom: 3px solid transparent;
     transition: border-bottom 0.75s ease;
@@ -652,8 +651,8 @@ input[type="radio"] {
 
 
 
-/*RESPONSIVE POUR LES ÉCRANS > 1950px*/
-@media screen and (min-width: 1950px) {
+/*RESPONSIVE POUR LES ÉCRANS > 2100px*/
+@media screen and (min-width: 2100px) {
     /* Sélecteur pour votre div */
     .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container, .progress-container, .container,.semititle {
       width: 40%;
@@ -685,10 +684,14 @@ input[type="radio"] {
         margin-right: 30%;
     }
 
+    .link-page a {
+        font-size: 1.5em;
+    }
+
 }
 
 /*RESPONSIVE POUR LES ÉCRANS < 1000px*/
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
     /* Sélecteur pour votre div */
     .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container,.container, .progress-container, .radar-container,.semititle{
       width: 90%;
