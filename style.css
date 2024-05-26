@@ -189,6 +189,18 @@ header {
     margin-right: 10px; /* Espace entre le logo et le texte */
 }
 
+.reset-link-start{
+    font-size: 1.2em;
+    text-decoration: none;
+    color: white;
+}
+
+.reset-link{
+    font-size: 1.2em;
+    text-decoration: none;
+    color: black;
+}
+
 /* WALLET.HTML */
 
 .wallet-intro {
@@ -464,7 +476,6 @@ td {
   
 .progress-container {
     margin: 0 auto;
-    background: rgba(255,255,255,0.1);
     display: flex;
     flex-direction: column; /* Affichage en colonne */
     align-items: center;
@@ -476,7 +487,6 @@ td {
 .progress-bar {
     height: 50px;
     width: 100%;
-    color: #60a1fc;
 }
 
 .progress-title {
