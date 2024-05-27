@@ -26,7 +26,7 @@ header {
     color: #ffffff; /* Utiliser la couleur de texte par défaut */
     display: flex; /* Utiliser Flexbox pour aligner les éléments horizontalement */
     align-items: center; /* Aligner verticalement le contenu */
-    padding-left: 12%;
+    padding-left: 20%;
 }
 
 .logo-title-link img {
@@ -44,7 +44,7 @@ header {
 /* Style pour les onglets */
 .onglets {
     display: flex;
-    padding-right: 10%;
+    padding-right: 17%;
     font-size: 1.5em;
 }
 
@@ -180,7 +180,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 50px;
     margin-bottom: 30px;
 }
 
@@ -210,7 +210,6 @@ header {
     background-color: #f0f0f0; /* Couleur de fond */
     margin: 0 auto;
     margin-top: 20px;
-    margin-bottom: 50px;
     table-layout: fixed; /* Fixer la taille des colonnes */
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Ombre légère */
 }
@@ -314,11 +313,20 @@ td {
     grid-column-gap: 10%;
 }
 
+.score-donut-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto; /* Deux colonnes égales */
+    justify-content: center; /* Alignement au centre */
+    width:12%;
+    height : 300px;
+    margin: 0 auto; /* Centre la div horizontalement */
+    grid-column-gap: 10%;
+}
+
 .semititle {
     font-size: 2em;
     text-align: center;
     margin-top:80px;
-    margin-bottom: 50px;
     position: relative;
     margin-left: 20%;
     margin-right: 20%;
@@ -372,24 +380,26 @@ td {
 }
 
 .link-page {
-    display: flex; /* Utiliser flexbox */
-    justify-content: center; /* Aligner horizontalement au centre */
+    display: flex;
+    justify-content: center;
     padding-bottom: 40px;
     margin: 0 auto;
+    width: 60%;
+    flex-wrap: nowrap;
 }
 
 .link-page a{
     text-decoration: none;
     color: black;
-    font-size: 1.35em;
+    font-size: 1.25em;
     margin:0 10px;
     border-bottom: 3px solid transparent;
     transition: border-bottom 0.75s ease;
 }
 
 .link-page h3:not(:last-child)::after {
-    content: "•"; /* Ajouter un point médian après chaque élément, sauf le dernier */
-    margin-left: 5px; /* Ajouter un espace entre le point médian et l'élément */
+    content: "•";
+    margin-left: 5px;
 }
 
 .link-page a:hover{
@@ -505,153 +515,40 @@ td {
 
 
 
-/*SELECTION.HTML*/
-.container {
-    /* background-color: #f0f0f0;
-    border: 2px solid black;     */
-    width:60%;
-    margin: 0 auto;
-    margin-top: 150px;
-}
-
-.container-text{
-    padding-left: 3%;
-    padding-right: 3%;
-    padding-top: 20px;
-    font-size: 1.15em;
-    padding-bottom: 50px;
-}
-
-.subtitle {
-    padding-left: 3%;
-    font-size: 1.4em;
-    text-decoration: underline;
-    padding-bottom: 20px;
-    text-align: center;
-}
-
-.analyse-section {
-    border: 3px solid;
-    margin-bottom: 50px;
-}
-
-.analyse-section table {
-    width: 100%;
-    table-layout: fixed; /* Fixer la taille des colonnes */
-}
-
-.analyse-section th {
-    border:2px solid;
-    font-size: 1.3em;
-}
-
-.analyse-section td {
-    border:2px solid;
-}
-
-#basics {
-    background-color: rgb(215, 232, 255);
-}
-
-#growth {
-    background-color: rgb(230, 255, 227);
-}
-
-#profitability{
-    background-color: rgb(241, 230, 249);
-}
-
-#solvency {
-    background-color:rgb(254, 241, 216) ;
-}
-
-#dividende {
-    background-color: rgb(254, 231, 231);
-}
-
-.formulaire {
-    border: none; /* Retire les bordures du formulaire */
-}
-
-.formulaire input {
-    background-color: transparent;
-    border: none; /* Retire les bordures du formulaire */
-    width: 100%;
-    height:100px;
-}
-
-input[type="number"] {
-    font-family: 'Oswald',Arial, sans-serif;;
-    border: none; /* Retire les bordures des champs de saisie de type "number" */
-    outline: none; 
-    vertical-align: middle; /* Centre verticalement */
-    font-size: 50px; /* Définit une taille de police plus grande */
-    text-align: center;
-}
-
-input[type="radio"] {
-    font-family: 'Oswald',Arial, sans-serif;;
-    border: none; /* Retire les bordures des champs de saisie de type "number" */
-    outline: none; 
-    vertical-align: middle; /* Centre verticalement */
-    width: 25px; /* Largeur */
-    height: 25px; /* Hauteur */
-    position: relative; /* Position absolue pour l'input */
-}
-
-.selection-accordion {
-    width: 100%;
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-    font-size: 1.4em;
-    padding-top: 25px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.selection-panel {
-    margin: 0 auto;
-    display: none;
-    background-color: transparent;
-    overflow: hidden;
-    padding-top: 50px;
-    font-size: 1.2em;
-    padding-left: 2%;
-    padding-right: 2%;
-    text-align: justify;
-}
 
 
-.criteria-explanation {
-    padding-top: 50px;
-    font-size: 1.1em;
-    padding-left: 2%;
-    padding-right: 2%;
-    text-align: justify;
-}
 
-.button-container {
-    margin-top: 100px;
-    justify-content: center;
-    text-align: center;
-}
 
-.score-button {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
-    font-size: 1.25em;
-    background-color: #60a1fc;
-    color: white;
-    font-weight: bold;
-    transition: 0.75s ease;
-}
 
-.score-button:hover{
-    background-color: green;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

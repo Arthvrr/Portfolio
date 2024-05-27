@@ -15,16 +15,16 @@
         </a>
         <div class="onglets">
             <a href="wallet.html">Portefeuille</a>
-            <!-- <a href="analyse.html">Analyseur</a> -->
+            <!-- <a href="#">Offres</a> -->
 
         </div>
     </header>
-    
+
     <h2 class="semititle">Portefeuille à Dividendes Quality 💎</h2>
 
     <div class="link-page">
         <h3><a href="#intro">Performance</a></h3>
-        <h3><a href="#stocks-detail">Détails du Portefeuille</a></h3>
+        <h3><a href="#stocks-detail">Composition</a></h3>
         <h3><a href="#dividend">Dividendes</a></h3>
         <h3><a href="#annual-perf">Retours Annuel</a></h3>
         <h3><a href="#quality">Qualité</a></h3>
@@ -340,6 +340,13 @@
     <div class="big-radar-container">
         <canvas id="20Chart"></canvas>
     </div>
+
+    <!-- <div class="score-donut-container">
+        <canvas id="21Chart"></canvas>
+        <canvas id="22Chart"></canvas>
+        <canvas id="23Chart"></canvas>
+        <canvas id="24Chart"></canvas>
+    </div> -->
     
 
     <div class="footer">
@@ -521,6 +528,11 @@ var MACotation = [83,100,100,50,100]
 var MSFTCotation = [100,100,67,100,83]
 var VCotation = [83,67,83,100,100]
 var stocksCotation = [AAPLCotation,MACotation,MSFTCotation,VCotation];
+
+var AAPLScore = 22;
+var MAScore = 26;
+var MSFTScore = 27;
+var VScore = 26;
 
 var annualMarketReturnPercent = [-19.44,24.23]; //retour annuels du S&P500 en pourcent (source : https://www.macrotrends.net/2526/sp-500-historical-annual-returns)
 
@@ -1907,6 +1919,175 @@ function draw20(weightedAverages) {
     });
 }
 
+
+
+// function draw21(AAPLScore) {
+//     var ctx = document.getElementById('21Chart').getContext('2d');
+
+//     var Rest = 30 - AAPLScore;
+
+//     var myChart = new Chart(ctx, {
+//         type: 'doughnut',
+//         data: {
+//             labels: ['Score sur 30'],
+//             datasets: [{
+//                 data: [AAPLScore, Rest],
+//                 backgroundColor: [
+//                     'rgba(0, 99, 27, 0.5)',
+//                     'rgba(255, 255, 255, 0.5)',
+//                 ],
+//                 borderColor: [
+//                     'rgba(0, 99, 27, 1)',
+//                     'rgba(200, 200, 200, 1)',
+//                 ],
+//                 borderWidth: 1
+//             }]
+//         },
+//         options: {
+//             cutout: '70%',
+//             maintainAspectRatio: false,
+//             plugins: {
+//                 legend : {
+//                     display:false,
+//                     position:'bottom'
+//                 },
+//                 title : {
+//                     display:true,
+//                     text:'Score AAPL',
+//                     position : 'top'
+//                 }
+//             }
+//         }
+//     });
+// }
+
+// function draw22(MAScore) {
+//     var ctx = document.getElementById('22Chart').getContext('2d');
+
+//     var Rest = 30 - MAScore;
+
+//     var myChart = new Chart(ctx, {
+//         type: 'doughnut',
+//         data: {
+//             labels: ['Score sur 30'],
+//             datasets: [{
+//                 data: [MAScore, Rest],
+//                 backgroundColor: [
+//                     'rgba(0, 99, 27, 0.5)',
+//                     'rgba(200, 200, 200, 0.5)',
+//                 ],
+//                 borderColor: [
+//                     'rgba(0, 99, 27, 1)',
+//                     'rgba(200, 200, 200, 0.5)',
+//                 ],
+//                 borderWidth: 1
+//             }]
+//         },
+//         options: {
+//             cutout: '70%',
+//             maintainAspectRatio: false,
+//             plugins: {
+//                 legend : {
+//                     display:false,
+//                     position:'bottom'
+//                 },
+//                 title : {
+//                     display:true,
+//                     text:'Score MA',
+//                     position : 'top'
+//                 }
+//             }
+//         }
+//     });
+// }
+
+// function draw23(MSFTScore) {
+//     var ctx = document.getElementById('23Chart').getContext('2d');
+
+//     var Rest = 30 - MSFTScore;
+
+//     var myChart = new Chart(ctx, {
+//         type: 'doughnut',
+//         data: {
+//             labels: ['Score sur 30'],
+//             datasets: [{
+//                 data: [MSFTScore, Rest],
+//                 backgroundColor: [
+//                     'rgba(0, 99, 27, 0.5)',
+//                     'rgba(200, 200, 200, 0.5)',
+//                 ],
+//                 borderColor: [
+//                     'rgba(0, 99, 27, 1)',
+//                     'rgba(200, 200, 200, 0.5)',
+//                 ],
+//                 borderWidth: 1
+//             }]
+//         },
+//         options: {
+//             cutout: '70%',
+//             maintainAspectRatio: false,
+//             plugins: {
+//                 legend : {
+//                     display:false,
+//                     position:'bottom'
+//                 },
+//                 title : {
+//                     display:true,
+//                     text:'Score MSFT',
+//                     position : 'top'
+//                 }
+//             }
+//         }
+//     });
+// }
+
+// function draw24(VScore) {
+//     var ctx = document.getElementById('24Chart').getContext('2d');
+
+//     var Rest = 30 - VScore;
+
+//     var myChart = new Chart(ctx, {
+//         type: 'doughnut',
+//         data: {
+//             labels: ['Score sur 30'],
+//             datasets: [{
+//                 data: [VScore, Rest],
+//                 backgroundColor: [
+//                     'rgba(0, 99, 27, 0.5)',
+//                     'rgba(200, 200, 200, 0.5)',
+//                 ],
+//                 borderColor: [
+//                     'rgba(0, 99, 27, 1)',
+//                     'rgba(200, 200, 200, 0.5)',
+//                 ],
+//                 borderWidth: 1
+//             }]
+//         },
+//         options: {
+//             cutout: '70%',
+//             maintainAspectRatio: false,
+//             plugins: {
+//                 legend : {
+//                     display:false,
+//                     position:'bottom'
+//                 },
+//                 title : {
+//                     display:true,
+//                     text:'Score V',
+//                     position : 'top'
+//                 }
+//             }
+//         }
+//     });
+// }
+
+
+
+
+
+
+
+
 // Fonction d'interpolation qui ralentit sur les derniers pourcentages
 function easeOutCubic(t) {
     return (--t) * t * t + 1;
@@ -2058,7 +2239,10 @@ async function main() {
     draw18(totalDividendReceived,totalGainWithoutDividend);
     draw19(annualReturnPercent,annualMarketReturnPercent);
     draw20(weightedAverages);
-
+    // draw21(AAPLScore);
+    // draw22(MAScore);
+    // draw23(MSFTScore);
+    // draw24(VScore);
 }
 
 main();
