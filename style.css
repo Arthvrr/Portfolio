@@ -9,7 +9,6 @@ body {
     min-width: 750px;
 }
 
-/* Style de l'en-tête */
 header {
     padding: 20px;
     text-align: center;
@@ -41,7 +40,6 @@ header {
     margin-left: 5px; /* Réduire l'espace négatif */
 }
 
-/* Style pour les onglets */
 .onglets {
     display: flex;
     font-size: 1.5em;
@@ -54,13 +52,6 @@ header {
     padding: 20px;
     margin-right: 10px;
     font-weight: bold;
-}
-
-
-
-.bouton {
-    color:black;
-    text-decoration: none;
 }
 
 /* START.HTML */
@@ -121,19 +112,19 @@ header {
 
 @keyframes fade-in {
     from {
-        opacity: 0; /* Début de l'animation: opacité à 0 (invisible) */
+        opacity: 0; 
     }
     to {
-        opacity: 1; /* Fin de l'animation: opacité à 1 (texte entièrement visible) */
+        opacity: 1; 
     }
 }
 
 @keyframes slide-in {
     from {
-        width: 0; /* Début de l'animation: largeur nulle (invisible) */
+        width: 0; 
     }
     to {
-        width: 100%; /* Fin de l'animation: largeur totale (texte entièrement visible) */
+        width: 100%;
     }
 }
 
@@ -152,8 +143,8 @@ header {
     width: 100%;
     color: #fff;
     text-align: center;
-    padding: 10px 0; /* Ajuster le padding selon vos besoins */
-    z-index: 1; /* Pour placer le pied de page au-dessus de la vidéo */
+    padding: 10px 0;
+    z-index: 1;
 }
 
 .footer-start .copyright-start {
@@ -163,8 +154,8 @@ header {
 }
 
 .footer-start .copyright-start img {
-    width: 30px; /* Ajustez la taille du logo selon vos besoins */
-    margin-right: 10px; /* Espace entre le logo et le texte */
+    width: 30px;
+    margin-right: 10px;
 }
 
 .footer {
@@ -173,7 +164,7 @@ header {
     width: 100%;
     color: #000000;
     text-align: center;
-    z-index: 1; /* Pour placer le pied de page au-dessus de la vidéo */
+    z-index: 1;
 }
 
 .footer .copyright {
@@ -185,8 +176,8 @@ header {
 }
 
 .footer .copyright img {
-    width: 30px; /* Ajustez la taille du logo selon vos besoins */
-    margin-right: 10px; /* Espace entre le logo et le texte */
+    width: 30px;
+    margin-right: 10px;
 }
 
 .reset-link-start{
@@ -205,17 +196,17 @@ header {
 
 .wallet-intro {
     width: 60%;
-    border-collapse: collapse; /* Fusionner les bordures de cellules */
-    border: 2px solid black; /* Bordure du tableau */
-    background-color: #f0f0f0; /* Couleur de fond */
+    border-collapse: collapse;
+    border: 2px solid black;
+    background-color: #f0f0f0;
     margin: 0 auto;
     margin-top: 20px;
-    table-layout: fixed; /* Fixer la taille des colonnes */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Ombre légère */
+    table-layout: fixed;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 td {
-    border: 1px solid black; /* Bordure des cellules */
-    padding: 8px; /* Espacement interne */
+    border: 1px solid black;
+    padding: 8px;
     font-weight: bold;
     font-size: 1.05em;
     height: 50px;
@@ -381,25 +372,22 @@ td {
 
 .link-page {
     display: flex;
-    justify-content: center;
+    justify-content: space-between; /* Pour maximiser l'espace entre les liens */
     padding-bottom: 40px;
     margin: 0 auto;
     width: 60%;
-    flex-wrap: nowrap;
+    flex-wrap: wrap; /* Pour que les liens passent à la ligne s'ils ne rentrent pas */
 }
 
-.link-page a{
+.link-page a {
     text-decoration: none;
     color: black;
     font-size: 1.25em;
-    margin:0 10px;
+    margin-bottom: 10px; /* Espacement en bas de chaque lien */
+    flex: 1; /* Pour que les liens prennent toute la largeur disponible */
+    max-width: calc(50% - 20px); /* Pour limiter la largeur des liens à 50% de la largeur de leur conteneur avec un espacement de 20px */
     border-bottom: 3px solid transparent;
     transition: border-bottom 0.75s ease;
-}
-
-.link-page h3:not(:last-child)::after {
-    content: "•";
-    margin-left: 5px;
 }
 
 .link-page a:hover{
