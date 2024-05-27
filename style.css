@@ -44,8 +44,8 @@ header {
 /* Style pour les onglets */
 .onglets {
     display: flex;
-    padding-right: 17%;
     font-size: 1.5em;
+    padding-right: 20%;
 }
 
 .onglets a {
@@ -595,6 +595,14 @@ td {
         font-size: 1.5em;
     }
 
+    .logo-title-link  {
+        padding-left: 30%;
+    }
+
+    .onglets {
+        padding-right: 30%;
+    }
+
 }
 
 /*RESPONSIVE POUR LES ÉCRANS < 1000px*/
@@ -611,10 +619,10 @@ td {
     }
 
     .donut-container {
-        width:90%;
-        grid-template-columns: auto;
+        width:27.5%;
+        /* grid-template-columns: auto; */
         height: 350px;
-        margin-bottom: 750px;
+        /* margin-bottom: 750px; */
     }
 
     .bar-container {
@@ -631,6 +639,14 @@ td {
 
     .wallet-intro td {
         font-size: 1em;
+    }
+
+    .logo-title-link  {
+        padding-left: 5%;
+    }
+
+    .onglets {
+        padding-right: 5%;
     }
 
 }
