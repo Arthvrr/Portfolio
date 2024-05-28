@@ -565,10 +565,6 @@ td {
         width: 40%;
     }
 
-    .link-page a {
-        font-size: 1.5em;
-    }
-
     .wallet-intro td {
         font-size: 1.2em;
     }
@@ -581,6 +577,10 @@ td {
 
     .link-page a {
         font-size: 1.5em;
+    }
+
+    .link-page {
+        width:40%;
     }
 
     .logo-title-link  {
@@ -619,6 +619,7 @@ td {
 
     .link-page {
         display: none;
+        
     }
 
     .wallet-intro {
