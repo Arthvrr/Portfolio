@@ -200,9 +200,9 @@ header {
     border: 2px solid black;
     background-color: #f0f0f0;
     margin: 0 auto;
-    margin-top: 20px;
     table-layout: fixed;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
 }
 td {
     border: 1px solid black;
@@ -317,7 +317,8 @@ td {
 .semititle {
     font-size: 2em;
     text-align: center;
-    margin-top:80px;
+    margin-top:75px;
+    margin-bottom: 25px;
     position: relative;
     margin-left: 20%;
     margin-right: 20%;
@@ -335,6 +336,11 @@ td {
 
 #invested, #wallet-value, #cash, #total-value,#total-div, #yield-wallet, #return-euro, #return-percent {
     background-color: #d1d1d1;
+}
+
+#ticker {
+    font-style: italic;
+    text-decoration: underline;
 }
 
 .bar-container {
@@ -373,7 +379,7 @@ td {
 .link-page {
     display: flex;
     justify-content: space-between; /* Pour maximiser l'espace entre les liens */
-    padding-bottom: 40px;
+    padding-bottom: 30px;
     margin: 0 auto;
     width: 60%;
     flex-wrap: wrap; /* Pour que les liens passent à la ligne s'ils ne rentrent pas */

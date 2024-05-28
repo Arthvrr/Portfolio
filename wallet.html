@@ -795,6 +795,17 @@ function fillReturnInEuros(diffListEuro) {
         if (index < stocksPrice.length) {
             // Mettre à jour le contenu de la cellule avec le prix correspondant
             cell.textContent = diffListEuro[index];
+
+            const diffEuro = parseFloat(diffListEuro[index]);
+            if (diffEuro > 0) {
+                cell.style.color = 'green'; // Vert
+            } else if (diffEuro < 0) {
+                cell.style.color = 'red'; // Rouge
+            } else {
+                cell.style.color = ''; // Couleur par défaut (généralement noire)
+            }
+
+
         } else {
             // Afficher un message d'erreur si l'index est en dehors des limites du tableau
             console.error('Index out of range for stock prices array.');
@@ -803,7 +814,7 @@ function fillReturnInEuros(diffListEuro) {
 }
 
 // Fonction pour remplir le tableau du retour sur investissement en % par action
-function fillReturnInPercent(diffListEuro) {
+function fillReturnInPercent(diffPercentList) {
     // Sélectionner tous les éléments <td> avec l'ID "price"
     var priceCells = document.querySelectorAll('#perf-percent');
 
@@ -813,6 +824,17 @@ function fillReturnInPercent(diffListEuro) {
         if (index < stocksPrice.length) {
             // Mettre à jour le contenu de la cellule avec le prix correspondant
             cell.textContent = diffPercentList[index];
+
+            // Changer la couleur du texte en fonction de la valeur
+            const diffPercent = parseFloat(diffPercentList[index]);
+            if (diffPercent > 0) {
+                cell.style.color = 'green'; // Vert
+            } else if (diffPercent < 0) {
+                cell.style.color = 'red'; // Rouge
+            } else {
+                cell.style.color = ''; // Couleur par défaut (généralement noire)
+            }
+
         } else {
             // Afficher un message d'erreur si l'index est en dehors des limites du tableau
             console.error('Index out of range for stock prices array.');
