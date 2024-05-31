@@ -12,7 +12,7 @@ body {
 header {
     padding: 20px;
     text-align: center;
-    height: 40px; /* Hauteur ajustée */
+    height: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -21,29 +21,29 @@ header {
 }
 
 .logo-title-link {
-    text-decoration: none; /* Supprimer la décoration de lien */
-    color: #ffffff; /* Utiliser la couleur de texte par défaut */
-    display: flex; /* Utiliser Flexbox pour aligner les éléments horizontalement */
-    align-items: center; /* Aligner verticalement le contenu */
+    text-decoration: none; 
+    color: #ffffff;
+    display: flex;
+    align-items: center;
     padding-left: 20%;
 }
 
 .logo-title-link img {
-    width: 50px; /* Ajuster la taille du logo selon vos besoins */
-    height: auto; /* Pour conserver le ratio hauteur/largeur */
+    width: 50px;
+    height: auto;
 }
 
 .logo-title-link h1 {
-    margin: 0; /* Supprimer les marges par défaut */
-    font-size: 1.75em; /* Ajuster la taille du texte du titre */
+    margin: 0;
+    font-size: 1.75em;
     text-decoration: none;
-    margin-left: 5px; /* Réduire l'espace négatif */
+    margin-left: 5px;
 }
 
 .onglets {
     display: flex;
     font-size: 1.5em;
-    padding-right: 20%;
+    padding-right: 18%;
 }
 
 .onglets a {
@@ -56,12 +56,11 @@ header {
 
 /* START.HTML */
 
-/* Styles pour la vidéo en arrière-plan */
 .video-bg {
     position: relative;
     width: 100%;
-    height: 100vh; /* 100% de la hauteur de la fenêtre visible */
-    overflow: hidden; /* Pour cacher le débordement de la vidéo */
+    height: 100vh;
+    overflow: hidden;
 }
 
 .video-bg__video {
@@ -70,37 +69,36 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Pour placer la vidéo en arrière-plan */
-    object-fit: cover; /* Pour couvrir toute la zone du conteneur */
+    z-index: -1;
+    object-fit: cover;
 }
 
-/* Styles pour le contenu au-dessus de la vidéo */
 .content {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: #fff; /* Couleur du texte */
-    z-index: 1; /* Pour placer le contenu au-dessus de la vidéo */
+    color: #fff;
+    z-index: 1;
     padding: 20px;
 }
 
 .content h1 {
-    font-size: 2.5em; /* Taille de police du titre */
-    margin: 0; /* Supprimer les marges par défaut */
-    white-space: nowrap; /* Empêche le texte de passer à la ligne */
+    font-size: 2.5em;
+    margin: 0;
+    white-space: nowrap;
     color: yellow;
     text-decoration: underline;
     font-weight: bold;
     background-color: black;
-    overflow: hidden; /* Masquer le texte débordant */
-    animation: slide-in 4s ease forwards; /* Utiliser une animation pour faire apparaître le texte */
+    overflow: hidden;
+    animation: slide-in 4s ease forwards;
 }
 
 .content h3 {
-    margin-top: 45px; /* Espacement entre le titre et le paragraphe */
-    font-size: 1.75em; /* Taille de police du titre */
+    margin-top: 45px;
+    font-size: 1.75em;
     animation: fade-in 5s ease forwards;
     font-weight: bold;
 }
@@ -191,6 +189,7 @@ header {
     text-decoration: none;
     color: black;
 }
+
 
 /* WALLET.HTML */
 
@@ -322,16 +321,11 @@ td {
     position: relative;
     margin-left: 20%;
     margin-right: 20%;
-    border: 3px solid black; /* Bordure de 1 pixel solide noire */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Ombre légère */
-    background-color: white; /* Couleur initiale */
+    border: 3px solid black;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    background-color: #5c5c5c;
     overflow: hidden;
-    transition: background-color 3s, color 3s;
-}
-
-.semititle:hover {
-    background-color: #60a1fc;
-    color: white; 
+    color: white;
 }
 
 #invested, #wallet-value, #cash, #total-value,#total-div, #yield-wallet, #return-euro, #return-percent {
@@ -379,7 +373,7 @@ td {
 .link-page {
     display: flex;
     justify-content: space-between; /* Pour maximiser l'espace entre les liens */
-    padding-bottom: 30px;
+    padding-bottom: 60px;
     margin: 0 auto;
     width: 60%;
     flex-wrap: wrap; /* Pour que les liens passent à la ligne s'ils ne rentrent pas */
@@ -486,7 +480,7 @@ td {
     height: auto; /* Ajuster la hauteur en fonction du contenu */
     width: 60%;
     padding: 20px 5px 50px;  /* Modification des marges */
-    padding-bottom: 50px;
+    padding-bottom: 60px;
 }
 .progress-bar {
     height: 50px;
@@ -506,17 +500,85 @@ td {
 
 
 
+/*HOME.HTML*/
 
+.content-home {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 80px;
+}
 
+.content-home p {
+    font-size: 1.2em;
+    text-align: justify;
+}
 
+.content-home img {
+    width:700px;
+    max-width: 60%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 
+}
 
+.title-home{
+    margin: 0 auto;
+    margin-top: 75px;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    text-decoration: underline;
+    max-width: 60%;
+}
 
+.presentation-perso {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    background-color: #ffffff;
+    margin-top: 35px;
+    transition : background-color 3s, color 3s;
+}
 
+.presentation-perso img {
+    width: 100px;
+    padding-top: 10px;
+}
 
+.presentation-perso p {
+    font-size: 1.2em;
+    max-width: 60%;
+    text-align: justify;
+    padding-left: 20%;
+    padding-bottom: 10px;
+}
 
+.presentation-perso:hover {
+    background-color: #5c5c5c;
+    color: white; 
+}
 
+.subtitle{
+    padding-top: 40px;
+    padding-bottom: 20px;
+    text-align: left;
+    font-size: 1.65em;
+    text-decoration: underline;
+    padding-left: 2%;
+}
 
+.yellow-background{
+    background-color: yellow;
+}
+
+.legend {
+    font-size: 1em;
+    font-weight: bold;
+    color: blue;
+    font-style: italic;
+    max-width: 60%;
+    margin:0 auto;
+}
 
 
 
@@ -594,7 +656,24 @@ td {
     }
 
     .onglets {
-        padding-right: 30%;
+        padding-right: 28.5%;
+    }
+
+
+    .content-home {
+        width: 40%;
+    }
+    
+    .title-home{
+        font-size: 2.25em;
+        max-width: 40%;
+    }
+
+    .presentation-perso p {
+        font-size: 1.15em;
+        max-width: 40%;
+        padding-left: 30%;
+        
     }
 
 }
@@ -614,9 +693,7 @@ td {
 
     .donut-container {
         width:27.5%;
-        /* grid-template-columns: auto; */
         height: 350px;
-        /* margin-bottom: 750px; */
     }
 
     .bar-container {
@@ -641,7 +718,29 @@ td {
     }
 
     .onglets {
-        padding-right: 5%;
+        padding-right: 1%;
     }
+
+    .content-home {
+        width: 90%;
+    }
+    
+    .title-home{
+        font-size: 1.55em;
+        max-width: 90%;
+    }
+
+    .presentation-perso p {
+        font-size: 1.15em;
+        max-width: 90%;
+        padding-left: 5%;
+        
+    }
+
+    .legend {
+        font-size: 1em;
+    }
+
+
 
 }
