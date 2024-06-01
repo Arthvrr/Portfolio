@@ -281,35 +281,35 @@ td {
     font-size: 1.05em;
     text-align: center;
     margin: 0 auto;
-    table-layout: fixed; /* Fixer la taille des colonnes */
+    table-layout: fixed;
     margin-top: 80px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Ombre légère */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     
 }
 
 .stocks-header th {
     padding: 10px; /* Espacement interne */
     text-align: center;
-    border: 0.5px solid black;
+    border: 1px solid black;
 }
 
 .donut-container {
     display: grid;
-    grid-template-columns: auto auto auto; /* Deux colonnes égales */
-    justify-content: center; /* Alignement au centre */
+    grid-template-columns: auto auto auto; 
+    justify-content: center;
     width:20%;
     height : 300px;
-    margin: 0 auto; /* Centre la div horizontalement */
+    margin: 0 auto; 
     grid-column-gap: 10%;
 }
 
 .score-donut-container {
     display: grid;
-    grid-template-columns: auto auto auto auto; /* Deux colonnes égales */
-    justify-content: center; /* Alignement au centre */
+    grid-template-columns: auto auto auto auto;
+    justify-content: center;
     width:12%;
     height : 300px;
-    margin: 0 auto; /* Centre la div horizontalement */
+    margin: 0 auto;
     grid-column-gap: 10%;
 }
 
@@ -536,7 +536,7 @@ td {
     text-align: center;
     margin: 0 auto;
     background-color: #ffffff;
-    margin-top: 35px;
+    margin-top: 60px;
     transition : background-color 3s, color 3s;
 }
 
@@ -578,10 +578,18 @@ td {
     font-style: italic;
     max-width: 60%;
     margin:0 auto;
+    text-align: center;
 }
 
+.listed-text{
+    text-align: justify;
+}
 
-
+.commandements {
+    background-color: rgb(254, 240, 180);
+    padding:2% 2% 0% 2%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
 
 
 
