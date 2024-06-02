@@ -261,9 +261,8 @@ td {
     /* font-weight: bold; */
     text-align: center;
     border: 0.5px solid black;
-    padding: 5px; /* Réduire l'espacement interne des cellules */
-    font-size: 1.15em; /* Réduire la taille de la police du texte */
-    height: auto; /* Redéfinir la hauteur automatique pour s'adapter au contenu */
+    font-size: 1.15em;
+    height: auto;
 }
 
 .stocks-info tr:hover td {
