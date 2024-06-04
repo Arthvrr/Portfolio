@@ -519,15 +519,15 @@ var annualInvested = [0,5350]; //liste qui stocke le nombres d'euros investi par
 var walletEndYear = [0,5792.03] //liste qui stocke la valeur du portefeuille à la fin de chaque année
 
 var AAPLCotation = [100, 33, 67, 83, 83]; //liste des scores par secteur pour le ScoreCard
-var MACotation = [83,100,100,50,100]
+var MACotation = [67,100,100,50,100]
 var MSFTCotation = [100,100,67,100,83]
-var VCotation = [83,67,83,100,100]
+var VCotation = [67,67,83,100,100]
 var stocksCotation = [AAPLCotation,MACotation,MSFTCotation,VCotation];
 
 var AAPLScore = 22;
-var MAScore = 26;
+var MAScore = 25;
 var MSFTScore = 27;
-var VScore = 26;
+var VScore = 25;
 
 var annualMarketReturnPercent = [-19.44,24.23]; //retour annuels du S&P500 en pourcent (source : https://www.macrotrends.net/2526/sp-500-historical-annual-returns)
 
@@ -1238,7 +1238,7 @@ function draw7(dividendData) {
                 },
                 title: {
                     display: true,
-                    text: 'Dividendes mensuels en €',
+                    text: 'Dividendes mensuels bruts en €',
                     position: 'top'
                 },
             },
