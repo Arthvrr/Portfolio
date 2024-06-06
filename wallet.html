@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <a href="start.html" class="logo-title-link">
+        <a href="index.html" class="logo-title-link">
             <img src="./media/Logo/Logo-White.png" alt="Logo QualityInvest">
             <h1>StocksPickeur</h1>
         </a>
@@ -297,7 +297,7 @@
             </tr>
             <tr>
                 <td id="asset">Effet de Réseau</td>
-                <td id="risk">Enjeu de l'IA</td>
+                <td id="risk">Cyberattaques</td>
             </tr>
         </table>
         <h3 class="panel-subtitle" id="quality-score-v">Score de Qualité</h3>
@@ -465,7 +465,7 @@ var totalInvested = 5750; // montant total investi
 var totalInvestedCell = document.getElementById("invested");
 totalInvestedCell.textContent = totalInvested;
 
-var CashOnHand = 375.41; // cash disponible
+var CashOnHand = 377.44; // cash disponible
 var cashCell = document.getElementById("cash");
 cashCell.textContent = CashOnHand.toFixed(2);
 
@@ -520,13 +520,13 @@ var walletEndYear = [0,5792.03] //liste qui stocke la valeur du portefeuille à 
 
 var AAPLCotation = [100, 33, 67, 83, 83]; //liste des scores par secteur pour le ScoreCard
 var MACotation = [67,100,100,50,100]
-var MSFTCotation = [100,100,67,100,83]
+var MSFTCotation = [100,100,67,100,100]
 var VCotation = [67,67,83,100,100]
 var stocksCotation = [AAPLCotation,MACotation,MSFTCotation,VCotation];
 
 var AAPLScore = 22;
 var MAScore = 25;
-var MSFTScore = 27;
+var MSFTScore = 28;
 var VScore = 25;
 
 var annualMarketReturnPercent = [-19.44,24.23]; //retour annuels du S&P500 en pourcent (source : https://www.macrotrends.net/2526/sp-500-historical-annual-returns)
