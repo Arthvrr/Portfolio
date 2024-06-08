@@ -54,60 +54,6 @@ header {
     font-weight: bold;
 }
 
-/* START.HTML */
-
-.video-bg {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-}
-
-.video-bg__video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    object-fit: cover;
-}
-
-.content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: #fff;
-    z-index: 1;
-    padding: 20px;
-}
-
-.content h1 {
-    font-size: 2.5em;
-    margin: 0;
-    white-space: nowrap;
-    color: yellow;
-    text-decoration: underline;
-    font-weight: bold;
-    background-color: black;
-    overflow: hidden;
-    animation: slide-in 4s ease forwards;
-}
-
-.content h3 {
-    margin-top: 45px;
-    font-size: 1.75em;
-    animation: fade-in 5s ease forwards;
-    font-weight: bold;
-}
-
-.content h3 a {
-    text-decoration: none;
-    color: red;
-}
-
 @keyframes fade-in {
     from {
         opacity: 0; 
@@ -115,23 +61,6 @@ header {
     to {
         opacity: 1; 
     }
-}
-
-@keyframes slide-in {
-    from {
-        width: 0; 
-    }
-    to {
-        width: 100%;
-    }
-}
-
-.change-color {
-    transition: color 0.75s ease;
-}
-
-.change-color:hover {
-    color:#9AFFC6;
 }
 
 .footer-start {
@@ -499,7 +428,7 @@ td {
 
 
 
-/*HOME.HTML*/
+/*INDEX.HTML*/
 
 .content-home {
     width: 60%;
@@ -528,6 +457,7 @@ td {
     font-weight: bold;
     text-decoration: underline;
     max-width: 60%;
+    animation: fade-in 4s ease forwards;
 }
 
 .presentation-perso {
