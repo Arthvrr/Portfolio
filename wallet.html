@@ -15,6 +15,7 @@
         </a>
         <!-- MAX 3 ONGLETS -->
         <div class="onglets">
+            <!-- <a href="moat.html">MoatPicks</a> -->
             <a href="wallet.html">Portefeuille</a>
 
         </div>
@@ -458,17 +459,17 @@ function changeBackgroundColor(diffEuro,diffPercent){
 
 //TOUTES LES VARIABLES UTILISÉES
 
-var totalInvested = 5800; // montant total investi
+var totalInvested = 5900; // montant total investi
 var totalInvestedCell = document.getElementById("invested");
 totalInvestedCell.textContent = totalInvested;
 
-var CashOnHand = 427.44; // cash disponible
+var CashOnHand = 21.65; // cash disponible
 var cashCell = document.getElementById("cash");
 cashCell.textContent = CashOnHand.toFixed(2);
 
 var tickerOfShares = ["AAPL", "MA", "MSFT", "V"]; // tickers
-var numberOfShares = [9, 4, 5, 5]; // nombres d'actions
-var pruOfShares = [176.6352, 411.6737, 321.36, 229.595]; // PRU des 4 actions
+var numberOfShares = [9, 4, 5, 7]; // nombres d'actions
+var pruOfShares = [176.6352, 411.6737, 321.36, 241.2735]; // PRU des 4 actions
 
 var stocksPrice = []; // prix actuels des 4 actions, en $
 let totalPRU = 0;
@@ -1932,174 +1933,6 @@ function draw20(weightedAverages) {
         }
     });
 }
-
-
-
-// function draw21(AAPLScore) {
-//     var ctx = document.getElementById('21Chart').getContext('2d');
-
-//     var Rest = 30 - AAPLScore;
-
-//     var myChart = new Chart(ctx, {
-//         type: 'doughnut',
-//         data: {
-//             labels: ['Score sur 30'],
-//             datasets: [{
-//                 data: [AAPLScore, Rest],
-//                 backgroundColor: [
-//                     'rgba(0, 99, 27, 0.5)',
-//                     'rgba(255, 255, 255, 0.5)',
-//                 ],
-//                 borderColor: [
-//                     'rgba(0, 99, 27, 1)',
-//                     'rgba(200, 200, 200, 1)',
-//                 ],
-//                 borderWidth: 1
-//             }]
-//         },
-//         options: {
-//             cutout: '70%',
-//             maintainAspectRatio: false,
-//             plugins: {
-//                 legend : {
-//                     display:false,
-//                     position:'bottom'
-//                 },
-//                 title : {
-//                     display:true,
-//                     text:'Score AAPL',
-//                     position : 'top'
-//                 }
-//             }
-//         }
-//     });
-// }
-
-// function draw22(MAScore) {
-//     var ctx = document.getElementById('22Chart').getContext('2d');
-
-//     var Rest = 30 - MAScore;
-
-//     var myChart = new Chart(ctx, {
-//         type: 'doughnut',
-//         data: {
-//             labels: ['Score sur 30'],
-//             datasets: [{
-//                 data: [MAScore, Rest],
-//                 backgroundColor: [
-//                     'rgba(0, 99, 27, 0.5)',
-//                     'rgba(200, 200, 200, 0.5)',
-//                 ],
-//                 borderColor: [
-//                     'rgba(0, 99, 27, 1)',
-//                     'rgba(200, 200, 200, 0.5)',
-//                 ],
-//                 borderWidth: 1
-//             }]
-//         },
-//         options: {
-//             cutout: '70%',
-//             maintainAspectRatio: false,
-//             plugins: {
-//                 legend : {
-//                     display:false,
-//                     position:'bottom'
-//                 },
-//                 title : {
-//                     display:true,
-//                     text:'Score MA',
-//                     position : 'top'
-//                 }
-//             }
-//         }
-//     });
-// }
-
-// function draw23(MSFTScore) {
-//     var ctx = document.getElementById('23Chart').getContext('2d');
-
-//     var Rest = 30 - MSFTScore;
-
-//     var myChart = new Chart(ctx, {
-//         type: 'doughnut',
-//         data: {
-//             labels: ['Score sur 30'],
-//             datasets: [{
-//                 data: [MSFTScore, Rest],
-//                 backgroundColor: [
-//                     'rgba(0, 99, 27, 0.5)',
-//                     'rgba(200, 200, 200, 0.5)',
-//                 ],
-//                 borderColor: [
-//                     'rgba(0, 99, 27, 1)',
-//                     'rgba(200, 200, 200, 0.5)',
-//                 ],
-//                 borderWidth: 1
-//             }]
-//         },
-//         options: {
-//             cutout: '70%',
-//             maintainAspectRatio: false,
-//             plugins: {
-//                 legend : {
-//                     display:false,
-//                     position:'bottom'
-//                 },
-//                 title : {
-//                     display:true,
-//                     text:'Score MSFT',
-//                     position : 'top'
-//                 }
-//             }
-//         }
-//     });
-// }
-
-// function draw24(VScore) {
-//     var ctx = document.getElementById('24Chart').getContext('2d');
-
-//     var Rest = 30 - VScore;
-
-//     var myChart = new Chart(ctx, {
-//         type: 'doughnut',
-//         data: {
-//             labels: ['Score sur 30'],
-//             datasets: [{
-//                 data: [VScore, Rest],
-//                 backgroundColor: [
-//                     'rgba(0, 99, 27, 0.5)',
-//                     'rgba(200, 200, 200, 0.5)',
-//                 ],
-//                 borderColor: [
-//                     'rgba(0, 99, 27, 1)',
-//                     'rgba(200, 200, 200, 0.5)',
-//                 ],
-//                 borderWidth: 1
-//             }]
-//         },
-//         options: {
-//             cutout: '70%',
-//             maintainAspectRatio: false,
-//             plugins: {
-//                 legend : {
-//                     display:false,
-//                     position:'bottom'
-//                 },
-//                 title : {
-//                     display:true,
-//                     text:'Score V',
-//                     position : 'top'
-//                 }
-//             }
-//         }
-//     });
-// }
-
-
-
-
-
-
 
 
 // Fonction d'interpolation qui ralentit sur les derniers pourcentages

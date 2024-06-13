@@ -164,7 +164,7 @@ td {
     background-color: #f0f0f0;
     overflow: hidden;
     border : 1px solid black;
-    transition: max-height 0.75s ease; /* Ajout de transition pour la hauteur maximale */
+    transition: max-height 0.75s ease;
 }
 
 .panel p {
@@ -521,15 +521,128 @@ td {
 }
 
 
+/*MOAT.HTML*/
+.moat-home {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top:75px;
+    padding-bottom: 80px;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    margin-bottom:120px;
+}
+.search-bar {
+    width: 60%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.moat-text-intro{
+    padding-top: 40px;
+    width:60%;
+    margin: 0 auto;
+    font-size: 1.2em;
+    text-align: justify;
+    font-weight: normal;
+}
 
 
+.pic-container{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 50px;
+    background-color: #ececec;
+}
 
+.pic-container a {
+    position: relative;
+    display: block;
+}
 
+.pic-container img{
+    height:250px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    transition: filter 1s ease;
+}
 
+.pic-container img:hover {
+    filter: brightness(40%);
+}
 
+.pic-container a::after {
+    content: attr(data);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.85em;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 1s ease;
+    pointer-events: none;
+    text-decoration: underline;
+    max-width: 100%;
+    white-space: nowrap;
+}
+.pic-container a:hover::after {
+    opacity: 1;
+}
 
+.hidden{
+    display: none;
+}
 
+/*STOCKS*/
 
+.stocks-home {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 80px;
+    border: 2px solid black;
+    background-color: antiquewhite;
+    margin-top: 80px;
+    padding-bottom: 1000px;
+}
+
+.stocks-home p {
+    font-size: 1.2em;
+    text-align: justify;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.stocks-home img {
+    width:500px;
+    max-width: 60%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+
+}
+
+.stocks-title{
+    font-size: 1.75em;
+    text-decoration: underline;
+    padding-bottom: 20px;
+}
+
+.stocks-subtitle{
+    text-align: left;
+    padding-left: 4%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 1.6em;
+    font-style: italic;
+    text-decoration: underline;
+    color:navy;
+}
 
 
 
@@ -554,7 +667,7 @@ td {
 /*RESPONSIVE POUR LES ÉCRANS > 2100px*/
 @media screen and (min-width: 2100px) {
     /* Sélecteur pour votre div */
-    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container, .progress-container, .container,.semititle {
+    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container, .progress-container, .container,.semititle,.content-home,.moat-home,.link-page, .moat-text-intro, .stocks-home {
       width: 40%;
     }
 
@@ -584,21 +697,12 @@ td {
         font-size: 1.5em;
     }
 
-    .link-page {
-        width:40%;
-    }
-
     .logo-title-link  {
         padding-left: 30%;
     }
 
     .onglets {
         padding-right: 28.5%;
-    }
-
-
-    .content-home {
-        width: 40%;
     }
     
     .title-home{
@@ -618,7 +722,7 @@ td {
 /*RESPONSIVE POUR LES ÉCRANS < 1000px*/
 @media screen and (max-width: 1200px) {
     /* Sélecteur pour votre div */
-    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container,.container, .progress-container, .radar-container,.semititle{
+    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container,.container, .progress-container, .radar-container,.semititle, .moat-text-intro,.content-home,.moat-home{
       width: 90%;
     }
 
@@ -656,10 +760,6 @@ td {
 
     .onglets {
         padding-right: 1%;
-    }
-
-    .content-home {
-        width: 90%;
     }
     
     .title-home{
