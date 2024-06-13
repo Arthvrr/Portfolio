@@ -610,7 +610,6 @@ td {
     border: 2px solid black;
     background-color: antiquewhite;
     margin-top: 80px;
-    padding-bottom: 1000px;
 }
 
 .stocks-home p {
@@ -722,7 +721,7 @@ td {
 /*RESPONSIVE POUR LES ÉCRANS < 1000px*/
 @media screen and (max-width: 1200px) {
     /* Sélecteur pour votre div */
-    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container,.container, .progress-container, .radar-container,.semititle, .moat-text-intro,.content-home,.moat-home{
+    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container,.container, .progress-container, .radar-container,.semititle, .moat-text-intro,.content-home,.moat-home, .stocks-home{
       width: 90%;
     }
 
