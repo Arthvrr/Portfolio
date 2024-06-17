@@ -24,7 +24,7 @@ header {
     color: #ffffff;
     display: flex;
     align-items: center;
-    padding-left: 20%;
+    margin-left: 20%;
 }
 
 .logo-title-link img {
@@ -266,11 +266,11 @@ td {
 
 .bar-container {
     display: grid;
-    grid-template-columns: auto auto; /* Deux colonnes égales */
-    justify-content: center; /* Alignement au centre */
+    grid-template-columns: auto auto; 
+    justify-content: center;
     width:29%;
     height : 350px;
-    margin: 0 auto; /* Centre la div horizontalement */
+    margin: 0 auto;
     grid-column-gap: 20px;
     padding-bottom: 80px;
 }
@@ -338,8 +338,8 @@ td {
 }
 
 .link-page-aapl h3:not(:last-child)::after, .link-page-ma h3:not(:last-child)::after, .link-page-msft h3:not(:last-child)::after, .link-page-v h3:not(:last-child)::after {
-    content: "|"; /* Ajouter un point médian après chaque élément, sauf le dernier */
-    margin-left: 5px; /* Ajouter un espace entre le point médian et l'élément */
+    content: "|";
+    margin-left: 5px;
 }
 
 .link-page-aapl a:hover, .link-page-ma a:hover, .link-page-msft a:hover, .link-page-v a:hover{
@@ -354,9 +354,9 @@ td {
 
 .panel-table {
     width: 60%;
-    border-collapse: collapse; /* Fusionner les bordures de cellules */
+    border-collapse: collapse;
     margin: 0 auto;
-    table-layout: fixed; /* Fixer la taille des colonnes */
+    table-layout: fixed;
     border-style: hidden;
 }
 
@@ -391,10 +391,10 @@ td {
 
 .radar-container {
     display: grid;
-    grid-template-columns: auto auto; /* Deux colonnes égales */
-    justify-content: center; /* Alignement au centre */
+    grid-template-columns: auto auto;
+    justify-content: center;
     height : 300px;
-    margin: 0 auto; /* Centre la div horizontalement */
+    margin: 0 auto;
     grid-column-gap: 20px;
     width: 40%;
 }
@@ -402,11 +402,11 @@ td {
 .progress-container {
     margin: 0 auto;
     display: flex;
-    flex-direction: column; /* Affichage en colonne */
+    flex-direction: column;
     align-items: center;
-    height: auto; /* Ajuster la hauteur en fonction du contenu */
+    height: auto;
     width: 60%;
-    padding: 20px 5px 50px;  /* Modification des marges */
+    padding: 20px 5px 50px;
     padding-bottom: 60px;
 }
 .progress-bar {
@@ -463,7 +463,8 @@ td {
     width: 100%;
     text-align: center;
     margin: 0 auto;
-    background-color: #ffffff;
+    background-color:#5c5c5c;
+    color: white;
     margin-top: 60px;
     transition : background-color 3s, color 3s;
 }
@@ -479,11 +480,6 @@ td {
     text-align: justify;
     padding-left: 20%;
     padding-bottom: 10px;
-}
-
-.presentation-perso:hover {
-    background-color: #5c5c5c;
-    color: white; 
 }
 
 .subtitle{
@@ -521,83 +517,99 @@ td {
 
 
 /*MOAT.HTML*/
-.moat-home {
-    width: 60%;
-    margin: 0 auto;
-    text-align: center;
-    margin-top:75px;
-    padding-bottom: 80px;
-}
-
-.search-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 60px;
-    margin-bottom:120px;
-}
-.search-bar {
-    width: 60%;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 4px;
-}
 
 .moat-text-intro{
     padding-top: 40px;
-    width:60%;
+    width:100%;
     margin: 0 auto;
     font-size: 1.2em;
     text-align: justify;
     font-weight: normal;
+    padding-bottom: 50px;
 }
 
-
-.pic-container{
+.stocks-pres{
     display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-bottom: 50px;
-    background-color: #ececec;
-}
-
-.pic-container a {
-    position: relative;
-    display: block;
-}
-
-.pic-container img{
-    height:250px;
+    background-color: white;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    transition: filter 1s ease;
+    margin-bottom: 50px;
+    transition: background-color 3s ease;
 }
 
-.pic-container img:hover {
-    filter: brightness(40%);
+.stocks-pres img {
+    width:250px;
 }
 
-.pic-container a::after {
-    content: attr(data);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 1.85em;
+.stocks-pres-text{
+    align-items: center;
+    text-align: center;
+    color: black;
+    padding-left: 2%;
+    padding-right: 2%;
+    transition: color 3s ease;
+}
+
+.stocks-pres-text h3{
+    font-weight: normal;
+    font-size: 1.2em;
+    text-align: justify;
+}
+
+.stocks-pres-text button{
+    display: inline-block;
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     font-weight: bold;
     opacity: 0;
-    transition: opacity 1s ease;
-    pointer-events: none;
-    text-decoration: underline;
-    max-width: 100%;
-    white-space: nowrap;
-}
-.pic-container a:hover::after {
-    opacity: 1;
+    transition: opacity 2s ease, background-color 1s ease;
 }
 
-.hidden{
-    display: none;
+.stocks-pres-text a {
+    text-align: center;
+    margin: 0 auto;
 }
+
+.stocks-pres-text button:hover{
+    background-color: yellow;
+}
+
+.stocks-pres-title{
+    text-align: center;
+    font-size: 2em;
+    text-decoration: underline;
+}
+
+
+.stocks-pres:hover {
+    background-color: #5c5c5c;
+}
+
+.stocks-pres:hover .stocks-pres-text {
+    color: #ffffff;
+}
+
+.stocks-pres:hover .stocks-pres-text button {
+    opacity: 1; /* Affiche le bouton lors du survol */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*STOCKS*/
 
@@ -607,7 +619,7 @@ td {
     text-align: center;
     padding-bottom: 80px;
     border: 2px solid black;
-    background-color: antiquewhite;
+    background-color:whitesmoke;
     margin-top: 80px;
 }
 
@@ -637,7 +649,6 @@ td {
     padding-top: 20px;
     padding-bottom: 20px;
     font-size: 1.6em;
-    font-style: italic;
     text-decoration: underline;
     color:navy;
 }
@@ -665,7 +676,7 @@ td {
 /*RESPONSIVE POUR LES ÉCRANS > 2100px*/
 @media screen and (min-width: 2100px) {
     /* Sélecteur pour votre div */
-    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container, .progress-container, .container,.semititle,.content-home,.moat-home,.link-page, .moat-text-intro, .stocks-home {
+    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container, .progress-container, .container,.semititle,.content-home,.moat-home,.link-page, .stocks-home {
       width: 40%;
     }
 
@@ -720,7 +731,7 @@ td {
 /*RESPONSIVE POUR LES ÉCRANS < 1000px*/
 @media screen and (max-width: 1200px) {
     /* Sélecteur pour votre div */
-    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container,.container, .progress-container, .radar-container,.semititle, .moat-text-intro,.content-home,.moat-home, .stocks-home{
+    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container,.container, .progress-container, .radar-container,.semititle,.content-home,.moat-home, .stocks-home{
       width: 90%;
     }
 
@@ -753,7 +764,7 @@ td {
     }
 
     .logo-title-link  {
-        padding-left: 5%;
+        margin-left: 5%;
     }
 
     .onglets {
