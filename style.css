@@ -520,172 +520,10 @@ td {
 }
 
 
-/*MOAT.HTML*/
-
-.moat-text-intro{
-    padding-top: 40px;
-    width:100%;
-    margin: 0 auto;
-    font-size: 1.2em;
-    text-align: justify;
-    font-weight: normal;
-    padding-bottom: 50px;
-}
-
-.stocks-pres{
-    display: flex;
-    background-color: white;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    margin-bottom: 50px;
-    transition: background-color 3s ease;
-}
-
-.stocks-pres img {
-    width:250px;
-}
-
-.stocks-pres-text{
-    align-items: center;
-    text-align: center;
-    color: black;
-    padding-left: 2%;
-    padding-right: 2%;
-    transition: color 3s ease;
-}
-
-.stocks-pres-text h3{
-    font-weight: normal;
-    font-size: 1.2em;
-    text-align: justify;
-}
-
-.stocks-pres-text button{
-    display: inline-block;
-    background-color: white;
-    color: black;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    font-weight: bold;
-    opacity: 0;
-    transition: opacity 2s ease, background-color 1s ease;
-}
-
-.stocks-pres-text a {
-    text-align: center;
-    margin: 0 auto;
-}
-
-.stocks-pres-text button:hover{
-    background-color: yellow;
-}
-
-.stocks-pres-title{
-    text-align: center;
-    font-size: 2em;
-    text-decoration: underline;
-}
-
-
-.stocks-pres:hover {
-    background-color: #5c5c5c;
-}
-
-.stocks-pres:hover .stocks-pres-text {
-    color: #ffffff;
-}
-
-.stocks-pres:hover .stocks-pres-text button {
-    opacity: 1; /* Affiche le bouton lors du survol */
-}
-
-/*STOCKS*/
-
-.stocks-home {
-    width: 60%;
-    margin: 0 auto;
-    text-align: center;
-    padding-bottom: 80px;
-    border: 2px solid black;
-    background-color:whitesmoke;
-    margin-top: 80px;
-}
-
-.stocks-home p {
-    font-size: 1.2em;
-    text-align: justify;
-    padding-left: 2%;
-    padding-right: 2%;
-}
-
-.stocks-home ol {
-    font-size: 1.5em;
-    text-align: left;
-    font-weight: bold;
-    padding-bottom: 20px;
-}
-
-.stocks-home img {
-    width:500px;
-    max-width: 60%;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-
-}
-
-.stocks-title{
-    font-size: 2em;
-    text-decoration: underline;
-    padding-bottom: 20px;
-}
-
-.stocks-subtitle{
-    text-align: left;
-    padding-left: 8%;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    font-size: 1.75em;
-    text-decoration: underline;
-    color:black;
-}
-
-.italic{
-    font-style: italic;
-}
-
-.bold{
-    font-weight: bold;
-    color: red;
-}
-
-#illustration-transparent {
-    box-shadow: none;
-    width:450px;
-}
-
-#illustration{
-    width:450px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*RESPONSIVE POUR LES ÉCRANS > 2100px*/
 @media screen and (min-width: 2100px) {
     /* Sélecteur pour votre div */
-    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container, .progress-container, .container,.semititle,.content-home,.moat-home,.link-page, .stocks-home {
+    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container, .progress-container, .container,.semititle,.content-home,.link-page {
       width: 40%;
     }
 
@@ -740,7 +578,7 @@ td {
 /*RESPONSIVE POUR LES ÉCRANS < 1000px*/
 @media screen and (max-width: 1200px) {
     /* Sélecteur pour votre div */
-    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container,.container, .progress-container, .radar-container,.semititle,.content-home,.moat-home, .stocks-home{
+    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container,.container, .progress-container, .radar-container,.semititle,.content-home {
       width: 90%;
     }
 
