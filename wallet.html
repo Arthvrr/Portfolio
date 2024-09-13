@@ -458,11 +458,11 @@ function changeBackgroundColor(diffEuro,diffPercent){
 
 //TOUTES LES VARIABLES UTILISÉES
 
-var totalInvested = 5900; // montant total investi
+var totalInvested = 6100; // montant total investi
 var totalInvestedCell = document.getElementById("invested");
 totalInvestedCell.textContent = totalInvested;
 
-var CashOnHand = 28.39; // cash disponible
+var CashOnHand = 34.04; // cash disponible
 var cashCell = document.getElementById("cash");
 cashCell.textContent = CashOnHand.toFixed(2);
 
@@ -505,7 +505,7 @@ var annualReturnPercent = [0,8.26]; //liste des retours annuels, en pourcent
 
 var annualDividendReceived = [12.35, 41.31]; //liste des dividendes annuels nets reçus
 
-var tempDividendReceived = 25.43 //dividende reçu durant le cours de l'année actuelle, pour le troisième donut
+var tempDividendReceived = 31.08 //dividende reçu durant le cours de l'année actuelle, pour le troisième donut
 
 var totalDividendReceived = ((annualDividendReceived.reduce((acc, val) => acc + val, 0)) + tempDividendReceived).toFixed(2); //somme de la liste annualDividendReceived
 
