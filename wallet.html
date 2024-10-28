@@ -26,7 +26,7 @@
         <h3><a href="#intro">Performance</a></h3>
         <h3><a href="#stocks-detail">Composition</a></h3>
         <h3><a href="#dividend">Dividendes</a></h3>
-        <h3><a href="#annual-perf">Retours annuel</a></h3>
+        <h3><a href="#annual-perf">Retours Annuel</a></h3>
         <h3><a href="#quality">Qualité</a></h3>
     </div>
 
@@ -251,6 +251,61 @@
     <div class="accordion">
         <table class="stocks-info">
             <tr>
+                <td><img src="./media/Stocks-Logo/SPGI.png" class="stocks-pic"></td>
+                <td id="ticker">SPGI</td>
+                <td id="shares"></td>
+                <td id="average-price"></td>
+                <td id="price"></td>
+                <td id="value"></td>
+                <td id="perf-euro"></td>
+                <td id="perf-percent"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="panel">
+        <div class="link-page-spgi">
+            <h3><a href="#presentation-spgi">Présentation</a></h3>
+            <h3><a href="#personnal-notice-spgi">Avis Personnel</a></h3>
+            <h3><a href="#asset-risk-spgi">Atouts et Risques</a></h3>
+            <h3><a href="#quality-score-spgi">Score de Qualité</a></h3>
+        </div>
+        <h3 class="panel-subtitle" id="presentation-spgi">Présentation</h3>
+        <p>Fondée en 1860, S&P Global est une entreprise américaine spécialisée dans la fourniture d’informations financières et d’analyses économiques. S&P Global propose une gamme de produits et services, notamment des notations de crédit, des indices boursiers, des données de marché et des analyses économiques approfondies pour les entreprises, les investisseurs et les institutions financières à travers le monde. La société joue un rôle clé dans la transparence des marchés financiers en fournissant des informations essentielles pour la prise de décisions d’investissement. Ses activités sont axées sur la facilitation des décisions économiques stratégiques, soutenues par des données fiables et des analyses précises. <br><br>
+            S&P Global est l’un des principaux acteurs du secteur de l’information financière, avec une large reconnaissance internationale grâce à ses indices phares, tels que le S&P 500. Sa position dominante dans les notations de crédit et les indices de référence constitue son avantage compétitif. La société continue d’investir dans l’innovation numérique et l’analyse de données pour offrir des solutions plus rapides et plus intelligentes à ses clients, tout en renforçant sa position de leader dans le secteur de l’information financière.</p>
+        <h3 class="panel-subtitle" id="personnal-notice-spgi">Avis Personnel</h3>
+        <p>En situation de quasi-duopole avec Moody’s, S&P Global est le principal fournisseur de données financières au monde. La firme fournit des données à des banques, gestionnaires de fonds, particuliers sous forme d’abonnement via son outil S&P Capital IQ. Cet outil est reconnu pour sa fiabilité par les investisseurs du monde entier, bénéficiant ainsi d'un puissant effet de réseau. S&P Global vend également des données financières sur l’industrie automobile (secteur Mobility) ainsi que sur les matières premières (Commodity Insight), les 2 étant également des systèmes par abonnement comme l’est leur première activité de données financières, Market Intelligence. C’est tout bon pour nous investisseurs, le système par abonnement étant des revenus récurrents et stable dans le temps. <br><br>
+           Ce n’est clairement pas le seul secteur d’activité de l’entreprise. Son secteur d’activité le plus connu est sans conteste la partie Ratings : S&P note la capacité d’un état ou société à rembourser sa dette en temps voulu. Ces notations sont cruciales pour les investisseurs, car elles influencent leurs décisions d’investissement, ainsi que pour les emprunteurs, car une meilleure notation leur permet d’emprunter à des taux plus bas. De nombreuses agences de notation existent dans le monde entier, mais S&P Global est celle qui témoigne de la meilleure réputation dans le monde. <br><br>
+           Autre secteur d’activité au combien intéressant : la partie Indice. C’est S&P qui a fondé en 1957 le célèbre indice du S&P 500. La boite américaine possède des centaines d’autres indices sur tout les thèmes possibles et inimaginables. Avec cela, S&P Global profite de la tendance de l’investissement passif via les ETFs : Chaque fois qu'un ETF est basé sur un indice S&P, S&P Global perçoit régulièrement une part des frais de gestion. L’indice S&P 500 étant l’indice le plus populaire auprès des investisseurs particuliers, S&P dispose d’un oligopole naturel. <br><br>
+           Ce sont ces différents secteurs d’activités et sa position dominante sur l’ensemble d’entre eux qui m’a poussé à investir dans S&P Global. Ce sont des secteurs d’avenir, tant les données financières prennent une place importante dans le quotidien de millions de personnes sur terre. Le taux de rétention des abonnements de données financières est extrêmement élevé, ce qui peut traduire le fait que les investisseurs ne savent pas se passer de ces données pour investir (et c’est totalement logique ! pour bien investir il faut des données justes).
+        </p>
+        <h3 class="panel-subtitle" id="asset-risk-spgi">Atouts et Risques</h3>
+        <table class="panel-table">
+            <tr>
+               <th id="panel-table-title">Atouts</th>
+               <th id="panel-table-title">Risques</th> 
+            </tr>
+            <tr>
+                <td id="asset">Duopole avec Moody's</td>
+                <td id="risk">Dépendance aux marchés</td>
+            </tr>
+            <tr>
+                <td id="asset">Détenteur du S&P 500</td>
+                <td id="risk">Réputation à tenir</td>
+            </tr>
+            <tr>
+                <td id="asset">Effet de Réseau</td>
+                <td id="risk">Réglementations</td>
+            </tr>
+        </table>
+        <h3 class="panel-subtitle" id="quality-score-spgi">Score de Qualité</h3>
+        <div class="radar-container">
+            <canvas id="21Chart"></canvas>
+        </div>
+        <h4 class="held-since">Action détenue depuis le : 24 octobre 2024</h4>
+    </div>
+    <div class="accordion">
+        <table class="stocks-info">
+            <tr>
                 <td><img src="./media/Stocks-Logo/V.png" class="stocks-pic"></td>
                 <td id="ticker">V</td>
                 <td id="shares"></td>
@@ -458,17 +513,17 @@ function changeBackgroundColor(diffEuro,diffPercent){
 
 //TOUTES LES VARIABLES UTILISÉES
 
-var totalInvested = 6300; // montant total investi
+var totalInvested = 6350; // montant total investi
 var totalInvestedCell = document.getElementById("invested");
 totalInvestedCell.textContent = totalInvested;
 
-var CashOnHand = 434.04; // cash disponible
+var CashOnHand = 17.73; // cash disponible
 var cashCell = document.getElementById("cash");
 cashCell.textContent = CashOnHand.toFixed(2);
 
-var tickerOfShares = ["AAPL", "MA", "MSFT", "V"]; // tickers
-var numberOfShares = [9, 4, 5, 7]; // nombres d'actions
-var pruOfShares = [176.6352, 411.6737, 321.36, 241.2735]; // PRU des 4 actions
+var tickerOfShares = ["AAPL", "MA", "MSFT","SPGI", "V"]; // tickers
+var numberOfShares = [9, 4, 5, 1, 7]; // nombres d'actions
+var pruOfShares = [176.6352, 411.6737, 321.36, 498.5, 241.2735]; // PRU des 4 actions
 
 var stocksPrice = []; // prix actuels des 4 actions, en $
 let totalPRU = 0;
@@ -483,7 +538,7 @@ var averageValuePerStocks //valeur moyenne par action
 var diffList = [];
 var diffPercentList = [];
 
-var dividendPerShares = [1,2.64,3.00,2.08]; // liste pour stocker les dividendes versés par actions en $
+var dividendPerShares = [1,2.64,3.32,3.64, 2.08]; // liste pour stocker les dividendes versés par actions en $
 
 var totalDividendPerShares = []; //liste pour stocker les dividendes versés par action en €
 
@@ -518,12 +573,14 @@ var walletEndYear = [0,5792.03] //liste qui stocke la valeur du portefeuille à 
 var AAPLCotation = [100, 33, 67, 83, 83]; //liste des scores par secteur pour le ScoreCard
 var MACotation = [67,100,100,50,100]
 var MSFTCotation = [100,100,67,100,100]
+var SPGICotation = [100,100,50,67,100]
 var VCotation = [67,67,83,100,100]
-var stocksCotation = [AAPLCotation,MACotation,MSFTCotation,VCotation];
+var stocksCotation = [AAPLCotation,MACotation,MSFTCotation,SPGICotation, VCotation];
 
 var AAPLScore = 22;
 var MAScore = 25;
 var MSFTScore = 28;
+var SPGIScore = 25;
 var VScore = 25;
 
 var annualMarketReturnPercent = [-19.44,24.23]; //retour annuels du S&P500 en pourcent (source : https://www.macrotrends.net/2526/sp-500-historical-annual-returns)
@@ -652,6 +709,7 @@ function calculateDividendPerMonth() {
     var monthAAPL = ["Février","Mai","Août","Novembre"];
     var monthMA = ["Février","Mai","Août","Novembre"];
     var monthMSFT = ["Mars","Juin","Septembre","Décembre"];
+    var monthSPGI = ["Mars","Juin","Septembre","Décembre"];
     var monthV = ["Mars","Juin","Septembre","Décembre"];
 
     for (let i = 0; i < months.length; i++) {
@@ -670,8 +728,11 @@ function calculateDividendPerMonth() {
         if (monthMSFT.includes(currentMonth)) {
             monthlyDividend += totalDividendPerShares[2] / 4;
         }
-        if (monthV.includes(currentMonth)) {
+        if (monthSPGI.includes(currentMonth)) {
             monthlyDividend += totalDividendPerShares[3] / 4;
+        }
+        if (monthV.includes(currentMonth)) {
+            monthlyDividend += totalDividendPerShares[4] / 4;
         }
         toAdd = Number(monthlyDividend.toFixed(2));
         // Stocker le dividende total pour ce mois
@@ -683,6 +744,7 @@ function calculateStackedDividendPerMonth() {
     var monthAAPL = ["Février", "Mai", "Août", "Novembre"];
     var monthMA = ["Février", "Mai", "Août", "Novembre"];
     var monthMSFT = ["Mars", "Juin", "Septembre", "Décembre"];
+    var monthSPGI = ["Mars", "Juin", "Septembre", "Décembre"];
     var monthV = ["Mars", "Juin", "Septembre", "Décembre"];
 
     for (let i = 0; i < months.length; i++) {
@@ -692,7 +754,8 @@ function calculateStackedDividendPerMonth() {
         dividendData[i][0] = monthAAPL.includes(currentMonth) ? Number((totalDividendPerShares[0]/4).toFixed(2)) : 0;
         dividendData[i][1] = monthMA.includes(currentMonth) ? Number((totalDividendPerShares[1]/4).toFixed(2)) : 0;
         dividendData[i][2] = monthMSFT.includes(currentMonth) ? Number((totalDividendPerShares[2]/4).toFixed(2)) : 0;
-        dividendData[i][3] = monthV.includes(currentMonth) ? Number((totalDividendPerShares[3]/4).toFixed(2)) : 0;
+        dividendData[i][3] = monthSPGI.includes(currentMonth) ? Number((totalDividendPerShares[3]/4).toFixed(2)) : 0;
+        dividendData[i][4] = monthV.includes(currentMonth) ? Number((totalDividendPerShares[4]/4).toFixed(2)) : 0;
     }
     return dividendData;
 }
@@ -950,16 +1013,18 @@ function draw3(finalValueOfStocks) {
                 label:'Valeur par action',
                 data: finalValueOfStocks,
                 backgroundColor: [
-                    'rgba(54, 162, 235, 0.5)', // Bleu pour la première valeur de stocks
-                    'rgba(128, 0, 128, 0.5)', // Violet pour le premier gain
-                    'rgba(255, 143, 0, 0.5)', // Orange pour la deuxième valeur de stocks
-                    'rgba(255, 205, 86, 0.5)'  // Jaune pour le deuxième gain
+                    'rgba(54, 162, 235, 0.5)',
+                    'rgba(128, 0, 128, 0.5)', 
+                    'rgba(255, 143, 0, 0.5)',
+                    'rgba(210, 180, 140, 0.5)',
+                    'rgba(255, 205, 86, 0.5)'
                 ],
                 borderColor: [
-                    'rgba(54, 162, 235, 1)', // Bordure bleue pour la première valeur de stocks
-                    'rgba(128, 0, 128, 1)', // Bordure violete pour le premier gain
-                    'rgba(255, 143, 0, 1)', // Bordure orange pour la deuxième valeur de stocks
-                    'rgba(255, 205, 86, 1)'  // Bordure jaune pour le deuxième gain
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(128, 0, 128, 1)',
+                    'rgba(255, 143, 0, 1)',
+                    'rgba(210, 180, 140, 1)',
+                    'rgba(255, 205, 86, 1)'
                 ],
                 borderWidth: 2
             },
@@ -1131,16 +1196,18 @@ function draw6(yieldOfShares) {
                 label:'Rendement',
                 data: yieldOfShares,
                 backgroundColor: [
-                    'rgba(54, 162, 235, 0.5)', // Bleu pour la première valeur de stocks
-                    'rgba(128, 0, 128, 0.5)', // Violet pour le premier gain
-                    'rgba(255, 143, 0, 0.5)', // Orange pour la deuxième valeur de stocks
-                    'rgba(255, 205, 86, 0.5)'  // Jaune pour le deuxième gain
+                    'rgba(54, 162, 235, 0.5)',
+                    'rgba(128, 0, 128, 0.5)', 
+                    'rgba(255, 143, 0, 0.5)', 
+                    'rgba(210, 180, 140, 0.5)',
+                    'rgba(255, 205, 86, 0.5)'
                 ],
                 borderColor: [
-                    'rgba(54, 162, 235, 1)', // Bordure bleue pour la première valeur de stocks
-                    'rgba(128, 0, 128, 1)', // Bordure violete pour le premier gain
-                    'rgba(255, 143, 0, 1)', // Bordure orange pour la deuxième valeur de stocks
-                    'rgba(255, 205, 86, 1)'  // Bordure jaune pour le deuxième gain
+                    'rgba(54, 162, 235, 1)', 
+                    'rgba(128, 0, 128, 1)', 
+                    'rgba(255, 143, 0, 1)', 
+                    'rgba(210, 180, 140, 1)',
+                    'rgba(255, 205, 86, 1)'
                 ],
                 borderWidth: 3,
                 fill:true
@@ -1179,7 +1246,8 @@ function draw7(dividendData) {
     var dividendAAPL = dividendData.map(data => data[0]);
     var dividendMA = dividendData.map(data => data[1]);
     var dividendMSFT = dividendData.map(data => data[2]);
-    var dividendV = dividendData.map(data => data[3]);
+    var dividendSPGI = dividendData.map(data => data[3]);
+    var dividendV = dividendData.map(data => data[4]);
 
     var myChart = new Chart(ctx, {
         type: 'bar',
@@ -1208,6 +1276,13 @@ function draw7(dividendData) {
                     borderWidth: 2
                 },
                 {
+                    label: 'SPGI',
+                    data: dividendSPGI,
+                    backgroundColor: 'rgba(210, 180, 140, 0.5)', // Couleur pour SPGI
+                    borderColor: 'rgba(210, 180, 140, 1)',
+                    borderWidth: 2
+                },
+                {
                     label: 'V',
                     data: dividendV,
                     backgroundColor: 'rgba(255, 205, 86, 0.5)', // Couleur pour V
@@ -1220,9 +1295,10 @@ function draw7(dividendData) {
                     data:dividendPerMonth,
                     backgroundColor:'rgba(0, 17, 255, 0.25)',
                     borderColor:'rgba(0, 17, 255, 1)',
-                    hidden:'true',
-                    fill:'false',
+                    hidden: true,
+                    fill: true,
                     borderWidth:3,
+                    lineTension: 0.4,
                 },
             ]
         },
@@ -1672,35 +1748,35 @@ function draw16(stocksCotation) {
             datasets: [
                 {
                     label: 'Bases',
-                    data: [stocksCotation[0][0], stocksCotation[1][0], stocksCotation[2][0], stocksCotation[3][0]],
+                    data: [stocksCotation[0][0], stocksCotation[1][0], stocksCotation[2][0], stocksCotation[3][0],stocksCotation[4][0]],
                     backgroundColor: 'rgba(255, 99, 132, 0.5)',
                     borderColor: 'rgba(255, 99, 132, 1)',
                     borderWidth: 2
                 },
                 {
                     label: 'Croissance',
-                    data: [stocksCotation[0][1], stocksCotation[1][1], stocksCotation[2][1], stocksCotation[3][1]],
+                    data: [stocksCotation[0][1], stocksCotation[1][1], stocksCotation[2][1], stocksCotation[3][1],stocksCotation[4][1]],
                     backgroundColor: 'rgba(54, 162, 235, 0.5)',
                     borderColor: 'rgba(54, 162, 235, 1)',
                     borderWidth: 2
                 },
                 {
                     label: 'Rentabilité',
-                    data: [stocksCotation[0][2], stocksCotation[1][2], stocksCotation[2][2], stocksCotation[3][2]],
+                    data: [stocksCotation[0][2], stocksCotation[1][2], stocksCotation[2][2], stocksCotation[3][2],stocksCotation[4][2]],
                     backgroundColor: 'rgba(255, 205, 86, 0.5)',
                     borderColor: 'rgba(255, 205, 86, 1)',
                     borderWidth: 2
                 },
                 {
                     label: 'Solvabilité',
-                    data: [stocksCotation[0][3], stocksCotation[1][3], stocksCotation[2][3], stocksCotation[3][3]],
+                    data: [stocksCotation[0][3], stocksCotation[1][3], stocksCotation[2][3], stocksCotation[3][3],stocksCotation[4][3]],
                     backgroundColor: 'rgba(75, 192, 192, 0.5)',
                     borderColor: 'rgba(75, 192, 192, 1)',
                     borderWidth: 2
                 },
                 {
                     label: 'Dividende',
-                    data: [stocksCotation[0][4], stocksCotation[1][4], stocksCotation[2][4], stocksCotation[3][4]],
+                    data: [stocksCotation[0][4], stocksCotation[1][4], stocksCotation[2][4], stocksCotation[3][4],stocksCotation[4][4]],
                     backgroundColor: 'rgba(153, 102, 255, 0.5)',
                     borderColor: 'rgba(153, 102, 255, 1)',
                     borderWidth: 2
@@ -1763,8 +1839,15 @@ function draw17(stocksCotations) {
                     tension: 0.5
                 },
                 {
-                    label: 'V',
+                    label: 'SPGI',
                     data: stocksCotations[3],
+                    backgroundColor: 'rgba(210, 180, 140, 0.5)',
+                    borderColor: 'rgba(210, 180, 140, 1)',
+                    tension: 0.5
+                },
+                {
+                    label: 'V',
+                    data: stocksCotations[4],
                     backgroundColor: 'rgba(255, 205, 86, 0.5)',
                     borderColor: 'rgba(255, 205, 86, 1)',
                     tension: 0.5
@@ -1933,6 +2016,46 @@ function draw20(weightedAverages) {
     });
 }
 
+function draw21(stocksCotation) {
+    var ctx = document.getElementById('21Chart').getContext('2d');
+
+    var myChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: ['Bases', 'Croissance', 'Rentabilité', 'Solvabilité', 'Dividende'],
+            datasets: [{
+                label: 'ScoreCard S&P Global',
+                data: stocksCotation,
+                backgroundColor: 'rgba(210, 180, 140, 0.5)',
+                borderColor: 'rgba(210, 180, 140, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false,
+                    position: 'bottom'
+                },
+                title: {
+                    display: false,
+                    text: "ScoreCard de l'Action",
+                    position: 'top'
+                }
+            },
+            scale: {
+                ticks: {
+                    beginAtZero: true,
+                },
+                min: 0,
+                max: 100,
+                stepSize: 20
+            }
+        }
+    });
+}
+
 
 // Fonction d'interpolation qui ralentit sur les derniers pourcentages
 function easeOutCubic(t) {
@@ -2085,10 +2208,7 @@ async function main() {
     draw18(totalDividendReceived,totalGainWithoutDividend);
     draw19(annualReturnPercent,annualMarketReturnPercent);
     draw20(weightedAverages);
-    // draw21(AAPLScore);
-    // draw22(MAScore);
-    // draw23(MSFTScore);
-    // draw24(VScore);
+    draw21(SPGICotation);
 }
 
 main();
