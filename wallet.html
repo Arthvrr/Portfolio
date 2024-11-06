@@ -53,9 +53,9 @@
         </tr>
     </table>
     <div class="progress-container">
-        <h2 class="progress-title">Atteindre les 10 000€ de valeur du Portefeuille : <span id="firstProgressText">0%</span></h2>
+        <h2 class="progress-title">Atteindre les 10 000€ de Valeur du Portefeuille : <span id="firstProgressText">0%</span></h2>
         <progress id="firstProgressBar" value="0" max="0" class="progress-bar"></progress>  
-        <h2 class="progress-title">Investir un total de 6500€ : <span id="secondProgressText">0%</span></h2>
+        <h2 class="progress-title">Atteindre les 2000€ de Plus-Value Latente : <span id="secondProgressText">0€</span></h2>
         <progress id="secondProgressBar" value="0" max="0" class="progress-bar"></progress>
     </div>
     
@@ -538,7 +538,7 @@ var averageValuePerStocks //valeur moyenne par action
 var diffList = [];
 var diffPercentList = [];
 
-var dividendPerShares = [1,2.64,3.32,3.64, 2.08]; // liste pour stocker les dividendes versés par actions en $
+var dividendPerShares = [1,2.64,3.32,3.64, 2.36]; // liste pour stocker les dividendes versés par actions en $
 
 var totalDividendPerShares = []; //liste pour stocker les dividendes versés par action en €
 
@@ -2119,8 +2119,9 @@ function fillSecondProgressBar(totalInvested, goal) {
     const secondProgressBar = document.getElementById('secondProgressBar');
     const progressText = document.getElementById('secondProgressText');
     secondProgressBar.max = goal;
-    const percentage = ((totalInvested / goal)*100).toFixed(2);
-    progressText.textContent = percentage + "%";
+    //const percentage = ((totalInvested / goal)*100).toFixed(2);
+
+    progressText.textContent = diffEuro.toFixed(2) + "€";
     animateProgressBar(secondProgressBar, totalInvested, goal);
 }
 
@@ -2185,7 +2186,7 @@ async function main() {
 
     //REMPLIR BARRES DE PROGRESSION
     fillFirstProgressBar(totalWallet, 10000);
-    fillSecondProgressBar(totalInvested, 6500);
+    fillSecondProgressBar(diffEuro, 2000);
 
     //DESSINER GRAPHES
     draw1(CashOnHand, finalValue);
