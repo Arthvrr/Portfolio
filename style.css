@@ -522,6 +522,109 @@ td {
 }
 
 
+/*CALCULATOR.HTML*/
+
+.calculator-home {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 100px;
+    margin-top: 80px;
+}
+
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding-bottom: 20px;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    max-width: 33%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.input-group input:focus{
+    outline: none; /* désactive la ligne bleue autour de l'input ou du textarea quand il est sélectionné */
+}
+
+.input-group input::placeholder {
+    font-size: 1.2em; /* Remplacez par la taille souhaitée, par exemple 1em, 14px, etc. */
+    color: #ccc; /* Vous pouvez également changer la couleur du texte du placeholder si vous le souhaitez */
+}
+
+.input-group .label-text {
+    font-size: 1.2em;
+    color: #000;
+    margin-bottom: 5px;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.2;
+    width: 100%;
+}
+
+.input-group input {
+    width: 100%; /* Prend toute la largeur disponible dans le conteneur */
+    padding: 10px;
+    border: 1px solid #000000;
+    text-align: center;
+    box-sizing: border-box; /* Garantit que padding et bordure sont inclus dans la largeur */
+    font-size: 1em;
+}
+
+.calculator-section {
+    font-size: 1.25em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 2%;
+    margin-right: 2%;
+    text-decoration: underline;
+}
+
+.section-bases{
+    background-color: rgba(0, 179, 255, 0.1);
+    padding-bottom: 20px;
+}
+
+.section-croissance{
+    background-color: rgba(115, 255, 0, 0.1);
+    padding-bottom: 20px;
+}
+
+.section-rentabilité{
+    background-color: rgba(255, 149, 0, 0.1);
+    padding-bottom: 20px;
+}
+
+.section-solvabilité{
+    background-color: rgba(255, 225, 0, 0.1);
+    padding-bottom: 20px;
+}
+
+.section-dividende{
+    background-color: rgba(212, 0, 255, 0.1);
+    padding-bottom: 20px;
+}
+
+.calculator-text-home {
+    font-size: 1.15em;
+    margin-bottom: 50px;
+    text-align: justify;
+}
+
+.link-to-wallet{
+    text-decoration: none;
+    color:blue;
+    text-decoration: underline;
+}
+
 /*RESPONSIVE POUR LES ÉCRANS > 2100px*/
 @media screen and (min-width: 2100px) {
     /* Sélecteur pour votre div */

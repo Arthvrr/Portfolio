@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score de Qualité 📊</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="./media/Logo/Logo-Blue.png">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo-title-link">
+            <img src="./media/Logo/Logo-White.png" alt="Logo QualityInvest">
+            <h1>StocksPickeur</h1>
+        </a>
+        <!-- MAX 3 ONGLETS -->
+        <div class="onglets">
+            <!-- <a href="calculator.html">Calculateur</a> -->
+            <a href="wallet.html">Portefeuille</a>
+
+        </div>
+    </header>
+
+    <h2 class="title-home">Calcule le score de Qualité d'une action</h2>
+
+    <div class="calculator-home">
+
+        <p class="calculator-text-home">Bienvenue sur notre outil de calcul du score de qualité d’une action ! Ce calcul repose sur une analyse approfondie de 15 critères financiers et stratégiques spécifiques, qui permettent d’évaluer la solidité et la rentabilité d’une action. Chaque critère est pondéré et contribue à un score global sur 30 points. <br> Ce score vous permettra de mieux comprendre les forces et faiblesses d’une action afin de prendre des décisions d’investissement plus éclairées. Utilisez cet outil pour obtenir une évaluation objective et complète avant d’ajouter une action à votre portefeuille. Ce sont les 15 critères que j'utilise à l'heure actuelle pour analyser mes propres actions. Vous pouvez retrouver le score des actions de mon portefeuille juste ici : <a class="link-to-wallet" href="./wallet.html#quality">Score de qualité des actions de mon Portefeuille ⚔️</a> </p>
+
+        <div class="section-bases">
+            <h3 class="calculator-section">BASES</h3>
+            <div class="input-container">
+                <div class="input-group">
+                    <p class="label-text">LE COURS DE L'ACTION BATS LE S&P500 SUR 5 ANS</p>
+                    <input type="text" placeholder="Oui/Non">
+                </div>
+                <div class="input-group">
+                    <p class="label-text">L'ENTREPRISE EFFECTUE DES RACHATS D'ACTIONS</p>
+                    <input type="text" placeholder="Oui/Non">
+                </div>
+                <div class="input-group">
+                    <p class="label-text">LE CHIFFRE D'AFFAIRES DE LA SOCIÉTÉ EST DIVERSIFIÉ</p>
+                    <input type="text" placeholder="Oui/Non">
+                </div>
+            </div>
+        </div>
+    
+        <div class="section-croissance">
+            <h3 class="calculator-section">CROISSANCE</h3>
+            <div class="input-container">
+                <div class="input-group">
+                    <p class="label-text">CROISSANCE DU CHIFFRE D'AFFAIRES SUR 10 ANS</p>
+                    <input type="number" placeholder="Nombre d'années" min="0" max="10">
+                </div>
+                <div class="input-group">
+                    <p class="label-text">CROISSANCE DU BÉNÉFICE PAR ACTION SUR 10 ANS</p>
+                    <input type="number" placeholder="Nombre d'années" min="0" max="10">
+                </div>
+                <div class="input-group">
+                    <p class="label-text">CROISSANCE DU FREE CASH FLOW SUR 10 ANS</p>
+                    <input type="number" placeholder="Nombre d'années" min="0" max="10">
+                </div>
+            </div>
+        </div>
+
+        <div class="section-rentabilité">
+            <h3 class="calculator-section">RENTABILITÉ</h3>
+            <div class="input-container">
+                <div class="input-group">
+                    <p class="label-text">VALEUR ACTUELLE DE LA MARGE NETTE</p>
+                    <input type="number" placeholder="En pourcentage (%)" step="0.01">
+                </div>
+                <div class="input-group">
+                    <p class="label-text">VALEUR DU FREE CASH FLOW MARGIN</p>
+                    <input type="number" placeholder="En pourcentage (%)" step="0.01">
+                </div>
+                <div class="input-group">
+                    <p class="label-text">VALEUR DU RETURN ON INVESTED CAPITAL (ROIC)</p>
+                    <input type="number" placeholder="En pourcentage (%)" step="0.01">
+                </div>
+            </div>
+        </div>
+
+        <div class="section-solvabilité">
+            <h3 class="calculator-section">SOLVABILITÉ</h3>
+            <div class="input-container">
+                <div class="input-group">
+                    <p class="label-text">VALEUR ACTUELLE DU DEBT-TO-EBITDA</p>
+                    <input type="number" placeholder="En nombre flottant" step="0.01">
+                </div>
+                <div class="input-group">
+                    <p class="label-text">VALEUR ACTUELLE DU DEBT-TO-EQUITY</p>
+                    <input type="number" placeholder="En nombre flottant" step="0.01">
+                </div>
+                <div class="input-group">
+                    <p class="label-text">VALEUR DU RATIO DE COUVERTURE DES INTÉRÊTS</p>
+                    <input type="number" placeholder="En nombre flottant" step="0.01">
+                </div>
+            </div>
+        </div>
+
+        <div class="section-dividende">
+            <h3 class="calculator-section">DIVIDENDE</h3>
+            <div class="input-container">
+                <div class="input-group">
+                    <p class="label-text">VALEUR ACTUELLE DU PAYOUT RATIO</p>
+                    <input type="number" placeholder="En pourcentage (%)" min="0"  step="0.01">
+                </div>
+                <div class="input-group">
+                    <p class="label-text">VALEUR ACTUELLE DU PAYOUT RATIO DU FCF</p>
+                    <input type="number" placeholder="En pourcentage (%)" min="0" step="0.01">
+                </div>
+                <div class="input-group">
+                    <p class="label-text">CROISSANCE DU DIVIDENDE SUR 5 ANS</p>
+                    <input type="number" placeholder="En pourcentage (%)" min="0" step="0.01">
+                </div>
+            </div>
+        </div>
+
+        <button>Générer l'Analyse</button>
+
+    </div>
+
+
+
+
+
+
+
+
+    <div class="footer">
+        <div class="copyright">
+            <img src="./media/Logo/Logo-Black.png" alt="Logo QualityInvest">
+            <span id="copyright-text" ><a href="https://x.com/StocksPickeur" class="reset-link">StocksPickeur &copy; 2024</a></span>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+    <script>
+    </script>
+
+</body>
+</html>

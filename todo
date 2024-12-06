@@ -1,0 +1,17 @@
+calculator.html :
+
+- terminer form
+- css bouton générer analyse
+- gérer javascript pour récupérer données entrées en input pour ensuite transformer en graphe
+- gérer le responsive !
+
+idées de graphes :
+
+- graphe circulaire pour évaluer le score de l'action sur 30
+- graphe scorecard en étoile avec les 5 critères
+- graphe linéaire pour afficher chaque critère
+- graphe à barre empilé pour l'action avec son score
+
+idées sur la page : 
+
+- sauvegarder l'analyse au format csv/pdf ?
