@@ -1,9 +1,8 @@
 calculator.html :
 
-- terminer form
-- css bouton générer analyse
-- gérer javascript pour récupérer données entrées en input pour ensuite transformer en graphe
+- faire les graphes
 - gérer le responsive !
+- ajouter explication critères quand on hover dessus
 
 idées de graphes :
 
@@ -15,3 +14,7 @@ idées de graphes :
 idées sur la page : 
 
 - sauvegarder l'analyse au format csv/pdf ?
+- comparer 2 actions entre elles
+
+wallet.html :
+- ajouter transition scorecard actions

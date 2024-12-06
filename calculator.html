@@ -27,7 +27,7 @@
 
         <p class="calculator-text-home">Bienvenue sur notre outil de calcul du score de qualité d’une action ! Ce calcul repose sur une analyse approfondie de 15 critères financiers et stratégiques spécifiques, qui permettent d’évaluer la solidité et la rentabilité d’une action. Chaque critère est pondéré et contribue à un score global sur 30 points. <br> Ce score vous permettra de mieux comprendre les forces et faiblesses d’une action afin de prendre des décisions d’investissement plus éclairées. Utilisez cet outil pour obtenir une évaluation objective et complète avant d’ajouter une action à votre portefeuille. Ce sont les 15 critères que j'utilise à l'heure actuelle pour analyser mes propres actions. Vous pouvez retrouver le score des actions de mon portefeuille juste ici : <a class="link-to-wallet" href="./wallet.html#quality">Score de qualité des actions de mon Portefeuille ⚔️</a> </p>
 
-        <div class="section-bases">
+        <div class="section" id="bases">
             <h3 class="calculator-section">BASES</h3>
             <div class="input-container">
                 <div class="input-group">
@@ -45,7 +45,7 @@
             </div>
         </div>
     
-        <div class="section-croissance">
+        <div class="section" id="croissance">
             <h3 class="calculator-section">CROISSANCE</h3>
             <div class="input-container">
                 <div class="input-group">
@@ -63,7 +63,7 @@
             </div>
         </div>
 
-        <div class="section-rentabilité">
+        <div class="section" id="rentabilité">
             <h3 class="calculator-section">RENTABILITÉ</h3>
             <div class="input-container">
                 <div class="input-group">
@@ -81,7 +81,7 @@
             </div>
         </div>
 
-        <div class="section-solvabilité">
+        <div class="section" id="solvabilité">
             <h3 class="calculator-section">SOLVABILITÉ</h3>
             <div class="input-container">
                 <div class="input-group">
@@ -99,7 +99,7 @@
             </div>
         </div>
 
-        <div class="section-dividende">
+        <div class="section" id="dividende">
             <h3 class="calculator-section">DIVIDENDE</h3>
             <div class="input-container">
                 <div class="input-group">
@@ -117,16 +117,9 @@
             </div>
         </div>
 
-        <button>Générer l'Analyse</button>
+        <button class="calculator-button">Générer l'Analyse</button>
 
     </div>
-
-
-
-
-
-
-
 
     <div class="footer">
         <div class="copyright">
@@ -135,7 +128,240 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+    
+    
     <script>
+
+//DÉCLARATION DE VARIABLES
+var totalScore; //Score total de l'action
+
+var basisScore; //Score bases
+var growthScore; //Score croissance
+var profitabilityScore; //Score rentabilité
+var solvencyScore; //Score solvabilité
+var dividendScore; //Score dividende
+
+var sectionName = ["Bases","Croissance","Rentabilité","Solvabilité","Dividende"];
+
+// Fonction pour récupérer les données des inputs
+function getData() {
+    const inputs = document.querySelectorAll('input');
+    const inputValues = [];
+
+    inputs.forEach(input => {
+        inputValues.push(input.value.trim());
+    });
+
+    console.log(inputValues);
+
+    return inputValues;
+}
+
+function isValidNumber(value) {
+    // Vérifie si la valeur est un nombre valide
+    return !isNaN(value) && value !== null && value !== '';
+}
+
+function calculateBasis(inputValues){
+
+    var beatsINX = inputValues[0].toLowerCase();;
+    var shareBuyback = inputValues[1].toLowerCase();;
+    var diversifiedCA = inputValues[2].toLowerCase();;
+
+    if (beatsINX == 'oui'){
+        totalScore += 2;
+        basisScore += 2;
+    }
+
+    if (shareBuyback == 'oui'){
+        totalScore += 2;
+        basisScore += 2;
+    }
+
+    if (diversifiedCA == 'oui'){
+        totalScore += 2;
+        basisScore += 2;
+    }
+
+    return basisScore;
+}
+
+function calculateGrowth(inputValues){
+    var CAGrowth = inputValues[3];
+    var EPSGrowth = inputValues[4];
+    var FCFGrowth = inputValues[5];
+
+    if (CAGrowth > 7){
+        totalScore += 2;
+        growthScore += 2;
+    }
+
+    if (EPSGrowth > 7){
+        totalScore += 2;
+        growthScore += 2;
+    }
+
+    if (FCFGrowth > 7){
+        totalScore += 2;
+        growthScore += 2;
+    }
+
+    return growthScore;
+}
+
+function calculateRentability(inputValues){
+    var netMargin = inputValues[6];
+    var fcfMargin = inputValues[7];
+    var roic = inputValues[8];
+
+    if (netMargin >= 35) {
+        totalScore += 2;
+        profitabilityScore += 2;
+    } else if (netMargin >= 20) {
+        totalScore += 1;
+        profitabilityScore += 1;
+    } else {
+        totalScore += 0;
+        profitabilityScore += 0;
+    }
+
+    if (fcfMargin >= 35) {
+        totalScore += 2;
+        profitabilityScore += 2;
+    } else if (fcfMargin >= 20) {
+        totalScore += 1;
+        profitabilityScore += 1;
+    } else {
+        totalScore += 0;
+        profitabilityScore += 0;
+    }
+
+    if (roic >= 30) {
+        totalScore += 2;
+        profitabilityScore += 2;
+    } else if (roic >= 15) {
+        totalScore += 1;
+        profitabilityScore += 1;
+    } else {
+        totalScore += 0;
+        profitabilityScore += 0;
+    }
+
+    return profitabilityScore;
+
+}
+
+function calculateSolvency(inputValues) {
+    var debtToEBITDA = parseFloat(inputValues[9]);
+    var debtToEquity = parseFloat(inputValues[10]);
+    var interestCoverageRatio = parseFloat(inputValues[11]);
+
+    // Vérifie si les valeurs sont des nombres valides avant de les comparer
+    if (isValidNumber(debtToEBITDA)) {
+        if (debtToEBITDA < 1) {
+            totalScore += 2;
+            solvencyScore += 2;
+        } else if (debtToEBITDA < 2) {
+            totalScore += 1;
+            solvencyScore += 1;
+        }
+    }
+
+    if (isValidNumber(debtToEquity)) {
+        if (debtToEquity < 1) {
+            totalScore += 2;
+            solvencyScore += 2;
+        } else if (debtToEquity < 2) {
+            totalScore += 1;
+            solvencyScore += 1;
+        }
+    }
+
+    if (isValidNumber(interestCoverageRatio)) {
+        if (interestCoverageRatio >= 30) {
+            totalScore += 2;
+            solvencyScore += 2;
+        } else if (interestCoverageRatio >= 15) {
+            totalScore += 1;
+            solvencyScore += 1;
+        }
+    }
+}
+
+function calculateDividend(inputValues) {
+    var payoutRatio = parseFloat(inputValues[12]);
+    var payoutRatioFCF = parseFloat(inputValues[13]);
+    var dividendGrowth = parseFloat(inputValues[14]);
+
+    // Vérifie si les valeurs sont des nombres valides avant de les comparer
+    if (isValidNumber(payoutRatio)) {
+        if (payoutRatio < 30) {
+            totalScore += 2;
+            dividendScore += 2;
+        } else if (payoutRatio < 50) {
+            totalScore += 1;
+            dividendScore += 1;
+        }
+    }
+
+    if (isValidNumber(payoutRatioFCF)) {
+        if (payoutRatioFCF < 30) {
+            totalScore += 2;
+            dividendScore += 2;
+        } else if (payoutRatioFCF < 50) {
+            totalScore += 1;
+            dividendScore += 1;
+        }
+    }
+
+    if (isValidNumber(dividendGrowth)) {
+        if (dividendGrowth >= 10) {
+            totalScore += 2;
+            dividendScore += 2;
+        } else if (dividendGrowth >= 5) {
+            totalScore += 1;
+            dividendScore += 1;
+        }
+    }
+}
+
+
+
+function main() {
+
+    //attendre cliquage du bouton
+    document.querySelector('.calculator-button').addEventListener('click', function () {
+        
+        //on réinitialise à 0
+        totalScore = 0;
+        totalScore = 0;
+        basisScore = 0;
+        growthScore = 0;
+        profitabilityScore = 0;
+        solvencyScore = 0;
+        dividendScore = 0;
+
+        // Récupérer les données des inputs
+        const inputValues = getData();
+
+        // Calculer les scores en fonction des données des inputs
+        calculateBasis(inputValues);
+        calculateGrowth(inputValues);
+        calculateRentability(inputValues);
+        calculateSolvency(inputValues);
+        calculateDividend(inputValues);
+
+        // Afficher le score total après les calculs
+        console.log(totalScore);
+    });
+
+
+}
+
+
+main();
+
+
     </script>
 
 </body>

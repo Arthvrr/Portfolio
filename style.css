@@ -588,33 +588,33 @@ td {
     text-decoration: underline;
 }
 
-.section-bases{
+.section {
+    padding-bottom: 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+#bases {
     background-color: rgba(0, 179, 255, 0.1);
-    padding-bottom: 20px;
 }
 
-.section-croissance{
+#croissance {
     background-color: rgba(115, 255, 0, 0.1);
-    padding-bottom: 20px;
 }
 
-.section-rentabilité{
+#rentabilité {
     background-color: rgba(255, 149, 0, 0.1);
-    padding-bottom: 20px;
 }
 
-.section-solvabilité{
+#solvabilité {
     background-color: rgba(255, 225, 0, 0.1);
-    padding-bottom: 20px;
 }
 
-.section-dividende{
+#dividende {
     background-color: rgba(212, 0, 255, 0.1);
-    padding-bottom: 20px;
 }
 
 .calculator-text-home {
-    font-size: 1.15em;
+    font-size: 1.2em;
     margin-bottom: 50px;
     text-align: justify;
 }
@@ -623,6 +623,24 @@ td {
     text-decoration: none;
     color:blue;
     text-decoration: underline;
+}
+
+.calculator-button{
+    margin-top: 70px;
+    font-size: 1.2em;
+    color:black;
+    outline:none;
+    background-color: yellow;
+    border: none;
+    padding:10px 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    transition: box-shadow 1s ease, background-color 0.5s ease;
+}
+
+.calculator-button:hover {
+    background-color: rgb(6, 255, 6); /* Couleur de fond au focus */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8); /* Ombre plus prononcée */
+    outline: none; /* Supprime l'effet d'outline par défaut */
 }
 
 /*RESPONSIVE POUR LES ÉCRANS > 2100px*/
