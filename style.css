@@ -666,7 +666,7 @@ circle-progress::part(base) {
     margin: 25px;
 }
 
-#radar-chart-container {
+#radar-chart-container{
     width: 50%;
     margin: 0 auto;
     text-align: center;
