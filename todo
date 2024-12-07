@@ -1,13 +1,12 @@
 calculator.html :
 
+- savoir relaunch radar chart avec nouvelles valeurs
 - faire les graphes
 - gérer le responsive !
 - ajouter explication critères quand on hover dessus
 
 idées de graphes :
 
-- graphe circulaire pour évaluer le score de l'action sur 30
-- graphe scorecard en étoile avec les 5 critères
 - graphe linéaire pour afficher chaque critère
 - graphe à barre empilé pour l'action avec son score
 

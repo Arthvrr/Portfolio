@@ -643,6 +643,44 @@ td {
     outline: none; /* Supprime l'effet d'outline par défaut */
 }
 
+
+#progress-container{
+    margin: 75px auto;
+    text-align: center;
+    display: flex; 
+    gap: 20px;
+    justify-content: center;
+    padding-top: 40px;
+}
+.circle-progress{
+    align-items: center;
+}
+
+circle-progress::part(base) {
+    width: 150px; /* Largeur du cercle */
+    height: auto; /* Conserver les proportions */
+}
+
+.score-text{
+    font-size: 1.5em;
+    margin: 25px;
+}
+
+#radar-chart-container {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+
+
+
+
+
 /*RESPONSIVE POUR LES ÉCRANS > 2100px*/
 @media screen and (min-width: 2100px) {
     /* Sélecteur pour votre div */
