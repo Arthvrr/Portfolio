@@ -644,7 +644,7 @@ td {
 }
 
 
-#progress-container{
+#progress-container-circle{
     margin: 75px auto;
     text-align: center;
     display: flex; 
@@ -657,7 +657,7 @@ td {
 }
 
 circle-progress::part(base) {
-    width: 150px; /* Largeur du cercle */
+    width: 175px; /* Largeur du cercle */
     height: auto; /* Conserver les proportions */
 }
 
@@ -670,11 +670,6 @@ circle-progress::part(base) {
     width: 50%;
     margin: 0 auto;
     text-align: center;
-}
-
-canvas {
-    width: 100% !important;
-    height: auto !important;
 }
 
 

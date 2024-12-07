@@ -119,7 +119,7 @@
 
         <button class="calculator-button">Générer l'Analyse</button>
 
-        <div id="progress-container" style="display: none;">
+        <div id="progress-container-circle" style="display: none;">
             <circle-progress id="circular-progress" max="30" value="0"></circle-progress>
             <p class="score-text" id="score-text">Le score total de votre action est de 0 sur 30 !</p>
         </div>
@@ -337,94 +337,58 @@ function calculateDividend(inputValues) {
     }
 }
 
-
-
-// function createRadarChart(sectionScores) {
-    
-    
-//     const ctx = document.getElementById('radarChart').getContext('2d');
-
-//     // Si un graphique radar existe déjà, on le détruit
-//     // if (radarChartInstance != null) {
-//     //     radarChartInstance.destroy();
-//     // }
-
-//     // Créer le graphique radar avec Chart.js
-//     const radarChartInstance = new Chart(ctx, {
-//         type: 'radar',
-//         data: {
-//             labels: sectionName,
-//             datasets: [{
-//                 label: 'Score des secteurs',
-//                 data: sectionScores,
-//                 backgroundColor: 'rgba(53, 162, 235, 0.2)', // Couleur de fond des zones
-//                 borderColor: 'rgba(53, 162, 235, 1)', // Couleur de la bordure
-//                 borderWidth: 1
-//             }]
-//         },
-//         options: {
-//             scales: {
-//                 r: {  // Utilisation de 'r' pour l'axe radar
-//                     min: 0,  // Minimum de l'échelle
-//                     max: 6,  // Maximum de l'échelle
-//                     ticks: {
-//                         stepSize: 1  // Les intervalles entre chaque tick (chaque unité)
-//                     }
-//                 },
-//             },
-//             elements: {
-//                 line: {
-//                     tension: 0.2 // Crée des lignes légèrement courbées
-//                 }
-//             }
-//         }
-//     });
-// }
-
-
 function createRadarChart(sectionScores) {
-    const ctx = document.getElementById('radarChart').getContext('2d');
+    // Si le graphique radar existe déjà, on met à jour ses données
+    if (radarChartInstance) {
+        radarChartInstance.data.datasets[0].data = sectionScores;
+        radarChartInstance.update(); // Mise à jour des données du graphique existant
+    } else {
+        const ctx = document.getElementById('radarChart').getContext('2d');
 
-    // Créer le graphique radar avec Chart.js
-    const radarChartInstance = new Chart(ctx, {
-        type: 'radar',
-        data: {
-            labels: sectionName,
-            datasets: [{
-                label: 'Score des secteurs',
-                data: sectionScores,
-                backgroundColor: 'rgba(53, 162, 235, 0.2)', // Couleur de fond des zones
-                borderColor: 'rgba(53, 162, 235, 1)', // Couleur de la bordure
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,  // Rendre le graphique responsive
-            plugins: {
-                legend: {
-                    display: false  // Cacher la légende
-                },
-                title: {
-                    display: false,  // Afficher le titre
-                }
+        radarChartInstance = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: sectionName,
+                datasets: [{
+                    label: 'Score par section',
+                    data: sectionScores,
+                    backgroundColor: 'rgba(53, 162, 235, 0.2)', // Couleur de fond des zones
+                    borderColor: 'rgba(53, 162, 235, 1)', // Couleur de la bordure
+                    borderWidth: 1
+                }]
             },
-            scales: {
-                r: {  // Utilisation de 'r' pour l'axe radar
-                    min: 0,  // Minimum de l'échelle
-                    max: 6,  // Maximum de l'échelle
-                    ticks: {
-                        stepSize: 1  // Les intervalles entre chaque tick (chaque unité)
+            options: {
+                responsive: true,  // Rendre le graphique responsive
+                plugins: {
+                    legend: {
+                        display: false  // Cacher la légende
+                    },
+                    title: {
+                        display: true,  // Afficher le titre
+                        text: "ScoreCard de l'Action"
                     }
                 },
-            },
-            elements: {
-                line: {
-                    tension: 0 // Crée des lignes légèrement courbées
+                scales: {
+                    r: {  // Utilisation de 'r' pour l'axe radar
+                        min: 0,  // Minimum de l'échelle
+                        max: 6,  // Maximum de l'échelle
+                        ticks: {
+                            stepSize: 1  // Les intervalles entre chaque tick (chaque unité)
+                        }
+                    },
+                },
+                elements: {
+                    line: {
+                        tension: 0 // Crée des lignes légèrement courbées
+                    }
                 }
             }
-        }
-    });
+        });
+    }
 }
+
+
+
 
 function main() {
     // Attendre le clic sur le bouton
@@ -452,7 +416,7 @@ function main() {
         console.log(totalScore);
 
         // Afficher le cercle de progression
-        const progressContainer = document.getElementById('progress-container');
+        const progressContainer = document.getElementById('progress-container-circle');
         progressContainer.style.display = 'block';
 
         // Mettre à jour le cercle de progression
@@ -494,6 +458,8 @@ function main() {
     //attendre cliquage du bouton
     document.querySelector('.calculator-button').addEventListener('click', function () {
         
+        let radarChartInstance = null;
+        
         //on réinitialise à 0
         totalScore = 0;
         totalScore = 0;
@@ -520,7 +486,7 @@ function main() {
         console.log(sectionScores);
 
         // Révèle le conteneur du cercle
-        const progressContainer = document.getElementById('progress-container');
+        const progressContainer = document.getElementById('progress-container-circle');
         progressContainer.style.display = 'block';
 
         // Met à jour le cercle de progression avec le nouveau score
@@ -528,8 +494,6 @@ function main() {
         circleProgress.setAttribute('value', totalScore); // Score actuel
         circleProgress.setAttribute('animation-duration', '3000');
         
-        
-
         // Faire une transition fluide vers le cercle de progression
         setTimeout(() => {
             progressContainer.scrollIntoView({
