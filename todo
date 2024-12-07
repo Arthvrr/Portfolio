@@ -6,13 +6,14 @@ calculator.html :
 
 idées de graphes :
 
-- graphe linéaire pour afficher chaque critère
-- graphe à barre empilé pour l'action avec son score
+- graphe à lignes qui compare avec actions de mon portefeuille
+
 
 idées sur la page : 
 
 - sauvegarder l'analyse au format csv/pdf ?
 - comparer 2 actions entre elles
+- changer couleur anneau circle-progress en fonction de totalScore (rouge si mauvaise action, vert si bonne --> faire un dégradé de couleur en fonction du score !)
 
 wallet.html :
 - ajouter transition scorecard actions

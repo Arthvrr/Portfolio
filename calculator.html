@@ -128,6 +128,12 @@
             <canvas id="radarChart"></canvas>
         </div>
 
+        <div id="bar-chart-container" style="display: none; margin-top: 20px;">
+            <canvas id="barChart"></canvas>
+        </div>
+
+
+
     </div>
 
     <div class="footer">
@@ -152,6 +158,8 @@ var solvencyScore; //Score solvabilité
 var dividendScore; //Score dividende
 
 var sectionName = ["Bases","Croissance","Rentabilité","Solvabilité","Dividende"];
+var criteria = ["Beats S&P 500 5yrs","Share Buyback","Diversified Revenue","Revenue Growth","EPS Growth","FCF Per Shares Growth","Net Margin","FCF Margin", "ROIC","Debt/EBITDA","Debt/Equity","Interest Coverage","Payout Ratio","Payout Ratio FCF","Dividend Growth 5yrs"];
+var resultCriteria = [];
 
 let radarChartInstance = null;
 let barChartInstance = null;
@@ -184,16 +192,28 @@ function calculateBasis(inputValues){
     if (beatsINX == 'oui'){
         totalScore += 2;
         basisScore += 2;
+        resultCriteria[0] = 2;
+    }
+    else {
+        resultCriteria[0] = 0;
     }
 
     if (shareBuyback == 'oui'){
         totalScore += 2;
         basisScore += 2;
+        resultCriteria[1] = 2;
+    }
+    else {
+        resultCriteria[1] = 0;
     }
 
     if (diversifiedCA == 'oui'){
         totalScore += 2;
         basisScore += 2;
+        resultCriteria[2] = 2; 
+    }
+    else {
+        resultCriteria[2] = 0;
     }
 
     return basisScore;
@@ -207,22 +227,34 @@ function calculateGrowth(inputValues){
     if (CAGrowth > 7){
         totalScore += 2;
         growthScore += 2;
+        resultCriteria[3] = 2;
+    }
+    else {
+        resultCriteria[3] = 0;
     }
 
     if (EPSGrowth > 7){
         totalScore += 2;
         growthScore += 2;
+        resultCriteria[4] = 2;
+    }
+    else {
+        resultCriteria[4] = 0;
     }
 
     if (FCFGrowth > 7){
         totalScore += 2;
         growthScore += 2;
+        resultCriteria[5] = 2;
+    }
+    else {
+        resultCriteria[5] = 0;
     }
 
     return growthScore;
 }
 
-function calculateRentability(inputValues){
+function calculateProfitability(inputValues){
     var netMargin = inputValues[6];
     var fcfMargin = inputValues[7];
     var roic = inputValues[8];
@@ -230,34 +262,43 @@ function calculateRentability(inputValues){
     if (netMargin >= 35) {
         totalScore += 2;
         profitabilityScore += 2;
+        resultCriteria[6] = 2;
     } else if (netMargin >= 20) {
         totalScore += 1;
         profitabilityScore += 1;
+        resultCriteria[6] = 1;
     } else {
         totalScore += 0;
         profitabilityScore += 0;
+        resultCriteria[6] = 0;
     }
 
     if (fcfMargin >= 35) {
         totalScore += 2;
         profitabilityScore += 2;
+        resultCriteria[7] = 2;
     } else if (fcfMargin >= 20) {
         totalScore += 1;
         profitabilityScore += 1;
+        resultCriteria[7] = 1;
     } else {
         totalScore += 0;
         profitabilityScore += 0;
+        resultCriteria[7] = 0;
     }
 
     if (roic >= 30) {
         totalScore += 2;
         profitabilityScore += 2;
+        resultCriteria[8] = 2;
     } else if (roic >= 15) {
         totalScore += 1;
         profitabilityScore += 1;
+        resultCriteria[8] = 1;
     } else {
         totalScore += 0;
         profitabilityScore += 0;
+        resultCriteria[8] = 0;
     }
 
     return profitabilityScore;
@@ -274,31 +315,57 @@ function calculateSolvency(inputValues) {
         if (debtToEBITDA < 1) {
             totalScore += 2;
             solvencyScore += 2;
+            resultCriteria[9] = 2;
         } else if (debtToEBITDA < 2) {
             totalScore += 1;
             solvencyScore += 1;
+            resultCriteria[9] = 1;
         }
+        else {
+            resultCriteria[9] = 0;
+        }
+    }
+    else {
+        resultCriteria[9] = 0;
     }
 
     if (isValidNumber(debtToEquity)) {
         if (debtToEquity < 1) {
             totalScore += 2;
             solvencyScore += 2;
+            resultCriteria[10] = 2;
         } else if (debtToEquity < 2) {
             totalScore += 1;
             solvencyScore += 1;
+            resultCriteria[10] = 1;
         }
+        else {
+            resultCriteria[10] = 0;
+        }
+    }
+    else {
+        resultCriteria[10] = 0;
     }
 
     if (isValidNumber(interestCoverageRatio)) {
         if (interestCoverageRatio >= 30) {
             totalScore += 2;
             solvencyScore += 2;
+            resultCriteria[11] = 2;
         } else if (interestCoverageRatio >= 15) {
             totalScore += 1;
             solvencyScore += 1;
+            resultCriteria[11] = 1;
+        }
+        else {
+            resultCriteria[11] = 0;
         }
     }
+    else {
+        resultCriteria[11] = 0;
+    }
+
+    return solvencyScore;
 }
 
 function calculateDividend(inputValues) {
@@ -311,31 +378,57 @@ function calculateDividend(inputValues) {
         if (payoutRatio < 30) {
             totalScore += 2;
             dividendScore += 2;
+            resultCriteria[12] = 2;
         } else if (payoutRatio < 50) {
             totalScore += 1;
             dividendScore += 1;
+            resultCriteria[12] = 1;
         }
+        else {
+            resultCriteria[12] = 0;
+        }
+    }
+    else {
+        resultCriteria[12] = 0;
     }
 
     if (isValidNumber(payoutRatioFCF)) {
         if (payoutRatioFCF < 30) {
             totalScore += 2;
             dividendScore += 2;
+            resultCriteria[13] = 2;
         } else if (payoutRatioFCF < 50) {
             totalScore += 1;
             dividendScore += 1;
+            resultCriteria[13] = 1;
         }
+        else {
+            resultCriteria[13] = 0;
+        }
+    }
+    else {
+        resultCriteria[13] = 0;
     }
 
     if (isValidNumber(dividendGrowth)) {
         if (dividendGrowth >= 10) {
             totalScore += 2;
             dividendScore += 2;
+            resultCriteria[14] = 2;
         } else if (dividendGrowth >= 5) {
             totalScore += 1;
             dividendScore += 1;
+            resultCriteria[14] = 1;
+        }
+        else {
+            resultCriteria[14] = 0;
         }
     }
+    else {
+        resultCriteria[14] = 0;
+    }
+
+    return dividendScore;
 }
 
 function createRadarChart(sectionScores) {
@@ -388,6 +481,54 @@ function createRadarChart(sectionScores) {
     }
 }
 
+function createBarChart(criteriaResult) {
+    const ctx = document.getElementById('barChart').getContext('2d');
+
+    if (barChartInstance) {
+        // Si le graphique existe déjà, on met à jour ses données
+        barChartInstance.data.datasets[0].data = criteriaResult;
+        barChartInstance.update(); // Met à jour le graphique existant
+    } else {
+        // Sinon, créer un nouveau graphique
+        barChartInstance = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: criteria, // Axe X
+                datasets: [{
+                    label: 'Résultats par critère',
+                    data: criteriaResult, // Axe Y
+                    backgroundColor: 'rgba(0, 51, 102, 0.5)', // Couleur des barres
+                    borderColor: 'rgba(0, 51, 102, 1)', // Bordure des barres
+                    borderWidth: 1 // Épaisseur de la bordure
+                }]
+            },
+            options: {
+                responsive: true, // Rendre le graphique responsive
+                plugins: {
+                    legend: {
+                        display: false // Afficher la légende
+                    },
+                    title: {
+                        display: true, // Afficher le titre
+                        text: "Résultats par critères"
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true, // Débuter l'échelle à 0
+                        min:0,
+                        max: 2, // Valeur max de l'axe Y
+                        ticks: {
+                            stepSize: 1  // Les intervalles entre chaque tick (chaque unité)
+                        }
+                    }
+                }
+            }
+        });
+    }
+}
+
+
 function main() {
 
     //attendre cliquage du bouton
@@ -408,7 +549,7 @@ function main() {
         // Calculer les scores en fonction des données des inputs
         calculateBasis(inputValues);
         calculateGrowth(inputValues);
-        calculateRentability(inputValues);
+        calculateProfitability(inputValues);
         calculateSolvency(inputValues);
         calculateDividend(inputValues);
 
@@ -417,6 +558,7 @@ function main() {
         // Afficher le score total après les calculs
         console.log(totalScore);
         console.log(sectionScores);
+        console.log(resultCriteria);
 
         // Révèle le conteneur du cercle
         const progressContainer = document.getElementById('progress-container-circle');
@@ -440,6 +582,10 @@ function main() {
         const radarChartContainer = document.getElementById('radar-chart-container');
         radarChartContainer.style.display = 'block';
         createRadarChart(sectionScores);
+
+        const barChartContainer = document.getElementById('bar-chart-container');
+        barChartContainer.style.display = 'block';
+        createBarChart(resultCriteria);
         
 
 
