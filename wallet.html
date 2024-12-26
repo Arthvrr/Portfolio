@@ -514,11 +514,11 @@ function changeBackgroundColor(diffEuro,diffPercent){
 
 //TOUTES LES VARIABLES UTILISÉES
 
-var totalInvested = 6350; // montant total investi
+var totalInvested = 6400; // montant total investi
 var totalInvestedCell = document.getElementById("invested");
 totalInvestedCell.textContent = totalInvested;
 
-var CashOnHand = 24.97; // cash disponible
+var CashOnHand = 79.05; // cash disponible
 var cashCell = document.getElementById("cash");
 cashCell.textContent = CashOnHand.toFixed(2);
 
@@ -561,7 +561,7 @@ var annualReturnPercent = [0,8.26]; //liste des retours annuels, en pourcent
 
 var annualDividendReceived = [12.35, 41.31]; //liste des dividendes annuels nets reçus
 
-var tempDividendReceived = 34.98 //dividende reçu durant le cours de l'année actuelle, pour le troisième donut
+var tempDividendReceived = 42.4 //dividende reçu durant le cours de l'année actuelle, pour le troisième donut
 
 var totalDividendReceived = ((annualDividendReceived.reduce((acc, val) => acc + val, 0)) + tempDividendReceived).toFixed(2); //somme de la liste annualDividendReceived
 
@@ -1411,7 +1411,7 @@ function draw9() {
                 label: 'Retour Annuel en %',
                 data: annualReturnPercent,
                 type: 'line', // Type de graphique en ligne pour les pourcentages
-                fill: false, // Pas de remplissage sous la ligne
+                fill: true, // Pas de remplissage sous la ligne
                 borderColor: 'rgba(0, 10, 156, 1)', // Couleur de la ligne pour les pourcentages
                 borderWidth: 2,
                 yAxisID: 'percent-y-axis', // Utilisation de l'axe Y des pourcentages
@@ -1534,7 +1534,7 @@ function draw11(annualDividendReceived) {
                 label: 'Variation en %',
                 data: percentageChanges,
                 type: 'line',
-                fill: false,
+                fill: true,
                 borderColor: 'rgba(102, 2, 60, 1)', // Rouge pour la ligne de variation
                 borderWidth: 2,
                 yAxisID:'percent-variation'

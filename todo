@@ -11,7 +11,7 @@ idées de graphes :
 
 idées sur la page : 
 
-- sauvegarder l'analyse au format csv/pdf ?
+- sauvegarder l'analyse au format csv ? pour le ré-utiliser plus tard et comparer 2 actions entre elles avec graphe à partir de 2 CSV (demander ticker action et sauvegarder à ce nom de fichier là 'aapl.csv')
 - comparer 2 actions entre elles
 - changer couleur anneau circle-progress en fonction de totalScore (rouge si mauvaise action, vert si bonne --> faire un dégradé de couleur en fonction du score !)
 

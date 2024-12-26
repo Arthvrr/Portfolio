@@ -25,7 +25,7 @@
 
     <div class="calculator-home">
 
-        <p class="calculator-text-home">Bienvenue sur notre outil de calcul du score de qualité d’une action ! Ce calcul repose sur une analyse approfondie de 15 critères financiers et stratégiques spécifiques, qui permettent d’évaluer la solidité et la rentabilité d’une action. Chaque critère est pondéré et contribue à un score global sur 30 points. <br> Ce score vous permettra de mieux comprendre les forces et faiblesses d’une action afin de prendre des décisions d’investissement plus éclairées. Utilisez cet outil pour obtenir une évaluation objective et complète avant d’ajouter une action à votre portefeuille. Ce sont les 15 critères que j'utilise à l'heure actuelle pour analyser mes propres actions. Vous pouvez retrouver le score des actions de mon portefeuille juste ici : <a class="link-to-wallet" href="./wallet.html#quality">Score de qualité des actions de mon Portefeuille ⚔️</a> </p>
+        <p class="calculator-text-home">Bienvenue sur mon outil de calcul du score de qualité d’une action ! Ce calcul repose sur une analyse approfondie de 15 critères financiers et stratégiques spécifiques, qui permettent d’évaluer solidité,croissance et rentabilité d’une action. Chaque critère est pondéré et contribue à un score global sur 30 points. <br> Ce score vous permettra de mieux comprendre les forces et faiblesses d’une action afin de prendre des décisions d’investissement plus éclairées. Ce sont les 15 critères que j'utilise à l'heure actuelle pour analyser mes propres actions. Vous pouvez retrouver le score des actions de mon portefeuille ici : <a class="link-to-wallet" href="./wallet.html#quality">Score de qualité des actions de mon Portefeuille ⚔️</a> </p>
 
         <div class="section" id="bases">
             <h3 class="calculator-section">BASES</h3>
@@ -124,13 +124,13 @@
             <p class="score-text" id="score-text">Le score total de votre action est de 0 sur 30 !</p>
         </div>
 
-        <div id="radar-chart-container" style="display: none; margin-top: 20px;">
+        <div id="radar-chart-container" style="display: none; align-items: center;">
             <canvas id="radarChart"></canvas>
         </div>
 
-        <div id="bar-chart-container" style="display: none; margin-top: 20px;">
+        <!-- <div id="bar-chart-container" style="display: none;">
             <canvas id="barChart"></canvas>
-        </div>
+        </div> -->
 
 
 
@@ -444,7 +444,7 @@ function createRadarChart(sectionScores) {
             data: {
                 labels: sectionName,
                 datasets: [{
-                    label: 'Score par section',
+                    label: 'Score par Section',
                     data: sectionScores,
                     backgroundColor: 'rgba(53, 162, 235, 0.2)', // Couleur de fond des zones
                     borderColor: 'rgba(53, 162, 235, 1)', // Couleur de la bordure
@@ -514,6 +514,11 @@ function createBarChart(criteriaResult) {
                     }
                 },
                 scales: {
+                    x: {
+                        ticks: {
+                            display: false // Cacher les légendes de l'axe X par défaut
+                        }
+                    },
                     y: {
                         beginAtZero: true, // Débuter l'échelle à 0
                         min:0,
@@ -577,15 +582,15 @@ function main() {
         }, 100); // Attendre un court instant pour être sûr que l'affichage est mis à jour
 
         const scoreText = document.getElementById('score-text');
-        scoreText.textContent = `Le score total de votre action est de ${totalScore} sur 30 !`;
+        scoreText.textContent = `Le score de Qualité de votre action est de ${totalScore} sur 30 !`;
 
         const radarChartContainer = document.getElementById('radar-chart-container');
-        radarChartContainer.style.display = 'block';
+        radarChartContainer.style.display = 'flex';
         createRadarChart(sectionScores);
 
-        const barChartContainer = document.getElementById('bar-chart-container');
-        barChartContainer.style.display = 'block';
-        createBarChart(resultCriteria);
+        // const barChartContainer = document.getElementById('bar-chart-container');
+        // barChartContainer.style.display = 'flex';
+        // createBarChart(resultCriteria);
         
 
 

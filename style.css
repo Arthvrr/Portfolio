@@ -648,7 +648,6 @@ td {
     margin: 75px auto;
     text-align: center;
     display: flex; 
-    gap: 20px;
     justify-content: center;
     padding-top: 40px;
 }
@@ -667,10 +666,17 @@ circle-progress::part(base) {
 }
 
 #radar-chart-container{
-    width: 50%;
     margin: 0 auto;
-    text-align: center;
+    height : 420px;
+    justify-content: center;
 }
+
+#bar-chart-container{
+    margin: 0 auto;
+    height : 400px;
+    margin-top: 100px;
+}
+
 
 
 
@@ -679,7 +685,7 @@ circle-progress::part(base) {
 /*RESPONSIVE POUR LES ÉCRANS > 2100px*/
 @media screen and (min-width: 2100px) {
     /* Sélecteur pour votre div */
-    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container, .progress-container, .container,.semititle,.content-home,.link-page {
+    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container, .progress-container, .container,.semititle,.content-home,.link-page, .calculator-home {
       width: 40%;
     }
 
@@ -727,14 +733,14 @@ circle-progress::part(base) {
         max-width: 40%;
         padding-left: 30%;
         
-    }
+    }    
 
 }
 
 /*RESPONSIVE POUR LES ÉCRANS < 1000px*/
 @media screen and (max-width: 1200px) {
     /* Sélecteur pour votre div */
-    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container,.container, .progress-container, .radar-container,.semititle,.content-home {
+    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container,.container, .progress-container, .radar-container,.semititle,.content-home, .calculator-home {
       width: 90%;
     }
 
