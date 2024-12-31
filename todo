@@ -1,19 +1,11 @@
 calculator.html :
 
-- faire les graphes
-- gérer le responsive !
 - ajouter explication critères quand on hover dessus
-
-idées de graphes :
-
-- graphe à lignes qui compare avec actions de mon portefeuille
-
-
-idées sur la page : 
-
-- sauvegarder l'analyse au format csv ? pour le ré-utiliser plus tard et comparer 2 actions entre elles avec graphe à partir de 2 CSV (demander ticker action et sauvegarder à ce nom de fichier là 'aapl.csv')
-- comparer 2 actions entre elles
 - changer couleur anneau circle-progress en fonction de totalScore (rouge si mauvaise action, vert si bonne --> faire un dégradé de couleur en fonction du score !)
+- graphe à lignes qui compare avec actions de mon portefeuille
+- demander en entrée le ticker de l'action et retourner les liens internet pour récupérer les chiffres qu'il faut (vers Moning, GuruFocus,...)
+- ajouter au bout de page un calculateur de valorisation
 
 wallet.html :
 - ajouter transition scorecard actions
+- ajouter un bouton "voir dividendes" dans le panel d'une action et renvoyer au graphe des dividendes par action en cachant les autres actions
