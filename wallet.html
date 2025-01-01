@@ -56,7 +56,7 @@
     <div class="progress-container">
         <h2 class="progress-title">Atteindre les 10 000€ de Valeur du Portefeuille : <span id="firstProgressText">0%</span></h2>
         <progress id="firstProgressBar" value="0" max="0" class="progress-bar"></progress>  
-        <h2 class="progress-title">Atteindre les 3000€ de Plus-Value Latente : <span id="secondProgressText">0%</span></h2>
+        <h2 class="progress-title">Recevoir 60€ de dividendes nets en 2025 : <span id="secondProgressText">0%</span></h2>
         <progress id="secondProgressBar" value="0" max="0" class="progress-bar"></progress>
     </div>
     
@@ -558,7 +558,7 @@ var yieldOfShares = [];
 
 var yieldOfWallet = 0; //Rendement total du portefeuille
 
-var years = [2022,2023]; // liste des années, pour les graphes de retours annuels et invested vs wallet value
+var years = [2022,2023,2024]; // liste des années, pour les graphes de retours annuels et invested vs wallet value
 
 var months = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
 
@@ -566,21 +566,21 @@ var dividendPerMonth = [];
 
 var dividendPerMonthNet = [];
 
-var annualReturnEuro = [0,442.03]; // liste des retours annuels, en euro
+var annualReturnEuro = [0,442.03,2104.53]; // liste des retours annuels, en euro
 
-var annualReturnPercent = [0,8.26]; //liste des retours annuels, en pourcent
+var annualReturnPercent = [0,8.26,30.76]; //liste des retours annuels, en pourcent
 
-var annualDividendReceived = [12.35, 41.31]; //liste des dividendes annuels nets reçus
+var annualDividendReceived = [12.35, 41.31,42.4]; //liste des dividendes annuels nets reçus
 
-var tempDividendReceived = 42.4 //dividende reçu durant le cours de l'année actuelle, pour le troisième donut
+var tempDividendReceived = 0 //dividende reçu durant le cours de l'année actuelle, pour le troisième donut
 
 var totalDividendReceived = ((annualDividendReceived.reduce((acc, val) => acc + val, 0)) + tempDividendReceived).toFixed(2); //somme de la liste annualDividendReceived
 
 var totalGainWithoutDividend = 0; //gain total en bourse des plus-value (sans dividendes reçus)
 
-var annualInvested = [0,5350]; //liste qui stocke le nombres d'euros investi par an
+var annualInvested = [0,5350,6400]; //liste qui stocke le nombres d'euros investi par an
 
-var walletEndYear = [0,5792.03] //liste qui stocke la valeur du portefeuille à la fin de chaque année
+var walletEndYear = [0,5792.03,8946.56] //liste qui stocke la valeur du portefeuille à la fin de chaque année
 
 var AAPLCotation = [100,33,67,83,83]; //liste des scores par secteur pour le ScoreCard
 var MACotation = [67,100,100,33,100]
@@ -596,7 +596,7 @@ var SPGIScore = 25;
 var VScore = 25;
 var stocksScore = [AAPLScore,MAScore,MSFTScore,SPGIScore,VScore];
 
-var annualMarketReturnPercent = [-19.44,24.23]; //retour annuels du S&P500 en pourcent (source : https://www.macrotrends.net/2526/sp-500-historical-annual-returns)
+var annualMarketReturnPercent = [-19.44,24.23,23.31]; //retour annuels du S&P500 en pourcent (source : https://www.macrotrends.net/2526/sp-500-historical-annual-returns)
 
 var weightOfStocks = []; //liste qui représente le poids de chaque action du Portefeuille en % (valeurs : [0.24,0.26,0.3,0.2])
 var weightedAverages = [];
@@ -2262,14 +2262,14 @@ function fillFirstProgressBar(totalWallet, goal) {
 }
 
 // Fonction pour remplir la deuxième barre de progression
-function fillSecondProgressBar(totalInvested, goal) {
+function fillSecondProgressBar(current, goal) {
     const secondProgressBar = document.getElementById('secondProgressBar');
     const progressText = document.getElementById('secondProgressText');
     secondProgressBar.max = goal;
-    const percentage = ((diffEuro / goal) * 100).toFixed(2);
+    const percentage = ((current / goal) * 100).toFixed(2);
 
     progressText.textContent = percentage + "%";
-    animateProgressBar(secondProgressBar, totalInvested, goal);
+    animateProgressBar(secondProgressBar, current, goal);
 }
 
 
@@ -2334,7 +2334,7 @@ async function main() {
 
     //REMPLIR BARRES DE PROGRESSION
     fillFirstProgressBar(totalWallet, 10000);
-    fillSecondProgressBar(diffEuro, 3000);
+    fillSecondProgressBar(tempDividendReceived, 60);
 
     //DESSINER GRAPHES
     draw1(CashOnHand, finalValue);
