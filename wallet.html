@@ -548,7 +548,7 @@ var averageValuePerStocks //valeur moyenne par action
 var diffList = [];
 var diffPercentList = [];
 
-var dividendPerShares = [1,2.64,3.32,3.64, 2.36]; // liste pour stocker les dividendes versés par actions en $
+var dividendPerShares = [1,3.04,3.32,3.84,2.36]; // liste pour stocker les dividendes versés par actions en $
 
 var totalDividendPerShares = []; //liste pour stocker les dividendes versés par action en €
 
@@ -572,7 +572,7 @@ var annualReturnPercent = [0,8.26,30.76]; //liste des retours annuels, en pource
 
 var annualDividendReceived = [12.35, 41.31,42.4]; //liste des dividendes annuels nets reçus
 
-var tempDividendReceived = 0 //dividende reçu durant le cours de l'année actuelle, pour le troisième donut
+var tempDividendReceived = 4.32 //dividende reçu durant le cours de l'année actuelle, pour le troisième donut
 
 var totalDividendReceived = ((annualDividendReceived.reduce((acc, val) => acc + val, 0)) + tempDividendReceived).toFixed(2); //somme de la liste annualDividendReceived
 
