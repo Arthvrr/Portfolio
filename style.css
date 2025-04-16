@@ -322,14 +322,14 @@ td {
     border-bottom: 3px solid black;
 }
 
-.link-page-aapl, .link-page-ma,.link-page-msft, .link-page-spgi, .link-page-v {
+.link-page-aapl, .link-page-googl, .link-page-ma,.link-page-msft, .link-page-spgi, .link-page-v {
     display: flex; /* Utiliser flexbox */
     justify-content: center; /* Aligner horizontalement au centre */
     margin: 0 auto;
     width: 100%;
 }
 
-.link-page-aapl a, .link-page-ma a,.link-page-msft a, .link-page-spgi a, .link-page-v a {
+.link-page-aapl a, .link-page-googl a, .link-page-ma a,.link-page-msft a, .link-page-spgi a, .link-page-v a {
     text-decoration: none;
     color: black;
     font-size: 1.15em;
@@ -338,12 +338,12 @@ td {
     transition: border-bottom 0.75s ease;
 }
 
-.link-page-aapl h3:not(:last-child)::after, .link-page-ma h3:not(:last-child)::after, .link-page-msft h3:not(:last-child)::after, .link-page-spgi h3:not(:last-child)::after, .link-page-v h3:not(:last-child)::after {
+.link-page-aapl h3:not(:last-child)::after, .link-page-googl h3:not(:last-child)::after, .link-page-ma h3:not(:last-child)::after, .link-page-msft h3:not(:last-child)::after, .link-page-spgi h3:not(:last-child)::after, .link-page-v h3:not(:last-child)::after {
     content: "|";
     margin-left: 5px;
 }
 
-.link-page-aapl a:hover, .link-page-ma a:hover, .link-page-msft a:hover, .link-page-spgi a:hover, .link-page-v a:hover{
+.link-page-aapl a:hover, .link-page-googl a:hover, .link-page-ma a:hover, .link-page-msft a:hover, .link-page-spgi a:hover, .link-page-v a:hover{
     border-bottom: 3px solid black;
 }
 
