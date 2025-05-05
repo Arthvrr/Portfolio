@@ -54,9 +54,9 @@
         </tr>
     </table>
     <div class="progress-container">
-        <h2 class="progress-title">Atteindre les 10 000€ de Valeur du Portefeuille : <span id="firstProgressText">0%</span></h2>
+        <h2 class="progress-title">Atteindre les 20 000€ de Valeur du Portefeuille : <span id="firstProgressText">0%</span></h2>
         <progress id="firstProgressBar" value="0" max="0" class="progress-bar"></progress>  
-        <h2 class="progress-title">Recevoir 60€ de dividendes nets en 2025 : <span id="secondProgressText">0%</span></h2>
+        <h2 class="progress-title">Recevoir 100€ de dividendes nets en 2025 : <span id="secondProgressText">0%</span></h2>
         <progress id="secondProgressBar" value="0" max="0" class="progress-bar"></progress>
     </div>
     
@@ -586,17 +586,17 @@ function changeBackgroundColor(diffEuro,diffPercent){
 
 //TOUTES LES VARIABLES UTILISÉES
 
-var totalInvested = 6500; // montant total investi
+var totalInvested = 16500; // montant total investi
 var totalInvestedCell = document.getElementById("invested");
 totalInvestedCell.textContent = totalInvested;
 
-var CashOnHand = 111.57; // cash disponible
+var CashOnHand = 6732.13; // cash disponible
 var cashCell = document.getElementById("cash");
 cashCell.textContent = CashOnHand.toFixed(2);
 
 var tickerOfShares = ["AAPL", "GOOGL","MA", "MSFT","SPGI", "V"]; // tickers
-var numberOfShares = [5, 3, 4, 5, 2, 7]; // nombres d'actions
-var pruOfShares = [176.6352, 164.06, 411.6737, 321.36, 488.83, 241.2735]; // PRU des actions
+var numberOfShares = [5, 12, 4, 8, 4, 7]; // nombres d'actions
+var pruOfShares = [176.6352, 164.3937, 411.6737, 364.5375, 499.1, 241.2735]; // PRU des actions
 
 var stocksPrice = []; // prix actuels des actions, en $
 let totalPRU = 0;
@@ -611,7 +611,7 @@ var averageValuePerStocks //valeur moyenne par action
 var diffList = [];
 var diffPercentList = [];
 
-var dividendPerShares = [1, 0.8, 3.04, 3.32, 3.84, 2.36]; // liste pour stocker les dividendes versés par actions en $
+var dividendPerShares = [1.04, 0.84, 3.04, 3.32, 3.84, 2.36]; // liste pour stocker les dividendes versés par actions en $
 
 var totalDividendPerShares = []; //liste pour stocker les dividendes versés par action en €
 
@@ -2463,8 +2463,8 @@ async function main() {
     calculateWeightedAverage(stocksCotation);
 
     //REMPLIR BARRES DE PROGRESSION
-    fillFirstProgressBar(totalWallet, 10000);
-    fillSecondProgressBar(tempDividendReceived, 60);
+    fillFirstProgressBar(totalWallet, 20000);
+    fillSecondProgressBar(tempDividendReceived, 100);
 
     //DESSINER GRAPHES
     draw1(CashOnHand, finalValue);
