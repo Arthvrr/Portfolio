@@ -147,7 +147,7 @@ td {
     width: 60%;
     border: none;
     outline: none;
-    font-size: 1.05em;
+    font-size: em;
     margin: 0 auto;
     text-align: center;
 }
@@ -281,7 +281,7 @@ td {
     grid-template-columns: auto auto; /* Deux colonnes égales */
     justify-content: center; /* Alignement au centre */
     width:60%;
-    height : 350px;
+    height : 400px;
     margin: 0 auto; /* Centre la div horizontalement */
     grid-column-gap: 20px;
     padding-bottom: 80px;
@@ -310,7 +310,7 @@ td {
 .link-page a {
     text-decoration: none;
     color: black;
-    font-size: 1.25em;
+    font-size: 1.1em;
     margin-bottom: 10px; /* Espacement en bas de chaque lien */
     flex: 1; /* Pour que les liens prennent toute la largeur disponible */
     max-width: calc(50% - 20px); /* Pour limiter la largeur des liens à 50% de la largeur de leur conteneur avec un espacement de 20px */
