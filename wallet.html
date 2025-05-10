@@ -810,7 +810,7 @@ async function getPERatio(symbol, index) {
         // Vérifier si les données ont été récupérées avec succès
         if (data.metric && data.metric.peNormalizedAnnual) {
             const peRatio = data.metric.peNormalizedAnnual;
-            stocksPERatio[index] = peRatio; // Stocker le PE ratio dans l'indice correspondant
+            stocksPERatio[index] = parseFloat(peRatio.toFixed(2)); // Stocker le PE ratio dans l'indice correspondant
         } else {
             console.log(`Erreur: Impossible de récupérer les données du PE ratio pour ${symbol}.`);
         }
