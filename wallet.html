@@ -706,7 +706,7 @@ var yieldOfShares = [];
 
 var yieldOfWallet = 0; //Rendement total du portefeuille
 
-var years = [2022,2023,2024]; // liste des années, pour les graphes de retours annuels et invested vs wallet value
+var years = [2022,2023,2024,2025]; // liste des années, pour les graphes de retours annuels et invested vs wallet value
 
 var months = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
 
@@ -719,10 +719,6 @@ var annualReturnEuro = [0,442.03,2104.53]; // liste des retours annuels, en euro
 var annualReturnPercent = [0,8.26,30.76]; //liste des retours annuels, en pourcent
 
 var annualDividendReceived = [12.35, 41.31,42.4]; //liste des dividendes annuels nets reçus
-
-var tempDividendReceived = 11.61 //dividende reçu durant le cours de l'année actuelle, pour le troisième donut
-
-var totalDividendReceived = ((annualDividendReceived.reduce((acc, val) => acc + val, 0)) + tempDividendReceived).toFixed(2); //somme de la liste annualDividendReceived
 
 var totalGainWithoutDividend = 0; //gain total en bourse des plus-value (sans dividendes reçus)
 
@@ -803,6 +799,81 @@ async function getStockPrice(symbol, index) {
     }
 }
 
+
+// Fonction alternative pour récupérer le prix actuel de SPY avec Yahoo Finance
+async function getCurrentSPYPrice(symbol) {
+    try {
+        // Récupérer les données de Yahoo Finance
+        const response = await fetch(`https://query1.finance.yahoo.com/v8/finance/chart/SPY?interval=1d&range=1d`);
+        const data = await response.json();
+
+        // Extraire le prix actuel
+        if (data.chart && data.chart.result && data.chart.result[0] && 
+            data.chart.result[0].indicators && data.chart.result[0].indicators.quote && 
+            data.chart.result[0].indicators.quote[0] && 
+            data.chart.result[0].indicators.quote[0].close) {
+            
+            // Prendre le dernier prix de clôture valide
+            const quotes = data.chart.result[0].indicators.quote[0];
+            const timestamps = data.chart.result[0].timestamp;
+            
+            for (let i = timestamps.length - 1; i >= 0; i--) {
+                if (quotes.close[i] !== null) {
+                    const currentPrice = parseFloat(quotes.close[i].toFixed(2));
+                    return currentPrice;
+                }
+            }
+        }
+
+        console.error('Aucun prix actuel trouvé dans les données Yahoo Finance');
+        return null;
+    } catch (error) {
+        console.error('Erreur lors de la récupération du prix actuel de SPY:', error);
+        return null;
+    }
+}
+
+// Fonction pour récupérer le prix du SPY au début de l'année en utilisant Yahoo Finance
+async function getStartSPYPrice() {
+    try {
+        // Calculer la date du premier jour ouvré de l'année
+        const now = new Date();
+        const year = now.getFullYear();
+        let date = new Date(year, 0, 1); // 1er janvier
+        
+        // Vérifier si c'est un week-end ou un jour férié
+        while (date.getDay() === 0 || date.getDay() === 6) { // 0 = dimanche, 6 = samedi
+            date.setDate(date.getDate() + 1);
+        }
+
+        // Formatage de la date pour Yahoo Finance
+        const startDate = date.toISOString().split('T')[0];
+        const endDate = new Date(year, 0, 10).toISOString().split('T')[0]; // 10 janvier
+
+        // Récupérer les données historiques de Yahoo Finance
+        const response = await fetch(`https://query1.finance.yahoo.com/v8/finance/chart/SPY?period1=${Math.floor(date.getTime() / 1000)}&period2=${Math.floor(new Date(year, 0, 10).getTime() / 1000)}&interval=1d&events=history`);
+        const data = await response.json();
+
+        // Extraire le premier prix de clôture
+        if (data.chart && data.chart.result && data.chart.result[0] && data.chart.result[0].indicators && data.chart.result[0].indicators.quote && data.chart.result[0].indicators.quote[0]) {
+            const quotes = data.chart.result[0].indicators.quote[0];
+            const timestamps = data.chart.result[0].timestamp;
+            
+            // Trouver le premier prix de clôture valide
+            for (let i = timestamps.length - 1; i >= 0; i--) {
+                if (quotes.close[i] !== null) {
+                    const firstClosePrice = parseFloat(quotes.close[i].toFixed(2));
+                    return parseFloat(firstClosePrice.toFixed(2));
+                }
+            }
+        }
+        console.error('Aucun prix trouvé pour le début de l\'année ou données invalides');
+        return null;
+    } catch (error) {
+        console.error('Erreur lors de la récupération du prix de SPY au début de l\'année:', error);
+        return null;
+    }
+}
 
 // Fonction pour récupérer le PE ratio de l'action
 async function getPERatio(symbol, index) {
@@ -2735,48 +2806,6 @@ function draw27(tickerOfShares, stocksPERatio, tenyearsPERatio) {
 }
 
 
-// function draw28(tickerOfShares, valuationScore) {
-//     var ctx = document.getElementById('28Chart').getContext('2d');
-
-//     var myChart = new Chart(ctx, {
-//         type: 'bar', // Type de graphique
-//         data: {
-//             labels: tickerOfShares,
-//             datasets: [
-//                 {
-//                     label: "Score de Valorisation",
-//                     data: valuationScore,
-//                     backgroundColor: 'rgba(75, 192, 192, 0.5)', // Couleur des barres (cyan translucide)
-//                     borderColor: 'rgba(75, 192, 192, 1)', // Bordures des barres
-//                     borderWidth: 2
-//                 }
-//             ]
-//         },
-//         options: {
-//             responsive: true,
-//             maintainAspectRatio: false,
-//             plugins: {
-//                 legend: {
-//                     display: true,
-//                     position: 'bottom'
-//                 },
-//                 title: {
-//                     display: true,
-//                     text: "Score de Valorisation par Action",
-//                     font: {
-//                         size: 16
-//                     }
-//                 }
-//             },
-//             scales: {
-//                 y: {
-//                     beginAtZero: true // Commence l'axe Y à 0
-//                 }
-//             }
-//         }
-//     });
-// }
-
 function draw28(tickerOfShares, valuationScore) {
     var ctx = document.getElementById('28Chart').getContext('2d');
 
@@ -2833,6 +2862,12 @@ function draw28(tickerOfShares, valuationScore) {
         }
     });
 }
+
+function calculateSPYReturn(currentValue, startValue) {
+    var returnPercent = ((currentValue - startValue) / startValue) * 100;
+    return parseFloat(returnPercent.toFixed(2));
+}
+
 
 // Fonction d'interpolation qui ralentit sur les derniers pourcentages
 function easeOutCubic(t) {
@@ -2905,10 +2940,15 @@ function fillSecondProgressBar(current, goal) {
 
 // Appel de la fonction pour récupérer les prix de toutes les actions
 async function main() {
+
     await getAllStockPrices();
     const exchangeRate = await getExchangeRate();
-
     await getAllPERatios();
+
+    const currentPrice = await getCurrentSPYPrice("SPY");
+    const startPrice = await getStartSPYPrice();
+    const spyReturn = calculateSPYReturn(currentPrice, startPrice);  
+    annualMarketReturnPercent.push(spyReturn);
 
     finalValue = totalValue * exchangeRate;
     document.getElementById("wallet-value").textContent = finalValue.toFixed(2);
@@ -2940,14 +2980,30 @@ async function main() {
 
     averageValuePerStocks = finalValue / tickerOfShares.length;
 
-    totalGainWithoutDividend = (diffEuro - totalDividendReceived).toFixed(2); //le gain total en plus-value = gain total - dividendes nets reçus
-
     calculateStackedDividendPerMonth();
 
     calculateFairPrice(0.10);
     calculateValuationScore();
-    console.log(valuationScore);
-    console.log(stocksFairPrice)
+
+    // PERF ANNÉE EN COURS
+
+    var tempStartYear = 8946.56;
+    var tempInvested = 10100;
+    tempReturnEuro = parseFloat(totalWallet - (tempInvested + tempStartYear)).toFixed(2);
+    tempReturnPercent = parseFloat((tempReturnEuro / (tempInvested + tempStartYear)) * 100).toFixed(2);
+    var tempDividendReceived = 11.61;
+
+    annualReturnEuro.push(tempReturnEuro);
+    annualReturnPercent.push(tempReturnPercent);
+    annualDividendReceived.push(tempDividendReceived);
+    annualInvested.push(totalInvested);
+    walletEndYear.push(parseFloat(totalWallet.toFixed(2)));
+
+    var totalDividendReceived = ((annualDividendReceived.reduce((acc, val) => acc + val, 0))).toFixed(2); //somme de la liste annualDividendReceived
+    totalGainWithoutDividend = (diffEuro - totalDividendReceived).toFixed(2); //le gain total en plus-value = gain total - dividendes nets reçus
+
+
+
     
     //CHANGER COULEURS
     changeBackgroundColor(diffEuro, diffPercent);

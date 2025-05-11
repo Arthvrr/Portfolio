@@ -2,3 +2,4 @@ wallet.html :
 
 - ajout montant marge de sécurité chart26 à entrer soi-même
 - ajouter perf 2025 dans tout les graphes (div reçus, perf € et %, perf vs s&p 500)
+- sécuriser les clés api dans des .env
