@@ -724,15 +724,15 @@ var totalGainWithoutDividend = 0; //gain total en bourse des plus-value (sans di
 
 var annualInvested = [0,5350,6400]; //liste qui stocke le nombres d'euros investi par an
 
-var walletEndYear = [0,5792.03,8946.56] //liste qui stocke la valeur du portefeuille à la fin de chaque année
+var walletEndYear = [0,5792.03,8946.56]; //liste qui stocke la valeur du portefeuille à la fin de chaque année
 
 var AAPLCotation = [100,33,67,83,83]; //liste des scores par secteur pour le ScoreCard
-var ASMLCotation = [100,67,50,100,100]
-var GOOGLCotation = [100,67,67,100,67]
-var MACotation = [67,100,100,33,100]
-var MSFTCotation = [100,100,67,100,100]
-var SPGICotation = [100,100,50,67,100]
-var VCotation = [67,67,83,100,100]
+var ASMLCotation = [100,67,50,100,100];
+var GOOGLCotation = [100,67,67,100,67];
+var MACotation = [67,100,100,33,100];
+var MSFTCotation = [100,100,67,100,100];
+var SPGICotation = [100,100,50,67,100];
+var VCotation = [67,67,83,100,100];
 var stocksCotation = [AAPLCotation,ASMLCotation,GOOGLCotation,MACotation,MSFTCotation,SPGICotation,VCotation];
 
 var AAPLScore = 22;
@@ -2947,8 +2947,7 @@ async function main() {
 
     const currentPrice = await getCurrentSPYPrice("SPY");
     const startPrice = await getStartSPYPrice();
-    const spyReturn = calculateSPYReturn(currentPrice, startPrice);  
-    annualMarketReturnPercent.push(spyReturn);
+    const spyReturn = calculateSPYReturn(currentPrice, startPrice);
 
     finalValue = totalValue * exchangeRate;
     document.getElementById("wallet-value").textContent = finalValue.toFixed(2);
@@ -2985,12 +2984,12 @@ async function main() {
     calculateFairPrice(0.10);
     calculateValuationScore();
 
-    // PERF ANNÉE EN COURS
 
+    // PERF ANNÉE EN COURS
     var tempStartYear = 8946.56;
     var tempInvested = 10100;
-    tempReturnEuro = parseFloat(totalWallet - (tempInvested + tempStartYear)).toFixed(2);
-    tempReturnPercent = parseFloat((tempReturnEuro / (tempInvested + tempStartYear)) * 100).toFixed(2);
+    tempReturnEuro = parseFloat((totalWallet - (tempInvested + tempStartYear)).toFixed(2));
+    tempReturnPercent = parseFloat(((tempReturnEuro / (tempInvested + tempStartYear)) * 100).toFixed(2));
     var tempDividendReceived = 11.61;
 
     annualReturnEuro.push(tempReturnEuro);
@@ -2998,15 +2997,18 @@ async function main() {
     annualDividendReceived.push(tempDividendReceived);
     annualInvested.push(totalInvested);
     walletEndYear.push(parseFloat(totalWallet.toFixed(2)));
+    console.log("before :" + annualMarketReturnPercent);
+    annualMarketReturnPercent.push(spyReturn);
+    console.log("after :" + annualMarketReturnPercent);
+
 
     var totalDividendReceived = ((annualDividendReceived.reduce((acc, val) => acc + val, 0))).toFixed(2); //somme de la liste annualDividendReceived
     totalGainWithoutDividend = (diffEuro - totalDividendReceived).toFixed(2); //le gain total en plus-value = gain total - dividendes nets reçus
 
 
-
-    
     //CHANGER COULEURS
     changeBackgroundColor(diffEuro, diffPercent);
+
 
     //REMPLIR TABLEAUX
     fillStockPrices();
@@ -3016,13 +3018,16 @@ async function main() {
     fillReturnInEuros(diffListEuro);
     fillReturnInPercent(diffPercentList);
 
+
     //OBTENIR POIDS DE CHAQUE ACTIONS
     calculateWeightOfStocks(finalValueOfStocks,finalValue);
     calculateWeightedAverage(stocksCotation);
 
+
     //REMPLIR BARRES DE PROGRESSION
     fillFirstProgressBar(totalWallet, 20000);
     fillSecondProgressBar(tempDividendReceived, 60);
+
 
     //DESSINER GRAPHES
     draw1(CashOnHand, finalValue);
