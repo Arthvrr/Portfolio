@@ -800,80 +800,67 @@ async function getStockPrice(symbol, index) {
 }
 
 
-// Fonction alternative pour récupérer le prix actuel de SPY avec Yahoo Finance
-async function getCurrentSPYPrice(symbol) {
+// Fonction pour récupérer le prix actuel de SPY avec proxy CORS
+async function getCurrentSPYPrice() {
     try {
-        // Récupérer les données de Yahoo Finance
-        const response = await fetch(`https://query1.finance.yahoo.com/v8/finance/chart/SPY?interval=1d&range=1d`);
+        // Utilisation d'un proxy CORS pour contourner les restrictions
+        const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://query1.finance.yahoo.com/v8/finance/chart/SPY?interval=1d&range=1d')}`);
         const data = await response.json();
-
-        // Extraire le prix actuel
-        if (data.chart && data.chart.result && data.chart.result[0] && 
-            data.chart.result[0].indicators && data.chart.result[0].indicators.quote && 
-            data.chart.result[0].indicators.quote[0] && 
-            data.chart.result[0].indicators.quote[0].close) {
-            
-            // Prendre le dernier prix de clôture valide
-            const quotes = data.chart.result[0].indicators.quote[0];
-            const timestamps = data.chart.result[0].timestamp;
+        const result = JSON.parse(data.contents);
+        
+        if (result.chart?.result?.[0]?.indicators?.quote?.[0]?.close) {
+            const quotes = result.chart.result[0].indicators.quote[0];
+            const timestamps = result.chart.result[0].timestamp;
             
             for (let i = timestamps.length - 1; i >= 0; i--) {
                 if (quotes.close[i] !== null) {
-                    const currentPrice = parseFloat(quotes.close[i].toFixed(2));
-                    return currentPrice;
+                    return parseFloat(quotes.close[i].toFixed(2));
                 }
             }
         }
-
-        console.error('Aucun prix actuel trouvé dans les données Yahoo Finance');
+        
+        console.error('Aucun prix actuel trouvé');
         return null;
     } catch (error) {
-        console.error('Erreur lors de la récupération du prix actuel de SPY:', error);
+        console.error('Erreur lors de la récupération du prix actuel:', error);
         return null;
     }
 }
 
-// Fonction pour récupérer le prix du SPY au début de l'année en utilisant Yahoo Finance
+// Fonction pour récupérer le prix du SPY au début de l'année avec proxy CORS
 async function getStartSPYPrice() {
     try {
-        // Calculer la date du premier jour ouvré de l'année
-        const now = new Date();
-        const year = now.getFullYear();
-        let date = new Date(year, 0, 1); // 1er janvier
+        const currentYear = new Date().getFullYear();
+        const startDate = new Date(currentYear, 0, 1).getTime() / 1000; // 1er janvier de l'année en cours
+        const endDate = startDate + (24 * 60 * 60 * 2); // On prend 2 jours pour être sûr d'avoir un jour de bourse
         
-        // Vérifier si c'est un week-end ou un jour férié
-        while (date.getDay() === 0 || date.getDay() === 6) { // 0 = dimanche, 6 = samedi
-            date.setDate(date.getDate() + 1);
-        }
-
-        // Formatage de la date pour Yahoo Finance
-        const startDate = date.toISOString().split('T')[0];
-        const endDate = new Date(year, 0, 10).toISOString().split('T')[0]; // 10 janvier
-
-        // Récupérer les données historiques de Yahoo Finance
-        const response = await fetch(`https://query1.finance.yahoo.com/v8/finance/chart/SPY?period1=${Math.floor(date.getTime() / 1000)}&period2=${Math.floor(new Date(year, 0, 10).getTime() / 1000)}&interval=1d&events=history`);
+        const url = `https://api.allorigins.win/get?url=${encodeURIComponent(
+            `https://query1.finance.yahoo.com/v8/finance/chart/SPY?period1=${Math.floor(startDate)}&period2=${Math.floor(endDate)}&interval=1d`
+        )}`;
+        
+        const response = await fetch(url);
         const data = await response.json();
-
-        // Extraire le premier prix de clôture
-        if (data.chart && data.chart.result && data.chart.result[0] && data.chart.result[0].indicators && data.chart.result[0].indicators.quote && data.chart.result[0].indicators.quote[0]) {
-            const quotes = data.chart.result[0].indicators.quote[0];
-            const timestamps = data.chart.result[0].timestamp;
-            
-            // Trouver le premier prix de clôture valide
-            for (let i = timestamps.length - 1; i >= 0; i--) {
-                if (quotes.close[i] !== null) {
-                    const firstClosePrice = parseFloat(quotes.close[i].toFixed(2));
-                    return parseFloat(firstClosePrice.toFixed(2));
+        const result = JSON.parse(data.contents);
+        
+        if (result.chart?.result?.[0]?.indicators?.quote?.[0]?.close) {
+            const closePrices = result.chart.result[0].indicators.quote[0].close;
+            // Prendre le premier prix de clôture non nul
+            for (const price of closePrices) {
+                if (price !== null) {
+                    return parseFloat(price.toFixed(2));
                 }
             }
         }
-        console.error('Aucun prix trouvé pour le début de l\'année ou données invalides');
+        
+        console.error('Aucun prix de début d\'année trouvé');
         return null;
     } catch (error) {
-        console.error('Erreur lors de la récupération du prix de SPY au début de l\'année:', error);
+        console.error('Erreur lors de la récupération du prix de début d\'année:', error);
         return null;
     }
 }
+
+// Ancien code supprimé et remplacé par la version avec proxy CORS
 
 // Fonction pour récupérer le PE ratio de l'action
 async function getPERatio(symbol, index) {
@@ -2946,8 +2933,11 @@ async function main() {
     await getAllPERatios();
 
     const currentPrice = await getCurrentSPYPrice("SPY");
+    console.log("Current SPY price:", currentPrice);
     const startPrice = await getStartSPYPrice();
+    console.log("Start SPY price:", startPrice);
     const spyReturn = calculateSPYReturn(currentPrice, startPrice);
+    console.log("SPY return:", spyReturn);
 
     finalValue = totalValue * exchangeRate;
     document.getElementById("wallet-value").textContent = finalValue.toFixed(2);
