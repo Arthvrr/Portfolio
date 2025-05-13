@@ -800,62 +800,67 @@ async function getStockPrice(symbol, index) {
 }
 
 
-// Fonction pour récupérer le prix actuel de SPY avec proxy CORS
+// Clé API Twelve Data (à stocker de manière sécurisée en production)
+const TWELVE_DATA_API_KEY = '402fb2cdc8714fa4a45593cfe8108cae';
+
+// Fonction pour récupérer le prix actuel du SPY avec Twelve Data
 async function getCurrentSPYPrice() {
     try {
-        // Utilisation d'un proxy CORS pour contourner les restrictions
-        const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://query1.finance.yahoo.com/v8/finance/chart/SPY?interval=1d&range=1d')}`);
+        const response = await fetch(`https://api.twelvedata.com/price?symbol=SPY&apikey=${TWELVE_DATA_API_KEY}`);
+        if (!response.ok) {
+            throw new Error(`Erreur HTTP: ${response.status}`);
+        }
         const data = await response.json();
-        const result = JSON.parse(data.contents);
         
-        if (result.chart?.result?.[0]?.indicators?.quote?.[0]?.close) {
-            const quotes = result.chart.result[0].indicators.quote[0];
-            const timestamps = result.chart.result[0].timestamp;
-            
-            for (let i = timestamps.length - 1; i >= 0; i--) {
-                if (quotes.close[i] !== null) {
-                    return parseFloat(quotes.close[i].toFixed(2));
-                }
-            }
+        if (data.code === 429) {
+            console.error('Limite de requêtes API atteinte pour Twelve Data');
+            return null;
         }
         
-        console.error('Aucun prix actuel trouvé');
+        if (data.price) {
+            return parseFloat(data.price);
+        }
+        
+        console.error('Format de réponse inattendu de Twelve Data (prix actuel):', data);
         return null;
     } catch (error) {
-        console.error('Erreur lors de la récupération du prix actuel:', error);
+        console.error('Erreur avec Twelve Data (prix actuel):', error);
         return null;
     }
 }
 
-// Fonction pour récupérer le prix du SPY au début de l'année avec proxy CORS
+// Fonction pour récupérer le prix du SPY au début de l'année avec Twelve Data
 async function getStartSPYPrice() {
     try {
         const currentYear = new Date().getFullYear();
-        const startDate = new Date(currentYear, 0, 1).getTime() / 1000; // 1er janvier de l'année en cours
-        const endDate = startDate + (24 * 60 * 60 * 2); // On prend 2 jours pour être sûr d'avoir un jour de bourse
+        const startDate = `${currentYear}-01-01`;
+        const endDate = new Date().toISOString().split('T')[0]; // Date d'aujourd'hui
         
-        const url = `https://api.allorigins.win/get?url=${encodeURIComponent(
-            `https://query1.finance.yahoo.com/v8/finance/chart/SPY?period1=${Math.floor(startDate)}&period2=${Math.floor(endDate)}&interval=1d`
-        )}`;
+        const response = await fetch(
+            `https://api.twelvedata.com/time_series?symbol=SPY&interval=1day&start_date=${startDate}&end_date=${endDate}&apikey=${TWELVE_DATA_API_KEY}`
+        );
         
-        const response = await fetch(url);
-        const data = await response.json();
-        const result = JSON.parse(data.contents);
-        
-        if (result.chart?.result?.[0]?.indicators?.quote?.[0]?.close) {
-            const closePrices = result.chart.result[0].indicators.quote[0].close;
-            // Prendre le premier prix de clôture non nul
-            for (const price of closePrices) {
-                if (price !== null) {
-                    return parseFloat(price.toFixed(2));
-                }
-            }
+        if (!response.ok) {
+            throw new Error(`Erreur HTTP: ${response.status}`);
         }
         
-        console.error('Aucun prix de début d\'année trouvé');
+        const data = await response.json();
+        
+        if (data.code === 429) {
+            console.error('Limite de requêtes API atteinte pour Twelve Data');
+            return null;
+        }
+        
+        if (data.values && data.values.length > 0) {
+            // Le premier jour de bourse de l'année est le dernier élément du tableau
+            const firstTradingDay = data.values[data.values.length - 1];
+            return parseFloat(firstTradingDay.close);
+        }
+        
+        console.error('Aucune donnée historique trouvée pour le début d\'année');
         return null;
     } catch (error) {
-        console.error('Erreur lors de la récupération du prix de début d\'année:', error);
+        console.error('Erreur avec Twelve Data (prix début année):', error);
         return null;
     }
 }
