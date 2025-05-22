@@ -668,7 +668,7 @@ var totalInvested = 16500; // montant total investi
 var totalInvestedCell = document.getElementById("invested");
 totalInvestedCell.textContent = totalInvested;
 
-var CashOnHand = 4291.34; // cash disponible
+var CashOnHand = 4294.64; // cash disponible
 var cashCell = document.getElementById("cash");
 cashCell.textContent = CashOnHand.toFixed(2);
 
@@ -730,7 +730,7 @@ var AAPLCotation = [100,33,67,83,83]; //liste des scores par secteur pour le Sco
 var ASMLCotation = [100,67,50,100,100];
 var GOOGLCotation = [100,67,67,100,67];
 var MACotation = [67,100,100,33,100];
-var MSFTCotation = [100,100,67,100,100];
+var MSFTCotation = [100,100,67,100,83];
 var SPGICotation = [100,100,50,67,100];
 var VCotation = [67,67,83,100,100];
 var stocksCotation = [AAPLCotation,ASMLCotation,GOOGLCotation,MACotation,MSFTCotation,SPGICotation,VCotation];
@@ -739,7 +739,7 @@ var AAPLScore = 22;
 var ASMLScore = 25;
 var GOOGLScore = 24;
 var MAScore = 24;
-var MSFTScore = 28;
+var MSFTScore = 27;
 var SPGIScore = 23;
 var VScore = 25;
 var stocksScore = [AAPLScore,ASMLScore, GOOGLScore, MAScore,MSFTScore,SPGIScore,VScore];
@@ -2985,7 +2985,7 @@ async function main() {
     var tempInvested = 10100;
     tempReturnEuro = parseFloat((totalWallet - (tempInvested + tempStartYear)).toFixed(2));
     tempReturnPercent = parseFloat(((tempReturnEuro / (tempInvested + tempStartYear)) * 100).toFixed(2));
-    var tempDividendReceived = 11.61;
+    var tempDividendReceived = 14.91;
 
     annualReturnEuro.push(tempReturnEuro);
     annualReturnPercent.push(tempReturnPercent);
