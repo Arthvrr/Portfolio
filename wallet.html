@@ -2901,21 +2901,24 @@ function draw28(tickerOfShares, valuationScore) {
 }
 
 
-function draw29(futureYears,futureDividendsReceived) {
-
+function draw29(futureYears, futureDividendsReceived) {
     var ctx = document.getElementById('29Chart').getContext('2d');
     
-    // Créer un graphique à barres
+    // Créer les couleurs pour chaque barre
+    var backgroundColors = futureYears.map((year, index) => 
+        index === 0 ? 'rgba(0, 51, 204, 0.5)' : 'rgba(0, 51, 204, 0.25)'
+    );
+
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: futureYears,
             datasets: [
                 {
-                    label: 'Montant Brut', // Légende pour les dividendes bruts
-                    data: futureDividendsReceived, // Les valeurs des dividendes bruts
-                    backgroundColor: 'rgba(0, 51, 204, 0.5)', // Bleu plus foncé pour le montant brut
-                    borderColor: 'rgba(0, 51, 204, 1)', // Bordure du bleu plus foncé
+                    label: 'Montant Brut Estimé', 
+                    data: futureDividendsReceived, 
+                    backgroundColor: backgroundColors, 
+                    borderColor: 'rgba(0, 51, 204, 1)', 
                     borderWidth: 1
                 },
             ]

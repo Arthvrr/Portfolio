@@ -1,9 +1,12 @@
 wallet.html :
 
-- ajout graphe projection dividende (montant actuel + croissance moyenne 5 ans pondérée pf)
 - ajout graphe watchlist a barre horizontal
 
 --> ça fera 30 graphes au total sur la page !
+
+--> ajouter de l'intéractivité sur la page, çàd : 
+- choisir le nombre d'année des projections du dividende
+- choisir le % de safety margin que l'on souhaite
 
 calculator.html :
 - graphes de valorisation
