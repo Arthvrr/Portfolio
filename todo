@@ -1,5 +1,10 @@
 wallet.html :
 
-- ajout montant marge de sécurité chart26 à entrer soi-même
-- ajouter perf 2025 dans tout les graphes (div reçus, perf € et %, perf vs s&p 500)
-- sécuriser les clés api dans des .env
+- ajout graphe projection dividende (montant actuel + croissance moyenne 5 ans pondérée pf)
+- ajout graphe watchlist a barre horizontal
+
+--> ça fera 30 graphes au total sur la page !
+
+calculator.html :
+- graphes de valorisation
+- ajout d'explications de chaque critère quand on hover dessus

@@ -492,6 +492,10 @@
         <canvas id="5Chart"></canvas>
     </div>
 
+    <div class="big-chart-container">
+        <canvas id="29Chart"></canvas>
+    </div>
+
     <div class="big-chart-container" id="annual-perf">
         <canvas id="9Chart"></canvas>
     </div>
@@ -690,9 +694,9 @@ var diffList = [];
 var diffPercentList = [];
 
 var stocksPERatio = []; // PE Ratio de toutes les actions
-var tenyearsPERatio = [22.86,34.99,28.55,37.23,32.59,32.42,33.1] // PE Ratio médian des 10 dernières années
-var gurufocusPrice = [193.82,939.09,173,527.19,438.11,501.45,309.92]
-var tipsrankPrice = [236.78,905,195.09,629.42,431.54,591.14,381.09]
+var tenyearsPERatio = [23.25,34.99,28.55,37.37,32.73,32.45,33.19] // PE Ratio médian des 10 dernières années
+var gurufocusPrice = [197.77,963.42,175.5,537.32,439.93,505.37,314.07]
+var tipsrankPrice = [228.22,905,199.14,638.53,514.07,586.80,386.88]
 var stocksFairPrice = []; // Liste des scores de prix juste
 var valuationScore = []; // Score de valorisation de chaque actions
 
@@ -753,7 +757,9 @@ var weightedAverages = [];
 var dividendData = Array(months.length).fill(0).map(() => Array(4).fill(0)); //Matrice qui représente qui pour chaque action le montant versé en dividende pour tout les mois
 
 
-
+var stocksDividendGrowth = [5, 15, 0, 15, 10, 10, 15]; //Tableau représentant les pourcentages d'augmentation du dividende sur 5 ans des actions du portefeuille
+var futureYears = []; //Tableau qui va contenir le nombre des 11 prochaines années (2025,2026,2027,...,2035)
+var futureDividendsReceived = []; //Tableau qui va contenir le montant brut estimé des dividendes reçu lors des 11 prochaines années
 
 
 //FONCTIONS 
@@ -938,7 +944,6 @@ function calculatePerformanceForAllStocks(currentPrices, pruList, numberOfShares
 
 function calculateTotalDividendPerShare(exchangeRate) {
     totalDividendPerShares.length = 0; // Réinitialiser le tableau des totaux de dividendes par action
-    
     
     for (let i = 0; i < numberOfShares.length; i++) {
         const toPush = Number(((numberOfShares[i] * dividendPerShares[i]) * exchangeRate).toFixed(2)); // Calculer le total des dividendes pour cette action
@@ -1199,6 +1204,46 @@ function calculateWeightedAverage(stocksCotation) {
             weightedAverages.push(Number((totalWeightedSum / totalWeight).toFixed(2)));
         }
     }
+
+// fonction permettant de remplir le tableau futureYears (du nombre des 10 prochaines années)
+function calculateFutureYears() {
+
+    var currentYear = years[(years.length)-1];
+
+    for (let i = 0; i < 10; i++){
+        futureYears.push(currentYear);
+        currentYear++;
+    }
+}
+
+// Fonction pour calculer le pourcentage pondéré d'augmentation des dividendes
+function calculateWeightedDividendGrowth(stocksDividendGrowth, weightOfStocks) {
+    let weightedDividendGrowth = 0; // Initialisation locale
+
+    for (let i = 0; i < stocksDividendGrowth.length; i++) {
+        weightedDividendGrowth += stocksDividendGrowth[i] * weightOfStocks[i];
+    }
+
+    weightedDividendGrowth = parseFloat(weightedDividendGrowth.toFixed(2));
+
+    return weightedDividendGrowth; // Retourne la valeur calculée
+}
+
+// fonction permettant de calculer le montant en dividende reçu estimé lors des 10 prochaines années
+function calculateFutureDividends() {
+
+    var growth = calculateWeightedDividendGrowth(stocksDividendGrowth,weightOfStocks);
+
+    var tempDividendReceived  = totalDividend;
+    futureDividendsReceived.push(tempDividendReceived); //dividendes bruts actuels la première année
+
+    for (let i = 0; i < 10; i++){
+        var toFill = tempDividendReceived + (tempDividendReceived * (growth/100));
+        toFill = parseFloat(toFill.toFixed(2));
+        tempDividendReceived = toFill;
+        futureDividendsReceived.push(toFill);
+    }
+}
 
 
 // GRAPHIQUES
@@ -2855,6 +2900,62 @@ function draw28(tickerOfShares, valuationScore) {
     });
 }
 
+
+function draw29(futureYears,futureDividendsReceived) {
+
+    var ctx = document.getElementById('29Chart').getContext('2d');
+    
+    // Créer un graphique à barres
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: futureYears,
+            datasets: [
+                {
+                    label: 'Montant Brut', // Légende pour les dividendes bruts
+                    data: futureDividendsReceived, // Les valeurs des dividendes bruts
+                    backgroundColor: 'rgba(0, 51, 204, 0.5)', // Bleu plus foncé pour le montant brut
+                    borderColor: 'rgba(0, 51, 204, 1)', // Bordure du bleu plus foncé
+                    borderWidth: 1
+                },
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                },
+                title: {
+                    display: true,
+                    text: "Projection des dividendes reçus lors des 10 prochaines années",
+                    position: 'top',
+                    font: {
+                        size: 16
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    title: {
+                        display: false,
+                        text: "Mois"
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: false,
+                        text: "Montant des Dividendes"
+                    }
+                }
+            },
+        }
+    });
+}
+
+
 function calculateSPYReturn(currentValue, startValue) {
     var returnPercent = ((currentValue - startValue) / startValue) * 100;
     return parseFloat(returnPercent.toFixed(2));
@@ -3018,6 +3119,9 @@ async function main() {
     calculateWeightOfStocks(finalValueOfStocks,finalValue);
     calculateWeightedAverage(stocksCotation);
 
+    calculateFutureYears();
+    calculateFutureDividends();
+
 
     //REMPLIR BARRES DE PROGRESSION
     fillFirstProgressBar(totalWallet, 20000);
@@ -3053,6 +3157,7 @@ async function main() {
     draw26(tickerOfShares, stocksPrice,stocksFairPrice,gurufocusPrice,tipsrankPrice);
     draw27(tickerOfShares,stocksPERatio,tenyearsPERatio);
     draw28(tickerOfShares,valuationScore);
+    draw29(futureYears,futureDividendsReceived);
 
 }
 
