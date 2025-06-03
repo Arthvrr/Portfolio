@@ -176,12 +176,13 @@ td {
 
 .stocks-info {
     width: 100%;
-    border-collapse: collapse; /* Fusionner les bordures de cellules */
-    border: 1px solid black; /* Bordure du tableau */
-    background-color: #f0f0f0; /* Couleur de fond */
+    border-collapse: collapse;
+    border: 1px solid black;
+    background-color: #f0f0f0;
     margin: 0 auto;
-    table-layout: fixed; /* Fixer la taille des colonnes */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Ombre légère */
+    table-layout: fixed;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    background-color: white;
 }
 
 .stocks-info td {
@@ -320,14 +321,14 @@ td {
     border-bottom: 3px solid black;
 }
 
-.link-page-aapl, .link-page-asml, .link-page-googl, .link-page-ma,.link-page-msft, .link-page-spgi, .link-page-v {
+.link-page-asml, .link-page-googl, .link-page-ma,.link-page-msft, .link-page-spgi, .link-page-v {
     display: flex; /* Utiliser flexbox */
     justify-content: center; /* Aligner horizontalement au centre */
     margin: 0 auto;
     width: 100%;
 }
 
-.link-page-aapl a, .link-page-asml a, .link-page-googl a, .link-page-ma a,.link-page-msft a, .link-page-spgi a, .link-page-v a {
+.link-page-asml a, .link-page-googl a, .link-page-ma a,.link-page-msft a, .link-page-spgi a, .link-page-v a {
     text-decoration: none;
     color: black;
     font-size: 1.15em;
@@ -336,12 +337,12 @@ td {
     transition: border-bottom 0.75s ease;
 }
 
-.link-page-aapl h3:not(:last-child)::after, .link-page-asml h3:not(:last-child)::after,  .link-page-googl h3:not(:last-child)::after, .link-page-ma h3:not(:last-child)::after, .link-page-msft h3:not(:last-child)::after, .link-page-spgi h3:not(:last-child)::after, .link-page-v h3:not(:last-child)::after {
+.link-page-asml h3:not(:last-child)::after,  .link-page-googl h3:not(:last-child)::after, .link-page-ma h3:not(:last-child)::after, .link-page-msft h3:not(:last-child)::after, .link-page-spgi h3:not(:last-child)::after, .link-page-v h3:not(:last-child)::after {
     content: "|";
     margin-left: 5px;
 }
 
-.link-page-aapl a:hover, .link-page-asml a:hover, .link-page-googl a:hover, .link-page-ma a:hover, .link-page-msft a:hover, .link-page-spgi a:hover, .link-page-v a:hover{
+.link-page-asml a:hover, .link-page-googl a:hover, .link-page-ma a:hover, .link-page-msft a:hover, .link-page-spgi a:hover, .link-page-v a:hover{
     border-bottom: 3px solid black;
 }
 
@@ -592,23 +593,27 @@ td {
 }
 
 #bases {
-    background-color: rgba(0, 179, 255, 0.1);
+    background-color: rgba(255, 99, 132, 0.25); /* Correspond à 'Bases' */
 }
 
 #croissance {
-    background-color: rgba(115, 255, 0, 0.1);
-}
+    background-color: rgba(54, 162, 235, 0.25); /* Correspond à 'Croissance' */
+}   
 
 #rentabilité {
-    background-color: rgba(255, 149, 0, 0.1);
+    background-color: rgba(255, 205, 86, 0.25); /* Correspond à 'Rentabilité' */
 }
 
 #solvabilité {
-    background-color: rgba(255, 225, 0, 0.1);
+    background-color: rgba(75, 192, 192, 0.25); /* Correspond à 'Solvabilité' */
 }
 
 #dividende {
-    background-color: rgba(212, 0, 255, 0.1);
+    background-color: rgba(153, 102, 255, 0.25); /* Correspond à 'Dividende' */
+}
+
+#valorisation {
+    background-color: rgba(128, 128, 128, 0.1); /* Gris */
 }
 
 .calculator-text-home {
@@ -674,11 +679,151 @@ circle-progress::part(base) {
     height : 400px;
     margin-top: 100px;
 }
+/* Style pour le champ de saisie du ticker */
+.ticker-input-container {
+    width: 50%;
+    margin: 30px auto;
+    max-width: 800px;
+}
 
+.ticker-input {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 18px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    outline: none;
+    background: transparent;
+    font-family: 'Oswald', Arial, sans-serif;
+    color: #333;
+    transition: border-color 0.3s ease;
+    margin-bottom: 10px;
+}
 
+.safety-margin-container {
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px 0;
+}
 
+.safety-margin-container label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 14px;
+}
 
+/* Styles pour le curseur personnalisé */
+.slider-container {
+    width: 100%;
+    margin: 20px 0 30px;
+    position: relative;
+}
 
+.slider-track {
+    position: relative;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.slider {
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: #e0e0e0;
+    outline: none;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #60a1fc;
+    cursor: pointer;
+    position: relative;
+    z-index: 3;
+    transition: all 0.2s ease;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.slider::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    background: #3d7bcc;
+}
+
+.slider-marks {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.mark {
+    position: absolute;
+    color: #777;
+    font-size: 12px;
+    transform: translateX(-50%);
+    top: 20px;
+    white-space: nowrap;
+}
+
+.mark::before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 8px;
+    background: #aaa;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Style pour les petits écrans */
+@media (max-width: 768px) {
+    .slider-marks {
+        height: 40px;
+    }
+    
+    .mark {
+        font-size: 10px;
+    }
+}
+
+.fair-price-container {
+    text-align: center;
+    margin: 15px 0 30px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    font-size: 18px;
+    color: #333;
+}
+
+.fair-price-container p {
+    margin: 0;
+}
+
+#fairPrice {
+    font-weight: bold;
+    color: #60a1fc;
+}
+
+.ticker-input::placeholder {
+    color: #aaa;
+}
+
+.ticker-input:focus {
+    border-bottom-color: #60a1fc;
+}
 
 /*RESPONSIVE POUR LES ÉCRANS > 2100px*/
 @media screen and (min-width: 2100px) {
