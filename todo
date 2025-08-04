@@ -1,12 +1,11 @@
 wallet.html :
 
-- ajout graphe watchlist a barre horizontal
-
 --> ça fera 30 graphes au total sur la page !
 
 --> ajouter de l'intéractivité sur la page, çàd : 
 - choisir le nombre d'année des projections du dividende
 - choisir le % de safety margin que l'on souhaite
+- choisir dividendes nets/bruts
 
 calculator.html :
 - graphes de valorisation

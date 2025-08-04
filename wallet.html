@@ -605,13 +605,13 @@ var totalInvested = 16500; // montant total investi
 var totalInvestedCell = document.getElementById("invested");
 totalInvestedCell.textContent = totalInvested;
 
-var CashOnHand = 3975.73; // cash disponible
+var CashOnHand = 2773.50; // cash disponible
 var cashCell = document.getElementById("cash");
 cashCell.textContent = CashOnHand.toFixed(2);
 
 var tickerOfShares = ["ASML", "GOOGL","MA", "MSFT","SPGI", "V"]; // tickers
-var numberOfShares = [4, 20, 4, 8, 4, 7]; // nombres d'actions
-var pruOfShares = [686.05, 166.19625, 411.6737, 364.5375, 499.1, 241.2735]; // PRU des actions
+var numberOfShares = [6, 20, 4, 8, 4, 7]; // nombres d'actions
+var pruOfShares = [689.615, 166.19625, 411.6737, 364.5375, 499.1, 241.2735]; // PRU des actions
 
 var stocksPrice = []; // prix actuels des actions, en $
 let totalPRU = 0;
@@ -627,13 +627,13 @@ var diffList = [];
 var diffPercentList = [];
 
 var stocksPERatio = []; // PE Ratio de toutes les actions
-var tenyearsPERatio = [34.99,28.55,37.37,32.73,32.45,33.19] // PE Ratio médian des 10 dernières années
-var gurufocusPrice = [963.42,175.5,537.32,439.93,505.37,314.07]
-var tipsrankPrice = [905,199.14,638.53,514.07,586.80,386.88]
+var tenyearsPERatio = [34.99,28.51,37.66,33.14,32.57,33.34] // PE Ratio médian des 10 dernières années
+var gurufocusPrice = [1035.37,182.05,560.03,470.27,519.25,316.42]
+var tipsrankPrice = [863.83,214.41,634.82,617.58,614.06,399]
 var stocksFairPrice = []; // Liste des scores de prix juste
 var valuationScore = []; // Score de valorisation de chaque actions
 
-var dividendPerShares = [7.68, 0.84, 3.04, 3.32, 3.84, 2.36]; // liste pour stocker les dividendes versés par actions en $
+var dividendPerShares = [7.42, 0.84, 3.04, 3.32, 3.84, 2.36]; // liste pour stocker les dividendes versés par actions en $
 
 var totalDividendPerShares = []; //liste pour stocker les dividendes versés par action en €
 
@@ -1857,50 +1857,6 @@ function draw11(annualDividendReceived) {
 }
 
 
-// function draw12(stocksCotation) {
-//     var ctx = document.getElementById('12Chart').getContext('2d');
-
-//     var myChart = new Chart(ctx, {
-//         type: 'radar',
-//         data: {
-//             labels: ['Bases', 'Croissance', 'Rentabilité', 'Solvabilité', 'Dividende'],
-//             datasets: [{
-//                 label: 'ScoreCard Apple',
-//                 data: stocksCotation,
-//                 backgroundColor: 'rgba(54, 162, 235, 0.5)',
-//                 borderColor: 'rgba(54, 162, 235, 1)',
-//                 borderWidth: 1
-//             }]
-//         },
-//         options: {
-//             maintainAspectRatio: false,
-//             plugins: {
-//                 legend: {
-//                     display: false,
-//                     position: 'bottom'
-//                 },
-//                 title: {
-//                     display: false,
-//                     text: "ScoreCard de l'Action",
-//                     position: 'top',
-//                     font: {
-//                         size: 16
-//                     }
-//                 }
-//             },
-//             scale: {
-//                 ticks: {
-//                     beginAtZero: true,
-//                 },
-//                 min: 0,
-//                 max: 100,
-//                 stepSize: 20
-//             }
-//         }
-//     });
-// }
-
-
 function draw13(stocksCotation) {
     var ctx = document.getElementById('13Chart').getContext('2d');
 
@@ -3002,7 +2958,7 @@ async function main() {
     var tempInvested = 10100;
     tempReturnEuro = parseFloat((totalWallet - (tempInvested + tempStartYear)).toFixed(2));
     tempReturnPercent = parseFloat(((tempReturnEuro / (tempInvested + tempStartYear)) * 100).toFixed(2));
-    var tempDividendReceived = 17.99;
+    var tempDividendReceived = 28.77;
 
     annualReturnEuro.push(tempReturnEuro);
     annualReturnPercent.push(tempReturnPercent);
@@ -3056,7 +3012,6 @@ async function main() {
     draw9();
     draw10(annualInvested, walletEndYear);
     draw11(annualDividendReceived);
-    // draw12(AAPLCotation);
     draw13(MACotation);
     draw14(MSFTCotation);
     draw15(VCotation);
