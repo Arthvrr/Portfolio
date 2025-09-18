@@ -55,7 +55,7 @@
         </tr>
     </table>
     <div class="progress-container">
-        <h2 class="progress-title">Atteindre les 20 000€ de Valeur du Portefeuille : <span id="firstProgressText">0%</span></h2>
+        <h2 class="progress-title">Atteindre les 25 000€ de Valeur du Portefeuille : <span id="firstProgressText">0%</span></h2>
         <progress id="firstProgressBar" value="0" max="0" class="progress-bar"></progress>  
         <h2 class="progress-title">Recevoir 60€ de dividendes nets en 2025 : <span id="secondProgressText">0%</span></h2>
         <progress id="secondProgressBar" value="0" max="0" class="progress-bar"></progress>
@@ -2958,7 +2958,7 @@ async function main() {
     var tempInvested = 10100;
     tempReturnEuro = parseFloat((totalWallet - (tempInvested + tempStartYear)).toFixed(2));
     tempReturnPercent = parseFloat(((tempReturnEuro / (tempInvested + tempStartYear)) * 100).toFixed(2));
-    var tempDividendReceived = 36.36;
+    var tempDividendReceived = 49.92;
 
     annualReturnEuro.push(tempReturnEuro);
     annualReturnPercent.push(tempReturnPercent);
@@ -2996,7 +2996,7 @@ async function main() {
 
 
     //REMPLIR BARRES DE PROGRESSION
-    fillFirstProgressBar(totalWallet, 20000);
+    fillFirstProgressBar(totalWallet, 25000);
     fillSecondProgressBar(tempDividendReceived, 60);
 
 
