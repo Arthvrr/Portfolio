@@ -453,7 +453,7 @@ td {
     margin: 0 auto;
     margin-top: 75px;
     text-align: center;
-    font-size: 2em;
+    font-size: 2.55em;
     font-weight: bold;
     text-decoration: underline;
     max-width: 60%;
@@ -461,13 +461,14 @@ td {
 }
 
 .presentation-perso {
-    width: 100%;
+    width: 60%;
     text-align: center;
     margin: 0 auto;
-    background-color:#5c5c5c;
-    color: white;
+    background-color: #f1f1f1;
+    color: black;
     margin-top: 60px;
     transition : background-color 3s, color 3s;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .presentation-perso img {
@@ -477,10 +478,10 @@ td {
 
 .presentation-perso p {
     font-size: 1.2em;
-    max-width: 60%;
     text-align: justify;
-    padding-left: 20%;
     padding-bottom: 10px;
+    padding-left: 2%;
+    padding-right: 2%;
 }
 
 .subtitle{
@@ -515,9 +516,36 @@ td {
 }
 
 .commandements {
-    background-color: rgb(254, 240, 180);
+    background-color: rgb(219, 254, 180);
     padding:2% 2% 0% 2%;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.icon-row {
+    width:100%;
+    display: flex;
+    justify-content: space-around; /* espace égal autour des icônes */
+    align-items: flex-start;
+    margin: 20px 0;
+    flex-wrap: nowrap; /* empêche les blocs de passer à la ligne */
+}
+
+.icon-item {
+    text-align: center;
+}
+
+.icon-item img {
+    max-width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto 15px auto; /* espace entre image et texte */
+    box-shadow: none;
+}
+
+.icon-item p {
+    margin: 0;
+    line-height: 1.4;
+    text-align: center;
 }
 
 
@@ -867,15 +895,16 @@ circle-progress::part(base) {
     }
     
     .title-home{
-        font-size: 2.25em;
+        font-size: 3.4em;
         max-width: 40%;
+    }
+
+    .presentation-perso {
+        width:40%;
     }
 
     .presentation-perso p {
         font-size: 1.15em;
-        max-width: 40%;
-        padding-left: 30%;
-        
     }    
 
 }
@@ -926,6 +955,10 @@ circle-progress::part(base) {
     .title-home{
         font-size: 1.55em;
         max-width: 90%;
+    }
+
+    .presentation-perso {
+        width:90%;
     }
 
     .presentation-perso p {

@@ -1,11 +1,13 @@
-À ajouter à chaque début d'année :
+# À ajouter à chaque début d'année :
 
 - retour annuel en € et %
 - retour annuel du portefeuille et du S&P 500
 - montant investi vs valeur du portefeuille par an
 - dividendes nets reçus par an
 
-À ajouter si ajout d'une action :
+---
+
+# À ajouter si ajout d'une action :
 
 - panel des actions du portefeuille
 - valeur totale par action en €
@@ -18,3 +20,19 @@
 - qualité des actions par segment en %
 
 + scorecard pondéré du portefeuille --> check si changement
+
+---
+
+# Commandes intéressantes :
+
+Vider le cache DNS du Système :
+```bash
+sudo dscacheutil -flushcache
+sudo killall -HUP mDNSResponder
+```
+
+Tester la connexion : 
+```bash
+ping stockspickeur.eu
+curl -I https://stockspickeur.eu
+```
