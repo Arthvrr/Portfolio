@@ -1621,6 +1621,7 @@ function draw8(stocksPrice) {
             datasets: [{
                 label : 'PRU',
                 data: pruOfShares,
+                fill:true,
                 backgroundColor: [
                     'rgba(214, 0, 0, 0.5)',
                 ],
@@ -1631,7 +1632,7 @@ function draw8(stocksPrice) {
             },{
                 label : "Prix de l'action",
                 data: stocksPrice,
-                fill: '-1',
+                fill: true,
                 backgroundColor: [
                     'rgba(0, 99, 27, 0.5)',
                 ],
