@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Portefeuille 🚀</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="./media/Logo/Logo-Blue.png">
+    <link rel="icon" href="media/Logo/logo.ico" type="image/x-icon">
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
@@ -612,13 +612,13 @@ var totalInvested = 16500; // montant total investi
 var totalInvestedCell = document.getElementById("invested");
 totalInvestedCell.textContent = totalInvested;
 
-var CashOnHand = 1108.48; // cash disponible
+var CashOnHand = 384.24; // cash disponible
 var cashCell = document.getElementById("cash");
 cashCell.textContent = CashOnHand.toFixed(2);
 
 var tickerOfShares = ["ASML", "GOOGL","MA", "MSFT","NVDA", "V"]; // tickers
-var numberOfShares = [6, 20, 4, 8, 15, 10]; // nombres d'actions
-var pruOfShares = [689.615, 166.19625, 411.6737, 364.5375, 188.105, 274.796]; // PRU des actions
+var numberOfShares = [6, 20, 4, 8, 20, 10]; // nombres d'actions
+var pruOfShares = [689.615, 166.19625, 411.6737, 364.5375, 184.04, 274.796]; // PRU des actions
 
 var stocksPrice = []; // prix actuels des actions, en $
 let totalPRU = 0;
@@ -671,16 +671,16 @@ var annualInvested = [0,5350,6400]; //liste qui stocke le nombres d'euros invest
 var walletEndYear = [0,5792.03,8946.56]; //liste qui stocke la valeur du portefeuille à la fin de chaque année
 
 var ASMLCotation = [100,67,50,100,100];
-var GOOGLCotation = [100,67,50,100,67];
-var MACotation = [67,100,100,33,100];
+var GOOGLCotation = [100,67,33,100,67];
+var MACotation = [67,100,100,50,100];
 var MSFTCotation = [100,100,67,100,67];
 var NVDACotation = [100,100,100,100,100];
 var VCotation = [67,67,83,100,100];
 var stocksCotation = [ASMLCotation,GOOGLCotation,MACotation,MSFTCotation,NVDACotation,VCotation];
 
 var ASMLScore = 25;
-var GOOGLScore = 23;
-var MAScore = 24;
+var GOOGLScore = 22;
+var MAScore = 25;
 var MSFTScore = 26;
 var NVDAScore = 30;
 var VScore = 25;
@@ -2966,7 +2966,7 @@ async function main() {
     var tempInvested = 10100;
     tempReturnEuro = parseFloat((totalWallet - (tempInvested + tempStartYear)).toFixed(2));
     tempReturnPercent = parseFloat(((tempReturnEuro / (tempInvested + tempStartYear)) * 100).toFixed(2));
-    var tempDividendReceived = 60.34;
+    var tempDividendReceived = 73.51;
 
     annualReturnEuro.push(tempReturnEuro);
     annualReturnPercent.push(tempReturnPercent);

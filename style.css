@@ -854,7 +854,7 @@ circle-progress::part(base) {
 }
 
 /*RESPONSIVE POUR LES ÉCRANS > 2100px*/
-@media screen and (min-width: 2100px) {
+@media screen and (min-width: 1921px) {
     /* Sélecteur pour votre div */
     .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container, .progress-container, .container,.semititle,.content-home,.link-page, .calculator-home {
       width: 40%;
