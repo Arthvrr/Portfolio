@@ -896,6 +896,30 @@ circle-progress::part(base) {
     font-size: 1.5rem;
 }
 
+/*RESOURCES.HTML*/
+.resource-text-container {
+    padding: 0 40px 20px 40px;
+    text-align: justify;
+}
+
+.criteria-title {
+    font-family: 'Oswald', Arial, sans-serif;
+    font-size: 1.3em;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-left: 4px solid #000;
+    padding-left: 10px;
+}
+
+.criteria-desc {
+    font-family: Arial, sans-serif; /* Plus lisible pour les longs textes */
+    font-size: 1.1em;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
 /* Style pour les petits écrans */
 @media (max-width: 768px) {
     .slider-marks {
