@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="media/Logo/logo.ico" type="image/x-icon">
 </head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -22,7 +21,6 @@
             <img src="./media/Logo/Logo-White.png" alt="Logo QualityInvest">
             <h1>StocksPickeur</h1>
         </a>
-        <!-- MAX 3 ONGLETS -->
         <div class="onglets">
             <a href="calculator.html">Calculateur</a>
             <a href="wallet.html">Portefeuille</a>
@@ -429,6 +427,15 @@
         <canvas id="8Chart"></canvas>
     </div>
 
+    <div class="big-chart-container">
+        <canvas id="30Chart"></canvas>
+    </div>
+
+    <div class="big-chart-container">
+        <canvas id="32Chart"></canvas>
+    </div>
+
+
     <div class="big-chart-container" id="dividend">
         <canvas id="23Chart"></canvas>
     </div>
@@ -443,6 +450,10 @@
 
     <div class="big-chart-container">
         <canvas id="29Chart"></canvas>
+    </div>
+
+    <div class="big-chart-container">
+        <canvas id="31Chart"></canvas>
     </div>
 
     <div class="big-chart-container" id="annual-perf">
@@ -478,9 +489,14 @@
         <canvas id="27Chart"></canvas>
     </div>
     </div>
-        <div class="big-chart-container">
+    <div class="big-chart-container">
         <canvas id="28Chart"></canvas>
     </div>
+    <div class="big-chart-container">
+        <canvas id="33Chart"></canvas>
+    </div>
+    
+
 
     <div class="footer">
         <div class="copyright">
@@ -612,7 +628,7 @@ var totalInvested = 16500; // montant total investi
 var totalInvestedCell = document.getElementById("invested");
 totalInvestedCell.textContent = totalInvested;
 
-var CashOnHand = 384.24; // cash disponible
+var CashOnHand = 384.25; // cash disponible
 var cashCell = document.getElementById("cash");
 cashCell.textContent = CashOnHand.toFixed(2);
 
@@ -2835,6 +2851,296 @@ function draw29(futureYears, futureDividendsReceived) {
     });
 }
 
+function draw30(weightOfStocks, diffPercentList) {
+    var ctx = document.getElementById('30Chart').getContext('2d');
+
+    var borderColors = [
+        'rgba(0, 128, 128, 1)',
+        'rgba(255, 99, 132, 1)',
+        'rgba(128, 0, 128, 1)',
+        'rgba(255, 143, 0, 1)',
+        'rgba(210, 180, 140, 1)',
+        'rgba(255, 205, 86, 1)'
+    ];
+    var backgroundColors = [
+        'rgba(0, 128, 128, 0.5)',
+        'rgba(255, 99, 132, 0.5)',
+        'rgba(128, 0, 128, 0.5)',
+        'rgba(255, 143, 0, 0.5)',
+        'rgba(210, 180, 140, 0.5)',
+        'rgba(255, 205, 86, 0.5)'
+    ];
+
+    var datasets = [];
+    for (let i = 0; i < tickerOfShares.length; i++) {
+        datasets.push({
+            label: tickerOfShares[i],
+            data: [{
+                x: weightOfStocks[i] * 100, // Convertir en pourcentage
+                y: diffPercentList[i]
+            }],
+            backgroundColor: backgroundColors[i % backgroundColors.length],
+            borderColor: borderColors[i % borderColors.length],
+            borderWidth: 1,
+            pointRadius: 8,
+            pointHoverRadius: 10
+        });
+    }
+
+    var myChart = new Chart(ctx, {
+        type: 'scatter',
+        data: {
+            datasets: datasets
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                },
+                title: {
+                    display: true,
+                    text: 'Poids vs Retour sur Investissement',
+                    position: 'top',
+                    font: {
+                        size: 16
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.dataset.label + ': Poids ' + context.parsed.x.toFixed(2) + '%, Retour ' + context.parsed.y.toFixed(2) + '%';
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    title: {
+                        display: false,
+                        text: 'Poids de la position (%)'
+                    },
+                    beginAtZero: true
+                },
+                y: {
+                    title: {
+                        display: false,
+                        text: 'Retour sur Investissement (%)'
+                    },
+                    beginAtZero: false 
+                }
+            }
+        }
+    });
+}
+
+function draw31(dividendPerShares, pruOfShares, stocksPrice) {
+    var ctx = document.getElementById('31Chart').getContext('2d');
+
+    var currentYields = [];
+    var yieldsOnCost = [];
+
+    for (let i = 0; i < tickerOfShares.length; i++) {
+        // Rendement actuel : Dividende / Prix Actuel
+        let cYield = (dividendPerShares[i] / stocksPrice[i]) * 100;
+        // Yield on Cost : Dividende / Prix de Revient (PRU)
+        let yoc = (dividendPerShares[i] / pruOfShares[i]) * 100;
+        
+        currentYields.push(parseFloat(cYield.toFixed(2)));
+        yieldsOnCost.push(parseFloat(yoc.toFixed(2)));
+    }
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: tickerOfShares,
+            datasets: [
+                {
+                    label: 'Yield Actuel (%)',
+                    data: currentYields,
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Yield on Cost (%)', // Ton rendement réel !
+                    data: yieldsOnCost,
+                    backgroundColor: 'rgba(255, 206, 86, 0.6)',
+                    borderColor: 'rgba(255, 206, 86, 1)',
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                },
+                title: {
+                    display: true,
+                    text: 'Rendement Actuel vs Rendement sur Coût (YoC)',
+                    font: { size: 16 }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.dataset.label + ': ' + context.raw + '%';
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: { display: false, text: 'Rendement (%)' }
+                }
+            }
+        }
+    });
+}
+
+function draw32(diffListEuro, tickerOfShares) {
+    var ctx = document.getElementById('32Chart').getContext('2d');
+
+    // 1. On combine les tickers et les valeurs pour pouvoir les trier ensemble
+    var combinedData = tickerOfShares.map((ticker, index) => {
+        return {
+            ticker: ticker,
+            value: diffListEuro[index]
+        };
+    });
+
+    // 2. On trie du plus grand gain au plus grand gain (décroissant)
+    combinedData.sort((a, b) => b.value - a.value);
+
+    // 3. On sépare à nouveau les données triées
+    var sortedLabels = combinedData.map(item => item.ticker);
+    var sortedValues = combinedData.map(item => item.value);
+
+    // 4. On définit les couleurs (Vert pour positif, Rouge pour négatif)
+    var backgroundColors = sortedValues.map(val => val >= 0 ? 'rgba(46, 204, 113, 0.6)' : 'rgba(231, 76, 60, 0.6)');
+    var borderColors = sortedValues.map(val => val >= 0 ? 'rgba(46, 204, 113, 1)' : 'rgba(231, 76, 60, 1)');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: sortedLabels,
+            datasets: [{
+                label: 'Contribution en €',
+                data: sortedValues,
+                backgroundColor: backgroundColors,
+                borderColor: borderColors,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            indexAxis: 'y', // Rend le graphique horizontal
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false }, // Pas besoin de légende ici
+                title: {
+                    display: true,
+                    text: 'Classement des Performances des Positions',
+                    font: { size: 16 }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            let value = context.raw;
+                            let sign = value > 0 ? '+' : '';
+                            return context.dataset.label + ': ' + sign + value + ' €';
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    title: { display: false, text: 'Plus ou Moins Value Latente (€)' }
+                }
+            }
+        }
+    });
+}
+
+function draw33(stocksScore, valuationScore, tickerOfShares) {
+    var ctx = document.getElementById('33Chart').getContext('2d');
+
+    // Création des données pour le scatter plot
+    // x = Qualité, y = Valorisation
+    const scatterData = tickerOfShares.map((ticker, i) => ({
+        x: stocksScore[i],
+        y: valuationScore[i],
+        label: ticker
+    }));
+
+    var borderColors = [
+        'rgba(0, 128, 128, 1)',
+        'rgba(255, 99, 132, 1)',
+        'rgba(128, 0, 128, 1)',
+        'rgba(255, 143, 0, 1)',
+        'rgba(210, 180, 140, 1)',
+        'rgba(255, 205, 86, 1)'
+    ];
+    var backgroundColors = [
+        'rgba(0, 128, 128, 0.5)',
+        'rgba(255, 99, 132, 0.5)',
+        'rgba(128, 0, 128, 0.5)',
+        'rgba(255, 143, 0, 0.5)',
+        'rgba(210, 180, 140, 0.5)',
+        'rgba(255, 205, 86, 0.5)'
+    ];
+
+    new Chart(ctx, {
+        type: 'scatter',
+        data: {
+            datasets: scatterData.map((item, i) => ({
+                label: item.label,
+                data: [{x: item.x, y: item.y}],
+                backgroundColor: backgroundColors[i % backgroundColors.length],
+                borderColor: borderColors[i % borderColors.length],
+                pointRadius: 8, // Points assez gros
+                pointHoverRadius: 12
+            }))
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Matrice Qualité vs Valorisation',
+                    font: { size: 16 }
+                },
+                legend: {
+                    position: 'bottom'
+                },
+                annotation: {
+                    // Note: Annotation nécessite un plugin supplémentaire, 
+                    // on fait simple ici sans plugin externe
+                }
+            },
+            scales: {
+                x: {
+                    title: { display: true, text: 'Score de Qualité (sur 30)' },
+                    min: 15, // On zoome sur la partie intéressante
+                    max: 32
+                },
+                y: {
+                    title: { display: true, text: 'Score de Valorisation' },
+                    beginAtZero: false
+                }
+            }
+        }
+    });
+}
+
 
 function calculateSPYReturn(currentValue, startValue) {
     var returnPercent = ((currentValue - startValue) / startValue) * 100;
@@ -3037,6 +3343,10 @@ async function main() {
     draw27(tickerOfShares,stocksPERatio,tenyearsPERatio);
     draw28(tickerOfShares,valuationScore);
     draw29(futureYears,futureDividendsReceived);
+    draw30(weightOfStocks, diffPercentList);
+    draw31(dividendPerShares, pruOfShares, stocksPrice);
+    draw32(diffListEuro, tickerOfShares);
+    draw33(stocksScore, valuationScore, tickerOfShares);
 
 }
 
