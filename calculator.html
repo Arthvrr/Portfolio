@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Score de Qualité 📊</title>
+    <title>Score de Qualité & Intérêts Composés 📊</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="media/Logo/logo.ico" type="image/x-icon">
 </head>
@@ -30,8 +30,8 @@
 
     <div class="calculator-home">
 
+        <h2 class="title-home">Score de Qualité 📊</h2>
         <p class="calculator-text-home">Bienvenue sur mon outil de calcul du score de qualité d’une action ! Ce calcul repose sur une analyse approfondie de 15 critères financiers et stratégiques spécifiques, qui permettent d’évaluer solidité,croissance et rentabilité d’une action. Chaque critère est pondéré et contribue à un score global sur 30 points. <br> Ce score vous permettra de mieux comprendre les forces et faiblesses d’une action afin de prendre des décisions d’investissement plus éclairées. Ce sont les 15 critères que j'utilise à l'heure actuelle pour analyser mes propres actions. Vous pouvez retrouver le score des actions de mon portefeuille ici : <a class="link-to-wallet" href="./wallet.html#quality">Score de qualité des actions de mon Portefeuille ⚔️</a> </p>
-
         <div class="ticker-input-container">
             <input type="text" id="stockTicker" class="ticker-input" placeholder="Entrez le ticker (ex: AAPL)" autocomplete="off">
             <div class="safety-margin-container">
@@ -39,14 +39,7 @@
                 <div class="slider-container">
                     <div class="slider-track">
                         <div class="slider-fill"></div>
-                        <input type="range" 
-                               min="0" 
-                               max="6" 
-                               value="2" 
-                               step="1" 
-                               class="slider" 
-                               list="markers"
-                               id="safetyMarginSlider">
+                        <input type="range" min="0" max="6" value="2" step="1" class="slider" list="markers" id="safetyMarginSlider">
                         <div class="slider-marks">
                             <span class="mark" style="left: 0%">0%</span>
                             <span class="mark" style="left: 16.66%">5%</span>
@@ -65,15 +58,15 @@
             <h3 class="calculator-section">BASES</h3>
             <div class="input-container">
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Vérifie si l'action a performé mieux que l'indice S&P 500 sur les 5 dernières années. Indique une surperformance du marché.">COURS DE L'ACTION BATS LE S&P500 SUR 5 ANS</p>
+                    <p class="label-text" data-tooltip="Vérifie si l'action a performé mieux que l'indice S&P 500 sur les 5 dernières années.">COURS DE L'ACTION BATS LE S&P500 SUR 5 ANS</p>
                     <input type="text" class="calc-input" placeholder="Oui/Non">
                 </div>
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="L'entreprise rachète-t-elle ses propres actions ? Cela réduit le nombre d'actions en circulation et augmente mécaniquement la valeur de votre part.">L'ENTREPRISE EFFECTUE DES RACHATS D'ACTIONS</p>
+                    <p class="label-text" data-tooltip="L'entreprise rachète-t-elle ses propres actions ?">L'ENTREPRISE EFFECTUE DES RACHATS D'ACTIONS</p>
                     <input type="text" class="calc-input" placeholder="Oui/Non">
                 </div>
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="L'entreprise dépend-elle d'un seul produit ou client ? Une diversification réduit le risque en cas de crise sectorielle.">LE CHIFFRE D'AFFAIRES DE LA SOCIÉTÉ EST DIVERSIFIÉ</p>
+                    <p class="label-text" data-tooltip="L'entreprise dépend-elle d'un seul produit ou client ?">LE CHIFFRE D'AFFAIRES DE LA SOCIÉTÉ EST DIVERSIFIÉ</p>
                     <input type="text" class="calc-input" placeholder="Oui/Non">
                 </div>
             </div>
@@ -83,15 +76,15 @@
             <h3 class="calculator-section">CROISSANCE</h3>
             <div class="input-container">
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Moyenne de croissance annuelle du chiffre d'affaires (Revenue) sur 10 ans. Indique la capacité de l'entreprise à grandir.">CROISSANCE DU CHIFFRE D'AFFAIRES SUR 10 ANS</p>
+                    <p class="label-text" data-tooltip="Moyenne de croissance annuelle du chiffre d'affaires sur 10 ans.">CROISSANCE DU CHIFFRE D'AFFAIRES SUR 10 ANS</p>
                     <input type="number" class="calc-input" placeholder="Nombre d'années" min="0" max="10">
                 </div>
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Croissance du Bénéfice Par Action (EPS). C'est le profit net divisé par le nombre d'actions. Crucial pour l'enrichissement de l'actionnaire.">CROISSANCE DU BÉNÉFICE PAR ACTION SUR 10 ANS</p>
+                    <p class="label-text" data-tooltip="Croissance du Bénéfice Par Action (EPS).">CROISSANCE DU BÉNÉFICE PAR ACTION SUR 10 ANS</p>
                     <input type="number" class="calc-input" placeholder="Nombre d'années" min="0" max="10">
                 </div>
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Le Free Cash Flow est l'argent réel qui reste dans la poche de l'entreprise après avoir payé ses investissements.">CROISSANCE DU FREE CASH FLOW SUR 10 ANS</p>
+                    <p class="label-text" data-tooltip="Le Free Cash Flow est l'argent réel qui reste dans la poche.">CROISSANCE DU FREE CASH FLOW SUR 10 ANS</p>
                     <input type="number" class="calc-input" placeholder="Nombre d'années" min="0" max="10">
                 </div>
             </div>
@@ -101,15 +94,15 @@
             <h3 class="calculator-section">RENTABILITÉ</h3>
             <div class="input-container">
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Pourcentage de chiffre d'affaires transformé en bénéfice net. Plus elle est élevée, plus l'entreprise est efficace (>20% est excellent).">MARGE NETTE</p>
+                    <p class="label-text" data-tooltip="Pourcentage de chiffre d'affaires transformé en bénéfice net.">MARGE NETTE</p>
                     <input type="number" class="calc-input" placeholder="En pourcentage (%)" step="0.01">
                 </div>
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Pourcentage de chiffre d'affaires transformé en cash flow libre. Indique une véritable machine à cash.">FCF MARGIN</p>
+                    <p class="label-text" data-tooltip="Pourcentage de chiffre d'affaires transformé en cash flow libre.">FCF MARGIN</p>
                     <input type="number" class="calc-input" placeholder="En pourcentage (%)" step="0.01">
                 </div>
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Return on Invested Capital. Mesure l'efficacité avec laquelle l'entreprise utilise son capital pour générer des profits.">ROIC</p>
+                    <p class="label-text" data-tooltip="Return on Invested Capital.">ROIC</p>
                     <input type="number" class="calc-input" placeholder="En pourcentage (%)" step="0.01">
                 </div>
             </div>
@@ -119,15 +112,15 @@
             <h3 class="calculator-section">SOLVABILITÉ</h3>
             <div class="input-container">
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Ratio mesurant la capacité de l'entreprise à rembourser sa dette avec ses revenus opérationnels. Doit être bas (< 2.0).">DEBT-TO-EBITDA</p>
+                    <p class="label-text" data-tooltip="Ratio dette/EBITDA.">DEBT-TO-EBITDA</p>
                     <input type="number" class="calc-input" placeholder="En nombre flottant" step="0.01">
                 </div>
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Ratio comparant la dette totale aux capitaux propres. Indique le niveau d'effet de levier financier.">DEBT-TO-EQUITY</p>
+                    <p class="label-text" data-tooltip="Ratio dette/capitaux propres.">DEBT-TO-EQUITY</p>
                     <input type="number" class="calc-input" placeholder="En nombre flottant" step="0.01">
                 </div>
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Combien de fois l'entreprise peut-elle payer ses charges d'intérêts avec son résultat actuel ? Doit être élevé (> 15).">COUVERTURE DES INTÉRÊTS</p>
+                    <p class="label-text" data-tooltip="Couverture des intérêts.">COUVERTURE DES INTÉRÊTS</p>
                     <input type="number" class="calc-input" placeholder="En nombre flottant" step="0.01">
                 </div>
             </div>
@@ -137,15 +130,15 @@
             <h3 class="calculator-section">DIVIDENDE</h3>
             <div class="input-container">
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Part des bénéfices reversée en dividende. S'il est trop élevé (>60%), le dividende peut être à risque.">PAYOUT RATIO</p>
+                    <p class="label-text" data-tooltip="Part des bénéfices reversée en dividende.">PAYOUT RATIO</p>
                     <input type="number" class="calc-input" placeholder="En pourcentage (%)" min="0"  step="0.01">
                 </div>
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Part du Free Cash Flow utilisée pour payer le dividende. Plus fiable que le Payout Ratio classique.">PAYOUT RATIO DU FCF</p>
+                    <p class="label-text" data-tooltip="Part du Free Cash Flow utilisée pour payer le dividende.">PAYOUT RATIO DU FCF</p>
                     <input type="number" class="calc-input" placeholder="En pourcentage (%)" min="0" step="0.01">
                 </div>
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Croissance moyenne du dividende sur 5 ans. Indique si l'entreprise augmente régulièrement la rémunération des actionnaires.">CROISSANCE SUR 5 ANS</p>
+                    <p class="label-text" data-tooltip="Croissance moyenne du dividende sur 5 ans.">CROISSANCE SUR 5 ANS</p>
                     <input type="number" class="calc-input" placeholder="En pourcentage (%)" min="0" step="0.01">
                 </div>
             </div>
@@ -184,6 +177,43 @@
             <canvas id="priceChart"></canvas>
         </div>
 
+        <div class="separator-line"></div>
+
+        <h2 class="title-home">Intérêts Composés 🚀</h2>
+        <p class="calculator-text-home" style="margin-bottom: 30px;">Projetez vos gains futurs ! Voyez comment votre épargne fructifie année après année grâce à la magie des intérêts composés.</p>
+
+        <div class="section" id="compound-calculator">
+            <h3 class="calculator-section">PARAMÈTRES DE L'INVESTISSEMENT</h3>
+            <div class="input-container">
+                <div class="input-group">
+                    <p class="label-text" data-tooltip="Combien comptez-vous investir chaque année ?">MONTANT ANNUEL DÉPOSÉ (€/$)</p>
+                    <input type="number" id="compound-deposit" class="compound-input" placeholder="Ex: 12000" min="0">
+                </div>
+                <div class="input-group">
+                    <p class="label-text" data-tooltip="Pendant combien d'années allez-vous investir ?">DURÉE (ANNÉES)</p>
+                    <input type="number" id="compound-years" class="compound-input" placeholder="Ex: 20" min="1" max="100">
+                </div>
+                <div class="input-group">
+                    <p class="label-text" data-tooltip="Quel rendement annuel moyen espérez-vous ? (La bourse fait ~8-10% historiquement)">RENDEMENT ANNUEL (%)</p>
+                    <input type="number" id="compound-rate" class="compound-input" placeholder="Ex: 8" step="0.1">
+                </div>
+            </div>
+        </div>
+
+        <button class="calculator-button" id="btn-compound-calc">Calculer les Intérêts</button>
+
+        <div id="compound-results-container" style="display:none;">
+            <div class="result-box">
+                Dans <span id="res-years" style="font-weight:bold;">0</span> ans, vous aurez : <br>
+                <span id="res-total" class="result-highlight">0 €</span> <br>
+                <span style="font-size: 0.9rem; color: #7f8c8d;">Dont <span id="res-invested" style="font-weight:bold;">0 €</span> de votre poche et <span id="res-interests" style="font-weight:bold; color: #f39c12;">0 €</span> d'intérêts gagnés.</span>
+            </div>
+
+            <div id="compound-chart-container" style="display: flex; align-items: center; margin-top: 30px; height: 400px;">
+                <canvas id="compoundChart"></canvas>
+            </div>
+        </div>
+
     </div>
 
     <div class="footer">
@@ -197,6 +227,7 @@
     <script src="https://cdn.jsdelivr.net/npm/js-circle-progress/dist/circle-progress.min.js" type="module"></script>
 
 <script>
+
     // --- VARIABLES GLOBALES ---
     var totalScore = 0;
     var basisScore = 0;
@@ -206,28 +237,21 @@
     var dividendScore = 0;
 
     var currentTicker = "AAPL"; 
-    var currentStockPrice = null; // Sera rempli par l'API
+    var currentStockPrice = null;
     var fairPrice = 0;
     var currentPERatio = null;
-    
-    // Variables pour les prix justes (inputs manuels)
     var gurufocusPrice = 0;
     var tipsrankPrice = 0;
-    
-    var safetyMargin = 0.1; // 10% par défaut
+    var safetyMargin = 0.1;
 
     // Clé API Finnhub
     const FINNHUB_API_KEY = 'cfeip41r01qoicaf4hk0cfeip41r01qoicaf4hkg';
 
-    // Tableaux pour les graphiques
     var sectionName = ["Bases","Croissance","Rentabilité","Solvabilité","Dividende"];
-    var resultCriteria = []; // Stocke les résultats détaillés si besoin
-
     let radarChartInstance = null;
     let priceChartInstance = null;
 
-    // --- FONCTIONS UTILITAIRES ---
-
+    // --- UTILITAIRES ---
     function isValidNumber(value) {
         return !isNaN(value) && value !== null && value !== '';
     }
@@ -244,16 +268,12 @@
         return marginValue / 100;
     }
 
-    // --- FONCTIONS API ---
-
+    // --- API ---
     async function getStockPrice(symbol) {
         try {
             const response = await fetch(`https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${FINNHUB_API_KEY}`);
             const data = await response.json();
-            // Finnhub renvoie 'c' pour Current Price
-            if (data && data.c) {
-                return data.c;
-            }
+            if (data && data.c) { return data.c; }
             return null;
         } catch (error) {
             console.error('Erreur API Prix:', error);
@@ -275,10 +295,8 @@
         }
     }
 
-    // --- FONCTIONS DE CALCUL ---
-
+    // --- CALCULS SCORE ---
     function getData() {
-        // On cible uniquement les inputs de calcul (.calc-input)
         const inputs = document.querySelectorAll('.calc-input');
         const inputValues = [];
         inputs.forEach(input => inputValues.push(input.value.trim()));
@@ -289,7 +307,6 @@
         var beatsINX = inputValues[0].toLowerCase();
         var shareBuyback = inputValues[1].toLowerCase();
         var diversifiedCA = inputValues[2].toLowerCase();
-
         if (beatsINX == 'oui') { totalScore += 2; basisScore += 2; }
         if (shareBuyback == 'oui') { totalScore += 2; basisScore += 2; }
         if (diversifiedCA == 'oui') { totalScore += 2; basisScore += 2; }
@@ -300,7 +317,6 @@
         var CAGrowth = parseFloat(inputValues[3]);
         var EPSGrowth = parseFloat(inputValues[4]);
         var FCFGrowth = parseFloat(inputValues[5]);
-
         if (CAGrowth > 7) { totalScore += 2; growthScore += 2; }
         if (EPSGrowth > 7) { totalScore += 2; growthScore += 2; }
         if (FCFGrowth > 7) { totalScore += 2; growthScore += 2; }
@@ -311,13 +327,10 @@
         var netMargin = parseFloat(inputValues[6]);
         var fcfMargin = parseFloat(inputValues[7]);
         var roic = parseFloat(inputValues[8]);
-
         if (netMargin >= 35) { totalScore += 2; profitabilityScore += 2; }
         else if (netMargin >= 20) { totalScore += 1; profitabilityScore += 1; }
-
         if (fcfMargin >= 35) { totalScore += 2; profitabilityScore += 2; }
         else if (fcfMargin >= 20) { totalScore += 1; profitabilityScore += 1; }
-
         if (roic >= 30) { totalScore += 2; profitabilityScore += 2; }
         else if (roic >= 15) { totalScore += 1; profitabilityScore += 1; }
         return profitabilityScore;
@@ -327,7 +340,6 @@
         var debtToEBITDA = parseFloat(inputValues[9]);
         var debtToEquity = parseFloat(inputValues[10]);
         var interestCoverageRatio = parseFloat(inputValues[11]);
-
         if (isValidNumber(debtToEBITDA)) {
             if (debtToEBITDA < 1) { totalScore += 2; solvencyScore += 2; }
             else if (debtToEBITDA < 2) { totalScore += 1; solvencyScore += 1; }
@@ -347,7 +359,6 @@
         var payoutRatio = parseFloat(inputValues[12]);
         var payoutRatioFCF = parseFloat(inputValues[13]);
         var dividendGrowth = parseFloat(inputValues[14]);
-
         if (isValidNumber(payoutRatio)) {
             if (payoutRatio < 30) { totalScore += 2; dividendScore += 2; }
             else if (payoutRatio < 50) { totalScore += 1; dividendScore += 1; }
@@ -369,11 +380,9 @@
         return fairPrice;
     }
 
-    // --- GRAPHIQUES ---
-
+    // --- GRAPHIQUES SCORE ---
     function createRadarChart(sectionScores) {
         const ctx = document.getElementById('radarChart').getContext('2d');
-        
         if (radarChartInstance) {
             radarChartInstance.data.datasets[0].data = sectionScores;
             radarChartInstance.update();
@@ -401,7 +410,6 @@
     }
 
     function createFairPriceChart(currentPrice, fairPrice) {
-        // Préparation des données en Tableaux [] pour Chart.js
         const chartLabels = [currentTicker]; 
         const currentPriceData = [currentPrice];
         const fairPriceData = [fairPrice];
@@ -476,22 +484,14 @@
         }
     }
 
-    // --- INITIALISATION ET ÉVÉNEMENTS ---
-
-    // Événements pour inputs manuels
+    // --- EVENTS SCORE ---
     document.getElementById('gurufocusPrice').addEventListener('input', updatePrices);
     document.getElementById('tipsrankPrice').addEventListener('input', updatePrices);
-
-    // Slider Marge de Sécurité
     const slider = document.getElementById('safetyMarginSlider');
-    slider.addEventListener('input', function() {
-        safetyMargin = updateSafetyMarginDisplay(parseInt(this.value));
-    });
-    // Init slider
+    slider.addEventListener('input', function() { safetyMargin = updateSafetyMarginDisplay(parseInt(this.value)); });
     slider.value = 2; 
     safetyMargin = updateSafetyMarginDisplay(2);
 
-    // Événement touche "Entrée" sur la barre de recherche
     document.getElementById('stockTicker').addEventListener('keypress', async function(e) {
         if (e.key === 'Enter') {
             const ticker = this.value.trim().toUpperCase();
@@ -500,7 +500,6 @@
                 currentTicker = ticker;
                 const price = await getStockPrice(ticker);
                 const pe = await getPERatio(ticker);
-                
                 if (price) {
                     currentStockPrice = price;
                     currentPERatio = pe;
@@ -512,43 +511,26 @@
         }
     });
 
-    // --- FONCTION MAIN (BOUTON GÉNÉRER) ---
-    // Ajout de 'async' ici pour pouvoir attendre l'API si nécessaire
     document.querySelector('.calculator-button').addEventListener('click', async function () {
-        
-        // 1. VÉRIFICATION ET RÉCUPÉRATION DU PRIX (CORRECTIF ICI)
         const tickerInput = document.getElementById('stockTicker');
         const tickerInputVal = tickerInput.value.trim().toUpperCase();
 
-        // Si l'utilisateur a changé le ticker mais n'a pas fait Entrée, ou si on a pas de prix
         if (tickerInputVal && (tickerInputVal !== currentTicker || currentStockPrice === null)) {
-            console.log("Tentative de récupération automatique du prix...");
             currentTicker = tickerInputVal;
             tickerInput.placeholder = "Chargement...";
-            
-            // On force la récupération du prix maintenant
             const fetchedPrice = await getStockPrice(currentTicker);
             const fetchedPE = await getPERatio(currentTicker);
-
             if (fetchedPrice) {
                 currentStockPrice = fetchedPrice;
                 currentPERatio = fetchedPE;
                 tickerInput.placeholder = `${currentTicker} chargé (${fetchedPrice}$)`;
-            } else {
-                alert("Impossible de récupérer le prix pour " + currentTicker + ". Vérifiez le ticker ou votre connexion.");
-                // On peut décider d'arrêter ici ou de continuer avec un prix de 0
             }
         }
 
-        if (currentStockPrice === null) {
-            alert("Attention : Le prix actuel de l'action n'est pas défini. Le graphique sera incomplet.");
-            currentStockPrice = 0; // Pour éviter que le graphique ne plante
-        }
+        if (currentStockPrice === null) currentStockPrice = 0;
 
-        // 2. REINITIALISATION DES SCORES
         totalScore = 0; basisScore = 0; growthScore = 0; profitabilityScore = 0; solvencyScore = 0; dividendScore = 0;
 
-        // 3. CALCULS
         const inputValues = getData();
         calculateBasis(inputValues);
         calculateGrowth(inputValues);
@@ -558,29 +540,147 @@
 
         getFairPrice(gurufocusPrice, tipsrankPrice, safetyMargin);
         
-        // 4. AFFICHAGE
         var sectionScores = [basisScore,growthScore,profitabilityScore,solvencyScore,dividendScore];
 
-        // Cercle de progression
         const progressContainer = document.getElementById('progress-container-circle');
         progressContainer.style.display = 'block';
-        
         const circleProgress = document.getElementById('circular-progress');
         circleProgress.setAttribute('value', totalScore); 
         circleProgress.setAttribute('max', 30); 
-
         const scoreText = document.getElementById('score-text');
         scoreText.textContent = `Le score de Qualité de votre action est de ${totalScore} sur 30 !`;
 
-        setTimeout(() => { progressContainer.scrollIntoView({ behavior: 'smooth' }); }, 100);
-
-        // Radar Chart
         document.getElementById('radar-chart-container').style.display = 'flex';
         createRadarChart(sectionScores);
-        
-        // Price Chart
         document.getElementById('bar-chart-container').style.display = 'flex';
         createFairPriceChart(currentStockPrice, fairPrice);
+    });
+
+
+    // ==========================================
+    //       SCRIPT INTÉRÊTS COMPOSÉS (NOUVEAU)
+    // ==========================================
+    
+    let compoundChartInstance = null;
+
+    document.getElementById('btn-compound-calc').addEventListener('click', function() {
+        // 1. Récupération des valeurs
+        const annualDeposit = parseFloat(document.getElementById('compound-deposit').value) || 0;
+        const years = parseFloat(document.getElementById('compound-years').value) || 0;
+        const rate = parseFloat(document.getElementById('compound-rate').value) || 0;
+
+        if (years <= 0) {
+            alert("Veuillez entrer une durée valide (au moins 1 an).");
+            return;
+        }
+
+        // 2. Calculs et préparation des données pour le graphique
+        const labels = [];
+        const dataTotal = [];
+        const dataInvested = [];
+        
+        let currentTotal = 0;
+        let totalInvested = 0;
+
+        for (let i = 1; i <= years; i++) {
+            // On ajoute l'argent au début de l'année (hypothèse simplifiée)
+            totalInvested += annualDeposit;
+            
+            // On calcule les intérêts sur (Capital précédent + Nouveau dépôt)
+            currentTotal = (currentTotal + annualDeposit) * (1 + (rate / 100));
+            
+            labels.push(`Année ${i}`);
+            dataTotal.push(currentTotal);
+            dataInvested.push(totalInvested);
+        }
+
+        const totalInterests = currentTotal - totalInvested;
+
+        // 3. Affichage des résultats textes (Format Monétaire)
+        const formatter = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+        
+        document.getElementById('res-years').textContent = years;
+        document.getElementById('res-total').textContent = formatter.format(currentTotal);
+        document.getElementById('res-invested').textContent = formatter.format(totalInvested);
+        document.getElementById('res-interests').textContent = formatter.format(totalInterests);
+
+        document.getElementById('compound-results-container').style.display = 'block';
+
+        // 4. Création / Mise à jour du graphique
+        const ctx = document.getElementById('compoundChart').getContext('2d');
+
+        if (compoundChartInstance) {
+            compoundChartInstance.destroy(); // On détruit l'ancien pour recréer proprement
+        }
+
+        compoundChartInstance = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Capital Investi (Vos dépôts)',
+                        data: dataInvested,
+                        borderColor: 'rgba(52, 152, 219, 1)',
+                        backgroundColor: 'rgba(52, 152, 219, 0.2)',
+                        fill: true,
+                        pointRadius: 0,
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Valeur Totale (Avec Intérêts)',
+                        data: dataTotal,
+                        borderColor: 'rgba(46, 204, 113, 1)',
+                        backgroundColor: 'rgba(46, 204, 113, 0.2)', // Vert
+                        fill: true, // Remplit l'espace sous la courbe
+                        pointRadius: 0,
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Croissance de votre portefeuille',
+                        font: { size: 16 }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(context.parsed.y);
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return value.toLocaleString('fr-FR') + ' €';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Scroll vers les résultats
+        document.getElementById('compound-results-container').scrollIntoView({ behavior: 'smooth' });
     });
 </script>
 
