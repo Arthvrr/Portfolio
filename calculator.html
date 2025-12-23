@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="media/Logo/logo.ico" type="image/x-icon">
 </head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -22,15 +21,12 @@
             <img src="./media/Logo/Logo-White.png" alt="Logo QualityInvest">
             <h1>StocksPickeur</h1>
         </a>
-        <!-- MAX 3 ONGLETS -->
         <div class="onglets">
             <a href="calculator.html">Calculateur</a>
             <a href="wallet.html">Portefeuille</a>
 
         </div>
     </header>
-
-    <!-- <h2 class="title-home">Calcule le score de Qualité d'une action</h2> -->
 
     <div class="calculator-home">
 
@@ -46,7 +42,7 @@
                         <input type="range" 
                                min="0" 
                                max="6" 
-                               value="1" 
+                               value="2" 
                                step="1" 
                                class="slider" 
                                list="markers"
@@ -69,16 +65,16 @@
             <h3 class="calculator-section">BASES</h3>
             <div class="input-container">
                 <div class="input-group">
-                    <p class="label-text">COURS DE L'ACTION BATS LE S&P500 SUR 5 ANS</p>
-                    <input type="text" placeholder="Oui/Non">
+                    <p class="label-text" data-tooltip="Vérifie si l'action a performé mieux que l'indice S&P 500 sur les 5 dernières années. Indique une surperformance du marché.">COURS DE L'ACTION BATS LE S&P500 SUR 5 ANS</p>
+                    <input type="text" class="calc-input" placeholder="Oui/Non">
                 </div>
                 <div class="input-group">
-                    <p class="label-text">L'ENTREPRISE EFFECTUE DES RACHATS D'ACTIONS</p>
-                    <input type="text" placeholder="Oui/Non">
+                    <p class="label-text" data-tooltip="L'entreprise rachète-t-elle ses propres actions ? Cela réduit le nombre d'actions en circulation et augmente mécaniquement la valeur de votre part.">L'ENTREPRISE EFFECTUE DES RACHATS D'ACTIONS</p>
+                    <input type="text" class="calc-input" placeholder="Oui/Non">
                 </div>
                 <div class="input-group">
-                    <p class="label-text">LE CHIFFRE D'AFFAIRES DE LA SOCIÉTÉ EST DIVERSIFIÉ</p>
-                    <input type="text" placeholder="Oui/Non">
+                    <p class="label-text" data-tooltip="L'entreprise dépend-elle d'un seul produit ou client ? Une diversification réduit le risque en cas de crise sectorielle.">LE CHIFFRE D'AFFAIRES DE LA SOCIÉTÉ EST DIVERSIFIÉ</p>
+                    <input type="text" class="calc-input" placeholder="Oui/Non">
                 </div>
             </div>
         </div>
@@ -87,16 +83,16 @@
             <h3 class="calculator-section">CROISSANCE</h3>
             <div class="input-container">
                 <div class="input-group">
-                    <p class="label-text">CROISSANCE DU CHIFFRE D'AFFAIRES SUR 10 ANS</p>
-                    <input type="number" placeholder="Nombre d'années" min="0" max="10">
+                    <p class="label-text" data-tooltip="Moyenne de croissance annuelle du chiffre d'affaires (Revenue) sur 10 ans. Indique la capacité de l'entreprise à grandir.">CROISSANCE DU CHIFFRE D'AFFAIRES SUR 10 ANS</p>
+                    <input type="number" class="calc-input" placeholder="Nombre d'années" min="0" max="10">
                 </div>
                 <div class="input-group">
-                    <p class="label-text">CROISSANCE DU BÉNÉFICE PAR ACTION SUR 10 ANS</p>
-                    <input type="number" placeholder="Nombre d'années" min="0" max="10">
+                    <p class="label-text" data-tooltip="Croissance du Bénéfice Par Action (EPS). C'est le profit net divisé par le nombre d'actions. Crucial pour l'enrichissement de l'actionnaire.">CROISSANCE DU BÉNÉFICE PAR ACTION SUR 10 ANS</p>
+                    <input type="number" class="calc-input" placeholder="Nombre d'années" min="0" max="10">
                 </div>
                 <div class="input-group">
-                    <p class="label-text">CROISSANCE DU FREE CASH FLOW SUR 10 ANS</p>
-                    <input type="number" placeholder="Nombre d'années" min="0" max="10">
+                    <p class="label-text" data-tooltip="Le Free Cash Flow est l'argent réel qui reste dans la poche de l'entreprise après avoir payé ses investissements.">CROISSANCE DU FREE CASH FLOW SUR 10 ANS</p>
+                    <input type="number" class="calc-input" placeholder="Nombre d'années" min="0" max="10">
                 </div>
             </div>
         </div>
@@ -105,16 +101,16 @@
             <h3 class="calculator-section">RENTABILITÉ</h3>
             <div class="input-container">
                 <div class="input-group">
-                    <p class="label-text">MARGE NETTE</p>
-                    <input type="number" placeholder="En pourcentage (%)" step="0.01">
+                    <p class="label-text" data-tooltip="Pourcentage de chiffre d'affaires transformé en bénéfice net. Plus elle est élevée, plus l'entreprise est efficace (>20% est excellent).">MARGE NETTE</p>
+                    <input type="number" class="calc-input" placeholder="En pourcentage (%)" step="0.01">
                 </div>
                 <div class="input-group">
-                    <p class="label-text">FCF MARGIN</p>
-                    <input type="number" placeholder="En pourcentage (%)" step="0.01">
+                    <p class="label-text" data-tooltip="Pourcentage de chiffre d'affaires transformé en cash flow libre. Indique une véritable machine à cash.">FCF MARGIN</p>
+                    <input type="number" class="calc-input" placeholder="En pourcentage (%)" step="0.01">
                 </div>
                 <div class="input-group">
-                    <p class="label-text">ROIC</p>
-                    <input type="number" placeholder="En pourcentage (%)" step="0.01">
+                    <p class="label-text" data-tooltip="Return on Invested Capital. Mesure l'efficacité avec laquelle l'entreprise utilise son capital pour générer des profits.">ROIC</p>
+                    <input type="number" class="calc-input" placeholder="En pourcentage (%)" step="0.01">
                 </div>
             </div>
         </div>
@@ -123,16 +119,16 @@
             <h3 class="calculator-section">SOLVABILITÉ</h3>
             <div class="input-container">
                 <div class="input-group">
-                    <p class="label-text">DEBT-TO-EBITDA</p>
-                    <input type="number" placeholder="En nombre flottant" step="0.01">
+                    <p class="label-text" data-tooltip="Ratio mesurant la capacité de l'entreprise à rembourser sa dette avec ses revenus opérationnels. Doit être bas (< 2.0).">DEBT-TO-EBITDA</p>
+                    <input type="number" class="calc-input" placeholder="En nombre flottant" step="0.01">
                 </div>
                 <div class="input-group">
-                    <p class="label-text">DEBT-TO-EQUITY</p>
-                    <input type="number" placeholder="En nombre flottant" step="0.01">
+                    <p class="label-text" data-tooltip="Ratio comparant la dette totale aux capitaux propres. Indique le niveau d'effet de levier financier.">DEBT-TO-EQUITY</p>
+                    <input type="number" class="calc-input" placeholder="En nombre flottant" step="0.01">
                 </div>
                 <div class="input-group">
-                    <p class="label-text">COUVERTURE DES INTÉRÊTS</p>
-                    <input type="number" placeholder="En nombre flottant" step="0.01">
+                    <p class="label-text" data-tooltip="Combien de fois l'entreprise peut-elle payer ses charges d'intérêts avec son résultat actuel ? Doit être élevé (> 15).">COUVERTURE DES INTÉRÊTS</p>
+                    <input type="number" class="calc-input" placeholder="En nombre flottant" step="0.01">
                 </div>
             </div>
         </div>
@@ -141,19 +137,20 @@
             <h3 class="calculator-section">DIVIDENDE</h3>
             <div class="input-container">
                 <div class="input-group">
-                    <p class="label-text">PAYOUT RATIO</p>
-                    <input type="number" placeholder="En pourcentage (%)" min="0"  step="0.01">
+                    <p class="label-text" data-tooltip="Part des bénéfices reversée en dividende. S'il est trop élevé (>60%), le dividende peut être à risque.">PAYOUT RATIO</p>
+                    <input type="number" class="calc-input" placeholder="En pourcentage (%)" min="0"  step="0.01">
                 </div>
                 <div class="input-group">
-                    <p class="label-text">PAYOUT RATIO DU FCF</p>
-                    <input type="number" placeholder="En pourcentage (%)" min="0" step="0.01">
+                    <p class="label-text" data-tooltip="Part du Free Cash Flow utilisée pour payer le dividende. Plus fiable que le Payout Ratio classique.">PAYOUT RATIO DU FCF</p>
+                    <input type="number" class="calc-input" placeholder="En pourcentage (%)" min="0" step="0.01">
                 </div>
                 <div class="input-group">
-                    <p class="label-text">CROISSANCE SUR 5 ANS</p>
-                    <input type="number" placeholder="En pourcentage (%)" min="0" step="0.01">
+                    <p class="label-text" data-tooltip="Croissance moyenne du dividende sur 5 ans. Indique si l'entreprise augmente régulièrement la rémunération des actionnaires.">CROISSANCE SUR 5 ANS</p>
+                    <input type="number" class="calc-input" placeholder="En pourcentage (%)" min="0" step="0.01">
                 </div>
             </div>
         </div>
+
         <div class="section" id="valorisation">
             <h3 class="calculator-section">VALORISATION</h3>
             <div class="input-container">
@@ -195,633 +192,397 @@
             <span id="copyright-text" ><a href="https://x.com/StocksPickeur" class="reset-link">StocksPickeur &copy; 2025</a></span>
         </div>
     </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-circle-progress/dist/circle-progress.min.js" type="module"></script>
 
+<script>
+    // --- VARIABLES GLOBALES ---
+    var totalScore = 0;
+    var basisScore = 0;
+    var growthScore = 0;
+    var profitabilityScore = 0;
+    var solvencyScore = 0;
+    var dividendScore = 0;
+
+    var currentTicker = "AAPL"; 
+    var currentStockPrice = null; // Sera rempli par l'API
+    var fairPrice = 0;
+    var currentPERatio = null;
     
+    // Variables pour les prix justes (inputs manuels)
+    var gurufocusPrice = 0;
+    var tipsrankPrice = 0;
     
-    <script>
+    var safetyMargin = 0.1; // 10% par défaut
 
-//DÉCLARATION DE VARIABLES
-var totalScore; //Score total de l'action
-var basisScore; //Score bases
-var growthScore; //Score croissance
-var profitabilityScore; //Score rentabilité
-var solvencyScore; //Score solvabilité
-var dividendScore; //Score dividende
+    // Clé API Finnhub
+    const FINNHUB_API_KEY = 'cfeip41r01qoicaf4hk0cfeip41r01qoicaf4hkg';
 
-// Variables pour stocker les données de l'action
-var currentTicker = "AAPL";
-var currentStockPrice = null;
-var fairPrice = 0;
+    // Tableaux pour les graphiques
+    var sectionName = ["Bases","Croissance","Rentabilité","Solvabilité","Dividende"];
+    var resultCriteria = []; // Stocke les résultats détaillés si besoin
 
-// Variables pour les prix justes
-var gurufocusPrice = null;
-var tipsrankPrice = null;
+    let radarChartInstance = null;
+    let priceChartInstance = null;
 
-// Fonction pour récupérer les valeurs des champs
-function updatePrices() {
-    gurufocusPrice = parseFloat(document.getElementById('gurufocusPrice').value) || 0;
-    tipsrankPrice = parseFloat(document.getElementById('tipsrankPrice').value) || 0;
-    
-    // Vous pouvez ajouter ici du code pour utiliser ces valeurs
-    console.log('Prix Gurufocus:', gurufocusPrice);
-    console.log('Prix TipRanks:', tipsrankPrice);
-}
+    // --- FONCTIONS UTILITAIRES ---
 
-// Fonction pour mettre à jour la valeur affichée de la marge de sécurité
-function updateSafetyMarginDisplay(value) {
-    const marginValues = [0, 5, 10, 15, 20, 30, 50]; // Correspond aux valeurs pour 0 à 6
-    const marginValue = marginValues[value];
-    document.getElementById('safetyMarginValue').textContent = marginValue;
-    return marginValue / 100; // Convertit en décimal pour les calculs
-}
-
-// Gestionnaire d'événement pour le curseur de marge de sécurité
-document.getElementById('safetyMarginSlider').addEventListener('input', function() {
-    safetyMargin = updateSafetyMarginDisplay(parseInt(this.value));
-});
-
-// Initialisation de la marge de sécurité au chargement de la page
-document.getElementById('safetyMarginSlider').value = 2; // Position à 2 pour 10%
-safetyMargin = updateSafetyMarginDisplay(2); // Valeur par défaut (10%)
-
-// Écouteurs d'événements pour mettre à jour les valeurs lors de la saisie
-document.getElementById('gurufocusPrice').addEventListener('input', updatePrices);
-document.getElementById('tipsrankPrice').addEventListener('input', updatePrices);
-var currentPERatio = null;
-var currentTicker = '';
-var safetyMargin = 0.1; // Valeur par défaut 10%
-
-//DÉCLARATION DES TABLEAUX
-
-//Tableau des scores des sections (pour le graphique en radar)
-var sectionScores = [];
-
-var sectionName = ["Bases","Croissance","Rentabilité","Solvabilité","Dividende"];
-var criteria = ["Beats S&P 500 5yrs","Share Buyback","Diversified Revenue","Revenue Growth","EPS Growth","FCF Per Shares Growth","Net Margin","FCF Margin", "ROIC","Debt/EBITDA","Debt/Equity","Interest Coverage","Payout Ratio","Payout Ratio FCF","Dividend Growth 5yrs"];
-var resultCriteria = [];
-
-let radarChartInstance = null;
-let priceChartInstance = null;
-
-// Fonction pour récupérer les données des inputs
-function getData() {
-    const inputs = document.querySelectorAll('input');
-    const inputValues = [];
-
-    inputs.forEach(input => {
-        inputValues.push(input.value.trim());
-    });
-
-    return inputValues;
-}
-
-function isValidNumber(value) {
-    // Vérifie si la valeur est un nombre valide
-    return !isNaN(value) && value !== null && value !== '';
-}
-
-function calculateBasis(inputValues){
-
-    var beatsINX = inputValues[0].toLowerCase();;
-    var shareBuyback = inputValues[1].toLowerCase();;
-    var diversifiedCA = inputValues[2].toLowerCase();;
-
-    if (beatsINX == 'oui'){
-        totalScore += 2;
-        basisScore += 2;
-        resultCriteria[0] = 2;
-    }
-    else {
-        resultCriteria[0] = 0;
+    function isValidNumber(value) {
+        return !isNaN(value) && value !== null && value !== '';
     }
 
-    if (shareBuyback == 'oui'){
-        totalScore += 2;
-        basisScore += 2;
-        resultCriteria[1] = 2;
-    }
-    else {
-        resultCriteria[1] = 0;
+    function updatePrices() {
+        gurufocusPrice = parseFloat(document.getElementById('gurufocusPrice').value) || 0;
+        tipsrankPrice = parseFloat(document.getElementById('tipsrankPrice').value) || 0;
     }
 
-    if (diversifiedCA == 'oui'){
-        totalScore += 2;
-        basisScore += 2;
-        resultCriteria[2] = 2; 
-    }
-    else {
-        resultCriteria[2] = 0;
+    function updateSafetyMarginDisplay(value) {
+        const marginValues = [0, 5, 10, 15, 20, 30, 50]; 
+        const marginValue = marginValues[value];
+        document.getElementById('safetyMarginValue').textContent = marginValue;
+        return marginValue / 100;
     }
 
-    return basisScore;
-}
+    // --- FONCTIONS API ---
 
-function calculateGrowth(inputValues){
-    var CAGrowth = inputValues[3];
-    var EPSGrowth = inputValues[4];
-    var FCFGrowth = inputValues[5];
-
-    if (CAGrowth > 7){
-        totalScore += 2;
-        growthScore += 2;
-        resultCriteria[3] = 2;
-    }
-    else {
-        resultCriteria[3] = 0;
-    }
-
-    if (EPSGrowth > 7){
-        totalScore += 2;
-        growthScore += 2;
-        resultCriteria[4] = 2;
-    }
-    else {
-        resultCriteria[4] = 0;
-    }
-
-    if (FCFGrowth > 7){
-        totalScore += 2;
-        growthScore += 2;
-        resultCriteria[5] = 2;
-    }
-    else {
-        resultCriteria[5] = 0;
-    }
-
-    return growthScore;
-}
-
-function calculateProfitability(inputValues){
-    var netMargin = inputValues[6];
-    var fcfMargin = inputValues[7];
-    var roic = inputValues[8];
-
-    if (netMargin >= 35) {
-        totalScore += 2;
-        profitabilityScore += 2;
-        resultCriteria[6] = 2;
-    } else if (netMargin >= 20) {
-        totalScore += 1;
-        profitabilityScore += 1;
-        resultCriteria[6] = 1;
-    } else {
-        totalScore += 0;
-        profitabilityScore += 0;
-        resultCriteria[6] = 0;
-    }
-
-    if (fcfMargin >= 35) {
-        totalScore += 2;
-        profitabilityScore += 2;
-        resultCriteria[7] = 2;
-    } else if (fcfMargin >= 20) {
-        totalScore += 1;
-        profitabilityScore += 1;
-        resultCriteria[7] = 1;
-    } else {
-        totalScore += 0;
-        profitabilityScore += 0;
-        resultCriteria[7] = 0;
-    }
-
-    if (roic >= 30) {
-        totalScore += 2;
-        profitabilityScore += 2;
-        resultCriteria[8] = 2;
-    } else if (roic >= 15) {
-        totalScore += 1;
-        profitabilityScore += 1;
-        resultCriteria[8] = 1;
-    } else {
-        totalScore += 0;
-        profitabilityScore += 0;
-        resultCriteria[8] = 0;
-    }
-
-    return profitabilityScore;
-
-}
-
-function calculateSolvency(inputValues) {
-    var debtToEBITDA = parseFloat(inputValues[9]);
-    var debtToEquity = parseFloat(inputValues[10]);
-    var interestCoverageRatio = parseFloat(inputValues[11]);
-
-    // Vérifie si les valeurs sont des nombres valides avant de les comparer
-    if (isValidNumber(debtToEBITDA)) {
-        if (debtToEBITDA < 1) {
-            totalScore += 2;
-            solvencyScore += 2;
-            resultCriteria[9] = 2;
-        } else if (debtToEBITDA < 2) {
-            totalScore += 1;
-            solvencyScore += 1;
-            resultCriteria[9] = 1;
-        }
-        else {
-            resultCriteria[9] = 0;
+    async function getStockPrice(symbol) {
+        try {
+            const response = await fetch(`https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${FINNHUB_API_KEY}`);
+            const data = await response.json();
+            // Finnhub renvoie 'c' pour Current Price
+            if (data && data.c) {
+                return data.c;
+            }
+            return null;
+        } catch (error) {
+            console.error('Erreur API Prix:', error);
+            return null;
         }
     }
-    else {
-        resultCriteria[9] = 0;
+
+    async function getPERatio(symbol) {
+        try {
+            const response = await fetch(`https://finnhub.io/api/v1/stock/metric?symbol=${symbol}&metric=valuation&token=${FINNHUB_API_KEY}`);
+            const data = await response.json();
+            if (data.metric && data.metric.peNormalizedAnnual) {
+                return parseFloat(data.metric.peNormalizedAnnual.toFixed(2));
+            }
+            return null;
+        } catch (error) {
+            console.error('Erreur API PE:', error);
+            return null;
+        }
     }
 
-    if (isValidNumber(debtToEquity)) {
-        if (debtToEquity < 1) {
-            totalScore += 2;
-            solvencyScore += 2;
-            resultCriteria[10] = 2;
-        } else if (debtToEquity < 2) {
-            totalScore += 1;
-            solvencyScore += 1;
-            resultCriteria[10] = 1;
-        }
-        else {
-            resultCriteria[10] = 0;
-        }
-    }
-    else {
-        resultCriteria[10] = 0;
+    // --- FONCTIONS DE CALCUL ---
+
+    function getData() {
+        // On cible uniquement les inputs de calcul (.calc-input)
+        const inputs = document.querySelectorAll('.calc-input');
+        const inputValues = [];
+        inputs.forEach(input => inputValues.push(input.value.trim()));
+        return inputValues;
     }
 
-    if (isValidNumber(interestCoverageRatio)) {
-        if (interestCoverageRatio >= 30) {
-            totalScore += 2;
-            solvencyScore += 2;
-            resultCriteria[11] = 2;
-        } else if (interestCoverageRatio >= 15) {
-            totalScore += 1;
-            solvencyScore += 1;
-            resultCriteria[11] = 1;
-        }
-        else {
-            resultCriteria[11] = 0;
-        }
-    }
-    else {
-        resultCriteria[11] = 0;
+    function calculateBasis(inputValues){
+        var beatsINX = inputValues[0].toLowerCase();
+        var shareBuyback = inputValues[1].toLowerCase();
+        var diversifiedCA = inputValues[2].toLowerCase();
+
+        if (beatsINX == 'oui') { totalScore += 2; basisScore += 2; }
+        if (shareBuyback == 'oui') { totalScore += 2; basisScore += 2; }
+        if (diversifiedCA == 'oui') { totalScore += 2; basisScore += 2; }
+        return basisScore;
     }
 
-    return solvencyScore;
-}
+    function calculateGrowth(inputValues){
+        var CAGrowth = parseFloat(inputValues[3]);
+        var EPSGrowth = parseFloat(inputValues[4]);
+        var FCFGrowth = parseFloat(inputValues[5]);
 
-function calculateDividend(inputValues) {
-    var payoutRatio = parseFloat(inputValues[12]);
-    var payoutRatioFCF = parseFloat(inputValues[13]);
-    var dividendGrowth = parseFloat(inputValues[14]);
-
-    // Vérifie si les valeurs sont des nombres valides avant de les comparer
-    if (isValidNumber(payoutRatio)) {
-        if (payoutRatio < 30) {
-            totalScore += 2;
-            dividendScore += 2;
-            resultCriteria[12] = 2;
-        } else if (payoutRatio < 50) {
-            totalScore += 1;
-            dividendScore += 1;
-            resultCriteria[12] = 1;
-        }
-        else {
-            resultCriteria[12] = 0;
-        }
-    }
-    else {
-        resultCriteria[12] = 0;
+        if (CAGrowth > 7) { totalScore += 2; growthScore += 2; }
+        if (EPSGrowth > 7) { totalScore += 2; growthScore += 2; }
+        if (FCFGrowth > 7) { totalScore += 2; growthScore += 2; }
+        return growthScore;
     }
 
-    if (isValidNumber(payoutRatioFCF)) {
-        if (payoutRatioFCF < 30) {
-            totalScore += 2;
-            dividendScore += 2;
-            resultCriteria[13] = 2;
-        } else if (payoutRatioFCF < 50) {
-            totalScore += 1;
-            dividendScore += 1;
-            resultCriteria[13] = 1;
-        }
-        else {
-            resultCriteria[13] = 0;
-        }
-    }
-    else {
-        resultCriteria[13] = 0;
+    function calculateProfitability(inputValues){
+        var netMargin = parseFloat(inputValues[6]);
+        var fcfMargin = parseFloat(inputValues[7]);
+        var roic = parseFloat(inputValues[8]);
+
+        if (netMargin >= 35) { totalScore += 2; profitabilityScore += 2; }
+        else if (netMargin >= 20) { totalScore += 1; profitabilityScore += 1; }
+
+        if (fcfMargin >= 35) { totalScore += 2; profitabilityScore += 2; }
+        else if (fcfMargin >= 20) { totalScore += 1; profitabilityScore += 1; }
+
+        if (roic >= 30) { totalScore += 2; profitabilityScore += 2; }
+        else if (roic >= 15) { totalScore += 1; profitabilityScore += 1; }
+        return profitabilityScore;
     }
 
-    if (isValidNumber(dividendGrowth)) {
-        if (dividendGrowth >= 10) {
-            totalScore += 2;
-            dividendScore += 2;
-            resultCriteria[14] = 2;
-        } else if (dividendGrowth >= 5) {
-            totalScore += 1;
-            dividendScore += 1;
-            resultCriteria[14] = 1;
+    function calculateSolvency(inputValues) {
+        var debtToEBITDA = parseFloat(inputValues[9]);
+        var debtToEquity = parseFloat(inputValues[10]);
+        var interestCoverageRatio = parseFloat(inputValues[11]);
+
+        if (isValidNumber(debtToEBITDA)) {
+            if (debtToEBITDA < 1) { totalScore += 2; solvencyScore += 2; }
+            else if (debtToEBITDA < 2) { totalScore += 1; solvencyScore += 1; }
         }
-        else {
-            resultCriteria[14] = 0;
+        if (isValidNumber(debtToEquity)) {
+            if (debtToEquity < 1) { totalScore += 2; solvencyScore += 2; }
+            else if (debtToEquity < 2) { totalScore += 1; solvencyScore += 1; }
         }
-    }
-    else {
-        resultCriteria[14] = 0;
+        if (isValidNumber(interestCoverageRatio)) {
+            if (interestCoverageRatio >= 30) { totalScore += 2; solvencyScore += 2; }
+            else if (interestCoverageRatio >= 15) { totalScore += 1; solvencyScore += 1; }
+        }
+        return solvencyScore;
     }
 
-    return dividendScore;
-}
+    function calculateDividend(inputValues) {
+        var payoutRatio = parseFloat(inputValues[12]);
+        var payoutRatioFCF = parseFloat(inputValues[13]);
+        var dividendGrowth = parseFloat(inputValues[14]);
 
-function createRadarChart(sectionScores) {
-    // Si le graphique radar existe déjà, on met à jour ses données
-    if (radarChartInstance) {
-        radarChartInstance.data.datasets[0].data = sectionScores;
-        radarChartInstance.update(); // Mise à jour des données du graphique existant
-    } else {
+        if (isValidNumber(payoutRatio)) {
+            if (payoutRatio < 30) { totalScore += 2; dividendScore += 2; }
+            else if (payoutRatio < 50) { totalScore += 1; dividendScore += 1; }
+        }
+        if (isValidNumber(payoutRatioFCF)) {
+            if (payoutRatioFCF < 30) { totalScore += 2; dividendScore += 2; }
+            else if (payoutRatioFCF < 50) { totalScore += 1; dividendScore += 1; }
+        }
+        if (isValidNumber(dividendGrowth)) {
+            if (dividendGrowth >= 10) { totalScore += 2; dividendScore += 2; }
+            else if (dividendGrowth >= 5) { totalScore += 1; dividendScore += 1; }
+        }
+        return dividendScore;
+    }
+
+    function getFairPrice(gurufocusPrice, tipsrankPrice, safetyMargin) {
+        const averagePrice = (gurufocusPrice + tipsrankPrice) / 2;
+        fairPrice = averagePrice * (1 - safetyMargin);
+        return fairPrice;
+    }
+
+    // --- GRAPHIQUES ---
+
+    function createRadarChart(sectionScores) {
         const ctx = document.getElementById('radarChart').getContext('2d');
-
-        radarChartInstance = new Chart(ctx, {
-            type: 'radar',
-            data: {
-                labels: sectionName,
-                datasets: [{
-                    label: 'Score par Section',
-                    data: sectionScores,
-                    backgroundColor: 'rgba(53, 162, 235, 0.2)', // Couleur de fond des zones
-                    borderColor: 'rgba(53, 162, 235, 1)', // Couleur de la bordure
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,  // Rendre le graphique responsive
-                plugins: {
-                    legend: {
-                        display: false  // Cacher la légende
-                    },
-                    title: {
-                    display: true,
-                    text: "ScoreCard de l'Action",
-                    font: {
-                        size: 16
-                    }
-                }
+        
+        if (radarChartInstance) {
+            radarChartInstance.data.datasets[0].data = sectionScores;
+            radarChartInstance.update();
+        } else {
+            radarChartInstance = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: sectionName,
+                    datasets: [{
+                        label: 'Score par Section',
+                        data: sectionScores,
+                        backgroundColor: 'rgba(53, 162, 235, 0.2)',
+                        borderColor: 'rgba(53, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
                 },
-                scales: {
-                    r: {  // Utilisation de 'r' pour l'axe radar
-                        min: 0,  // Minimum de l'échelle
-                        max: 6,  // Maximum de l'échelle
-                        ticks: {
-                            stepSize: 1  // Les intervalles entre chaque tick (chaque unité)
-                        }
-                    },
-                },
-                elements: {
-                    line: {
-                        tension: 0 // Crée des lignes légèrement courbées
-                    }
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false }, title: { display: true, text: "ScoreCard de l'Action", font: { size: 16 } } },
+                    scales: { r: { min: 0, max: 6, ticks: { stepSize: 1 } } },
+                    elements: { line: { tension: 0 } }
                 }
-            }
-        });
+            });
+        }
     }
-}
 
-function createFairPriceChart(currentStockPrice,fairPrice) {
+    function createFairPriceChart(currentPrice, fairPrice) {
+        // Préparation des données en Tableaux [] pour Chart.js
+        const chartLabels = [currentTicker]; 
+        const currentPriceData = [currentPrice];
+        const fairPriceData = [fairPrice];
+        const guruData = [gurufocusPrice];
+        const tipsData = [tipsrankPrice];
 
-    if (priceChartInstance) {
-        // Met à jour les données du graphique existant
-        priceChartInstance.data.labels = currentTicker; // Met à jour les labels
-        priceChartInstance.data.datasets[0].data = currentStockPrice; // Prix actuel
-        priceChartInstance.data.datasets[1].data = fairPrice; // Prix juste
-        priceChartInstance.data.datasets[2].data = gurufocusPrice; // Prix GuruFocus
-        priceChartInstance.data.datasets[3].data = tipsrankPrice; // Prix TipsRank
+        const ctx = document.getElementById('priceChart').getContext('2d');
 
-        priceChartInstance.update(); // Met à jour le graphique avec les nouvelles
-    }    
-
-    const ctx = document.getElementById('priceChart').getContext('2d');
-
-    priceChartInstance = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: currentTicker,
-            datasets: [
-                {
-                    label: "Prix Actuel de l'action",
-                    type: 'bar', // Barres pour le prix actuel
-                    data: currentStockPrice,
-                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    borderWidth: 2
+        if (priceChartInstance) {
+            priceChartInstance.data.labels = chartLabels;
+            priceChartInstance.data.datasets[0].data = currentPriceData;
+            priceChartInstance.data.datasets[1].data = fairPriceData;
+            priceChartInstance.data.datasets[2].data = guruData;
+            priceChartInstance.data.datasets[3].data = tipsData;
+            priceChartInstance.update();
+        } else {   
+            priceChartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: chartLabels,
+                    datasets: [
+                        {
+                            label: "Prix Actuel",
+                            type: 'bar',
+                            data: currentPriceData,
+                            backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 2
+                        },
+                        {
+                            label: "Prix Juste (Calculé)",
+                            type: 'bar',
+                            data: fairPriceData,
+                            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 2,
+                        },
+                        {
+                            label: "Prix GuruFocus",
+                            type: 'line',
+                            data: guruData,
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+                            fill: false,
+                            tension: 0.2,
+                            pointRadius: 8
+                        },
+                        {
+                            label: "Prix TipsRank",
+                            type: 'line',
+                            data: tipsData,
+                            borderColor: 'rgba(255, 159, 64, 1)',
+                            borderWidth: 2,
+                            backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                            fill: false,
+                            tension: 0.2,
+                            pointRadius: 8
+                        }
+                    ]
                 },
-                {
-                    label: "Prix Juste de l'action",
-                    type: 'bar', // Ligne pour le prix juste
-                    data: fairPrice,
-                    borderColor: 'rgba(255, 99, 132, 1)',
-                    borderWidth: 2,
-                },
-                {
-                label: "Prix GuruFocus",
-                    type: 'line', // Ligne pour GuruFocus
-                    data: gurufocusPrice,
-                    borderColor: 'rgba(75, 192, 192, 1)', // Vert-bleu
-                    borderWidth: 2,
-                    pointBackgroundColor: 'rgba(75, 192, 192, 1)', // Couleur des points
-                    fill: false, // Pas de remplissage sous la ligne
-                    tension: 0.2 // Douceur de la courbe
-                },
-                {
-                    label: "Prix TipsRank",
-                    type: 'line', // Ligne pour TipsRank
-                    data: tipsrankPrice,
-                    borderColor: 'rgba(255, 159, 64, 1)', // Orange vif
-                    borderWidth:2,
-                    backgroundColor: 'rgba(255, 159, 64, 0.2)', // Couleur de remplissage sous la ligne
-                    fill: false, // Pas de remplissage sous la ligne
-                    tension: 0.2 // Douceur de la courbe
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: true, position: 'bottom' },
+                        title: { display: true, text: "Comparaison des Prix", font: { size: 16 } }
+                    },
+                    scales: { y: { beginAtZero: true } }
                 }
-            ]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: true, // Affiche la légende
-                    position: 'bottom'
-                },
-                title: {
-                    display: true,
-                    text: "Prix actuel de l'action vs son prix juste",
-                    font: {
-                        size: 16
-                    }
-                }
-            },
-            scales: {
-                y: {
-                    beginAtZero: true // Commence l'axe Y à 0
+            });
+        }
+    }
+
+    // --- INITIALISATION ET ÉVÉNEMENTS ---
+
+    // Événements pour inputs manuels
+    document.getElementById('gurufocusPrice').addEventListener('input', updatePrices);
+    document.getElementById('tipsrankPrice').addEventListener('input', updatePrices);
+
+    // Slider Marge de Sécurité
+    const slider = document.getElementById('safetyMarginSlider');
+    slider.addEventListener('input', function() {
+        safetyMargin = updateSafetyMarginDisplay(parseInt(this.value));
+    });
+    // Init slider
+    slider.value = 2; 
+    safetyMargin = updateSafetyMarginDisplay(2);
+
+    // Événement touche "Entrée" sur la barre de recherche
+    document.getElementById('stockTicker').addEventListener('keypress', async function(e) {
+        if (e.key === 'Enter') {
+            const ticker = this.value.trim().toUpperCase();
+            if (ticker) {
+                this.placeholder = 'Chargement...';
+                currentTicker = ticker;
+                const price = await getStockPrice(ticker);
+                const pe = await getPERatio(ticker);
+                
+                if (price) {
+                    currentStockPrice = price;
+                    currentPERatio = pe;
+                    this.placeholder = `${ticker} chargé (${price}$)`;
+                } else {
+                    this.placeholder = 'Erreur récupération prix';
                 }
             }
         }
     });
-}
 
+    // --- FONCTION MAIN (BOUTON GÉNÉRER) ---
+    // Ajout de 'async' ici pour pouvoir attendre l'API si nécessaire
+    document.querySelector('.calculator-button').addEventListener('click', async function () {
+        
+        // 1. VÉRIFICATION ET RÉCUPÉRATION DU PRIX (CORRECTIF ICI)
+        const tickerInput = document.getElementById('stockTicker');
+        const tickerInputVal = tickerInput.value.trim().toUpperCase();
 
-// Clé API Finnhub
-const FINNHUB_API_KEY = 'cfeip41r01qoicaf4hk0cfeip41r01qoicaf4hkg';
-
-async function getStockPrice(symbol) {
-    try {
-        const response = await fetch(`https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${FINNHUB_API_KEY}`);
-        const data = await response.json();
-
-        if (data.c) {
-            return data.c;
-        }
-        console.error(`Erreur: Impossible de récupérer le prix pour ${symbol}`);
-        return null;
-    } catch (error) {
-        console.error('Erreur lors de la récupération du prix:', error);
-        return null;
-    }
-}
-
-async function getPERatio(symbol) {
-    try {
-        const response = await fetch(`https://finnhub.io/api/v1/stock/metric?symbol=${symbol}&metric=valuation&token=${FINNHUB_API_KEY}`);
-        const data = await response.json();
-
-        if (data.metric?.peNormalizedAnnual) {
-            return parseFloat(data.metric.peNormalizedAnnual.toFixed(2));
-        }
-        console.error(`Erreur: Impossible de récupérer le P/E pour ${symbol}`);
-        return null;
-    } catch (error) {
-        console.error('Erreur lors de la récupération du P/E:', error);
-        return null;
-    }
-}
-
-// Gestion de la saisie du ticker
-document.getElementById('stockTicker').addEventListener('keypress', async function(e) {
-    if (e.key === 'Enter') {
-        const ticker = this.value.trim().toUpperCase();
-        if (ticker) {
-            currentTicker = ticker;
-            console.log('Ticker saisi:', ticker);
+        // Si l'utilisateur a changé le ticker mais n'a pas fait Entrée, ou si on a pas de prix
+        if (tickerInputVal && (tickerInputVal !== currentTicker || currentStockPrice === null)) {
+            console.log("Tentative de récupération automatique du prix...");
+            currentTicker = tickerInputVal;
+            tickerInput.placeholder = "Chargement...";
             
-            // Afficher un indicateur de chargement
-            this.placeholder = 'Chargement...';
-            
-            try {
-                // Récupérer les données en parallèle
-                const [price, peRatio] = await Promise.all([
-                    getStockPrice(ticker),
-                    getPERatio(ticker)
-                ]);
+            // On force la récupération du prix maintenant
+            const fetchedPrice = await getStockPrice(currentTicker);
+            const fetchedPE = await getPERatio(currentTicker);
 
-                console.log(`Prix actuel de l'action : ${currentStockPrice}`);
-                
-                // Stocker les valeurs dans les variables globales
-                currentStockPrice = price;
-                currentPERatio = peRatio;
-                currentTicker = ticker;
-                
-                // Mettre à jour le placeholder pour indiquer que le ticker est chargé
-                this.placeholder = `${ticker} chargé (${price}$)`;
-                
-                
-            } catch (error) {
-                console.error('Erreur lors de la récupération des données:', error);
-                alert('Une erreur est survenue lors de la récupération des données.');
-            } finally {
-                // Réinitialiser le placeholder si nécessaire
-                if (!currentStockPrice) {
-                    this.placeholder = 'Entrez le ticker (ex: AAPL)';
-                }
+            if (fetchedPrice) {
+                currentStockPrice = fetchedPrice;
+                currentPERatio = fetchedPE;
+                tickerInput.placeholder = `${currentTicker} chargé (${fetchedPrice}$)`;
+            } else {
+                alert("Impossible de récupérer le prix pour " + currentTicker + ". Vérifiez le ticker ou votre connexion.");
+                // On peut décider d'arrêter ici ou de continuer avec un prix de 0
             }
         }
-    }
-});
-        
-function getFairPrice(currentPrice, gurufocusPrice, tipsrankPrice,safetyMargin) {
-    const averagePrice = (gurufocusPrice + tipsrankPrice) / 2;
-    fairPrice = averagePrice * (1 - safetyMargin);
-    console.log(`Prix juste pour ${currentTicker}:`, fairPrice);
-    return fairPrice;
-}
 
+        if (currentStockPrice === null) {
+            alert("Attention : Le prix actuel de l'action n'est pas défini. Le graphique sera incomplet.");
+            currentStockPrice = 0; // Pour éviter que le graphique ne plante
+        }
 
-function main() {
+        // 2. REINITIALISATION DES SCORES
+        totalScore = 0; basisScore = 0; growthScore = 0; profitabilityScore = 0; solvencyScore = 0; dividendScore = 0;
 
-    
-
-    //attendre cliquage du bouton
-    document.querySelector('.calculator-button').addEventListener('click', function () {
-        
-        //on réinitialise à 0
-        totalScore = 0;
-        totalScore = 0;
-        basisScore = 0;
-        growthScore = 0;
-        profitabilityScore = 0;
-        solvencyScore = 0;
-        dividendScore = 0;
-
-        // Récupérer les données des inputs
+        // 3. CALCULS
         const inputValues = getData();
-
-        // Calculer les scores en fonction des données des inputs
         calculateBasis(inputValues);
         calculateGrowth(inputValues);
         calculateProfitability(inputValues);
         calculateSolvency(inputValues);
         calculateDividend(inputValues);
 
-        // Calculer le prix juste
-        getFairPrice(currentStockPrice, gurufocusPrice, tipsrankPrice, safetyMargin);
+        getFairPrice(gurufocusPrice, tipsrankPrice, safetyMargin);
         
+        // 4. AFFICHAGE
         var sectionScores = [basisScore,growthScore,profitabilityScore,solvencyScore,dividendScore];
 
-        // Révèle le conteneur du cercle
+        // Cercle de progression
         const progressContainer = document.getElementById('progress-container-circle');
         progressContainer.style.display = 'block';
-
-        // Met à jour le cercle de progression avec le nouveau score
-        const circleProgress = document.getElementById('circular-progress');
-        circleProgress.setAttribute('value', totalScore); // Score actuel
-        circleProgress.setAttribute('animation-duration', '3000');
         
-        // Faire une transition fluide vers le cercle de progression
-        setTimeout(() => {
-            progressContainer.scrollIntoView({
-                behavior: 'smooth'
-            });
-        }, 100); // Attendre un court instant pour être sûr que l'affichage est mis à jour
+        const circleProgress = document.getElementById('circular-progress');
+        circleProgress.setAttribute('value', totalScore); 
+        circleProgress.setAttribute('max', 30); 
 
         const scoreText = document.getElementById('score-text');
         scoreText.textContent = `Le score de Qualité de votre action est de ${totalScore} sur 30 !`;
 
-        const radarChartContainer = document.getElementById('radar-chart-container');
-        radarChartContainer.style.display = 'flex';
+        setTimeout(() => { progressContainer.scrollIntoView({ behavior: 'smooth' }); }, 100);
+
+        // Radar Chart
+        document.getElementById('radar-chart-container').style.display = 'flex';
         createRadarChart(sectionScores);
         
-        const priceChartContainer = document.getElementById('bar-chart-container');
-        priceChartContainer.style.display = 'flex';
-        createFairPriceChart(currentStockPrice,fairPrice);
-
-
-        
-
-
+        // Price Chart
+        document.getElementById('bar-chart-container').style.display = 'flex';
+        createFairPriceChart(currentStockPrice, fairPrice);
     });
-
-
-}
-
-
-main();
-
-    </script>
+</script>
 
 </body>
 </html>
