@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation StocksPickeur 🎓</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="media/Logo/logo.ico" type="image/x-icon">
+    
+    <style>
+        .formation-home {
+            width: 60%;
+            margin: 0 auto;
+            padding-bottom: 100px;
+            margin-top: 50px;
+        }
+
+        .intro-text {
+            text-align: justify;
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            color: #000000;
+        }
+
+        /* Style des boutons de l'accordéon */
+        .accordion-course {
+            background-color: #f1f1f1;
+            color: #000000;
+            cursor: pointer;
+            padding: 20px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: 0.4s;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3em;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        .active-course, .accordion-course:hover {
+            background-color: #60a1fc;
+            color: white;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .accordion-course:after {
+            content: '\002B';
+            color: #777;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+            font-size: 1.5em;
+        }
+
+        .active-course:after {
+            content: "\2212";
+            color: white;
+        }
+
+        .panel-course {
+            padding: 0 30px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            border-left: 3px solid #60a1fc;
+            margin-bottom: 15px;
+        }
+
+        .course-content {
+            padding: 20px 0;
+            text-align: justify;
+            line-height: 1.6;
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 1.1em;
+            color: #2c3e50;
+        }
+
+        .course-content h3 {
+            color: #60a1fc;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5em;
+            margin-top: 30px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .course-content h4 {
+            color: #34495e;
+            font-weight: bold;
+            margin-top: 25px;
+            font-size: 1.2em;
+        }
+
+        .course-content ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .course-content li {
+            margin-bottom: 10px;
+        }
+
+        .quote-box {
+            background-color: #f9f9f9;
+            border-left: 5px solid #f1c40f;
+            padding: 15px;
+            font-style: italic;
+            margin: 20px 0;
+            color: #555;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        /* NOUVEAU STYLE POUR LES TABLEAUX AVANTAGES/INCONVÉNIENTS */
+        .pros-cons-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95em;
+        }
+        .pros-cons-table th {
+            padding: 10px;
+            color: white;
+            width: 50%;
+            text-align: center;
+        }
+        .th-pros { background-color: #27ae60; } /* Vert */
+        .th-cons { background-color: #c0392b; } /* Rouge */
+        
+        .pros-cons-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            vertical-align: top;
+            background-color: #fdfdfd;
+        }
+        .pros-cons-table ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        /* RESPONSIVE */
+        @media screen and (min-width: 1921px) {
+            .formation-home { width: 40%; }
+        }
+        @media screen and (max-width: 1200px) {
+            .formation-home { width: 90%; }
+        }
+        @media screen and (max-width: 768px) {
+            .formation-home { width: 95%; }
+            .accordion-course { font-size: 1.1em; padding: 15px; }
+            .panel-course { padding: 0 15px; }
+            .pros-cons-table th, .pros-cons-table td { display: block; width: 100%; box-sizing: border-box; }
+        }
+    </style>
+</head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-5QFGNT3V2F');
+</script>
+
+<body>
+    <header>
+        <a href="index.html" class="logo-title-link">
+            <img src="./media/Logo/Logo-White.png" alt="Logo QualityInvest">
+            <h1>StocksPickeur</h1>
+        </a>
+        <div class="onglets">
+            <a href="calculator.html">Calculateur</a>
+            <a href="wallet.html">Portefeuille</a>
+            <a href="formation.html">Formation</a>
+        </div>
+    </header>
+
+    <h2 class="title-home">Formation StocksPickeur : La Bourse de A à Z 🎓</h2>
+    
+    <div class="formation-home">
+        <p class="intro-text">
+            Bienvenue dans l'espace formation ! Vous trouverez ici une formation 100% gratuite sur l'investissement en Bourse, et plus précisément dans les actions de Qualité écrite par mes soins. Cette formation est composée (pour l'instant) de 7 modules différents, partant du très basique à la gestion de portefeuille. 
+            Elle est donc destinée à tout type de personnes, que ce soit ceux qui ne connaissent pas le mot investir que des personnes ayant déjà un portefeuille boursier ! <br><br> Cette formation est en cours d'écriture, je vous tient au courant de lorsqu'un nouveau module est terminé ! Il est possible que je rajoute des modules à la formation pour la rendre encore plus complète.
+        </p>
+
+        <button class="accordion-course">1. Investir, c'est quoi ? 💸</button>
+        <div class="panel-course">
+            <div class="course-content">
+                
+                <h3>1.1. C’est quoi l’Investissement ? 🌱</h3>
+                
+                <p>Bienvenue dans le premier module. Avant de parler de graphiques, de dividendes ou de ratios financiers, nous devons répondre à la question la plus fondamentale : <strong>qu'est-ce que cela signifie vraiment "investir" ?</strong></p>
+                <p>Beaucoup de gens pensent qu'investir, c'est "jouer en bourse", c'est "réservé aux riches", ou que c'est une formule magique pour devenir millionnaire en deux semaines. Oubliez tout cela. Investir n'est pas un jeu. C'est une discipline, une philosophie de vie et, surtout, un acte de responsabilité envers votre futur.</p>
+
+                <h4>1. La définition économique : La Consommation Différée</h4>
+                <p>Au niveau le plus basique, investir est un arbitrage temporel. C'est le choix conscient de <strong>ne pas consommer une ressource aujourd'hui</strong> pour pouvoir en consommer <strong>davantage demain</strong>.</p>
+                <p>Imaginez que vous receviez 1000€ aujourd'hui. Vous avez deux choix :</p>
+                <ul>
+                    <li><strong>La gratification immédiate :</strong> Vous achetez le dernier smartphone. Vous avez du plaisir instantané, mais l'argent est détruit. Il a quitté votre patrimoine pour entrer dans celui d'Apple.</li>
+                    <li><strong>La gratification différée (Investissement) :</strong> Vous achetez des parts d'une entreprise (peut-être Apple). Vous renoncez au plaisir d'avoir le téléphone tout de suite. C'est douloureux sur le moment. Mais en échange de ce "sacrifice", vous exigez une rémunération. Dans 10 ans, ces parts vaudront peut-être 3000€, vous permettant d'acheter non pas un, mais trois téléphones (ou mieux, de continuer à faire grossir ce capital).</li>
+                </ul>
+                <p>Investir, c'est donc dire à votre argent : <em>"Je ne vais pas te dépenser tout de suite. Va travailler, reviens avec des intérêts, et nous profiterons plus tard."</em></p>
+
+                <h4>2. Devenir Propriétaire vs Rester Salarié</h4>
+                <p>Dans notre système économique, il y a deux grandes façons de gagner de l'argent :</p>
+                <ol>
+                    <li><strong>Le Revenu du Travail (Linéaire) :</strong> Vous échangez votre temps contre de l'argent. C'est votre salaire. Le problème ? Votre temps est limité. Vous ne pouvez pas travailler 24h/24. Si vous arrêtez de travailler, l'argent s'arrête d'entrer.</li>
+                    <li><strong>Le Revenu du Capital (Exponentiel) :</strong> Vous envoyez votre argent travailler. L'argent n'a pas besoin de dormir, il ne prend pas de vacances, il ne tombe pas malade.</li>
+                </ol>
+                <p>Investir, c'est utiliser l'argent du groupe 1 (votre salaire) pour acheter des actifs du groupe 2. C'est passer du statut de "celui qui travaille pour l'argent" à "celui qui possède le système". Quand vous achetez une action LVMH, les milliers d'artisans, de vendeurs et de managers de LVMH se lèvent chaque matin pour enrichir l'entreprise, et par extension, <strong>pour vous enrichir vous</strong>, le propriétaire.</p>
+
+                <h4>3. Ce que l'investissement N'EST PAS</h4>
+                <p>Il est crucial de nettoyer votre esprit des mauvaises définitions véhiculées par les films ou les médias :</p>
+                <ul>
+                    <li><strong>Ce n'est pas du Trading :</strong> Le trading consiste à parier sur les mouvements de prix à court terme (minutes, jours). C'est un métier à temps plein, stressant et statistiquement perdant pour les particuliers. L'investisseur, lui, regarde la valeur de l'entreprise sur des années.</li>
+                    <li><strong>Ce n'est pas de la Spéculation :</strong> Le spéculateur achète un actif non productif (or, crypto-monnaie sans projet, oeuvre d'art) en espérant juste le revendre plus cher à quelqu'un d'autre. L'investisseur achète un actif <strong>productif</strong> (une entreprise qui vend des produits, encaisse des loyers, verse des dividendes).</li>
+                    <li><strong>Ce n'est pas "Sans Risque" :</strong> Le risque zéro n'existe pas. Mais comme nous le verrons, le plus grand risque est de ne rien faire.</li>
+                </ul>
+
+                <div class="quote-box">
+                    <strong>La Règle d'Or de Warren Buffett 🧠</strong><br>
+                    "Si vous ne trouvez pas un moyen de gagner de l'argent pendant que vous dormez, vous travaillerez jusqu'à votre mort."<br>
+                    C'est brutale, mais c'est la définition même de la nécessité d'investir.
+                </div>
+
+                <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
+
+                <h3>1.2. 5 Raisons de pourquoi investir ? 🎯</h3>
+                
+                <p>Pourquoi s'embêter à analyser des entreprises et bloquer son argent ? Pourquoi ne pas simplement vivre au jour le jour ? Voici les 5 piliers qui rendent l'investissement indispensable au XXIe siècle.</p>
+
+                <h4>1. Préparer sa retraite (L'urgence démographique) 👴</h4>
+                <p>C'est le sujet qui fâche, mais les mathématiques sont têtues. Notre système de retraite par répartition repose sur un équilibre simple : les travailleurs d'aujourd'hui paient pour les retraités d'aujourd'hui.</p>
+                <p>Le problème ? La démographie mondiale change. Nous vivons plus vieux et faisons moins d'enfants. Il y a de moins en moins d'actifs pour financer de plus en plus de retraités. Compter uniquement sur l'État pour assurer vos vieux jours est un pari risqué. Investir, c'est prendre en main sa propre retraite pour ne dépendre de personne et maintenir son niveau de vie quand on ne pourra (ou voudra) plus travailler.</p>
+
+                <h4>2. Contrer l'inflation (L'érosion silencieuse) 💸</h4>
+                <p>L'inflation est une taxe invisible qui grignote votre épargne chaque seconde. Avec une inflation moyenne de 2% ou 3% par an, 10 000€ laissés sur un compte courant ne vaudront plus que l'équivalent de 6 000€ de pouvoir d'achat dans 20 ans.</p>
+                <p>Laisser son argent dormir, ce n'est pas la sécurité : c'est la certitude de s'appauvrir lentement. Pour conserver votre pouvoir d'achat, votre argent <strong>doit</strong> travailler à un taux supérieur à l'inflation. La Bourse, avec ses 8-10% de rendement historique, est le meilleur bouclier contre cette érosion.</p>
+
+                <h4>3. Faire fructifier son patrimoine (La Boule de Neige) ❄️</h4>
+                <p>Il n'y a pas de secret : on ne devient pas riche uniquement en économisant son salaire. On devient riche en investissant. C'est la magie des <strong>intérêts composés</strong>.</p>
+                <p>Lorsque vous investissez, vos gains génèrent eux-mêmes des gains.
+                <em>Exemple : 10 000€ placés à 10% rapportent 1 000€ la première année. La deuxième année, vous gagnez 10% sur 11 000€, soit 1 100€, et ainsi de suite.</em><br>
+                Sur le long terme, cette courbe devient exponentielle. Investir permet de transformer un petit flux d'épargne mensuel en un capital massif capable de changer la vie de votre famille.</p>
+
+                <h4>4. Financer des projets futurs 🏠</h4>
+                <p>L'argent n'est pas une fin en soi, c'est un outil de liberté. Investir vous permet d'atteindre vos objectifs de vie beaucoup plus rapidement :</p>
+                <ul>
+                    <li>Acheter votre résidence principale avec un gros apport.</li>
+                    <li>Payer les meilleures études à vos enfants sans vous endetter.</li>
+                    <li>Faire le tour du monde.</li>
+                    <li>Lancer votre propre entreprise.</li>
+                </ul>
+                <p>L'investissement est l'accélérateur qui réduit le temps entre le "rêve" et la "réalité".</p>
+
+                <h4>5. Gagner en Liberté Financière et en Sécurité 🔓</h4>
+                <p>C'est le but ultime. La liberté financière, ce n'est pas forcément rouler en Ferrari. C'est avoir le <strong>choix</strong>.</p>
+                <ul>
+                    <li>Le choix de dire "non" à un patron toxique parce que vous avez 5 ans de dépenses de côté grâce à vos dividendes.</li>
+                    <li>Le choix de travailler à mi-temps pour voir grandir vos enfants.</li>
+                    <li>Le choix de ne plus stresser à la moindre facture imprévue.</li>
+                </ul>
+                <p>Un portefeuille d'actions de Qualité vous verse des dividendes (une rente) régulièrement. Lorsque cette rente couvre vos dépenses obligatoires, vous êtes libre. Vous ne travaillez plus par obligation, mais par passion.</p>
+                
+                <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
+
+                <h3>1.3. Les Différents Types d’investissements 🧩</h3>
+                
+                <p>Quand on décide d'investir, on se retrouve face à une jungle d'options. On entend parler de tout : acheter un appartement, le Bitcoin, les actions, l'Or... Mais que choisir ?</p>
+                <p>Pour faire un choix éclairé, il faut comprendre que chaque type d'investissement (ce qu'on appelle une <strong>"Classe d'Actif"</strong>) possède sa propre personnalité, ses propres risques et ses propres rendements. Voici une analyse détaillée des 5 grandes familles d'investissement pour vous aider à y voir plus clair. </p>
+
+                <h4>1. La Bourse (Les Actions) 📈</h4>
+                <p>C'est le sujet principal de ce site, et ce n'est pas un hasard. Investir en actions, c'est acheter une part de propriété d'une entreprise (comme Apple, LVMH ou Air Liquide). Vous devenez associé. Si l'entreprise fait des bénéfices, vous en touchez une partie via les dividendes, et la valeur de votre part augmente.</p>
+                
+                <table class="pros-cons-table">
+                    <tr>
+                        <th class="th-pros">✅ AVANTAGES</th>
+                        <th class="th-cons">❌ INCONVÉNIENTS</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li><strong>Performance historique :</strong> C'est la classe d'actif la plus performante sur le long terme (environ 8-10% par an).</li>
+                                <li><strong>Passivité :</strong> Une fois acheté, vous n'avez rien à gérer (pas de locataire à appeler, pas de travaux).</li>
+                                <li><strong>Liquidité :</strong> Vous pouvez récupérer votre argent en un clic, n'importe quand.</li>
+                                <li><strong>Accessibilité :</strong> Vous pouvez commencer avec 10€ seulement.</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li><strong>Volatilité :</strong> Les prix bougent tous les jours. Il faut avoir les nerfs solides pour voir son portefeuille baisser de -20% temporairement.</li>
+                                <li><strong>Apprentissage :</strong> Cela demande un minimum de formation pour ne pas acheter n'importe quoi (c'est le but de ce site !).</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+
+                <h4>2. L'Immobilier (La Pierre) 🏠</h4>
+                <p>L'investissement préféré des Français et des Belges. Il consiste à acheter un bien (appartement, garage, immeuble) pour le mettre en location. On peut aussi investir dans la "Pierre-Papier" (SCPI) pour ne pas gérer les soucis en direct.</p>
+
+                <table class="pros-cons-table">
+                    <tr>
+                        <th class="th-pros">✅ AVANTAGES</th>
+                        <th class="th-cons">❌ INCONVÉNIENTS</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li><strong>L'Effet de Levier :</strong> C'est le seul investissement que vous pouvez faire avec l'argent de la banque (crédit). Vous vous enrichissez avec l'argent des autres.</li>
+                                <li><strong>Tangible :</strong> C'est du concret, de la pierre. C'est rassurant psychologiquement.</li>
+                                <li><strong>Stabilité :</strong> Les prix de l'immobilier bougent lentement, il n'y a pas de krach de -10% en une journée.</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li><strong>Illiquide :</strong> Si vous avez besoin d'argent, vendre un bien prend des mois.</li>
+                                <li><strong>Ticket d'entrée :</strong> Il faut souvent un apport conséquent (plusieurs milliers d'euros).</li>
+                                <li><strong>Gestion lourde :</strong> Locataires qui ne paient pas, travaux, fuites d'eau, taxe foncière... Ce n'est pas du tout passif.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+
+                <h4>3. Les Obligations (La Dette) 📜</h4>
+                <p>Quand vous achetez une obligation, vous prêtez de l'argent à un État (France, USA) ou à une entreprise. En échange, ils vous remboursent avec des intérêts réguliers (le coupon). C'est le moteur principal des fameux "Fonds Euros" des assurances-vie.</p>
+
+                <table class="pros-cons-table">
+                    <tr>
+                        <th class="th-pros">✅ AVANTAGES</th>
+                        <th class="th-cons">❌ INCONVÉNIENTS</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li><strong>Sécurité :</strong> Si vous prêtez à un État stable, le risque de perte est très faible.</li>
+                                <li><strong>Régularité :</strong> Vous savez exactement combien vous allez toucher et quand.</li>
+                                <li><strong>Stabilisateur :</strong> C'est utile pour sécuriser un patrimoine quand on approche de la retraite.</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li><strong>Rendement faible :</strong> Le rendement couvre à peine l'inflation. Vous ne deviendrez pas riche avec des obligations.</li>
+                                <li><strong>Risque de taux :</strong> Si les taux d'intérêts montent, la valeur de vos anciennes obligations baisse.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+
+                <h4>4. Les Crypto-monnaies (L'Or numérique) ₿</h4>
+                <p>La nouvelle classe d'actif du XXIe siècle (Bitcoin, Ethereum). Ce sont des actifs numériques décentralisés basés sur la Blockchain. C'est un mélange de technologie et de finance.</p>
+
+                <table class="pros-cons-table">
+                    <tr>
+                        <th class="th-pros">✅ AVANTAGES</th>
+                        <th class="th-cons">❌ INCONVÉNIENTS</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li><strong>Performance explosive :</strong> C'est l'actif qui a le plus performé ces 10 dernières années. Le potentiel de gains est asymétrique (x10, x50...).</li>
+                                <li><strong>Indépendance :</strong> Votre argent est hors du système bancaire classique.</li>
+                                <li><strong>Innovation :</strong> Vous investissez dans la technologie du futur (Web3).</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li><strong>Risque total :</strong> Vous pouvez tout perdre. De nombreux projets cryptos tombent à zéro.</li>
+                                <li><strong>Volatilité extrême :</strong> Le Bitcoin peut perdre -50% en quelques semaines. C'est émotionnellement très dur.</li>
+                                <li><strong>Sécurité :</strong> Si vous perdez vos mots de passe ou si vous vous faites pirater, il n'y a aucun service client pour vous aider.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+
+                <h4>5. L'Or et les Matières Premières 🥇</h4>
+                <p>L'or est la monnaie ultime depuis des millénaires. On achète de l'or (pièces, lingots) ou des matières premières (pétrole, blé) non pas pour gagner de l'argent, mais pour ne pas en perdre.</p>
+
+                <table class="pros-cons-table">
+                    <tr>
+                        <th class="th-pros">✅ AVANTAGES</th>
+                        <th class="th-cons">❌ INCONVÉNIENTS</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li><strong>Valeur refuge :</strong> En cas de guerre, de crise majeure ou d'effondrement de la monnaie, l'or garde sa valeur.</li>
+                                <li><strong>Décorrélation :</strong> L'or monte souvent quand la bourse baisse. C'est une bonne assurance.</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li><strong>Aucun rendement :</strong> L'or ne produit rien. Il ne verse pas de dividende, ne crée pas de bénéfice. 1kg d'or reste 1kg d'or.</li>
+                                <li><strong>Stockage :</strong> Il faut le stocker en sécurité (coffre), ce qui a un coût.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="quote-box">
+                    <span class="highlight">Conclusion :</span> Il n'y a pas de "meilleur" investissement dans l'absolu. Tout dépend de vos objectifs.<br><br>
+                    Cependant, pour se bâtir une fortune sur le long terme sans s'endetter et sans y passer ses journées, <strong>la Bourse (Actions de Qualité)</strong> reste mathématiquement la voie royale. C'est pour cela que l'on va se concentrer dessus, vous allez voir pourquoi lors du prochain module.
+                </div>
+
+            </div>
+        </div>
+
+        <button class="accordion-course">2. Débuter en Bourse 🏦</button>
+        <div class="panel-course">
+            <div class="course-content">
+                <p>Contenu du module 2 à venir...</p>
+                <!-- <ul>
+                    <li>2.1. C’est quoi la Bourse ?</li>
+                    <li>2.2. Pourquoi la Bourse ?</li>
+                    <li>2.3. Les Différentes manières d’investir en Bourse</li>
+                    <li>2.4. Comment investir en Bourse ?</li>
+                    <li>2.5. Les différents instruments financiers en Bourse</li>
+                </ul> -->
+            </div>
+        </div>
+        
+        <button class="accordion-course">3. La Bourse en Détails 💰</button>
+        <div class="panel-course">
+            <div class="course-content">
+                <p>Contenu du module 3 à venir...</p>
+            </div>
+        </div>
+
+        <button class="accordion-course">4. L’Investissement Quality 💎</button>
+        <div class="panel-course">
+            <div class="course-content">
+                <p>Contenu du module 4 à venir...</p>
+            </div>
+        </div>
+
+        <button class="accordion-course">5. La Valorisation 📊</button>
+        <div class="panel-course">
+            <div class="course-content">
+                <p>Contenu du module 5 à venir...</p>
+            </div>
+        </div>
+
+        <button class="accordion-course">6. Gestion de Portefeuille 🧑‍💻</button>
+        <div class="panel-course">
+            <div class="course-content">
+                <p>Contenu du module 6 à venir...</p>
+            </div>
+        </div>
+
+        <button class="accordion-course">7. Psychologie de l’Investisseur 🧠</button>
+        <div class="panel-course">
+            <div class="course-content">
+                <p>Contenu du module 7 à venir...</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <div class="copyright">
+            <img src="./media/Logo/Logo-Black.png" alt="Logo QualityInvest">
+            <span id="copyright-text" ><a href="https://x.com/StocksPickeur" class="reset-link">StocksPickeur &copy; 2025</a></span>
+        </div>
+    </div>
+
+    <script>
+        var acc = document.getElementsByClassName("accordion-course");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                // Basculer la classe "active" pour le bouton (change la couleur et le + / -)
+                this.classList.toggle("active-course");
+                
+                // Récupérer le panneau associé (le div juste après le bouton)
+                var panel = this.nextElementSibling;
+                
+                // Si le panneau est ouvert (maxHeight défini), on le ferme
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    // Sinon on l'ouvre à la hauteur de son contenu (scrollHeight)
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                } 
+            });
+        }
+    </script>
+
+</body>
+</html>
