@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Score de Qualité & Intérêts Composés 📊</title>
+    <title>Calculateurs 📊</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="media/Logo/logo.ico" type="image/x-icon">
 </head>
@@ -182,7 +182,7 @@
         <h2 class="title-home">Intérêts Composés 🚀</h2>
         <p class="calculator-text-home" style="margin-bottom: 30px;">Projetez vos gains futurs ! Voyez comment votre épargne fructifie année après année grâce à la magie des intérêts composés.</p>
 
-        <div class="section" id="compound-calculator">
+        <div class="section section-interest" id="compound-calculator">
             <h3 class="calculator-section">PARAMÈTRES DE L'INVESTISSEMENT</h3>
             <div class="input-container">
                 <div class="input-group">
@@ -211,6 +211,143 @@
 
             <div id="compound-chart-container" style="display: flex; align-items: center; margin-top: 30px; height: 400px;">
                 <canvas id="compoundChart"></canvas>
+            </div>
+        </div>
+
+        <div class="separator-line"></div>
+
+        <h2 class="title-home">Estimateur DCF 💎</h2>
+        <p class="calculator-text-home">
+            Une entreprise de qualité ne doit pas être achetée à n'importe quel prix. Ce calculateur projette les bénéfices futurs pour estimer un prix d'achat rationnel aujourd'hui, en fonction du rendement que vous exigez.
+        </p>
+
+        <div class="section section-dcf"> 
+            <h3 class="calculator-section">PARAMÈTRES DE VALORISATION</h3>
+            <div class="input-container">
+                <div class="input-group">
+                    <p class="label-text" data-tooltip="Le Bénéfice Par Action actuel (EPS TTM).">EPS ACTUEL (€/$)</p>
+                    <input type="number" id="dcf-eps" class="calc-input" placeholder="Ex: 5.40" step="0.01">
+                </div>
+                <div class="input-group">
+                    <p class="label-text" data-tooltip="À quelle vitesse les bénéfices vont-ils croître par an sur 5 ans ?">CROISSANCE ESTIMÉE (%)</p>
+                    <input type="number" id="dcf-growth" class="calc-input" placeholder="Ex: 12">
+                </div>
+                <div class="input-group">
+                    <p class="label-text" data-tooltip="Quel sera le PER raisonnable de l'action dans 5 ans ?">PER DE SORTIE</p>
+                    <input type="number" id="dcf-pe" class="calc-input" placeholder="Ex: 20">
+                </div>
+            </div>
+            
+            <div class="input-container input-container-center">
+                 <div class="input-group input-group-half">
+                    <p class="label-text" data-tooltip="Quel rendement annuel minimum exigez-vous ? (souvent 10% ou 12%)">TAUX D'ACTUALISATION (%)</p>
+                    <input type="number" id="dcf-discount" class="calc-input" placeholder="Ex: 10">
+                </div>
+            </div>
+        </div>
+
+        <button class="calculator-button" id="btn-dcf-calc">Calculer la Juste Valeur</button>
+
+        <div id="dcf-result-container" class="result-box result-box-hidden">
+            Prix d'achat maximum conseillé : <br>
+            <span id="dcf-fair-value" class="result-highlight">0 €</span> <br>
+            <span class="result-future-text">
+                Si vous achetez à ce prix, vous visez un objectif de <span id="dcf-future-price" style="font-weight: bold;">0 €</span> dans 5 ans.
+            </span>
+            
+            <div id="dcf-chart-container" class="chart-wrapper chart-height-large">
+                <canvas id="dcfChart"></canvas>
+            </div>
+        </div>
+
+        <div class="separator-line"></div>
+
+        <h2 class="title-home">Simulateur de DCA 📉</h2>
+        <p class="calculator-text-home">
+            Vous souhaitez renforcer une position existante ? Ce calculateur vous permet de voir instantanément l'impact d'un nouvel achat sur votre Prix de Revient Unitaire (PRU). Idéal pour la stratégie de "Moyenne à la baisse".
+        </p>
+
+        <div class="section section-pru"> 
+            <h3 class="calculator-section">VOTRE POSITION</h3>
+            <div class="input-container">
+                <div class="input-group">
+                    <p class="label-text">ACTIONS DÉJÀ DÉTENUES</p>
+                    <input type="number" id="pru-owned-shares" class="calc-input" placeholder="Ex: 10" min="0">
+                </div>
+                <div class="input-group">
+                    <p class="label-text">PRIX D'ACHAT MOYEN (€/$)</p>
+                    <input type="number" id="pru-avg-price" class="calc-input" placeholder="Ex: 150" step="0.01">
+                </div>
+            </div>
+            
+            <h3 class="calculator-section spacer-top">NOUVEL ACHAT</h3>
+            <div class="input-container">
+                <div class="input-group">
+                    <p class="label-text">ACTIONS À ACHETER</p>
+                    <input type="number" id="pru-new-shares" class="calc-input" placeholder="Ex: 5" min="0">
+                </div>
+                <div class="input-group">
+                    <p class="label-text">PRIX ACTUEL (€/$)</p>
+                    <input type="number" id="pru-current-price" class="calc-input" placeholder="Ex: 130" step="0.01">
+                </div>
+            </div>
+        </div>
+
+        <button class="calculator-button" id="btn-pru-calc">Calculer mon Nouveau PRU</button>
+
+        <div id="pru-results-container" class="result-box result-box-hidden">
+            Votre nouveau prix de revient sera de : <br>
+            <span id="res-new-pru" class="result-highlight">0 €</span> <br>
+            <span class="result-future-text">
+                Vous détiendrez <span id="res-total-shares" style="font-weight:bold;">0</span> actions pour un total investi de <span id="res-total-invested">0 €</span>.
+            </span>
+            
+            <div id="pru-chart-container" class="chart-wrapper chart-height-medium">
+                <canvas id="pruChart"></canvas>
+            </div>
+        </div>
+
+        <div class="separator-line"></div>
+
+        <h2 class="title-home">Le Ratio PEG (Peter Lynch) 🦄</h2>
+        <p class="calculator-text-home">
+            Le PER seul ne suffit pas. Le ratio PEG met en relation le prix de l'action et sa croissance future. C'est l'outil favori des investisseurs pour dénicher les "Growth Stocks" à prix raisonnable.
+        </p>
+
+        <div class="section section-peg"> 
+            <h3 class="calculator-section">ANALYSE DU PRIX VS CROISSANCE</h3>
+            <div class="input-container">
+                <div class="input-group">
+                    <p class="label-text" data-tooltip="Le PER actuel de l'entreprise.">PER ACTUEL</p>
+                    <input type="number" id="peg-pe" class="calc-input" placeholder="Ex: 25">
+                </div>
+                <div class="input-group">
+                    <p class="label-text" data-tooltip="Taux de croissance annuel moyen des bénéfices (EPS) estimé sur 3-5 ans.">CROISSANCE ATTENDUE (%)</p>
+                    <input type="number" id="peg-growth" class="calc-input" placeholder="Ex: 20">
+                </div>
+                <div class="input-group">
+                    <p class="label-text" data-tooltip="Optionnel : Rendement du dividende (Yield). Peter Lynch l'ajoute à la croissance.">DIVIDENDE YIELD (%)</p>
+                    <input type="number" id="peg-dividend" class="calc-input" placeholder="Ex: 1.5">
+                </div>
+            </div>
+        </div>
+
+        <button class="calculator-button" id="btn-peg-calc">Calculer le PEG</button>
+
+        <div id="peg-results-container" class="result-box result-box-hidden">
+            Ratio PEG Calculé : <br>
+            <span id="res-peg-score" class="result-highlight peg-score-big">0.00</span> <br>
+            <span id="res-peg-verdict" class="peg-verdict-text">Verdict</span>
+            <p class="peg-legend">
+                <span class="text-green">● < 1.0 : Sous-évalué</span> &nbsp;|&nbsp; 
+                <span class="text-orange">● 1.0 - 1.5 : Prix Correct</span> &nbsp;|&nbsp; 
+                <span class="text-red">● > 2.0 : Surévalué</span>
+            </p>
+            
+            <div class="peg-bar-container">
+                <div id="peg-bar-fill" class="peg-bar-fill"></div>
+                <div class="peg-bar-marker marker-33" title="PEG 1.0"></div>
+                <div class="peg-bar-marker marker-66" title="PEG 2.0"></div>
             </div>
         </div>
 
@@ -682,6 +819,300 @@
         // Scroll vers les résultats
         document.getElementById('compound-results-container').scrollIntoView({ behavior: 'smooth' });
     });
+
+    // ==========================================
+    //       SCRIPT DCF SIMPLIFIÉ & GRAPHIQUE
+    // ==========================================
+    
+    let dcfChartInstance = null; // Variable pour stocker le graphique
+
+    document.getElementById('btn-dcf-calc').addEventListener('click', function() {
+        // 1. Récupération
+        const epsInput = document.getElementById('dcf-eps').value;
+        const growthInput = document.getElementById('dcf-growth').value;
+        const peInput = document.getElementById('dcf-pe').value;
+        const discountInput = document.getElementById('dcf-discount').value;
+
+        if (epsInput === "" || growthInput === "" || peInput === "" || discountInput === "") {
+            alert("Veuillez remplir tous les champs du calculateur DCF.");
+            return;
+        }
+
+        const eps = parseFloat(epsInput);
+        const growthRate = parseFloat(growthInput) / 100;
+        const terminalPE = parseFloat(peInput);
+        const discountRate = parseFloat(discountInput) / 100;
+
+        // 2. Calculs
+        // EPS Futur (dans 5 ans) = EPS Actuel * (1 + croissance)^5
+        let futureEPS = eps * Math.pow((1 + growthRate), 5);
+        
+        // Prix Futur (dans 5 ans) = EPS Futur * PER de sortie
+        let futurePrice = futureEPS * terminalPE;
+
+        // Prix Juste (Aujourd'hui) = Prix Futur ramené à aujourd'hui (Actualisation)
+        let fairValue = futurePrice / Math.pow((1 + discountRate), 5);
+
+        // 3. Affichage Texte
+        const formatter = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' });
+        document.getElementById('dcf-fair-value').textContent = formatter.format(fairValue);
+        // J'ai ajouté l'affichage du prix futur dans le HTML, on le met à jour ici :
+        if(document.getElementById('dcf-future-price')) {
+            document.getElementById('dcf-future-price').textContent = formatter.format(futurePrice);
+        }
+        
+        const resContainer = document.getElementById('dcf-result-container');
+        resContainer.style.display = 'block';
+
+        // 4. Génération des données pour le Graphique (Trajectoire de l'investissement)
+        const labels = ['Aujourd\'hui', 'Année 1', 'Année 2', 'Année 3', 'Année 4', 'Année 5'];
+        const dataValues = [];
+
+        // On calcule la valeur théorique de l'investissement année par année
+        // Si on achète au "Prix Juste", l'investissement doit grandir au rythme du "Taux d'actualisation"
+        for (let i = 0; i <= 5; i++) {
+            let valueAtYear = fairValue * Math.pow((1 + discountRate), i);
+            dataValues.push(valueAtYear);
+        }
+
+        // 5. Création du Graphique
+        const ctx = document.getElementById('dcfChart').getContext('2d');
+
+        if (dcfChartInstance) {
+            dcfChartInstance.destroy();
+        }
+
+        dcfChartInstance = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Trajectoire de Valeur Théorique',
+                    data: dataValues,
+                    borderColor: 'rgba(155, 89, 182, 1)', // Couleur Violette
+                    backgroundColor: 'rgba(155, 89, 182, 0.2)',
+                    fill: true,
+                    tension: 0.3, // Courbe légèrement arrondie
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: `Objectif : ${formatter.format(futurePrice)} dans 5 ans`,
+                        font: { size: 16 }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return formatter.format(context.parsed.y);
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false, // On ne commence pas à 0 pour mieux voir la progression
+                        ticks: {
+                            callback: function(value) { return value + ' €'; }
+                        }
+                    }
+                }
+            }
+        });
+
+        resContainer.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // ==========================================
+    //       SCRIPT SIMULATEUR PRU (DCA)
+    // ==========================================
+    
+    let pruChartInstance = null;
+
+    document.getElementById('btn-pru-calc').addEventListener('click', function() {
+        // 1. Récupération
+        const ownedShares = parseFloat(document.getElementById('pru-owned-shares').value);
+        const avgPrice = parseFloat(document.getElementById('pru-avg-price').value);
+        const newShares = parseFloat(document.getElementById('pru-new-shares').value);
+        const currentPrice = parseFloat(document.getElementById('pru-current-price').value);
+
+        if (isNaN(ownedShares) || isNaN(avgPrice) || isNaN(newShares) || isNaN(currentPrice)) {
+            alert("Veuillez remplir tous les champs du simulateur.");
+            return;
+        }
+
+        // 2. Calculs
+        const oldTotalValue = ownedShares * avgPrice;
+        const newBuyValue = newShares * currentPrice;
+        
+        const totalShares = ownedShares + newShares;
+        const totalInvested = oldTotalValue + newBuyValue;
+        
+        const newPRU = totalInvested / totalShares;
+        
+        // Différence en pourcentage
+        const reduction = ((avgPrice - newPRU) / avgPrice) * 100;
+
+        // --- GESTION DES COULEURS ---
+        // Si le PRU baisse (reduction > 0) -> VERT, sinon -> ROUGE
+        let resultColor, chartBarColor, chartBorderColor;
+
+        if (newPRU < avgPrice) {
+            // C'est positif (Baisse du PRU) -> VERT
+            resultColor = '#27ae60'; // Vert foncé pour le texte
+            chartBarColor = 'rgba(46, 204, 113, 0.8)'; // Vert clair pour le graphe
+            chartBorderColor = 'rgba(46, 204, 113, 1)';
+        } else {
+            // C'est négatif (Hausse du PRU) -> ROUGE
+            resultColor = '#c0392b'; // Rouge foncé pour le texte
+            chartBarColor = 'rgba(231, 76, 60, 0.8)'; // Rouge clair pour le graphe
+            chartBorderColor = 'rgba(231, 76, 60, 1)';
+        }
+
+        // 3. Affichage Texte
+        const formatter = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' });
+        
+        const resPruElement = document.getElementById('res-new-pru');
+        resPruElement.textContent = formatter.format(newPRU);
+        resPruElement.style.color = resultColor; // Applique la couleur au texte
+
+        document.getElementById('res-total-shares').textContent = totalShares;
+        document.getElementById('res-total-invested').textContent = formatter.format(totalInvested);
+
+        const resContainer = document.getElementById('pru-results-container');
+        resContainer.style.display = 'block';
+
+        // 4. Graphique Comparatif
+        const ctx = document.getElementById('pruChart').getContext('2d');
+
+        if (pruChartInstance) {
+            pruChartInstance.destroy();
+        }
+
+        pruChartInstance = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Ancien Prix Moyen', 'Nouveau Prix Moyen (PRU)'],
+                datasets: [{
+                    label: 'Prix par Action',
+                    data: [avgPrice, newPRU],
+                    backgroundColor: [
+                        'rgba(149, 165, 166, 0.5)', // Gris (Ancien, reste neutre)
+                        chartBarColor               // DYNAMIQUE (Vert ou Rouge)
+                    ],
+                    borderColor: [
+                        'rgba(149, 165, 166, 1)',
+                        chartBorderColor            // DYNAMIQUE
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    title: { 
+                        display: true, 
+                        text: reduction > 0 
+                            ? `Bravo ! Vous avez baissé votre PRU de ${reduction.toFixed(2)}%` 
+                            : `Attention : Votre PRU a augmenté de ${Math.abs(reduction).toFixed(2)}%`,
+                        font: { size: 14 }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return formatter.format(context.parsed.y);
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true, 
+                        ticks: { callback: function(value) { return value + ' €'; } }
+                    }
+                }
+            }
+        });
+
+        resContainer.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // ==========================================
+    //       SCRIPT CALCULATEUR PEG
+    // ==========================================
+    document.getElementById('btn-peg-calc').addEventListener('click', function() {
+        // 1. Récupération
+        const pe = parseFloat(document.getElementById('peg-pe').value);
+        let growth = parseFloat(document.getElementById('peg-growth').value);
+        const dividend = parseFloat(document.getElementById('peg-dividend').value) || 0;
+
+        if (isNaN(pe) || isNaN(growth)) {
+            alert("Veuillez entrer au moins le PER et la Croissance.");
+            return;
+        }
+
+        // Peter Lynch Adjustment : On ajoute le dividende à la croissance pour être plus précis
+        // Formule : PEG = PER / (Croissance + Dividende)
+        const totalGrowth = growth + dividend;
+        
+        if (totalGrowth <= 0) {
+            alert("La croissance totale doit être positive pour calculer un PEG cohérent.");
+            return;
+        }
+
+        const peg = pe / totalGrowth;
+
+        // 2. Interprétation & Couleurs
+        let verdict = "";
+        let color = "";
+        let barWidth = 0; // Pour la barre visuelle (Max 3.0 = 100%)
+
+        if (peg < 1) {
+            verdict = "Action Sous-évaluée (Aubaine Potentielle)";
+            color = "#27ae60"; // Vert
+        } else if (peg < 1.5) {
+            verdict = "Action Valorisée Correctement (Fair Price)";
+            color = "#f1c40f"; // Jaune/Or (Note: j'ai changé f39c12 en f1c40f pour plus de visibilité)
+            // Correction pour contraste si besoin, ou on garde le jaune orangé #f39c12
+            if(peg >= 1) color = "#f39c12"; 
+        } else if (peg < 2) {
+            verdict = "Action Légèrement Surévaluée";
+            color = "#e67e22"; // Orange
+        } else {
+            verdict = "Action Très Surévaluée (Expensive)";
+            color = "#c0392b"; // Rouge
+        }
+
+        // Calcul largeur barre (On dit que PEG 3.0 = 100% de la barre pour l'échelle)
+        // PEG 1.0 = 33%, PEG 2.0 = 66%
+        let widthPercentage = (peg / 3) * 100;
+        if (widthPercentage > 100) widthPercentage = 100;
+
+        // 3. Affichage
+        const scoreElement = document.getElementById('res-peg-score');
+        scoreElement.textContent = peg.toFixed(2);
+        scoreElement.style.color = color;
+
+        const verdictElement = document.getElementById('res-peg-verdict');
+        verdictElement.textContent = verdict;
+        verdictElement.style.color = color;
+
+        const barFill = document.getElementById('peg-bar-fill');
+        barFill.style.width = widthPercentage + "%";
+        barFill.style.backgroundColor = color;
+
+        const resContainer = document.getElementById('peg-results-container');
+        resContainer.style.display = 'block';
+        resContainer.scrollIntoView({ behavior: 'smooth' });
+    });
+
 </script>
 
 </body>

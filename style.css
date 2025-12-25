@@ -453,10 +453,10 @@ td {
     margin: 0 auto;
     margin-top: 75px;
     text-align: center;
-    font-size: 2.55em;
+    font-size: 2.5em;
     font-weight: bold;
     text-decoration: underline;
-    max-width: 60%;
+    max-width: 90%;
     animation: fade-in 4s ease forwards;
 }
 
@@ -546,6 +546,55 @@ td {
     margin: 0;
     line-height: 1.4;
     text-align: center;
+}
+
+.community-section {
+    background-color: #000;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.community-section h3 {
+    margin: 0 0 20px 0;
+    font-size: 2em;
+    padding: 0 10px;
+}
+
+.community-section p {
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    font-size: 1.2em;
+    padding: 0 10px;
+}
+
+.community-btn {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.2s ease, background-color 0.2s;
+}
+
+.community-btn:hover {
+    transform: scale(1.05); /* Le bouton grossit légèrement */
+    background-color: #e6e6e6; /* Gris très clair */
+}
+
+.disclaimer-container {
+    width: 100%;
+    margin: 40px auto 10px auto;
+    text-align: justify;
+    font-size: 0.85em; /* Texte petit */
+    color: #7f8c8d; /* Gris discret */
+    line-height: 1.4;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
 }
 
 
@@ -896,6 +945,120 @@ circle-progress::part(base) {
     font-size: 1.5rem;
 }
 
+/* =========================================
+   NOUVEAUX CALCULATEURS (DCF, DCA, PEG)
+   ========================================= */
+
+/* --- Couleurs de fond des sections --- */
+.section-dcf {
+    background-color: rgba(46, 204, 113, 0.15); /* Vert pâle */
+}
+
+.section-interest {
+    background-color: rgba(255, 205, 86, 0.15); /* Vert pâle */
+}
+
+.section-pru {
+    background-color: rgba(52, 152, 219, 0.15); /* Bleu pâle */
+}
+
+.section-peg {
+    background-color: rgba(155, 89, 182, 0.15); /* Violet pâle */
+}
+
+/* --- Mises en page spécifiques --- */
+.input-container-center {
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.input-group-half {
+    max-width: 50%;
+}
+
+.spacer-top {
+    margin-top: 20px;
+}
+
+/* --- Conteneurs de résultats (communs) --- */
+.result-box-hidden {
+    display: none; /* Caché par défaut, affiché par JS */
+    margin-top: 30px;
+}
+
+.result-future-text {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+/* --- Conteneurs de Graphiques --- */
+.chart-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.chart-height-large {
+    height: 350px;
+}
+
+.chart-height-medium {
+    height: 300px;
+}
+
+/* --- Spécifique PEG (Barre & Textes) --- */
+.peg-score-big {
+    font-size: 2.5em;
+}
+
+.peg-verdict-text {
+    font-weight: bold;
+    font-size: 1.2em;
+    display: block;
+    margin-top: 10px;
+}
+
+.peg-legend {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 15px;
+}
+
+.text-green { color: #27ae60; }
+.text-orange { color: #f39c12; }
+.text-red { color: #c0392b; }
+
+/* Barre de progression PEG */
+.peg-bar-container {
+    width: 80%;
+    height: 20px;
+    background: #ddd;
+    border-radius: 10px;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.peg-bar-fill {
+    height: 100%;
+    width: 0%; /* Animé par JS */
+    background: #27ae60;
+    transition: width 1s ease, background 1s ease;
+}
+
+.peg-bar-marker {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: white;
+    z-index: 2;
+}
+
+.marker-33 { left: 33%; }
+.marker-66 { left: 66%; }
+
 /*RESOURCES.HTML*/
 .resource-text-container {
     padding: 0 40px 20px 40px;
@@ -920,16 +1083,6 @@ circle-progress::part(base) {
     margin-bottom: 20px;
 }
 
-/* Style pour les petits écrans */
-@media (max-width: 768px) {
-    .slider-marks {
-        height: 40px;
-    }
-    
-    .mark {
-        font-size: 10px;
-    }
-}
 
 .fair-price-container {
     text-align: center;
@@ -956,6 +1109,20 @@ circle-progress::part(base) {
 
 .ticker-input:focus {
     border-bottom-color: #60a1fc;
+}
+
+
+/*RESPONSIVE*/
+
+/* Style pour les petits écrans */
+@media (max-width: 768px) {
+    .slider-marks {
+        height: 40px;
+    }
+    
+    .mark {
+        font-size: 10px;
+    }
 }
 
 /*RESPONSIVE POUR LES ÉCRANS > 2100px*/
@@ -1000,8 +1167,8 @@ circle-progress::part(base) {
     }
     
     .title-home{
-        font-size: 3.4em;
-        max-width: 40%;
+        font-size: 3.2em;
+        max-width: 100%;
     }
 
     .presentation-perso {
@@ -1013,6 +1180,8 @@ circle-progress::part(base) {
     }    
 
 }
+
+
 
 /*RESPONSIVE POUR LES ÉCRANS < 1000px*/
 @media screen and (max-width: 1200px) {
