@@ -244,14 +244,86 @@
         .pros-cons-table td { border: 1px solid #ddd; padding: 10px; vertical-align: top; background-color: #fdfdfd; }
         
         /* RESPONSIVE */
+        /* RESPONSIVE */
         @media screen and (min-width: 1921px) { .formation-home { width: 40%; } }
         @media screen and (max-width: 1200px) { .formation-home { width: 90%; } }
         @media screen and (max-width: 768px) { 
             .formation-home { width: 95%; } 
             .accordion-course { font-size: 1.1em; padding: 15px; }
-            .pros-cons-table th, .pros-cons-table td { display: block; width: 100%; box-sizing: border-box; }
             .img-course { max-width: 100%; }
-            .lightbox-content { width: 95%; } /* Image plus large en plein écran sur mobile */
+            .lightbox-content { width: 95%; }
+
+            /* --- CORRECTION DU TABLEAU (VERSION V3 - HAUTEUR AUTOMATIQUE) --- */
+            
+            /* 1. On transforme tout le tableau en blocs empilés */
+            .pros-cons-table, 
+            .pros-cons-table tbody, 
+            .pros-cons-table tr, 
+            .pros-cons-table td { 
+                display: block !important; 
+                width: 100% !important; 
+                height: auto !important; /* CRUCIAL : La hauteur s'adapte au contenu */
+                box-sizing: border-box;
+                border: none;
+            }
+
+            /* 2. On cache l'en-tête original du tableau */
+            .pros-cons-table tr:first-child { 
+                display: none !important; 
+            }
+
+            /* 3. Style de la "Carte" (Le conteneur TD) */
+            .pros-cons-table td {
+                margin-bottom: 40px; /* Espace entre les cartes */
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                padding: 0 !important; /* On gère l'espacement via le UL et le Titre */
+                overflow: hidden; /* Pour que le border-radius s'applique aussi au titre */
+            }
+
+            /* 4. LE BANDEAU TITRE (Pseudo-élément) */
+            /* On utilise display: block et position: relative pour qu'il pousse le contenu vers le bas */
+            .pros-cons-table td::before {
+                display: block !important;
+                position: relative !important; /* RESTE DANS LE FLUX */
+                width: 100%;
+                padding: 15px 0; /* Hauteur du bandeau */
+                
+                color: white;
+                font-weight: bold;
+                text-align: center;
+                text-transform: uppercase;
+                font-family: 'Oswald', sans-serif;
+                letter-spacing: 1px;
+                font-size: 1.2em;
+            }
+
+            /* 5. LE CONTENU (La liste UL) */
+            .pros-cons-table td ul {
+                padding: 25px 20px !important; /* Espace autour du texte */
+                margin: 0 !important;
+                color: #333; /* Couleur du texte assurée */
+                display: block;
+            }
+
+            /* --- CARTE AVANTAGES --- */
+            .pros-cons-table td:nth-of-type(1) {
+                border: 2px solid #27ae60;
+            }
+            .pros-cons-table td:nth-of-type(1)::before {
+                content: "✅ AVANTAGES"; 
+                background-color: #27ae60;
+            }
+
+            /* --- CARTE INCONVÉNIENTS --- */
+            .pros-cons-table td:nth-of-type(2) {
+                border: 2px solid #c0392b;
+            }
+            .pros-cons-table td:nth-of-type(2)::before {
+                content: "❌ INCONVÉNIENTS"; 
+                background-color: #c0392b;
+            }
         }
     </style>
 </head>
