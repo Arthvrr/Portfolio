@@ -294,7 +294,6 @@
                 font-weight: bold;
                 text-align: center;
                 text-transform: uppercase;
-                font-family: 'Oswald', sans-serif;
                 letter-spacing: 1px;
                 font-size: 1.2em;
             }
@@ -340,7 +339,7 @@
     <header>
         <a href="index.html" class="logo-title-link">
             <img src="./media/Logo/Logo-White.png" alt="Logo QualityInvest">
-            <h1>StocksPickeur</h1>
+            <h1 class="header-title">StocksPickeur</h1>
         </a>
         <div class="onglets">
             <a href="calculator.html">Calculateur</a>
@@ -831,15 +830,209 @@
 
         <button class="accordion-course">2. DÉBUTER EN BOURSE 🏦</button>
         <div class="panel-course">
-            <div class="course-content">
-                <p>Contenu du module 2 à venir...</p>
-                <!-- <ul>
-                    <li>2.1. C’est quoi la Bourse ?</li>
-                    <li>2.2. Pourquoi la Bourse ?</li>
-                    <li>2.3. Les Différentes manières d’investir en Bourse</li>
-                    <li>2.4. Comment investir en Bourse ?</li>
-                    <li>2.5. Les différents instruments financiers en Bourse</li>
-                </ul> -->
+            <button class="accordion-sub">2.1. C'est quoi la Bourse ? 🏛️</button>
+            <div class="panel-sub">
+                <div class="course-content">
+                    <p>Avant de savoir <em>comment</em> acheter, il faut comprendre <em>où</em> nous mettons les pieds. Quand on parle de "La Bourse", l'imaginaire collectif voit souvent des graphiques incompréhensibles, des hommes stressés en bretelles à Wall Street ou un casino géant.</p>
+                    <p>Effacez cette image. La Bourse est en réalité un concept beaucoup plus simple et beaucoup plus ancien. C'est tout simplement <strong>un grand marché</strong>, exactement comme le marché aux légumes de votre village, sauf qu'au lieu d'y vendre des tomates ou des poulets, on y vend des parts d'entreprises.</p>
+
+                    <div class="dictionary-box" style="background-color: #fff; border: 1px solid #ccc; border-left: 5px solid #333; padding: 15px; margin: 20px 0; font-family: 'Nunito Sans', sans-serif;">
+                        <div style="font-family: serif; font-size: 1.3em; margin-bottom: 5px;">
+                            <strong>&#59564; bourse</strong> <span style="font-size: 0.8em; color: #666;">nom féminin</span>
+                        </div>
+                        <div style="font-size: 0.9em; color: #888; margin-bottom: 10px;">(du latin <em>bursa</em>, cuir, et du nom de la famille <em>Van der Beurze</em>)</div>
+                        <ol style="margin-left: 20px; margin-bottom: 15px;">
+                            <li style="margin-bottom: 5px;">Lieu public où se réunissent les banquiers, les négociants et les agents de change pour traiter des affaires.</li>
+                            <li>Marché organisé où s'échangent des biens standardisés (matières premières) ou des actifs financiers (actions, obligations).</li>
+                        </ol>
+                        <div style="border-top: 1px dashed #ccc; padding-top: 10px; font-style: italic; color: #444;">
+                            <strong>Le saviez-vous ?</strong> Le mot "Bourse" vient de la famille <em>Van der Beurze</em> à Bruges (Belgique) au XIIIe siècle. C'est sur la place devant leur auberge que les marchands de toute l'Europe se réunissaient pour échanger leurs créances. Le blason de la famille arborait... trois bourses en cuir !
+                        </div>
+                    </div>
+
+                    <h4>1. La Naissance : Une histoire de navires et d'épices 🚢</h4>
+                    <p>Pour comprendre le fonctionnement actuel, il faut remonter à l'année <strong>1602</strong>, à Amsterdam. À l'époque, le commerce des épices avec l'Asie (les Indes) rapportait des fortunes, mais c'était une activité extrêmement risquée. Les navires pouvaient couler, être attaqués par des pirates ou saisis par des ennemis.</p>
+                    <p>Financer un navire tout seul coûtait trop cher et était trop dangereux pour un seul marchand. S'il perdait son navire, il était ruiné. Les Hollandais ont alors eu une idée de génie qui a inventé le capitalisme moderne : la <strong>Société Anonyme</strong>.</p>
+                    
+                    <p>Ils ont créé la <em>Compagnie Néerlandaise des Indes Orientales</em> (la VOC). Au lieu de chercher un seul investisseur riche, ils ont proposé à des milliers de citoyens d'Amsterdam de donner un peu d'argent. En échange de cet argent, les citoyens recevaient un papier officiel : une <strong>"Action"</strong> (Share).</p>
+                    <ul>
+                        <li>Ce papier prouvait qu'ils étaient propriétaires d'une fraction de la compagnie.</li>
+                        <li>Ce papier leur donnait le droit de recevoir une part des bénéfices futurs (les dividendes) si les navires revenaient chargés d'épices.</li>
+                    </ul>
+                    <p>La Bourse était née : un système permettant de diviser la propriété d'une entreprise en milliers de petits morceaux pour financer de grands projets.</p>
+
+                    <div class="img-container">
+                        <img src="media/Formation/premiere-bourse-amsterdam.jpg" 
+                             alt="Peinture de la première bourse d'Amsterdam au 17ème siècle" 
+                             class="img-course clickable-image"
+                             onclick="openViewer(this.src)"> <p class="img-legend">La cour de la Bourse d'Amsterdam au XVIIe siècle : le berceau de l'investissement moderne.</p>
+                    </div>
+
+                    <h4>2. À quoi sert la Bourse aujourd'hui ? (Le Marché Primaire)</h4>
+                    <p>Le principe est resté exactement le même. Imaginez une entreprise comme <em>Tesla</em> ou <em>Airbnb</em> à leurs débuts. Pour grandir, construire des usines et conquérir le monde, elles ont besoin de milliards de dollars. Elles ont deux choix :</p>
+                    <ol>
+                        <li><strong>Aller voir la banque :</strong> La banque prête l'argent, mais il faut rembourser avec des intérêts, ce qui pèse sur les finances.</li>
+                        <li><strong>Aller en Bourse (IPO) :</strong> L'entreprise vend une partie de son capital au public. Elle récupère des milliards de cash qu'elle n'aura jamais à rembourser. En échange, elle accepte de partager ses futurs bénéfices et le pouvoir de décision avec de nouveaux actionnaires (vous).</li>
+                    </ol>
+                    <p>C'est ce qu'on appelle le <strong>Marché Primaire</strong> (le marché du "neuf"). C'est le seul moment où l'argent va directement de la poche de l'investisseur vers la poche de l'entreprise.</p>
+
+                    <h4>3. La Bourse au quotidien (Le Marché Secondaire)</h4>
+                    <p>C'est là que la majorité des échanges ont lieu, et c'est ce que vous ferez 99% du temps. Une fois que les actions ont été émises par l'entreprise, les investisseurs se les échangent entre eux.</p>
+                    <p>Pour bien comprendre, prenons l'analogie du <strong>Marché de l'Occasion Automobile</strong> :</p>
+                    <ul>
+                        <li>Quand <em>Peugeot</em> vend une voiture neuve, l'argent va chez Peugeot (Marché Primaire).</li>
+                        <li>Si vous revendez cette Peugeot à votre voisin 2 ans plus tard, l'argent va de la poche du voisin à la vôtre. Peugeot ne touche rien sur cette transaction. Pourtant, la "cote" (le prix) de la voiture dépend toujours de la réputation de la marque Peugeot.</li>
+                    </ul>
+                    <p>La Bourse (Wall Street, Euronext Paris) est ce gigantesque marché de l'occasion. Quand vous achetez une action Apple aujourd'hui, vous ne l'achetez pas à l'entreprise Apple, mais à un autre investisseur (à Tokyo, New York ou Berlin) qui a décidé de vendre la sienne. La Bourse est simplement le lieu sécurisé qui met en relation l'acheteur et le vendeur.</p>
+
+                    <div class="quote-box">
+                        <strong>L'Analogie du Supermarché 🛒</strong><br>
+                        "Imaginez un supermarché où les prix changent chaque seconde selon l'envie des clients. Si tout le monde veut des bananes, le prix de la banane explose. Si personne ne veut de poireaux, le prix s'effondre. En Bourse, remplacez les bananes par des actions Apple et les poireaux par des entreprises en difficulté. C'est la loi de l'Offre et de la Demande."
+                    </div>
+
+                    <h4>4. Ne confondez pas "La Bourse" et "Les Indices" 📊</h4>
+                    <p>Aux informations, vous entendez souvent : <em>"La Bourse de Paris a pris 1% aujourd'hui"</em>. En réalité, le journaliste fait un raccourci. Il parle d'un <strong>Indice Boursier</strong> (le CAC 40).</p>
+                    <p>Imaginez que la Bourse soit une gigantesque bibliothèque contenant des milliers de livres (les entreprises). Il est impossible de lire tous les livres en même temps pour savoir si la bibliothèque est "joyeuse" ou "triste".</p>
+                    <p>Pour prendre la température du marché en un coup d'œil, on a inventé des <strong>Indices</strong>. Ce sont des paniers virtuels qui regroupent les entreprises les plus représentatives :</p>
+                    <ul>
+                        <li><strong>🇺🇸 Le S&P 500 :</strong> L'indice roi. Il représente les 500 plus grandes entreprises américaines (Apple, Microsoft, Amazon...). S'il monte, l'économie américaine va bien.</li>
+                        <li><strong>🇫🇷 Le CAC 40 :</strong> Il représente les 40 plus grandes entreprises françaises cotées à Paris (LVMH, TotalEnergies, L'Oréal...).</li>
+                        <li><strong>🌍 Le MSCI World :</strong> Un indice qui regroupe 1600 entreprises de 23 pays développés.</li>
+                    </ul>
+                    <div class="img-container">
+                        <img src="media/Formation/msci-world-composition.png" 
+                             alt="Composition de l'indice MSCI World" 
+                             class="img-course clickable-image"
+                             onclick="openViewer(this.src)"> <p class="img-legend">L'indice MSCI World représente 1600 sociétés différentes de pas moins de 23 pays développés</p>
+                    </div>
+                    <p><strong>Retenez ceci :</strong> L'indice est un thermomètre. Il donne la "tendance" générale. Mais il est tout à fait possible que le CAC 40 monte alors que l'action que vous possédez baisse. Vous n'achetez pas "la Bourse", vous achetez des entreprises spécifiques <em>dans</em> la Bourse (ou des ETF qui copient ces indices, comme nous le verrons plus tard).</p>
+
+                    <h4>5. La Capitalisation Boursière (L'analogie de la Pizza) 🍕</h4>
+                    <p>Voici un piège dans lequel tombent 100% des débutants. Posez-vous cette question : <em>"Est-ce qu'une action à 10€ est moins chère qu'une action à 1000€ ?"</em></p>
+                    <p>La réponse instinctive est "Oui". <strong>La réponse financière est "On ne peut pas savoir".</strong></p>
+                    
+                    <p>Le prix d'une action, seul, ne veut rien dire sur la valeur de l'entreprise. Pour connaître la vraie valeur (le prix de l'étiquette de toute l'entreprise), il faut regarder la <strong>Capitalisation Boursière</strong>.</p>
+                    
+                    <div style="background-color: #e8f4fd; padding: 15px; border-radius: 5px; border: 1px dashed #60a1fc; text-align: center; margin: 20px 0;">
+                        <strong>Formule Magique :</strong><br>
+                        <span style="font-size: 1.2em; font-weight: bold;">Prix de l'action × Nombre d'actions total = Valeur de l'entreprise</span>
+                    </div>
+
+                    <p>Prenons l'exemple de la Pizza pour comprendre :</p>
+                    <ul>
+                        <li><strong>Entreprise A :</strong> Une pizza coupée en 4 parts. Chaque part coûte 5€. <br>Prix de la pizza totale = 4 × 5€ = <strong>20€</strong>.</li>
+                        <li><strong>Entreprise B :</strong> La <em>même</em> pizza, mais coupée en 100 petites parts. Chaque part coûte 0,50€. <br>Prix de la pizza totale = 100 × 0,50€ = <strong>50€</strong>.</li>
+                    </ul>
+                    <p>Dans cet exemple, la part de l'entreprise B ne coûte que 50 centimes (elle a l'air "pas chère"), mais l'entreprise B vaut en réalité plus du double de l'entreprise A (50€ contre 20€) !</p>
+                    <p>En Bourse, c'est pareil. Ne regardez jamais uniquement le prix affiché (le cours). Regardez toujours la capitalisation (la taille de la pizza). C'est ce qui distingue les "Small Caps" (petites entreprises) des "Large Caps" (géants comme Apple ou Google).</p>
+
+                    <div class="img-container">
+                        <img src="media/Formation/pizza.jpg" 
+                             alt="Exemple de la pizza" 
+                             class="img-course clickable-image"
+                             onclick="openViewer(this.src)"> <p class="img-legend">On voit simplement ici que la pizza de droite est la plus grosse que celle de gauche</p>
+                    </div>
+
+                    <div style="background-color: #f8f9fa; border-left: 6px solid #2c3e50; padding: 20px; margin-top: 30px; border-radius: 0 5px 5px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                        <h5 style="margin-top: 0; color: #2c3e50; font-size: 1.1em; text-transform: uppercase; letter-spacing: 1px;">🔑 Ce qu'il faut retenir</h5>
+                        <p style="margin-bottom: 0; font-size: 0.95em; line-height: 1.6;">
+                            La Bourse est un marché où s'échangent des parts de propriété, et non un casino. Ne confondez pas le marché global avec les <strong>Indices</strong> (CAC 40, S&P 500) qui ne sont que des thermomètres de tendance. Enfin, ne jugez jamais la cherté d'une action à son prix unitaire, mais toujours à sa <strong>Capitalisation Boursière</strong> (la valeur totale de l'entreprise).
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="accordion-sub">2.2. Pourquoi la Bourse ? 🚀</button>
+            <div class="panel-sub">
+                <div class="course-content">
+                    <p>Maintenant que nous avons démystifié la "bête", une question légitime se pose : <strong>Pourquoi choisir la Bourse plutôt qu'autre chose ?</strong></p>
+                    <p>Après tout, les options ne manquent pas. Vous pourriez investir dans l'immobilier locatif (la passion française), acheter des lingots d'Or, empiler des Bitcoins, collectionner des montres de luxe ou simplement laisser votre argent dormir sur un Livret A ou un compte épargne. Alors, pourquoi la quasi-totalité des grandes fortunes mondiales, des fonds de pension et des fonds souverains choisissent-ils majoritairement les actions pour faire croître leur patrimoine ?</p>
+                    
+                    <p>La réponse ne tient pas de la magie, mais de la logique. La Bourse est le seul véhicule d'investissement qui réunit le "Triangle d'Or" de l'investisseur : <strong>Rentabilité Historique, Liquidité Immédiate et Passivité Totale.</strong></p>
+
+                    <h4>1. La Performance Historique : Le Roi incontesté des Actifs 👑</h4>
+                    <p>Commençons par les faits. Les chiffres sont têtus et l'histoire économique nous offre un recul de plus de 200 ans pour juger les gagnants et les perdants.</p>
+                    <p>Le professeur Jeremy Siegel, économiste de renom et auteur du livre culte <em>"Stocks for the Long Run"</em>, a mené l'étude la plus célèbre sur le sujet. Il a comparé ce que serait devenu <strong>1 dollar investi en 1802</strong> (ajusté de l'inflation, c'est-à-dire en pouvoir d'achat réel) dans différents actifs jusqu'en 2017 :</p>
+                    
+                    <ul>
+                        <li><strong>💵 Le Cash (Dollar) :</strong> 1$ est devenu... <strong>0,05$</strong>. L'argent liquide se fait dévorer par l'inflation. Garder du cash sous son matelas, c'est choisir de s'appauvrir mathématiquement.</li>
+                        <li><strong>🥇 L'Or (Gold) :</strong> 1$ est devenu environ <strong>3,26$</strong>. Contrairement à la croyance populaire, l'or n'enrichit pas massivement. Il permet surtout de <em>conserver</em> sa richesse. Il protège, mais ne crée pas.</li>
+                        <li><strong>📜 Les Obligations (Bonds) :</strong> 1$ est devenu environ <strong>1 663$</strong>. C'est un résultat correct pour de la dette d'État, mais loin d'être exceptionnel sur deux siècles.</li>
+                        <li><strong>📈 Les Actions (Stocks) :</strong> Accrochez-vous bien. Ce même dollar est devenu <strong>1 348 229$</strong>. Oui, plus d'un million.</li>
+                    </ul>
+
+                    <div class="img-container">
+                        <img src="media/Formation/siegel-chart.png" 
+                            alt="Graphique de Jeremy Siegel montrant la performance des actions sur 200 ans" 
+                            class="img-course clickable-image"
+                            onclick="openViewer(this.src)"> 
+                        <p class="img-legend">Graphique de Siegel : Les actions écrasent toutes les autres classes d'actifs sur le long terme.</p>
+                    </div>
+
+                    <p><strong>Pourquoi un tel écart ?</strong> C'est la différence entre un actif inerte et un actif productif. Un lingot d'or dans un coffre restera un lingot d'or dans 100 ans. Il ne produit rien. <br>
+                    À l'inverse, une action est une part d'entreprise vivante. Les entreprises passent leur temps à chercher des moyens de gagner plus d'argent : elles innovent, augmentent leurs prix et réinvestissent leurs bénéfices pour croître. C'est cette dynamique interne qui crée une croissance exponentielle (6,8% de rendement réel par an en moyenne) introuvable ailleurs.</p>
+
+                    <h4>2. Bourse vs Immobilier : La Bataille de la Liquidité 💧</h4>
+                    <p>En Europe, "la pierre" est sacrée. L'immobilier est un excellent pilier d'enrichissement, c'est indéniable (surtout grâce au crédit bancaire). Mais l'immobilier souffre d'un défaut majeur qui peut devenir un cauchemar : <strong>l'Illiquidité</strong>.</p>
+                    <p>Imaginez un scénario de vie classique : vous avez besoin de 10 000€ rapidement (une opportunité, un coup dur, un mariage). </p>
+                    <ul>
+                        <li><strong>Avec l'Immobilier :</strong> Vous êtes bloqué. Vous ne pouvez pas vendre "juste la salle de bain" de votre appartement locatif pour récupérer du cash. Vous devez vendre tout le bien. Cela prend des mois et engendre des frais énormes. Votre argent est prisonnier des murs.</li>
+                        <li><strong>Avec la Bourse :</strong> Vous sortez votre téléphone. Vous cliquez sur "Vendre" pour 10 000€ d'actions. L'ordre est exécuté en une milliseconde. L'argent est disponible. Vous gardez le reste de votre portefeuille investi qui continue de travailler.</li>
+                    </ul>
+                    <p>La Bourse offre cette liberté mentale absolue : votre patrimoine est liquide. Vous n'êtes jamais "coincé".</p>
+
+                    <h4>3. Le Mythe de la Passivité : Bourse vs Gestion Locative 🛌</h4>
+                    <p>On parle souvent de "revenus passifs" pour l'immobilier. C'est un mensonge. L'immobilier est un second métier. Gérer un bien, c'est gérer des humains (locataires), de l'administratif et du matériel (chaudière en panne le dimanche soir).</p>
+                    <p><strong>La Bourse est le seul véritable revenu passif.</strong> Quand vous possédez des actions Coca-Cola, vous ne gérez pas la recette du soda ni le prix du sucre. Des milliers d'employés talentueux se lèvent chaque matin pour travailler pour vous. Vous vous contentez de toucher les dividendes. C'est la forme la plus pure du capitalisme : l'argent travaille, pas vous.</p>
+                    <div class="img-container">
+                        <img src="media/Formation/immo-vs-bourse.png" 
+                            alt="L'Immobilier vs la Bourse" 
+                            class="img-course clickable-image"
+                            onclick="openViewer(this.src)"> 
+                        <p class="img-legend">L'Immobilier est un vrai second travail contrairement à l'investissement Boursier</p>
+                    </div>
+                    <div class="quote-box">
+                        <strong>La Règle d'Or 🧠</strong><br>
+                        "Si cela a des toilettes ou des fenêtres, ce n'est pas un investissement passif, c'est un travail."<br>
+                        En Bourse, votre seule "maintenance" est de lire un rapport annuel de temps en temps autour d'un café.
+                    </div>
+
+                    <h4>4. Bourse vs Crypto : Le Juste Milieu du Risque ⚖️</h4>
+                    <p>À l'autre extrémité, nous avons les crypto-monnaies. Elles promettent des rendements délirants, mais le risque est total. La différence fondamentale est la <strong>Valeur Intrinsèque</strong>.</p>
+                    <ul>
+                        <li><strong>La Crypto :</strong> C'est souvent de la spéculation pure. Pour gagner, vous devez espérer que quelqu'un d'autre achètera votre jeton plus cher plus tard. Il n'y a pas d'usine, pas de bénéfice, pas de dividende qui tombe.</li>
+                        <li><strong>La Bourse :</strong> C'est de l'investissement productif. Même si la Bourse ferme pendant 10 ans, l'entreprise Air Liquide continuera de vendre du gaz aux hôpitaux et de générer du cash. Il y a une réalité économique tangible derrière le prix.</li>
+                    </ul>
+                    <p>La Bourse offre le meilleur couple <strong>Rendement / Risque / Sérénité</strong>.</p>
+
+                    <h4>5. L'Accessibilité : La fin des privilèges 🎟️</h4>
+                    <p>Enfin, il y a 30 ans, la Bourse était un club fermé réservé aux initiés. Aujourd'hui, c'est l'investissement le plus démocratique qui soit. Avec les courtiers modernes (que nous verrons au point suivant), vous pouvez devenir associé des plus grandes entreprises du monde avec <strong>10€ en poche</strong> et depuis votre canapé.</p>
+
+                    <div style="background-color: #f8f9fa; border-left: 6px solid #2c3e50; padding: 20px; margin-top: 30px; border-radius: 0 5px 5px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                        <h5 style="margin-top: 0; color: #2c3e50; font-size: 1.1em; text-transform: uppercase; letter-spacing: 1px;">🔑 Ce qu'il faut retenir</h5>
+                        <p style="margin-bottom: 0; font-size: 0.95em; line-height: 1.6;">
+                            La Bourse n'est pas parfaite, mais c'est objectivement le meilleur outil de création de richesse. Elle combine une <strong>performance historique écrasante</strong> (1$ → 1,3M$), une <strong>liquidité totale</strong> et une <strong>passivité réelle</strong>. C'est le véhicule idéal pour faire croître votre épargne sans les contraintes de l'immobilier ni les dangers extrêmes de la spéculation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="accordion-sub">2.3. Comment commencer à Investir en Bourse ? 🏁</button>
+            <div class="panel-sub">
+                <div class="course-content">
+                </div>
+            </div>
+
+            <button class="accordion-sub">2.4. Les 2 grandes Stratégies d'Investissement ♟️</button>
+            <div class="panel-sub">
+                <div class="course-content">
+                </div>
+            </div>
+
+            <button class="accordion-sub">2.5. Les différents Instruments Financiers 🧰</button>
+            <div class="panel-sub">
+                <div class="course-content">
+                </div>
             </div>
         </div>
         

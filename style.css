@@ -3,7 +3,7 @@
 /* Style général */
 body {
     margin: 0;
-    font-family: 'Oswald',Arial, sans-serif;
+    font-family: 'Nunito Sans',Arial, sans-serif;
     background-color:white;
     color:black;
     min-width: 750px;
@@ -17,6 +17,10 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color:#60a1fc ;
+}
+
+.header-title {
+    font-family: 'Oswald',sans-serif;
 }
 
 .logo-title-link {
@@ -50,7 +54,8 @@ header {
     text-decoration: none;
     padding: 20px;
     margin-right: 10px;
-    font-weight: bold;
+    font-weight: 800;
+    font-family: 'Oswald',sans-serif;
 }
 
 @keyframes fade-in {
@@ -106,16 +111,11 @@ header {
     margin-right: 10px;
 }
 
-.reset-link-start{
-    font-size: 1.2em;
-    text-decoration: none;
-    color: white;
-}
-
 .reset-link{
     font-size: 1.2em;
     text-decoration: none;
     color: black;
+    font-family: 'Oswald',sans-serif;
 }
 
 
@@ -253,6 +253,7 @@ td {
     background-color: #5c5c5c;
     overflow: hidden;
     color: white;
+    /* font-family: 'Oswald',sans-serif; */
 }
 
 #invested, #wallet-value, #cash, #total-value,#total-div, #yield-wallet, #return-euro, #return-percent {
@@ -310,6 +311,7 @@ td {
     text-decoration: none;
     color: black;
     font-size: 1.1em;
+    /* font-family: 'Oswald',sans-serif; */
     margin-bottom: 10px; /* Espacement en bas de chaque lien */
     flex: 1; /* Pour que les liens prennent toute la largeur disponible */
     max-width: calc(50% - 20px); /* Pour limiter la largeur des liens à 50% de la largeur de leur conteneur avec un espacement de 20px */
@@ -453,7 +455,7 @@ td {
     margin: 0 auto;
     margin-top: 75px;
     text-align: center;
-    font-size: 2.5em;
+    font-size: 2.35em;
     font-weight: bold;
     text-decoration: underline;
     max-width: 90%;
@@ -771,7 +773,6 @@ circle-progress::part(base) {
     border-bottom: 1px solid #ddd;
     outline: none;
     background: transparent;
-    /* font-family: 'Oswald', Arial, sans-serif; */
     color: #333;
     transition: border-color 0.3s ease;
     margin-bottom: 10px;

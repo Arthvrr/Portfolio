@@ -19,7 +19,7 @@
     <header>
         <a href="index.html" class="logo-title-link">
             <img src="./media/Logo/Logo-White.png" alt="Logo QualityInvest">
-            <h1>StocksPickeur</h1>
+            <h1 class="header-title">StocksPickeur</h1>
         </a>
         <div class="onglets">
             <a href="calculator.html">Calculateur</a>
@@ -67,7 +67,7 @@
                     <input type="text" class="calc-input" placeholder="Oui/Non">
                 </div>
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="L'entreprise dépend-elle d'un seul produit ou client ?">LE CHIFFRE D'AFFAIRES DE LA SOCIÉTÉ EST DIVERSIFIÉ</p>
+                    <p class="label-text" data-tooltip="L'entreprise dépend-elle d'un seul produit ou client ?">LE CHIFFRE D'AFFAIRES EST DIVERSIFIÉ</p>
                     <input type="text" class="calc-input" placeholder="Oui/Non">
                 </div>
             </div>
@@ -77,15 +77,15 @@
             <h3 class="calculator-section">CROISSANCE</h3>
             <div class="input-container">
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Moyenne de croissance annuelle du chiffre d'affaires sur 10 ans.">CROISSANCE DU CHIFFRE D'AFFAIRES SUR 10 ANS</p>
+                    <p class="label-text" data-tooltip="Moyenne de croissance annuelle du chiffre d'affaires sur 10 ans.">CROISSANCE DU CA SUR 10 ANS</p>
                     <input type="number" class="calc-input" placeholder="Nombre d'années" min="0" max="10">
                 </div>
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Croissance du Bénéfice Par Action (EPS).">CROISSANCE DU BÉNÉFICE PAR ACTION SUR 10 ANS</p>
+                    <p class="label-text" data-tooltip="Croissance du Bénéfice Par Action (EPS).">CROISSANCE DU BPA SUR 10 ANS</p>
                     <input type="number" class="calc-input" placeholder="Nombre d'années" min="0" max="10">
                 </div>
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Le Free Cash Flow est l'argent réel qui reste dans la poche.">CROISSANCE DU FREE CASH FLOW SUR 10 ANS</p>
+                    <p class="label-text" data-tooltip="Le Free Cash Flow est l'argent réel qui reste dans la poche.">CROISSANCE DU FCF SUR 10 ANS</p>
                     <input type="number" class="calc-input" placeholder="Nombre d'années" min="0" max="10">
                 </div>
             </div>
@@ -121,7 +121,7 @@
                     <input type="number" class="calc-input" placeholder="En nombre flottant" step="0.01">
                 </div>
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Couverture des intérêts.">COUVERTURE DES INTÉRÊTS</p>
+                    <p class="label-text" data-tooltip="Couverture des intérêts.">COUVERTURE INTÉRÊTS</p>
                     <input type="number" class="calc-input" placeholder="En nombre flottant" step="0.01">
                 </div>
             </div>
@@ -187,7 +187,7 @@
             <h3 class="calculator-section">PARAMÈTRES DE L'INVESTISSEMENT</h3>
             <div class="input-container">
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Combien comptez-vous investir chaque année ?">MONTANT ANNUEL DÉPOSÉ (€/$)</p>
+                    <p class="label-text" data-tooltip="Combien comptez-vous investir chaque année ?">MONTANT ANNUEL</p>
                     <input type="number" id="compound-deposit" class="compound-input" placeholder="Ex: 12000" min="0">
                 </div>
                 <div class="input-group">
@@ -226,7 +226,7 @@
             <h3 class="calculator-section">PARAMÈTRES DE VALORISATION</h3>
             <div class="input-container">
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Le Bénéfice Par Action actuel (EPS TTM).">EPS ACTUEL (€/$)</p>
+                    <p class="label-text" data-tooltip="Le Bénéfice Par Action actuel (EPS TTM).">EPS ACTUEL</p>
                     <input type="number" id="dcf-eps" class="calc-input" placeholder="Ex: 5.40" step="0.01">
                 </div>
                 <div class="input-group">
@@ -323,11 +323,11 @@
                     <input type="number" id="peg-pe" class="calc-input" placeholder="Ex: 25">
                 </div>
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Taux de croissance annuel moyen des bénéfices (EPS) estimé sur 3-5 ans.">CROISSANCE ATTENDUE (%)</p>
+                    <p class="label-text" data-tooltip="Taux de croissance annuel moyen des bénéfices (EPS) estimé sur 3-5 ans.">CROISSANCE ATTENDUE</p>
                     <input type="number" id="peg-growth" class="calc-input" placeholder="Ex: 20">
                 </div>
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Optionnel : Rendement du dividende (Yield). Peter Lynch l'ajoute à la croissance.">DIVIDENDE YIELD (%)</p>
+                    <p class="label-text" data-tooltip="Optionnel : Rendement du dividende (Yield). Peter Lynch l'ajoute à la croissance.">DIVIDENDE YIELD</p>
                     <input type="number" id="peg-dividend" class="calc-input" placeholder="Ex: 1.5">
                 </div>
             </div>
