@@ -455,7 +455,7 @@ td {
     margin: 0 auto;
     margin-top: 75px;
     text-align: center;
-    font-size: 2.35em;
+    font-size: 2em;
     font-weight: bold;
     text-decoration: underline;
     max-width: 90%;
@@ -1168,7 +1168,7 @@ circle-progress::part(base) {
     }
     
     .title-home{
-        font-size: 3.2em;
+        font-size: 2.15em;
         max-width: 100%;
     }
 
@@ -1228,7 +1228,7 @@ circle-progress::part(base) {
     }
     
     .title-home{
-        font-size: 1.55em;
+        font-size: 2.5em;
         max-width: 90%;
     }
 
