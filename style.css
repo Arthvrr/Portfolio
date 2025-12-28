@@ -1,6 +1,9 @@
 /*Import des Fonts*/
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Oswald:wght@200..700&display=swap');
-/* Style général */
+
+/* =========================================
+   STYLE GÉNÉRAL (Header, Footer, Body)
+   ========================================= */
 body {
     margin: 0;
     font-family: 'Nunito Sans',Arial, sans-serif;
@@ -59,12 +62,8 @@ header {
 }
 
 @keyframes fade-in {
-    from {
-        opacity: 0; 
-    }
-    to {
-        opacity: 1; 
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .footer-start {
@@ -119,7 +118,9 @@ header {
 }
 
 
-/* WALLET.HTML */
+/* =========================================
+   WALLET.HTML
+   ========================================= */
 
 .wallet-intro {
     width: 60%;
@@ -215,7 +216,7 @@ td {
 }
 
 .stocks-header th {
-    padding: 10px; /* Espacement interne */
+    padding: 10px; 
     text-align: center;
     border: 1px solid black;
 }
@@ -253,7 +254,6 @@ td {
     background-color: #5c5c5c;
     overflow: hidden;
     color: white;
-    /* font-family: 'Oswald',sans-serif; */
 }
 
 #invested, #wallet-value, #cash, #total-value,#total-div, #yield-wallet, #return-euro, #return-percent {
@@ -278,43 +278,42 @@ td {
 
 .big-chart-container {
     display: grid;
-    grid-template-columns: auto auto; /* Deux colonnes égales */
-    justify-content: center; /* Alignement au centre */
+    grid-template-columns: auto auto; 
+    justify-content: center; 
     width:60%;
     height : 400px;
-    margin: 0 auto; /* Centre la div horizontalement */
+    margin: 0 auto; 
     grid-column-gap: 20px;
     padding-bottom: 80px;
 }
 
 .big-radar-container {
     display: grid;
-    grid-template-columns: auto auto; /* Deux colonnes égales */
-    justify-content: center; /* Alignement au centre */
+    grid-template-columns: auto auto; 
+    justify-content: center; 
     width:60%;
     height : 350px;
-    margin: 0 auto; /* Centre la div horizontalement */
+    margin: 0 auto; 
     grid-column-gap: 20px;
     padding-bottom: 80px;
 }
 
 .link-page {
     display: flex;
-    justify-content: space-between; /* Pour maximiser l'espace entre les liens */
+    justify-content: space-between; 
     padding-bottom: 60px;
     margin: 0 auto;
     width: 60%;
-    flex-wrap: wrap; /* Pour que les liens passent à la ligne s'ils ne rentrent pas */
+    flex-wrap: wrap; 
 }
 
 .link-page a {
     text-decoration: none;
     color: black;
     font-size: 1.1em;
-    /* font-family: 'Oswald',sans-serif; */
-    margin-bottom: 10px; /* Espacement en bas de chaque lien */
-    flex: 1; /* Pour que les liens prennent toute la largeur disponible */
-    max-width: calc(50% - 20px); /* Pour limiter la largeur des liens à 50% de la largeur de leur conteneur avec un espacement de 20px */
+    margin-bottom: 10px; 
+    flex: 1; 
+    max-width: calc(50% - 20px); 
     border-bottom: 3px solid transparent;
     transition: border-bottom 0.75s ease;
 }
@@ -324,8 +323,8 @@ td {
 }
 
 .link-page-asml, .link-page-googl, .link-page-ma,.link-page-msft, .link-page-nvda, .link-page-v {
-    display: flex; /* Utiliser flexbox */
-    justify-content: center; /* Aligner horizontalement au centre */
+    display: flex; 
+    justify-content: center; 
     margin: 0 auto;
     width: 100%;
 }
@@ -429,8 +428,9 @@ td {
 }
 
 
-
-/*INDEX.HTML*/
+/* =========================================
+   INDEX.HTML
+   ========================================= */
 
 .content-home {
     width: 60%;
@@ -526,10 +526,10 @@ td {
 .icon-row {
     width:100%;
     display: flex;
-    justify-content: space-around; /* espace égal autour des icônes */
+    justify-content: space-around; 
     align-items: flex-start;
     margin: 20px 0;
-    flex-wrap: nowrap; /* empêche les blocs de passer à la ligne */
+    flex-wrap: nowrap; 
 }
 
 .icon-item {
@@ -540,7 +540,7 @@ td {
     max-width: 200px;
     height: auto;
     display: block;
-    margin: 0 auto 15px auto; /* espace entre image et texte */
+    margin: 0 auto 15px auto; 
     box-shadow: none;
 }
 
@@ -584,23 +584,25 @@ td {
 }
 
 .community-btn:hover {
-    transform: scale(1.05); /* Le bouton grossit légèrement */
-    background-color: #e6e6e6; /* Gris très clair */
+    transform: scale(1.05); 
+    background-color: #e6e6e6; 
 }
 
 .disclaimer-container {
     width: 100%;
     margin: 40px auto 10px auto;
     text-align: justify;
-    font-size: 0.85em; /* Texte petit */
-    color: #7f8c8d; /* Gris discret */
+    font-size: 0.85em; 
+    color: #7f8c8d; 
     line-height: 1.4;
     border-top: 1px solid #eee;
     padding-top: 20px;
 }
 
 
-/*CALCULATOR.HTML*/
+/* =========================================
+   CALCULATOR.HTML
+   ========================================= */
 
 .calculator-home {
     width: 60%;
@@ -630,12 +632,12 @@ td {
 }
 
 .input-group input:focus{
-    outline: none; /* désactive la ligne bleue autour de l'input ou du textarea quand il est sélectionné */
+    outline: none; 
 }
 
 .input-group input::placeholder {
-    font-size: 1.2em; /* Remplacez par la taille souhaitée, par exemple 1em, 14px, etc. */
-    color: #ccc; /* Vous pouvez également changer la couleur du texte du placeholder si vous le souhaitez */
+    font-size: 1.2em; 
+    color: #ccc; 
 }
 
 .input-group .label-text {
@@ -649,11 +651,11 @@ td {
 }
 
 .input-group input {
-    width: 100%; /* Prend toute la largeur disponible dans le conteneur */
+    width: 100%; 
     padding: 10px;
     border: 1px solid #000000;
     text-align: center;
-    box-sizing: border-box; /* Garantit que padding et bordure sont inclus dans la largeur */
+    box-sizing: border-box; 
     font-size: 1em;
 }
 
@@ -672,27 +674,27 @@ td {
 }
 
 #bases {
-    background-color: rgba(255, 99, 132, 0.25); /* Correspond à 'Bases' */
+    background-color: rgba(255, 99, 132, 0.25); 
 }
 
 #croissance {
-    background-color: rgba(54, 162, 235, 0.25); /* Correspond à 'Croissance' */
+    background-color: rgba(54, 162, 235, 0.25); 
 }   
 
 #rentabilité {
-    background-color: rgba(255, 205, 86, 0.25); /* Correspond à 'Rentabilité' */
+    background-color: rgba(255, 205, 86, 0.25); 
 }
 
 #solvabilité {
-    background-color: rgba(75, 192, 192, 0.25); /* Correspond à 'Solvabilité' */
+    background-color: rgba(75, 192, 192, 0.25); 
 }
 
 #dividende {
-    background-color: rgba(153, 102, 255, 0.25); /* Correspond à 'Dividende' */
+    background-color: rgba(153, 102, 255, 0.25); 
 }
 
 #valorisation {
-    background-color: rgba(128, 128, 128, 0.1); /* Gris */
+    background-color: rgba(128, 128, 128, 0.1); 
 }
 
 .calculator-text-home {
@@ -720,9 +722,9 @@ td {
 }
 
 .calculator-button:hover {
-    background-color: rgb(6, 255, 6); /* Couleur de fond au focus */
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8); /* Ombre plus prononcée */
-    outline: none; /* Supprime l'effet d'outline par défaut */
+    background-color: rgb(6, 255, 6); 
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8); 
+    outline: none; 
 }
 
 
@@ -738,8 +740,8 @@ td {
 }
 
 circle-progress::part(base) {
-    width: 175px; /* Largeur du cercle */
-    height: auto; /* Conserver les proportions */
+    width: 175px; 
+    height: auto; 
 }
 
 .score-text{
@@ -758,7 +760,7 @@ circle-progress::part(base) {
     height : 400px;
     margin-top: 100px;
 }
-/* Style pour le champ de saisie du ticker */
+
 .ticker-input-container {
     width: 50%;
     margin: 30px auto;
@@ -865,58 +867,50 @@ circle-progress::part(base) {
     transform: translateX(-50%);
 }
 
-/* Style pour indiquer que l'élément est interactif */
+/* Style pour indiquer que l'élément est interactif (Tooltip) */
 .label-text[data-tooltip] {
     position: relative;
-    cursor: help; /* Change le curseur en point d'interrogation */
-    text-decoration: underline dotted #ccc; /* Souligne légèrement */
+    cursor: help; 
+    text-decoration: underline dotted #ccc; 
 }
 
-/* Création de la bulle d'aide (cachée par défaut) */
 .label-text[data-tooltip]::after {
-    content: attr(data-tooltip); /* Récupère le texte de l'attribut HTML */
+    content: attr(data-tooltip); 
     position: absolute;
-    bottom: 100%; /* S'affiche juste au-dessus du texte */
+    bottom: 100%; 
     left: 50%;
-    transform: translateX(-50%); /* Centre la bulle */
-    
-    /* Apparence de la bulle */
+    transform: translateX(-50%); 
     background-color: #333;
     color: #fff;
     padding: 10px;
     border-radius: 6px;
     font-size: 15px;
     font-weight: normal;
-    white-space: normal; /* Permet le retour à la ligne */
-    width: 250px; /* Largeur max de la bulle */
+    white-space: normal; 
+    width: 250px; 
     text-align: center;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    z-index: 1000; /* S'assure qu'elle passe au-dessus de tout */
-    
-    /* Animation d'apparition */
+    z-index: 1000; 
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.6s, visibility 0.6s;
-    pointer-events: none; /* Empêche la souris de bloquer sur la bulle */
+    pointer-events: none; 
 }
 
-/* Petite flèche en bas de la bulle (optionnel, pour le style) */
 .label-text[data-tooltip]::before {
     content: "";
     position: absolute;
-    bottom: 90%; /* Ajuster selon la position */
+    bottom: 90%; 
     left: 50%;
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
     border-color: #333 transparent transparent transparent;
-    
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s;
 }
 
-/* Affichage au survol */
 .label-text[data-tooltip]:hover::after,
 .label-text[data-tooltip]:hover::before {
     opacity: 1;
@@ -946,28 +940,12 @@ circle-progress::part(base) {
     font-size: 1.5rem;
 }
 
-/* =========================================
-   NOUVEAUX CALCULATEURS (DCF, DCA, PEG)
-   ========================================= */
+/* --- Nouveaux Calculateurs (DCF, DCA, PEG) --- */
+.section-dcf { background-color: rgba(46, 204, 113, 0.15); }
+.section-interest { background-color: rgba(255, 205, 86, 0.15); }
+.section-pru { background-color: rgba(52, 152, 219, 0.15); }
+.section-peg { background-color: rgba(155, 89, 182, 0.15); }
 
-/* --- Couleurs de fond des sections --- */
-.section-dcf {
-    background-color: rgba(46, 204, 113, 0.15); /* Vert pâle */
-}
-
-.section-interest {
-    background-color: rgba(255, 205, 86, 0.15); /* Vert pâle */
-}
-
-.section-pru {
-    background-color: rgba(52, 152, 219, 0.15); /* Bleu pâle */
-}
-
-.section-peg {
-    background-color: rgba(155, 89, 182, 0.15); /* Violet pâle */
-}
-
-/* --- Mises en page spécifiques --- */
 .input-container-center {
     justify-content: center;
     margin-top: 10px;
@@ -981,9 +959,8 @@ circle-progress::part(base) {
     margin-top: 20px;
 }
 
-/* --- Conteneurs de résultats (communs) --- */
 .result-box-hidden {
-    display: none; /* Caché par défaut, affiché par JS */
+    display: none; 
     margin-top: 30px;
 }
 
@@ -992,7 +969,6 @@ circle-progress::part(base) {
     color: #7f8c8d;
 }
 
-/* --- Conteneurs de Graphiques --- */
 .chart-wrapper {
     display: flex;
     align-items: center;
@@ -1000,37 +976,18 @@ circle-progress::part(base) {
     margin-top: 30px;
 }
 
-.chart-height-large {
-    height: 350px;
-}
+.chart-height-large { height: 350px; }
+.chart-height-medium { height: 300px; }
 
-.chart-height-medium {
-    height: 300px;
-}
-
-/* --- Spécifique PEG (Barre & Textes) --- */
-.peg-score-big {
-    font-size: 2.5em;
-}
-
-.peg-verdict-text {
-    font-weight: bold;
-    font-size: 1.2em;
-    display: block;
-    margin-top: 10px;
-}
-
-.peg-legend {
-    font-size: 0.9em;
-    color: #555;
-    margin-top: 15px;
-}
+/* PEG */
+.peg-score-big { font-size: 2.5em; }
+.peg-verdict-text { font-weight: bold; font-size: 1.2em; display: block; margin-top: 10px; }
+.peg-legend { font-size: 0.9em; color: #555; margin-top: 15px; }
 
 .text-green { color: #27ae60; }
 .text-orange { color: #f39c12; }
 .text-red { color: #c0392b; }
 
-/* Barre de progression PEG */
 .peg-bar-container {
     width: 80%;
     height: 20px;
@@ -1043,7 +1000,7 @@ circle-progress::part(base) {
 
 .peg-bar-fill {
     height: 100%;
-    width: 0%; /* Animé par JS */
+    width: 0%; 
     background: #27ae60;
     transition: width 1s ease, background 1s ease;
 }
@@ -1060,7 +1017,339 @@ circle-progress::part(base) {
 .marker-33 { left: 33%; }
 .marker-66 { left: 66%; }
 
-/*RESOURCES.HTML*/
+
+/* =========================================
+   FORMATION.HTML (Nouveau)
+   ========================================= */
+
+.formation-home {
+    width: 60%;
+    margin: 0 auto;
+    padding-bottom: 100px;
+    margin-top: 50px;
+}
+
+.intro-text {
+    text-align: justify;
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    color: #000000;
+}
+
+/* --- MODULE PRINCIPAL (Niveau 1) --- */
+.accordion-course {
+    background-color: #f1f1f1;
+    color: #000000;
+    cursor: pointer;
+    padding: 20px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5em;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-weight: bolder;
+}
+
+.active-course, .accordion-course:hover {
+    background-color: #60a1fc;
+    color: white;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.panel-course {
+    padding: 0 20px; 
+    background-color: rgb(252,252,252);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    border-left: 3px solid #60a1fc;
+    margin-bottom: 15px;
+}
+
+/* --- SOUS-MODULE (Niveau 2) --- */
+.accordion-sub {
+    background-color: rgb(250,250,250);
+    color: #444;
+    cursor: pointer;
+    padding: 15px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    border-bottom: 1px solid #eee;
+    border-left: 4px solid #ddd;
+    outline: none;
+    transition: 0.3s;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.25em;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.accordion-sub:hover, .active-sub {
+    background-color: #f9f9f9;
+    border-left: 4px solid #60a1fc;
+    color: #60a1fc;
+}
+
+.panel-sub {
+    padding: 0 20px;
+    background-color: rgb(252,252,252);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    margin-bottom: 10px;
+}
+
+/* Symboles + et - */
+.accordion-course:after, .accordion-sub:after {
+    content: '\002B'; 
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.accordion-course:after { font-size: 1.5em; color: #777; }
+.accordion-sub:after { font-size: 1.2em; color: #ccc; }
+
+.active-course:after, .active-sub:after { content: "\2212"; }
+.active-course:after { color: white; }
+.active-sub:after { color: #60a1fc; }
+
+/* CONTENU DU COURS */
+.course-content {
+    padding: 20px 0;
+    text-align: justify;
+    line-height: 1.6;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.1em;
+    color: #2c3e50;
+}
+
+.course-content h4 {
+    color: #34495e;
+    font-weight: bold;
+    margin-top: 25px;
+    font-size: 1.15em;
+    text-decoration: underline;
+    text-decoration-color: #60a1fc;
+}
+
+.course-content ul { margin-left: 20px; margin-bottom: 20px; }
+.course-content li { margin-bottom: 10px; }
+
+.quote-box {
+    background-color: #f9f9f9;
+    border-left: 5px solid #f1c40f;
+    padding: 15px;
+    font-style: italic;
+    margin: 20px 0;
+    color: #555;
+}
+
+.highlight {
+    background-color: #fff3cd;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+/* --- ELEMENTS SPECIFIQUES FORMATION (NOUVEAU - NETTOYAGE DU HTML) --- */
+
+/* Boîte de dictionnaire */
+.dictionary-box {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-left: 5px solid #333;
+    padding: 15px;
+    margin: 20px 0;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.dictionary-word {
+    font-family: serif; 
+    font-size: 1.3em; 
+    margin-bottom: 5px;
+}
+
+.dictionary-meta {
+    font-size: 0.9em; 
+    color: #888; 
+    margin-bottom: 10px;
+}
+
+.dictionary-list {
+    margin-left: 20px; 
+    margin-bottom: 15px;
+}
+
+.dictionary-list li {
+    margin-bottom: 5px;
+}
+
+.dictionary-footer {
+    border-top: 1px dashed #ccc; 
+    padding-top: 10px; 
+    font-style: italic; 
+    color: #444;
+}
+
+/* Boîte de Conclusion / Takeaways */
+.conclusion-box {
+    background-color: #f8f9fa;
+    border-left: 6px solid #2c3e50;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 0 5px 5px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.conclusion-title {
+    margin-top: 0;
+    color: #2c3e50;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.conclusion-text {
+    margin-bottom: 0; 
+    font-size: 0.95em; 
+    line-height: 1.6;
+}
+
+/* Boîte de Formule Mathématique */
+.formula-box {
+    background-color: #e8f4fd;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px dashed #60a1fc;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.formula-text {
+    font-size: 1.2em; 
+    font-weight: bold;
+}
+
+/* Boîte d'Appel à l'action (CTA) */
+.cta-box {
+    background-color: #e8f4fd;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 5px solid #60a1fc;
+}
+
+.cta-link {
+    color: #60a1fc; 
+    font-weight: bold; 
+    text-decoration: underline;
+}
+
+
+/* --- IMAGES ET LÉGENDES --- */
+.img-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.img-course {
+    display: block;
+    margin: 0 auto;
+    max-width: 50%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    cursor: zoom-in; 
+    transition: transform 0.3s ease;
+}
+
+.img-course:hover {
+    transform: scale(1.02); 
+}
+
+.img-legend {
+    margin-top: 15px;
+    font-style: italic;
+    color: blue; 
+    font-size: 0.95em;
+}
+
+/* --- LIGHTBOX (Plein écran) --- */
+.lightbox-modal {
+    display: none; 
+    position: fixed;
+    z-index: 9999; 
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(25, 25, 25, 0.75); 
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 1200px;
+    max-height: 85vh;
+    object-fit: contain;
+    animation-name: zoomIn;
+    animation-duration: 0.4s;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-btn:hover, .close-btn:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes zoomIn {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+/* TABLEAUX */
+.pros-cons-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.95em;
+    font-weight: normal;
+}
+.pros-cons-table th { padding: 10px; color: white; width: 50%; text-align: center; }
+.th-pros { background-color: #27ae60; }
+.th-cons { background-color: #c0392b; }
+.pros-cons-table td { border: 1px solid #ddd; padding: 10px; vertical-align: top; background-color: #fdfdfd; }
+
+
+/* =========================================
+   RESOURCES.HTML
+   ========================================= */
+
 .resource-text-container {
     padding: 0 40px 20px 40px;
     text-align: justify;
@@ -1078,12 +1367,11 @@ circle-progress::part(base) {
 }
 
 .criteria-desc {
-    font-family: Arial, sans-serif; /* Plus lisible pour les longs textes */
+    font-family: Arial, sans-serif; 
     font-size: 1.1em;
     line-height: 1.5;
     margin-bottom: 20px;
 }
-
 
 .fair-price-container {
     text-align: center;
@@ -1095,59 +1383,26 @@ circle-progress::part(base) {
     color: #333;
 }
 
-.fair-price-container p {
-    margin: 0;
-}
-
-#fairPrice {
-    font-weight: bold;
-    color: #60a1fc;
-}
-
-.ticker-input::placeholder {
-    color: #aaa;
-}
-
-.ticker-input:focus {
-    border-bottom-color: #60a1fc;
-}
+.fair-price-container p { margin: 0; }
+#fairPrice { font-weight: bold; color: #60a1fc; }
+.ticker-input::placeholder { color: #aaa; }
+.ticker-input:focus { border-bottom-color: #60a1fc; }
 
 
-/*RESPONSIVE*/
+/* =========================================
+   MEDIA QUERIES (RESPONSIVE)
+   ========================================= */
 
-/* Style pour les petits écrans */
-@media (max-width: 768px) {
-    .slider-marks {
-        height: 40px;
-    }
-    
-    .mark {
-        font-size: 10px;
-    }
-}
-
-/*RESPONSIVE POUR LES ÉCRANS > 2100px*/
+/* --- Écrans très larges (Desktop XL) --- */
 @media screen and (min-width: 1921px) {
-    /* Sélecteur pour votre div */
-    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container, .progress-container, .container,.semititle,.content-home,.link-page, .calculator-home {
+    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container, .progress-container, .container, .semititle, .content-home, .link-page, .calculator-home, .formation-home {
       width: 40%;
     }
 
-    .donut-container {
-        width:12%
-    }
-
-    .bar-container {
-        width: 19%;
-    }
-
-    .stocks-pic{
-        width: 40%;
-    }
-
-    .wallet-intro td {
-        font-size: 1.2em;
-    }
+    .donut-container { width:12% }
+    .bar-container { width: 19%; }
+    .stocks-pic{ width: 40%; }
+    .wallet-intro td { font-size: 1.2em; }
 
     .semititle {
         font-size: 2.5em;
@@ -1155,39 +1410,18 @@ circle-progress::part(base) {
         margin-right: 30%;
     }
 
-    .link-page a {
-        font-size: 1.5em;
-    }
-
-    .logo-title-link  {
-        padding-left: 30%;
-    }
-
-    .onglets {
-        padding-right: 28.5%;
-    }
-    
-    .title-home{
-        font-size: 2.15em;
-        max-width: 100%;
-    }
-
-    .presentation-perso {
-        width:40%;
-    }
-
-    .presentation-perso p {
-        font-size: 1.15em;
-    }    
-
+    .link-page a { font-size: 1.5em; }
+    .logo-title-link { padding-left: 30%; }
+    .onglets { padding-right: 28.5%; }
+    .title-home { font-size: 2.15em; max-width: 100%; }
+    .presentation-perso { width:40%; }
+    .presentation-perso p { font-size: 1.15em; }    
 }
 
 
-
-/*RESPONSIVE POUR LES ÉCRANS < 1000px*/
+/* --- Écrans Tablette et petits Desktop --- */
 @media screen and (max-width: 1200px) {
-    /* Sélecteur pour votre div */
-    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container,.container, .progress-container, .radar-container,.semititle,.content-home, .calculator-home {
+    .wallet-intro, .accordion, .panel, .stocks-header, .big-chart-container, .container, .progress-container, .radar-container, .semititle, .content-home, .calculator-home, .formation-home {
       width: 90%;
     }
 
@@ -1202,51 +1436,95 @@ circle-progress::part(base) {
         height: 350px;
     }
 
-    .bar-container {
-        width: 42%;
-    }
+    .bar-container { width: 42%; }
+    .link-page { display: none; }
+    .wallet-intro { margin-top: 100px; }
+    .wallet-intro td { font-size: 1em; }
+    .logo-title-link { padding-left: 5%; }
+    .onglets { padding-right: 1%; }
+    .title-home { font-size: 2.5em; max-width: 90%; }
+    .presentation-perso { width:90%; }
+    .presentation-perso p { font-size: 1.15em; max-width: 90%; padding-left: 5%; }
+    .legend { font-size: 1em; }
+}
 
-    .link-page {
-        display: none;
-        
-    }
 
-    .wallet-intro {
-        margin-top: 100px;
-    }
-
-    .wallet-intro td {
-        font-size: 1em;
-    }
-
-    .logo-title-link  {
-        padding-left: 5%;
-    }
-
-    .onglets {
-        padding-right: 1%;
-    }
+/* --- Écrans Mobile (< 768px) --- */
+@media screen and (max-width: 768px) {
+    .slider-marks { height: 40px; }
+    .mark { font-size: 10px; }
     
-    .title-home{
-        font-size: 2.5em;
-        max-width: 90%;
+    .formation-home { width: 95%; } 
+    .accordion-course { font-size: 1.1em; padding: 15px; }
+    .img-course { max-width: 100%; }
+    .lightbox-content { width: 95%; }
+
+    /* --- CORRECTION DU TABLEAU FORMATION (Mode Carte) --- */
+    
+    /* 1. On transforme tout le tableau en blocs empilés */
+    .pros-cons-table, 
+    .pros-cons-table tbody, 
+    .pros-cons-table tr, 
+    .pros-cons-table td { 
+        display: block !important; 
+        width: 100% !important; 
+        height: auto !important; 
+        box-sizing: border-box;
+        border: none;
     }
 
-    .presentation-perso {
-        width:90%;
+    /* 2. On cache l'en-tête original du tableau */
+    .pros-cons-table tr:first-child { 
+        display: none !important; 
     }
 
-    .presentation-perso p {
-        font-size: 1.15em;
-        max-width: 90%;
-        padding-left: 5%;
-        
+    /* 3. Style de la "Carte" (Le conteneur TD) */
+    .pros-cons-table td {
+        margin-bottom: 40px; 
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        padding: 0 !important; 
+        overflow: hidden; 
     }
 
-    .legend {
-        font-size: 1em;
+    /* 4. LE BANDEAU TITRE (Pseudo-élément) */
+    .pros-cons-table td::before {
+        display: block !important;
+        position: relative !important; 
+        width: 100%;
+        padding: 15px 0; 
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 1.2em;
     }
 
+    /* 5. LE CONTENU (La liste UL) */
+    .pros-cons-table td ul {
+        padding: 25px 20px !important; 
+        margin: 0 !important;
+        color: #333; 
+        display: block;
+    }
 
+    /* --- CARTE AVANTAGES --- */
+    .pros-cons-table td:nth-of-type(1) {
+        border: 2px solid #27ae60;
+    }
+    .pros-cons-table td:nth-of-type(1)::before {
+        content: "✅ AVANTAGES"; 
+        background-color: #27ae60;
+    }
 
+    /* --- CARTE INCONVÉNIENTS --- */
+    .pros-cons-table td:nth-of-type(2) {
+        border: 2px solid #c0392b;
+    }
+    .pros-cons-table td:nth-of-type(2)::before {
+        content: "❌ INCONVÉNIENTS"; 
+        background-color: #c0392b;
+    }
 }

@@ -6,325 +6,6 @@
     <title>Formation StocksPickeur 🎓</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="media/Logo/logo.ico" type="image/x-icon">
-    
-    <style>
-        .formation-home {
-            width: 60%;
-            margin: 0 auto;
-            padding-bottom: 100px;
-            margin-top: 50px;
-        }
-
-        .intro-text {
-            text-align: justify;
-            font-size: 1.2em;
-            margin-bottom: 40px;
-            color: #000000;
-        }
-
-        /* --- STYLE MODULE PRINCIPAL (Niveau 1) --- */
-        .accordion-course {
-            background-color: #f1f1f1;
-            color: #000000;
-            cursor: pointer;
-            padding: 20px;
-            width: 100%;
-            text-align: left;
-            border: none;
-            outline: none;
-            transition: 0.4s;
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.5em;
-            border-bottom: 1px solid #ddd;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-radius: 5px;
-            margin-bottom: 5px;
-            font-weight: bolder;
-        }
-
-        .active-course, .accordion-course:hover {
-            background-color: #60a1fc;
-            color: white;
-            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-        }
-
-        .panel-course {
-            padding: 0 20px; 
-            background-color: rgb(252,252,252);
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            border-left: 3px solid #60a1fc;
-            margin-bottom: 15px;
-        }
-
-        /* --- STYLE SOUS-MODULE (Niveau 2) --- */
-        .accordion-sub {
-            background-color: rgb(250,250,250);
-            color: #444;
-            cursor: pointer;
-            padding: 15px;
-            width: 100%;
-            text-align: left;
-            border: none;
-            border-bottom: 1px solid #eee;
-            border-left: 4px solid #ddd;
-            outline: none;
-            transition: 0.3s;
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.25em;
-            margin-top: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: bold;
-        }
-
-        .accordion-sub:hover, .active-sub {
-            background-color: #f9f9f9;
-            border-left: 4px solid #60a1fc;
-            color: #60a1fc;
-        }
-
-        .panel-sub {
-            padding: 0 20px;
-            background-color: rgb(252,252,252);
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            margin-bottom: 10px;
-        }
-
-        /* Symboles + et - */
-        .accordion-course:after, .accordion-sub:after {
-            content: '\002B'; 
-            font-weight: bold;
-            float: right;
-            margin-left: 5px;
-        }
-        
-        .accordion-course:after { font-size: 1.5em; color: #777; }
-        .accordion-sub:after { font-size: 1.2em; color: #ccc; }
-
-        .active-course:after, .active-sub:after {
-            content: "\2212";
-        }
-        .active-course:after { color: white; }
-        .active-sub:after { color: #60a1fc; }
-
-
-        /* CONTENU DU COURS */
-        .course-content {
-            padding: 20px 0;
-            text-align: justify;
-            line-height: 1.6;
-            font-family: 'Nunito Sans', sans-serif;
-            font-size: 1.1em;
-            color: #2c3e50;
-        }
-        
-        .course-content h4 {
-            color: #34495e;
-            font-weight: bold;
-            margin-top: 25px;
-            font-size: 1.15em;
-            text-decoration: underline;
-            text-decoration-color: #60a1fc;
-        }
-
-        .course-content ul { margin-left: 20px; margin-bottom: 20px; }
-        .course-content li { margin-bottom: 10px; }
-
-        .quote-box {
-            background-color: #f9f9f9;
-            border-left: 5px solid #f1c40f;
-            padding: 15px;
-            font-style: italic;
-            margin: 20px 0;
-            color: #555;
-        }
-
-        .highlight {
-            background-color: #fff3cd;
-            padding: 2px 5px;
-            border-radius: 3px;
-        }
-        
-        /* --- STYLE IMAGES ET LÉGENDES (NOUVEAU) --- */
-        .img-container {
-            text-align: center;
-            margin: 30px 0;
-        }
-
-        .img-course {
-            display: block;
-            margin: 0 auto;
-            max-width: 50%;
-            height: auto;
-            border-radius: 5px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            cursor: zoom-in; /* Curseur loupe pour indiquer que c'est cliquable */
-            transition: transform 0.3s ease;
-        }
-
-        .img-course:hover {
-            transform: scale(1.02); /* Léger zoom au survol */
-        }
-
-        .img-legend {
-            margin-top: 15px;
-            font-style: italic;
-            color: blue; /* Bleu foncé du thème */
-            font-size: 0.95em;
-        }
-
-        /* --- STYLE LIGHTBOX (Plein écran) --- */
-        .lightbox-modal {
-            display: none; /* Caché par défaut */
-            position: fixed;
-            z-index: 9999; /* Au dessus de tout */
-            padding-top: 50px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(25, 25, 25, 0.75); /* Fond noir semi-transparent */
-        }
-
-        .lightbox-content {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 1200px;
-            max-height: 85vh;
-            object-fit: contain;
-            animation-name: zoomIn;
-            animation-duration: 0.4s;
-        }
-
-        /* Bouton fermer (X) */
-        .close-btn {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-
-        .close-btn:hover,
-        .close-btn:focus {
-            color: #bbb;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        /* Animation de zoom à l'ouverture */
-        @keyframes zoomIn {
-            from {transform:scale(0)}
-            to {transform:scale(1)}
-        }
-
-        /* TABLEAUX */
-        .pros-cons-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 0.95em;
-            font-weight: normal;
-        }
-        .pros-cons-table th { padding: 10px; color: white; width: 50%; text-align: center; }
-        .th-pros { background-color: #27ae60; }
-        .th-cons { background-color: #c0392b; }
-        .pros-cons-table td { border: 1px solid #ddd; padding: 10px; vertical-align: top; background-color: #fdfdfd; }
-        
-        /* RESPONSIVE */
-        /* RESPONSIVE */
-        @media screen and (min-width: 1921px) { .formation-home { width: 40%; } }
-        @media screen and (max-width: 1200px) { .formation-home { width: 90%; } }
-        @media screen and (max-width: 768px) { 
-            .formation-home { width: 95%; } 
-            .accordion-course { font-size: 1.1em; padding: 15px; }
-            .img-course { max-width: 100%; }
-            .lightbox-content { width: 95%; }
-
-            /* --- CORRECTION DU TABLEAU (VERSION V3 - HAUTEUR AUTOMATIQUE) --- */
-            
-            /* 1. On transforme tout le tableau en blocs empilés */
-            .pros-cons-table, 
-            .pros-cons-table tbody, 
-            .pros-cons-table tr, 
-            .pros-cons-table td { 
-                display: block !important; 
-                width: 100% !important; 
-                height: auto !important; /* CRUCIAL : La hauteur s'adapte au contenu */
-                box-sizing: border-box;
-                border: none;
-            }
-
-            /* 2. On cache l'en-tête original du tableau */
-            .pros-cons-table tr:first-child { 
-                display: none !important; 
-            }
-
-            /* 3. Style de la "Carte" (Le conteneur TD) */
-            .pros-cons-table td {
-                margin-bottom: 40px; /* Espace entre les cartes */
-                background-color: #fff;
-                border-radius: 8px;
-                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-                padding: 0 !important; /* On gère l'espacement via le UL et le Titre */
-                overflow: hidden; /* Pour que le border-radius s'applique aussi au titre */
-            }
-
-            /* 4. LE BANDEAU TITRE (Pseudo-élément) */
-            /* On utilise display: block et position: relative pour qu'il pousse le contenu vers le bas */
-            .pros-cons-table td::before {
-                display: block !important;
-                position: relative !important; /* RESTE DANS LE FLUX */
-                width: 100%;
-                padding: 15px 0; /* Hauteur du bandeau */
-                
-                color: white;
-                font-weight: bold;
-                text-align: center;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                font-size: 1.2em;
-            }
-
-            /* 5. LE CONTENU (La liste UL) */
-            .pros-cons-table td ul {
-                padding: 25px 20px !important; /* Espace autour du texte */
-                margin: 0 !important;
-                color: #333; /* Couleur du texte assurée */
-                display: block;
-            }
-
-            /* --- CARTE AVANTAGES --- */
-            .pros-cons-table td:nth-of-type(1) {
-                border: 2px solid #27ae60;
-            }
-            .pros-cons-table td:nth-of-type(1)::before {
-                content: "✅ AVANTAGES"; 
-                background-color: #27ae60;
-            }
-
-            /* --- CARTE INCONVÉNIENTS --- */
-            .pros-cons-table td:nth-of-type(2) {
-                border: 2px solid #c0392b;
-            }
-            .pros-cons-table td:nth-of-type(2)::before {
-                content: "❌ INCONVÉNIENTS"; 
-                background-color: #c0392b;
-            }
-        }
-    </style>
 </head>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
@@ -371,16 +52,16 @@
                 <div class="course-content">
                     <p>Bienvenue dans le premier module. Avant de parler de graphiques, de dividendes ou de ratios financiers, nous devons répondre à la question la plus fondamentale : <strong>qu'est-ce que cela signifie vraiment "investir" ?</strong></p>
                     
-                    <div class="dictionary-box" style="background-color: #fff; border: 1px solid #ccc; border-left: 5px solid #333; padding: 15px; margin: 20px 0; font-family: 'Nunito Sans', sans-serif;">
-                        <div style="font-family: serif; font-size: 1.3em; margin-bottom: 5px;">
+                    <div class="dictionary-box">
+                        <div class="dictionary-word">
                             <strong>&#59564; investir</strong> <span style="font-size: 0.8em; color: #666;">verbe transitif</span>
                         </div>
-                        <div style="font-size: 0.9em; color: #888; margin-bottom: 10px;">(anglais <em>to invest</em>)</div>
-                        <ol style="margin-left: 20px; margin-bottom: 15px;">
-                            <li style="margin-bottom: 5px;">Placer des fonds dans quelque chose en vue d'en tirer un bénéfice : <em>Investir son argent dans des actions.</em></li>
+                        <div class="dictionary-meta">(anglais <em>to invest</em>)</div>
+                        <ol class="dictionary-list">
+                            <li>Placer des fonds dans quelque chose en vue d'en tirer un bénéfice : <em>Investir son argent dans des actions.</em></li>
                             <li>Mettre toute son énergie dans une action, une activité : <em>Investir son temps libre dans le sport.</em></li>
                         </ol>
-                        <div style="border-top: 1px dashed #ccc; padding-top: 10px; font-style: italic; color: #444;">
+                        <div class="dictionary-footer">
                             <strong>En résumé :</strong> Investir, c'est donner de son temps ou de son capital aujourd'hui pour en tirer des bénéfices futurs (financiers) ou pour le plaisir (personnel). C'est un échange conscient entre le "présent" et le "futur".
                         </div>
                     </div>
@@ -440,9 +121,9 @@
                              onclick="openViewer(this.src)"> <p class="img-legend">Un actif génère des revenus tandis qu'un passif engendre des dépenses</p>
                     </div>
                     
-                    <div style="background-color: #f8f9fa; border-left: 6px solid #2c3e50; padding: 20px; margin-top: 30px; border-radius: 0 5px 5px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-                        <h5 style="margin-top: 0; color: #2c3e50; font-size: 1.1em; text-transform: uppercase; letter-spacing: 1px;">🔑 Ce qu'il faut retenir</h5>
-                        <p style="margin-bottom: 0; font-size: 0.95em; line-height: 1.6;">
+                    <div class="conclusion-box">
+                        <h5 class="conclusion-title">🔑 Ce qu'il faut retenir</h5>
+                        <p class="conclusion-text">
                             Investir n'est pas un jeu, c'est un acte de <strong>propriété</strong>. C'est choisir de différer une consommation immédiate pour acquérir des <strong>actifs productifs</strong> (qui mettent de l'argent dans votre poche) au lieu de passifs. C'est le seul moyen de passer du statut de "salarié qui travaille pour l'argent" à celui "d'investisseur dont l'argent travaille pour lui".
                         </p>
                     </div>
@@ -458,7 +139,7 @@
                     <h4>1. Préparer sa retraite (L'urgence démographique) 👴</h4>
                     <p>C'est le sujet qui fâche, mais les mathématiques sont têtues. Notre système de retraite par répartition repose sur un équilibre simple : les travailleurs d'aujourd'hui paient pour les retraités d'aujourd'hui.</p>
                     <p>Le problème ? La démographie mondiale change. Nous vivons plus vieux et faisons moins d'enfants. Il y a de moins en moins d'actifs pour financer de plus en plus de retraités. Compter uniquement sur l'État pour assurer vos vieux jours est un pari risqué. Investir, c'est prendre en main sa propre retraite. Nous ne savons même pas nous aurons un jour une retraite par l'état, alors autant prévoir le pire et commencer à construire cette retraite par nous-même !</p>
-                       
+                        
                     <div class="img-container">
                         <img src="media/Formation/cotisants-vs-retraites.png" 
                              alt="Graphique illustrant la différence entre cotisants et retraités" 
@@ -468,16 +149,16 @@
 
                     <h4>2. Contrer l'inflation (L'érosion silencieuse) 💸</h4>
                     
-                    <div class="dictionary-box" style="background-color: #fff; border: 1px solid #ccc; border-left: 5px solid #333; padding: 15px; margin: 20px 0; font-family: 'Nunito Sans', sans-serif;">
-                        <div style="font-family: serif; font-size: 1.3em; margin-bottom: 5px;">
+                    <div class="dictionary-box">
+                        <div class="dictionary-word">
                             <strong>&#59564; inflation</strong> <span style="font-size: 0.8em; color: #666;">nom féminin</span>
                         </div>
-                        <div style="font-size: 0.9em; color: #888; margin-bottom: 10px;">(anglais <em>inflation</em>, du latin <em>inflatio, -onis</em>, de <em>inflare</em>, gonfler)</div>
-                        <ol style="margin-left: 20px; margin-bottom: 15px;">
-                            <li style="margin-bottom: 5px;">Situation ou phénomène caractérisé par une hausse généralisée et continue du niveau des prix.</li>
+                        <div class="dictionary-meta">(anglais <em>inflation</em>, du latin <em>inflatio, -onis</em>, de <em>inflare</em>, gonfler)</div>
+                        <ol class="dictionary-list">
+                            <li>Situation ou phénomène caractérisé par une hausse généralisée et continue du niveau des prix.</li>
                             <li>Augmentation, accroissement excessif : <em>Inflation de fonctionnaires.</em></li>
                         </ol>
-                        <div style="border-top: 1px dashed #ccc; padding-top: 10px; font-style: italic; color: #444;">
+                        <div class="dictionary-footer">
                             <strong>En résumé :</strong> L'inflation, c'est la perte progressive de votre pouvoir d'achat. C'est l'ennemi invisible de l'épargne.
                         </div>
                     </div>
@@ -528,9 +209,9 @@
                     
                     <p>Sur le long terme, cette courbe devient exponentielle. Investir permet de transformer un petit flux d'épargne mensuel en un capital massif capable de changer la vie de votre famille, simplement en laissant le temps faire son œuvre.</p>
 
-                    <p style="background-color: #e8f4fd; padding: 15px; border-radius: 5px; border-left: 5px solid #60a1fc;">
+                    <p class="cta-box">
                         🚀 <strong>Passez à l'action :</strong> Vous ne me croyez pas ? J'ai créé un outil pour que vous puissiez visualiser votre propre futur financier. <br>
-                        <a href="calculator.html#interest" target="_blank" style="color: #60a1fc; font-weight: bold; text-decoration: underline;">Cliquez ici pour tester mon Simulateur d'Intérêts Composés</a> et voir combien vous pourriez gagner.
+                        <a href="calculator.html#interest" target="_blank" class="cta-link">Cliquez ici pour tester mon Simulateur d'Intérêts Composés</a> et voir combien vous pourriez gagner.
                     </p>
 
                     <p>Pour que cette magie opère, elle repose sur une équation à trois variables. Si vous maîtrisez ces trois éléments, l'enrichissement devient mathématique :</p>
@@ -597,9 +278,9 @@
                     <p>En investissant, vous arrêtez d'être un simple spectateur (ou consommateur) de ces changements pour en devenir un <strong>acteur et bénéficiaire</strong>. Vous capturez une partie de la valeur créée par l'ingéniosité humaine mondiale.</p>
                     
                     <p>Tant que l'être humain voudra vivre mieux, se soigner plus vite, communiquer plus facilement et consommer des produits de qualité, l'économie mondiale croîtra. Il y aura des crises, des guerres et des récessions (c'est inévitable), mais la tendance de fond sur les 200 dernières années est indiscutable : le monde avance. <strong>Investir, c'est placer son argent dans le sens de l'histoire.</strong></p>
-                    <div style="background-color: #f8f9fa; border-left: 6px solid #2c3e50; padding: 20px; margin-top: 30px; border-radius: 0 5px 5px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-                        <h5 style="margin-top: 0; color: #2c3e50; font-size: 1.1em; text-transform: uppercase; letter-spacing: 1px;">🔑 Ce qu'il faut retenir</h5>
-                        <p style="margin-bottom: 0; font-size: 0.95em; line-height: 1.6;">
+                    <div class="conclusion-box">
+                        <h5 class="conclusion-title">🔑 Ce qu'il faut retenir</h5>
+                        <p class="conclusion-text">
                             L'investissement est une nécessité vitale pour contrer l'<strong>inflation</strong> et pallier les incertitudes du système de retraite. Grâce à la puissance exponentielle des <strong>intérêts composés</strong>, investir tôt vous permet de transformer votre épargne en un outil de liberté puissant, capable de financer vos rêves et de vous offrir le choix de vie que vous méritez.
                         </p>
                     </div>
@@ -749,9 +430,9 @@
                         </tr>
                     </table>
 
-                    <div style="background-color: #f8f9fa; border-left: 6px solid #2c3e50; padding: 20px; margin-top: 30px; border-radius: 0 5px 5px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-                        <h5 style="margin-top: 0; color: #2c3e50; font-size: 1.1em; text-transform: uppercase; letter-spacing: 1px;">🔑 Ce qu'il faut retenir</h5>
-                        <p style="margin-bottom: 0; font-size: 0.95em; line-height: 1.6;">
+                    <div class="conclusion-box">
+                        <h5 class="conclusion-title">🔑 Ce qu'il faut retenir</h5>
+                        <p class="conclusion-text">
                             Il n'y a pas de "meilleur" investissement dans l'absolu, mais pour se bâtir une fortune importante sur le long terme sans s'endetter et sans y passer ses journées, <strong>la Bourse (Actions)</strong> offre le meilleur équilibre entre performance, passivité et liquidité. C'est la voie royale pour faire travailler les intérêts composés, et c'est pour cela que cette formation se concentre dessus.
                         </p>
                     </div>
@@ -814,9 +495,9 @@
                     <p>Votre succès dépendra à 10% de votre intelligence et à 90% de votre capacité à maîtriser vos émotions : ne pas s'enflammer quand tout monte (avidité) et ne pas paniquer quand tout baisse (peur). Le bon sens paysan bat toujours les algorithmes complexes sur le long terme.</p>
 
 
-                    <div style="background-color: #f8f9fa; border-left: 6px solid #2c3e50; padding: 20px; margin-top: 30px; border-radius: 0 5px 5px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-                        <h5 style="margin-top: 0; color: #2c3e50; font-size: 1.1em; text-transform: uppercase; letter-spacing: 1px;">🔑 Ce qu'il faut retenir</h5>
-                        <p style="margin-bottom: 0; font-size: 0.95em; line-height: 1.6;">
+                    <div class="conclusion-box">
+                        <h5 class="conclusion-title">🔑 Ce qu'il faut retenir</h5>
+                        <p class="conclusion-text">
                             Les barrières à l'entrée sont tombées. Vous n'avez pas besoin d'être riche, chanceux ou surdiplômé pour investir. La seule véritable barrière restante est <strong>psychologique</strong>. Si vous avez 50€, du bon sens et la volonté de contrôler vos émotions, vous êtes déjà mieux armé que la majorité des gens.
                         </p>
                     </div>
@@ -830,22 +511,23 @@
 
         <button class="accordion-course">2. DÉBUTER EN BOURSE 🏦</button>
         <div class="panel-course">
+            
             <button class="accordion-sub">2.1. C'est quoi la Bourse ? 🏛️</button>
             <div class="panel-sub">
                 <div class="course-content">
                     <p>Avant de savoir <em>comment</em> acheter, il faut comprendre <em>où</em> nous mettons les pieds. Quand on parle de "La Bourse", l'imaginaire collectif voit souvent des graphiques incompréhensibles, des hommes stressés en bretelles à Wall Street ou un casino géant.</p>
                     <p>Effacez cette image. La Bourse est en réalité un concept beaucoup plus simple et beaucoup plus ancien. C'est tout simplement <strong>un grand marché</strong>, exactement comme le marché aux légumes de votre village, sauf qu'au lieu d'y vendre des tomates ou des poulets, on y vend des parts d'entreprises.</p>
 
-                    <div class="dictionary-box" style="background-color: #fff; border: 1px solid #ccc; border-left: 5px solid #333; padding: 15px; margin: 20px 0; font-family: 'Nunito Sans', sans-serif;">
-                        <div style="font-family: serif; font-size: 1.3em; margin-bottom: 5px;">
+                    <div class="dictionary-box">
+                        <div class="dictionary-word">
                             <strong>&#59564; bourse</strong> <span style="font-size: 0.8em; color: #666;">nom féminin</span>
                         </div>
-                        <div style="font-size: 0.9em; color: #888; margin-bottom: 10px;">(du latin <em>bursa</em>, cuir, et du nom de la famille <em>Van der Beurze</em>)</div>
-                        <ol style="margin-left: 20px; margin-bottom: 15px;">
-                            <li style="margin-bottom: 5px;">Lieu public où se réunissent les banquiers, les négociants et les agents de change pour traiter des affaires.</li>
+                        <div class="dictionary-meta">(du latin <em>bursa</em>, cuir, et du nom de la famille <em>Van der Beurze</em>)</div>
+                        <ol class="dictionary-list">
+                            <li>Lieu public où se réunissent les banquiers, les négociants et les agents de change pour traiter des affaires.</li>
                             <li>Marché organisé où s'échangent des biens standardisés (matières premières) ou des actifs financiers (actions, obligations).</li>
                         </ol>
-                        <div style="border-top: 1px dashed #ccc; padding-top: 10px; font-style: italic; color: #444;">
+                        <div class="dictionary-footer">
                             <strong>Le saviez-vous ?</strong> Le mot "Bourse" vient de la famille <em>Van der Beurze</em> à Bruges (Belgique) au XIIIe siècle. C'est sur la place devant leur auberge que les marchands de toute l'Europe se réunissaient pour échanger leurs créances. Le blason de la famille arborait... trois bourses en cuir !
                         </div>
                     </div>
@@ -913,9 +595,9 @@
                     
                     <p>Le prix d'une action, seul, ne veut rien dire sur la valeur de l'entreprise. Pour connaître la vraie valeur (le prix de l'étiquette de toute l'entreprise), il faut regarder la <strong>Capitalisation Boursière</strong>.</p>
                     
-                    <div style="background-color: #e8f4fd; padding: 15px; border-radius: 5px; border: 1px dashed #60a1fc; text-align: center; margin: 20px 0;">
+                    <div class="formula-box">
                         <strong>Formule Magique :</strong><br>
-                        <span style="font-size: 1.2em; font-weight: bold;">Prix de l'action × Nombre d'actions total = Valeur de l'entreprise</span>
+                        <span class="formula-text">Prix de l'action × Nombre d'actions total = Valeur de l'entreprise</span>
                     </div>
 
                     <p>Prenons l'exemple de la Pizza pour comprendre :</p>
@@ -928,14 +610,15 @@
 
                     <div class="img-container">
                         <img src="media/Formation/pizza.jpg" 
-                             alt="Exemple de la pizza" 
+                             alt="Schéma explicatif de la capitalisation boursière avec des pizzas" 
                              class="img-course clickable-image"
-                             onclick="openViewer(this.src)"> <p class="img-legend">On voit simplement ici que la pizza de droite est la plus grosse que celle de gauche</p>
+                             onclick="openViewer(this.src)"> 
+                        <p class="img-legend">La valeur totale (la pizza) importe plus que le prix d'une seule part.</p>
                     </div>
 
-                    <div style="background-color: #f8f9fa; border-left: 6px solid #2c3e50; padding: 20px; margin-top: 30px; border-radius: 0 5px 5px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-                        <h5 style="margin-top: 0; color: #2c3e50; font-size: 1.1em; text-transform: uppercase; letter-spacing: 1px;">🔑 Ce qu'il faut retenir</h5>
-                        <p style="margin-bottom: 0; font-size: 0.95em; line-height: 1.6;">
+                    <div class="conclusion-box">
+                        <h5 class="conclusion-title">🔑 Ce qu'il faut retenir</h5>
+                        <p class="conclusion-text">
                             La Bourse est un marché où s'échangent des parts de propriété, et non un casino. Ne confondez pas le marché global avec les <strong>Indices</strong> (CAC 40, S&P 500) qui ne sont que des thermomètres de tendance. Enfin, ne jugez jamais la cherté d'une action à son prix unitaire, mais toujours à sa <strong>Capitalisation Boursière</strong> (la valeur totale de l'entreprise).
                         </p>
                     </div>
@@ -963,10 +646,10 @@
 
                     <div class="img-container">
                         <img src="media/Formation/siegel-chart.png" 
-                            alt="Graphique de Jeremy Siegel montrant la performance des actions sur 200 ans" 
-                            class="img-course clickable-image"
-                            onclick="openViewer(this.src)"> 
-                        <p class="img-legend">Graphique de Siegel : Les actions écrasent toutes les autres classes d'actifs sur le long terme.</p>
+                             alt="Graphique de Jeremy Siegel montrant la performance des actions sur 200 ans" 
+                             class="img-course clickable-image"
+                             onclick="openViewer(this.src)"> 
+                        <p class="img-legend">Le graphique de Siegel : Les actions écrasent toutes les autres classes d'actifs sur le long terme.</p>
                     </div>
 
                     <p><strong>Pourquoi un tel écart ?</strong> C'est la différence entre un actif inerte et un actif productif. Un lingot d'or dans un coffre restera un lingot d'or dans 100 ans. Il ne produit rien. <br>
@@ -984,13 +667,15 @@
                     <h4>3. Le Mythe de la Passivité : Bourse vs Gestion Locative 🛌</h4>
                     <p>On parle souvent de "revenus passifs" pour l'immobilier. C'est un mensonge. L'immobilier est un second métier. Gérer un bien, c'est gérer des humains (locataires), de l'administratif et du matériel (chaudière en panne le dimanche soir).</p>
                     <p><strong>La Bourse est le seul véritable revenu passif.</strong> Quand vous possédez des actions Coca-Cola, vous ne gérez pas la recette du soda ni le prix du sucre. Des milliers d'employés talentueux se lèvent chaque matin pour travailler pour vous. Vous vous contentez de toucher les dividendes. C'est la forme la plus pure du capitalisme : l'argent travaille, pas vous.</p>
+
                     <div class="img-container">
                         <img src="media/Formation/immo-vs-bourse.png" 
-                            alt="L'Immobilier vs la Bourse" 
-                            class="img-course clickable-image"
-                            onclick="openViewer(this.src)"> 
+                             alt="L'Immobilier vs la Bourse" 
+                             class="img-course clickable-image"
+                             onclick="openViewer(this.src)"> 
                         <p class="img-legend">L'Immobilier est un vrai second travail contrairement à l'investissement Boursier</p>
                     </div>
+
                     <div class="quote-box">
                         <strong>La Règle d'Or 🧠</strong><br>
                         "Si cela a des toilettes ou des fenêtres, ce n'est pas un investissement passif, c'est un travail."<br>
@@ -1006,11 +691,11 @@
                     <p>La Bourse offre le meilleur couple <strong>Rendement / Risque / Sérénité</strong>.</p>
 
                     <h4>5. L'Accessibilité : La fin des privilèges 🎟️</h4>
-                    <p>Enfin, il y a 30 ans, la Bourse était un club fermé réservé aux initiés. Aujourd'hui, c'est l'investissement le plus démocratique qui soit. Avec les courtiers modernes (que nous verrons au point suivant), vous pouvez devenir associé des plus grandes entreprises du monde avec <strong>10€ en poche</strong> et depuis votre canapé.</p>
+                    <p>Enfin, il y a 30 ans, la Bourse était un club fermé réservé aux initiés. Aujourd'hui, c'est l'investissement le plus démocratique qui soit. Avec les courtiers modernes (que nous verrons au chapitre suivant), vous pouvez devenir associé des plus grandes entreprises du monde avec <strong>10€ en poche</strong> et depuis votre canapé.</p>
 
-                    <div style="background-color: #f8f9fa; border-left: 6px solid #2c3e50; padding: 20px; margin-top: 30px; border-radius: 0 5px 5px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-                        <h5 style="margin-top: 0; color: #2c3e50; font-size: 1.1em; text-transform: uppercase; letter-spacing: 1px;">🔑 Ce qu'il faut retenir</h5>
-                        <p style="margin-bottom: 0; font-size: 0.95em; line-height: 1.6;">
+                    <div class="conclusion-box">
+                        <h5 class="conclusion-title">🔑 Ce qu'il faut retenir</h5>
+                        <p class="conclusion-text">
                             La Bourse n'est pas parfaite, mais c'est objectivement le meilleur outil de création de richesse. Elle combine une <strong>performance historique écrasante</strong> (1$ → 1,3M$), une <strong>liquidité totale</strong> et une <strong>passivité réelle</strong>. C'est le véhicule idéal pour faire croître votre épargne sans les contraintes de l'immobilier ni les dangers extrêmes de la spéculation.
                         </p>
                     </div>
@@ -1020,12 +705,234 @@
             <button class="accordion-sub">2.3. Comment commencer à Investir en Bourse ? 🏁</button>
             <div class="panel-sub">
                 <div class="course-content">
+
+                    <p>La théorie est acquise. Vous savez ce qu'est une action et pourquoi il faut en acheter. Maintenant, passons à la pratique : <strong>Où clique-t-on pour acheter ?</strong></p>
+                    <p>Contrairement à ce que l'on pense, vous n'avez pas besoin de téléphoner à la Bourse de New York ni d'aller au siège social de LVMH avec une valise de billets. Tout se passe en ligne, en quelques clics, via des intermédiaires sécurisés.</p>
+
+                    <h4>1. L'Intermédiaire : Le Courtier (Broker) 🏦</h4>
+                    <p>Vous ne pouvez pas accéder directement au marché boursier en tant que particulier. Vous avez besoin d'un passeur, d'un intermédiaire agréé qui a le droit de transmettre vos ordres d'achat et de vente au marché. Cet intermédiaire s'appelle un <strong>Courtier</strong> (ou <em>Broker</em> en anglais).</p>
+
+                    <div class="dictionary-box">
+                        <div class="dictionary-word">
+                            <strong>&#59564; courtier</strong> <span style="font-size: 0.8em; color: #666;">nom masculin</span>
+                        </div>
+                        <div class="dictionary-meta">(anglais <em>broker</em>)</div>
+                        <ol class="dictionary-list">
+                            <li>Intermédiaire qui met en relation un acheteur et un vendeur.</li>
+                            <li>En finance : Société financière agréée par les régulateurs (AMF en France, FSMA en Belgique) qui exécute les ordres de bourse de ses clients et conserve leurs titres.</li>
+                        </ol>
+                        <div class="dictionary-footer">
+                            <strong>Analogie :</strong> Le Courtier est comme <em>Amazon</em>. Amazon ne fabrique pas les produits, mais c'est la plateforme logistique et sécurisée par laquelle vous passez pour acheter les produits des vendeurs du monde entier.
+                        </div>
+                    </div>
+
+                    <p>Il existe aujourd'hui deux grandes familles de courtiers. Votre choix ici déterminera vos frais pour les 20 prochaines années, choisissez bien !</p>
+
+                    <ul>
+                        <li><strong>🏛️ Les Banques Traditionnelles (BNP, Société Générale, Belfius...) :</strong> C'est la solution de facilité ("J'ouvre mon compte bourse là où j'ai mon compte courant"). <span style="color: #c0392b; font-weight: bold;">ATTENTION :</span> C'est souvent le pire choix. Leurs frais sont généralement exorbitants (frais de garde, frais de passage d'ordre élevés). Elles vivent encore sur un modèle ancien.</li>
+                        <li><strong>💻 Les Courtiers en Ligne (Boursorama, Fortuneo, Trade Republic, Saxo, Degiro, Interactive Brokers...) :</strong> Ce sont des acteurs spécialisés, souvent 100% en ligne. N'ayant pas d'agences physiques à payer, leurs frais sont minimes (parfois 1€ l'ordre, voire gratuit). C'est le choix privilégié des investisseurs modernes.</li>
+                    </ul>
+
+                    <p><strong>Mon conseil :</strong> Fuyez les banques traditionnelles pour investir. Les frais vont grignoter votre performance. Optez pour un courtier en ligne réputé et régulé.</p>
+                    
+                    <p>Cependant, tous les courtiers en ligne ne se valent pas. Avant de signer, vérifiez ces 3 types de frais dans la grille tarifaire :</p>
+                    <ul>
+                        <li><strong>Les frais de transaction :</strong> Le prix à payer quand vous achetez ou vendez (ex: 1€ par ordre). C'est le plus visible.</li>
+                        <li><strong>Les frais de change (FX) :</strong> ⚠️ <em>Le piège n°1.</em> Si vous achetez une action américaine (en dollars) avec votre compte en euros, le courtier prend une commission sur le change. Certains prennent 0,1% (honnête), d'autres 0,5% ou plus (du vol).</li>
+                        <li><strong>Les frais d'inactivité :</strong> Certains courtiers vous facturent si vous ne passez pas d'ordre pendant un mois. À fuir pour un investisseur long terme.</li>
+                    </ul>
+
+                    <div style="background-color: #e8f4fd; padding: 15px; border-radius: 5px; border: 1px solid #b3d7ff; margin: 20px 0;">
+                        <strong>🛡️ Et si mon courtier fait faillite ?</strong><br>
+                        Pas de panique. Il existe une règle d'or : la <strong>Ségrégation des Actifs</strong>. <br>
+                        Vos actions ne sont pas dans le bilan du courtier. Elles sont stockées chez un dépositaire central. Si votre courtier fait faillite, vos actions vous appartiennent toujours, elles seront simplement transférées chez un autre courtier. Seul votre "Cash" (l'argent non investi qui dort sur le compte) est garanti à hauteur de 100 000€ (Garantie des dépôts européenne).
+                    </div>
+
+                    <h4>2. Le Contenant : Choisir son Enveloppe Fiscale ✉️</h4>
+                    <p>Une fois le courtier choisi, vous devez ouvrir un compte spécifique. On appelle ça une "enveloppe fiscale". C'est comme choisir le type de sac dans lequel vous allez mettre vos courses : selon le sac choisi, l'État vous taxera différemment à la sortie.</p>
+                    
+                    <p>C'est ici que la distinction se fait selon votre pays de résidence fiscale.</p>
+
+                    <h5 style="background-color: #002395; color: white; padding: 10px; display: inline-block; border-radius: 5px;">🇫🇷 Pour les Résidents Français</h5>
+                    <p>Vous avez deux options principales. Le match est souvent plié d'avance pour les débutants.</p>
+
+                    <table class="pros-cons-table">
+                        <tr>
+                            <th style="background-color: #e67e22;">PEA (Plan d'Épargne en Actions)</th>
+                            <th style="background-color: #2980b9;">CTO (Compte-Titres Ordinaire)</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p><strong>C'est le "Cadeau Fiscal" de l'État.</strong></p>
+                                <ul>
+                                    <li>✅ <strong>Avantage Fiscal :</strong> Après 5 ans de détention, vous êtes exonéré d'impôt sur le revenu sur vos gains. Vous ne payez que les prélèvements sociaux (17,2%). C'est imbattable.</li>
+                                    <li>❌ <strong>Contrainte Géographique :</strong> Vous ne pouvez acheter que des entreprises <strong>européennes</strong> (LVMH, Total, Air Liquide...). Impossible d'acheter Apple ou Tesla en direct (sauf via des ETF synthétiques, astuce que nous verrons plus tard).</li>
+                                    <li>❌ <strong>Plafond :</strong> Versements limités à 150 000€.</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <p><strong>C'est le compte "Liberté Totale".</strong></p>
+                                <ul>
+                                    <li>✅ <strong>Universel :</strong> Vous pouvez acheter tout ce qui existe : Actions US, Japonaises, Chinoises, Options, etc.</li>
+                                    <li>✅ <strong>Pas de plafond :</strong> Vous pouvez y mettre des millions.</li>
+                                    <li>❌ <strong>Fiscalité lourde :</strong> Vos gains sont taxés à la "Flat Tax" de <strong>30%</strong> (12,8% impôt + 17,2% prélèvements sociaux) dès que vous revendez ou touchez un dividende.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <p>⚠️ <strong>Un dernier détail crucial pour les Français (L'IFU) :</strong><br>
+                    Si vous ouvrez un CTO, choisissez un courtier qui fournit l'<strong>IFU (Imprimé Fiscal Unique)</strong> (comme Boursorama, Fortuneo, ou Trade Republic depuis peu). Cela permet à vos impôts d'être pré-remplis. Si vous choisissez un courtier étranger qui ne le fournit pas, vous devrez calculer et déclarer chaque dividende et plus-value manuellement. Un enfer administratif à éviter pour débuter !</p>
+                    
+                    <div class="img-container">
+                        <img src="media/Formation/pea-vs-cto.png" 
+                             alt="Comparatif PEA vs CTO" 
+                             class="img-course clickable-image"
+                             onclick="openViewer(this.src)"> 
+                        <p class="img-legend">Comparatif du Plan d'Épargne Action (PEA) face au Compte Titres Ordinaire (CTO)</p>
+                    </div>
+
+                    <p class="highlight">💡 <strong>Stratégie recommandée (France) :</strong> Ouvrez <strong>toujours un PEA en premier</strong> pour prendre date (le compteur des 5 ans démarre à l'ouverture). Remplissez-le au maximum. Ouvrez ensuite un CTO en parallèle si vous voulez vraiment faire du stock-picking US, car il est possible de s'exposer au marché américain via des ETFs synthétiques sur PEA (on y reviendra plus tard).</p>
+
+                    <div style="margin-top: 30px;"></div>
+
+                    <h5 style="background-color: #000000; color: #f1c40f; padding: 10px; display: inline-block; border-radius: 5px;">🇧🇪 Pour les Résidents Belges</h5>
+                    <p>La Belgique ne propose pas d'équivalent au PEA français. Le système est plus simple, mais différent.</p>
+                    <ul>
+                        <li><strong>Le Compte-Titres (CTO) est la norme :</strong> C'est l'enveloppe unique pour tout le monde.</li>
+                        <li><strong>Pas d'impôt sur la plus-value (sous conditions) :</strong> C'est le grand avantage belge. Si vous investissez en "bon père de famille" (sur le long terme, sans spéculation agressive), vos gains à la revente sont exonérés d'impôts (0%).</li>
+                        <li><strong>La Taxe sur les Opérations de Bourse (TOB) :</strong> À chaque achat et à chaque vente, vous payez une petite taxe (souvent 0,35%).</li>
+                        <li><strong>La Taxe sur les Dividendes :</strong> Les dividendes perçus sont taxés à la source à 30% (Précompte mobilier). C'est pourquoi de nombreux investisseurs belges préfèrent les ETF "Capitalisants" (qui ne versent pas de dividendes mais les réinvestissent automatiquement) pour éviter cette taxe.</li>
+                    </ul>
+
+                    <h4>3. Comment ouvrir un compte ? (Le parcours du combattant... facile) 📝</h4>
+                    <p>Ouvrir un compte-titres ou un PEA chez un courtier en ligne moderne prend environ 10 minutes. C'est une obligation légale appelée <strong>KYC (Know Your Customer)</strong> pour lutter contre le blanchiment d'argent. Préparez-vous, voici ce qu'on va vous demander :</p>
+                    
+                    <ol>
+                        <li><strong>Informations personnelles :</strong> Nom, adresse, situation professionnelle, revenus (approximatifs).</li>
+                        <li><strong>Preuves d'identité :</strong> Photo de votre Carte d'Identité ou Passeport.</li>
+                        <li><strong>Justificatif de domicile :</strong> Une facture d'électricité ou de téléphone de moins de 3 mois.</li>
+                        <li><strong>Le Selfie :</strong> De plus en plus courant, l'application vous demandera de prendre un selfie vidéo ou photo pour prouver que vous êtes bien vivant et que c'est bien vous.</li>
+                    </ol>
+                    
+                    <p>Ne soyez pas effrayé par ces demandes, elles prouvent que le courtier est sérieux et respecte la loi. Une fois validé (24h à 48h), vous pouvez faire votre premier virement et... vous êtes prêt à acheter votre première action !</p>
+
+                    <div class="conclusion-box">
+                        <h5 class="conclusion-title">🔑 Ce qu'il faut retenir</h5>
+                        <p class="conclusion-text">
+                            Pour investir, fuyez votre banque traditionnelle trop chère et choisissez un <strong>Courtier en ligne</strong> (Broker).<br>
+                            Si vous êtes Français 🇫🇷, ouvrez impérativement un <strong>PEA</strong> pour profiter de l'exonération d'impôt après 5 ans. Si vous êtes Belge 🇧🇪, le Compte-Titres classique est la norme, avec l'avantage de l'absence d'impôt sur la plus-value pour l'investissement long terme.
+                        </p>
+                    </div>
+
                 </div>
             </div>
 
             <button class="accordion-sub">2.4. Les 2 grandes Stratégies d'Investissement ♟️</button>
             <div class="panel-sub">
                 <div class="course-content">
+
+                    <p>Vous avez votre courtier, vous avez votre compte. Vous êtes prêt à appuyer sur le bouton "Acheter". Mais avant de faire feu, vous devez choisir votre camp. En Bourse, il existe deux philosophies radicalement opposées. Elles utilisent le même terrain de jeu, mais elles ne jouent pas au même sport.</p>
+                    <p>Le choix que vous ferez ici déterminera non seulement vos résultats financiers, mais surtout votre qualité de vie et votre niveau de stress pour les décennies à venir.</p>
+
+                    <h4>1. Le Sprint : Le Trading (Court Terme) ⚡</h4>
+                    <p>C'est l'image d'Épinal de la Bourse. Le trader aux yeux rivés sur 4 écrans, qui achète une action à 10h00 pour la revendre à 10h05 parce qu'elle a pris 0,5%. C'est excitant, c'est rapide, et ça ressemble à de l'argent facile.</p>
+
+                    <div class="dictionary-box">
+                        <div class="dictionary-word">
+                            <strong>&#59564; trading</strong> <span style="font-size: 0.8em; color: #666;">nom masculin</span>
+                        </div>
+                        <div class="dictionary-meta">(anglais <em>to trade</em>, échanger)</div>
+                        <ol class="dictionary-list">
+                            <li>Activité d'achat et de vente d'actifs financiers sur des périodes très courtes (minutes, jours, semaines) pour profiter des fluctuations de prix.</li>
+                            <li><strong>Philosophie :</strong> Le trader se fiche de la qualité de l'entreprise. Il ne s'intéresse qu'au mouvement de son prix (le graphique).</li>
+                        </ol>
+                    </div>
+
+                    <p>Le but du trader est de battre le marché rapidement. Il utilise l'analyse technique (les formes sur les graphiques) pour prédire l'avenir immédiat. Mais attention, les statistiques sont cruelles.</p>
+                    
+                    <div class="quote-box">
+                        <strong>La Règle des "90-90-90" 📉</strong><br>
+                        "90% des traders particuliers perdent 90% de leur capital en 90 jours."<br>
+                        Pourquoi ? Parce qu'ils se battent contre des algorithmes et des robots de banques d'investissement programmés par des physiciens. C'est David contre Goliath, mais sans le lance-pierre.
+                    </div>
+
+                    <p>Le trading n'est pas un investissement, <strong>c'est un travail</strong> (et souvent un travail mal payé si on compte les heures de stress). De plus, chaque vente déclenche un événement fiscal (taxes), ce qui grignote les profits.</p>
+
+                    <p>Comme vu dans le Module 1 avec l'immobilier, notre but n'est pas de nous créer un second emploi, mais de générer de véritables revenus passifs. Personne n'a envie de passer 6h par jour collé à son écran. L'objectif est simple : laisser votre argent travailler pour vous, fructifié par les meilleurs talents du monde au sein des entreprises dans lesquelles vous investissez.</p>
+
+                    <h4>2. Le Marathon : L'Investissement "Buy & Hold" (Long Terme) 🐢</h4>
+                    <p>C'est la stratégie que nous enseignons ici, et c'est celle utilisée par Warren Buffett, Peter Lynch et les familles les plus riches du monde. Elle consiste à acheter des parts d'entreprises exceptionnelles (Quality Investing) et à ne... <strong>rien faire</strong>.</p>
+
+                    <div class="dictionary-box">
+                        <div class="dictionary-word">
+                            <strong>&#59564; investissement long terme</strong> <span style="font-size: 0.8em; color: #666;">groupe nominal</span>
+                        </div>
+                        <div class="dictionary-list">
+                            Stratégie consistant à acheter des actifs de qualité et à les conserver sur une très longue période (minimum 5, 10, voire 20 ans), peu importe les turbulences quotidiennes du marché.
+                        </div>
+                        <div class="dictionary-footer">
+                            <strong>Devise :</strong> "Time in the market beats timing the market" (Le temps passé sur le marché bat le fait d'essayer de prédire le bon moment).
+                        </div>
+                    </div>
+
+                    <p>L'investisseur long terme se considère comme un <strong>propriétaire</strong>. Si vous achetez un appartement pour le louer, vous ne vérifiez pas son prix de vente tous les matins, et vous ne le vendez pas parce que le prix a baissé de 2% la semaine dernière. Vous encaissez les loyers et vous attendez que la valeur monte sur 10 ans. En Bourse, c'est exactement pareil.</p>
+
+                    <h4>3. Le Duel : Pourquoi le Long Terme gagne toujours 🥊</h4>
+                    <p>Comparons objectivement les deux approches.</p>
+
+                    <table class="pros-cons-table">
+                        <tr>
+                            <th style="background-color: #c0392b;">STRATÉGIE COURT TERME (Trading)</th>
+                            <th style="background-color: #27ae60;">STRATÉGIE LONG TERME (Investing)</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <ul>
+                                    <li>❌ <strong>Probabilités :</strong> Vous avez statistiquement plus de chances de perdre de l'argent que d'en gagner.</li>
+                                    <li>❌ <strong>Temps :</strong> Demande une surveillance constante des marchés. C'est chronophage.</li>
+                                    <li>❌ <strong>Stress :</strong> Montagnes russes émotionnelles permanentes.</li>
+                                    <li>❌ <strong>Frais & Impôts :</strong> Beaucoup d'ordres = beaucoup de frais de courtage. Beaucoup de ventes = beaucoup d'impôts à payer chaque année (ce qui tue les intérêts composés).</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>✅ <strong>Probabilités :</strong> Sur des périodes de 15 ans, la Bourse a historiquement été gagnante dans 99% des cas.</li>
+                                    <li>✅ <strong>Temps :</strong> 15 minutes par mois suffisent. C'est 100% passif.</li>
+                                    <li>✅ <strong>Sérénité :</strong> Vous profitez de la vie pendant que votre argent travaille.</li>
+                                    <li>✅ <strong>Fiscalité :</strong> Tant que vous ne vendez pas, vous ne payez pas d'impôt sur la plus-value. Votre argent brut continue de faire des petits (Intérêts composés).</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="img-container">
+                        <img src="media/Formation/investing-vs-trading.jpg" 
+                             alt="Comparatif Investissement vs Trading" 
+                             class="img-course clickable-image"
+                             onclick="openViewer(this.src)"> 
+                        <p class="img-legend">Citation célèbre pour bien comprendre la différence entre trading et investissement</p>
+                    </div>
+
+                    <h4>4. Le secret de la réussite : Le "Temps" est votre meilleur ami ⏳</h4>
+                    <p>L'avantage injuste de l'investisseur particulier (vous), c'est le temps. Les gérants de fonds professionnels à Wall Street sont jugés tous les trimestres. S'ils perdent de l'argent pendant 3 mois, ils sont virés. Ils sont donc <em>obligés</em> de penser court terme.</p>
+                    <p>Vous, vous n'avez de comptes à rendre à personne. Vous pouvez vous permettre d'acheter une action Microsoft et de la garder 20 ans, même si elle baisse pendant 6 mois. C'est cette patience qui permet de capturer les gains énormes des grandes entreprises (les "Multibaggers", ces actions qui font x10 ou x100).</p>
+                    
+                    <div class="quote-box">
+                        <strong>Benjamin Graham (Mentor de Warren Buffett) 🧠</strong><br>
+                        "À court terme, le marché est une machine à voter (guidée par l'émotion et la popularité). À long terme, c'est une machine à peser (guidée par la réalité des bénéfices)."
+                    </div>
+
+                    <p>En choisissant la stratégie long terme, vous arrêtez de parier sur l'humeur des autres investisseurs (le vote) pour vous concentrer sur le poids réel de l'entreprise (ses bénéfices).</p>
+
+                    <div class="conclusion-box">
+                        <h5 class="conclusion-title">🔑 Ce qu'il faut retenir</h5>
+                        <p class="conclusion-text">
+                            Ne confondez pas <strong>Spéculer</strong> (Trading court terme, risqué et stressant) et <strong>Investir</strong> (Long terme, passif et performant).<br>
+                            La stratégie de ce site est exclusivement le <strong>Long Terme</strong>. Nous cherchons à devenir les propriétaires patients des plus belles entreprises du monde, pour laisser la magie des intérêts composés opérer sur des années, sans y consacrer nos journées.
+                        </p>
+                    </div>
+
                 </div>
             </div>
 
