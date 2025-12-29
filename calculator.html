@@ -185,16 +185,26 @@
 
         <div class="section section-interest" id="compound-calculator">
             <h3 class="calculator-section">PARAMÈTRES DE L'INVESTISSEMENT</h3>
+            
             <div class="input-container">
-                <div class="input-group">
-                    <p class="label-text" data-tooltip="Combien comptez-vous investir chaque année ?">MONTANT ANNUEL</p>
+                <div class="input-group input-group-half">
+                    <p class="label-text" data-tooltip="La somme que vous avez déjà aujourd'hui pour commencer.">CAPITAL DE DÉPART</p>
+                    <input type="number" id="compound-initial" class="compound-input" placeholder="Ex: 5000" min="0">
+                </div>
+                <div class="input-group input-group-half">
+                    <p class="label-text" data-tooltip="Combien comptez-vous ajouter chaque année ?">AJOUT ANNUEL</p>
                     <input type="number" id="compound-deposit" class="compound-input" placeholder="Ex: 12000" min="0">
                 </div>
-                <div class="input-group">
+            </div>
+
+            <div class="spacer-top"></div>
+
+            <div class="input-container">
+                <div class="input-group input-group-half">
                     <p class="label-text" data-tooltip="Pendant combien d'années allez-vous investir ?">DURÉE (ANNÉES)</p>
                     <input type="number" id="compound-years" class="compound-input" placeholder="Ex: 20" min="1" max="100">
                 </div>
-                <div class="input-group">
+                <div class="input-group input-group-half">
                     <p class="label-text" data-tooltip="Quel rendement annuel moyen espérez-vous ? (La bourse fait ~8-10% historiquement)">RENDEMENT ANNUEL (%)</p>
                     <input type="number" id="compound-rate" class="compound-input" placeholder="Ex: 8" step="0.1">
                 </div>
@@ -224,23 +234,26 @@
 
         <div class="section section-dcf"> 
             <h3 class="calculator-section">PARAMÈTRES DE VALORISATION</h3>
+            
             <div class="input-container">
-                <div class="input-group">
+                <div class="input-group input-group-half">
                     <p class="label-text" data-tooltip="Le Bénéfice Par Action actuel (EPS TTM).">EPS ACTUEL</p>
                     <input type="number" id="dcf-eps" class="calc-input" placeholder="Ex: 5.40" step="0.01">
                 </div>
-                <div class="input-group">
+                <div class="input-group input-group-half">
                     <p class="label-text" data-tooltip="À quelle vitesse les bénéfices vont-ils croître par an sur 5 ans ?">CROISSANCE ESTIMÉE (%)</p>
                     <input type="number" id="dcf-growth" class="calc-input" placeholder="Ex: 12">
                 </div>
-                <div class="input-group">
+            </div>
+            
+            <div class="spacer-top"></div>
+
+            <div class="input-container">
+                <div class="input-group input-group-half">
                     <p class="label-text" data-tooltip="Quel sera le PER raisonnable de l'action dans 5 ans ?">PER DE SORTIE</p>
                     <input type="number" id="dcf-pe" class="calc-input" placeholder="Ex: 20">
                 </div>
-            </div>
-            
-            <div class="input-container input-container-center">
-                 <div class="input-group input-group-half">
+                <div class="input-group input-group-half">
                     <p class="label-text" data-tooltip="Quel rendement annuel minimum exigez-vous ? (souvent 10% ou 12%)">TAUX D'ACTUALISATION (%)</p>
                     <input type="number" id="dcf-discount" class="calc-input" placeholder="Ex: 10">
                 </div>
@@ -271,24 +284,24 @@
         <div class="section section-pru"> 
             <h3 class="calculator-section">VOTRE POSITION</h3>
             <div class="input-container">
-                <div class="input-group">
-                    <p class="label-text">ACTIONS DÉJÀ DÉTENUES</p>
+                <div class="input-group input-group-half">
+                    <p class="label-text" data-tooltip="Le nombre total d'actions que vous possédez actuellement.">ACTIONS DÉJÀ DÉTENUES</p>
                     <input type="number" id="pru-owned-shares" class="calc-input" placeholder="Ex: 10" min="0">
                 </div>
-                <div class="input-group">
-                    <p class="label-text">PRIX D'ACHAT MOYEN (€/$)</p>
+                <div class="input-group input-group-half">
+                    <p class="label-text" data-tooltip="Votre PRU actuel (Prix de Revient Unitaire). À quel prix moyen avez-vous acheté ces actions ?">PRIX D'ACHAT MOYEN (€/$)</p>
                     <input type="number" id="pru-avg-price" class="calc-input" placeholder="Ex: 150" step="0.01">
                 </div>
             </div>
             
             <h3 class="calculator-section spacer-top">NOUVEL ACHAT</h3>
             <div class="input-container">
-                <div class="input-group">
-                    <p class="label-text">ACTIONS À ACHETER</p>
+                <div class="input-group input-group-half">
+                    <p class="label-text" data-tooltip="Combien d'actions comptez-vous acheter aujourd'hui ?">ACTIONS À ACHETER</p>
                     <input type="number" id="pru-new-shares" class="calc-input" placeholder="Ex: 5" min="0">
                 </div>
-                <div class="input-group">
-                    <p class="label-text">PRIX ACTUEL (€/$)</p>
+                <div class="input-group input-group-half">
+                    <p class="label-text" data-tooltip="Le prix de l'action en ce moment sur le marché.">PRIX ACTUEL (€/$)</p>
                     <input type="number" id="pru-current-price" class="calc-input" placeholder="Ex: 130" step="0.01">
                 </div>
             </div>
@@ -698,13 +711,14 @@
 
 
     // ==========================================
-    //       SCRIPT INTÉRÊTS COMPOSÉS (NOUVEAU)
+    //       SCRIPT INTÉRÊTS COMPOSÉS (MIS À JOUR)
     // ==========================================
     
     let compoundChartInstance = null;
 
     document.getElementById('btn-compound-calc').addEventListener('click', function() {
         // 1. Récupération des valeurs
+        const initialCapital = parseFloat(document.getElementById('compound-initial').value) || 0; // Nouveau champ
         const annualDeposit = parseFloat(document.getElementById('compound-deposit').value) || 0;
         const years = parseFloat(document.getElementById('compound-years').value) || 0;
         const rate = parseFloat(document.getElementById('compound-rate').value) || 0;
@@ -715,18 +729,20 @@
         }
 
         // 2. Calculs et préparation des données pour le graphique
-        const labels = [];
-        const dataTotal = [];
-        const dataInvested = [];
+        const labels = ['Départ']; // On commence à l'année 0
+        const dataTotal = [initialCapital];
+        const dataInvested = [initialCapital];
         
-        let currentTotal = 0;
-        let totalInvested = 0;
+        let currentTotal = initialCapital;
+        let totalInvested = initialCapital;
 
         for (let i = 1; i <= years; i++) {
-            // On ajoute l'argent au début de l'année (hypothèse simplifiée)
+            // On considère que le dépôt annuel se fait en début/milieu d'année pour le calcul simple
+            // Nouveau Total = (Ancien Total + Dépôt de l'année) * (1 + Taux)
+            
             totalInvested += annualDeposit;
             
-            // On calcule les intérêts sur (Capital précédent + Nouveau dépôt)
+            // Calcul des intérêts composés sur le tout
             currentTotal = (currentTotal + annualDeposit) * (1 + (rate / 100));
             
             labels.push(`Année ${i}`);
@@ -750,7 +766,7 @@
         const ctx = document.getElementById('compoundChart').getContext('2d');
 
         if (compoundChartInstance) {
-            compoundChartInstance.destroy(); // On détruit l'ancien pour recréer proprement
+            compoundChartInstance.destroy();
         }
 
         compoundChartInstance = new Chart(ctx, {
@@ -772,7 +788,7 @@
                         data: dataTotal,
                         borderColor: 'rgba(46, 204, 113, 1)',
                         backgroundColor: 'rgba(46, 204, 113, 0.2)', // Vert
-                        fill: true, // Remplit l'espace sous la courbe
+                        fill: true,
                         pointRadius: 0,
                         borderWidth: 2
                     }
@@ -788,7 +804,7 @@
                 plugins: {
                     title: {
                         display: true,
-                        text: 'Croissance de votre portefeuille',
+                        text: 'Trajectoire de votre Patrimoine',
                         font: { size: 16 }
                     },
                     tooltip: {
@@ -799,7 +815,7 @@
                                     label += ': ';
                                 }
                                 if (context.parsed.y !== null) {
-                                    label += new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(context.parsed.y);
+                                    label += new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(context.parsed.y);
                                 }
                                 return label;
                             }
