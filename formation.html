@@ -1226,7 +1226,155 @@
             <button class="accordion-sub">3.2. La taille compte : La Capitalisation Boursière 🐳</button>
             <div class="panel-sub">
                 <div class="course-content">
-                    <p>Contenu à venir...</p>
+                    <p>Nous l'avons effleuré précédemment avec l'analogie de la pizza, mais il est temps de graver ce concept dans le marbre : <strong>Le prix unitaire d'une action est une illusion d'optique.</strong></p>
+                    <p>Dire qu'une action à 1000€ est "chère" par rapport à une action à 10€ est aussi absurde que de dire qu'une maison à 500 000€ est plus chère qu'un studio à 100 000€ sans regarder la surface. Ce qui compte, c'est la valeur totale de l'entreprise, sa <strong>Capitalisation Boursière</strong> (Market Cap).</p>
+
+                    <div class="formula-box" style="background-color: #f8f9fa; border-left: 4px solid #2c3e50; padding: 15px; margin: 20px 0;">
+                        <strong>🧮 La Formule de la Capitalisation Boursière</strong><br>
+                        <p style="margin-top:5px; margin-bottom:0;">
+                            Capitalisation = <strong>Prix de l'action</strong> × <strong>Nombre total d'actions en circulation</strong>
+                        </p>
+                        <p style="font-size: 0.9em; color: #666; margin-top:5px;">
+                            <em>Exemple : Si l'entreprise A a 1 million d'actions à 10€, elle vaut 10 millions.<br>
+                            Si l'entreprise B a 10 000 actions à 500€, elle vaut... 5 millions. L'action B est plus "chère" à l'unité, mais l'entreprise est deux fois plus petite !</em>
+                        </p>
+                    </div>
+
+                    <p>Mais pourquoi la taille est-elle si importante ? Parce qu'elle détermine la <strong>personnalité</strong> et le <strong>comportement</strong> de l'action sur les marchés. On ne conduit pas un scooter comme on conduit un camion 38 tonnes. De la même manière, une petite entreprise ne réagit pas aux crises comme un géant mondial.</p>
+                    
+                    <p>Pour vous repérer dans cette jungle, les investisseurs classent les entreprises en catégories de poids, comme à la boxe. Comprendre ces catégories vous permet de savoir quel risque vous prenez réellement.</p>
+
+                    <h4>1. L'Échelle de la Capitalisation (Le Bestiaire Boursier) 📏</h4>
+                    <p>Voici les classifications standard (basées sur le marché américain, qui fait référence mondiale). Notez que ces frontières sont floues et bougent avec l'inflation.</p>
+
+                    <div class="img-container">
+                        <img src="media/Formation/market-cap.jpg" 
+                            alt="Échelle des capitalisations boursières" 
+                            class="img-course clickable-image"
+                            onclick="openViewer(this.src)"> 
+                        <p class="img-legend">Du Jet-Ski (Small Cap) au Paquebot (Mega Cap) : le comportement en mer agitée n'est pas le même.</p>
+                    </div>
+
+                    <h5 style="color: #c0392b;">🔴 Zone Rouge : Les "Nano Caps" et "Penny Stocks" (< 50M$)</h5>
+                    <p>Ce sont les liliputiens de la Bourse. Souvent cotées quelques centimes (d'où le nom "Penny Stock"), elles attirent les débutants comme des aimants à cause de leur prix unitaire très bas.</p>
+                    <ul>
+                        <li><strong>Le profil :</strong> Entreprises au bord de la faillite, projets miniers hypothétiques au fond de l'Alaska, ou arnaques pures.</li>
+                        <li><strong>L'attrait (Le piège) :</strong> La promesse marketing de faire x100 en deux jours. "Si l'action passe de 0,10€ à 0,20€, je double ma mise !".</li>
+                        <li><strong>La réalité :</strong> C'est le terrain de jeu du "Loup de Wall Street". Le risque majeur est le <strong>manque de liquidité</strong> : le jour où vous voulez vendre, il n'y a souvent personne en face pour acheter. Vous êtes piégé avec vos titres invendables.</li>
+                        <li><strong>Avis Quality :</strong> ⛔ <strong>À fuir absolument.</strong> Ce n'est pas de l'investissement, c'est du casino truqué.</li>
+                    </ul>
+
+                    <h5 style="color: #e67e22;">🟠 Zone Volatile : Les "Micro" et "Small Caps" (50M$ - 2 Milliards $)</h5>
+                    <p>Ici, nous entrons dans le domaine des entreprises réelles et respectables, mais encore fragiles. Ce sont souvent des start-ups récemment cotées, des biotechs qui cherchent un médicament révolutionnaire, ou des PME locales performantes.</p>
+                    <ul>
+                        <li>✅ <strong>Avantages :</strong> Potentiel de croissance explosif. Il est mathématiquement plus facile pour une entreprise de passer de 100 millions à 200 millions de chiffre d'affaires, que pour Apple de passer de 300 milliards à 600 milliards. Ce sont les géants de demain.</li>
+                        <li>❌ <strong>Défauts :</strong> 
+                            <ul>
+                                <li><strong>Volatilité extrême :</strong> Une mauvaise nouvelle peut faire chuter le cours de -40% en une heure.</li>
+                                <li><strong>Fragilité :</strong> Elles ont moins de trésorerie pour survivre si une crise économique dure 2 ans.</li>
+                                <li><strong>Manque d'analyse :</strong> Peu d'analystes les suivent, les informations sont parfois plus dures à trouver (ce qui peut être une opportunité pour celui qui sait chercher !).</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h5 style="color: #f1c40f;">🟡 Zone d'Équilibre : Les "Mid Caps" (2 Mds $ - 10 Mds $)</h5>
+                    <p>C'est souvent le "Sweet Spot" (le point idéal) pour beaucoup d'investisseurs actifs. L'entreprise a survécu à sa phase de démarrage "à risque", son business model est prouvé, elle est rentable, mais elle n'a pas encore saturé son marché.</p>
+                    <ul>
+                        <li>✅ <strong>Avantages :</strong> Le meilleur des deux mondes. Elles offrent une sécurité bien supérieure aux Small Caps, tout en gardant une agilité que les géants ont perdue.</li>
+                        <li>🎯 <strong>Bonus Spécial (Cible OPA) :</strong> Ce sont les cibles privilégiées des Offres Publiques d'Achat. Si un gros concurrent veut grandir, il rachète souvent une Mid Cap. Pour l'actionnaire, cela signifie souvent une prime immédiate de +30% ou +40% en une nuit lors de l'annonce du rachat.</li>
+                    </ul>
+
+                    <h5 style="color: #27ae60;">🟢 Zone de Confort : Les "Large Caps" (10 Mds $ - 200 Mds $)</h5>
+                    <p>On entre dans la cour des grands. Ce sont des multinationales bien établies, souvent leaders dans leur secteur ou leur pays (ex: Danone, Michelin, Adidas, Air Liquide...).</p>
+                    <ul>
+                        <li>✅ <strong>Avantages :</strong> Sécurité, stabilité et visibilité. Elles ont les reins solides (trésorerie) pour traverser les guerres et les récessions sans faire faillite. Ce sont souvent d'excellentes payeuses de dividendes réguliers.</li>
+                        <li>❌ <strong>Défauts :</strong> Croissance plus molle. C'est la <strong>Loi des Grands Nombres</strong> : quand vous êtes déjà présent dans 150 pays, il est difficile de trouver de nouveaux relais de croissance explosifs.</li>
+                    </ul>
+
+                    <h5 style="color: #2980b9;">🔵 Zone des Titans : Les "Mega Caps" (> 200 Milliards $)</h5>
+                    <p>L'élite mondiale. Le club très fermé des entreprises qui sont plus riches que la majorité des pays de la planète. On y trouve les GAFAM (Apple, Microsoft, Google, Amazon) ou des géants comme LVMH, Saudi Aramco ou Visa.</p>
+                    <ul>
+                        <li>✅ <strong>La Force Institutionnelle :</strong> Elles sont tellement grosses que tous les fonds de pension et tous les ETF du monde sont <em>obligés</em> d'en acheter, ce qui soutient leur prix. Elles ont des "Douves" (avantages concurrentiels) immenses et des montagnes de cash.</li>
+                        <li>❌ <strong>L'Efficience :</strong> Tout le monde les connaît. Elles sont analysées par 5000 experts chaque minute. Il est quasi impossible de trouver une "affaire cachée" ou une erreur de prix massive sur ces dossiers. Le marché est très efficient ici.</li>
+                    </ul>
+
+                    <h4>Une nuance technique capitale : Le "Flottant" (Free Float) 🧊</h4>
+                    <p>Si vous voulez passer de débutant à investisseur aguerri, vous devez comprendre cette subtilité. La Capitalisation Boursière que nous venons de voir est un chiffre <strong>théorique</strong>.</p>
+                    <p>Dans la réalité, toutes les actions d'une entreprise ne sont pas à vendre. Il faut distinguer :</p>
+                    <ul>
+                        <li><strong>La Capitalisation Totale :</strong> La valeur de 100% des actions existantes.</li>
+                        <li><strong>Le Flottant (Free Float) :</strong> La valeur des actions qui sont <em>réellement</em> en circulation sur le marché et que vous et moi pouvons acheter.</li>
+                    </ul>
+                    
+                    <p><strong>Pourquoi est-ce important pour la stratégie Quality ?</strong></p>
+                    <p>Beaucoup d'entreprises européennes d'excellence sont des entreprises <strong>familiales</strong> (Hermès, L'Oréal, LVMH, BMW...). Souvent, la famille fondatrice verrouille une énorme partie du capital (50%, 60% ou 70%) dans un coffre-fort pour garder le contrôle. Ces actions ne sont jamais vendues.</p>
+                    
+                    <div class="quote-box">
+                        <strong>L'Exemple Hermès (RMS) 👜</strong><br>
+                        <p>La famille Hermès détient environ <strong>67%</strong> des actions. Cela signifie que le "Flottant" (ce qu'il reste pour le public) n'est que de <strong>33%</strong>.<br>
+                        Cela crée une <strong>pénurie artificielle</strong>. Il y a très peu d'actions disponibles pour énormément d'acheteurs (fonds, particuliers) qui veulent ce titre de qualité. <br>
+                        <strong>Résultat économique :</strong> Quand la demande est forte et l'offre est faible (rareté), le prix explose. C'est l'une des raisons pour lesquelles Hermès a une valorisation si élevée.</p>
+                    </div>
+
+                    <p>Attention cependant : un "faible flottant" signifie aussi une plus grande volatilité. S'il y a peu d'actions en circulation, un gros ordre d'achat ou de vente aura beaucoup plus d'impact sur le cours.</p>
+
+                    <h4>2. Pourquoi la volatilité dépend de la taille ? (L'analogie de la Baignoire) 🛁</h4>
+                    <p>Pour comprendre pourquoi les petites actions bougent plus violemment que les grosses, imaginez ceci :</p>
+                    <ul>
+                        <li><strong>Small Cap (La Baignoire) :</strong> Si vous jetez un pavé dans une baignoire pleine, vous allez créer des vagues énormes qui vont faire déborder l'eau. Un seul gros ordre d'achat ou de vente peut faire varier le cours de 10%.</li>
+                        <li><strong>Mega Cap (L'Océan) :</strong> Si vous jetez le même pavé dans l'Atlantique, il ne se passera rien. Pour faire bouger le cours d'Apple de 5%, il faut des milliards de dollars d'échanges. Il y a une telle <strong>liquidité</strong> (profondeur de marché) que le prix est très stable.</li>
+                    </ul>
+
+                    <h4>3. Le piège de la Géographie : France vs USA 🌍</h4>
+                    <p>Attention à ne pas comparer des pommes et des oranges ! Les échelles ci-dessus sont les standards américains (Wall Street). Or, la Bourse Américaine est titanesque comparée à l'Europe. Ce qui est considéré comme "Gros" à Paris est parfois à peine "Moyen" à New York.</p>
+                    
+                    <div class="quote-box">
+                        <strong>L'Effet d'Échelle 🇺🇸 vs 🇫🇷</strong><br>
+                        <p>Prenons un exemple concret pour illustrer la démesure américaine :</p>
+                        <ul>
+                            <li><strong>🇺🇸 Apple (USA) :</strong> Pèse environ <strong>3 000 Milliards $</strong>.</li>
+                            <li><strong>🇫🇷 TotalEnergies (France) :</strong> Pèse environ <strong>160 Milliards $</strong>.</li>
+                        </ul>
+                        <p>En France, Total est un mastodonte absolu, un pilier du CAC 40. Mais à l'échelle américaine, Total est une "Large Cap" classique, presque <strong>20 fois plus petite</strong> qu'Apple !<br>
+                        Quand vous investissez, gardez toujours en tête le référentiel du pays pour juger de la solidité réelle.</p>
+                    </div>
+
+                    <h4>4. La Biologie des Actions : Le Cycle de Vie 🌱➡️🌳</h4>
+                    <p>Il ne faut jamais oublier que la taille n'est pas figée. Les entreprises sont comme des organismes vivants : elles naissent, grandissent, maturent et parfois meurent.</p>
+                    <p>Peter Lynch, l'un des plus grands gérants de fonds de l'histoire, classait les entreprises selon leur stade de maturité :</p>
+
+                    <ul>
+                        <li><strong>L'Enfance (Small Cap / Fast Growers) :</strong> C'est la phase de croissance violente. L'entreprise réinvestit chaque euro gagné pour grandir. Elle ne verse aucun dividende. Le risque est maximal, mais si elle survit, elle peut faire x10 ou x50. <br><em>Exemple : Amazon en 1998.</em></li>
+                        <li><strong>L'Adulte (Mid/Large Cap / Stalwarts) :</strong> L'entreprise est solide. Elle continue de croître (10-15% par an) mais commence à se structurer. C'est souvent ici que se fait le meilleur équilibre risque/récompense.</li>
+                        <li><strong>La Maturité (Mega Cap / Slow Growers) :</strong> L'entreprise a saturé son marché (tout le monde a déjà un iPhone ou boit du Coca-Cola). Elle ne peut plus doubler de taille facilement. Alors, que fait-elle de son argent ? Elle le rend aux actionnaires sous forme de <strong>dividendes</strong>. Elle devient une "Vache à Lait".</li>
+                    </ul>
+
+                    <h4>5. Quelle taille choisir pour la stratégie Quality ? 💎</h4>
+                    <p>La beauté de la stratégie Quality, c'est qu'elle est agnostique. Nous ne discriminons pas par la taille, mais par l'excellence.</p>
+                    <p>Cependant, soyons réalistes. Une entreprise "Quality" doit avoir par définition :</p>
+                    <ol>
+                        <li>Un avantage concurrentiel durable (Moat) impossible à copier.</li>
+                        <li>Une rentabilité élevée et prévisible sur des années.</li>
+                        <li>Un bilan financier en béton armé.</li>
+                    </ol>
+                    <p>Ces caractéristiques se trouvent <strong>statistiquement beaucoup plus souvent chez les Large et Mega Caps</strong>. Pourquoi ? Parce que pour devenir "Gros", une entreprise a dû prouver son succès sur des décennies. Elle a survécu aux guerres, aux crises technologiques et aux pandémies. Elle a déjà gagné sa place au soleil.</p>
+                    
+                    <p><strong>Notre approche pragmatique :</strong></p>
+                    <ul>
+                        <li>Nous construisons le <strong>cœur du portefeuille</strong> avec des <strong>Large/Mega Caps</strong> leaders pour assurer la sécurité et la performance stable.</li>
+                        <li>Nous chassons les opportunités dans les <strong>Mid Caps</strong> si nous trouvons une pépite exceptionnelle qui domine une niche spécifique et qui a le potentiel de devenir un géant.</li>
+                        <li>Nous évitons généralement les <strong>Small/Micro Caps</strong>. Le risque de voir le capital disparaître y est trop élevé pour une stratégie patrimoniale sereine "Bon père de famille". Nous laissons ce terrain aux spéculateurs.</li>
+                    </ul>
+
+                    <div class="conclusion-box">
+                        <h5 class="conclusion-title">🔑 Ce qu'il faut retenir</h5>
+                        <p class="conclusion-text">
+                            La taille n'est pas qu'un chiffre, c'est un indicateur de comportement. <br>
+                            🔹 <strong>Petit (Small)</strong> = Le Speedboat. Rapide, agile, capable de demi-tours fulgurants, mais peut chavirer à la moindre vague.<br>
+                            🔹 <strong>Gros (Large/Mega)</strong> = Le Paquebot. Lent à manœuvrer, croissance plus modérée, mais capable de traverser les tempêtes sans trembler.<br>
+                            En tant qu'investisseur Quality, nous préférons généralement la solidité du paquebot, quitte à sacrifier un peu de vitesse.
+                        </p>
+                    </div>
                 </div>
             </div>
 
@@ -1243,7 +1391,6 @@
             <div class="panel-sub">
                 <div class="course-content">
                     <p>Contenu à venir...</p>
-                    expliquer ce que c'est :
                     <!-- erreur de débutant : vouloir diversifier en investissant dans tout les secteurs, c'est cool on a un graphique en donut avec la répartition de nos secteurs
                     La réalité : les mauvais secteurs tirent vers le bas notre portefeuille, freinant la performance global de celui-ci qui est tiré par les bonnes actions de bons secteurs.
                     tout les secteurs ne se valent pas !
