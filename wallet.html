@@ -629,7 +629,7 @@ var totalInvested = 16500; // montant total investi
 var totalInvestedCell = document.getElementById("invested");
 totalInvestedCell.textContent = totalInvested;
 
-var CashOnHand = 384.25; // cash disponible
+var CashOnHand = 384.36; // cash disponible
 var cashCell = document.getElementById("cash");
 cashCell.textContent = CashOnHand.toFixed(2);
 
@@ -3273,7 +3273,7 @@ async function main() {
     var tempInvested = 10100;
     tempReturnEuro = parseFloat((totalWallet - (tempInvested + tempStartYear)).toFixed(2));
     tempReturnPercent = parseFloat(((tempReturnEuro / (tempInvested + tempStartYear)) * 100).toFixed(2));
-    var tempDividendReceived = 73.51;
+    var tempDividendReceived = 73.62;
 
     annualReturnEuro.push(tempReturnEuro);
     annualReturnPercent.push(tempReturnPercent);

@@ -1252,7 +1252,7 @@
                             alt="Échelle des capitalisations boursières" 
                             class="img-course clickable-image"
                             onclick="openViewer(this.src)"> 
-                        <p class="img-legend">Du Jet-Ski (Small Cap) au Paquebot (Mega Cap) : le comportement en mer agitée n'est pas le même.</p>
+                        <p class="img-legend">L'échelle des tailles : Du plancton (Nano Cap) à la Baleine (Mega Cap)</p>
                     </div>
 
                     <h5 style="color: #c0392b;">🔴 Zone Rouge : Les "Nano Caps" et "Penny Stocks" (< 50M$)</h5>
@@ -1381,22 +1381,200 @@
             <button class="accordion-sub">3.3. Les Types d'Ordres 🛒</button>
             <div class="panel-sub">
                 <div class="course-content">
-                    <p>Contenu à venir...</p>
+                    <p>Lorsque vous cliquez sur le bouton "Acheter" ou "Vendre" chez votre courtier, vous ne parlez pas directement à un humain. Vous envoyez une instruction électronique au marché. Cette instruction s'appelle un <strong>Type d'Ordre</strong>.</p>
+                    <p>Il n'y a pas de mauvais type d'ordre. Chacun répond à un besoin spécifique selon votre priorité du moment : voulez-vous privilégier la <strong>rapidité</strong> d'exécution (être sûr d'avoir l'action) ou la <strong>précision</strong> du prix (être sûr de ne pas payer trop cher) ?</p>
+
+                    <h4>1. L'Ordre au Marché (Priorité : Vitesse) 🚀</h4>
+                    <p>C'est l'ordre le plus intuitif et le plus utilisé par les investisseurs particuliers, surtout sur les grandes entreprises.</p>
+                    <p>Le principe est simple : vous demandez au courtier d'acheter ou de vendre une quantité d'actions <strong>immédiatement</strong>, au meilleur prix disponible à la seconde où vous cliquez. C'est l'équivalent d'aller au marché et de dire au vendeur : <em>"Donnez-moi 10 pommes au prix affiché actuellement, je suis pressé."</em></p>
+                    <p><strong>Quand l'utiliser ?</strong><br>
+                    C'est l'ordre idéal pour les actions à <strong>haute liquidité</strong> (comme LVMH, Apple, TotalEnergies, Microsoft). Sur ces géants, il y a tellement d'échanges chaque seconde que le prix est très stable. Si vous voyez le cours à 150,00€ et que vous passez un ordre au marché, vous serez probablement exécuté à 150,00€ ou 150,01€. L'écart est négligeable et l'exécution est garantie.</p>
+
+                    <h4>2. L'Ordre à Cours Limité (Priorité : Prix) 🎯</h4>
+                    <p>Avec cet ordre, vous reprenez le contrôle total. Vous fixez une limite que le marché ne doit pas franchir.</p>
+                    <p>Concrètement, vous dites au système : <em>"Je veux acheter cette action, mais je refuse de payer plus de X euros"</em>. Si l'action cotée à 100€ vous intéresse, mais que vous ne voulez mettre que 99€, vous placez un ordre limité à 99€. Votre ordre va alors attendre sagement dans le carnet d'ordres.</p>
+                    <ul>
+                        <li>Si le prix descend à 99€ : Votre ordre est exécuté.</li>
+                        <li>Si le prix reste à 100€ ou monte : Votre ordre ne sera jamais exécuté et vous n'aurez pas les actions.</li>
+                    </ul>
+                    <p><strong>Quand l'utiliser ?</strong><br>
+                    C'est utile pour les actions plus petites (Small Caps) où le prix peut varier brutalement, ou simplement si vous êtes discipliné et que vous visez un prix d'entrée précis lors d'une baisse de marché.</p>
+
+                    <h4>3. L'Ordre à Seuil de Déclenchement "Stop Loss" (Le Parachute) 🪂</h4>
+                    <p>Ici, nous entrons dans les ordres de protection (ou de tendance). On l'appelle souvent "Stop Loss" (Arrêt des pertes), car il sert historiquement à limiter la casse si une action s'effondre.</p>
+                    <p>C'est un ordre "dormant". Il reste inactif tant que le prix n'atteint pas un certain seuil que vous avez fixé (le "Trigger").</p>
+                    
+                    <p><strong>Mécanique :</strong> Vous possédez une action à 100€. Vous avez peur d'un krach. Vous placez un ordre à seuil de déclenchement (vente) à 90€.
+                    <br>Tant que l'action vaut 91€ ou plus, rien ne se passe. Mais si le prix touche 90€, votre ordre se réveille et se transforme instantanément en <strong>Ordre au Marché</strong>. Le système vendra vos titres au prix actuel pour vous faire sortir.</p>
+                    <p>⚠️ <em>Attention : Comme il devient un ordre "au marché", si le cours s'effondre très vite, vous pourriez être vendu un peu plus bas que 90€ (ex: 89,50€).</em></p>
+
+                    <h4>4. L'Ordre à Plage de Déclenchement "Stop Limit" (Le Parachute Contrôlé) ⚙️</h4>
+                    <p>C'est une version plus chirurgicale du précédent, souvent utilisée par les traders ou les investisseurs très pointilleux.</p>
+                    <p>Au lieu de définir un seul prix, vous en définissez deux :</p>
+                    <ol>
+                        <li><strong>Le Seuil (Trigger) :</strong> Le prix qui déclenche l'alarme (ex: 90€).</li>
+                        <li><strong>La Limite :</strong> Le prix minimum absolu auquel vous acceptez de vendre (ex: 88€).</li>
+                    </ol>
+                    <p><strong>Le Scénario :</strong> L'action tombe à 90€. L'ordre se déclenche. Le système essaie de vendre. Mais contrairement au Stop Loss classique, il a une interdiction formelle de vendre en dessous de 88€. </p>
+                    <p>Cela évite de vendre à un prix ridicule lors d'un "flash crash" momentané. Le risque, c'est que si l'action passe directement de 91€ à 80€ (ce qu'on appelle un Gap), votre ordre ne passera pas et vous garderez vos actions en pleine chute.</p>
+
+                    <div class="conclusion-box">
+                        <h5 class="conclusion-title">🔑 Ce qu'il faut retenir</h5>
+                        <p class="conclusion-text">
+                            🔹 <strong>Pour investir sereinement sur des grosses boîtes (Quality) :</strong> L'Ordre au Marché est rapide et efficace. L'Ordre Limité est parfait si vous voulez chipoter sur le prix.<br>
+                            🔹 <strong>Pour protéger son capital :</strong> L'Ordre à Seuil de Déclenchement (Stop Loss) est votre filet de sécurité automatique.<br>
+                            Ne vous compliquez pas trop la vie : 95% de vos ordres seront probablement des ordres "Limités" ou "Au Marché".
+                        </p>
+                    </div>
                 </div>
             </div>
 
 
 
-            <button class="accordion-sub">3.4. Les différents Secteurs en Bourse 🍩</button>
+            <button class="accordion-sub">3.4. Les différents Secteurs en Bourse 🏭</button>
             <div class="panel-sub">
                 <div class="course-content">
-                    <p>Contenu à venir...</p>
-                    <!-- erreur de débutant : vouloir diversifier en investissant dans tout les secteurs, c'est cool on a un graphique en donut avec la répartition de nos secteurs
-                    La réalité : les mauvais secteurs tirent vers le bas notre portefeuille, freinant la performance global de celui-ci qui est tiré par les bonnes actions de bons secteurs.
-                    tout les secteurs ne se valent pas !
-                    délaisser les secteurs pourris et ne se concentrer que sur les secteurs les plus intéressants : marges, profits, innovation,...
-                    attention il peut y avoir des exceptions, mais en général il y a plus de belles boites dans la technologie que dans l'industrie (investissements massifs, couts énormes,...)
-                    certains secteurs sont à éviter totalement (bancaires,aviations, automobiles) -->
+                    <p>Avant de choisir des actions, il faut comprendre comment le marché est organisé. Imaginez la Bourse comme une immense ville. Dans cette ville, vous ne trouverez pas une boulangerie à côté d'une usine nucléaire. Tout est organisé par "quartiers". Ces quartiers, ce sont les <strong>Secteurs</strong>.</p>
+
+                    <h4>1. Qu'est-ce qu'un Secteur boursier ? 🌍</h4>
+                    <p>Un secteur est un regroupement d'entreprises partageant la même activité économique principale. Cette classification est standardisée au niveau mondial (la norme la plus connue est le GICS). C'est crucial à comprendre car les actions d'un même secteur ont tendance à bouger ensemble par mimétisme. Si une nouvelle tombe sur le prix du pétrole, tout le secteur énergie bougera, peu importe la qualité individuelle des entreprises. C'est la marée qui soulève ou baisse tous les bateaux.</p>
+
+                    <h4>2. Le Tour d'Horizon : Les 11 Grands Secteurs 🔭</h4>
+                    <p>Pour être un investisseur complet, vous devez savoir identifier dans quelle catégorie joue votre entreprise, car chaque secteur a ses propres règles du jeu. Voici les 11 piliers de l'économie :</p>
+                    
+                    <div class="img-container">
+                        <img src="media/Formation/11-sectors.png" 
+                            alt="11 Secteurs Boursiers" 
+                            class="img-course clickable-image"
+                            onclick="openViewer(this.src)"> 
+                        <p class="img-legend">Les 11 grands quartiers de l'économie (Classification GICS)</p>
+                    </div>
+
+                    <h5 style="color: #2c3e50;">💻 1. La Technologie (Information Technology)</h5>
+                    <p>C'est le véritable moteur de l'économie moderne et le secteur favori des investisseurs en quête de croissance. Il regroupe une immense variété d'acteurs, allant des fabricants de semi-conducteurs (les "pelles et pioches" de l'ère numérique) aux éditeurs de logiciels ultra-rentables, en passant par le matériel électronique. C'est un domaine caractérisé par une innovation constante, des marges souvent très élevées et une capacité unique à grandir rapidement (scalabilité), bien qu'il soit souvent plus volatil lorsque les taux d'intérêt augmentent.<br>
+                    <em>Exemples : Microsoft, Apple, Nvidia, Accenture.</em></p>
+
+                    <h5 style="color: #2c3e50;">💊 2. La Santé (Health Care)</h5>
+                    <p>Ce secteur est unique car il réussit le tour de force d'être à la fois défensif et de croissance. Il englobe les géants pharmaceutiques qui vendent des médicaments vitaux, les biotechs à la pointe de la recherche génétique, mais aussi les fabricants d'équipements médicaux de haute précision. Porté par une tendance lourde inarrêtable — le vieillissement de la population mondiale — ce secteur offre une résilience exceptionnelle, car peu importe l'état de l'économie ou l'inflation, les patients ne renoncent jamais à se soigner.<br>
+                    <em>Exemples : Novo Nordisk, Eli Lilly, Sanofi, Stryker.</em></p>
+
+                    <h5 style="color: #2c3e50;">🏦 3. La Finance (Financials)</h5>
+                    <p>Considéré comme le système sanguin de l'économie, ce secteur est vaste et comprend les banques de détail, les banques d'investissement, les compagnies d'assurance et les gestionnaires d'actifs. Ces entreprises gagnent de l'argent en gérant les flux financiers, en prêtant des capitaux ou en assurant des risques. C'est un secteur très cyclique, étroitement lié à la santé économique globale et extrêmement sensible aux décisions des banques centrales, ce qui rend ses bilans comptables parfois opaques pour le particulier.<br>
+                    <em>Exemples : JPMorgan, BNP Paribas, AXA, BlackRock.</em></p>
+
+                    <h5 style="color: #2c3e50;">👜 4. La Consommation Discrétionnaire (Consumer Discretionary)</h5>
+                    <p>Ce secteur regroupe les entreprises vendant des biens et services "non essentiels", ou de plaisir. On y trouve un mélange hétéroclite allant de l'industrie automobile au luxe, en passant par l'hôtellerie, la restauration et le commerce de détail (e-commerce inclus). C'est le secteur cyclique par excellence : ses performances explosent en période de prospérité quand les ménages ont du pouvoir d'achat, mais ses revenus sont souvent les premiers à être coupés dès que la récession pointe le bout de son nez.<br>
+                    <em>Exemples : LVMH, Hermès, Tesla, Amazon, McDonald's.</em></p>
+
+                    <h5 style="color: #2c3e50;">🛒 5. La Consommation de Base (Consumer Staples)</h5>
+                    <p>À l'opposé du précédent, ce secteur rassemble les entreprises produisant les biens dont personne ne peut se passer au quotidien. Il s'agit des fabricants de nourriture, de boissons, de tabac, de produits d'hygiène ou ménagers. Ces sociétés sont considérées comme des "valeurs refuges" : elles offrent peu de croissance explosive, mais garantissent une stabilité des revenus et des dividendes très réguliers, car les consommateurs continueront d'acheter du dentifrice et des pâtes même si la bourse s'effondre.<br>
+                    <em>Exemples : Coca-Cola, Procter & Gamble, Nestlé, L'Oréal.</em></p>
+
+                    <h5 style="color: #2c3e50;">🏭 6. L'Industrie (Industrials)</h5>
+                    <p>C'est le secteur des "bâtisseurs" et des "transporteurs", regroupant la construction, l'aérospatial, la défense, le transport de marchandises (ferroviaire, maritime) et la fabrication de machines-outils complexes. Ces entreprises sont souvent très capitalistiques (elles nécessitent beaucoup d'usines et de matériel lourd) et fonctionnent comme un baromètre de l'économie réelle. Elles profitent massivement des plans de relance gouvernementaux, mais souffrent rapidement en cas de ralentissement de la production mondiale.<br>
+                    <em>Exemples : Schneider Electric, Airbus, Vinci, Union Pacific.</em></p>
+
+                    <h5 style="color: #2c3e50;">📡 7. Services de Communication (Communication Services)</h5>
+                    <p>Anciennement limité aux opérateurs téléphoniques classiques, ce secteur a muté pour devenir celui de l'attention et du divertissement numérique. Il inclut désormais les géants des réseaux sociaux, les plateformes de streaming, les médias traditionnels, les jeux vidéo et les fournisseurs d'accès internet. C'est un secteur hybride : les abonnements téléphoniques apportent une rente stable (côté défensif), tandis que la publicité en ligne et les nouveaux médias offrent un potentiel de croissance plus dynamique.<br>
+                    <em>Exemples : Alphabet (Google), Meta (Facebook), Orange, Netflix.</em></p>
+
+                    <h5 style="color: #2c3e50;">⚡ 8. L'Énergie (Energy)</h5>
+                    <p>Ce secteur concerne tout ce qui touche à l'exploration, la production, le transport et le raffinage des combustibles (pétrole, gaz, charbon) ainsi que, de plus en plus, les énergies renouvelables. La particularité majeure de ces entreprises est que leur rentabilité ne dépend pas seulement de leur talent de gestion, mais surtout du cours mondial des matières premières qu'elles ne contrôlent pas. C'est historiquement un secteur généreux en dividendes, mais soumis à des cycles d'expansion et de récession très violents.<br>
+                    <em>Exemples : TotalEnergies, Exxon Mobil, Chevron.</em></p>
+
+                    <h5 style="color: #2c3e50;">🧱 9. Les Matériaux (Materials)</h5>
+                    <p>Situé tout en amont de la chaîne de production, ce secteur fournit les "ingrédients" de base nécessaires à toute l'industrie mondiale. On y trouve les géants de la chimie, les producteurs de gaz industriels, les compagnies minières (or, cuivre, lithium) ou les fabricants d'emballages et de papier. Comme l'industrie, c'est un secteur purement cyclique : si la demande mondiale pour la construction ou la technologie ralentit, le prix de ces matériaux chute, impactant directement les bénéfices.<br>
+                    <em>Exemples : Air Liquide, Rio Tinto, Linde.</em></p>
+
+                    <h5 style="color: #2c3e50;">💡 10. Les Services aux Collectivités (Utilities)</h5>
+                    <p>Ce sont les entreprises qui gèrent les infrastructures vitales "invisibles" comme les réseaux d'eau, d'électricité, de gaz ou de traitement des déchets. Souvent en situation de monopole naturel et très régulées par l'État, ces sociétés ont des revenus ultra-prévisibles (vous payez vos factures tous les mois). Les investisseurs les utilisent souvent comme des alternatives aux obligations : on n'attend pas de croissance folle de leur part, mais un rendement de dividende élevé et sécurisé.<br>
+                    <em>Exemples : Veolia, Engie, NextEra Energy.</em></p>
+
+                    <h5 style="color: #2c3e50;">🏠 11. L'Immobilier (Real Estate)</h5>
+                    <p>Ce secteur permet d'investir dans la pierre-papier via des sociétés foncières cotées (appelées REITs ou SIIC). Ces entreprises possèdent, gèrent et louent des parcs immobiliers diversifiés : bureaux, centres commerciaux, entrepôts logistiques, data centers ou tours résidentielles. Elles ont l'obligation légale de reverser la majorité de leurs loyers sous forme de dividendes aux actionnaires. C'est un secteur de rendement, mais qui souffre mécaniquement lorsque les taux d'intérêt augmentent.<br>
+                    <em>Exemples : Unibail-Rodamco-Westfield, Realty Income.</em></p>
+
+                    
+                    <h4>3. Attention aux étiquettes trompeuses ! 🏷️</h4>
+                    <p>Il est crucial d'ajouter un bémol majeur à cette liste : <strong>la carte n'est pas le territoire</strong>.</p>
+                    <p>Ce système de classification est utile pour les statisticiens, mais il est souvent <strong>imparfait</strong> pour l'investisseur. L'économie moderne est fluide et les géants d'aujourd'hui sont des "pieuvres" qui touchent à tout. Les forcer à rentrer dans une seule case est souvent réducteur, voire totalement trompeur.</p>
+
+                    <div class="quote-box">
+                        <strong>L'effet "Caméléon" 🦎</strong><br>
+                        De nombreuses entreprises "Quality" sont à cheval sur plusieurs secteurs :
+                        <ul>
+                            <li><strong>Alphabet (Google) :</strong> Officiellement classé dans les <em>"Services de Communication"</em> (car il vit de la pub et de YouTube). Pourtant, c'est avant tout un leader mondial de la <strong>Technologie</strong> (Intelligence Artificielle, Cloud) et un acteur de la <strong>Finance</strong> (Google Pay).</li>
+                            <li><strong>Amazon :</strong> Classé dans la <em>"Consommation Discrétionnaire"</em> (car c'est un commerçant). Pourtant, la majorité de ses profits réels provient d'AWS (Amazon Web Services), qui est purement de la <strong>Technologie</strong> (Cloud Computing).</li>
+                            <li><strong>Visa & Mastercard :</strong> Classés dans la <em>"Finance"</em>, mais ils ne fonctionnent pas comme des banques (ils ne prêtent pas d'argent). Ce sont avant tout des réseaux technologiques de paiement (Fintech).</li>
+                        </ul>
+                    </div>
+
+                    <p><strong>Le conseil :</strong> Ne vous arrêtez jamais à l'étiquette sectorielle affichée par votre courtier. Regardez toujours comment l'entreprise gagne <em>réellement</em> son argent. Une entreprise peut être classée "Conso" sur le papier mais se comporter comme une "Tech" en bourse.</p>
+
+                    
+
+                    <h4>4. La Réalité du terrain : Pourquoi tous les secteurs ne se valent pas ! 🛑</h4>
+                    <p>C'est ici que nous allons nous séparer de la théorie académique pour entrer dans la pratique du Stock Picking gagnant.</p>
+                    <p>Si vous écoutez un banquier ou un conseiller financier classique, il vous montrera un joli graphique en forme de beignet ("Donut") et vous dira : <em>"Monsieur, pour limiter les risques, il faut être diversifié. Mettez 8% dans l'automobile, 8% dans les banques, 8% dans la tech..."</em></p>
+                    <p>C'est, à mes yeux, une erreur fondamentale pour celui qui veut battre le marché.</p>
+                    <p><strong>La vérité brute : Certains secteurs sont économiquement supérieurs à d'autres.</strong> C'est comme au Monopoly : il vaut mieux posséder la Rue de la Paix que la Rue de Courcelles. Certains business models sont des autoroutes vers la richesse, d'autres sont des chemins de croix.</p>
+
+                    <p>Détaillons pourquoi certains secteurs sont des pièges pour l'investisseur particulier :</p>
+
+                    <h5 style="color: #c0392b;">⛔ Les Secteurs "Difficiles" (Capital Intensive)</h5>
+                    <p>Ce sont des secteurs qui exigent des investissements (CAPEX) colossaux juste pour survivre.</p>
+                    <ul>
+                        <li><strong>L'Automobile :</strong> C'est une guerre des prix permanente. Les marges nettes dépassent rarement 5% ou 6%. Si vous n'investissez pas des milliards dans l'électrique, vous mourrez. C'est un business ingrat.</li>
+                        <li><strong>L'Aviation :</strong> Les compagnies aériennes font faillite régulièrement. Elles ne contrôlent ni le prix de leur carburant, ni le prix de leurs avions, ni les taxes d'aéroport. C'est un gouffre à cash.</li>
+                        <li><strong>Les Banques (Traditionnelles) :</strong> Leurs bilans sont des "boîtes noires" impossibles à analyser pour un particulier. Elles sont ultra-régulées et dépendantes des taux directeurs qu'elles ne contrôlent pas.</li>
+                    </ul>
+
+                    <h5 style="color: #27ae60;">💎 Les Secteurs "Quality" (Asset Light)</h5>
+                    <p>À l'inverse, nous allons concentrer notre portefeuille là où l'argent coule à flots avec moins d'efforts.</p>
+                    <ul>
+                        <li><strong>Le Luxe :</strong> LVMH ou Hermès ont ce qu'on appelle le <strong>Pricing Power</strong>. Ils peuvent augmenter leurs prix chaque année sans perdre de clients. C'est l'anti-crise.</li>
+                        <li><strong>La Technologie & Logiciels (SaaS) :</strong> Une fois le logiciel créé, chaque nouveau client est du pur profit. La scalabilité est infinie. C'est ici que se créent les "Multibaggers".</li>
+                        <li><strong>La Santé :</strong> La population mondiale vieillit. On ne sacrifie jamais sa santé, même en récession. C'est un secteur qui combine sécurité défensive et croissance.</li>
+                        <li><strong>Les Services Financiers de Niche :</strong> Pas les banques, mais les réseaux de paiement (Visa/Mastercard) ou les agences de notation (S&P Global). Ils prennent une commission sur chaque transaction mondiale sans prendre de risque.</li>
+                    </ul>
+
+                    <h4>5. Le Mythe de la Diversification Sectorielle 🧩</h4>
+                    <p>On vous répète qu'il faut acheter un peu de tout pour être "en sécurité". Mais posez-vous la question :</p>
+                    <p>Est-ce qu'acheter une action LVMH, c'est mettre tous ses œufs dans le même panier ? <strong>Non.</strong></p>
+                    <p>Une entreprise "Quality" est déjà diversifiée par nature :</p>
+                    <ul>
+                        <li><strong>Géographiquement :</strong> Elle vend en Chine, aux USA, en Europe et en Amérique du Sud. Si l'Europe va mal, les USA compensent.</li>
+                        <li><strong>Par Segments :</strong> LVMH vend du Champagne, des Montres, de la Mode, des Parfums et de l'Hôtellerie, on entend souvent dire que c'est un ETF luxe à lui tout seul. Microsoft vend du Cloud, des jeux vidéo (Xbox), des logiciels (Office) et de la pub (LinkedIn).</li>
+                    </ul>
+
+                    <div class="quote-box">
+                        <strong>La citation à retenir 💬</strong><br>
+                        <em>"La diversification est une protection contre l'ignorance. Elle a peu de sens pour ceux qui savent ce qu'ils font."</em><br>
+                        — <strong>Warren Buffett</strong>
+                    </div>
+
+                    <p><strong>Ne faites pas de la "Diworsification" :</strong></p>
+                    <p>Ce terme inventé par Peter Lynch désigne le fait de détériorer (worse) son portefeuille en voulant trop le diversifier. <br>
+                    Ne vous forcez <strong>jamais</strong> à acheter une action médiocre juste pour "remplir une case" Excel (ex: "Il me faut absolument de l'énergie").</p>
+                    <p>Si vous trouvez 5 entreprises incroyables dans la Technologie et aucune dans l'Industrie, alors construisez un portefeuille 100% Tech. C'est peut-être plus volatil à court terme, mais c'est bien moins risqué à long terme que d'acheter des mauvaises entreprises pour faire plaisir aux statistiques.</p>
+                    <p>Nous achetons de la <strong>Qualité</strong>, pas des étiquettes de secteurs.</p>
+
+                    <h4>5. Nuance importante : L'esprit ouvert, mais critique 🧐</h4>
+                    <p>Attention, ne soyez pas sectaires ! Dire que certains secteurs sont "difficiles" ne signifie pas qu'ils sont <em>interdits</em> ou qu'il faut les exclure aveuglément.</p>
+                    <p>Tout les secteurs en bourse se doivent d'être analysés. Il existe peut-être une entreprise exceptionnelle ("l'Exception") cachée au sein d'un secteur difficile. Par exemple, <strong>Ferrari</strong> est techniquement dans l'automobile, mais ses marges sont celles du luxe. </p>
+                    <p>Le message clé est celui-ci : <strong>Arrêtez de regarder votre portefeuille à travers le prisme de la "répartition sectorielle".</strong> Ne cherchez pas à équilibrer votre camembert. Cherchez l'excellence, peu importe où elle se trouve. Si elle se trouve uniquement dans 2 secteurs, alors n'investissez que dans ces 2 secteurs.</p>
+
+
+
+                    <div class="conclusion-box">
+                        <h5 class="conclusion-title">🔑 Ce qu'il faut retenir</h5>
+                        <p class="conclusion-text">
+                            Ne soyez pas esclave des secteurs. <br>
+                            🔹 <strong>Soyez sélectifs :</strong> Concentrez votre capital sur les secteurs "Rois" (Luxe, Tech, Santé, Services) qui offrent les meilleures marges.<br>
+                            🔹 <strong>Oubliez la symétrie :</strong> Un portefeuille avec 3 secteurs excellents battra toujours un portefeuille avec 11 secteurs moyens.<br>
+                            🔹 <strong>Qualité > Secteur :</strong> Une action exceptionnelle dans un secteur moyen vaut mieux qu'une action pourrie dans un bon secteur. Mais une action exceptionnelle dans un secteur exceptionnel, c'est le Graal.
+                        </p>
+                    </div>
                 </div>
             </div>
 
