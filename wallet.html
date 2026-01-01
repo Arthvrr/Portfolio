@@ -65,7 +65,7 @@
     <div class="progress-container">
         <h2 class="progress-title">Atteindre les 25 000€ de Valeur du Portefeuille : <span id="firstProgressText">0%</span></h2>
         <progress id="firstProgressBar" value="0" max="0" class="progress-bar"></progress>  
-        <h2 class="progress-title">Recevoir 60€ de dividendes nets en 2025 : <span id="secondProgressText">0%</span></h2>
+        <h2 class="progress-title">Recevoir 90€ de dividendes nets en 2026 : <span id="secondProgressText">0%</span></h2>
         <progress id="secondProgressBar" value="0" max="0" class="progress-bar"></progress>
     </div>
     
@@ -667,7 +667,7 @@ var yieldOfShares = [];
 
 var yieldOfWallet = 0; //Rendement total du portefeuille
 
-var years = [2022,2023,2024,2025]; // liste des années, pour les graphes de retours annuels et invested vs wallet value
+var years = [2022,2023,2024,2025,2026]; // liste des années, pour les graphes de retours annuels et invested vs wallet value
 
 var months = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
 
@@ -675,17 +675,17 @@ var dividendPerMonth = [];
 
 var dividendPerMonthNet = [];
 
-var annualReturnEuro = [0,442.03,2104.53]; // liste des retours annuels, en euro
+var annualReturnEuro = [0,442.03,2104.53,3533.41]; // liste des retours annuels, en euro
 
-var annualReturnPercent = [0,8.26,30.76]; //liste des retours annuels, en pourcent
+var annualReturnPercent = [0,8.26,30.76,18.55]; //liste des retours annuels, en pourcent
 
-var annualDividendReceived = [12.35, 41.31,42.4]; //liste des dividendes annuels nets reçus
+var annualDividendReceived = [12.35, 41.31,42.4,73.62]; //liste des dividendes annuels nets reçus
 
 var totalGainWithoutDividend = 0; //gain total en bourse des plus-value (sans dividendes reçus)
 
-var annualInvested = [0,5350,6400]; //liste qui stocke le nombres d'euros investi par an
+var annualInvested = [0,5350,6400,16500]; //liste qui stocke le nombres d'euros investi par an
 
-var walletEndYear = [0,5792.03,8946.56]; //liste qui stocke la valeur du portefeuille à la fin de chaque année
+var walletEndYear = [0,5792.03,8946.56,22579.97]; //liste qui stocke la valeur du portefeuille à la fin de chaque année
 
 var ASMLCotation = [100,67,50,100,100];
 var GOOGLCotation = [100,67,33,100,67];
@@ -703,7 +703,7 @@ var NVDAScore = 30;
 var VScore = 25;
 var stocksScore = [ASMLScore, GOOGLScore, MAScore,MSFTScore,NVDAScore,VScore];
 
-var annualMarketReturnPercent = [-19.44,24.23,23.31]; //retour annuels du S&P500 en pourcent (source : https://www.macrotrends.net/2526/sp-500-historical-annual-returns)
+var annualMarketReturnPercent = [-19.44,24.23,23.31,15.96]; //retour annuels du S&P500 en pourcent (source : https://www.macrotrends.net/2526/sp-500-historical-annual-returns)
 
 var weightOfStocks = []; //liste qui représente le poids de chaque action du Portefeuille en % (valeurs : [0.24,0.26,0.3,0.2])
 var weightedAverages = [];
@@ -3269,11 +3269,11 @@ async function main() {
 
 
     // PERF ANNÉE EN COURS
-    var tempStartYear = 8946.56;
-    var tempInvested = 10100;
+    var tempStartYear = 22579.97;
+    var tempInvested = 0;
     tempReturnEuro = parseFloat((totalWallet - (tempInvested + tempStartYear)).toFixed(2));
     tempReturnPercent = parseFloat(((tempReturnEuro / (tempInvested + tempStartYear)) * 100).toFixed(2));
-    var tempDividendReceived = 73.62;
+    var tempDividendReceived = 0;
 
     annualReturnEuro.push(tempReturnEuro);
     annualReturnPercent.push(tempReturnPercent);
@@ -3312,7 +3312,7 @@ async function main() {
 
     //REMPLIR BARRES DE PROGRESSION
     fillFirstProgressBar(totalWallet, 25000);
-    fillSecondProgressBar(tempDividendReceived, 60);
+    fillSecondProgressBar(tempDividendReceived, 90);
 
 
     //DESSINER GRAPHES
