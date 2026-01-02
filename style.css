@@ -459,7 +459,6 @@ td {
     font-weight: bold;
     text-decoration: underline;
     max-width: 90%;
-    animation: fade-in 4s ease forwards;
 }
 
 .presentation-perso {
@@ -598,6 +597,173 @@ td {
     border-top: 1px solid #eee;
     padding-top: 20px;
 }
+
+/* --- 1. Section Formation (Teaser) --- */
+.formation-teaser {
+    background: linear-gradient(135deg, #2c3e50, #4ca1af);
+    color: white;
+    padding: 40px;
+    border-radius: 15px;
+    margin: 50px 0;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.teaser-title {
+    color: #fff;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.teaser-text {
+    font-size: 1.1em;
+    max-width: 800px;
+    margin: 0 auto 25px auto;
+}
+
+.teaser-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Bouton spécifique formation (agrandissement au survol) */
+.btn-formation {
+    background-color: #f1c40f;
+    color: #2c3e50;
+    font-weight: bold;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.btn-formation:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* --- 2. Section FAQ --- */
+.faq-container {
+    margin-bottom: 50px;
+}
+
+.faq-item {
+    background: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border-left: 4px solid #2c3e50;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.faq-item:hover {
+    background-color: #f1f1f1;
+}
+
+.faq-question {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.faq-answer {
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+/* --- 3. Section Support (Parrainage) --- */
+.support-section {
+    margin-top: 50px;
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 12px;
+    border-left: 5px solid #2c3e50;
+}
+
+.support-title {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.support-text {
+    margin-bottom: 25px;
+}
+
+.support-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Boutons spécifiques courtiers */
+.btn-tr {
+    background-color: #000;
+    color: #fff;
+}
+
+.btn-degiro {
+    background-color: #0099e6;
+    color: #fff;
+}
+
+/* --- 4. Utilitaires & Liens --- */
+.link-blue {
+    color: #0099e6;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.link-blue:hover {
+    text-decoration: underline;
+}
+
+/* Texte mis en valeur dans la présentation (ex: couleur bleue/verte) */
+.highlight-text {
+    color: blue;
+    font-weight: bold;
+}
+
+/* --- Bandeau Statistiques --- */
+.stats-banner {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 25px;
+    margin: 40px 0;
+    border-radius: 12px;
+}
+
+.stat-item {
+    text-align: center;
+    margin: 10px;
+    flex: 1 1 150px; /* S'adapte à la largeur */
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5em;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9em;
+    color: #7f8c8d;
+    font-weight: 500;
+}
+
+.color-dark { color: #2c3e50; }  
+.color-green { color: #27ae60; }  
+.color-blue { color: #0099e6; }  
+.color-purple { color: #8e44ad; }
+
 
 
 /* =========================================
