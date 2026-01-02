@@ -46,11 +46,6 @@
         <div class="stats-banner">
             
             <div class="stat-item">
-                <span id="home-total-value" class="stat-number color-dark">--k€</span>
-                <span class="stat-label">Encours Total</span>
-            </div>
-
-            <div class="stat-item">
                 <span id="home-perf-year" class="stat-number color-green">--%</span>
                 <span class="stat-label">Performance 2025</span>
             </div>
@@ -233,14 +228,6 @@
         // Couleur dynamique (Vert si positif, Rouge si négatif)
         perfElement.style.color = lastPerf >= 0 ? '#27ae60' : '#e74c3c';
 
-        // 3. Valeur Totale (Arrondie au millier près, ex: 23k)
-        // On prend la dernière valeur connue du portefeuille
-        const lastValue = walletEndYear[walletEndYear.length - 1]; 
-        const roundedValue = Math.round(lastValue / 1000);
-        document.getElementById('home-total-value').textContent = '+-' + roundedValue + ' k€';
-
-        // 4. Années d'expérience (On compte le nombre d'années sauf la future 2026 si elle est vide)
-        // Ici on prend simplement la longueur du tableau des performances réelles
         document.getElementById('home-years-count').textContent = (annualReturnPercent.length+1) + ' Ans';
 
     </script>
