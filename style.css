@@ -743,12 +743,12 @@ td {
 .stat-item {
     text-align: center;
     margin: 10px;
-    flex: 1 1 150px; /* S'adapte à la largeur */
+    flex: 1 1 100px; /* S'adapte à la largeur */
 }
 
 .stat-number {
     display: block;
-    font-size: 2.5em;
+    font-size: 2em;
     font-weight: 800;
     margin-bottom: 5px;
 }
