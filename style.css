@@ -444,13 +444,6 @@ td {
     text-align: justify;
 }
 
-.content-home img {
-    width:700px;
-    max-width: 60%;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-
-}
-
 .title-home{
     margin: 0 auto;
     margin-top: 75px;
@@ -492,34 +485,6 @@ td {
     font-size: 1.65em;
     text-decoration: underline;
     padding-left: 2%;
-}
-
-.yellow-background{
-    background-color: yellow;
-}
-
-.green-background{
-    background-color: rgb(181, 255, 173);
-}
-
-.legend {
-    font-size: 1em;
-    font-weight: bold;
-    color: blue;
-    font-style: italic;
-    max-width: 60%;
-    margin:0 auto;
-    text-align: center;
-}
-
-.listed-text{
-    text-align: justify;
-}
-
-.commandements {
-    background-color: rgb(219, 254, 180);
-    padding:2% 2% 0% 2%;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .icon-row {

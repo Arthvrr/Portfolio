@@ -6,7 +6,68 @@
     <title>Calculateurs 📊</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="icon" href="media/Logo/logo.ico" type="image/x-icon">
+    
+    <style>
+        .matrix-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .matrix-container {
+            overflow-x: auto;
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .sensitivity-table {
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            font-family: sans-serif;
+            background: inherit;
+            width:100%;
+        }
+
+        .sensitivity-table th, .sensitivity-table td {
+            padding: 8px 12px;
+            border: 1px solid #e0e0e0;
+            text-align: center;
+        }
+
+        .sensitivity-table th {
+            background-color: #2c3e50;
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Cellule centrale (Scénario actuel) */
+        .cell-current {
+            border: 3px solid #2c3e50 !important;
+            font-weight: bold;
+            box-shadow: 0 0 8px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 10;
+        }
+
+        .matrix-title {
+            color: #2c3e50;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        
+        .matrix-subtitle {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+    </style>
 </head>
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -15,6 +76,7 @@
 
   gtag('config', 'G-5QFGNT3V2F');
 </script>
+
 <body>
     <header>
         <a href="../index.html" class="logo-title-link">
@@ -23,7 +85,6 @@
         </a>
         <div class="onglets">
             <a href="calculator.html">Calculateur</a>
-            <!-- <a href="resources.html">Ressources</a> -->
             <a href="wallet.html">Portefeuille</a>
             <a href="formation.html">Formation</a>
         </div>
@@ -77,15 +138,15 @@
             <h3 class="calculator-section">CROISSANCE</h3>
             <div class="input-container">
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Moyenne de croissance annuelle du chiffre d'affaires sur 10 ans.">CROISSANCE DU CA SUR 10 ANS</p>
+                    <p class="label-text">CROISSANCE DU CA SUR 10 ANS</p>
                     <input type="number" class="calc-input" placeholder="Nombre d'années" min="0" max="10">
                 </div>
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Croissance du Bénéfice Par Action (EPS).">CROISSANCE DU BPA SUR 10 ANS</p>
+                    <p class="label-text">CROISSANCE DU BPA SUR 10 ANS</p>
                     <input type="number" class="calc-input" placeholder="Nombre d'années" min="0" max="10">
                 </div>
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Le Free Cash Flow est l'argent réel qui reste dans la poche.">CROISSANCE DU FCF SUR 10 ANS</p>
+                    <p class="label-text">CROISSANCE DU FCF SUR 10 ANS</p>
                     <input type="number" class="calc-input" placeholder="Nombre d'années" min="0" max="10">
                 </div>
             </div>
@@ -95,15 +156,15 @@
             <h3 class="calculator-section">RENTABILITÉ</h3>
             <div class="input-container">
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Pourcentage de chiffre d'affaires transformé en bénéfice net.">MARGE NETTE</p>
+                    <p class="label-text">MARGE NETTE</p>
                     <input type="number" class="calc-input" placeholder="En pourcentage (%)" step="0.01">
                 </div>
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Pourcentage de chiffre d'affaires transformé en cash flow libre.">FCF MARGIN</p>
+                    <p class="label-text">FCF MARGIN</p>
                     <input type="number" class="calc-input" placeholder="En pourcentage (%)" step="0.01">
                 </div>
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Return on Invested Capital.">ROIC</p>
+                    <p class="label-text">ROIC</p>
                     <input type="number" class="calc-input" placeholder="En pourcentage (%)" step="0.01">
                 </div>
             </div>
@@ -113,15 +174,15 @@
             <h3 class="calculator-section">SOLVABILITÉ</h3>
             <div class="input-container">
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Ratio dette/EBITDA.">DEBT-TO-EBITDA</p>
+                    <p class="label-text">DEBT-TO-EBITDA</p>
                     <input type="number" class="calc-input" placeholder="En nombre flottant" step="0.01">
                 </div>
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Ratio dette/capitaux propres.">DEBT-TO-EQUITY</p>
+                    <p class="label-text">DEBT-TO-EQUITY</p>
                     <input type="number" class="calc-input" placeholder="En nombre flottant" step="0.01">
                 </div>
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Couverture des intérêts.">COUVERTURE INTÉRÊTS</p>
+                    <p class="label-text">COUVERTURE INTÉRÊTS</p>
                     <input type="number" class="calc-input" placeholder="En nombre flottant" step="0.01">
                 </div>
             </div>
@@ -131,15 +192,15 @@
             <h3 class="calculator-section">DIVIDENDE</h3>
             <div class="input-container">
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Part des bénéfices reversée en dividende.">PAYOUT RATIO</p>
+                    <p class="label-text">PAYOUT RATIO</p>
                     <input type="number" class="calc-input" placeholder="En pourcentage (%)" min="0"  step="0.01">
                 </div>
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Part du Free Cash Flow utilisée pour payer le dividende.">PAYOUT RATIO DU FCF</p>
+                    <p class="label-text">PAYOUT RATIO DU FCF</p>
                     <input type="number" class="calc-input" placeholder="En pourcentage (%)" min="0" step="0.01">
                 </div>
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Croissance moyenne du dividende sur 5 ans.">CROISSANCE SUR 5 ANS</p>
+                    <p class="label-text">CROISSANCE SUR 5 ANS</p>
                     <input type="number" class="calc-input" placeholder="En pourcentage (%)" min="0" step="0.01">
                 </div>
             </div>
@@ -181,45 +242,37 @@
         <div class="separator-line"></div>
 
         <h2 class="title-home" id="interest">Intérêts Composés 🚀</h2>
-        <p class="calculator-text-home" style="margin-bottom: 30px;">Projetez vos gains futurs ! Voyez comment votre épargne fructifie année après année grâce à la magie des intérêts composés.</p>
-
         <div class="section section-interest" id="compound-calculator">
             <h3 class="calculator-section">PARAMÈTRES DE L'INVESTISSEMENT</h3>
-            
             <div class="input-container">
                 <div class="input-group input-group-half">
-                    <p class="label-text" data-tooltip="La somme que vous avez déjà aujourd'hui pour commencer.">CAPITAL DE DÉPART</p>
+                    <p class="label-text">CAPITAL DE DÉPART</p>
                     <input type="number" id="compound-initial" class="compound-input" placeholder="Ex: 5000" min="0">
                 </div>
                 <div class="input-group input-group-half">
-                    <p class="label-text" data-tooltip="Combien comptez-vous ajouter chaque année ?">AJOUT ANNUEL</p>
+                    <p class="label-text">AJOUT ANNUEL</p>
                     <input type="number" id="compound-deposit" class="compound-input" placeholder="Ex: 12000" min="0">
                 </div>
             </div>
-
             <div class="spacer-top"></div>
-
             <div class="input-container">
                 <div class="input-group input-group-half">
-                    <p class="label-text" data-tooltip="Pendant combien d'années allez-vous investir ?">DURÉE (ANNÉES)</p>
+                    <p class="label-text">DURÉE (ANNÉES)</p>
                     <input type="number" id="compound-years" class="compound-input" placeholder="Ex: 20" min="1" max="100">
                 </div>
                 <div class="input-group input-group-half">
-                    <p class="label-text" data-tooltip="Quel rendement annuel moyen espérez-vous ? (La bourse fait ~8-10% historiquement)">RENDEMENT ANNUEL (%)</p>
+                    <p class="label-text">RENDEMENT ANNUEL (%)</p>
                     <input type="number" id="compound-rate" class="compound-input" placeholder="Ex: 8" step="0.1">
                 </div>
             </div>
         </div>
-
         <button class="calculator-button" id="btn-compound-calc">Calculer les Intérêts</button>
-
         <div id="compound-results-container" style="display:none;">
             <div class="result-box">
                 Dans <span id="res-years" style="font-weight:bold;">0</span> ans, vous aurez : <br>
                 <span id="res-total" class="result-highlight">0 €</span> <br>
                 <span style="font-size: 0.9rem; color: #7f8c8d;">Dont <span id="res-invested" style="font-weight:bold;">0 €</span> de votre poche et <span id="res-interests" style="font-weight:bold; color: #f39c12;">0 €</span> d'intérêts gagnés.</span>
             </div>
-
             <div id="compound-chart-container" style="display: flex; align-items: center; margin-top: 30px; height: 400px;">
                 <canvas id="compoundChart"></canvas>
             </div>
@@ -227,35 +280,53 @@
 
         <div class="separator-line"></div>
 
-        <h2 class="title-home">Estimateur DCF 💎</h2>
+        <h2 class="title-home">Estimateur DCF Avancé 💎</h2>
         <p class="calculator-text-home">
-            Une entreprise de qualité ne doit pas être achetée à n'importe quel prix. Ce calculateur projette les bénéfices futurs pour estimer un prix d'achat rationnel aujourd'hui, en fonction du rendement que vous exigez.
+            Entrez le ticker en haut de page pour récupérer le prix actuel, puis remplissez les données manuellement (en Milliards pour les gros chiffres).
         </p>
 
         <div class="section section-dcf"> 
-            <h3 class="calculator-section">PARAMÈTRES DE VALORISATION</h3>
-            
+            <h3 class="calculator-section">DONNÉES DU MARCHÉ & PAR ACTION</h3>
+            <div class="input-container">
+                <div class="input-group">
+                    <p class="label-text" data-tooltip="Prix actuel de l'action.">PRIX ACTUEL DU MARCHÉ</p>
+                    <input type="number" id="dcf-market-price" class="calc-input" placeholder="Automatique" step="0.01">
+                </div>
+                <div class="input-group">
+                    <p class="label-text" data-tooltip="Free Cash Flow par action (TTM).">FCF / ACTION</p>
+                    <input type="number" id="dcf-fcf-share" class="calc-input" placeholder="Ex: 5.40" step="0.01">
+                </div>
+                <div class="input-group">
+                    <p class="label-text" data-tooltip="Nombre total d'actions en circulation (en Milliards).">NBRE ACTIONS (Mds)</p>
+                    <input type="number" id="dcf-shares" class="calc-input" placeholder="Ex: 2.5" step="0.001">
+                </div>
+            </div>
+
+            <h3 class="calculator-section spacer-top">BILAN (EN MILLIARDS)</h3>
             <div class="input-container">
                 <div class="input-group input-group-half">
-                    <p class="label-text" data-tooltip="Le Bénéfice Par Action actuel (EPS TTM).">EPS ACTUEL</p>
-                    <input type="number" id="dcf-eps" class="calc-input" placeholder="Ex: 5.40" step="0.01">
+                    <p class="label-text" data-tooltip="Cash & Équivalents total (en Milliards).">CASH TOTAL (Mds)</p>
+                    <input type="number" id="dcf-cash" class="calc-input" placeholder="Ex: 10.5" step="0.01">
                 </div>
                 <div class="input-group input-group-half">
-                    <p class="label-text" data-tooltip="À quelle vitesse les bénéfices vont-ils croître par an sur 5 ans ?">CROISSANCE ESTIMÉE (%)</p>
-                    <input type="number" id="dcf-growth" class="calc-input" placeholder="Ex: 12">
+                    <p class="label-text" data-tooltip="Dette Totale (Long terme + Court terme) en Milliards.">DETTE TOTALE (Mds)</p>
+                    <input type="number" id="dcf-debt" class="calc-input" placeholder="Ex: 5.2" step="0.01">
                 </div>
             </div>
             
-            <div class="spacer-top"></div>
-
+            <h3 class="calculator-section spacer-top">VOS HYPOTHÈSES (5 ANS)</h3>
             <div class="input-container">
-                <div class="input-group input-group-half">
-                    <p class="label-text" data-tooltip="Quel sera le PER raisonnable de l'action dans 5 ans ?">PER DE SORTIE</p>
-                    <input type="number" id="dcf-pe" class="calc-input" placeholder="Ex: 20">
+                <div class="input-group">
+                    <p class="label-text">CROISSANCE FCF (%)</p>
+                    <input type="number" id="dcf-growth" class="calc-input" placeholder="Ex: 12">
                 </div>
-                <div class="input-group input-group-half">
-                    <p class="label-text" data-tooltip="Quel rendement annuel minimum exigez-vous ? (souvent 10% ou 12%)">TAUX D'ACTUALISATION (%)</p>
+                <div class="input-group">
+                    <p class="label-text">TAUX D'ACTUALISATION (%)</p>
                     <input type="number" id="dcf-discount" class="calc-input" placeholder="Ex: 10">
+                </div>
+                <div class="input-group">
+                    <p class="label-text">PER DE SORTIE</p>
+                    <input type="number" id="dcf-exit-pe" class="calc-input" placeholder="Ex: 20">
                 </div>
             </div>
         </div>
@@ -263,60 +334,63 @@
         <button class="calculator-button" id="btn-dcf-calc">Calculer la Juste Valeur</button>
 
         <div id="dcf-result-container" class="result-box result-box-hidden">
-            Prix d'achat maximum conseillé : <br>
+            Juste Valeur (Intrinsic Value) : <br>
             <span id="dcf-fair-value" class="result-highlight">0 €</span> <br>
             <span class="result-future-text">
-                Si vous achetez à ce prix, vous visez un objectif de <span id="dcf-future-price" style="font-weight: bold;">0 €</span> dans 5 ans.
+                Marge de sécurité : <span id="dcf-margin-safety" style="font-weight: bold;">0%</span> | 
+                Potentiel : <span id="dcf-upside" style="font-weight: bold;">0%</span>
             </span>
             
             <div id="dcf-chart-container" class="chart-wrapper chart-height-large">
                 <canvas id="dcfChart"></canvas>
             </div>
+
+            <div class="matrix-section">
+                <h4 class="matrix-title">Matrice de Sensibilité (Prix Juste)</h4>
+                <p class="matrix-subtitle">Lignes : Croissance FCF | Colonnes : Taux d'actualisation</p>
+                <div class="matrix-container">
+                    <table id="sensitivity-table" class="sensitivity-table">
+                        </table>
+                </div>
+            </div>
+
         </div>
 
         <div class="separator-line"></div>
 
         <h2 class="title-home">Simulateur de DCA 📉</h2>
-        <p class="calculator-text-home">
-            Vous souhaitez renforcer une position existante ? Ce calculateur vous permet de voir instantanément l'impact d'un nouvel achat sur votre Prix de Revient Unitaire (PRU). Idéal pour la stratégie de "Moyenne à la baisse".
-        </p>
-
         <div class="section section-pru"> 
             <h3 class="calculator-section">VOTRE POSITION</h3>
             <div class="input-container">
                 <div class="input-group input-group-half">
-                    <p class="label-text" data-tooltip="Le nombre total d'actions que vous possédez actuellement.">ACTIONS DÉJÀ DÉTENUES</p>
+                    <p class="label-text">ACTIONS DÉJÀ DÉTENUES</p>
                     <input type="number" id="pru-owned-shares" class="calc-input" placeholder="Ex: 10" min="0">
                 </div>
                 <div class="input-group input-group-half">
-                    <p class="label-text" data-tooltip="Votre PRU actuel (Prix de Revient Unitaire). À quel prix moyen avez-vous acheté ces actions ?">PRIX D'ACHAT MOYEN (€/$)</p>
+                    <p class="label-text">PRIX D'ACHAT MOYEN (€/$)</p>
                     <input type="number" id="pru-avg-price" class="calc-input" placeholder="Ex: 150" step="0.01">
                 </div>
             </div>
-            
             <h3 class="calculator-section spacer-top">NOUVEL ACHAT</h3>
             <div class="input-container">
                 <div class="input-group input-group-half">
-                    <p class="label-text" data-tooltip="Combien d'actions comptez-vous acheter aujourd'hui ?">ACTIONS À ACHETER</p>
+                    <p class="label-text">ACTIONS À ACHETER</p>
                     <input type="number" id="pru-new-shares" class="calc-input" placeholder="Ex: 5" min="0">
                 </div>
                 <div class="input-group input-group-half">
-                    <p class="label-text" data-tooltip="Le prix de l'action en ce moment sur le marché.">PRIX ACTUEL (€/$)</p>
+                    <p class="label-text">PRIX ACTUEL (€/$)</p>
                     <input type="number" id="pru-current-price" class="calc-input" placeholder="Ex: 130" step="0.01">
                 </div>
             </div>
         </div>
-
         <button class="calculator-button" id="btn-pru-calc">Calculer mon Nouveau PRU</button>
-
         <div id="pru-results-container" class="result-box result-box-hidden">
             Votre nouveau prix de revient sera de : <br>
             <span id="res-new-pru" class="result-highlight">0 €</span> <br>
             <span class="result-future-text">
                 Vous détiendrez <span id="res-total-shares" style="font-weight:bold;">0</span> actions pour un total investi de <span id="res-total-invested">0 €</span>.
             </span>
-            
-            <div id="pru-chart-container" class="chart-wrapper chart-height-medium">
+            <div id="pru-chart-container" class="chart-wrapper" style="height: 300px;">
                 <canvas id="pruChart"></canvas>
             </div>
         </div>
@@ -324,30 +398,24 @@
         <div class="separator-line"></div>
 
         <h2 class="title-home">Le Ratio PEG (Peter Lynch) 🦄</h2>
-        <p class="calculator-text-home">
-            Le PER seul ne suffit pas. Le ratio PEG met en relation le prix de l'action et sa croissance future. C'est l'outil favori des investisseurs pour dénicher les "Growth Stocks" à prix raisonnable.
-        </p>
-
         <div class="section section-peg"> 
             <h3 class="calculator-section">ANALYSE DU PRIX VS CROISSANCE</h3>
             <div class="input-container">
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Le PER actuel de l'entreprise.">PER ACTUEL</p>
+                    <p class="label-text">PER ACTUEL</p>
                     <input type="number" id="peg-pe" class="calc-input" placeholder="Ex: 25">
                 </div>
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Taux de croissance annuel moyen des bénéfices (EPS) estimé sur 3-5 ans.">CROISSANCE ATTENDUE</p>
+                    <p class="label-text">CROISSANCE ATTENDUE</p>
                     <input type="number" id="peg-growth" class="calc-input" placeholder="Ex: 20">
                 </div>
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Optionnel : Rendement du dividende (Yield). Peter Lynch l'ajoute à la croissance.">DIVIDENDE YIELD</p>
+                    <p class="label-text">DIVIDENDE YIELD</p>
                     <input type="number" id="peg-dividend" class="calc-input" placeholder="Ex: 1.5">
                 </div>
             </div>
         </div>
-
         <button class="calculator-button" id="btn-peg-calc">Calculer le PEG</button>
-
         <div id="peg-results-container" class="result-box result-box-hidden">
             Ratio PEG Calculé : <br>
             <span id="res-peg-score" class="result-highlight peg-score-big">0.00</span> <br>
@@ -357,7 +425,6 @@
                 <span class="text-orange">● 1.0 - 1.5 : Prix Correct</span> &nbsp;|&nbsp; 
                 <span class="text-red">● > 2.0 : Surévalué</span>
             </p>
-            
             <div class="peg-bar-container">
                 <div id="peg-bar-fill" class="peg-bar-fill"></div>
                 <div class="peg-bar-marker marker-33" title="PEG 1.0"></div>
@@ -395,7 +462,6 @@
     var tipsrankPrice = 0;
     var safetyMargin = 0.1;
 
-    // Clé API Finnhub
     const FINNHUB_API_KEY = 'cfeip41r01qoicaf4hk0cfeip41r01qoicaf4hkg';
 
     var sectionName = ["Bases","Croissance","Rentabilité","Solvabilité","Dividende"];
@@ -446,7 +512,7 @@
         }
     }
 
-    // --- CALCULS SCORE ---
+    // --- CALCULS SCORE (Quality) ---
     function getData() {
         const inputs = document.querySelectorAll('.calc-input');
         const inputValues = [];
@@ -655,6 +721,10 @@
                     currentStockPrice = price;
                     currentPERatio = pe;
                     this.placeholder = `${ticker} chargé (${price}$)`;
+                    
+                    const dcfPriceInput = document.getElementById('dcf-market-price');
+                    if(dcfPriceInput) dcfPriceInput.value = price;
+
                 } else {
                     this.placeholder = 'Erreur récupération prix';
                 }
@@ -675,6 +745,9 @@
                 currentStockPrice = fetchedPrice;
                 currentPERatio = fetchedPE;
                 tickerInput.placeholder = `${currentTicker} chargé (${fetchedPrice}$)`;
+                
+                const dcfPriceInput = document.getElementById('dcf-market-price');
+                if(dcfPriceInput) dcfPriceInput.value = fetchedPrice;
             }
         }
 
@@ -711,25 +784,19 @@
 
 
     // ==========================================
-    //       SCRIPT INTÉRÊTS COMPOSÉS (MIS À JOUR)
+    //       SCRIPT INTÉRÊTS COMPOSÉS
     // ==========================================
-    
     let compoundChartInstance = null;
 
     document.getElementById('btn-compound-calc').addEventListener('click', function() {
-        // 1. Récupération des valeurs
-        const initialCapital = parseFloat(document.getElementById('compound-initial').value) || 0; // Nouveau champ
+        const initialCapital = parseFloat(document.getElementById('compound-initial').value) || 0;
         const annualDeposit = parseFloat(document.getElementById('compound-deposit').value) || 0;
         const years = parseFloat(document.getElementById('compound-years').value) || 0;
         const rate = parseFloat(document.getElementById('compound-rate').value) || 0;
 
-        if (years <= 0) {
-            alert("Veuillez entrer une durée valide (au moins 1 an).");
-            return;
-        }
+        if (years <= 0) { alert("Durée invalide."); return; }
 
-        // 2. Calculs et préparation des données pour le graphique
-        const labels = ['Départ']; // On commence à l'année 0
+        const labels = ['Départ'];
         const dataTotal = [initialCapital];
         const dataInvested = [initialCapital];
         
@@ -737,22 +804,14 @@
         let totalInvested = initialCapital;
 
         for (let i = 1; i <= years; i++) {
-            // On considère que le dépôt annuel se fait en début/milieu d'année pour le calcul simple
-            // Nouveau Total = (Ancien Total + Dépôt de l'année) * (1 + Taux)
-            
             totalInvested += annualDeposit;
-            
-            // Calcul des intérêts composés sur le tout
             currentTotal = (currentTotal + annualDeposit) * (1 + (rate / 100));
-            
             labels.push(`Année ${i}`);
             dataTotal.push(currentTotal);
             dataInvested.push(totalInvested);
         }
 
         const totalInterests = currentTotal - totalInvested;
-
-        // 3. Affichage des résultats textes (Format Monétaire)
         const formatter = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
         
         document.getElementById('res-years').textContent = years;
@@ -762,12 +821,8 @@
 
         document.getElementById('compound-results-container').style.display = 'block';
 
-        // 4. Création / Mise à jour du graphique
         const ctx = document.getElementById('compoundChart').getContext('2d');
-
-        if (compoundChartInstance) {
-            compoundChartInstance.destroy();
-        }
+        if (compoundChartInstance) compoundChartInstance.destroy();
 
         compoundChartInstance = new Chart(ctx, {
             type: 'line',
@@ -775,243 +830,220 @@
                 labels: labels,
                 datasets: [
                     {
-                        label: 'Capital Investi (Vos dépôts)',
+                        label: 'Capital Investi',
                         data: dataInvested,
                         borderColor: 'rgba(52, 152, 219, 1)',
                         backgroundColor: 'rgba(52, 152, 219, 0.2)',
-                        fill: true,
-                        pointRadius: 0,
-                        borderWidth: 2
+                        fill: true, pointRadius: 0
                     },
                     {
-                        label: 'Valeur Totale (Avec Intérêts)',
+                        label: 'Valeur Totale',
                         data: dataTotal,
                         borderColor: 'rgba(46, 204, 113, 1)',
-                        backgroundColor: 'rgba(46, 204, 113, 0.2)', // Vert
-                        fill: true,
-                        pointRadius: 0,
-                        borderWidth: 2
+                        backgroundColor: 'rgba(46, 204, 113, 0.2)',
+                        fill: true, pointRadius: 0
                     }
                 ]
             },
             options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                interaction: {
-                    mode: 'index',
-                    intersect: false,
-                },
-                plugins: {
-                    title: {
-                        display: true,
-                        text: 'Trajectoire de votre Patrimoine',
-                        font: { size: 16 }
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                let label = context.dataset.label || '';
-                                if (label) {
-                                    label += ': ';
-                                }
-                                if (context.parsed.y !== null) {
-                                    label += new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(context.parsed.y);
-                                }
-                                return label;
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        ticks: {
-                            callback: function(value) {
-                                return value.toLocaleString('fr-FR') + ' €';
-                            }
-                        }
-                    }
-                }
+                responsive: true, maintainAspectRatio: false,
+                scales: { y: { beginAtZero: true } }
             }
         });
-
-        // Scroll vers les résultats
         document.getElementById('compound-results-container').scrollIntoView({ behavior: 'smooth' });
     });
 
     // ==========================================
-    //       SCRIPT DCF SIMPLIFIÉ & GRAPHIQUE
+    //       SCRIPT DCF AVANCÉ (CORRIGÉ)
     // ==========================================
     
-    let dcfChartInstance = null; // Variable pour stocker le graphique
+    let dcfChartInstance = null; 
+
+    // Fonction Pure DCF
+    function calculateIntrinsicValue(fcfShare, growthRate, discountRate, exitPE, netDebtPerShare) {
+        let sumDiscountedFCF = 0;
+        let futureFCF = fcfShare;
+        
+        for (let i = 1; i <= 5; i++) {
+            futureFCF = futureFCF * (1 + growthRate);
+            let discountedFCF = futureFCF / Math.pow((1 + discountRate), i);
+            sumDiscountedFCF += discountedFCF;
+        }
+
+        let terminalValue = futureFCF * exitPE;
+        let discountedTerminalValue = terminalValue / Math.pow((1 + discountRate), 5);
+        let enterpriseValuePerShare = sumDiscountedFCF + discountedTerminalValue;
+
+        return enterpriseValuePerShare - netDebtPerShare;
+    }
+
+    function getHeatmapColor(value, marketPrice) {
+        const diff = (value - marketPrice) / marketPrice;
+        if (diff >= 0.15) return 'rgba(46, 204, 113, 0.4)'; // Vert
+        if (diff >= 0) return 'rgba(46, 204, 113, 0.2)';
+        if (diff >= -0.15) return 'rgba(241, 196, 15, 0.3)'; // Jaune
+        return 'rgba(231, 76, 60, 0.3)'; // Rouge
+    }
 
     document.getElementById('btn-dcf-calc').addEventListener('click', function() {
-        // 1. Récupération
-        const epsInput = document.getElementById('dcf-eps').value;
+        const priceInput = document.getElementById('dcf-market-price').value;
+        const fcfShareInput = document.getElementById('dcf-fcf-share').value;
+        const sharesInput = document.getElementById('dcf-shares').value;
+        const cashInput = document.getElementById('dcf-cash').value;
+        const debtInput = document.getElementById('dcf-debt').value;
         const growthInput = document.getElementById('dcf-growth').value;
-        const peInput = document.getElementById('dcf-pe').value;
         const discountInput = document.getElementById('dcf-discount').value;
+        const exitPEInput = document.getElementById('dcf-exit-pe').value;
 
-        if (epsInput === "" || growthInput === "" || peInput === "" || discountInput === "") {
+        if ([priceInput, fcfShareInput, sharesInput, cashInput, debtInput, growthInput, discountInput, exitPEInput].some(val => val === "")) {
             alert("Veuillez remplir tous les champs du calculateur DCF.");
             return;
         }
 
-        const eps = parseFloat(epsInput);
-        const growthRate = parseFloat(growthInput) / 100;
-        const terminalPE = parseFloat(peInput);
-        const discountRate = parseFloat(discountInput) / 100;
+        const marketPrice = parseFloat(priceInput);
+        const fcfPerShare = parseFloat(fcfShareInput);
+        const sharesCount = parseFloat(sharesInput); 
+        const totalCash = parseFloat(cashInput);     
+        const totalDebt = parseFloat(debtInput);     
+        const baseGrowthRate = parseFloat(growthInput) / 100;
+        const baseDiscountRate = parseFloat(discountInput) / 100;
+        const exitPE = parseFloat(exitPEInput);
 
-        // 2. Calculs
-        // EPS Futur (dans 5 ans) = EPS Actuel * (1 + croissance)^5
-        let futureEPS = eps * Math.pow((1 + growthRate), 5);
+        const netDebtPerShare = (totalDebt - totalCash) / sharesCount;
+
+        // Calcul Principal
+        let fairValue = calculateIntrinsicValue(fcfPerShare, baseGrowthRate, baseDiscountRate, exitPE, netDebtPerShare);
+
+        // Calculs Annexes
+        const marginOfSafety = ((fairValue - marketPrice) / fairValue) * 100;
+        const upsidePotential = ((fairValue - marketPrice) / marketPrice) * 100;
+
+        const formatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }); 
         
-        // Prix Futur (dans 5 ans) = EPS Futur * PER de sortie
-        let futurePrice = futureEPS * terminalPE;
+        const fairValueElement = document.getElementById('dcf-fair-value');
+        fairValueElement.textContent = formatter.format(fairValue);
+        fairValueElement.style.color = fairValue > marketPrice ? '#27ae60' : '#c0392b';
 
-        // Prix Juste (Aujourd'hui) = Prix Futur ramené à aujourd'hui (Actualisation)
-        let fairValue = futurePrice / Math.pow((1 + discountRate), 5);
+        const marginElement = document.getElementById('dcf-margin-safety');
+        marginElement.textContent = marginOfSafety.toFixed(2) + "%";
+        marginElement.style.color = marginOfSafety > 0 ? '#27ae60' : '#c0392b';
 
-        // 3. Affichage Texte
-        const formatter = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' });
-        document.getElementById('dcf-fair-value').textContent = formatter.format(fairValue);
-        // J'ai ajouté l'affichage du prix futur dans le HTML, on le met à jour ici :
-        if(document.getElementById('dcf-future-price')) {
-            document.getElementById('dcf-future-price').textContent = formatter.format(futurePrice);
-        }
+        const upsideElement = document.getElementById('dcf-upside');
+        upsideElement.textContent = upsidePotential.toFixed(2) + "%";
+        upsideElement.style.color = upsidePotential > 0 ? '#27ae60' : '#c0392b';
         
         const resContainer = document.getElementById('dcf-result-container');
         resContainer.style.display = 'block';
 
-        // 4. Génération des données pour le Graphique (Trajectoire de l'investissement)
-        const labels = ['Aujourd\'hui', 'Année 1', 'Année 2', 'Année 3', 'Année 4', 'Année 5'];
-        const dataValues = [];
-
-        // On calcule la valeur théorique de l'investissement année par année
-        // Si on achète au "Prix Juste", l'investissement doit grandir au rythme du "Taux d'actualisation"
-        for (let i = 0; i <= 5; i++) {
-            let valueAtYear = fairValue * Math.pow((1 + discountRate), i);
-            dataValues.push(valueAtYear);
-        }
-
-        // 5. Création du Graphique
+        // 4. GRAPH COMPARE (BARRE)
         const ctx = document.getElementById('dcfChart').getContext('2d');
-
-        if (dcfChartInstance) {
-            dcfChartInstance.destroy();
-        }
+        if (dcfChartInstance) dcfChartInstance.destroy();
 
         dcfChartInstance = new Chart(ctx, {
-            type: 'line',
+            type: 'bar',
             data: {
-                labels: labels,
+                labels: ['Prix Actuel', 'Juste Valeur (DCF)'],
                 datasets: [{
-                    label: 'Trajectoire de Valeur Théorique',
-                    data: dataValues,
-                    borderColor: 'rgba(155, 89, 182, 1)', // Couleur Violette
-                    backgroundColor: 'rgba(155, 89, 182, 0.2)',
-                    fill: true,
-                    tension: 0.3, // Courbe légèrement arrondie
-                    pointRadius: 5,
-                    pointHoverRadius: 7
+                    label: 'Comparaison',
+                    data: [marketPrice, fairValue],
+                    backgroundColor: ['rgba(52, 152, 219, 0.7)', fairValue > marketPrice ? 'rgba(46, 204, 113, 0.7)' : 'rgba(231, 76, 60, 0.7)'],
+                    borderWidth: 1
                 }]
             },
             options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    title: {
-                        display: true,
-                        text: `Objectif : ${formatter.format(futurePrice)} dans 5 ans`,
-                        font: { size: 16 }
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                return formatter.format(context.parsed.y);
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: false, // On ne commence pas à 0 pour mieux voir la progression
-                        ticks: {
-                            callback: function(value) { return value + ' €'; }
-                        }
-                    }
-                }
+                responsive: true, maintainAspectRatio: false,
+                scales: { y: { beginAtZero: true } }
             }
+        });
+
+        // 5. MATRICE DE SENSIBILITÉ (7x7) - AXES INVERSÉS
+        const tableBody = document.getElementById('sensitivity-table');
+        tableBody.innerHTML = ''; 
+
+        const discountSteps = [-0.03, -0.02, -0.01, 0, 0.01, 0.02, 0.03];
+        const growthSteps = [-0.03, -0.02, -0.01, 0, 0.01, 0.02, 0.03];
+
+        // --- CHANGEMENT ICI : Header devient la Croissance ---
+        let headerRow = document.createElement('tr');
+        headerRow.appendChild(document.createElement('th')); // Coin vide
+        
+        // On boucle sur growthSteps pour l'en-tête
+        growthSteps.forEach(step => {
+            let th = document.createElement('th');
+            th.textContent = ((baseGrowthRate + step) * 100).toFixed(0) + '%';
+            headerRow.appendChild(th);
+        });
+        tableBody.appendChild(headerRow);
+
+        // --- CHANGEMENT ICI : Lignes deviennent le Taux d'Actualisation ---
+        discountSteps.forEach(dStep => {
+            let tr = document.createElement('tr');
+            
+            // Première cellule de la ligne : Le taux d'actualisation
+            let thDiscount = document.createElement('th');
+            thDiscount.textContent = ((baseDiscountRate + dStep) * 100).toFixed(0) + '%';
+            tr.appendChild(thDiscount);
+
+            // On remplit les colonnes (Croissance)
+            growthSteps.forEach(gStep => {
+                let td = document.createElement('td');
+                
+                // Le calcul reste le même, on passe juste les bons paramètres
+                let cellVal = calculateIntrinsicValue(
+                    fcfPerShare, 
+                    baseGrowthRate + gStep, // Croissance (Colonne)
+                    baseDiscountRate + dStep, // Actualisation (Ligne)
+                    exitPE, 
+                    netDebtPerShare
+                );
+                
+                td.textContent = cellVal.toFixed(1);
+                td.style.backgroundColor = getHeatmapColor(cellVal, marketPrice);
+                
+                // Case centrale
+                if (gStep === 0 && dStep === 0) td.classList.add('cell-current');
+                tr.appendChild(td);
+            });
+            tableBody.appendChild(tr);
         });
 
         resContainer.scrollIntoView({ behavior: 'smooth' });
     });
 
     // ==========================================
-    //       SCRIPT SIMULATEUR PRU (DCA)
+    //       SCRIPT SIMULATEUR PRU
     // ==========================================
-    
     let pruChartInstance = null;
 
     document.getElementById('btn-pru-calc').addEventListener('click', function() {
-        // 1. Récupération
         const ownedShares = parseFloat(document.getElementById('pru-owned-shares').value);
         const avgPrice = parseFloat(document.getElementById('pru-avg-price').value);
         const newShares = parseFloat(document.getElementById('pru-new-shares').value);
         const currentPrice = parseFloat(document.getElementById('pru-current-price').value);
 
-        if (isNaN(ownedShares) || isNaN(avgPrice) || isNaN(newShares) || isNaN(currentPrice)) {
-            alert("Veuillez remplir tous les champs du simulateur.");
-            return;
-        }
+        if (isNaN(ownedShares) || isNaN(avgPrice) || isNaN(newShares) || isNaN(currentPrice)) { alert("Erreur saisie."); return; }
 
-        // 2. Calculs
         const oldTotalValue = ownedShares * avgPrice;
         const newBuyValue = newShares * currentPrice;
-        
         const totalShares = ownedShares + newShares;
         const totalInvested = oldTotalValue + newBuyValue;
-        
         const newPRU = totalInvested / totalShares;
-        
-        // Différence en pourcentage
         const reduction = ((avgPrice - newPRU) / avgPrice) * 100;
 
-        // --- GESTION DES COULEURS ---
-        // Si le PRU baisse (reduction > 0) -> VERT, sinon -> ROUGE
-        let resultColor, chartBarColor, chartBorderColor;
-
-        if (newPRU < avgPrice) {
-            // C'est positif (Baisse du PRU) -> VERT
-            resultColor = '#27ae60'; // Vert foncé pour le texte
-            chartBarColor = 'rgba(46, 204, 113, 0.8)'; // Vert clair pour le graphe
-            chartBorderColor = 'rgba(46, 204, 113, 1)';
-        } else {
-            // C'est négatif (Hausse du PRU) -> ROUGE
-            resultColor = '#c0392b'; // Rouge foncé pour le texte
-            chartBarColor = 'rgba(231, 76, 60, 0.8)'; // Rouge clair pour le graphe
-            chartBorderColor = 'rgba(231, 76, 60, 1)';
-        }
-
-        // 3. Affichage Texte
+        let chartBarColor = newPRU < avgPrice ? 'rgba(46, 204, 113, 0.8)' : 'rgba(231, 76, 60, 0.8)';
+        
         const formatter = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' });
         
         const resPruElement = document.getElementById('res-new-pru');
         resPruElement.textContent = formatter.format(newPRU);
-        resPruElement.style.color = resultColor; // Applique la couleur au texte
+        resPruElement.style.color = newPRU < avgPrice ? '#27ae60' : '#c0392b';
 
         document.getElementById('res-total-shares').textContent = totalShares;
         document.getElementById('res-total-invested').textContent = formatter.format(totalInvested);
+        document.getElementById('pru-results-container').style.display = 'block';
 
-        const resContainer = document.getElementById('pru-results-container');
-        resContainer.style.display = 'block';
-
-        // 4. Graphique Comparatif
         const ctx = document.getElementById('pruChart').getContext('2d');
-
-        if (pruChartInstance) {
-            pruChartInstance.destroy();
-        }
+        if (pruChartInstance) pruChartInstance.destroy();
 
         pruChartInstance = new Chart(ctx, {
             type: 'bar',
@@ -1020,116 +1052,53 @@
                 datasets: [{
                     label: 'Prix par Action',
                     data: [avgPrice, newPRU],
-                    backgroundColor: [
-                        'rgba(149, 165, 166, 0.5)', // Gris (Ancien, reste neutre)
-                        chartBarColor               // DYNAMIQUE (Vert ou Rouge)
-                    ],
-                    borderColor: [
-                        'rgba(149, 165, 166, 1)',
-                        chartBorderColor            // DYNAMIQUE
-                    ],
+                    backgroundColor: ['rgba(149, 165, 166, 0.5)', chartBarColor],
                     borderWidth: 1
                 }]
             },
             options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: false },
-                    title: { 
-                        display: true, 
-                        text: reduction > 0 
-                            ? `Bravo ! Vous avez baissé votre PRU de ${reduction.toFixed(2)}%` 
-                            : `Attention : Votre PRU a augmenté de ${Math.abs(reduction).toFixed(2)}%`,
-                        font: { size: 14 }
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                return formatter.format(context.parsed.y);
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true, 
-                        ticks: { callback: function(value) { return value + ' €'; } }
-                    }
-                }
+                responsive: true, maintainAspectRatio: false,
+                scales: { y: { beginAtZero: true } }
             }
         });
-
-        resContainer.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('pru-results-container').scrollIntoView({ behavior: 'smooth' });
     });
 
     // ==========================================
-    //       SCRIPT CALCULATEUR PEG
+    //       SCRIPT PEG
     // ==========================================
     document.getElementById('btn-peg-calc').addEventListener('click', function() {
-        // 1. Récupération
         const pe = parseFloat(document.getElementById('peg-pe').value);
         let growth = parseFloat(document.getElementById('peg-growth').value);
         const dividend = parseFloat(document.getElementById('peg-dividend').value) || 0;
 
-        if (isNaN(pe) || isNaN(growth)) {
-            alert("Veuillez entrer au moins le PER et la Croissance.");
-            return;
-        }
+        if (isNaN(pe) || isNaN(growth)) { alert("Saisie invalide."); return; }
 
-        // Peter Lynch Adjustment : On ajoute le dividende à la croissance pour être plus précis
-        // Formule : PEG = PER / (Croissance + Dividende)
         const totalGrowth = growth + dividend;
-        
-        if (totalGrowth <= 0) {
-            alert("La croissance totale doit être positive pour calculer un PEG cohérent.");
-            return;
-        }
+        if (totalGrowth <= 0) { alert("Croissance doit être positive."); return; }
 
         const peg = pe / totalGrowth;
+        let verdict = "", color = "";
 
-        // 2. Interprétation & Couleurs
-        let verdict = "";
-        let color = "";
-        let barWidth = 0; // Pour la barre visuelle (Max 3.0 = 100%)
+        if (peg < 1) { verdict = "Sous-évaluée"; color = "#27ae60"; } 
+        else if (peg < 1.5) { verdict = "Prix Correct"; color = "#f1c40f"; } 
+        else if (peg < 2) { verdict = "Légèrement Surévaluée"; color = "#e67e22"; } 
+        else { verdict = "Très Surévaluée"; color = "#c0392b"; }
 
-        if (peg < 1) {
-            verdict = "Action Sous-évaluée (Aubaine Potentielle)";
-            color = "#27ae60"; // Vert
-        } else if (peg < 1.5) {
-            verdict = "Action Valorisée Correctement (Fair Price)";
-            color = "#f1c40f"; // Jaune/Or (Note: j'ai changé f39c12 en f1c40f pour plus de visibilité)
-            // Correction pour contraste si besoin, ou on garde le jaune orangé #f39c12
-            if(peg >= 1) color = "#f39c12"; 
-        } else if (peg < 2) {
-            verdict = "Action Légèrement Surévaluée";
-            color = "#e67e22"; // Orange
-        } else {
-            verdict = "Action Très Surévaluée (Expensive)";
-            color = "#c0392b"; // Rouge
-        }
-
-        // Calcul largeur barre (On dit que PEG 3.0 = 100% de la barre pour l'échelle)
-        // PEG 1.0 = 33%, PEG 2.0 = 66%
         let widthPercentage = (peg / 3) * 100;
         if (widthPercentage > 100) widthPercentage = 100;
 
-        // 3. Affichage
         const scoreElement = document.getElementById('res-peg-score');
         scoreElement.textContent = peg.toFixed(2);
         scoreElement.style.color = color;
 
-        const verdictElement = document.getElementById('res-peg-verdict');
-        verdictElement.textContent = verdict;
-        verdictElement.style.color = color;
+        document.getElementById('res-peg-verdict').textContent = verdict;
+        document.getElementById('res-peg-verdict').style.color = color;
+        document.getElementById('peg-bar-fill').style.width = widthPercentage + "%";
+        document.getElementById('peg-bar-fill').style.backgroundColor = color;
 
-        const barFill = document.getElementById('peg-bar-fill');
-        barFill.style.width = widthPercentage + "%";
-        barFill.style.backgroundColor = color;
-
-        const resContainer = document.getElementById('peg-results-container');
-        resContainer.style.display = 'block';
-        resContainer.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('peg-results-container').style.display = 'block';
+        document.getElementById('peg-results-container').scrollIntoView({ behavior: 'smooth' });
     });
 
 </script>
