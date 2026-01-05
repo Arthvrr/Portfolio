@@ -1148,6 +1148,84 @@ circle-progress::part(base) {
 .marker-33 { left: 33%; }
 .marker-66 { left: 66%; }
 
+.matrix-section {
+    margin-top: 30px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.matrix-container {
+    overflow-x: auto;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.sensitivity-table {
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    font-family: sans-serif;
+    background: inherit;
+    width:100%;
+}
+
+.sensitivity-table th, .sensitivity-table td {
+    padding: 8px 12px;
+    border: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+.sensitivity-table th {
+    background-color: #2c3e50;
+    color: white;
+    font-weight: 600;
+}
+
+/* Cellule centrale (Scénario actuel) */
+.cell-current {
+    border: 3px solid #2c3e50 !important;
+    font-weight: bold;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 10;
+}
+
+.matrix-title {
+    color: #2c3e50;
+    margin-bottom: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.matrix-subtitle {
+    color: #7f8c8d;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+/* Bloc de résultat principal (Fond bleu comme intérêts composés) */
+.dcf-summary-box {
+    background-color: #f0f7ff; /* Bleu très clair */
+    border: 1px solid #d1e3f8;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* On enlève les fonds blancs et ombres des anciennes sections pour qu'elles soient transparentes */
+.matrix-section, .chart-section {
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 10px 0 !important;
+}
+
+.sensitivity-table {
+    background: white; /* On garde juste le fond blanc pour le tableau lui-même */
+}
+
 
 /* =========================================
    FORMATION.HTML (Nouveau)
