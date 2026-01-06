@@ -13,7 +13,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-5QFGNT3V2F');
 </script>
 
@@ -33,28 +32,11 @@
     <div class="calculator-home">
 
         <h2 class="title-home">Score de Qualité 📊</h2>
-        <p class="calculator-text-home">Bienvenue sur mon outil de calcul du score de qualité d’une action ! Ce calcul repose sur une analyse approfondie de 15 critères financiers et stratégiques spécifiques, qui permettent d’évaluer solidité,croissance et rentabilité d’une action. Chaque critère est pondéré et contribue à un score global sur 30 points. <br> Ce score vous permettra de mieux comprendre les forces et faiblesses d’une action afin de prendre des décisions d’investissement plus éclairées. Ce sont les 15 critères que j'utilise à l'heure actuelle pour analyser mes propres actions. Vous pouvez retrouver le score des actions de mon portefeuille ici : <a class="link-to-wallet" href="pages//wallet.html#quality">Score de qualité des actions de mon Portefeuille ⚔️</a> <br>Des questions sur les critères que j'utilise ? rends-toi sur <a href="/pages/resources.html" class="link-to-wallet">la page Ressources</a> </p>
+        <p class="calculator-text-home">Bienvenue sur mon outil de calcul du score de qualité d’une action ! Ce calcul repose sur une analyse approfondie de 15 critères financiers et stratégiques spécifiques. <br> Vous pouvez retrouver le score des actions de mon portefeuille ici : <a class="link-to-wallet" href="pages//wallet.html#quality">Score de qualité des actions de mon Portefeuille</a> </p>
+        
         <div class="ticker-input-container">
             <input type="text" id="stockTicker" class="ticker-input" placeholder="Entrez le ticker (ex: AAPL)" autocomplete="off">
-            <div class="safety-margin-container">
-                <label>Marge de sécurité: <span id="safetyMarginValue">10</span>%</label>
-                <div class="slider-container">
-                    <div class="slider-track">
-                        <div class="slider-fill"></div>
-                        <input type="range" min="0" max="6" value="2" step="1" class="slider" list="markers" id="safetyMarginSlider">
-                        <div class="slider-marks">
-                            <span class="mark" style="left: 0%">0%</span>
-                            <span class="mark" style="left: 16.66%">5%</span>
-                            <span class="mark" style="left: 33.33%">10%</span>
-                            <span class="mark" style="left: 50%">15%</span>
-                            <span class="mark" style="left: 66.66%">20%</span>
-                            <span class="mark" style="left: 83.33%">30%</span>
-                            <span class="mark" style="left: 100%">50%</span>
-                        </div>
-                    </div>
-                </div>
             </div>
-        </div>
 
         <div class="section" id="bases">
             <h3 class="calculator-section">BASES</h3>
@@ -146,37 +128,15 @@
             </div>
         </div>
 
-        <div class="section" id="valorisation">
-            <h3 class="calculator-section">VALORISATION</h3>
-            <div class="input-container">
-                <div class="input-group">
-                    <p class="label-text">PRIX JUSTE GURUFOCUS</p>
-                    <input type="number" id="gurufocusPrice" placeholder="En nombre flottant" min="0" step="0.01">
-                </div>
-                <div class="input-group">
-                    <p class="label-text">PRIX JUSTE TIPSRANKS</p>
-                    <input type="number" id="tipsrankPrice" placeholder="En nombre flottant" min="0" step="0.01">
-                </div>
-                <div class="input-group">
-                    <p class="label-text">PER HISTORIQUE 10 ANS</p>
-                    <input type="number" id="historicalPER" placeholder="En nombre flottant" min="0" step="0.01">
-                </div>
-            </div>
-        </div>
-
         <button class="calculator-button">Générer l'Analyse</button>
 
         <div id="progress-container-circle" style="display: none;">
             <circle-progress id="circular-progress" max="30" value="0"></circle-progress>
-            <p class="score-text" id="score-text">Le score total de votre action est de 0 sur 30 !</p>
+            <p class="score-text" id="score-text">Score Total : 0 / 30</p>
         </div>
 
-        <div id="radar-chart-container" style="display: none; align-items: center;">
+        <div id="radar-chart-container" style="display: none;">
             <canvas id="radarChart"></canvas>
-        </div>
-
-        <div id="bar-chart-container" style="display: none; align-items: center;">
-            <canvas id="priceChart"></canvas>
         </div>
 
         <div class="separator-line"></div>
@@ -221,23 +181,19 @@
         <div class="separator-line"></div>
 
         <h2 class="title-home">Estimateur DCF Avancé 💎</h2>
-        <p class="calculator-text-home">
-            Entrez le ticker en haut de page pour récupérer le prix actuel, puis remplissez les données manuellement (en Milliards pour les gros chiffres).
-        </p>
-
         <div class="section section-dcf"> 
             <h3 class="calculator-section">DONNÉES DU MARCHÉ & PAR ACTION</h3>
             <div class="input-container">
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Prix actuel de l'action.">PRIX ACTUEL DU MARCHÉ</p>
+                    <p class="label-text">PRIX ACTUEL DU MARCHÉ</p>
                     <input type="number" id="dcf-market-price" class="calc-input" placeholder="Automatique" step="0.01">
                 </div>
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Free Cash Flow par action (TTM).">FCF / ACTION</p>
+                    <p class="label-text">FCF / ACTION</p>
                     <input type="number" id="dcf-fcf-share" class="calc-input" placeholder="Ex: 5.40" step="0.01">
                 </div>
                 <div class="input-group">
-                    <p class="label-text" data-tooltip="Nombre total d'actions en circulation (en Milliards).">NBRE ACTIONS (Mds)</p>
+                    <p class="label-text">NBRE ACTIONS (Mds)</p>
                     <input type="number" id="dcf-shares" class="calc-input" placeholder="Ex: 2.5" step="0.001">
                 </div>
             </div>
@@ -245,11 +201,11 @@
             <h3 class="calculator-section spacer-top">BILAN (EN MILLIARDS)</h3>
             <div class="input-container">
                 <div class="input-group input-group-half">
-                    <p class="label-text" data-tooltip="Cash & Équivalents total (en Milliards).">CASH TOTAL (Mds)</p>
+                    <p class="label-text">CASH TOTAL (Mds)</p>
                     <input type="number" id="dcf-cash" class="calc-input" placeholder="Ex: 10.5" step="0.01">
                 </div>
                 <div class="input-group input-group-half">
-                    <p class="label-text" data-tooltip="Dette Totale (Long terme + Court terme) en Milliards.">DETTE TOTALE (Mds)</p>
+                    <p class="label-text">DETTE TOTALE (Mds)</p>
                     <input type="number" id="dcf-debt" class="calc-input" placeholder="Ex: 5.2" step="0.01">
                 </div>
             </div>
@@ -330,7 +286,7 @@
                 </div>
             </div>
         </div>
-        <button class="calculator-button" id="btn-pru-calc">Calculer mon Nouveau PRU</button>
+        <button class="calculator-button" id="btn-pru-calc">Calculer Nouveau PRU</button>
         <div id="pru-results-container" class="result-box result-box-hidden">
             Votre nouveau prix de revient sera de : <br>
             <span id="res-new-pru" class="result-highlight">0 €</span> <br>
@@ -403,33 +359,18 @@
 
     var currentTicker = "AAPL"; 
     var currentStockPrice = null;
-    var fairPrice = 0;
     var currentPERatio = null;
-    var gurufocusPrice = 0;
-    var tipsrankPrice = 0;
-    var safetyMargin = 0.1;
+    // Supprimé : fairPrice, gurufocusPrice, tipsrankPrice
 
     const FINNHUB_API_KEY = 'cfeip41r01qoicaf4hk0cfeip41r01qoicaf4hkg';
 
     var sectionName = ["Bases","Croissance","Rentabilité","Solvabilité","Dividende"];
     let radarChartInstance = null;
-    let priceChartInstance = null;
+    // Supprimé : priceChartInstance
 
     // --- UTILITAIRES ---
     function isValidNumber(value) {
         return !isNaN(value) && value !== null && value !== '';
-    }
-
-    function updatePrices() {
-        gurufocusPrice = parseFloat(document.getElementById('gurufocusPrice').value) || 0;
-        tipsrankPrice = parseFloat(document.getElementById('tipsrankPrice').value) || 0;
-    }
-
-    function updateSafetyMarginDisplay(value) {
-        const marginValues = [0, 5, 10, 15, 20, 30, 50]; 
-        const marginValue = marginValues[value];
-        document.getElementById('safetyMarginValue').textContent = marginValue;
-        return marginValue / 100;
     }
 
     // --- API ---
@@ -461,9 +402,11 @@
 
     // --- CALCULS SCORE (Quality) ---
     function getData() {
-        const inputs = document.querySelectorAll('.calc-input');
+        // Selectionne seulement les inputs qui sont dans les sections "class=section"
+        // pour ne pas prendre les inputs du DCF ou autres
+        const qualitySectionInputs = document.querySelectorAll('.section:not(.section-dcf):not(.section-interest):not(.section-pru):not(.section-peg) .calc-input');
         const inputValues = [];
-        inputs.forEach(input => inputValues.push(input.value.trim()));
+        qualitySectionInputs.forEach(input => inputValues.push(input.value.trim()));
         return inputValues;
     }
 
@@ -538,12 +481,6 @@
         return dividendScore;
     }
 
-    function getFairPrice(gurufocusPrice, tipsrankPrice, safetyMargin) {
-        const averagePrice = (gurufocusPrice + tipsrankPrice) / 2;
-        fairPrice = averagePrice * (1 - safetyMargin);
-        return fairPrice;
-    }
-
     // --- GRAPHIQUES SCORE ---
     function createRadarChart(sectionScores) {
         const ctx = document.getElementById('radarChart').getContext('2d');
@@ -560,102 +497,31 @@
                         data: sectionScores,
                         backgroundColor: 'rgba(53, 162, 235, 0.2)',
                         borderColor: 'rgba(53, 162, 235, 1)',
-                        borderWidth: 1
+                        borderWidth: 2
                     }]
                 },
                 options: {
                     responsive: true,
-                    plugins: { legend: { display: false }, title: { display: true, text: "ScoreCard de l'Action", font: { size: 16 } } },
-                    scales: { r: { min: 0, max: 6, ticks: { stepSize: 1 } } },
+                    maintainAspectRatio: false, // Permet de respecter la hauteur/largeur du CSS
+                    plugins: { 
+                        legend: { display: false }, 
+                        title: { display: true, text: "ScoreCard de l'Action", font: { size: 16 } } 
+                    },
+                    scales: { 
+                        r: { 
+                            min: 0, 
+                            max: 6, 
+                            ticks: { stepSize: 1 },
+                            pointLabels: { font: { size: 12 } } 
+                        } 
+                    },
                     elements: { line: { tension: 0 } }
                 }
             });
         }
     }
 
-    function createFairPriceChart(currentPrice, fairPrice) {
-        const chartLabels = [currentTicker]; 
-        const currentPriceData = [currentPrice];
-        const fairPriceData = [fairPrice];
-        const guruData = [gurufocusPrice];
-        const tipsData = [tipsrankPrice];
-
-        const ctx = document.getElementById('priceChart').getContext('2d');
-
-        if (priceChartInstance) {
-            priceChartInstance.data.labels = chartLabels;
-            priceChartInstance.data.datasets[0].data = currentPriceData;
-            priceChartInstance.data.datasets[1].data = fairPriceData;
-            priceChartInstance.data.datasets[2].data = guruData;
-            priceChartInstance.data.datasets[3].data = tipsData;
-            priceChartInstance.update();
-        } else {   
-            priceChartInstance = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: chartLabels,
-                    datasets: [
-                        {
-                            label: "Prix Actuel",
-                            type: 'bar',
-                            data: currentPriceData,
-                            backgroundColor: 'rgba(54, 162, 235, 0.5)',
-                            borderColor: 'rgba(54, 162, 235, 1)',
-                            borderWidth: 2
-                        },
-                        {
-                            label: "Prix Juste (Calculé)",
-                            type: 'bar',
-                            data: fairPriceData,
-                            backgroundColor: 'rgba(255, 99, 132, 0.5)',
-                            borderColor: 'rgba(255, 99, 132, 1)',
-                            borderWidth: 2,
-                        },
-                        {
-                            label: "Prix GuruFocus",
-                            type: 'line',
-                            data: guruData,
-                            borderColor: 'rgba(75, 192, 192, 1)',
-                            borderWidth: 2,
-                            pointBackgroundColor: 'rgba(75, 192, 192, 1)',
-                            fill: false,
-                            tension: 0.2,
-                            pointRadius: 8
-                        },
-                        {
-                            label: "Prix TipsRank",
-                            type: 'line',
-                            data: tipsData,
-                            borderColor: 'rgba(255, 159, 64, 1)',
-                            borderWidth: 2,
-                            backgroundColor: 'rgba(255, 159, 64, 0.2)',
-                            fill: false,
-                            tension: 0.2,
-                            pointRadius: 8
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: true, position: 'bottom' },
-                        title: { display: true, text: "Comparaison des Prix", font: { size: 16 } }
-                    },
-                    scales: { y: { beginAtZero: true } }
-                }
-            });
-        }
-    }
-
     // --- EVENTS SCORE ---
-    document.getElementById('gurufocusPrice').addEventListener('input', updatePrices);
-    document.getElementById('tipsrankPrice').addEventListener('input', updatePrices);
-    const slider = document.getElementById('safetyMarginSlider');
-    slider.addEventListener('input', function() { safetyMargin = updateSafetyMarginDisplay(parseInt(this.value)); });
-    slider.value = 2; 
-    safetyMargin = updateSafetyMarginDisplay(2);
-
     document.getElementById('stockTicker').addEventListener('keypress', async function(e) {
         if (e.key === 'Enter') {
             const ticker = this.value.trim().toUpperCase();
@@ -708,23 +574,19 @@
         calculateProfitability(inputValues);
         calculateSolvency(inputValues);
         calculateDividend(inputValues);
-
-        getFairPrice(gurufocusPrice, tipsrankPrice, safetyMargin);
         
         var sectionScores = [basisScore,growthScore,profitabilityScore,solvencyScore,dividendScore];
 
         const progressContainer = document.getElementById('progress-container-circle');
-        progressContainer.style.display = 'block';
+        progressContainer.style.display = 'flex'; // Important pour le flexbox centré
         const circleProgress = document.getElementById('circular-progress');
         circleProgress.setAttribute('value', totalScore); 
         circleProgress.setAttribute('max', 30); 
         const scoreText = document.getElementById('score-text');
-        scoreText.textContent = `Le score de Qualité de votre action est de ${totalScore} sur 30 !`;
+        scoreText.textContent = `Score de Qualité : ${totalScore} / 30`;
 
-        document.getElementById('radar-chart-container').style.display = 'flex';
+        document.getElementById('radar-chart-container').style.display = 'block';
         createRadarChart(sectionScores);
-        document.getElementById('bar-chart-container').style.display = 'flex';
-        createFairPriceChart(currentStockPrice, fairPrice);
 
         document.getElementById('progress-container-circle').scrollIntoView({ behavior: 'smooth'});
     });
