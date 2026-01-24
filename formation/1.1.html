@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.1 Investir, c'est quoi ? | Formation StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles pour le contenu du cours */
+        .prose p { margin-bottom: 1.5rem; line-height: 1.8; color: #475569; }
+        .prose h4 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-top: 3rem; margin-bottom: 1rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .prose ul, .prose ol { margin-bottom: 1.5rem; padding-left: 1rem; }
+        .prose li { margin-bottom: 0.5rem; color: #475569; position: relative; padding-left: 1.5rem; }
+        .prose ul li::before { content: "•"; color: #4f46e5; font-weight: bold; position: absolute; left: 0; }
+        .prose ol { list-style-type: decimal; padding-left: 2rem; }
+        .prose ol li { padding-left: 0.5rem; }
+        .prose strong { color: #0f172a; font-weight: 600; }
+        
+        /* Lightbox */
+        #imageViewer { backdrop-filter: blur(10px); }
+        .clickable-image { cursor: zoom-in; transition: transform 0.2s; }
+        .clickable-image:hover { transform: scale(1.01); }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 h-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
+            
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <span class="font-heading font-bold text-xl text-slate-900">StocksPickeur</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8">
+                <nav class="flex gap-6">
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
+                    <a href="../formation.html" class="text-sm font-medium text-indigo-600 font-bold transition">Formation</a>
+                </nav>
+                <div class="h-6 w-px bg-slate-200"></div>
+                <a href="../formation.html" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Connexion
+                </a>
+            </div>
+            
+            <div class="md:hidden">
+                <button class="text-slate-500 hover:text-slate-900">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-indigo-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="1.0.html" class="hover:text-indigo-600 transition">Module 1</a></li>
+                <li>/</li>
+                <li class="text-indigo-600 font-medium">Chapitre 1.1</li>
+            </ol>
+        </nav>
+
+        <div class="mb-12 border-b border-slate-200 pb-8">
+            <span class="text-indigo-600 font-bold tracking-wider uppercase text-xs">Module 1 • Les Bases</span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">1.1. Investir, c'est quoi ? 🌱</h1>
+        </div>
+
+        <article class="prose prose-slate max-w-none text-justify">
+            
+            <p>Bienvenue dans le premier module. Avant de parler de graphiques, de dividendes ou de ratios financiers, nous devons répondre à la question la plus fondamentale : <strong>qu'est-ce que cela signifie vraiment "investir" ?</strong></p>
+            
+            <div class="bg-slate-100 rounded-xl p-6 border border-slate-200 my-8 shadow-sm">
+                <div class="flex items-baseline gap-2 mb-2">
+                    <strong class="text-2xl font-serif text-slate-900">&#59564; investir</strong> 
+                    <span class="text-sm italic text-slate-500">verbe transitif</span>
+                </div>
+                <div class="text-xs text-slate-400 font-mono mb-4">(anglais <em>to invest</em>)</div>
+                <ol class="list-decimal pl-5 space-y-2 mb-4 text-slate-700">
+                    <li>Placer des fonds dans quelque chose en vue d'en tirer un bénéfice : <em>Investir son argent dans des actions.</em></li>
+                    <li>Mettre toute son énergie dans une action, une activité : <em>Investir son temps libre dans le sport.</em></li>
+                </ol>
+                <div class="pt-4 border-t border-slate-200 text-sm text-slate-800 font-medium">
+                    <strong>En résumé :</strong> Investir, c'est donner de son temps ou de son capital aujourd'hui pour en tirer des bénéfices futurs (financiers) ou pour le plaisir (personnel). C'est un échange conscient entre le "présent" et le "futur".
+                </div>
+            </div>
+
+            <p>Beaucoup de gens pensent qu'investir, c'est "jouer en bourse", c'est "réservé aux riches", ou que c'est une formule magique pour devenir millionnaire en deux semaines. Oubliez tout cela. Investir n'est pas un jeu. C'est une discipline, une philosophie de vie et, surtout, un acte de responsabilité envers votre futur.</p>
+
+            <h4>1. La définition économique : La Consommation Différée</h4>
+            <p>Au niveau le plus basique, investir est un arbitrage temporel. C'est le choix conscient de <strong>ne pas consommer une ressource aujourd'hui</strong> pour pouvoir en consommer <strong>davantage demain</strong>.</p>
+            <p>Imaginez que vous receviez 1000€ aujourd'hui. Vous avez deux choix :</p>
+            <ul>
+                <li><strong>La gratification immédiate :</strong> Vous achetez le dernier smartphone. Vous avez du plaisir instantané, mais l'argent est détruit. Il a quitté votre patrimoine pour entrer dans celui d'Apple.</li>
+                <li><strong>La gratification différée (Investissement) :</strong> Vous achetez des parts d'une entreprise (peut-être Apple). Vous renoncez au plaisir d'avoir le téléphone tout de suite. C'est douloureux sur le moment. Mais en échange de ce "sacrifice", vous exigez une rémunération. Dans 10 ans, ces parts vaudront peut-être 3000€, vous permettant d'acheter non pas un, mais trois téléphones.</li>
+            </ul>
+
+            <p>Investir, c'est donc dire à votre argent : <em>"Je ne vais pas te dépenser tout de suite. Va travailler, reviens avec des intérêts, et nous profiterons plus tard."</em></p>
+
+            <h4>2. Devenir Propriétaire vs Rester Salarié</h4>
+            <p>Dans notre système économique, il y a deux grandes façons de gagner de l'argent :</p>
+            <ol>
+                <li><strong>Le Revenu du Travail (Linéaire) :</strong> Vous échangez votre temps contre de l'argent. C'est votre salaire. Le problème ? Votre temps est limité.</li>
+                <li><strong>Le Revenu du Capital (Exponentiel) :</strong> Vous envoyez votre argent travailler. L'argent n'a pas besoin de dormir, il ne prend pas de vacances.</li>
+            </ol>
+            <p>Investir, c'est utiliser l'argent du groupe 1 (votre salaire) pour acheter des actifs du groupe 2. Quand vous achetez une action LVMH, les milliers d'employés de LVMH travaillent pour <strong>vous enrichir vous</strong>, le propriétaire.</p>
+            
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/investing.jpg')">
+                <img src="../media/Formation/investing.jpg" 
+                     alt="Illustration d'investissement" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Investir, c'est planter des graines pour construire une future forêt d'arbres</figcaption>
+            </figure>
+
+            <h4>3. Ce que l'investissement N'EST PAS</h4>
+            <p>Il est crucial de nettoyer votre esprit des mauvaises définitions véhiculées par les films ou les médias :</p>
+            <ul>
+                <li><strong>Ce n'est pas du Trading :</strong> Le trading consiste à parier sur les mouvements de prix à court terme (minutes, jours).</li>
+                <li><strong>Ce n'est pas de la Spéculation :</strong> Le spéculateur achète un actif non productif (or, crypto-monnaie sans projet, oeuvre d'art) en espérant juste le revendre plus cher. L'investisseur achète un actif <strong>productif</strong> (entreprise, loyers, dividendes).</li>
+            </ul>
+
+            <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-xl my-10">
+                <p class="font-bold text-indigo-900 mb-2">La Règle d'Or de Warren Buffett 🧠</p>
+                <p class="italic text-indigo-800 m-0">"Si vous ne trouvez pas un moyen de gagner de l'argent pendant que vous dormez, vous travaillerez jusqu'à votre mort."</p>
+            </div>
+
+            <h4>4. La Distinction Vitale : Actif vs Passif</h4>
+            <p>Pour finir ce chapitre d'introduction, il faut comprendre la différence fondamentale enseignée par Robert Kiyosaki (auteur de <em>Père Riche, Père Pauvre</em>) qui sépare les investisseurs du reste du monde.</p>
+            <p>En comptabilité classique, votre maison et votre voiture sont des actifs. En investissement, c'est faux. Voici la seule définition qui compte :</p>
+            <ul>
+                <li><strong>Un ACTIF (Asset) :</strong> C'est quelque chose qui <strong>met de l'argent dans votre poche</strong> (Dividendes, loyers, intérêts).</li>
+                <li><strong>Un PASSIF (Liability) :</strong> C'est quelque chose qui <strong>sort de l'argent de votre poche</strong> (Crédit auto, abonnement Netflix, résidence principale qui coûte en taxes et entretien).</li>
+            </ul>
+            <p>Investir, c'est consacrer sa vie à acquérir des ACTIFS. Les gens pauvres ont des dépenses, la classe moyenne achète des passifs en pensant que ce sont des actifs (grosse maison, grosse voiture), et les riches achètent des actifs. En suivant cette formation, vous apprenez à construire cette colonne d'actifs.</p>
+            
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/actif-vs-passif.png')">
+                <img src="../media/Formation/actif-vs-passif.png" 
+                     alt="Graphique illustrant la différence entre actif et passif" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Un actif génère des revenus tandis qu'un passif engendre des dépenses</figcaption>
+            </figure>
+            
+            <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-8 mt-12 shadow-sm">
+                <h5 class="text-xl font-bold text-emerald-800 mb-4 flex items-center">
+                    <span class="bg-emerald-200 text-emerald-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">🔑</span> 
+                    Ce qu'il faut retenir
+                </h5>
+                <p class="text-emerald-900 m-0 leading-relaxed">
+                    Investir n'est pas un jeu, c'est un acte de <strong>propriété</strong>. C'est choisir de différer une consommation immédiate pour acquérir des <strong>actifs productifs</strong> (qui mettent de l'argent dans votre poche) au lieu de passifs. C'est le seul moyen de passer du statut de "salarié qui travaille pour l'argent" à celui "d'investisseur dont l'argent travaille pour lui".
+                </p>
+            </div>
+
+        </article>
+
+        <div class="flex justify-between items-center mt-16 pt-8 border-t border-slate-200">
+            <a href="1.0.html" class="text-slate-500 hover:text-indigo-600 font-medium transition flex items-center group">
+                <span class="group-hover:-translate-x-1 transition-transform mr-2">←</span> Retour au Module 1
+            </a>
+            <a href="1.2.html" class="bg-indigo-600 text-white px-6 py-3 rounded-full font-bold hover:bg-indigo-700 transition shadow-lg shadow-indigo-200 flex items-center group">
+                Chapitre Suivant <span class="group-hover:translate-x-1 transition-transform ml-2">→</span>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <div id="imageViewer" class="fixed inset-0 z-[60] hidden bg-slate-900/90 backdrop-blur-sm transition-opacity duration-300" onclick="closeViewer()">
+        <span class="absolute top-5 right-8 text-white text-5xl cursor-pointer hover:text-slate-300 transition">&times;</span>
+        <img class="m-auto block max-w-[95%] max-h-[90vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded shadow-2xl" id="enlargedImg">
+    </div>
+
+    <script>
+        // Gestion de la Lightbox
+        var modal = document.getElementById("imageViewer");
+        var modalImg = document.getElementById("enlargedImg");
+
+        function openViewer(src) {
+            modal.style.display = "block";
+            modalImg.src = src;
+            document.body.style.overflow = "hidden"; // Empêche le scroll
+        }
+
+        function closeViewer() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto"; // Réactive le scroll
+        }
+        
+        // Fermer avec la touche Echap
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeViewer();
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Coût de l'Attente | StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        .input-field {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #e2e8f0;
+            background-color: #f8fafc;
+            transition: all 0.2s;
+            color: #1e293b;
+            font-weight: 500;
+        }
+        .input-field:focus {
+            outline: none;
+            border-color: #ef4444; /* Rouge pour l'urgence */
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+        }
+        .input-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 h-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <span class="font-heading font-bold text-xl text-slate-900">StocksPickeur</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <nav class="flex gap-6">
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
+                    <a href="../formation.html" class="text-sm font-medium text-indigo-600 font-bold transition">Formation</a>
+                </nav>
+                <div class="h-6 w-px bg-slate-200"></div>
+                <a href="../formation.html" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Connexion
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-indigo-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="3.0.html" class="hover:text-indigo-600 transition">Module 3</a></li>
+                <li>/</li>
+                <li class="text-indigo-600 font-medium">Coût de l'Attente</li>
+            </ol>
+        </nav>
+
+        <div class="text-center mb-12">
+            <span class="inline-block py-1 px-3 rounded-full bg-red-50 text-red-600 text-xs font-bold uppercase tracking-wider mb-4 border border-red-100">
+                La Taxe Procrastination
+            </span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mb-4">Le Coût de l'Attente ⏳</h1>
+            <p class="text-lg text-slate-500 max-w-2xl mx-auto">
+                "Je commencerai l'année prochaine". Cette phrase coûte souvent des dizaines de milliers d'euros. Vérifiez par vous-même.
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8">
+            
+            <div class="lg:col-span-4 space-y-6">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h3 class="font-bold text-slate-900 text-lg mb-6 border-b border-slate-100 pb-4">Vos Hypothèses</h3>
+                    
+                    <div class="mb-4">
+                        <label class="input-label">Investissement mensuel (€)</label>
+                        <input type="number" id="monthly" class="input-field" value="200" placeholder="Ex: 200">
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="input-label">Rendement annuel (%)</label>
+                        <input type="number" id="rate" class="input-field" value="8" step="0.5">
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="input-label">Durée totale du projet (Années)</label>
+                        <input type="range" id="horizon" min="10" max="40" value="30" class="w-full accent-slate-500 h-2 bg-slate-200 rounded-lg cursor-pointer">
+                        <div class="text-right text-sm text-slate-500 font-bold" id="horizonVal">30 ans</div>
+                    </div>
+
+                    <hr class="border-slate-100 my-6">
+
+                    <div class="mb-6">
+                        <label class="input-label text-red-600">Si vous attendez...</label>
+                        <input type="range" id="delay" min="1" max="20" value="5" class="w-full accent-red-500 h-2 bg-red-100 rounded-lg cursor-pointer">
+                        <div class="text-right text-sm text-red-500 font-bold" id="delayVal">5 ans</div>
+                    </div>
+
+                    <button onclick="calculateLoss()" class="w-full bg-red-600 text-white font-bold py-3 px-4 rounded-xl hover:bg-red-700 transition shadow-lg shadow-red-200 transform active:scale-95">
+                        Voir le manque à gagner 💸
+                    </button>
+                </div>
+            </div>
+
+            <div class="lg:col-span-8 space-y-6">
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white p-5 rounded-xl border-l-4 border-l-green-500 shadow-sm relative">
+                        <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Si vous commencez Aujourd'hui</div>
+                        <div class="text-3xl font-heading font-bold text-green-600" id="resNow">-- €</div>
+                        <div class="text-xs text-green-600 mt-1 font-bold">Investisseur A</div>
+                    </div>
+                    
+                    <div class="bg-white p-5 rounded-xl border-l-4 border-l-slate-400 shadow-sm relative">
+                        <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Si vous attendez <span id="txtDelay">5</span> ans</div>
+                        <div class="text-3xl font-heading font-bold text-slate-600" id="resLater">-- €</div>
+                        <div class="text-xs text-slate-500 mt-1 font-bold">Investisseur B</div>
+                    </div>
+                </div>
+
+                <div class="bg-red-50 rounded-xl p-6 border border-red-200 flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div>
+                        <h4 class="font-bold text-red-900 text-lg">Coût de votre procrastination :</h4>
+                        <p class="text-sm text-red-800">C'est la somme qui n'existera jamais sur votre compte.</p>
+                    </div>
+                    <div class="text-4xl font-heading font-bold text-red-600 bg-white px-6 py-3 rounded-lg shadow-sm border border-red-100" id="resLost">
+                        -- €
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm h-[350px]">
+                    <canvas id="lossChart"></canvas>
+                </div>
+
+                <div class="text-sm text-slate-500 italic bg-white p-4 rounded-xl border border-slate-100">
+                    <strong class="text-indigo-600">Leçon :</strong> Rattraper le temps perdu demande un effort d'épargne colossal. Pour obtenir le même résultat en commençant plus tard, il faudrait souvent doubler ou tripler votre versement mensuel !
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // Variables
+        const monthlyInput = document.getElementById('monthly');
+        const rateInput = document.getElementById('rate');
+        const horizonInput = document.getElementById('horizon');
+        const horizonDisplay = document.getElementById('horizonVal');
+        const delayInput = document.getElementById('delay');
+        const delayDisplay = document.getElementById('delayVal');
+        const txtDelay = document.getElementById('txtDelay');
+        
+        let myChart = null;
+
+        // Listeners
+        horizonInput.addEventListener('input', function() {
+            horizonDisplay.textContent = this.value + " ans";
+            // Empêcher le délai d'être > horizon
+            if(parseInt(delayInput.value) >= parseInt(this.value)) {
+                delayInput.value = this.value - 1;
+                delayDisplay.textContent = delayInput.value + " ans";
+            }
+            calculateLoss();
+        });
+
+        delayInput.addEventListener('input', function() {
+            delayDisplay.textContent = this.value + " ans";
+            calculateLoss();
+        });
+        
+        [monthlyInput, rateInput].forEach(item => {
+            item.addEventListener('input', calculateLoss);
+        });
+
+        function calculateFutureValue(monthly, rate, years) {
+            if (years <= 0) return 0;
+            const r = rate / 100 / 12;
+            const n = years * 12;
+            // Formule intérêts composés avec versements mensuels : PMT * (((1 + r)^n - 1) / r)
+            return monthly * ( (Math.pow(1 + r, n) - 1) / r );
+        }
+
+        function calculateLoss() {
+            const PMT = parseFloat(monthlyInput.value) || 0;
+            const r = parseFloat(rateInput.value) || 0;
+            const totalYears = parseInt(horizonInput.value);
+            const waitYears = parseInt(delayInput.value);
+
+            txtDelay.textContent = waitYears;
+
+            // Tableaux pour le graphique
+            const labels = [];
+            const dataA = []; // Commence maintenant
+            const dataB = []; // Commence plus tard
+
+            let valA = 0;
+            let valB = 0;
+            const monthlyRate = r / 100 / 12;
+
+            for (let year = 1; year <= totalYears; year++) {
+                labels.push("Année " + year);
+                
+                // Calcul Itératif
+                for(let m=0; m<12; m++) {
+                    // Investisseur A (Toujours)
+                    valA = (valA + PMT) * (1 + monthlyRate);
+
+                    // Investisseur B (Seulement après délai)
+                    if (year > waitYears) {
+                        valB = (valB + PMT) * (1 + monthlyRate);
+                    }
+                }
+                dataA.push(valA);
+                dataB.push(valB);
+            }
+
+            // Résultats Finaux
+            const finalA = dataA[dataA.length-1];
+            const finalB = dataB[dataB.length-1];
+            const lost = finalA - finalB;
+
+            const formatter = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+
+            document.getElementById('resNow').textContent = formatter.format(finalA);
+            document.getElementById('resLater').textContent = formatter.format(finalB);
+            document.getElementById('resLost').textContent = formatter.format(lost);
+
+            updateChart(labels, dataA, dataB);
+        }
+
+        function updateChart(labels, dataA, dataB) {
+            const ctx = document.getElementById('lossChart').getContext('2d');
+
+            if (myChart) myChart.destroy();
+
+            myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Commence Aujourd\'hui',
+                            data: dataA,
+                            borderColor: '#10b981', // Green
+                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            pointRadius: 0
+                        },
+                        {
+                            label: 'Commence après délai',
+                            data: dataB,
+                            borderColor: '#94a3b8', // Slate
+                            backgroundColor: 'rgba(148, 163, 184, 0.1)',
+                            borderWidth: 2,
+                            borderDash: [5, 5], // Pointillés
+                            fill: true,
+                            pointRadius: 0
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: { mode: 'index', intersect: false },
+                    scales: {
+                        y: {
+                            ticks: { callback: function(value) { return value / 1000 + ' k€'; } }
+                        },
+                        x: { grid: { display: false } }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) { label += ': '; }
+                                    if (context.parsed.y !== null) {
+                                        label += new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(context.parsed.y);
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', calculateLoss);
+    </script>
+</body>
+</html>

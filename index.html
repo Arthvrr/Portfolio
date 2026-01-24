@@ -1,235 +1,380 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StocksPickeur</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="media/Logo/logo.ico" type="image/x-icon">
-</head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <title>StocksPickeur | Investissement Quality</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="media/Logo/logo-black.ico" type="image/x-icon">
 
-  gtag('config', 'G-5QFGNT3V2F');
-</script>
-<body>
-    <header>
-        <a href="index.html" class="logo-title-link">
-            <img src="./media/Logo/Logo-White.png" alt="Logo QualityInvest">
-            <h1 class="header-title">StocksPickeur</h1>
-        </a>
-        <div class="onglets">
-            <a href="pages/calculator.html">Calculateur</a>
-            <a href="pages/wallet.html">Portefeuille</a>
-            <a href="pages/formation.html">Formation</a>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Animation fluide pour les détails FAQ */
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased selection:bg-indigo-100 selection:text-indigo-700">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="./media/Logo/Logo-White.png" alt="Logo StocksPickeur" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                    <span class="font-heading font-bold text-xl text-slate-900 tracking-tight">StocksPickeur</span>
+                </a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <nav class="flex gap-6">
+                        <a href="portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
+                        <a href="moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Analyses</a>
+                        <a href="formation.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Formation</a>
+                    </nav>
+
+                    <div class="h-6 w-px bg-slate-200"></div>
+
+                    <a href="#.html" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                        </svg>
+                        Connexion
+                    </a>
+                </div>
+
+                <div class="md:hidden">
+                    <button class="text-slate-500 hover:text-slate-900">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
         </div>
     </header>
 
-    <h2 class="title-home">La Qualité en Portefeuille au plus haut niveau</h2>
-    
-    <div class="presentation-perso">
-        <img src="./media/PP.png" alt="Photo de profil StocksPickeur">
-        <p>
-            Arthur, 22 ans, étudiant belge en Informatique et investisseur particulier depuis mes 18 ans. Ayant commencé à découvrir le monde de la Bourse fin 2021, j'investis mes 
-            premiers euros en janvier 2022. C'est en 2023 et après approfondissement de mes connaissances que je me tourne vers le Quality Investing. <br>Fervent défenseur du 
-            Stocks-Picking de haute qualité, je cherche à investir dans <span class="highlight-text">les meilleures actions à dividende du monde</span>. Ma stratégie est simple : sélectionner les 
-            meilleures actions à dividendes du marché, les acheter à un bon prix, et attendre.
-        </p>
-    </div>
+    <section class="pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden relative">
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-indigo-100 rounded-full blur-3xl opacity-50 mix-blend-multiply"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-emerald-100 rounded-full blur-3xl opacity-50 mix-blend-multiply"></div>
 
-    <div class="content-home">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-16 items-center">
+                
+                <div class="lg:col-span-7 text-center lg:text-left mb-12 lg:mb-0">
+                    <div class="inline-flex items-center px-3 py-1 rounded-full border border-indigo-100 bg-indigo-50 text-indigo-700 text-xs font-bold uppercase tracking-wide mb-6">
+                        Investissement Long Terme
+                    </div>
+                    <h1 class="text-4xl lg:text-6xl font-extrabold text-slate-900 leading-tight mb-6 tracking-tight">
+                        La surperformance par <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-emerald-500">la Qualité.</span>
+                    </h1>
+                    <p class="text-lg text-slate-600 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        Je m'appelle Arthur, 22 ans. Je défends le <strong>Quality Investing</strong> : sélectionner les meilleures entreprises mondiales, les acheter au bon prix, et laisser le temps faire le reste.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="formation.html" class="flex justify-center items-center px-8 py-4 border border-transparent text-base font-semibold rounded-xl text-white bg-indigo-600 hover:bg-indigo-700 md:text-lg transition shadow-lg shadow-indigo-500/30 transform hover:-translate-y-1">
+                            Commencer la Formation
+                        </a>
+                        <a href="portfolio.html" class="flex justify-center items-center px-8 py-4 border border-slate-200 text-base font-semibold rounded-xl text-slate-700 bg-white hover:bg-slate-50 md:text-lg transition">
+                            Voir mon Portefeuille
+                        </a>
+                    </div>
+                </div>
 
-
-        <div class="stats-banner">
-            
-            <div class="stat-item">
-                <span id="home-perf-year" class="stat-number color-green">--%</span>
-                <span class="stat-label">Performance 2025</span>
-            </div>
-
-            <div class="stat-item">
-                <span id="home-years-count" class="stat-number color-dark">--</span>
-                <span class="stat-label">Années d'expérience</span>
-            </div>
-
-            <div class="stat-item">
-                <span id="home-lines-count" class="stat-number color-blue">--</span>
-                <span class="stat-label">Lignes en Portefeuille</span>
-            </div>
-
-             <div class="stat-item">
-                <span class="stat-number color-purple">15</span>
-                <span class="stat-label">Critères de Qualité</span>
-            </div>
-
-        </div>
-
-        <h3 class="subtitle"><span>⮕ Ma Stratégie en 3 étapes</span></h3>
-
-        <div class="icon-row">
-            <div class="icon-item">
-                <img src="./media/Icons/find.png" alt="Find Icon">
-                <p>Trouver les meilleures actions du marché</p>
-            </div>
-            <div class="icon-item">
-                <img src="./media/Icons/wait.png" alt="Wait Icon">
-                <p>Attendre qu'elle soient à un bon prix</p>
-            </div>
-            <div class="icon-item">
-                <img src="./media/Icons/monitor.png" alt="Monitor Icon">
-                <p>Ouvrir une position, et suivre ses résultats</p>
+                <div class="lg:col-span-5 relative">
+                    <div class="relative rounded-full p-2 bg-gradient-to-br from-slate-100 to-white shadow-2xl border border-slate-100 mx-auto w-64 h-64 lg:w-80 lg:h-80">
+                        <img src="./media/PP.png" alt="Arthur StocksPickeur" class="rounded-full w-full h-full object-cover border-4 border-white shadow-inner">
+                        <div class="absolute bottom-4 -right-4 bg-white px-4 py-2 rounded-lg shadow-lg border border-slate-100 flex items-center gap-2 hover:scale-105 transition duration-300">
+                            <span class="text-2xl">🇧🇪</span>
+                            <div class="text-xs font-bold text-slate-900">Investisseur<br>Belge</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="formation-teaser">
-            <h3 class="teaser-title">🚀 Débutant ou Confirmé ? Passez au niveau supérieur</h3>
-            <p class="teaser-text">
-                Que vous n'ayez <strong>jamais investi 1€</strong> ou que vous cherchiez à <strong>booster la performance</strong> de votre portefeuille actuel, cette formation est faite pour vous. <br>
-                Je vous guide pas à pas, des bases indispensables jusqu'aux techniques d'analyse financière avancées de la stratégie Quality pour battre le marché.
+    <section class="bg-white border-y border-slate-100 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-slate-100">
+                
+                <div class="py-8 text-center px-4">
+                    <div id="home-perf-year" class="text-3xl lg:text-4xl font-extrabold text-emerald-600 mb-1">+18,55%</div>
+                    <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Perf. 2025</div>
+                </div>
+
+                <div class="py-8 text-center px-4">
+                    <div id="home-years-count" class="text-3xl lg:text-4xl font-extrabold text-slate-900 mb-1">5 Ans</div>
+                    <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Expérience</div>
+                </div>
+
+                <div class="py-8 text-center px-4">
+                    <div id="home-lines-count" class="text-3xl lg:text-4xl font-extrabold text-indigo-600 mb-1">6</div>
+                    <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Lignes en Portefeuille</div>
+                </div>
+
+                <div class="py-8 text-center px-4">
+                    <div class="text-3xl lg:text-4xl font-extrabold text-purple-600 mb-1">15</div>
+                    <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Critères de Qualité</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-heading font-bold text-slate-900">Ma stratégie en 3 étapes</h2>
+                <p class="mt-4 text-slate-500">Simple sur le papier, puissante dans la durée.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition duration-300 relative group">
+                    <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition">
+                        <img src="./media/Icons/find.png" alt="Find" class="w-8 h-8 opacity-80">
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 text-center mb-3">1. Détecter</h3>
+                    <p class="text-slate-600 text-center leading-relaxed">
+                        Trouver les meilleures actions du monde ("Compounders") grâce à une analyse fondamentale rigoureuse.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition duration-300 relative group">
+                    <div class="w-16 h-16 bg-purple-50 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition">
+                        <img src="./media/Icons/wait.png" alt="Wait" class="w-8 h-8 opacity-80">
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 text-center mb-3">2. Patienter</h3>
+                    <p class="text-slate-600 text-center leading-relaxed">
+                        Attendre que le marché offre un prix raisonnable ("Fair Value") pour entrer en position avec une marge de sécurité.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition duration-300 relative group">
+                    <div class="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition">
+                        <img src="./media/Icons/monitor.png" alt="Monitor" class="w-8 h-8 opacity-80">
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 text-center mb-3">3. Monitorer</h3>
+                    <p class="text-slate-600 text-center leading-relaxed">
+                        Conserver ses actions tant que la qualité persiste. Laisser les intérêts composés travailler pour nous.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-900 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-indigo-600 rounded-full blur-[100px] opacity-20"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="lg:flex lg:items-center lg:justify-between">
+                <div class="lg:w-1/2 mb-10 lg:mb-0">
+                    <span class="text-indigo-400 font-bold tracking-wider uppercase text-sm">Formation Gratuite</span>
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mt-2 mb-6">
+                        Passez au niveau supérieur.
+                    </h2>
+                    <p class="text-slate-400 text-lg leading-relaxed mb-8">
+                        Que vous n'ayez <strong>jamais investi 1€</strong> ou que vous cherchiez à <strong>booster votre performance</strong>, je vous guide pas à pas. Des bases indispensables jusqu'aux techniques d'analyse financière avancées.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center text-slate-300">
+                            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mr-3 text-sm">✓</span>
+                            7 Modules Complets
+                        </li>
+                        <li class="flex items-center text-slate-300">
+                            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mr-3 text-sm">✓</span>
+                            100% Gratuit (Vraiment)
+                        </li>
+                        <li class="flex items-center text-slate-300">
+                            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mr-3 text-sm">✓</span>
+                            Méthode Quality Investing
+                        </li>
+                    </ul>
+                    <a href="formation.html" class="inline-block bg-white text-slate-900 font-bold px-8 py-4 rounded-xl hover:bg-slate-100 transition shadow-lg shadow-white/10">
+                        Accéder à la Formation ➔
+                    </a>
+                </div>
+                
+                <div class="lg:w-5/12">
+                    <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700 shadow-2xl transform rotate-3 hover:rotate-0 transition duration-500">
+                        <div class="aspect-video bg-gradient-to-br from-indigo-900 to-slate-900 rounded-xl flex items-center justify-center border border-slate-600">
+                           <div class="text-center">
+                               <div class="text-4xl mb-2">🎓</div>
+                               <div class="font-heading font-bold text-white text-xl">La Bourse de A à Z</div>
+                               <div class="text-slate-400 text-sm mt-2">L'Art du Quality Investing</div>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="w-16 h-16 bg-black text-white rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl">
+                𝕏
+            </div>
+            <h2 class="text-3xl font-bold text-slate-900 mb-4">Suivez mes mouvements en direct</h2>
+            <p class="text-lg text-slate-600 mb-8">
+                Je partage mes réflexions, mes achats/ventes et l'actualité des entreprises de qualité sur X (Twitter) au quotidien.
             </p>
-            <ul class="teaser-list">
-                <li>✅ <strong>7 Modules Complets</strong></li>
-                <li>✅ <strong>100% Gratuit</strong></li>
-                <li>✅ <strong>Stratégie Quality</strong></li>
-            </ul>
-            <a href="pages/formation.html" style="text-decoration: none;">
-                <button class="community-btn btn-formation">
-                    Accéder à la Formation ➔
-                </button>
+            <a href="https://x.com/StocksPickeur" target="_blank" class="inline-flex items-center justify-center px-8 py-3 border border-slate-300 shadow-sm text-base font-medium rounded-full text-slate-700 bg-white hover:bg-slate-50 transition">
+                Suivre @StocksPickeur
             </a>
         </div>
+    </section>
 
-        <h3 class="subtitle"><span>⮕ Mon Système de Notation</span></h3>
-        <p>Afin de pouvoir sélectionner et faire le tri parmi plus de 50 000 actions cotées en Bourse à travers le monde, j’ai développé ma propre méthode de notation rigoureuse. Cette méthode permet d’évaluer la qualité d’une action sur un total de 30 points, en s’appuyant sur pas moins de 15 critères précis et détaillés, tels que la rentabilité, la croissance, la solvabilité, et bien d’autres indicateurs financiers essentiels. <br><br>
-        Pour chaque critère, j’examine la valeur actuelle de l’entreprise et je l’évalue selon un système de seuils : si elle dépasse le premier seuil défini, elle obtient 2 points pour ce critère ; si elle dépasse le second seuil, elle reçoit 1 point ; sinon, elle obtient 0 point. Cette approche permet de différencier rapidement les entreprises médiocres de celles qui sont vraiment excellentes, tout en offrant une vision détaillée des forces et faiblesses de chacune. <br><br>
-        Grâce à cette méthode, il est possible de faire un tri efficace et objectif dans l’immense univers des actions cotées, et de se concentrer sur les sociétés présentant le meilleur potentiel de qualité et de performance. Vous pouvez vous-même calculer le score de qualité d’une action en utilisant ma méthode sur la page <a href="/pages/calculator.html" class="link-to-wallet">Calculateur</a>, et découvrir son prix juste estimé. Pour ceux qui souhaitent approfondir leur compréhension, une présentation complète des 15 critères et de leur méthodologie est disponible sur la page <a href="pages/resources.html" class="link-to-wallet">Ressources</a>.</p>
+    <section class="py-24 bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-heading font-bold text-slate-900 mb-12 text-center">Questions Fréquentes</h2>
+            
+            <div class="space-y-4">
+                <details class="group bg-slate-50 p-6 rounded-2xl border border-slate-100 cursor-pointer transition open:bg-white open:shadow-lg open:ring-1 open:ring-slate-900/5">
+                    <summary class="flex justify-between items-center font-bold text-slate-900 list-none">
+                        Combien d'argent faut-il pour commencer ?
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </summary>
+                    <p class="text-slate-600 mt-4 leading-relaxed">
+                        Contrairement aux idées reçues, la Bourse n'est pas réservée aux riches. Vous pouvez commencer avec <strong>10€ ou 50€</strong>. Grâce aux courtiers modernes (comme Trade Republic), l'investissement est accessible à tous.
+                    </p>
+                </details>
 
+                <details class="group bg-slate-50 p-6 rounded-2xl border border-slate-100 cursor-pointer transition open:bg-white open:shadow-lg open:ring-1 open:ring-slate-900/5">
+                    <summary class="flex justify-between items-center font-bold text-slate-900 list-none">
+                        Est-ce que c'est risqué ?
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </summary>
+                    <p class="text-slate-600 mt-4 leading-relaxed">
+                        Tout investissement comporte des risques. Cependant, la stratégie Quality Investing vise à réduire ce risque en sélectionnant uniquement des entreprises rentables, leaders mondiaux, avec un historique solide. C'est l'approche "bon père de famille" dynamique.
+                    </p>
+                </details>
 
-        <div class="community-section">
-            <h3>Suivez mes analyses au quotidien</h3>
-            <p>
-                Je partage mes réflexions, mes mouvements de portefeuille et l'actualité des entreprises de qualité sur X (Twitter).
+                <details class="group bg-slate-50 p-6 rounded-2xl border border-slate-100 cursor-pointer transition open:bg-white open:shadow-lg open:ring-1 open:ring-slate-900/5">
+                    <summary class="flex justify-between items-center font-bold text-slate-900 list-none">
+                        Dois-je y passer mes journées ?
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </summary>
+                    <p class="text-slate-600 mt-4 leading-relaxed">
+                        Non ! C'est la différence entre le Trading et l'Investissement. Une fois vos entreprises sélectionnées, <strong>30 minutes par mois</strong> suffisent.
+                    </p>
+                </details>
+
+                <details class="group bg-slate-50 p-6 rounded-2xl border border-slate-100 cursor-pointer transition open:bg-white open:shadow-lg open:ring-1 open:ring-slate-900/5">
+                    <summary class="flex justify-between items-center font-bold text-slate-900 list-none">
+                        Pourquoi pas juste un ETF ?
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </summary>
+                    <p class="text-slate-600 mt-4 leading-relaxed">
+                        Les ETF sont excellents. Mais le Stock Picking permet de viser une performance supérieure au marché et de choisir éthiquement les entreprises dont vous voulez être propriétaire.
+                    </p>
+                </details>
+
+                 <details class="group bg-slate-50 p-6 rounded-2xl border border-slate-100 cursor-pointer transition open:bg-white open:shadow-lg open:ring-1 open:ring-slate-900/5">
+                    <summary class="flex justify-between items-center font-bold text-slate-900 list-none">
+                        Tes performances sont-elles réelles ?
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </summary>
+                    <p class="text-slate-600 mt-4 leading-relaxed">
+                        Transparence totale. Vous pouvez consulter l'évolution exacte de mon patrimoine, mes gains et mes pertes mois par mois sur la page <a href="pages/wallet.html" class="text-indigo-600 font-bold hover:underline">Portefeuille</a>.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-indigo-900 text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h3 class="text-2xl font-bold mb-6">Soutenez le projet StocksPickeur 🤝</h3>
+            <p class="text-indigo-200 mb-10 max-w-2xl mx-auto">
+                Si vous appréciez le contenu gratuit et souhaitez commencer à investir, utiliser mes liens de parrainage m'aide à maintenir le site et vous offre un bonus de bienvenue.
             </p>
-            <a href="https://x.com/StocksPickeur" target="_blank" style="text-decoration: none;">
-                <button class="community-btn">
-                    Suivre sur X ➔
-                </button>
-            </a>
-        </div>
-
-        <h3 class="subtitle"><span>⮕ Questions Fréquentes</span></h3>
-        <div class="faq-container">
             
-            <details class="faq-item">
-                <summary class="faq-question">Combien d'argent faut-il pour commencer ?</summary>
-                <p class="faq-answer">
-                    Contrairement aux idées reçues, la Bourse n'est pas réservée aux riches. Vous pouvez commencer avec <strong>10€ ou 50€</strong>. 
-                    Grâce aux courtiers modernes (comme Trade Republic) et aux plans d'investissement programmés, l'investissement est accessible à tous, même avec un petit budget étudiant.
-                </p>
-            </details>
-
-            <details class="faq-item">
-                <summary class="faq-question">Est-ce que c'est risqué ?</summary>
-                <p class="faq-answer">
-                    Tout investissement comporte des risques. Cependant, ma stratégie (Quality Investing) vise justement à <strong>réduire ce risque au maximum</strong>. 
-                    Au lieu de parier sur des actions spéculatives ou des crypto-monnaies volatiles, nous sélectionnons uniquement des entreprises rentables, leaders mondiaux, avec un historique solide. C'est l'approche "bon père de famille" dynamique.
-                </p>
-            </details>
-
-            <details class="faq-item">
-                <summary class="faq-question">Dois-je passer mes journées devant un écran ?</summary>
-                <p class="faq-answer">
-                    Absolument pas ! C'est la différence entre le <em>Trading</em> (très chronophage) et l'<em>Investissement</em>. 
-                    Une fois vos entreprises de Qualité sélectionnées, il suffit de <strong>30 minutes par mois</strong> pour suivre vos résultats. Le but est de laisser les entreprises travailler pour vous, pas l'inverse.
-                </p>
-            </details>
-
-            <details class="faq-item">
-                <summary class="faq-question">Pourquoi choisir des actions plutôt qu'un ETF ?</summary>
-                <p class="faq-answer">
-                    Les ETF sont excellents pour débuter (j'en parle dans la formation). Cependant, faire sa propre sélection (Stock Picking) permet de viser une <strong>performance supérieure au marché</strong> 
-                    et surtout de choisir éthiquement les entreprises dont vous voulez être propriétaire. C'est aussi beaucoup plus passionnant intellectuellement !
-                </p>
-            </details>
-
-            <details class="faq-item">
-                <summary class="faq-question">Est-ce que tu fais du Trading ?</summary>
-                <p class="faq-answer">
-                    Non. Le trading consiste à faire des achats-reventes rapides pour gagner quelques euros à court terme. C'est risqué et stressant. 
-                    Ici, nous sommes des <strong>Investisseurs de Long Terme</strong>. Nous achetons des parts d'entreprises pour les garder des années et profiter de leur croissance et de leurs dividendes.
-                </p>
-            </details>
-
-            <details class="faq-item">
-                <summary class="faq-question">Tes performances sont-elles réelles ?</summary>
-                <p class="faq-answer">
-                    Je prône une transparence totale, rare dans ce milieu. Vous pouvez consulter l'évolution exacte de mon patrimoine, mes gains et mes pertes mois par mois sur la page <a href="pages/wallet.html" class="link-blue">Portefeuille</a>.
-                </p>
-            </details>
-
-        </div>
-
-        <div class="support-section">
-            <h3 class="support-title">Soutenez le projet StocksPickeur 🤝</h3>
-            <p class="support-text">Si vous appréciez mon contenu et souhaitez commencer à investir, vous pouvez utiliser mes liens de parrainage. Cela m'aide à faire vivre le site et vous permet de bénéficier d'un bonus de bienvenue !</p>
-            
-            <div class="support-buttons-container">
-                <a href="https://refnocode.trade.re/43w4mtm9" target="_blank" style="text-decoration: none;">
-                    <button class="community-btn btn-tr">
-                        Ouvrir un compte Trade Republic 📈
-                    </button>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://refnocode.trade.re/43w4mtm9" target="_blank" class="flex items-center justify-center px-6 py-4 bg-white text-slate-900 rounded-xl font-bold hover:bg-slate-100 transition shadow-lg">
+                    <span class="mr-2">📈</span> Ouvrir compte Trade Republic
                 </a>
-                <a href="https://www.degiro.fr/parrainage/invitez-vos-amis?id=CA381306&utm_source=mgm" target="_blank" style="text-decoration: none;">
-                    <button class="community-btn btn-degiro">
-                        Ouvrir un compte Degiro 💼
-                    </button>
+                <a href="https://www.degiro.fr/parrainage/invitez-vos-amis?id=CA381306&utm_source=mgm" target="_blank" class="flex items-center justify-center px-6 py-4 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition shadow-lg border border-blue-500">
+                    <span class="mr-2">💼</span> Ouvrir compte Degiro
                 </a>
             </div>
         </div>
+    </section>
 
-        <div class="disclaimer-container">
-            <p>
-                <strong>Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. 
-                Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. 
-                Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="./media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
             </p>
         </div>
+    </footer>
 
-    </div>
-
-    <div class="footer">
-        <div class="copyright">
-            <img src="./media/Logo/Logo-Black.png" alt="Logo QualityInvest">
-            <span id="copyright-text" ><a href="https://x.com/StocksPickeur" class="reset-link">StocksPickeur &copy; 2025</a></span>
-        </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        // --- DONNÉES AUTOMATIQUES (Copiées depuis wallet.html) ---
-        // Tu n'as qu'à mettre à jour ces listes pour que le site change partout
+        // --- DONNÉES AUTOMATIQUES (Ajustées à ta demande) ---
+        // Le script va confirmer les chiffres déjà présents dans le HTML
         
         const tickerOfShares = ["ASML", "GOOGL","MA", "MSFT","NVDA", "V"]; 
-        const annualReturnPercent = [0, 8.26, 30.76, 18.55]; // Ta performance
-        const walletEndYear = [0, 5792.03, 8946.56, 22579.97]; // Valeur historique
-        const yearsList = [2022, 2023, 2024, 2025, 2026]; // Années actives
+        
+        const annualReturnPercent = [0, 8.26, 30.76, 18.55]; 
+        
+        // --- MISE À JOUR DU DOM ---
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Nombre de lignes
+            const linesEl = document.getElementById('home-lines-count');
+            if(linesEl) linesEl.textContent = tickerOfShares.length;
 
-        // --- CALCULS AUTOMATIQUES ---
+            // 2. Performance Année en cours
+            const lastPerf = annualReturnPercent[annualReturnPercent.length - 1];
+            const perfElement = document.getElementById('home-perf-year');
+            
+            if(perfElement) {
+                // Formatage propre : +18,55%
+                perfElement.textContent = (lastPerf > 0 ? '+' : '') + lastPerf.toString().replace('.', ',') + '%';
+                
+                // Couleur (Vert si positif, Rouge si négatif)
+                if (lastPerf < 0) {
+                    perfElement.classList.remove('text-emerald-600');
+                    perfElement.classList.add('text-red-500');
+                } else {
+                    perfElement.classList.add('text-emerald-600');
+                }
+            }
 
-        // 1. Nombre de lignes (Longueur du tableau tickers)
-        document.getElementById('home-lines-count').textContent = tickerOfShares.length;
-
-        // 2. Performance de l'année en cours (Dernière valeur du tableau)
-        const lastPerf = annualReturnPercent[annualReturnPercent.length - 1];
-        const perfElement = document.getElementById('home-perf-year');
-        perfElement.textContent = (lastPerf > 0 ? '+' : '') + lastPerf.toString().replace('.', ',') + '%';
-        // Couleur dynamique (Vert si positif, Rouge si négatif)
-        perfElement.style.color = lastPerf >= 0 ? '#27ae60' : '#e74c3c';
-
-        document.getElementById('home-years-count').textContent = (annualReturnPercent.length+1) + ' Ans';
-
+            // 3. Années d'expérience
+            const yearsEl = document.getElementById('home-years-count');
+            if(yearsEl) yearsEl.textContent = (annualReturnPercent.length + 1) + ' Ans';
+        });
     </script>
 </body>
 </html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 2 : Débuter en Bourse | Formation StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .chapter-card:hover { transform: translateY(-2px); border-color: #2563eb; } /* Blue-600 */
+        
+        /* Séparateur de section */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            margin: 3rem 0 1.5rem 0;
+            color: #94a3b8; /* Slate-400 */
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .section-divider::before, .section-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: #e2e8f0; /* Slate-200 */
+        }
+        .section-divider::before { margin-right: 1rem; }
+        .section-divider::after { margin-left: 1rem; }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 h-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <span class="font-heading font-bold text-xl text-slate-900">StocksPickeur</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <nav class="flex gap-6">
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
+                    <a href="../formation.html" class="text-sm font-medium text-indigo-600 font-bold transition">Formation</a>
+                </nav>
+                <div class="h-6 w-px bg-slate-200"></div>
+                <a href="../formation.html" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Connexion
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <a href="../formation.html" class="inline-flex items-center text-sm text-slate-400 hover:text-blue-600 mb-8 transition group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 group-hover:-translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+            </svg> 
+            Retour au programme
+        </a>
+
+        <div class="mb-12 text-justify">
+            <span class="inline-block py-1 px-3 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-wider mb-4 border border-blue-100">Module 2</span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mb-6">Débuter en Bourse 🏦</h1>
+            <p class="text-lg text-slate-500 leading-relaxed">
+                Ce deuxième module vous fait passer concrètement à l’action. On entre enfin dans le vif du sujet : la bourse, comment elle fonctionne et comment bien démarrer sans se tromper. <br>
+                Vous allez comprendre ce qu’est réellement la Bourse et pourquoi elle est incontournable, apprendre comment commencer simplement en choisissant la bonne enveloppe (PEA ou compte-titres), ainsi que le bon courtier. On fera aussi une distinction claire entre spéculation et investissement, pour éviter les pièges classiques des débutants. <br>
+                À la fin de ce module, vous saurez où aller, quoi utiliser et surtout comment investir intelligemment, avec une approche claire, structurée et pensée pour le long terme.
+            </p>
+        </div>
+
+        <div class="space-y-4">
+            <div class="section-divider">Cours & Théorie</div>
+
+            <a href="2.1.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-lg group-hover:bg-blue-600 group-hover:text-white transition">2.1</div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-lg group-hover:text-blue-600 transition">C'est quoi la Bourse ? 🏛️</h3>
+                    </div>
+                </div>
+                <div class="text-slate-300 group-hover:text-blue-600 transition">➔</div>
+            </a>
+
+            <a href="2.2.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-lg group-hover:bg-blue-600 group-hover:text-white transition">2.2</div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-lg group-hover:text-blue-600 transition">Pourquoi la Bourse ? 🚀</h3>
+                    </div>
+                </div>
+                <div class="text-slate-300 group-hover:text-blue-600 transition">➔</div>
+            </a>
+
+            <a href="2.3.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-lg group-hover:bg-blue-600 group-hover:text-white transition">2.3</div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-lg group-hover:text-blue-600 transition">Comment commencer à Investir ? 🏁</h3>
+                    </div>
+                </div>
+                <div class="text-slate-300 group-hover:text-blue-600 transition">➔</div>
+            </a>
+
+            <a href="2.4.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-lg group-hover:bg-blue-600 group-hover:text-white transition">2.4</div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-lg group-hover:text-blue-600 transition">Spéculation vs Investissement ⚔️</h3>
+                    </div>
+                </div>
+                <div class="text-slate-300 group-hover:text-blue-600 transition">➔</div>
+            </a>
+
+            <a href="2.5.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-lg group-hover:bg-blue-600 group-hover:text-white transition">2.5</div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-lg group-hover:text-blue-600 transition">Les différents Instruments Financiers 🧰</h3>
+                    </div>
+                </div>
+                <div class="text-slate-300 group-hover:text-blue-600 transition">➔</div>
+            </a>
+        </div>
+
+        <div class="space-y-4 mt-12">
+            <div class="section-divider">Validation</div>
+
+            <a href="2.test.html" class="chapter-card flex items-center justify-between bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-lg transition duration-300 group hover:bg-slate-800 transform hover:-translate-y-1">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center font-bold text-xl">🎓</div>
+                    <div>
+                        <h3 class="font-bold text-white text-lg">Examen Final du Module 2</h3>
+                        <p class="text-sm text-slate-400">Testez vos connaissances sur la Bourse, les courtiers et les instruments.</p>
+                    </div>
+                </div>
+                <div class="text-slate-500 group-hover:text-white transition">➔</div>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

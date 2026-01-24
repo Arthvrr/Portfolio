@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen Module 3 : L'Univers des Actions | Formation StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles Quiz */
+        .quiz-option {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .quiz-option:hover {
+            background-color: #f0f9ff; /* Sky-50 */
+            border-color: #7dd3fc; /* Sky-300 */
+        }
+        /* États après validation */
+        .quiz-option.correct {
+            background-color: #dcfce7; /* Green-100 */
+            border-color: #10b981; /* Green-500 */
+            color: #166534; /* Green-800 */
+        }
+        .quiz-option.wrong {
+            background-color: #fee2e2; /* Red-100 */
+            border-color: #ef4444; /* Red-500 */
+            color: #991b1b; /* Red-800 */
+            opacity: 0.7;
+        }
+        .explanation {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 h-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <span class="font-heading font-bold text-xl text-slate-900">StocksPickeur</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <nav class="flex gap-6">
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
+                    <a href="../formation.html" class="text-sm font-medium text-indigo-600 font-bold transition">Formation</a>
+                </nav>
+                <div class="h-6 w-px bg-slate-200"></div>
+                <a href="../formation.html" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Connexion
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-sky-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="3.0.html" class="hover:text-sky-600 transition">Module 3</a></li>
+                <li>/</li>
+                <li class="text-sky-600 font-medium">Examen Final</li>
+            </ol>
+        </nav>
+
+        <div class="mb-12 border-b border-slate-200 pb-8 text-center">
+            <span class="inline-block py-1 px-3 rounded-full bg-sky-50 text-sky-600 text-xs font-bold uppercase tracking-wider mb-4 border border-sky-100">
+                Validation des Acquis
+            </span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mb-4">Quiz Module 3 : L'Univers des Actions 🎯</h1>
+            <p class="text-slate-500 text-lg max-w-xl mx-auto text-justify">
+                Avez-vous maîtrisé les concepts de Capitalisation, de Dividendes, de Rachats d'actions et les stratégies gagnantes ? C'est l'heure de vérité.
+            </p>
+        </div>
+
+        <form id="quizForm" class="space-y-10">
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="single" data-correct="c">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">1</span>
+                    Comment calcule-t-on la Capitalisation Boursière d'une entreprise ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q1" value="a" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>C'est le chiffre d'affaires annuel de l'entreprise.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q1" value="b" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>C'est simplement le prix d'une seule action.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q1" value="c" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>Prix de l'action × Nombre total d'actions.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-sky-50 text-sky-800 p-5 rounded-xl border border-sky-100">
+                    <strong>💡 Réponse : C.</strong> C'est la valeur totale de l'entreprise (la taille de la pizza entière), pas juste le prix d'une part.
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="single" data-correct="a">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
+                    Quel type d'ordre devez-vous utiliser si vous voulez être ABSOLUMENT sûr du prix que vous payez ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q2" value="a" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>Ordre à Cours Limité.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q2" value="b" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>Ordre au Marché.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q2" value="c" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>Ordre à Seuil de Déclenchement.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-sky-50 text-sky-800 p-5 rounded-xl border border-sky-100">
+                    <strong>💡 Réponse : A.</strong> Avec l'ordre Limité, vous fixez un prix plafond. L'ordre au Marché privilégie la vitesse d'exécution, pas le prix.
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="multiple" data-correct="a,c">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">3</span>
+                    Quels sont les effets d'un programme de Rachats d'Actions (Share Buyback) ? (Plusieurs réponses)
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q3" value="a" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>Cela augmente mécaniquement le Bénéfice Par Action (BPA).</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q3" value="b" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>Cela dilue les actionnaires existants (ils possèdent une part plus petite).</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q3" value="c" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>Cela augmente votre pourcentage de détention de l'entreprise sans frais.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-sky-50 text-sky-800 p-5 rounded-xl border border-sky-100">
+                    <strong>💡 Réponse : A et C.</strong> L'entreprise détruit des actions, donc celles qui restent (les vôtres) ont plus de valeur. C'est l'inverse de la dilution (B).
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="single" data-correct="b">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">4</span>
+                    Quelle est la différence entre la Volatilité et le Risque ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q4" value="a" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>C'est la même chose.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q4" value="b" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>La Volatilité est une variation de prix temporaire, le Risque est la perte permanente de capital.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q4" value="c" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>La Volatilité ne concerne que les petites entreprises.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-sky-50 text-sky-800 p-5 rounded-xl border border-sky-100">
+                    <strong>💡 Réponse : B.</strong> La volatilité est le prix à payer pour la performance. Le risque (faillite) est ce qu'il faut absolument éviter.
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="single" data-correct="b">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">5</span>
+                    Pourquoi faut-il être prudent avec les IPO (Introductions en Bourse) ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q5" value="a" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>Parce qu'on ne peut pas acheter l'action le premier jour.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q5" value="b" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>À cause de l'asymétrie d'information et du risque de surévaluation (Hype).</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q5" value="c" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>Parce que les IPO sont réservées aux professionnels.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-sky-50 text-sky-800 p-5 rounded-xl border border-sky-100">
+                    <strong>💡 Réponse : B.</strong> Les vendeurs veulent vendre cher. Historiquement, la majorité des IPO sous-performent le marché après 3 ans.
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="multiple" data-correct="a,c">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">6</span>
+                    Quels sont les piliers de la stratégie "Quality Investing" ? (Plusieurs réponses)
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q6" value="a" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>Acheter des entreprises très rentables avec un avantage concurrentiel (Moat).</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q6" value="b" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>Acheter uniquement les actions les moins chères (P/E bas) même si l'entreprise va mal.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q6" value="c" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>Accepter de payer un prix correct pour une entreprise exceptionnelle.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-sky-50 text-sky-800 p-5 rounded-xl border border-sky-100">
+                    <strong>💡 Réponse : A et C.</strong> La stratégie Value (B) cherche le "pas cher". La Quality cherche le "meilleur".
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="single" data-correct="b">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">7</span>
+                    Si l'Euro s'affaiblit face au Dollar (ex: 1€ = 0,90$), quel est l'impact sur vos actions américaines ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q7" value="a" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>La valeur de mon portefeuille en Euros baisse.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q7" value="b" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>La valeur de mon portefeuille en Euros augmente (Bonus de change).</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q7" value="c" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>Aucun impact.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-sky-50 text-sky-800 p-5 rounded-xl border border-sky-100">
+                    <strong>💡 Réponse : B.</strong> Si le dollar devient plus fort, vos actions en dollars valent plus d'euros une fois converties.
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="single" data-correct="a">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">8</span>
+                    Qu'est-ce qu'un "Multibagger" ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q8" value="a" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>Une action dont le cours a été multiplié plusieurs fois (x2, x10, x100).</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q8" value="b" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>Un portefeuille contenant plusieurs devises.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q8" value="c" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>Une action qui verse beaucoup de dividendes.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-sky-50 text-sky-800 p-5 rounded-xl border border-sky-100">
+                    <strong>💡 Réponse : A.</strong> C'est la clé de l'enrichissement en Stock Picking. Une seule action x10 peut compenser toutes vos erreurs.
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="single" data-correct="c">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">9</span>
+                    Pourquoi faut-il se méfier des très hauts rendements de dividendes (>8%) ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q9" value="a" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>C'est une excellente affaire, il faut foncer.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q9" value="b" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>L'entreprise est trop généreuse.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q9" value="c" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>C'est souvent un piège (Yield Trap) : le rendement est haut car le cours de l'action s'est effondré.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-sky-50 text-sky-800 p-5 rounded-xl border border-sky-100">
+                    <strong>💡 Réponse : C.</strong> Un rendement anormalement élevé est souvent le signe que le marché anticipe une baisse du dividende ou des problèmes graves.
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="single" data-correct="b">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">10</span>
+                    Quel est le conseil de Warren Buffett sur la diversification ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q10" value="a" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>Il faut acheter au moins 100 actions différentes.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q10" value="b" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>La diversification excessive est une protection contre l'ignorance. Il vaut mieux concentrer ses meilleurs paris.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q10" value="c" class="accent-sky-600 w-5 h-5 flex-shrink-0">
+                        <span>Il faut acheter un peu de chaque secteur pour équilibrer.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-sky-50 text-sky-800 p-5 rounded-xl border border-sky-100">
+                    <strong>💡 Réponse : B.</strong> En Stock Picking Quality, on ne cherche pas à avoir "un peu de tout", mais beaucoup de "ce qui est excellent".
+                </div>
+            </div>
+
+            <div class="text-center pt-8">
+                <button type="button" onclick="checkQuiz()" class="bg-sky-600 text-white font-bold py-4 px-12 rounded-full hover:bg-sky-700 transition shadow-lg shadow-sky-200 transform active:scale-95 text-lg w-full sm:w-auto">
+                    Soumettre mes réponses
+                </button>
+                
+                <div id="resultBox" class="hidden mt-12 p-8 bg-slate-900 rounded-2xl text-white shadow-2xl">
+                    <h2 class="text-3xl font-heading font-extrabold mb-2">Résultat : <span id="scoreDisplay" class="text-emerald-400">0/10</span></h2>
+                    <p id="scoreMessage" class="text-slate-300 mb-8 text-lg">Message...</p>
+                    
+                    <a href="4.0.html" id="nextModuleBtn" class="hidden inline-block bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-10 rounded-full transition transform hover:-translate-y-1 shadow-lg shadow-emerald-500/30">
+                        Passer au Module 4 →
+                    </a>
+                    <a href="3.1.html" id="retryBtn" class="hidden inline-block bg-slate-700 hover:bg-slate-600 text-white font-bold py-4 px-10 rounded-full transition transform hover:-translate-y-1">
+                        Relire le Module 3 ↺
+                    </a>
+                </div>
+            </div>
+
+        </form>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function checkQuiz() {
+            let score = 0;
+            const totalQuestions = 10;
+            const questions = document.querySelectorAll('.question-block');
+            
+            questions.forEach(block => {
+                const type = block.dataset.type; // 'single' ou 'multiple'
+                const correct = block.dataset.correct.split(','); // Array des bonnes réponses ['a', 'b']
+                const inputs = block.querySelectorAll('input');
+                let isCorrect = false;
+
+                // Reset styles
+                block.querySelectorAll('.quiz-option').forEach(opt => {
+                    opt.classList.remove('correct', 'wrong');
+                    opt.style.cursor = 'default';
+                    opt.querySelector('input').disabled = true;
+                });
+
+                if (type === 'single') {
+                    // Logique Radio
+                    inputs.forEach(input => {
+                        if (input.checked) {
+                            if (correct.includes(input.value)) {
+                                isCorrect = true;
+                                input.parentElement.classList.add('correct');
+                            } else {
+                                input.parentElement.classList.add('wrong');
+                            }
+                        }
+                        // Highlight correct answer
+                        if (correct.includes(input.value)) {
+                            input.parentElement.classList.add('correct');
+                        }
+                    });
+                } else {
+                    // Logique Checkbox (Strict : Tout bon, rien de faux)
+                    let userAnswers = [];
+                    inputs.forEach(input => {
+                        if(input.checked) userAnswers.push(input.value);
+                    });
+                    
+                    // Vérifier si userAnswers est identique à correct
+                    const allCorrect = userAnswers.length === correct.length && userAnswers.every(val => correct.includes(val));
+
+                    if (allCorrect) {
+                        isCorrect = true;
+                    }
+
+                    // Coloration
+                    inputs.forEach(input => {
+                        // Si coché et correct -> Vert
+                        if (input.checked && correct.includes(input.value)) {
+                            input.parentElement.classList.add('correct');
+                        }
+                        // Si coché et faux -> Rouge
+                        else if (input.checked && !correct.includes(input.value)) {
+                            input.parentElement.classList.add('wrong');
+                        }
+                        // Si pas coché mais c'était une bonne réponse -> Vert (pour montrer)
+                        else if (!input.checked && correct.includes(input.value)) {
+                            input.parentElement.classList.add('correct');
+                        }
+                    });
+                }
+
+                if (isCorrect) score++;
+
+                // Show explanation
+                block.querySelector('.explanation').style.display = 'block';
+            });
+
+            // Afficher le résultat
+            const resultBox = document.getElementById('resultBox');
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            const scoreMessage = document.getElementById('scoreMessage');
+            const nextBtn = document.getElementById('nextModuleBtn');
+            const retryBtn = document.getElementById('retryBtn');
+
+            resultBox.classList.remove('hidden');
+            scoreDisplay.textContent = score + "/" + totalQuestions;
+
+            // Scroll vers le bas
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            if (score >= 7) { // 70% pour valider
+                scoreMessage.textContent = "Bravo ! L'univers des actions n'a plus de secrets pour vous. On passe aux choses sérieuses : La Stratégie Quality.";
+                nextBtn.classList.remove('hidden');
+                retryBtn.classList.add('hidden');
+            } else {
+                scoreMessage.textContent = "Certains mécanismes financiers (Buyback, Ordres, Yield...) sont encore flous. Une petite révision s'impose pour éviter les erreurs coûteuses.";
+                nextBtn.classList.add('hidden');
+                retryBtn.classList.remove('hidden');
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculateur de Surperformance | StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        .input-field {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #e2e8f0;
+            background-color: #f8fafc;
+            transition: all 0.2s;
+            color: #1e293b;
+            font-weight: 500;
+        }
+        .input-field:focus {
+            outline: none;
+            border-color: #0ea5e9; /* Sky-500 */
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+        }
+        .input-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 h-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <span class="font-heading font-bold text-xl text-slate-900">StocksPickeur</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <nav class="flex gap-6">
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
+                    <a href="../formation.html" class="text-sm font-medium text-indigo-600 font-bold transition">Formation</a>
+                </nav>
+                <div class="h-6 w-px bg-slate-200"></div>
+                <a href="../formation.html" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Connexion
+                </a>
+            </div>
+            <div class="md:hidden">
+                <button class="text-slate-500 hover:text-slate-900">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-sky-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="3.0.html" class="hover:text-sky-600 transition">Module 3</a></li>
+                <li>/</li>
+                <li class="text-sky-600 font-medium">Calculateur d'Alpha</li>
+            </ol>
+        </nav>
+
+        <div class="text-center mb-12">
+            <span class="inline-block py-1 px-3 rounded-full bg-sky-50 text-sky-600 text-xs font-bold uppercase tracking-wider mb-4 border border-sky-100">
+                La Puissance du Stock Picking
+            </span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mb-4">Le Prix de l'Excellence 🚀</h1>
+            <p class="text-lg text-slate-500 max-w-2xl mx-auto">
+                Voyez par vous-même ce que quelques pourcents de performance supplémentaire (Alpha) peuvent changer dans votre vie sur le long terme.
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8">
+            
+            <div class="lg:col-span-4 space-y-6">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h3 class="font-bold text-slate-900 text-lg mb-6 border-b border-slate-100 pb-4">Votre Situation</h3>
+                    
+                    <div class="mb-4">
+                        <label class="input-label">Capital de départ (€)</label>
+                        <input type="number" id="initialCapital" class="input-field" value="20000" placeholder="Ex: 20000">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="input-label">Investissement mensuel (€)</label>
+                        <input type="number" id="monthlyAdd" class="input-field" value="500" placeholder="Ex: 500">
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="input-label flex justify-between">
+                            Durée (Années)
+                            <span class="text-sky-600" id="yearsDisplay">20 ans</span>
+                        </label>
+                        <input type="range" id="years" min="5" max="40" value="20" class="w-full mt-2 accent-sky-500 h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
+                    </div>
+
+                    <hr class="border-slate-100 my-6">
+
+                    <div class="space-y-4">
+                        <div>
+                            <label class="input-label text-xs uppercase tracking-wide">Rendement Moyen (ETF)</label>
+                            <div class="relative">
+                                <input type="number" id="rateMarket" class="input-field pl-3 pr-8 border-slate-300 bg-slate-50" value="8" step="0.5">
+                                <span class="absolute right-3 top-2.5 text-slate-500 font-bold">%</span>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="input-label text-xs uppercase tracking-wide text-sky-700">Votre Objectif (Quality)</label>
+                            <div class="relative">
+                                <input type="number" id="rateAlpha" class="input-field pl-3 pr-8 border-sky-300 bg-sky-50 text-sky-700 font-bold" value="12" step="0.5">
+                                <span class="absolute right-3 top-2.5 text-sky-700 font-bold">%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="calculateAlpha()" class="w-full mt-6 bg-sky-600 text-white font-bold py-3 px-4 rounded-xl hover:bg-sky-700 transition shadow-lg shadow-sky-200 transform active:scale-95">
+                        Calculer l'Écart 🔮
+                    </button>
+                </div>
+            </div>
+
+            <div class="lg:col-span-8 space-y-6">
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm text-center">
+                        <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Capital avec ETF (Moyen)</div>
+                        <div class="text-2xl font-heading font-bold text-slate-500" id="resMarket">-- €</div>
+                        <div class="text-xs text-slate-400 mt-1">Le choix passif</div>
+                    </div>
+                    
+                    <div class="bg-white p-5 rounded-xl border-2 border-sky-500 shadow-md text-center relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-16 h-16 bg-sky-100 rounded-full -mr-8 -mt-8 opacity-50"></div>
+                        <div class="text-xs font-bold text-sky-600 uppercase tracking-wider mb-1">Capital avec Quality</div>
+                        <div class="text-3xl font-heading font-bold text-sky-600" id="resAlpha">-- €</div>
+                        <div class="text-xs text-sky-600 mt-1 font-bold">Le choix actif</div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 rounded-xl p-6 shadow-lg flex flex-col md:flex-row items-center justify-between gap-4 text-white">
+                    <div>
+                        <h4 class="font-bold text-lg">Gain supplémentaire (Surperformance) :</h4>
+                        <p class="text-sm text-slate-400">C'est la récompense de votre travail d'analyse.</p>
+                    </div>
+                    <div class="text-4xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-emerald-400" id="resDiff">
+                        -- €
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm h-[350px]">
+                    <canvas id="alphaChart"></canvas>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // Variables
+        const initialInput = document.getElementById('initialCapital');
+        const monthlyInput = document.getElementById('monthlyAdd');
+        const yearsRange = document.getElementById('years');
+        const yearsDisplay = document.getElementById('yearsDisplay');
+        const rateMarketInput = document.getElementById('rateMarket');
+        const rateAlphaInput = document.getElementById('rateAlpha');
+        
+        let myChart = null;
+
+        // Listeners
+        yearsRange.addEventListener('input', function() {
+            yearsDisplay.textContent = this.value + " ans";
+            calculateAlpha();
+        });
+        
+        // Calcul automatique au changement
+        [initialInput, monthlyInput, rateMarketInput, rateAlphaInput].forEach(item => {
+            item.addEventListener('input', calculateAlpha);
+        });
+
+        function calculateAlpha() {
+            const P = parseFloat(initialInput.value) || 0;
+            const PMT = parseFloat(monthlyInput.value) || 0;
+            const t = parseFloat(yearsRange.value) || 0;
+            const rMarket = parseFloat(rateMarketInput.value) || 0;
+            const rAlpha = parseFloat(rateAlphaInput.value) || 0;
+
+            const labels = [];
+            const dataMarket = [];
+            const dataAlpha = [];
+
+            let curMarket = P;
+            let curAlpha = P;
+
+            for (let year = 0; year <= t; year++) {
+                labels.push("Année " + year);
+                
+                if (year === 0) {
+                    dataMarket.push(P);
+                    dataAlpha.push(P);
+                    continue;
+                }
+
+                // Calcul mensuel pour plus de précision
+                // Note : Taux mensuel = (1 + taux_annuel)^(1/12) - 1
+                // Mais pour simplifier et rester cohérent avec les calculettes simples : r/12
+                
+                for(let m=0; m<12; m++) {
+                    curMarket = (curMarket + PMT) * (1 + (rMarket/100)/12);
+                    curAlpha = (curAlpha + PMT) * (1 + (rAlpha/100)/12);
+                }
+                
+                dataMarket.push(curMarket);
+                dataAlpha.push(curAlpha);
+            }
+
+            // Résultats
+            const formatter = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+            
+            const finalMarket = dataMarket[dataMarket.length-1];
+            const finalAlpha = dataAlpha[dataAlpha.length-1];
+            const diff = finalAlpha - finalMarket;
+
+            document.getElementById('resMarket').textContent = formatter.format(finalMarket);
+            document.getElementById('resAlpha').textContent = formatter.format(finalAlpha);
+            document.getElementById('resDiff').textContent = "+ " + formatter.format(diff);
+
+            updateChart(labels, dataMarket, dataAlpha);
+        }
+
+        function updateChart(labels, dataMarket, dataAlpha) {
+            const ctx = document.getElementById('alphaChart').getContext('2d');
+
+            if (myChart) myChart.destroy();
+
+            myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Marché (Moyen)',
+                            data: dataMarket,
+                            borderColor: '#94a3b8', // Slate-400
+                            backgroundColor: 'rgba(148, 163, 184, 0.1)',
+                            borderWidth: 2,
+                            fill: true,
+                            pointRadius: 0
+                        },
+                        {
+                            label: 'Stratégie Quality (Surperformance)',
+                            data: dataAlpha,
+                            borderColor: '#0ea5e9', // Sky-500
+                            backgroundColor: 'rgba(14, 165, 233, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            pointRadius: 0
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: { mode: 'index', intersect: false },
+                    scales: {
+                        y: {
+                            ticks: { callback: function(value) { return value / 1000 + ' k€'; } }
+                        },
+                        x: { grid: { display: false } }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) { label += ': '; }
+                                    if (context.parsed.y !== null) {
+                                        label += new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(context.parsed.y);
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', calculateAlpha);
+    </script>
+</body>
+</html>

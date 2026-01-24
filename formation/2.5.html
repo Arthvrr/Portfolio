@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.5 Les différents Instruments Financiers | Formation StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles pour le contenu du cours */
+        .prose p { margin-bottom: 1.5rem; line-height: 1.8; color: #475569; }
+        .prose h4 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-top: 3rem; margin-bottom: 1.5rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .prose strong { color: #0f172a; font-weight: 600; }
+        .prose ul, .prose ol { list-style: none; padding-left: 0; }
+        .prose li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
+        .prose ul li::before { content: "•"; color: #2563eb; font-weight: bold; position: absolute; left: 0; }
+        .prose ol { list-style-type: decimal; padding-left: 2rem; }
+        .prose ol li { padding-left: 0.5rem; }
+
+        /* Tableaux Comparatifs */
+        .comparison-table { width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; margin-bottom: 2rem; }
+        .comparison-table th { padding: 1rem; text-align: left; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: white; width: 50%; }
+        .comparison-table td { padding: 1.5rem; vertical-align: top; background-color: #ffffff; border-bottom: 1px solid #e2e8f0; }
+        
+        /* Couleurs ETF vs Stock Picking */
+        .th-etf { background-color: #34495e; } /* Bleu foncé */
+        .th-stock { background-color: #8e44ad; } /* Violet */
+
+        /* Lightbox */
+        #imageViewer { backdrop-filter: blur(10px); }
+        .clickable-image { cursor: zoom-in; transition: transform 0.2s; }
+        .clickable-image:hover { transform: scale(1.01); }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 h-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <span class="font-heading font-bold text-xl text-slate-900">StocksPickeur</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <nav class="flex gap-6">
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
+                    <a href="../formation.html" class="text-sm font-medium text-indigo-600 font-bold transition">Formation</a>
+                </nav>
+                <div class="h-6 w-px bg-slate-200"></div>
+                <a href="../formation.html" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Connexion
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-blue-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="2.0.html" class="hover:text-blue-600 transition">Module 2</a></li>
+                <li>/</li>
+                <li class="text-blue-600 font-medium">Chapitre 2.5</li>
+            </ol>
+        </nav>
+
+        <div class="mb-12 border-b border-slate-200 pb-8">
+            <span class="text-blue-600 font-bold tracking-wider uppercase text-xs">Module 2 • Débuter en Bourse</span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">2.5. Les différents Instruments Financiers 🧰</h1>
+        </div>
+
+        <article class="prose prose-slate max-w-none text-justify">
+            
+            <p>Vous avez ouvert votre compte (le contenant), vous avez choisi votre stratégie (long terme). Il reste une dernière question : <strong>Que met-on dans le panier ?</strong></p>
+            <p>Sur votre interface de courtier, vous allez vous retrouver face à des milliers de noms, de codes et de sigles. Pour ne pas vous perdre, imaginez que vous êtes dans un supermarché financier. Il y a trois rayons principaux : les Actions (le frais), les Obligations (la conserve) et les ETF (le panier garni).</p>
+
+            <h4>1. Les Actions (Stocks) : La brique élémentaire 🧱</h4>
+            <p>Nous en avons déjà parlé : une action est un titre de propriété. C'est l'instrument le plus pur.</p>
+            <p>Quand vous achetez une action <em>LVMH</em>, vous décidez de devenir partenaire spécifique de Bernard Arnault. Vous pariez sur le fait que <em>cette</em> entreprise précise va vendre plus de sacs à main que ses concurrents dans les 10 prochaines années.</p>
+            
+            <p><strong>Pour qui ?</strong> L'achat d'actions en direct (ce qu'on appelle le <strong>"Stock Picking"</strong>) est destiné à ceux qui veulent :</p>
+            <ul>
+                <li>Battre la performance moyenne du marché (viser 12% ou 15% / an au lieu de 8%).</li>
+                <li>Choisir précisément leurs combats (investir dans l'éthique, la tech, le luxe...).</li>
+                <li>Avoir un droit de décision dans une entreprise.</li>
+            </ul>
+            
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/action-entreprise.png')">
+                <img src="../media/Formation/action-entreprise.png" 
+                     alt="Schéma explicatif d'une action" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Une action est tout bêtement une part d'entreprise</figcaption>
+            </figure>
+
+            <p>Cela demande cependant un effort d'analyse (lire les bilans, comprendre le business model). C'est tout l'objet de la stratégie <em>Quality Investing</em> que nous verrons dans les modules suivants.</p>
+
+            <h4>Pourquoi les entreprises vendent-elles des actions ? (L'IPO) 📢</h4>
+            <p>C'est une question fondamentale. Pourquoi une entreprise qui gagne des millions voudrait-elle partager son gâteau avec des inconnus comme vous et moi ?</p>
+            <p>Imaginez que vous êtes le fondateur de <em>Tesla</em>. Vous voulez construire une nouvelle "Gigafactory" à 5 milliards de dollars. Vous avez deux options pour trouver l'argent :</p>
+            
+            <ol>
+                <li><strong>La Dette (Aller voir la banque) :</strong> La banque vous prête l'argent. Le problème, c'est que vous devez rembourser chaque mois avec des intérêts, que l'usine soit rentables ou non. Cela met une pression énorme sur la trésorerie.</li>
+                <li><strong>Les Actions (Aller en Bourse) :</strong> C'est la solution magique. Vous vendez 20% de votre entreprise au public. En échange, vous recevez 5 milliards de dollars de "Cash" immédiat.</li>
+            </ol>
+
+            <div class="bg-slate-100 rounded-xl p-6 border border-slate-200 my-8 shadow-sm">
+                <div class="flex items-baseline gap-2 mb-2">
+                    <strong class="text-2xl font-serif text-slate-900">&#59564; IPO</strong> 
+                    <span class="text-sm italic text-slate-500">acronyme</span>
+                </div>
+                <div class="text-xs text-slate-400 font-mono mb-4">(Initial Public Offering / Introduction en Bourse)</div>
+                <ol class="list-decimal pl-5 space-y-2 mb-4 text-slate-700">
+                    <li>Processus par lequel une entreprise privée ouvre son capital au public pour la première fois.</li>
+                    <li>C'est le moment où elle passe de "l'entreprise du fondateur" à "l'entreprise de tout le monde".</li>
+                </ol>
+            </div>
+
+            <p>Nous verrons les IPOs plus en détails lors du prochain module.</p>
+
+            <p><strong>L'avantage pour l'entreprise :</strong> C'est de l'argent "gratuit". Elle n'a <strong>jamais</strong> besoin de rembourser ces 5 milliards. En contrepartie, elle accepte de partager ses futurs bénéfices et le pouvoir de vote avec ses nouveaux actionnaires.</p>
+            
+            <p><strong>Vos droits en tant qu'actionnaire :</strong></p>
+            <ul>
+                <li>🗳️ <strong>Droit de vote :</strong> Vous pouvez voter aux Assemblées Générales (sur le salaire du PDG, la stratégie climat, etc.).</li>
+                <li>💰 <strong>Droit au dividende :</strong> Si l'entreprise fait du profit et décide de le distribuer, vous touchez votre part proportionnelle.</li>
+                <li>📈 <strong>Droit de propriété :</strong> Si l'entreprise est rachetée ou liquidée (et qu'il reste de l'argent), vous touchez votre part.</li>
+            </ul>
+
+            <h4>2. Les Obligations (Bonds) : L'amortisseur 🛡️</h4>
+            <p>Si l'action est un titre de <em>propriété</em>, l'obligation est un titre de <em>créance</em>. Concrètement, vous ne devenez pas propriétaire, vous devenez le <strong>banquier</strong>.</p>
+            <p>Vous prêtez de l'argent à un État (OAT françaises, Bons du Trésor US) ou à une entreprise (Apple, Coca-Cola) pour une durée définie (ex: 10 ans) en échange d'un intérêt régulier (le coupon).</p>
+            
+            <p><strong>La différence fondamentale :</strong></p>
+            <ul>
+                <li>Si l'entreprise fait faillite, les actionnaires perdent tout. Les obligataires (prêteurs) sont remboursés en priorité (s'il reste de l'argent). C'est donc moins risqué.</li>
+                <li>En contrepartie, le gain est limité. Si l'entreprise double ses bénéfices, l'actionnaire double sa mise. L'obligataire, lui, ne touchera que ses 3% ou 4% d'intérêts prévus au contrat, pas un centime de plus.</li>
+            </ul>
+            <p><em>Note : Dans une stratégie de construction de patrimoine dynamique (avant 50 ans), les obligations sont souvent peu utilisées car leur rendement est trop faible comparé aux actions.</em></p>
+
+            <h4>3. Les ETF (Trackers) : La révolution pour les particuliers 🧺</h4>
+            <p>C'est l'instrument financier qui a démocratisé la Bourse. Si vous ne deviez retenir qu'un seul acronyme, c'est celui-ci.</p>
+
+            <div class="bg-slate-100 rounded-xl p-6 border border-slate-200 my-8 shadow-sm">
+                <div class="flex items-baseline gap-2 mb-2">
+                    <strong class="text-2xl font-serif text-slate-900">&#59564; ETF</strong> 
+                    <span class="text-sm italic text-slate-500">nom masculin</span>
+                </div>
+                <div class="text-xs text-slate-400 font-mono mb-4">(acronyme de <em>Exchange Traded Fund</em>)</div>
+                <ol class="list-decimal pl-5 space-y-2 mb-4 text-slate-700">
+                    <li>Fonds d'investissement coté en Bourse qui réplique automatiquement la performance d'un indice (comme le CAC 40 ou le S&P 500).</li>
+                    <li>Aussi appelé "Tracker" car il traque (suit) le marché.</li>
+                </ol>
+                <div class="pt-4 border-t border-slate-200 text-sm text-slate-800 font-medium">
+                    <strong>L'Analogie de la Salade de Fruits :</strong> Au lieu d'acheter et d'éplucher les fruits un par un (Actions), vous achetez une barquette de salade de fruits toute prête (ETF). Vous avez un peu de tout (Banane, Fraise, Pomme) en une seule transaction. Si une fraise est pourrie, le goût global reste bon.
+                </div>
+            </div>
+
+            <p>Quand vous achetez <strong>1 part d'ETF S&P 500</strong> (environ 40€ ou 400€ selon l'ETF), vous achetez instantanément, en une seconde, une fraction des 500 plus grandes entreprises américaines (Apple, Microsoft, Amazon, Google, etc.).</p>
+            
+            <p>C'est l'arme absolue de la <strong>Diversification</strong>. Vous n'avez plus besoin d'analyser les entreprises une par une. Vous achetez "le marché" dans son ensemble.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/s&p500-composition.png')">
+                <img src="../media/Formation/s&p500-composition.png" 
+                     alt="Carte thermique du S&P 500 montrant la diversité des secteurs" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Un ETF S&P 500 contient tout ça : De la Tech, de la Santé, de l'Énergie, de la Finance...</figcaption>
+            </figure>
+
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-xl my-10">
+                <p class="font-bold text-blue-900 mb-2">John Bogle (Fondateur de Vanguard) 🧠</p>
+                <p class="italic text-blue-800 m-0">"Ne cherchez pas l'aiguille dans la botte de foin. Achetez la botte de foin toute entière !"</p>
+            </div>
+
+            <h4>ETF Capitalisant ou Distribuant 🧐 ?</h4>
+            <p>Quand vous chercherez un ETF, vous verrez souvent ces abréviations cryptiques. Voici la différence :</p>
+            <ul>
+                <li><strong>Distribuants (Dist) :</strong> L'ETF reçoit les dividendes des entreprises (Apple, Microsoft...) et vous les reverse en cash sur votre compte. C'est sympa pour le moral, mais fiscalement lourd (vous payez une taxe à chaque versement).</li>
+                <li><strong>Capitalisants (Acc) :</strong> L'ETF reçoit les dividendes mais <strong>les réinvestit automatiquement</strong> pour acheter de nouvelles actions à l'intérieur du fonds. Vous ne touchez rien, mais le prix de votre part monte plus vite.</li>
+            </ul>
+
+            <div class="bg-indigo-50 p-6 rounded-xl border border-indigo-200">
+                <p class="font-bold text-indigo-900 m-0">
+                    💡 <strong>Conseil :</strong> Pour une stratégie long terme (et surtout en Belgique), privilégiez les ETF <strong>Capitalisants (Acc)</strong>. Ils optimisent les intérêts composés en évitant le frottement fiscal des dividendes.
+                </p>
+            </div>
+            
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/etf-ditribuant-vs-capitalisant.png')">
+                <img src="../media/Formation/etf-ditribuant-vs-capitalisant.png" 
+                     alt="ETF Distribuant vs Capitalisant" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Les 2 grandes familles d'ETF en Bourse</figcaption>
+            </figure>
+
+            <h4>💸 Les Frais Cachés (TER)</h4>
+            <p>Un ETF n'est pas bénévole. La société qui le gère (BlackRock, Amundi...) se rémunère. C'est le <strong>TER (Total Expense Ratio)</strong>.</p>
+            <p>Ces frais sont "invisibles" (directement déduits de la performance de l'ETF). Ils varient généralement entre <strong>0,05% et 0,60% par an</strong>.</p>
+            <p><strong>Règle d'or :</strong> Pour un ETF standard (S&P 500 ou Monde), ne payez jamais plus de <strong>0,20% ou 0,30%</strong> de frais par an. Au-delà, c'est trop cher.</p>
+
+            <h4>Le Match : Actions en direct (Stock Picking) vs ETF 🥊</h4>
+            <p>C'est le grand débat. Que choisir ? Voici de quoi vous décider.</p>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th class="th-etf">ETF (Approche Passive)</th>
+                        <th class="th-stock">STOCK PICKING (Approche Active)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <ul class="text-sm">
+                                <li>✅ <strong>Simplicité :</strong> Zéro analyse requise. On achète et on attend.</li>
+                                <li>✅ <strong>Sécurité :</strong> Diversification immédiate. Si une entreprise fait faillite, l'ETF s'en remet.</li>
+                                <li>✅ <strong>Performance :</strong> Vous obtenez la "moyenne" du marché (environ 8-10%/an). C'est excellent.</li>
+                                <li>❌ <strong>Impossible de battre le marché :</strong> Par définition, vous faites comme tout le monde.</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul class="text-sm">
+                                <li>✅ <strong>Performance Potentielle :</strong> En choisissant bien, vous pouvez faire beaucoup mieux que le marché (15-20%/an).</li>
+                                <li>✅ <strong>Contrôle :</strong> Vous savez ce que vous possédez. Pas d'entreprises polluantes cachées.</li>
+                                <li>✅ <strong>Plaisir :</strong> C'est intellectuellement stimulant de comprendre le monde des affaires.</li>
+                                <li>❌ <strong>Risque et Temps :</strong> Demande du travail et le risque d'erreur est plus grand.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>4. Attention danger : Les Produits Dérivés 💣</h4>
+            <p>Enfin, sur votre courtier, vous verrez peut-être des onglets nommés "Warrants", "Turbos", "Certificats", "CFD" ou "Options" avec des promesses de gains x10 ou x100.</p>
+            <p><strong>Notre conseil est simple : N'y touchez pas.</strong></p>
+            <p>Ce ne sont pas des investissements, ce sont des paris à effet de levier. Si l'action baisse de 1%, vous pouvez perdre 10% ou 20%. Pire, vous pouvez perdre plus que votre mise de départ. Ces produits sont conçus pour le trading très court terme et enrichissent surtout les émetteurs. Pour construire une fortune pérenne, restez sur les Actions et les ETF.</p>
+
+            <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-8 mt-12 shadow-sm">
+                <h5 class="text-xl font-bold text-emerald-800 mb-4 flex items-center">
+                    <span class="bg-emerald-200 text-emerald-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">🔑</span> 
+                    Ce qu'il faut retenir
+                </h5>
+                <p class="text-emerald-900 m-0 leading-relaxed">
+                    Pour débuter, ignorez les produits complexes. Concentrez-vous sur deux outils :<br>
+                    1. <strong>Les ETF (Trackers)</strong> : Pour investir simplement, diversifier instantanément et suivre la performance mondiale à moindre coût.<br>
+                    2. <strong>Les Actions en direct (Stock Picking)</strong> : Si vous souhaitez analyser des entreprises de qualité (Quality Investing) pour tenter de battre le marché et cibler vos investissements.
+                </p>
+            </div>
+
+        </article>
+
+        <div class="flex justify-between items-center mt-16 pt-8 border-t border-slate-200">
+            <a href="2.4.html" class="text-slate-500 hover:text-blue-600 font-medium transition flex items-center group">
+                <span class="group-hover:-translate-x-1 transition-transform mr-2">←</span> Chapitre Précédent
+            </a>
+            
+            <a href="3.0.html" class="bg-slate-900 text-white px-6 py-3 rounded-full font-bold hover:bg-slate-800 transition shadow-lg shadow-slate-300 flex items-center group">
+                Module Suivant : L'Univers des Actions <span class="group-hover:translate-x-1 transition-transform ml-2">→</span>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <div id="imageViewer" class="fixed inset-0 z-[60] hidden bg-slate-900/90 backdrop-blur-sm transition-opacity duration-300" onclick="closeViewer()">
+        <span class="absolute top-5 right-8 text-white text-5xl cursor-pointer hover:text-slate-300 transition">&times;</span>
+        <img class="m-auto block max-w-[95%] max-h-[90vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded shadow-2xl" id="enlargedImg">
+    </div>
+
+    <script>
+        // Gestion de la Lightbox
+        var modal = document.getElementById("imageViewer");
+        var modalImg = document.getElementById("enlargedImg");
+
+        function openViewer(src) {
+            modal.style.display = "block";
+            modalImg.src = src;
+            document.body.style.overflow = "hidden"; // Empêche le scroll
+        }
+
+        function closeViewer() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto"; // Réactive le scroll
+        }
+        
+        // Fermer avec la touche Echap
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeViewer();
+            }
+        });
+    </script>
+
+</body>
+</html>

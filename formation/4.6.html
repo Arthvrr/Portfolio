@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.6 Mon Système de Notation | Formation StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles pour le contenu du cours */
+        .prose p { margin-bottom: 1.5rem; line-height: 1.8; color: #475569; }
+        .prose h4 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-top: 3rem; margin-bottom: 1.5rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .prose strong { color: #0f172a; font-weight: 600; }
+        .prose ul, .prose ol { list-style: none; padding-left: 0; }
+        .prose li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
+        .prose ul li::before { content: "•"; color: #4f46e5; font-weight: bold; position: absolute; left: 0; }
+        
+        /* Lightbox */
+        #imageViewer { backdrop-filter: blur(10px); }
+        .clickable-image { cursor: zoom-in; transition: transform 0.2s; }
+        .clickable-image:hover { transform: scale(1.01); }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 h-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <span class="font-heading font-bold text-xl text-slate-900">StocksPickeur</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <nav class="flex gap-6">
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
+                    <a href="../formation.html" class="text-sm font-medium text-indigo-600 font-bold transition">Formation</a>
+                </nav>
+                <div class="h-6 w-px bg-slate-200"></div>
+                <a href="../formation.html" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Connexion
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-indigo-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="4.0.html" class="hover:text-indigo-600 transition">Module 4</a></li>
+                <li>/</li>
+                <li class="text-indigo-600 font-medium">Chapitre 4.6</li>
+            </ol>
+        </nav>
+
+        <div class="mb-12 border-b border-slate-200 pb-8">
+            <span class="text-indigo-600 font-bold tracking-wider uppercase text-xs">Module 4 • La Stratégie Quality</span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">4.6. Mon Système de Notation 📝</h1>
+        </div>
+
+        <article class="prose prose-slate max-w-none text-justify">
+            
+            <p>Le plus grand ennemi de l'investisseur, c'est la subjectivité. Quand on aime une marque (parce qu'on utilise ses produits), on a tendance à ignorer ses défauts financiers. C'est le "Biais de confirmation".</p>
+            <p>Pour contrer cela, j'ai développé une méthode froide, mathématique et implacable : le <strong>StocksPickeur Score</strong>. L'objectif est de transformer l'analyse d'une entreprise complexe en une note simple sur <strong>30 points</strong>. Cela nous permet de comparer objectivement Apple, LVMH et TotalEnergies sur un pied d'égalité.</p>
+
+            <h4>1. La Structure : 5 Piliers, 15 Critères 🏛️</h4>
+            <p>Pour juger la qualité intrinsèque d'un business, il ne suffit pas de regarder s'il est rentable. Il faut une vision à 360 degrés. Mon système repose sur 5 piliers fondamentaux, qui correspondent aux organes vitaux de l'entreprise :</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-4">
+                    <span class="bg-indigo-100 text-indigo-700 w-10 h-10 flex items-center justify-center rounded-full font-bold">1</span>
+                    <div>
+                        <strong class="block text-slate-900">Bases</strong>
+                        <span class="text-xs text-slate-500">L'entreprise est-elle solide et respectueuse de ses actionnaires ?</span>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-4">
+                    <span class="bg-emerald-100 text-emerald-700 w-10 h-10 flex items-center justify-center rounded-full font-bold">2</span>
+                    <div>
+                        <strong class="block text-slate-900">Croissance</strong>
+                        <span class="text-xs text-slate-500">Le business grandit-il sainement sur la durée ?</span>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-4">
+                    <span class="bg-amber-100 text-amber-700 w-10 h-10 flex items-center justify-center rounded-full font-bold">3</span>
+                    <div>
+                        <strong class="block text-slate-900">Rentabilité</strong>
+                        <span class="text-xs text-slate-500">Les marges sont-elles élevées et protégées (Moat) ?</span>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-4">
+                    <span class="bg-rose-100 text-rose-700 w-10 h-10 flex items-center justify-center rounded-full font-bold">4</span>
+                    <div>
+                        <strong class="block text-slate-900">Solvabilité</strong>
+                        <span class="text-xs text-slate-500">L'entreprise risque-t-elle la faillite (Dette) ?</span>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-4">
+                    <span class="bg-sky-100 text-sky-700 w-10 h-10 flex items-center justify-center rounded-full font-bold">5</span>
+                    <div>
+                        <strong class="block text-slate-900">Dividende</strong>
+                        <span class="text-xs text-slate-500">Le retour aux actionnaires est-il sûr et croissant ?</span>
+                    </div>
+                </div>
+            </div>
+
+            <p>Chaque pilier contient <strong>3 critères précis</strong> (que nous détaillerons dans les prochains chapitres). Cela fait donc 15 critères au total (5 x 3 = 15).</p>
+
+            <h4>2. Le Barème : L'Exigence Binaire (+2 / +1 / +0) ⚖️</h4>
+            <p>Pour chaque critère, je ne laisse pas de place à l'interprétation. Soit l'entreprise est excellente, soit elle est correcte, soit elle est médiocre.</p>
+            
+            <div class="space-y-4 my-8">
+                <div class="flex items-center gap-4 bg-emerald-50 border border-emerald-100 p-4 rounded-xl">
+                    <div class="w-12 h-12 bg-emerald-500 text-white rounded-full flex items-center justify-center font-bold text-xl shadow-sm">+2</div>
+                    <div>
+                        <strong class="text-emerald-900 block">L'Excellence (Quality)</strong>
+                        <p class="text-sm text-emerald-800 m-0">Le critère respecte le standard le plus élevé. C'est le "Best in Class".<br><em class="opacity-75">Exemple : Une marge nette supérieure à 20%.</em></p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 bg-amber-50 border border-amber-100 p-4 rounded-xl">
+                    <div class="w-12 h-12 bg-amber-400 text-white rounded-full flex items-center justify-center font-bold text-xl shadow-sm">+1</div>
+                    <div>
+                        <strong class="text-amber-900 block">La Moyenne (Correct)</strong>
+                        <p class="text-sm text-amber-800 m-0">L'entreprise ne brille pas, mais elle n'est pas en danger. C'est acceptable.<br><em class="opacity-75">Exemple : Une marge nette entre 10% et 20%.</em></p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 bg-slate-100 border border-slate-200 p-4 rounded-xl">
+                    <div class="w-12 h-12 bg-slate-400 text-white rounded-full flex items-center justify-center font-bold text-xl shadow-sm">0</div>
+                    <div>
+                        <strong class="text-slate-900 block">L'Échec (Médiocre)</strong>
+                        <p class="text-sm text-slate-600 m-0">L'entreprise échoue sur ce point. C'est une faiblesse structurelle.<br><em class="opacity-75">Exemple : Une marge nette inférieure à 10%.</em></p>
+                    </div>
+                </div>
+            </div>
+
+            <p><strong>Le Calcul Final :</strong><br>
+            Avec 15 critères pouvant rapporter jusqu'à 2 points chacun, le score maximal théorique est de <strong>30/30</strong>. Ce score est un filtre puissant. Il ne vous dit pas "achetez maintenant", mais il vous dit "cette entreprise mérite votre attention".</p>
+
+            <h4>3. Comment interpréter le Score ? 📊</h4>
+            <p>Une fois l'analyse terminée (ce que nous ferons ensemble avec le Calculateur), vous obtiendrez une note globale. Voici ma grille de lecture personnelle :</p>
+
+            <ul class="space-y-4 mt-6">
+                <li class="bg-white p-4 rounded-lg border-l-4 border-emerald-500 shadow-sm">
+                    <div class="flex justify-between items-center mb-1">
+                        <strong class="text-emerald-700">🏆 Score > 24/30 (Top Tier)</strong>
+                    </div>
+                    <p class="text-sm text-slate-600 m-0">C'est la crème de la crème. Des entreprises exceptionnelles ("Compounders") qui cochent presque toutes les cases de la qualité. Elles forment le cœur de mon portefeuille.</p>
+                </li>
+                <li class="bg-white p-4 rounded-lg border-l-4 border-indigo-500 shadow-sm">
+                    <div class="flex justify-between items-center mb-1">
+                        <strong class="text-indigo-700">✅ Score entre 18 et 24 (Investissable)</strong>
+                    </div>
+                    <p class="text-sm text-slate-600 m-0">De très bonnes entreprises, solides, mais avec quelques faiblesses mineures ou une croissance plus modérée. Elles restent d'excellents candidats à l'investissement.</p>
+                </li>
+                <li class="bg-white p-4 rounded-lg border-l-4 border-red-500 shadow-sm">
+                    <div class="flex justify-between items-center mb-1">
+                        <strong class="text-red-700">❌ Score < 18/30 (À éviter)</strong>
+                    </div>
+                    <p class="text-sm text-slate-600 m-0">Trop de drapeaux rouges. Marges faibles, dette trop élevée ou croissance absente. Sauf cas très particulier (turnaround), je passe mon chemin. Il y a trop d'autres opportunités pour perdre son temps ici.</p>
+                </li>
+            </ul>
+
+            <h4>4. L'importance du Profil (Le Radar) 🕸️</h4>
+            <p>Attention, le score total ne dit pas tout. Deux entreprises peuvent obtenir <strong>20/30</strong> et pourtant être radicalement différentes. C'est pour cela que je visualise le résultat sous forme de graphique Radar, bien pratique pour visualiser en un coup d'oeil les forces et faiblesses d'une entreprise.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/radar-chart.jpg')">
+                <img src="../media/Formation/radar-chart.jpg" 
+                     alt="Graphique radar montrant deux profils d'entreprises différents" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">2 profils différents : À gauche une "Growth" (Croissance), à droite une "Yield" (Dividende).</figcaption>
+            </figure>
+
+            <ul>
+                <li><strong>Le Profil "Croissance" (Violet) :</strong> Cette entreprise maximise les piliers <em>Croissance</em> et <em>Rentabilité</em>, mais sacrifie le <em>Dividende</em> (car elle réinvestit tout). C'est parfait pour construire un patrimoine.</li>
+                <li><strong>Le Profil "Rente" (Orange) :</strong> Cette entreprise maximise le <em>Dividende</em> et la <em>Rentabilité</em>, mais a une <em>Croissance</em> plus faible et semble plus endettée. C'est idéal pour sécuriser un patrimoine et toucher des revenus.</li>
+            </ul>
+            <p>Il est crucial de comprendre la <strong>forme</strong> du score pour savoir si l'entreprise correspond à votre objectif personnel.</p>
+
+            <h4>5. La Fréquence : Quand noter ? 📅</h4>
+            <p>Une entreprise est un organisme vivant. Un score de 28/30 en 2020 ne vaut plus rien en 2025. Nokia était un 30/30 avant l'iPhone.</p>
+            <p>Le travail d'analyse ne se fait pas une seule fois. Pour garder un portefeuille sain, je recommande de mettre à jour vos scores :</p>
+            <ul>
+                <li><strong>Idéalement :</strong> Tous les trimestres, lors de la publication des résultats financiers.</li>
+                <li><strong>Au minimum :</strong> Une fois par an, à la lecture du rapport annuel.</li>
+            </ul>
+            <p>Si le score d'une entreprise de votre portefeuille chute (par exemple, elle passe de 25 à 17 car sa dette explose et ses marges s'effondrent), c'est un signal d'alarme. Il faut peut-être vendre avant que le marché ne sanctionne le prix.</p>
+
+            <h4>6. Où trouver les données ? (Ma Stack) 🛠️</h4>
+            <p>Pour remplir ce score de manière fiable, j'utilise une combinaison d'outils précis. Ne vous inquiétez pas, vous apprendrez à les utiliser dans les prochains chapitres, mais voici ma "boîte à outils" officielle :</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+                <div class="bg-slate-100 p-3 rounded-lg text-center border border-slate-200 hover:border-indigo-400 transition">
+                    <div class="text-lg mb-1">🔍</div>
+                    <strong class="text-sm text-slate-800">Google Finance</strong>
+                    <p class="text-xs text-slate-500 mt-1">Comparatif S&P 500</p>
+                </div>
+                <div class="bg-slate-100 p-3 rounded-lg text-center border border-slate-200 hover:border-indigo-400 transition">
+                    <div class="text-lg mb-1">📈</div>
+                    <strong class="text-sm text-slate-800">Moning</strong>
+                    <p class="text-xs text-slate-500 mt-1">Courbes de Croissance</p>
+                </div>
+                <div class="bg-slate-100 p-3 rounded-lg text-center border border-slate-200 hover:border-indigo-400 transition">
+                    <div class="text-lg mb-1">🧙‍♂️</div>
+                    <strong class="text-sm text-slate-800">GuruFocus</strong>
+                    <p class="text-xs text-slate-500 mt-1">Ratios & Rentabilité</p>
+                </div>
+                <div class="bg-slate-100 p-3 rounded-lg text-center border border-slate-200 hover:border-indigo-400 transition">
+                    <div class="text-lg mb-1">🎯</div>
+                    <strong class="text-sm text-slate-800">TipRanks</strong>
+                    <p class="text-xs text-slate-500 mt-1">Avis Analystes</p>
+                </div>
+            </div>
+
+            <p class="mt-6">Dans les chapitres suivants (4.7 à 4.11), nous allons ouvrir le capot. Je vais vous expliquer un par un les 15 critères, comment les trouver sur ces sites et pourquoi ils sont là. Préparez votre calculatrice (ou utilisez celle fournie sur le site) !</p>
+
+            <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-8 mt-12 shadow-sm">
+                <h5 class="text-xl font-bold text-emerald-800 mb-4 flex items-center">
+                    <span class="bg-emerald-200 text-emerald-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">🔑</span> 
+                    Ce qu'il faut retenir
+                </h5>
+                <p class="text-emerald-900 m-0 leading-relaxed">
+                    Ne soyez pas schizophrène avec votre argent. Chaque stratégie a ses règles.<br>
+                    Si vous choisissez le <strong>Quality Investing</strong> (comme nous), vous devez accepter de ne pas acheter les actions "bradées" en faillite (Value) et de ne pas courir après la dernière "hype" spéculative du moment (Momentum).<br>
+                    Votre avantage concurrentiel sera la <strong>patience</strong> et la <strong>sélectivité</strong> sur la qualité intrinsèque du business.
+                </p>
+            </div>
+
+        </article>
+
+        <div class="flex justify-between items-center mt-16 pt-8 border-t border-slate-200">
+            <a href="4.5.html" class="text-slate-500 hover:text-indigo-600 font-medium transition flex items-center group">
+                <span class="group-hover:-translate-x-1 transition-transform mr-2">←</span> Chapitre Précédent
+            </a>
+            <a href="4.7.html" class="bg-indigo-600 text-white px-6 py-3 rounded-full font-bold hover:bg-indigo-700 transition shadow-lg shadow-indigo-200 flex items-center group">
+                Chapitre Suivant<span class="group-hover:translate-x-1 transition-transform ml-2">→</span>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <div id="imageViewer" class="fixed inset-0 z-[60] hidden bg-slate-900/90 backdrop-blur-sm transition-opacity duration-300" onclick="closeViewer()">
+        <span class="absolute top-5 right-8 text-white text-5xl cursor-pointer hover:text-slate-300 transition">&times;</span>
+        <img class="m-auto block max-w-[95%] max-h-[90vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded shadow-2xl" id="enlargedImg">
+    </div>
+
+    <script>
+        // Gestion de la Lightbox
+        var modal = document.getElementById("imageViewer");
+        var modalImg = document.getElementById("enlargedImg");
+
+        function openViewer(src) {
+            modal.style.display = "block";
+            modalImg.src = src;
+            document.body.style.overflow = "hidden"; // Empêche le scroll
+        }
+
+        function closeViewer() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto"; // Réactive le scroll
+        }
+        
+        // Fermer avec la touche Echap
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeViewer();
+            }
+        });
+    </script>
+
+</body>
+</html>

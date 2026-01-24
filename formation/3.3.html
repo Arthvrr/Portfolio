@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.3 Les Types d'Ordres | Formation StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles pour le contenu du cours */
+        .prose p { margin-bottom: 1.5rem; line-height: 1.8; color: #475569; }
+        .prose h4 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-top: 3rem; margin-bottom: 1.5rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .prose h5 { font-size: 1.1rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; color: #334155; }
+        .prose strong { color: #0f172a; font-weight: 600; }
+        .prose ul, .prose ol { list-style: none; padding-left: 0; margin-bottom: 1.5rem; }
+        .prose li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
+        .prose ul li::before { content: "•"; color: #0ea5e9; font-weight: bold; position: absolute; left: 0; } /* Sky-500 */
+        .prose ol { counter-reset: item; }
+        .prose ol li { padding-left: 2rem; }
+        .prose ol li::before { content: counter(item) "."; counter-increment: item; color: #0ea5e9; font-weight: bold; position: absolute; left: 0; }
+
+        /* Lightbox */
+        #imageViewer { backdrop-filter: blur(10px); }
+        .clickable-image { cursor: zoom-in; transition: transform 0.2s; }
+        .clickable-image:hover { transform: scale(1.01); }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 h-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <span class="font-heading font-bold text-xl text-slate-900">StocksPickeur</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <nav class="flex gap-6">
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
+                    <a href="../formation.html" class="text-sm font-medium text-indigo-600 font-bold transition">Formation</a>
+                </nav>
+                <div class="h-6 w-px bg-slate-200"></div>
+                <a href="../formation.html" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Connexion
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-sky-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="3.0.html" class="hover:text-sky-600 transition">Module 3</a></li>
+                <li>/</li>
+                <li class="text-sky-600 font-medium">Chapitre 3.3</li>
+            </ol>
+        </nav>
+
+        <div class="mb-12 border-b border-slate-200 pb-8">
+            <span class="text-sky-600 font-bold tracking-wider uppercase text-xs">Module 3 • L'Univers des Actions</span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">3.3. Les Types d'Ordres 🛒</h1>
+        </div>
+
+        <article class="prose prose-slate max-w-none text-justify">
+            
+            <p>Lorsque vous cliquez sur le bouton "Acheter" ou "Vendre" chez votre courtier, vous ne parlez pas directement à un humain. Vous envoyez une instruction électronique au marché. Cette instruction s'appelle un <strong>Type d'Ordre</strong>.</p>
+            <p>Il n'y a pas de mauvais type d'ordre. Chacun répond à un besoin spécifique selon votre priorité du moment : voulez-vous privilégier la <strong>rapidité</strong> d'exécution (être sûr d'avoir l'action) ou la <strong>précision</strong> du prix (être sûr de ne pas payer trop cher) ?</p>
+
+            <h4>1. L'Ordre au Marché (Priorité : Vitesse) 🚀</h4>
+            <p>C'est l'ordre le plus intuitif et le plus utilisé par les investisseurs particuliers, surtout sur les grandes entreprises.</p>
+            <p>Le principe est simple : vous demandez au courtier d'acheter ou de vendre une quantité d'actions <strong>immédiatement</strong>, au meilleur prix disponible à la seconde où vous cliquez. C'est l'équivalent d'aller au marché et de dire au vendeur : <em>"Donnez-moi 10 pommes au prix affiché actuellement, je suis pressé."</em></p>
+            
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 my-6">
+                <strong class="text-slate-900 block mb-2">Quand l'utiliser ?</strong>
+                <p class="text-sm m-0">C'est l'ordre idéal pour les actions à <strong>haute liquidité</strong> (comme LVMH, Apple, TotalEnergies, Microsoft). Sur ces géants, il y a tellement d'échanges chaque seconde que le prix est très stable. Si vous voyez le cours à 150,00€ et que vous passez un ordre au marché, vous serez probablement exécuté à 150,00€ ou 150,01€. L'écart est négligeable et l'exécution est garantie.</p>
+            </div>
+
+            <h4>2. L'Ordre à Cours Limité (Priorité : Prix) 🎯</h4>
+            <p>Avec cet ordre, vous reprenez le contrôle total. Vous fixez une limite que le marché ne doit pas franchir.</p>
+            <p>Concrètement, vous dites au système : <em>"Je veux acheter cette action, mais je refuse de payer plus de X euros"</em>. Si l'action cotée à 100€ vous intéresse, mais que vous ne voulez mettre que 99€, vous placez un ordre limité à 99€. Votre ordre va alors attendre sagement dans le carnet d'ordres.</p>
+            <ul>
+                <li>Si le prix descend à 99€ : Votre ordre est exécuté.</li>
+                <li>Si le prix reste à 100€ ou monte : Votre ordre ne sera jamais exécuté et vous n'aurez pas les actions.</li>
+            </ul>
+            
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 my-6">
+                <strong class="text-slate-900 block mb-2">Quand l'utiliser ?</strong>
+                <p class="text-sm m-0">C'est utile pour les actions plus petites (Small Caps) où le prix peut varier brutalement, ou simplement si vous êtes discipliné et que vous visez un prix d'entrée précis lors d'une baisse de marché.</p>
+            </div>
+
+            <h4>3. L'Ordre à Seuil de Déclenchement "Stop Loss" (Le Parachute) 🪂</h4>
+            <p>Ici, nous entrons dans les ordres de protection (ou de tendance). On l'appelle souvent "Stop Loss" (Arrêt des pertes), car il sert historiquement à limiter la casse si une action s'effondre.</p>
+            <p>C'est un ordre "dormant". Il reste inactif tant que le prix n'atteint pas un certain seuil que vous avez fixé (le "Trigger").</p>
+            
+            <p><strong>Mécanique :</strong> Vous possédez une action à 100€. Vous avez peur d'un krach. Vous placez un ordre à seuil de déclenchement (vente) à 90€.
+            <br>Tant que l'action vaut 91€ ou plus, rien ne se passe. Mais si le prix touche 90€, votre ordre se réveille et se transforme instantanément en <strong>Ordre au Marché</strong>. Le système vendra vos titres au prix actuel pour vous faire sortir.</p>
+            
+            <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-xl my-6 text-sm text-amber-900">
+                ⚠️ <strong>Attention :</strong> Comme il devient un ordre "au marché", si le cours s'effondre très vite, vous pourriez être vendu un peu plus bas que 90€ (ex: 89,50€).
+            </div>
+
+            <h4>4. L'Ordre à Plage de Déclenchement "Stop Limit" (Le Parachute Contrôlé) ⚙️</h4>
+            <p>C'est une version plus chirurgicale du précédent, souvent utilisée par les traders ou les investisseurs très pointilleux.</p>
+            <p>Au lieu de définir un seul prix, vous en définissez deux :</p>
+            <ol>
+                <li><strong>Le Seuil (Trigger) :</strong> Le prix qui déclenche l'alarme (ex: 90€).</li>
+                <li><strong>La Limite :</strong> Le prix minimum absolu auquel vous acceptez de vendre (ex: 88€).</li>
+            </ol>
+            <p><strong>Le Scénario :</strong> L'action tombe à 90€. L'ordre se déclenche. Le système essaie de vendre. Mais contrairement au Stop Loss classique, il a une interdiction formelle de vendre en dessous de 88€. </p>
+            <p>Cela évite de vendre à un prix ridicule lors d'un "flash crash" momentané. Le risque, c'est que si l'action passe directement de 91€ à 80€ (ce qu'on appelle un Gap), votre ordre ne passera pas et vous garderez vos actions en pleine chute.</p>
+
+            <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-8 mt-12 shadow-sm">
+                <h5 class="text-xl font-bold text-emerald-800 mb-4 flex items-center">
+                    <span class="bg-emerald-200 text-emerald-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">🔑</span> 
+                    Ce qu'il faut retenir
+                </h5>
+                <p class="text-emerald-900 m-0 leading-relaxed">
+                    🔹 <strong>Pour investir sereinement sur des grosses boîtes (Quality) :</strong> L'Ordre au Marché est rapide et efficace. L'Ordre Limité est parfait si vous voulez chipoter sur le prix.<br>
+                    🔹 <strong>Pour protéger son capital :</strong> L'Ordre à Seuil de Déclenchement (Stop Loss) est votre filet de sécurité automatique.<br>
+                    Ne vous compliquez pas trop la vie : 95% de vos ordres seront probablement des ordres "Limités" ou "Au Marché".
+                </p>
+            </div>
+
+        </article>
+
+        <div class="flex justify-between items-center mt-16 pt-8 border-t border-slate-200">
+            <a href="3.2.html" class="text-slate-500 hover:text-sky-600 font-medium transition flex items-center group">
+                <span class="group-hover:-translate-x-1 transition-transform mr-2">←</span> Chapitre Précédent
+            </a>
+            <a href="3.4.html" class="bg-sky-600 text-white px-6 py-3 rounded-full font-bold hover:bg-sky-700 transition shadow-lg shadow-sky-200 flex items-center group">
+                Chapitre Suivant <span class="group-hover:translate-x-1 transition-transform ml-2">→</span>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <div id="imageViewer" class="fixed inset-0 z-[60] hidden bg-slate-900/90 backdrop-blur-sm transition-opacity duration-300" onclick="closeViewer()">
+        <span class="absolute top-5 right-8 text-white text-5xl cursor-pointer hover:text-slate-300 transition">&times;</span>
+        <img class="m-auto block max-w-[95%] max-h-[90vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded shadow-2xl" id="enlargedImg">
+    </div>
+
+    <script>
+        // Gestion de la Lightbox
+        var modal = document.getElementById("imageViewer");
+        var modalImg = document.getElementById("enlargedImg");
+
+        function openViewer(src) {
+            modal.style.display = "block";
+            modalImg.src = src;
+            document.body.style.overflow = "hidden"; // Empêche le scroll
+        }
+
+        function closeViewer() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto"; // Réactive le scroll
+        }
+        
+        // Fermer avec la touche Echap
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeViewer();
+            }
+        });
+    </script>
+
+</body>
+</html>

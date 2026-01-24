@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portefeuille | StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Personnalisation des barres de progression */
+        progress::-webkit-progress-bar {
+            background-color: #f1f5f9;
+            border-radius: 9999px;
+        }
+        progress::-webkit-progress-value {
+            background-color: #4f46e5;
+            border-radius: 9999px;
+            transition: width 1s ease-in-out;
+        }
+        progress::-moz-progress-bar {
+            background-color: #4f46e5;
+            border-radius: 9999px;
+        }
+
+        /* Style de l'accordéon */
+        .accordion {
+            cursor: pointer;
+            transition: 0.4s;
+        }
+        .active, .accordion:hover {
+            background-color: #f8fafc;
+        }
+        .panel {
+            padding: 0 18px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+        
+        /* Style pour les listes d'atouts/risques */
+        .risk-list li, .asset-list li {
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+        }
+        .risk-list li::before {
+            content: "•";
+            margin-right: 8px;
+            color: #ef4444;
+        }
+        .asset-list li::before {
+            content: "•";
+            margin-right: 8px;
+            color: #10b981;
+        }
+        
+        /* Ajustement header sticky */
+        .sticky-subnav {
+            top: 80px; /* Hauteur du header principal */
+        }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300 h-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+            <div class="flex justify-between items-center h-full">
+                
+                <a href="../index.html" class="flex items-center gap-3 group">
+                    <img src="../media/Logo/Logo-White.png" alt="Logo StocksPickeur" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                    <span class="font-heading font-bold text-xl text-slate-900 tracking-tight">StocksPickeur</span>
+                </a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <nav class="flex gap-6">
+                        <a href="portfolio.html" class="text-sm font-medium text-indigo-600 font-bold transition">Portefeuille</a>
+                        <a href="moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Analyses</a>                        
+                        <a href="formation.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Formation</a>
+                    </nav>
+
+                    <div class="h-6 w-px bg-slate-200"></div>
+
+                    <a href="../formation.html" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                        </svg>
+                        Connexion
+                    </a>
+                </div>
+
+                <div class="md:hidden">
+                    <button class="text-slate-500 hover:text-slate-900">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="fixed sticky-subnav w-full z-40 bg-slate-100/95 backdrop-blur border-b border-slate-200 overflow-x-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-6 py-3 text-sm font-medium whitespace-nowrap link-page">
+                <a href="#intro" class="text-slate-600 hover:text-indigo-600">Performance</a>
+                <a href="#stocks-detail" class="text-slate-600 hover:text-indigo-600">Composition</a>
+                <a href="#dividend" class="text-slate-600 hover:text-indigo-600">Dividendes</a>
+                <a href="#annual-perf" class="text-slate-600 hover:text-indigo-600">Retours Annuels</a>
+                <a href="#quality" class="text-slate-600 hover:text-indigo-600">Qualité</a>
+                <a href="#valuation" class="text-slate-600 hover:text-indigo-600">Valorisation</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-48 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div id="intro" class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                <div class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-1">Valeur Totale</div>
+                <div class="text-2xl font-bold text-slate-900" id="total-value">--</div>
+                <div class="text-xs mt-1 font-bold" id="return-percent">--%</div>
+            </div>
+            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                <div class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-1">Gain Total €</div>
+                <div class="text-2xl font-bold text-emerald-600" id="return-euro">--</div>
+            </div>
+            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                <div class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-1">Dividendes Annuels</div>
+                <div class="text-2xl font-bold text-indigo-600" id="total-div">--</div>
+                <div class="text-xs text-slate-400 mt-1">Rendement: <span id="yield-wallet" class="text-slate-600 font-bold">--</span></div>
+            </div>
+            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                <div class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-1">Cash Disponible</div>
+                <div class="text-2xl font-bold text-slate-700" id="cash">--</div>
+            </div>
+            <div class="hidden">
+                <span id="invested"></span>
+                <span id="wallet-value"></span>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-16">
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <div class="flex justify-between items-end mb-2">
+                    <h3 class="font-bold text-slate-800 text-sm">Objectif 25 000€</h3>
+                    <span id="firstProgressText" class="text-indigo-600 font-bold text-lg">0%</span>
+                </div>
+                <progress id="firstProgressBar" value="0" max="0" class="w-full h-3 rounded-full"></progress>
+            </div>
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <div class="flex justify-between items-end mb-2">
+                    <h3 class="font-bold text-slate-800 text-sm">Objectif Dividendes 90€ (2026)</h3>
+                    <span id="secondProgressText" class="text-indigo-600 font-bold text-lg">0%</span>
+                </div>
+                <progress id="secondProgressBar" value="0" max="0" class="w-full h-3 rounded-full"></progress>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-16">
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm relative h-80">
+                <canvas id="1Chart"></canvas>
+            </div>
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm relative h-80">
+                <canvas id="2Chart"></canvas>
+            </div>
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm relative h-80">
+                <canvas id="18Chart"></canvas>
+            </div>
+        </div>
+
+        <div id="stocks-detail" class="mb-6">
+            <h3 class="text-xl font-heading font-bold text-slate-900 mb-4">Détail des positions</h3>
+            <div class="hidden md:grid grid-cols-8 gap-4 px-6 py-3 bg-slate-100 rounded-t-xl text-xs font-bold text-slate-500 uppercase tracking-wider">
+                <div class="col-span-1">Action</div> <div class="col-span-1">Ticker</div>
+                <div class="col-span-1 text-right">Qté</div>
+                <div class="col-span-1 text-right">PRU</div>
+                <div class="col-span-1 text-right">Prix</div>
+                <div class="col-span-1 text-right">Valeur</div>
+                <div class="col-span-1 text-right">Gain €</div>
+                <div class="col-span-1 text-right">Gain %</div>
+            </div>
+        </div>
+
+        <div class="space-y-4">
+
+            <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="accordion p-4 md:p-6 hover:bg-slate-50 cursor-pointer transition">
+                    <div class="grid grid-cols-2 md:grid-cols-8 gap-4 items-center">
+                        <div class="col-span-1 flex items-center gap-3">
+                            <img src="../media/Stocks-Logo/ASML.png" alt="ASML" class="w-10 h-10 object-contain rounded-lg bg-slate-50 p-1 border border-slate-100">
+                            <span class="md:hidden font-bold">ASML</span>
+                        </div>
+                        <div class="hidden md:block col-span-1 font-bold text-slate-900" id="ticker">ASML</div>
+                        <div class="col-span-1 md:col-span-1 text-right text-slate-600"><span class="md:hidden text-xs text-slate-400 mr-1">Qté:</span><span id="shares"></span></div>
+                        <div class="col-span-1 md:col-span-1 text-right text-slate-600 hidden md:block" id="average-price"></div>
+                        <div class="col-span-1 md:col-span-1 text-right font-medium text-slate-900" id="price"></div>
+                        <div class="col-span-1 md:col-span-1 text-right font-bold text-slate-900" id="value"></div>
+                        <div class="col-span-1 md:col-span-1 text-right font-bold" id="perf-euro"></div>
+                        <div class="col-span-1 md:col-span-1 text-right font-bold rounded-lg px-2 py-1 text-xs md:text-sm" id="perf-percent"></div>
+                    </div>
+                </div>
+                
+                <div class="panel bg-slate-50 border-t border-slate-100">
+                    <div class="p-6">
+                        <div class="flex space-x-4 mb-6 text-sm text-indigo-600 font-medium link-page-asml border-b border-slate-200 pb-2 overflow-x-auto">
+                            <a href="#presentation-asml">Présentation</a>
+                            <a href="#personnal-notice-asml">Avis</a>
+                            <a href="#asset-risk-asml">Atouts/Risques</a>
+                            <a href="#quality-score-asml">Score</a>
+                        </div>
+
+                        <div class="grid lg:grid-cols-3 gap-8">
+                            <div class="lg:col-span-2 prose prose-slate text-sm text-slate-600 leading-relaxed text-justify">
+                                <h4 id="presentation-asml" class="font-bold text-slate-900 mb-2">Présentation</h4>
+                                <p class="mb-6">Fondée en 1984 aux Pays-Bas, ASML Holding est une entreprise leader dans la fabrication d'équipements pour la lithographie, un procédé crucial dans la production de semi-conducteurs. Avec son siège social à Veldhoven, ASML est un acteur clé de l'industrie technologique mondiale. La société est particulièrement connue pour ses machines de lithographie ultraviolette extrême (EUV), une technologie de pointe permettant de graver des circuits toujours plus fins sur les puces électroniques. ASML collabore avec les plus grands fabricants de semi-conducteurs, tels que TSMC, Intel et Samsung, pour fournir des solutions qui permettent de produire des composants essentiels à des secteurs variés comme l'informatique, l'automobile et l'intelligence artificielle. <br><br>
+                                L'avantage compétitif d'ASML repose sur son avance technologique significative et sa position quasi-monopolistique sur le marché des équipements de lithographie EUV. La complexité de cette technologie, combinée aux barrières à l'entrée élevées, assure à ASML une domination durable. De plus, la forte demande pour des puces toujours plus performantes garantit une croissance soutenue de ses revenus. L'intégration verticale d'ASML et sa capacité d'innovation en font un acteur stratégique dans la chaîne d'approvisionnement des semi-conducteurs.</p>
+                                
+                                <h4 id="personnal-notice-asml" class="font-bold text-slate-900 mb-2">Avis Personnel</h4>
+                                <p class="mb-6">ASML est une pépite technologique européenne qui se distingue par sa contribution essentielle à l’industrie des semi-conducteurs. En tant qu’investisseur, il est difficile de ne pas admirer sa position dominante dans un secteur si stratégique et en constante expansion. Les semi-conducteurs étant présents dans presque tous les objets connectés modernes, la demande pour les machines d’ASML ne peut qu’augmenter à mesure que l’Internet des objets, l’intelligence artificielle et les véhicules électriques se généralisent. <br><br>
+                                Ce qui impressionne particulièrement chez ASML, c'est son monopole de facto sur la technologie EUV, un segment dans lequel la concurrence est inexistante à court terme. Cela offre une marge de manœuvre confortable pour fixer ses prix et générer des marges bénéficiaires exceptionnelles. L’entreprise bénéficie également d’une visibilité remarquable sur ses revenus futurs, grâce à des carnets de commandes bien remplis provenant des géants des semi-conducteurs. <br><br>
+                                Toutefois, certains défis méritent attention. La dépendance envers un petit nombre de clients clés, tels que TSMC, Samsung et Intel, peut poser des risques si ces derniers réduisent leurs investissements ou rencontrent des difficultés. De plus, les tensions géopolitiques, notamment autour de l'accès à la technologie EUV, pourraient impacter les ventes à certaines régions comme la Chine. Enfin, l’industrie des semi-conducteurs est cyclique, ce qui peut provoquer des fluctuations importantes des revenus d’ASML en période de ralentissement. <br><br>
+                                Malgré ces risques, je considère ASML comme une entreprise exceptionnelle, et elle figure parmi les valeurs les plus qualitatives de mon portefeuille avec une note de 25/30. L'équipe dirigeante a su démontrer une expertise sans faille dans l'exécution de sa stratégie. En tant qu'investisseur, je suis confiant dans la capacité d'ASML à maintenir son leadership et à continuer de croître dans un secteur critique pour l’avenir. Si vous cherchez une action combinant innovation, monopole technologique et perspectives de croissance solides, ASML est incontournable.</p>
+
+                                <h4 id="asset-risk-asml" class="font-bold text-slate-900 mb-2">Atouts et Risques</h4>
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100">
+                                        <div class="text-xs font-bold text-emerald-700 uppercase mb-3">✅ Atouts</div>
+                                        <ul class="text-xs text-emerald-900 space-y-2 asset-list">
+                                            <li>Monopole sur la technologie EUV</li>
+                                            <li>Avance technologique significative</li>
+                                            <li>Demande soutenue pour les semi-conducteurs</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-red-50 p-4 rounded-xl border border-red-100">
+                                        <div class="text-xs font-bold text-red-700 uppercase mb-3">⚠️ Risques</div>
+                                        <ul class="text-xs text-red-900 space-y-2 risk-list">
+                                            <li>Dépendance à un petit nombre de clients clés</li>
+                                            <li>Cyclicité de l'industrie des semi-conducteurs</li>
+                                            <li>Tensions géopolitiques</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-1">
+                                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm h-fit">
+                                    <div class="text-center font-bold mb-2 text-slate-900">Score Qualité</div>
+                                    <div class="h-64 relative" id="quality-score-asml">
+                                        <canvas id="25Chart"></canvas>
+                                    </div>
+                                    <div class="text-center text-xs text-slate-400 mt-4 border-t border-slate-100 pt-3">
+                                        Détenue depuis : <span class="font-bold text-slate-600">5 mai 2025</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="accordion p-4 md:p-6 hover:bg-slate-50 cursor-pointer transition">
+                    <div class="grid grid-cols-2 md:grid-cols-8 gap-4 items-center">
+                        <div class="col-span-1 flex items-center gap-3">
+                            <img src="../media/Stocks-Logo/GOOGL.png" alt="GOOGL" class="w-10 h-10 object-contain rounded-lg bg-slate-50 p-1 border border-slate-100">
+                            <span class="md:hidden font-bold">GOOGL</span>
+                        </div>
+                        <div class="hidden md:block col-span-1 font-bold text-slate-900" id="ticker">GOOGL</div>
+                        <div class="col-span-1 md:col-span-1 text-right text-slate-600"><span class="md:hidden text-xs text-slate-400 mr-1">Qté:</span><span id="shares"></span></div>
+                        <div class="col-span-1 md:col-span-1 text-right text-slate-600 hidden md:block" id="average-price"></div>
+                        <div class="col-span-1 md:col-span-1 text-right font-medium text-slate-900" id="price"></div>
+                        <div class="col-span-1 md:col-span-1 text-right font-bold text-slate-900" id="value"></div>
+                        <div class="col-span-1 md:col-span-1 text-right font-bold" id="perf-euro"></div>
+                        <div class="col-span-1 md:col-span-1 text-right font-bold rounded-lg px-2 py-1 text-xs md:text-sm" id="perf-percent"></div>
+                    </div>
+                </div>
+                
+                <div class="panel bg-slate-50 border-t border-slate-100">
+                    <div class="p-6">
+                        <div class="flex space-x-4 mb-6 text-sm text-indigo-600 font-medium link-page-googl border-b border-slate-200 pb-2 overflow-x-auto">
+                            <a href="#presentation-googl">Présentation</a>
+                            <a href="#personnal-notice-googl">Avis</a>
+                            <a href="#asset-risk-googl">Atouts/Risques</a>
+                            <a href="#quality-score-googl">Score</a>
+                        </div>
+
+                        <div class="grid lg:grid-cols-3 gap-8">
+                            <div class="lg:col-span-2 prose prose-slate text-sm text-slate-600 leading-relaxed text-justify">
+                                <h4 id="presentation-googl" class="font-bold text-slate-900 mb-2">Présentation</h4>
+                                <p class="mb-6">Fondée en 1998 par Larry Page et Sergey Brin, Google Inc., filiale d’Alphabet Inc., est une multinationale américaine basée à Mountain View, Californie. Google est célèbre pour son moteur de recherche, mais aussi pour des produits et services phares comme YouTube, Android, Google Maps, et Google Chrome. L’entreprise développe également des outils de productivité (Google Workspace), des solutions cloud (Google Cloud Platform) et des technologies d’intelligence artificielle. <br><br>
+                                Le principal atout de Google réside dans son écosystème intégré de produits et services soutenu par des technologies avancées et une domination dans la publicité numérique via Google Ads. Grâce à sa capacité d’innovation, sa base mondiale d’utilisateurs fidèles et son rôle clé dans la gestion de données à grande échelle, Google reste l’une des entreprises les plus influentes et valorisées au monde.</p>
+                                
+                                <h4 id="personnal-notice-googl" class="font-bold text-slate-900 mb-2">Avis Personnel</h4>
+                                <p class="mb-6">Étant l’une des entreprises les plus influentes et valorisées au monde, Google (via Alphabet) reste un acteur incontournable de la tech. Le géant américain est l’un des leaders mondiaux en matière de revenus publicitaires et domine également des secteurs clés comme la recherche en ligne et les systèmes d’exploitation mobiles grâce à Android. Cette place dominante est justifiée par un écosystème solide et une capacité à innover continuellement. L’intégration cohérente entre ses services (Google Search, Gmail, Google Maps, YouTube, etc.) permet de fidéliser une base d’utilisateurs immense et d’attirer de nouveaux clients. Bien que la concurrence soit rude, notamment dans le cloud et l’IA, Google parvient à maintenir sa part de marché grâce à des technologies de pointe et une expérience utilisateur sans faille. <br><br>
+                                Un point fort indéniable de Google est sa diversification des revenus. Outre la publicité, qui représente une majeure partie de ses revenus, l’entreprise bénéficie de revenus croissants grâce à Google Cloud et aux abonnements (YouTube Premium, Google Workspace, etc.). Ces sources de revenus récurrents sont un atout stratégique pour l’avenir. La gestion du capital d’Alphabet reste prudente et efficace : un bilan solide, des investissements massifs dans l’innovation, et une stratégie de développement orientée sur les secteurs clés de demain (cloud computing, intelligence artificielle, véhicules autonomes avec Waymo, etc.). <br><br>
+                                Cependant, il faut surveiller certains aspects. La dépendance de Google à ses revenus publicitaires reste élevée, et tout changement dans ce marché (comme les restrictions liées à la confidentialité des données ou l’émergence de nouveaux acteurs) pourrait avoir un impact significatif. La pression réglementaire, notamment sur la confidentialité et les enquêtes antitrust, est un autre point de vigilance. Enfin, la concurrence dans des secteurs comme le cloud (face à AWS et Microsoft Azure) ou l’IA est de plus en plus féroce. <br><br>
+                                En tant qu’utilisateur fidèle des produits Google (de Gmail à Android en passant par Google Drive), il m’est difficile d’imaginer un quotidien sans leurs services. L’entreprise combine innovation, accessibilité et efficacité, ce qui me pousse à rester confiant dans ses perspectives futures. Avec une note personnelle de 25/30, Google reste l’une des actions les plus qualitatives de mon portefeuille, grâce à son leadership technologique et sa capacité à évoluer dans un monde en constante transformation.</p>
+
+                                <h4 id="asset-risk-googl" class="font-bold text-slate-900 mb-2">Atouts et Risques</h4>
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100">
+                                        <div class="text-xs font-bold text-emerald-700 uppercase mb-3">✅ Atouts</div>
+                                        <ul class="text-xs text-emerald-900 space-y-2 asset-list">
+                                            <li>Domination publicitaire</li>
+                                            <li>Écosystème intégré</li>
+                                            <li>Innovation technologique</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-red-50 p-4 rounded-xl border border-red-100">
+                                        <div class="text-xs font-bold text-red-700 uppercase mb-3">⚠️ Risques</div>
+                                        <ul class="text-xs text-red-900 space-y-2 risk-list">
+                                            <li>Dépendance à la publicité</li>
+                                            <li>Concurrence croissante (IA)</li>
+                                            <li>Régulations strictes</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-1">
+                                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm h-fit">
+                                    <div class="text-center font-bold mb-2 text-slate-900">Score Qualité</div>
+                                    <div class="h-64 relative" id="quality-score-googl">
+                                        <canvas id="24Chart"></canvas>
+                                    </div>
+                                    <div class="text-center text-xs text-slate-400 mt-4 border-t border-slate-100 pt-3">
+                                        Détenue depuis : <span class="font-bold text-slate-600">13 mars 2025</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="accordion p-4 md:p-6 hover:bg-slate-50 cursor-pointer transition">
+                    <div class="grid grid-cols-2 md:grid-cols-8 gap-4 items-center">
+                        <div class="col-span-1 flex items-center gap-3">
+                            <img src="../media/Stocks-Logo/MA.png" alt="MA" class="w-10 h-10 object-contain rounded-lg bg-slate-50 p-1 border border-slate-100">
+                            <span class="md:hidden font-bold">MA</span>
+                        </div>
+                        <div class="hidden md:block col-span-1 font-bold text-slate-900" id="ticker">MA</div>
+                        <div class="col-span-1 md:col-span-1 text-right text-slate-600"><span class="md:hidden text-xs text-slate-400 mr-1">Qté:</span><span id="shares"></span></div>
+                        <div class="col-span-1 md:col-span-1 text-right text-slate-600 hidden md:block" id="average-price"></div>
+                        <div class="col-span-1 md:col-span-1 text-right font-medium text-slate-900" id="price"></div>
+                        <div class="col-span-1 md:col-span-1 text-right font-bold text-slate-900" id="value"></div>
+                        <div class="col-span-1 md:col-span-1 text-right font-bold" id="perf-euro"></div>
+                        <div class="col-span-1 md:col-span-1 text-right font-bold rounded-lg px-2 py-1 text-xs md:text-sm" id="perf-percent"></div>
+                    </div>
+                </div>
+                <div class="panel bg-slate-50 border-t border-slate-100">
+                    <div class="p-6">
+                        <div class="flex space-x-4 mb-6 text-sm text-indigo-600 font-medium link-page-ma border-b border-slate-200 pb-2 overflow-x-auto">
+                            <a href="#presentation-ma">Présentation</a>
+                            <a href="#personnal-notice-ma">Avis</a>
+                            <a href="#asset-risk-ma">Atouts/Risques</a>
+                            <a href="#quality-score-ma">Score</a>
+                        </div>
+
+                        <div class="grid lg:grid-cols-3 gap-8">
+                            <div class="lg:col-span-2 prose prose-slate text-sm text-slate-600 leading-relaxed text-justify">
+                                <h4 id="presentation-ma" class="font-bold text-slate-900 mb-2">Présentation</h4>
+                                <p class="mb-6">Fondée en 1966 sous le nom de Interbank Card Association, Mastercard est une entreprise américaine spécialisée dans les services financiers, en particulier dans les systèmes de paiement électronique. Mastercard fournit des solutions de paiement, y compris des cartes de crédit, de débit et prépayées, ainsi que des services de traitement des transactions pour les institutions financières, les commerçants et les consommateurs à travers le monde. En tant que réseau de paiement mondial, Mastercard facilite les transactions financières sécurisées dans plus de 210 pays et territoires, offrant une connectivité entre les banques émettrices et les commerçants. <br><br>
+                                En tant que l'un des principaux réseaux de paiement au monde, Mastercard bénéficie d'un avantage compétitif considérable grâce à son réseau mondial étendu et à sa marque bien établie. La société est largement acceptée par les commerçants et les institutions financières à travers le monde, ce qui lui confère une position dominante dans l'industrie des paiements électroniques. De plus, Mastercard investit continuellement dans l'innovation technologique pour améliorer la sécurité et l'efficacité des transactions, renforçant ainsi son moat économique.</p>
+                                
+                                <h4 id="personnal-notice-ma" class="font-bold text-slate-900 mb-2">Avis Personnel</h4>
+                                <p class="mb-6">Mastercard, comme pour son concurrent Visa, joue le rôle d’intermédiaire entre les banques, institutions financières et les consommateurs.  De nombreux points me poussent à être et rester actionnaire de la société Mastercard. L’un de ses plus gros points fort est sa rentabilité stratosphérique :  la marge nette moyenne des sociétés du S&P 500 était de 10,7% fin 2023, celle de Mastercard est de 46% !! Des marges 4x plus élevée que celle du marché, cela témoigne directement d’un MOAT extrêmement puissant. En effet, le business-model de Mastercard est très solide, il se repose sur les frais de transaction qu’elle facture aux commerçants chaque fois qu’une carte Mastercard est utilisée pour effectuer un achat. <br><br>
+                                Un avantage compétitif plus que confortable qui ne risque pas de disparaître du jour au lendemain, car avec ses +2,5 milliards de carte en circulation, le géant du paiement continue d’asseoir sa position dominante. Le volume de paiement et le nombre de cartes en circulation continue de grimper d’années en années, tout comme le revenu et le Free-Cash-Flow de la boite. Tout les signaux de croissance sont au vert. Mastercard dispose donc d’un puissant effet de réseau, qui pousse les consommateurs à rejoindre son réseau. Les commerçants sont aussi entrainé à autoriser les paiements par Mastercard afin de ne pas perdre de précieux clients qui comptaient payer par ce moyen répandu sur le globe. <br><br>
+                                Il est nécessaire de suivre de près l'évolution des cryptomonnaies dans l'opinion publique, mais il faudra encore un certain temps avant que ce mode de monnaie soit largement adopté : les habitudes de paiement ne changent pas du jour au lendemain. Cette transition demande du temps, ainsi que la création de nouveaux comptes et le remplissage de formulaires, entre autres démarches. À voir comment Mastercard va réagir face à ça, et pourquoi pas en tirer profit elle aussi ! Autre petit point à surveiller : l’évolution de la dette. Dans l’analyse qualitative de l’action, c’est son plus gros point faible. Le Debt-to-Equity est pour l’instant au dessus de 2, ce n’est clairement pas alarmiste mais je souhaiterai qu’il passe en dessous de la barre des 2. Le ratio de couverture des intérêts est très bon mais pas parfait. Ce sont de petit détail mais nous devons rester ferme et exigeant : nous voulons les plus belles sociétés de la planète. <br><br>
+                                Rien à dire sur la gestion du dividende qui est parfaite : payout ratio extrêmement bas et un dividende qui croît à 2 chiffres, que demander de plus ? Mastercard est une grosse conviction pour moi, l’action est d’excellente qualité et je la conserverait tant que je ne vois pas une nette dégradation de ses fondamentaux (très peu probable disons-le).</p>
+
+                                <h4 id="asset-risk-ma" class="font-bold text-slate-900 mb-2">Atouts et Risques</h4>
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100">
+                                        <div class="text-xs font-bold text-emerald-700 uppercase mb-3">✅ Atouts</div>
+                                        <ul class="text-xs text-emerald-900 space-y-2 asset-list">
+                                            <li>Duopole avec Visa</li>
+                                            <li>Marges stratosphériques</li>
+                                            <li>Business-Model solide</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-red-50 p-4 rounded-xl border border-red-100">
+                                        <div class="text-xs font-bold text-red-700 uppercase mb-3">⚠️ Risques</div>
+                                        <ul class="text-xs text-red-900 space-y-2 risk-list">
+                                            <li>Cryptomonnaies</li>
+                                            <li>Dette non négligeable</li>
+                                            <li>Parts de Marchés</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-1">
+                                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm h-fit">
+                                    <div class="text-center font-bold mb-2 text-slate-900">Score Qualité</div>
+                                    <div class="h-64 relative" id="quality-score-ma">
+                                        <canvas id="13Chart"></canvas>
+                                    </div>
+                                    <div class="text-center text-xs text-slate-400 mt-4 border-t border-slate-100 pt-3">
+                                        Détenue depuis : <span class="font-bold text-slate-600">28 avril 2023</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="accordion p-4 md:p-6 hover:bg-slate-50 cursor-pointer transition">
+                    <div class="grid grid-cols-2 md:grid-cols-8 gap-4 items-center">
+                        <div class="col-span-1 flex items-center gap-3">
+                            <img src="../media/Stocks-Logo/MSFT.png" alt="MSFT" class="w-10 h-10 object-contain rounded-lg bg-slate-50 p-1 border border-slate-100">
+                            <span class="md:hidden font-bold">MSFT</span>
+                        </div>
+                        <div class="hidden md:block col-span-1 font-bold text-slate-900" id="ticker">MSFT</div>
+                        <div class="col-span-1 md:col-span-1 text-right text-slate-600"><span class="md:hidden text-xs text-slate-400 mr-1">Qté:</span><span id="shares"></span></div>
+                        <div class="col-span-1 md:col-span-1 text-right text-slate-600 hidden md:block" id="average-price"></div>
+                        <div class="col-span-1 md:col-span-1 text-right font-medium text-slate-900" id="price"></div>
+                        <div class="col-span-1 md:col-span-1 text-right font-bold text-slate-900" id="value"></div>
+                        <div class="col-span-1 md:col-span-1 text-right font-bold" id="perf-euro"></div>
+                        <div class="col-span-1 md:col-span-1 text-right font-bold rounded-lg px-2 py-1 text-xs md:text-sm" id="perf-percent"></div>
+                    </div>
+                </div>
+                <div class="panel bg-slate-50 border-t border-slate-100">
+                    <div class="p-6">
+                        <div class="flex space-x-4 mb-6 text-sm text-indigo-600 font-medium link-page-msft border-b border-slate-200 pb-2 overflow-x-auto">
+                            <a href="#presentation-msft">Présentation</a>
+                            <a href="#personnal-notice-msft">Avis</a>
+                            <a href="#asset-risk-msft">Atouts/Risques</a>
+                            <a href="#quality-score-msft">Score</a>
+                        </div>
+
+                        <div class="grid lg:grid-cols-3 gap-8">
+                            <div class="lg:col-span-2 prose prose-slate text-sm text-slate-600 leading-relaxed text-justify">
+                                <h4 id="presentation-msft" class="font-bold text-slate-900 mb-2">Présentation</h4>
+                                <p class="mb-6">Fondée en 1975 par Bill Gates et Paul Allen, Microsoft Corporation est une multinationale américaine dont le siège social est situé à Redmond, dans l'État de Washington. Microsoft est un leader mondial dans le développement de logiciels, de matériels et de services informatiques. La société est surtout connue pour son système d'exploitation Windows, sa suite bureautique Microsoft Office, la console de jeu Xbox, ainsi que pour ses services cloud tels que Microsoft Azure. Avec une présence dans de nombreux secteurs de l'industrie technologique, Microsoft s'efforce de créer des produits et des solutions innovants qui améliorent la productivité des entreprises et la vie quotidienne des consommateurs. <br><br>
+                                Microsoft bénéficie d'un avantage compétitif durable dans plusieurs domaines clés. Tout d'abord, sa position dominante dans les systèmes d'exploitation avec Windows et dans les suites logicielles avec Microsoft Office lui confère une part de marché considérable et des flux de revenus récurrents. De plus, Microsoft est un leader dans le domaine du cloud computing avec sa plateforme Azure, bénéficiant ainsi de la croissance rapide du cloud. Son écosystème intégré de produits, de services et de plateformes offre également des opportunités d'expansion et de synergie, renforçant ainsi son moat économique.</p>
+                                
+                                <h4 id="personnal-notice-msft" class="font-bold text-slate-900 mb-2">Avis Personnel</h4>
+                                <p class="mb-6">
+                                    Microsoft a été la toute première action que j’ai achetée en Bourse, sur un néo-courtier sur mon téléphone le 10 janvier 2022. C’est en quelque sorte la plus vieille position de mon Portefeuille, et je ne suis clairement pas prêt de couper mes positions sur ce joyau. Si je ne devais plus que garder une seule action pour le restant de mes jours, mon choix se porterait sur Microsoft sans hésiter. Voici pourquoi :  Niveau fondamentaux, l’action est la plus qualitative de mon Portefeuille avec un score de 27/30. C’est bien simple : je ne lui trouve pas de point faible, l’action est quasiment parfaite, et coche tout les critères de qualité. Rachat d’actions à tout va, prix de l’action qui s’envole, croissance à tout les niveaux, rentabilité plus que correcte, dette gérée parfaitement, et dividende plus que safe, voilà la situation de Microsoft. La firme américaine bat à chaque fois les estimations des analystes de trimestres en trimestres. Microsoft est extrêmement bien géré et c’est tout ce dont nous attendons, nous actionnaires. Ça va être difficile de trouver 3 points faibles, croyez-moi. <br><br>
+                                    La quasi-perfection de cette action ne repose pas que sur ses fondamentaux sublimes. Une grande force de Microsoft est la diversité de ses revenus. L’entreprise gagne de l’argent sur de nombreux marchés tout aussi profitable les uns que les autres : licences offices, hardware, jeux-vidéo, cloud, publicités,… Cela fait une grande force pour le groupe de Bill Gates, qui ne se repose pas sur une seule source de revenu comme c’est le cas pour maintes sociétés américaines. Qui peut se targuer d’avoir 9 sources de revenu différentes toute autant diversifiée les unes que les autres ? Le revenu est aussi diversifié géographiquement en ayant 50% pour les USA et 50% pour le reste du monde. <br><br>
+                                    Microsoft est en fait omniprésent dans tout les secteurs de la technologie moderne. La suite office, utilisée par des centaines de millions d’utilisateurs dans le monde, est pratiquement devenue indispensable pour de nombreuses entreprises. Des chiffres de comptabilité depuis des décennies sont inscrits sur Excel pour ces entreprises, est-ce que vous verrez ces sociétés changer leur outil du jour au lendemain ? pas certain. Cela confère à la société côtée au NASDAQ un moat plus qu’intéressant, en raison du coût de changement élevé associé à la migration vers une nouvelle plateforme. En plein essor actuellement, l'Intelligence Artificielle n'a évidemment pas échappé à l'attention de la compagnie américaine. Microsoft s'est solidement positionné dans la course à l'IA grâce à ChatGPT, développé par OpenAI, dont Microsoft détient 49% des parts. C’est un secteur en plein essor dans lequel tout va très vite, donc à voir si Microsoft va réussir à garder son avance sur ses concurrents. <br><br>
+                                    Concernant les risques de la société à ce jour, je pense que le principal est la concurrence féroce qu’a Microsoft dans les différents marché dans laquelle la société opère. En effet, la nécessité pour Microsoft de rester en tête de l'innovation tout en rivalisant avec des concurrents agressifs. La firme américaine a réalisé de nombreux rachats très intéressants par le passé (LinkedIn, GitHub,..), il faut garder en tête que de potentielles futures acquisitions ne seront pas bénéfiques pour elle. Attention à ce que la société ne se dilue pas dans trop de marchés différents, et que cela lui fasse perdre en compétitivité.
+                                </p>
+
+                                <h4 id="asset-risk-msft" class="font-bold text-slate-900 mb-2">Atouts et Risques</h4>
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100">
+                                        <div class="text-xs font-bold text-emerald-700 uppercase mb-3">✅ Atouts</div>
+                                        <ul class="text-xs text-emerald-900 space-y-2 asset-list">
+                                            <li>Diversité des Revenus</li>
+                                            <li>Fondamentaux Exceptionnels</li>
+                                            <li>Position Stratégie dans l'IA</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-red-50 p-4 rounded-xl border border-red-100">
+                                        <div class="text-xs font-bold text-red-700 uppercase mb-3">⚠️ Risques</div>
+                                        <ul class="text-xs text-red-900 space-y-2 risk-list">
+                                            <li>Concurrence Féroce</li>
+                                            <li>Acquisitions Douteuses</li>
+                                            <li>Sur-Diversification</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-1">
+                                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm h-fit">
+                                    <div class="text-center font-bold mb-2 text-slate-900">Score Qualité</div>
+                                    <div class="h-64 relative" id="quality-score-msft">
+                                        <canvas id="14Chart"></canvas>
+                                    </div>
+                                    <div class="text-center text-xs text-slate-400 mt-4 border-t border-slate-100 pt-3">
+                                        Détenue depuis : <span class="font-bold text-slate-600">27 mars 2023</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="accordion p-4 md:p-6 hover:bg-slate-50 cursor-pointer transition">
+                    <div class="grid grid-cols-2 md:grid-cols-8 gap-4 items-center">
+                        <div class="col-span-1 flex items-center gap-3">
+                            <img src="../media/Stocks-Logo/NVDA.png" alt="NVDA" class="w-10 h-10 object-contain rounded-lg bg-slate-50 p-1 border border-slate-100">
+                            <span class="md:hidden font-bold">NVDA</span>
+                        </div>
+                        <div class="hidden md:block col-span-1 font-bold text-slate-900" id="ticker">NVDA</div>
+                        <div class="col-span-1 md:col-span-1 text-right text-slate-600"><span class="md:hidden text-xs text-slate-400 mr-1">Qté:</span><span id="shares"></span></div>
+                        <div class="col-span-1 md:col-span-1 text-right text-slate-600 hidden md:block" id="average-price"></div>
+                        <div class="col-span-1 md:col-span-1 text-right font-medium text-slate-900" id="price"></div>
+                        <div class="col-span-1 md:col-span-1 text-right font-bold text-slate-900" id="value"></div>
+                        <div class="col-span-1 md:col-span-1 text-right font-bold" id="perf-euro"></div>
+                        <div class="col-span-1 md:col-span-1 text-right font-bold rounded-lg px-2 py-1 text-xs md:text-sm" id="perf-percent"></div>
+                    </div>
+                </div>
+                <div class="panel bg-slate-50 border-t border-slate-100">
+                    <div class="p-6">
+                        <div class="flex space-x-4 mb-6 text-sm text-indigo-600 font-medium link-page-nvda border-b border-slate-200 pb-2 overflow-x-auto">
+                            <a href="#presentation-nvda">Présentation</a>
+                            <a href="#personnal-notice-nvda">Avis</a>
+                            <a href="#asset-risk-nvda">Atouts/Risques</a>
+                            <a href="#quality-score-nvda">Score</a>
+                        </div>
+
+                        <div class="grid lg:grid-cols-3 gap-8">
+                            <div class="lg:col-span-2 prose prose-slate text-sm text-slate-600 leading-relaxed text-justify">
+                                <h4 id="presentation-nvda" class="font-bold text-slate-900 mb-2">Présentation</h4>
+                                <p class="mb-6">Fondée en 1993, NVIDIA est une entreprise américaine spécialisée dans la conception de processeurs graphiques (GPU) et de solutions informatiques avancées. Historiquement connue pour ses cartes graphiques destinées au jeu vidéo, NVIDIA s’est imposée au fil des années comme un leader incontournable dans plusieurs domaines technologiques clés : l’intelligence artificielle, le calcul haute performance, les centres de données et la visualisation professionnelle. L’entreprise fournit aujourd’hui des plateformes matérielles et logicielles complètes utilisées par les chercheurs, les développeurs et les grandes entreprises à travers le monde. <br><br>
+                                Grâce à ses architectures GPU innovantes et à ses solutions logicielles comme CUDA, NVIDIA joue un rôle central dans l’évolution des modèles d’intelligence artificielle, de la simulation numérique et de l’automatisation. Sa capacité à fournir des performances de calcul massives, tout en accompagnant l’écosystème logiciel, lui permet de maintenir une position dominante sur les marchés les plus dynamiques de la technologie moderne. NVIDIA continue d’investir massivement dans la recherche et l’innovation afin d’étendre son influence dans des secteurs d’avenir tels que l’IA générative, les véhicules autonomes et le cloud computing.</p>
+                                
+                                <h4 id="personnal-notice-nvda" class="font-bold text-slate-900 mb-2">Avis Personnel</h4>
+                                <p class="mb-6">NVIDIA occupe une position unique dans un secteur en pleine explosion : celui de l’intelligence artificielle et du calcul accéléré. Grâce à sa gamme de GPU haut de gamme, utilisés aussi bien dans les datacenters que dans les postes de travail professionnels, la société bénéficie d’un quasi-monopole sur les solutions de calcul dédiées à l’IA, un marché où la demande explose depuis plusieurs années. Son écosystème logiciel, notamment CUDA et ses nombreuses bibliothèques IA, constitue une barrière à l’entrée extrêmement élevée pour les concurrents, car il fidélise les ingénieurs et les entreprises à long terme. <br><br>
+                                Au-delà des datacenters, NVIDIA développe également des solutions pour l’automobile (via sa plateforme Drive), la robotique (Isaac), ou encore l’informatique omniprésente avec le concept d’Omniverse. Chacun de ces segments repose sur un modèle économique à forte valeur ajoutée, souvent basé sur des systèmes d’abonnement ou de licences logicielles, ce qui assure des revenus récurrents croissants. <br><br>
+                                La combinaison d’un matériel sans réel équivalent sur le marché, d’un logiciel propriétaire devenu un standard pour les développeurs IA, et d’une stratégie tournée vers des secteurs d’avenir, fait de NVIDIA une entreprise particulièrement attractive pour les investisseurs. Les besoins en puissance de calcul ne cessant de croître, NVIDIA reste aujourd’hui l’un des acteurs les mieux positionnés pour profiter de la révolution de l’IA. C’est cette domination technologique et cet ancrage dans des tendances long terme qui me confortent dans mon choix d’investir dans NVIDIA.</p>
+
+                                <h4 id="asset-risk-nvda" class="font-bold text-slate-900 mb-2">Atouts et Risques</h4>
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100">
+                                        <div class="text-xs font-bold text-emerald-700 uppercase mb-3">✅ Atouts</div>
+                                        <ul class="text-xs text-emerald-900 space-y-2 asset-list">
+                                            <li>Leader des GPU IA</li>
+                                            <li>Écosystème CUDA</li>
+                                            <li>Croissance de l'IA</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-red-50 p-4 rounded-xl border border-red-100">
+                                        <div class="text-xs font-bold text-red-700 uppercase mb-3">⚠️ Risques</div>
+                                        <ul class="text-xs text-red-900 space-y-2 risk-list">
+                                            <li>Dépendance aux datacenters</li>
+                                            <li>Dépendance à TSMC</li>
+                                            <li>Restrictions géopolitiques</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-1">
+                                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm h-fit">
+                                    <div class="text-center font-bold mb-2 text-slate-900">Score Qualité</div>
+                                    <div class="h-64 relative" id="quality-score-nvda">
+                                        <canvas id="21Chart"></canvas>
+                                    </div>
+                                    <div class="text-center text-xs text-slate-400 mt-4 border-t border-slate-100 pt-3">
+                                        Détenue depuis : <span class="font-bold text-slate-600">17 novembre 2025</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="accordion p-4 md:p-6 hover:bg-slate-50 cursor-pointer transition">
+                    <div class="grid grid-cols-2 md:grid-cols-8 gap-4 items-center">
+                        <div class="col-span-1 flex items-center gap-3">
+                            <img src="../media/Stocks-Logo/V.png" alt="V" class="w-10 h-10 object-contain rounded-lg bg-slate-50 p-1 border border-slate-100">
+                            <span class="md:hidden font-bold">V</span>
+                        </div>
+                        <div class="hidden md:block col-span-1 font-bold text-slate-900" id="ticker">V</div>
+                        <div class="col-span-1 md:col-span-1 text-right text-slate-600"><span class="md:hidden text-xs text-slate-400 mr-1">Qté:</span><span id="shares"></span></div>
+                        <div class="col-span-1 md:col-span-1 text-right text-slate-600 hidden md:block" id="average-price"></div>
+                        <div class="col-span-1 md:col-span-1 text-right font-medium text-slate-900" id="price"></div>
+                        <div class="col-span-1 md:col-span-1 text-right font-bold text-slate-900" id="value"></div>
+                        <div class="col-span-1 md:col-span-1 text-right font-bold" id="perf-euro"></div>
+                        <div class="col-span-1 md:col-span-1 text-right font-bold rounded-lg px-2 py-1 text-xs md:text-sm" id="perf-percent"></div>
+                    </div>
+                </div>
+                <div class="panel bg-slate-50 border-t border-slate-100">
+                    <div class="p-6">
+                        <div class="flex space-x-4 mb-6 text-sm text-indigo-600 font-medium link-page-v border-b border-slate-200 pb-2 overflow-x-auto">
+                            <a href="#presentation-v">Présentation</a>
+                            <a href="#personnal-notice-v">Avis</a>
+                            <a href="#asset-risk-v">Atouts/Risques</a>
+                            <a href="#quality-score-v">Score</a>
+                        </div>
+
+                        <div class="grid lg:grid-cols-3 gap-8">
+                            <div class="lg:col-span-2 prose prose-slate text-sm text-slate-600 leading-relaxed text-justify">
+                                <h4 id="presentation-v" class="font-bold text-slate-900 mb-2">Présentation</h4>
+                                <p class="mb-6">Fondée en 1958 sous le nom de BankAmericard, Visa Inc. est une entreprise américaine spécialisée dans les services de paiement électronique. Visa propose une gamme de produits et services de paiement, y compris des cartes de crédit, de débit et prépayées, ainsi que des solutions de paiement électronique pour les particuliers, les commerçants et les institutions financières dans le monde entier. La société facilite les transactions financières sécurisées à l'échelle mondiale grâce à son réseau de traitement des paiements, qui relie les émetteurs de cartes, les acquéreurs de transactions, les commerçants et les consommateurs. En tant que leader mondial des paiements électroniques, Visa joue un rôle crucial dans l'économie mondiale en facilitant le commerce et les échanges financiers. <br><br>
+                                Visa possède l'un des réseaux de paiement les plus étendus au monde, ce qui constitue son principal avantage compétitif. La marque Visa est largement reconnue et acceptée par les commerçants et les consommateurs à travers le monde, ce qui lui confère une position dominante dans l'industrie des paiements électroniques. De plus, Visa investit dans l'innovation technologique pour améliorer la sécurité, la commodité et l'efficacité des transactions, renforçant ainsi son moat économique.</p>
+                                
+                                <h4 id="personnal-notice-v" class="font-bold text-slate-900 mb-2">Avis Personnel</h4>
+                                <p class="mb-6">Visa est la quatrième action le plus détenue par les supers-investisseurs, et est une action qui revient souvent quand on parle de Quality Investing. Découvrons pourquoi. Tout comme son petit frère Mastercard, Visa joue le rôle d’intermédiaire de confiance entre deux acteurs financiers, comme les banque, des commerçants ou des clients. Visa gagne de l’argent sur les frais de transaction qu’elle facture pour l’utilisation de son réseau de payement. C’est un très bon business puisqu’il est solide, régulier et scalable. <br><br>
+                                En plus d’être excellent business, celui-ci est extrêmement bien protégé de plusieurs MOAT : Effet de Réseau, coût de transfert, actif intangible du réseau VisaNet,… L’entreprise domine littéralement son marché avec pas moins de 61% des parts de marché des cartes de crédits en 2021. Mastercard vient compléter la seconde place, ce qui donne aux 2 géants 87% des parts de marché à deux, leur laissant un marché en duopole. Le marché des cartes bancaires est un secteur d’avenir, ayant un volume de transaction qui grossit d’années en années, laissant prédire de belles années de croissance pour Visa. <br><br>
+                                En europe le paiement en espèce reste encore très présent avec l’Italie, l’Espagne et l’Allemagne qui ont plus de 80% des paiements totaux effectués en cash en 2018. Visa n’a donc pas encore atteint le plafond de son marché et de nombreux clients potentiels restent à conquérir. Comme pour Mastercard, la société bénéficie également d’une notoriété mondiale et d’une confiance envers son réseau de paiement. <br><br>
+                                Maintenant que vous connaissez le statut de Visa, venons aux fondamentaux. Vous vous doutez bien, si cette action se retrouve ici c’est que c’est (quasi) excellent. Visa possède toutes les caractéristique d’une action à dividendes de très haute qualité : croissance à 2 chiffres, rentabilité colossale, dividende de qualité,… L’entreprise perd quelques points au niveau de la croissance de son Free-Cash-Flow, de son ROIC élevé mais plus bas comparé à celui de Mastercard. Comme pour Mastercard attention aux cryptomonnaies qui pourrait remplacer les monnaies que l’on utilise actuellement, mais on a encore un peu de temps avant nous avant que l’écosystème crypto soit adopté par la majorité. Surtout que Visa et Mastercard pourrait tirer parti de cette technologie, à voir !</p>
+
+                                <h4 id="asset-risk-v" class="font-bold text-slate-900 mb-2">Atouts et Risques</h4>
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100">
+                                        <div class="text-xs font-bold text-emerald-700 uppercase mb-3">✅ Atouts</div>
+                                        <ul class="text-xs text-emerald-900 space-y-2 asset-list">
+                                            <li>Numéro 1 sur son marché</li>
+                                            <li>Duopole avec Mastercard</li>
+                                            <li>Effet de Réseau</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-red-50 p-4 rounded-xl border border-red-100">
+                                        <div class="text-xs font-bold text-red-700 uppercase mb-3">⚠️ Risques</div>
+                                        <ul class="text-xs text-red-900 space-y-2 risk-list">
+                                            <li>Régulation</li>
+                                            <li>Cryptomonnaies</li>
+                                            <li>Cyberattaques</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-1">
+                                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm h-fit">
+                                    <div class="text-center font-bold mb-2 text-slate-900">Score Qualité</div>
+                                    <div class="h-64 relative" id="quality-score-v">
+                                        <canvas id="15Chart"></canvas>
+                                    </div>
+                                    <div class="text-center text-xs text-slate-400 mt-4 border-t border-slate-100 pt-3">
+                                        Détenue depuis : <span class="font-bold text-slate-600">27 mars 2023</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> 
+        
+        <h3 class="text-xl font-heading font-bold text-slate-900 mt-16 mb-6">Analyse Détaillée</h3>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+            
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-80 relative">
+                <canvas id="3Chart"></canvas>
+            </div>
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-80 relative">
+                <canvas id="4Chart"></canvas>
+            </div>
+
+            <div class="md:col-span-2 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-96 relative">
+                <canvas id="8Chart"></canvas>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-80 relative">
+                <canvas id="30Chart"></canvas>
+            </div>
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-80 relative">
+                <canvas id="32Chart"></canvas>
+            </div>
+
+            <div id="dividend" class="md:col-span-2 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-96 relative">
+                <h4 class="text-sm font-bold text-slate-400 uppercase mb-2">Dividendes Mensuels</h4>
+                <canvas id="23Chart"></canvas>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-80 relative">
+                <canvas id="7Chart"></canvas>
+            </div>
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-80 relative">
+                <canvas id="6Chart"></canvas>
+            </div>
+            
+            <div class="md:col-span-2 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-80 relative">
+                <canvas id="29Chart"></canvas>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-80 relative">
+                <canvas id="31Chart"></canvas>
+            </div>
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-80 relative">
+                <canvas id="5Chart"></canvas>
+            </div>
+
+            <div id="annual-perf" class="md:col-span-2 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-96 relative">
+                <canvas id="9Chart"></canvas>
+            </div>
+            
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-80 relative">
+                <canvas id="19Chart"></canvas>
+            </div>
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-80 relative">
+                <canvas id="10Chart"></canvas>
+            </div>
+            
+            <div class="md:col-span-2 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-80 relative">
+                <canvas id="11Chart"></canvas>
+            </div>
+
+            <div id="quality" class="md:col-span-2 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-96 relative">
+                <canvas id="22Chart"></canvas>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-80 relative">
+                <canvas id="16Chart"></canvas>
+            </div>
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-80 relative">
+                <canvas id="17Chart"></canvas>
+            </div>
+            
+            <div class="md:col-span-2 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-[500px] relative">
+                <canvas id="20Chart"></canvas>
+            </div>
+
+            <div id="valuation" class="md:col-span-2 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-96 relative">
+                <canvas id="26Chart"></canvas>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-80 relative">
+                <canvas id="27Chart"></canvas>
+            </div>
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-80 relative">
+                <canvas id="28Chart"></canvas>
+            </div>
+            
+            <div class="md:col-span-2 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-96 relative">
+                <canvas id="33Chart"></canvas>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="./media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script src="app.js"></script>
+
+</body>
+</html>

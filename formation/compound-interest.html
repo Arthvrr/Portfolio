@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulateur d'Intérêts Composés | StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles personnalisés pour les inputs */
+        .input-field {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #e2e8f0;
+            background-color: #f8fafc;
+            transition: all 0.2s;
+            color: #1e293b;
+            font-weight: 500;
+        }
+        .input-field:focus {
+            outline: none;
+            border-color: #6366f1; /* Indigo-500 */
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+        .input-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 h-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
+            
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <span class="font-heading font-bold text-xl text-slate-900">StocksPickeur</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8">
+                <nav class="flex gap-6">
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
+                    <a href="../formation.html" class="text-sm font-medium text-indigo-600 font-bold transition">Formation</a>
+                </nav>
+                <div class="h-6 w-px bg-slate-200"></div>
+                <a href="../formation.html" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Connexion
+                </a>
+            </div>
+            
+            <div class="md:hidden">
+                <button class="text-slate-500 hover:text-slate-900">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-indigo-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="1.0.html" class="hover:text-indigo-600 transition">Module 1</a></li>
+                <li>/</li>
+                <li class="text-indigo-600 font-medium">Simulateur d'Intérêts Composés</li>
+            </ol>
+        </nav>
+
+        <div class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mb-4">Simulateur d'Intérêts Composés 🚀</h1>
+            <p class="text-lg text-slate-500 max-w-2xl mx-auto">
+                Visualisez la puissance du temps sur votre argent. Entrez vos chiffres et découvrez comment de petites sommes peuvent devenir une fortune.
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8">
+            
+            <div class="lg:col-span-4 space-y-6">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h3 class="font-bold text-slate-900 text-lg mb-6 border-b border-slate-100 pb-4">Vos Paramètres</h3>
+                    
+                    <div class="mb-4">
+                        <label class="input-label">Capital de départ (€)</label>
+                        <input type="number" id="initialCapital" class="input-field" value="0" placeholder="Ex: 1000">
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="input-label">Versement mensuel (€)</label>
+                        <input type="number" id="monthlyContribution" class="input-field" value="0" placeholder="Ex: 200">
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="input-label">Durée (Années)</label>
+                        <input type="number" id="yearsDuration" class="input-field" value="0" placeholder="Ex: 20">
+                        <input type="range" id="yearsRange" min="1" max="50" value="20" class="w-full mt-2 accent-indigo-600 h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="input-label flex justify-between">
+                            Rendement annuel moyen (%)
+                            <span class="text-indigo-600" id="rateDisplay">8%</span>
+                        </label>
+                        <input type="range" id="interestRate" min="1" max="15" value="8" step="0.5" class="w-full mt-2 accent-indigo-600 h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
+                        <div class="flex justify-between text-xs text-slate-400 mt-1">
+                            <span>Livret A (3%)</span>
+                            <span>Bourse (8-10%)</span>
+                        </div>
+                    </div>
+
+                    <button onclick="calculateCompoundInterest()" class="w-full bg-indigo-600 text-white font-bold py-3 px-4 rounded-xl hover:bg-indigo-700 transition shadow-lg shadow-indigo-200 transform active:scale-95">
+                        Calculer la Richesse 🔮
+                    </button>
+                </div>
+
+                <div class="bg-indigo-50 p-5 rounded-xl border border-indigo-100 text-sm text-indigo-800 text-justify">
+                    <strong>💡 Le saviez-vous ?</strong><br>
+                    La courbe exponentielle commence souvent à décoller après la 7ème ou 10ème année. C'est là que les intérêts de vos intérêts dépassent votre effort d'épargne mensuel.
+                </div>
+            </div>
+
+            <div class="lg:col-span-8 space-y-6">
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm text-center">
+                        <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Total Versé</div>
+                        <div class="text-2xl font-heading font-bold text-slate-700" id="resInvested">-- €</div>
+                        <div class="text-xs text-slate-400 mt-1">Votre effort réel</div>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm text-center relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-16 h-16 bg-green-100 rounded-full -mr-8 -mt-8 opacity-50"></div>
+                        <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Intérêts Gagnés</div>
+                        <div class="text-2xl font-heading font-bold text-emerald-600" id="resInterest">-- €</div>
+                        <div class="text-xs text-emerald-600 mt-1 font-bold">L'argent gratuit</div>
+                    </div>
+                    <div class="bg-slate-900 p-5 rounded-xl border border-slate-800 shadow-lg text-center text-white">
+                        <div class="text-xs font-bold text-indigo-300 uppercase tracking-wider mb-1">Capital Final</div>
+                        <div class="text-3xl font-heading font-bold text-white" id="resTotal">-- €</div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm h-[400px]">
+                    <canvas id="compoundChart"></canvas>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h4 class="font-bold text-slate-900 mb-2">Analyse du résultat</h4>
+                    <p class="text-sm text-slate-600 text-justify leading-relaxed" id="analysisText">
+                        Lancez le calcul pour voir l'analyse...
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // Initialisation des variables
+        const initialInput = document.getElementById('initialCapital');
+        const monthlyInput = document.getElementById('monthlyContribution');
+        const yearsInput = document.getElementById('yearsDuration');
+        const yearsRange = document.getElementById('yearsRange');
+        const rateInput = document.getElementById('interestRate');
+        const rateDisplay = document.getElementById('rateDisplay');
+        
+        let myChart = null;
+
+        // Synchronisation Range / Input pour les années
+        yearsRange.addEventListener('input', function() {
+            yearsInput.value = this.value;
+            calculateCompoundInterest(); // Calcul dynamique
+        });
+        yearsInput.addEventListener('input', function() {
+            yearsRange.value = this.value;
+        });
+
+        // Synchronisation Taux
+        rateInput.addEventListener('input', function() {
+            rateDisplay.textContent = this.value + "%";
+            calculateCompoundInterest(); // Calcul dynamique
+        });
+
+        function calculateCompoundInterest() {
+            // Récupération des valeurs
+            const P = parseFloat(initialInput.value) || 0; // Capital départ
+            const PMT = parseFloat(monthlyInput.value) || 0; // Mensualité
+            const r = (parseFloat(rateInput.value) || 0) / 100; // Taux annuel (décimal)
+            const t = parseFloat(yearsInput.value) || 0; // Années
+            const n = 12; // Fréquence (mensuelle)
+
+            // Tableaux pour le graphique
+            const labels = [];
+            const dataInvested = [];
+            const dataInterest = [];
+            const dataTotal = [];
+
+            let currentTotal = P;
+            let totalInvested = P;
+
+            for (let year = 1; year <= t; year++) {
+                labels.push("Année " + year);
+                
+                // Calcul pour l'année en cours (méthode itérative simple pour le graphique)
+                // Pour être précis, on compose mensuellement
+                for(let month = 1; month <= 12; month++) {
+                    currentTotal = (currentTotal + PMT) * (1 + r/12);
+                    totalInvested += PMT;
+                }
+
+                dataTotal.push(currentTotal);
+                dataInvested.push(totalInvested);
+                dataInterest.push(currentTotal - totalInvested);
+            }
+
+            // Affichage des Résultats (Chiffres)
+            // On formate en monnaie (ex: 1 234 €)
+            const formatter = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+
+            document.getElementById('resInvested').textContent = formatter.format(totalInvested);
+            document.getElementById('resInterest').textContent = formatter.format(currentTotal - totalInvested);
+            document.getElementById('resTotal').textContent = formatter.format(currentTotal);
+
+            // Mise à jour du texte d'analyse
+            const ratio = ((currentTotal - totalInvested) / totalInvested * 100).toFixed(0);
+            document.getElementById('analysisText').innerHTML = `
+                Au bout de <strong>${t} ans</strong>, vous avez versé <strong>${formatter.format(totalInvested)}</strong> de votre poche.<br>
+                Mais grâce aux intérêts composés à <strong>${(r*100)}%</strong>, votre capital a généré <strong>${formatter.format(currentTotal - totalInvested)}</strong> "d'argent gratuit".<br>
+                Vos intérêts représentent <strong>${ratio}%</strong> de votre mise initiale ! C'est la magie de la boule de neige.
+            `;
+
+            // Mise à jour du Graphique
+            updateChart(labels, dataInvested, dataInterest);
+        }
+
+        function updateChart(labels, invested, interest) {
+            const ctx = document.getElementById('compoundChart').getContext('2d');
+
+            if (myChart) {
+                myChart.destroy();
+            }
+
+            myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Votre Argent (Versé)',
+                            data: invested,
+                            backgroundColor: '#cbd5e1', // Slate-300
+                            stack: 'Stack 0',
+                        },
+                        {
+                            label: 'Intérêts Cumulés (Gains)',
+                            data: interest,
+                            backgroundColor: '#4f46e5', // Indigo-600
+                            stack: 'Stack 0',
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            stacked: true,
+                            grid: { display: false }
+                        },
+                        y: {
+                            stacked: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return value / 1000 + ' k€';
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(context.parsed.y);
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Lancer le calcul au chargement
+        document.addEventListener('DOMContentLoaded', calculateCompoundInterest);
+
+    </script>
+</body>
+</html>

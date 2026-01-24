@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.4 Les différents Secteurs en Bourse| Formation StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles pour le contenu du cours */
+        .prose p { margin-bottom: 1.5rem; line-height: 1.8; color: #475569; }
+        .prose h4 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-top: 3rem; margin-bottom: 1.5rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .prose h5 { font-size: 1.1rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; color: #334155; }
+        .prose strong { color: #0f172a; font-weight: 600; }
+        .prose ul, .prose ol { list-style: none; padding-left: 0; margin-bottom: 1.5rem; }
+        .prose li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
+        .prose ul li::before { content: "•"; color: #0ea5e9; font-weight: bold; position: absolute; left: 0; } /* Sky-500 */
+        .prose ol { counter-reset: item; }
+        .prose ol li { padding-left: 2rem; }
+        .prose ol li::before { content: counter(item) "."; counter-increment: item; color: #0ea5e9; font-weight: bold; position: absolute; left: 0; }
+
+        /* Lightbox */
+        #imageViewer { backdrop-filter: blur(10px); }
+        .clickable-image { cursor: zoom-in; transition: transform 0.2s; }
+        .clickable-image:hover { transform: scale(1.01); }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 h-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <span class="font-heading font-bold text-xl text-slate-900">StocksPickeur</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <nav class="flex gap-6">
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
+                    <a href="../formation.html" class="text-sm font-medium text-indigo-600 font-bold transition">Formation</a>
+                </nav>
+                <div class="h-6 w-px bg-slate-200"></div>
+                <a href="../formation.html" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Connexion
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-sky-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="3.0.html" class="hover:text-sky-600 transition">Module 3</a></li>
+                <li>/</li>
+                <li class="text-sky-600 font-medium">Chapitre 3.4</li>
+            </ol>
+        </nav>
+        <div class="mb-12 border-b border-slate-200 pb-8">
+            <span class="text-sky-600 font-bold tracking-wider uppercase text-xs">Module 3 • L'Univers des Actions</span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">3.4. Les différents Secteurs en Bourse 🏭</h1>
+        </div>
+        <article class="prose prose-slate max-w-none text-justify">
+            <p>Avant de choisir des actions, il faut comprendre comment le marché est organisé. Imaginez la Bourse comme une immense ville. Dans cette ville, vous ne trouverez pas une boulangerie à côté d'une usine nucléaire. Tout est organisé par "quartiers". Ces quartiers, ce sont les <strong>Secteurs</strong>.</p>
+            <h4>1. Qu'est-ce qu'un Secteur boursier ? 🌍</h4>
+            <p>Un secteur est un regroupement d'entreprises partageant la même activité économique principale. Cette classification est standardisée au niveau mondial (la norme la plus connue est le GICS). C'est crucial à comprendre car les actions d'un même secteur ont tendance à bouger ensemble par mimétisme. Si une nouvelle tombe sur le prix du pétrole, tout le secteur énergie bougera, peu importe la qualité individuelle des entreprises. C'est la marée qui soulève ou baisse tous les bateaux.</p>
+            <h4>2. Le Tour d'Horizon : Les 11 Grands Secteurs 🔭</h4>
+            <p>Pour être un investisseur complet, vous devez savoir identifier dans quelle catégorie joue votre entreprise, car chaque secteur a ses propres règles du jeu. Voici les 11 piliers de l'économie :</p>
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/11-sectors.png')">
+                <img src="../media/Formation/11-sectors.png" alt="11 Secteurs Boursiers" class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Les 11 grands quartiers de l'économie (Classification GICS)</figcaption>
+            </figure>
+            
+            <h5 class="text-[#2c3e50] font-bold mt-8 mb-4">💻 1. La Technologie (Information Technology)</h5>
+            <p>C'est le véritable moteur de l'économie moderne et le secteur favori des investisseurs en quête de croissance. Il regroupe une immense variété d'acteurs, allant des fabricants de semi-conducteurs (les "pelles et pioches" de l'ère numérique) aux éditeurs de logiciels ultra-rentables, en passant par le matériel électronique. C'est un domaine caractérisé par une innovation constante, des marges souvent très élevées et une capacité unique à grandir rapidement (scalabilité), bien qu'il soit souvent plus volatil lorsque les taux d'intérêt augmentent.<br><em>Exemples : Microsoft, Apple, Nvidia, Accenture.</em></p>
+            
+            <h5 class="text-[#2c3e50] font-bold mt-8 mb-4">💊 2. La Santé (Health Care)</h5>
+            <p>Ce secteur est unique car il réussit le tour de force d'être à la fois défensif et de croissance. Il englobe les géants pharmaceutiques qui vendent des médicaments vitaux, les biotechs à la pointe de la recherche génétique, mais aussi les fabricants d'équipements médicaux de haute précision. Porté par une tendance lourde inarrêtable — le vieillissement de la population mondiale — ce secteur offre une résilience exceptionnelle, car peu importe l'état de l'économie ou l'inflation, les patients ne renoncent jamais à se soigner.<br><em>Exemples : Novo Nordisk, Eli Lilly, Sanofi, Stryker.</em></p>
+            
+            <h5 class="text-[#2c3e50] font-bold mt-8 mb-4">🏦 3. La Finance (Financials)</h5>
+            <p>Considéré comme le système sanguin de l'économie, ce secteur est vaste et comprend les banques de détail, les banques d'investissement, les compagnies d'assurance et les gestionnaires d'actifs. Ces entreprises gagnent de l'argent en gérant les flux financiers, en prêtant des capitaux ou en assurant des risques. C'est un secteur très cyclique, étroitement lié à la santé économique globale et extrêmement sensible aux décisions des banques centrales, ce qui rend ses bilans comptables parfois opaques pour le particulier.<br><em>Exemples : JPMorgan, BNP Paribas, AXA, BlackRock.</em></p>
+            
+            <h5 class="text-[#2c3e50] font-bold mt-8 mb-4">👜 4. La Consommation Discrétionnaire (Consumer Discretionary)</h5>
+            <p>Ce secteur regroupe les entreprises vendant des biens et services "non essentiels", ou de plaisir. On y trouve un mélange hétéroclite allant de l'industrie automobile au luxe, en passant par l'hôtellerie, la restauration et le commerce de détail (e-commerce inclus). C'est le secteur cyclique par excellence : ses performances explosent en période de prospérité quand les ménages ont du pouvoir d'achat, mais ses revenus sont souvent les premiers à être coupés dès que la récession pointe le bout de son nez.<br><em>Exemples : LVMH, Hermès, Tesla, Amazon, McDonald's.</em></p>
+            
+            <h5 class="text-[#2c3e50] font-bold mt-8 mb-4">🛒 5. La Consommation de Base (Consumer Staples)</h5>
+            <p>À l'opposé du précédent, ce secteur rassemble les entreprises produisant les biens dont personne ne peut se passer au quotidien. Il s'agit des fabricants de nourriture, de boissons, de tabac, de produits d'hygiène ou ménagers. Ces sociétés sont considérées comme des "valeurs refuges" : elles offrent peu de croissance explosive, mais garantissent une stabilité des revenus et des dividendes très réguliers, car les consommateurs continueront d'acheter du dentifrice et des pâtes même si la bourse s'effondre.<br><em>Exemples : Coca-Cola, Procter & Gamble, Nestlé, L'Oréal.</em></p>
+            
+            <h5 class="text-[#2c3e50] font-bold mt-8 mb-4">🏭 6. L'Industrie (Industrials)</h5>
+            <p>C'est le secteur des "bâtisseurs" et des "transporteurs", regroupant la construction, l'aérospatial, la défense, le transport de marchandises (ferroviaire, maritime) et la fabrication de machines-outils complexes. Ces entreprises sont souvent très capitalistiques (elles nécessitent beaucoup d'usines et de matériel lourd) et fonctionnent comme un baromètre de l'économie réelle. Elles profitent massivement des plans de relance gouvernementaux, mais souffrent rapidement en cas de ralentissement de la production mondiale.<br><em>Exemples : Schneider Electric, Airbus, Vinci, Union Pacific.</em></p>
+            
+            <h5 class="text-[#2c3e50] font-bold mt-8 mb-4">📡 7. Services de Communication (Communication Services)</h5>
+            <p>Anciennement limité aux opérateurs téléphoniques classiques, ce secteur a muté pour devenir celui de l'attention et du divertissement numérique. Il inclut désormais les géants des réseaux sociaux, les plateformes de streaming, les médias traditionnels, les jeux vidéo et les fournisseurs d'accès internet. C'est un secteur hybride : les abonnements téléphoniques apportent une rente stable (côté défensif), tandis que la publicité en ligne et les nouveaux médias offrent un potentiel de croissance plus dynamique.<br><em>Exemples : Alphabet (Google), Meta (Facebook), Orange, Netflix.</em></p>
+            
+            <h5 class="text-[#2c3e50] font-bold mt-8 mb-4">⚡ 8. L'Énergie (Energy)</h5>
+            <p>Ce secteur concerne tout ce qui touche à l'exploration, la production, le transport et le raffinage des combustibles (pétrole, gaz, charbon) ainsi que, de plus en plus, les énergies renouvelables. La particularité majeure de ces entreprises est que leur rentabilité ne dépend pas seulement de leur talent de gestion, mais surtout du cours mondial des matières premières qu'elles ne contrôlent pas. C'est historiquement un secteur généreux en dividendes, mais soumis à des cycles d'expansion et de récession très violents.<br><em>Exemples : TotalEnergies, Exxon Mobil, Chevron.</em></p>
+            
+            <h5 class="text-[#2c3e50] font-bold mt-8 mb-4">🧱 9. Les Matériaux (Materials)</h5>
+            <p>Situé tout en amont de la chaîne de production, ce secteur fournit les "ingrédients" de base nécessaires à toute l'industrie mondiale. On y trouve les géants de la chimie, les producteurs de gaz industriels, les compagnies minières (or, cuivre, lithium) ou les fabricants d'emballages et de papier. Comme l'industrie, c'est un secteur purement cyclique : si la demande mondiale pour la construction ou la technologie ralentit, le prix de ces matériaux chute, impactant directement les bénéfices.<br><em>Exemples : Air Liquide, Rio Tinto, Linde.</em></p>
+            
+            <h5 class="text-[#2c3e50] font-bold mt-8 mb-4">💡 10. Les Services aux Collectivités (Utilities)</h5>
+            <p>Ce sont les entreprises qui gèrent les infrastructures vitales "invisibles" comme les réseaux d'eau, d'électricité, de gaz ou de traitement des déchets. Souvent en situation de monopole naturel et très régulées par l'État, ces sociétés ont des revenus ultra-prévisibles (vous payez vos factures tous les mois). Les investisseurs les utilisent souvent comme des alternatives aux obligations : on n'attend pas de croissance folle de leur part, mais un rendement de dividende élevé et sécurisé.<br><em>Exemples : Veolia, Engie, NextEra Energy.</em></p>
+            
+            <h5 class="text-[#2c3e50] font-bold mt-8 mb-4">🏠 11. L'Immobilier (Real Estate)</h5>
+            <p>Ce secteur permet d'investir dans la pierre-papier via des sociétés foncières cotées (appelées REITs ou SIIC). Ces entreprises possèdent, gèrent et louent des parcs immobiliers diversifiés : bureaux, centres commerciaux, entrepôts logistiques, data centers ou tours résidentielles. Elles ont l'obligation légale de reverser la majorité de leurs loyers sous forme de dividendes aux actionnaires. C'est un secteur de rendement, mais qui souffre mécaniquement lorsque les taux d'intérêt augmentent.<br><em>Exemples : Unibail-Rodamco-Westfield, Realty Income.</em></p>
+
+            <h4>3. Attention aux étiquettes trompeuses ! 🏷️</h4>
+            <p>Il est crucial d'ajouter un bémol majeur à cette liste : <strong>la carte n'est pas le territoire</strong>.</p>
+            <p>Ce système de classification est utile pour les statisticiens, mais il est souvent <strong>imparfait</strong> pour l'investisseur. L'économie moderne est fluide et les géants d'aujourd'hui sont des "pieuvres" qui touchent à tout. Les forcer à rentrer dans une seule case est souvent réducteur, voire totalement trompeur.</p>
+
+            <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-xl my-8">
+                <p class="font-bold text-indigo-900 mb-2">L'effet "Caméléon" 🦎</p>
+                <p class="text-sm text-indigo-800 m-0">De nombreuses entreprises "Quality" sont à cheval sur plusieurs secteurs :</p>
+                <ul class="text-sm text-indigo-800 mt-2 space-y-1">
+                    <li><strong>Alphabet (Google) :</strong> Officiellement classé dans les <em>"Services de Communication"</em>. Pourtant, c'est avant tout un leader mondial de la <strong>Technologie</strong> (IA, Cloud) et un acteur de la <strong>Finance</strong> (Google Pay).</li>
+                    <li><strong>Amazon :</strong> Classé dans la <em>"Consommation Discrétionnaire"</em>. Pourtant, la majorité de ses profits provient d'AWS, qui est purement de la <strong>Technologie</strong>.</li>
+                    <li><strong>Visa & Mastercard :</strong> Classés dans la <em>"Finance"</em>, mais ce sont avant tout des réseaux technologiques de paiement (Fintech).</li>
+                </ul>
+            </div>
+            
+            <p><strong>Le conseil :</strong> Ne vous arrêtez jamais à l'étiquette sectorielle affichée par votre courtier. Regardez toujours comment l'entreprise gagne <em>réellement</em> son argent. Une entreprise peut être classée "Conso" sur le papier mais se comporter comme une "Tech" en bourse.</p>
+
+            <h4>4. La Réalité du terrain : Pourquoi tous les secteurs ne se valent pas ! 🛑</h4>
+            <p>C'est ici que nous allons nous séparer de la théorie académique pour entrer dans la pratique du Stock Picking gagnant.</p>
+            <p>Si vous écoutez un banquier ou un conseiller financier classique, il vous montrera un joli graphique en forme de beignet ("Donut") et vous dira : <em>"Monsieur, pour limiter les risques, il faut être diversifié. Mettez 8% dans l'automobile, 8% dans les banques, 8% dans la tech..."</em></p>
+            <p>C'est, à mes yeux, une erreur fondamentale pour celui qui veut battre le marché.</p>
+            <p><strong>La vérité brute : Certains secteurs sont économiquement supérieurs à d'autres.</strong> C'est comme au Monopoly : il vaut mieux posséder la Rue de la Paix que la Rue de Courcelles. Certains business models sont des autoroutes vers la richesse, d'autres sont des chemins de croix.</p>
+
+            <h5 class="text-[#c0392b] font-bold mt-6 mb-2">⛔ Les Secteurs "Difficiles" (Capital Intensive)</h5>
+            <p>Ce sont des secteurs qui exigent des investissements (CAPEX) colossaux juste pour survivre.</p>
+            <ul>
+                <li><strong>L'Automobile :</strong> C'est une guerre des prix permanente. Les marges nettes dépassent rarement 5% ou 6%. Si vous n'investissez pas des milliards dans l'électrique, vous mourrez. C'est un business ingrat.</li>
+                <li><strong>L'Aviation :</strong> Les compagnies aériennes font faillite régulièrement. Elles ne contrôlent ni le prix de leur carburant, ni le prix de leurs avions, ni les taxes d'aéroport. C'est un gouffre à cash.</li>
+                <li><strong>Les Banques (Traditionnelles) :</strong> Leurs bilans sont des "boîtes noires" impossibles à analyser pour un particulier. Elles sont ultra-régulées et dépendantes des taux directeurs qu'elles ne contrôlent pas.</li>
+            </ul>
+
+            <h5 class="text-[#27ae60] font-bold mt-6 mb-2">💎 Les Secteurs "Quality" (Asset Light)</h5>
+            <p>À l'inverse, nous allons concentrer notre portefeuille là où l'argent coule à flots avec moins d'efforts.</p>
+            <ul>
+                <li><strong>Le Luxe :</strong> LVMH ou Hermès ont ce qu'on appelle le <strong>Pricing Power</strong>. Ils peuvent augmenter leurs prix chaque année sans perdre de clients. C'est l'anti-crise.</li>
+                <li><strong>La Technologie & Logiciels (SaaS) :</strong> Une fois le logiciel créé, chaque nouveau client est du pur profit. La scalabilité est infinie. C'est ici que se créent les "Multibaggers".</li>
+                <li><strong>La Santé :</strong> La population mondiale vieillit. On ne sacrifie jamais sa santé, même en récession. C'est un secteur qui combine sécurité défensive et croissance.</li>
+                <li><strong>Les Services Financiers de Niche :</strong> Pas les banques, mais les réseaux de paiement (Visa/Mastercard) ou les agences de notation (S&P Global). Ils prennent une commission sur chaque transaction mondiale sans prendre de risque.</li>
+            </ul>
+
+            <h4>5. Le Mythe de la Diversification Sectorielle 🧩</h4>
+            <p>On vous répète qu'il faut acheter un peu de tout pour être "en sécurité". Mais posez-vous la question :</p>
+            <p>Est-ce qu'acheter une action LVMH, c'est mettre tous ses œufs dans le même panier ? <strong>Non.</strong></p>
+            <p>Une entreprise "Quality" est déjà diversifiée par nature :</p>
+            <ul>
+                <li><strong>Géographiquement :</strong> Elle vend en Chine, aux USA, en Europe et en Amérique du Sud. Si l'Europe va mal, les USA compensent.</li>
+                <li><strong>Par Segments :</strong> LVMH vend du Champagne, des Montres, de la Mode, des Parfums et de l'Hôtellerie, on entend souvent dire que c'est un ETF luxe à lui tout seul. Microsoft vend du Cloud, des jeux vidéo (Xbox), des logiciels (Office) et de la pub (LinkedIn).</li>
+            </ul>
+
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-xl my-8">
+                <p class="font-bold text-blue-900 mb-2">La citation à retenir 💬</p>
+                <p class="italic text-blue-800 m-0">"La diversification est une protection contre l'ignorance. Elle a peu de sens pour ceux qui savent ce qu'ils font." <br>— <strong>Warren Buffett</strong></p>
+            </div>
+
+            <p><strong>Ne faites pas de la "Diworsification" :</strong></p>
+            <p>Ce terme inventé par Peter Lynch désigne le fait de détériorer (worse) son portefeuille en voulant trop le diversifier. <br>
+            Ne vous forcez <strong>jamais</strong> à acheter une action médiocre juste pour "remplir une case" Excel (ex: "Il me faut absolument de l'énergie").</p>
+            <p>Si vous trouvez 5 entreprises incroyables dans la Technologie et aucune dans l'Industrie, alors construisez un portefeuille 100% Tech. C'est peut-être plus volatil à court terme, mais c'est bien moins risqué à long terme que d'acheter des mauvaises entreprises pour faire plaisir aux statistiques.</p>
+            <p>Nous achetons de la <strong>Qualité</strong>, pas des étiquettes de secteurs.</p>
+
+            <h4>5. Nuance importante : L'esprit ouvert, mais critique 🧐</h4>
+            <p>Attention, ne soyez pas sectaires ! Dire que certains secteurs sont "difficiles" ne signifie pas qu'ils sont <em>interdits</em> ou qu'il faut les exclure aveuglément.</p>
+            <p>Tout les secteurs en bourse se doivent d'être analysés. Il existe peut-être une entreprise exceptionnelle ("l'Exception") cachée au sein d'un secteur difficile. Par exemple, <strong>Ferrari</strong> est techniquement dans l'automobile, mais ses marges sont celles du luxe. </p>
+            <p>Le message clé est celui-ci : <strong>Arrêtez de regarder votre portefeuille à travers le prisme de la "répartition sectorielle".</strong> Ne cherchez pas à équilibrer votre camembert. Cherchez l'excellence, peu importe où elle se trouve. Si elle se trouve uniquement dans 2 secteurs, alors n'investissez que dans ces 2 secteurs.</p>
+
+            <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-8 mt-12 shadow-sm">
+                <h5 class="text-xl font-bold text-emerald-800 mb-4 flex items-center">
+                    <span class="bg-emerald-200 text-emerald-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">🔑</span> 
+                    Ce qu'il faut retenir
+                </h5>
+                <p class="text-emerald-900 m-0 leading-relaxed">
+                    Ne soyez pas esclave des secteurs. <br>
+                    🔹 <strong>Soyez sélectifs :</strong> Concentrez votre capital sur les secteurs "Rois" (Luxe, Tech, Santé, Services) qui offrent les meilleures marges.<br>
+                    🔹 <strong>Oubliez la symétrie :</strong> Un portefeuille avec 3 secteurs excellents battra toujours un portefeuille avec 11 secteurs moyens.<br>
+                    🔹 <strong>Qualité > Secteur :</strong> Une action exceptionnelle dans un secteur moyen vaut mieux qu'une action pourrie dans un bon secteur. Mais une action exceptionnelle dans un secteur exceptionnel, c'est le Graal.
+                </p>
+            </div>
+        </article>
+
+        <div class="flex justify-between items-center mt-16 pt-8 border-t border-slate-200">
+            <a href="3.3.html" class="text-slate-500 hover:text-sky-600 font-medium transition flex items-center group">
+                <span class="group-hover:-translate-x-1 transition-transform mr-2">←</span> Chapitre Précédent
+            </a>
+            <a href="3.5.html" class="bg-sky-600 text-white px-6 py-3 rounded-full font-bold hover:bg-sky-700 transition shadow-lg shadow-sky-200 flex items-center group">
+                Chapitre Suivant <span class="group-hover:translate-x-1 transition-transform ml-2">→</span>
+            </a>
+        </div>
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <div id="imageViewer" class="fixed inset-0 z-[60] hidden bg-slate-900/90 backdrop-blur-sm transition-opacity duration-300" onclick="closeViewer()">
+        <span class="absolute top-5 right-8 text-white text-5xl cursor-pointer hover:text-slate-300 transition">&times;</span>
+        <img class="m-auto block max-w-[95%] max-h-[90vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded shadow-2xl" id="enlargedImg">
+    </div>
+
+    <script>
+        // Gestion de la Lightbox
+        var modal = document.getElementById("imageViewer");
+        var modalImg = document.getElementById("enlargedImg");
+
+        function openViewer(src) {
+            modal.style.display = "block";
+            modalImg.src = src;
+            document.body.style.overflow = "hidden"; // Empêche le scroll
+        }
+
+        function closeViewer() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto"; // Réactive le scroll
+        }
+        
+        // Fermer avec la touche Echap
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeViewer();
+            }
+        });
+    </script>
+
+</body>
+</html>

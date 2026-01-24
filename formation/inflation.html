@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulateur d'Inflation | StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        .input-field {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #e2e8f0;
+            background-color: #f8fafc;
+            transition: all 0.2s;
+            color: #1e293b;
+            font-weight: 500;
+        }
+        .input-field:focus {
+            outline: none;
+            border-color: #ef4444; /* Rouge (Danger) pour l'inflation */
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+        }
+        .input-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 h-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
+            
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <span class="font-heading font-bold text-xl text-slate-900">StocksPickeur</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8">
+                <nav class="flex gap-6">
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
+                    <a href="../formation.html" class="text-sm font-medium text-indigo-600 font-bold transition">Formation</a>
+                </nav>
+                <div class="h-6 w-px bg-slate-200"></div>
+                <a href="../formation.html" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Connexion
+                </a>
+            </div>
+            <div class="md:hidden">
+                <button class="text-slate-500 hover:text-slate-900">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-indigo-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="1.0.html" class="hover:text-indigo-600 transition">Module 1</a></li>
+                <li>/</li>
+                <li class="text-indigo-600 font-medium">Simulateur d'Inflation</li>
+            </ol>
+        </nav>
+
+        <div class="text-center mb-12">
+            <span class="inline-block py-1 px-3 rounded-full bg-red-50 text-red-600 text-xs font-bold uppercase tracking-wider mb-4 border border-red-100">
+                L'Ennemi Invisible
+            </span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mb-4">Simulateur d'Inflation 💸</h1>
+            <p class="text-lg text-slate-500 max-w-2xl mx-auto">
+                Combien vaudront vos 10 000€ dans 20 ans si vous les laissez dormir ? Visualisez l'érosion de votre pouvoir d'achat.
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8">
+            
+            <div class="lg:col-span-4 space-y-6">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h3 class="font-bold text-slate-900 text-lg mb-6 border-b border-slate-100 pb-4">Vos Paramètres</h3>
+                    
+                    <div class="mb-4">
+                        <label class="input-label">Somme à tester (€)</label>
+                        <input type="number" id="initialAmount" class="input-field" value="10000" placeholder="Ex: 10000">
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="input-label flex justify-between">
+                            Inflation Annuelle (%)
+                            <span class="text-red-600 font-bold" id="inflationDisplay">3%</span>
+                        </label>
+                        <input type="range" id="inflationRate" min="0" max="10" value="3" step="0.5" class="w-full mt-2 accent-red-600 h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
+                        <div class="flex justify-between text-xs text-slate-400 mt-1">
+                            <span>0%</span>
+                            <span>Moyenne (2-3%)</span>
+                            <span>Crise (10%)</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="input-label">Durée (Années)</label>
+                        <input type="range" id="yearsRange" min="1" max="50" value="20" class="w-full mt-2 accent-slate-600 h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
+                        <div class="text-right text-sm font-bold text-slate-600 mt-1" id="yearsDisplay">20 ans</div>
+                    </div>
+
+                    <button onclick="calculateInflation()" class="w-full bg-red-600 text-white font-bold py-3 px-4 rounded-xl hover:bg-red-700 transition shadow-lg shadow-red-200 transform active:scale-95">
+                        Voir la perte 📉
+                    </button>
+                </div>
+
+                <div class="bg-red-50 p-5 rounded-xl border border-red-100 text-sm text-red-900 text-justify">
+                    <strong>💡 Le saviez-vous ?</strong><br>
+                    Avec une inflation de 3%, les prix doublent tous les 24 ans. Cela signifie que votre argent perd la moitié de sa valeur en une génération.
+                </div>
+            </div>
+
+            <div class="lg:col-span-8 space-y-6">
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm text-center">
+                        <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Somme Nominale (Fixe)</div>
+                        <div class="text-2xl font-heading font-bold text-slate-400" id="resNominal">-- €</div>
+                        <div class="text-xs text-slate-400 mt-1">Ce qu'il y a écrit sur votre compte</div>
+                    </div>
+                    <div class="bg-slate-900 p-5 rounded-xl border border-slate-800 shadow-lg text-center text-white relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-16 h-16 bg-red-500 rounded-full -mr-8 -mt-8 opacity-20"></div>
+                        <div class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">Pouvoir d'Achat Réel</div>
+                        <div class="text-3xl font-heading font-bold text-red-400" id="resReal">-- €</div>
+                        <div class="text-xs text-red-300 mt-1 font-bold">Ce que vous pouvez vraiment acheter</div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm h-[400px]">
+                    <canvas id="inflationChart"></canvas>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-l-4 border-l-red-500">
+                    <h4 class="font-bold text-slate-900 mb-2">Le constat</h4>
+                    <p class="text-sm text-slate-600 text-justify leading-relaxed" id="analysisText">
+                        Lancez le calcul...
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // Variables
+        const amountInput = document.getElementById('initialAmount');
+        const rateInput = document.getElementById('inflationRate');
+        const rateDisplay = document.getElementById('inflationDisplay');
+        const yearsRange = document.getElementById('yearsRange');
+        const yearsDisplay = document.getElementById('yearsDisplay');
+        
+        let myChart = null;
+
+        // Synchronisation Inputs
+        rateInput.addEventListener('input', function() {
+            rateDisplay.textContent = this.value + "%";
+            calculateInflation();
+        });
+        yearsRange.addEventListener('input', function() {
+            yearsDisplay.textContent = this.value + " ans";
+            calculateInflation();
+        });
+        amountInput.addEventListener('input', calculateInflation);
+
+        function calculateInflation() {
+            const P = parseFloat(amountInput.value) || 0;
+            const r = (parseFloat(rateInput.value) || 0) / 100;
+            const t = parseFloat(yearsRange.value) || 0;
+
+            const labels = [];
+            const dataNominal = [];
+            const dataReal = [];
+
+            for (let year = 0; year <= t; year++) {
+                labels.push("Année " + year);
+                // Nominale : L'argent ne bouge pas (10k reste 10k sous le matelas)
+                dataNominal.push(P);
+                
+                // Réelle : PV = P / (1+r)^t
+                let realPower = P / Math.pow(1 + r, year);
+                dataReal.push(realPower);
+            }
+
+            const finalRealValue = dataReal[dataReal.length - 1];
+            const lostValue = P - finalRealValue;
+            const lostPercent = ((lostValue / P) * 100).toFixed(0);
+
+            // Affichage
+            const formatter = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+
+            document.getElementById('resNominal').textContent = formatter.format(P);
+            document.getElementById('resReal').textContent = formatter.format(finalRealValue);
+
+            document.getElementById('analysisText').innerHTML = `
+                Dans <strong>${t} ans</strong>, vos <strong>${formatter.format(P)}</strong> ne vaudront plus que l'équivalent de <strong>${formatter.format(finalRealValue)}</strong> d'aujourd'hui.<br>
+                L'inflation vous aura volé <strong>${lostPercent}%</strong> de votre travail sans jamais toucher à votre compte en banque. <br>
+                C'est pour cela que l'investissement (qui vise >8%) est obligatoire.
+            `;
+
+            updateChart(labels, dataNominal, dataReal);
+        }
+
+        function updateChart(labels, nominal, real) {
+            const ctx = document.getElementById('inflationChart').getContext('2d');
+
+            if (myChart) myChart.destroy();
+
+            myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Somme sur le compte (Nominale)',
+                            data: nominal,
+                            borderColor: '#94a3b8', // Slate-400
+                            borderDash: [5, 5],
+                            pointRadius: 0,
+                            borderWidth: 2,
+                            fill: false
+                        },
+                        {
+                            label: 'Pouvoir d\'Achat Réel',
+                            data: real,
+                            borderColor: '#ef4444', // Red-500
+                            backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            pointRadius: 0,
+                            pointHoverRadius: 6
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) { return value + ' €'; }
+                            }
+                        },
+                        x: {
+                            grid: { display: false }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) { label += ': '; }
+                                    if (context.parsed.y !== null) {
+                                        label += new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(context.parsed.y);
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', calculateInflation);
+    </script>
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoatPicks | Analyses d'Actions de Qualité</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Effet Hover Cartes */
+        .stock-card {
+            transition: all 0.3s ease;
+        }
+        .stock-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Animation des filtres */
+        .filter-btn.active {
+            background-color: #0f172a; /* Slate-900 */
+            color: white;
+            border-color: #0f172a;
+        }
+
+        /* Cacher les éléments non filtrés */
+        .hidden-card { display: none !important; }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 h-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
+            
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="media/Logo/Logo-White.png" alt="Logo StocksPickeur" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <span class="font-heading font-bold text-xl text-slate-900 tracking-tight">StocksPickeur</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8">
+                <nav class="flex gap-6">
+                    <a href="portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
+                    <a href="moatpicks.html" class="text-sm font-medium text-indigo-600 font-bold transition">Analyses</a>
+                    <a href="formation.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Formation</a>
+                </nav>
+
+                <div class="h-6 w-px bg-slate-200"></div>
+
+                <a href="formation.html" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Connexion
+                </a>
+            </div>
+            
+            <div class="md:hidden">
+                <button class="text-slate-500 hover:text-slate-900">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center mb-12">
+            <span class="inline-block py-1 px-3 rounded-full bg-amber-50 text-amber-600 text-xs font-bold uppercase tracking-wider mb-4 border border-amber-100">
+                Bibliothèque Premium
+            </span>
+            <h1 class="text-4xl md:text-5xl font-heading font-extrabold text-slate-900 mb-6 tracking-tight">
+                Moat Picks : <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-600">L'Excellence Analysée.</span>
+            </h1>
+            <div class="prose prose-lg text-slate-500 mx-auto max-w-3xl leading-relaxed">
+                <p>
+                    Plongez dans les rapports détaillés des meilleures entreprises du monde. <br>
+                    J'analyse pour vous le Business Model, les Avantages Concurrentiels (Moat), la Gouvernance et la Valorisation pour ne garder que la crème de la crème.
+                </p>
+            </div>
+        </div>
+
+        <div class="max-w-md mx-auto mb-8 relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <svg class="h-5 w-5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                </svg>
+            </div>
+            <input type="text" id="searchInput" onkeyup="filterStocks()" placeholder="Rechercher une action (ex: Microsoft, ASML...)" 
+            class="block w-full pl-10 pr-3 py-3 border border-slate-200 rounded-xl leading-5 bg-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 sm:text-sm shadow-sm transition">
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-3 mb-12" id="filterContainer">
+            <button onclick="setFilter('all')" class="filter-btn active px-5 py-2 rounded-full border border-slate-200 text-sm font-bold transition hover:bg-slate-100">Tout voir</button>
+            <button onclick="setFilter('pea')" class="filter-btn px-5 py-2 rounded-full border border-slate-200 text-sm font-bold transition hover:bg-slate-100 text-blue-700">Eligible PEA 🇪🇺</button>
+            <button onclick="setFilter('cto')" class="filter-btn px-5 py-2 rounded-full border border-slate-200 text-sm font-bold transition hover:bg-slate-100 text-slate-600">CTO (Monde) 🌍</button>
+            <button onclick="setFilter('usa')" class="filter-btn px-5 py-2 rounded-full border border-slate-200 text-sm font-bold transition hover:bg-slate-100 text-indigo-600">USA 🇺🇸</button>
+            <button onclick="setFilter('europe')" class="filter-btn px-5 py-2 rounded-full border border-slate-200 text-sm font-bold transition hover:bg-slate-100 text-blue-600">Europe 🇪🇺</button>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="stockGrid">
+
+            <a href="moatpicks/msft.html" class="stock-card filter-item usa cto block bg-white rounded-2xl border border-slate-200 overflow-hidden relative group" data-name="Microsoft MSFT">
+                <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-[2px] z-10 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                    <span class="bg-white text-slate-900 px-4 py-2 rounded-full font-bold text-sm shadow-xl transform translate-y-4 group-hover:translate-y-0 transition duration-300">
+                        Analyse Bientôt Disponible ⏳
+                    </span>
+                </div>
+
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center border border-slate-100 p-2">
+                             <img src="media/Stocks-Logo/MSFT.png" alt="Microsoft" class="object-contain w-full h-full">
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="px-2 py-1 bg-slate-100 text-slate-500 text-[10px] font-bold uppercase tracking-wider rounded">CTO</span>
+                            <span class="px-2 py-1 bg-indigo-50 text-indigo-600 text-[10px] font-bold uppercase tracking-wider rounded">Tech</span>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Microsoft Corp.</h3>
+                    <p class="text-sm text-slate-500 line-clamp-3 mb-4">
+                        Le géant incontesté du logiciel et du Cloud. Avec Azure, Office et sa position dans l'IA via OpenAI, Microsoft possède l'un des douves les plus larges au monde.
+                    </p>
+
+                    <div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-4">
+                        <div class="text-xs text-slate-400">Score Quality</div>
+                        <div class="text-sm font-bold text-emerald-600">27/30 💎</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="moatpicks/asml.html" class="stock-card filter-item europe pea block bg-white rounded-2xl border border-slate-200 overflow-hidden relative group" data-name="ASML Holding">
+                 <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-[2px] z-10 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                    <span class="bg-white text-slate-900 px-4 py-2 rounded-full font-bold text-sm shadow-xl transform translate-y-4 group-hover:translate-y-0 transition duration-300">
+                        Analyse Bientôt Disponible ⏳
+                    </span>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center border border-slate-100 p-2">
+                             <img src="media/Stocks-Logo/ASML.png" alt="ASML" class="object-contain w-full h-full">
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="px-2 py-1 bg-blue-50 text-blue-600 text-[10px] font-bold uppercase tracking-wider rounded">PEA</span>
+                            <span class="px-2 py-1 bg-indigo-50 text-indigo-600 text-[10px] font-bold uppercase tracking-wider rounded">Semi</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">ASML Holding</h3>
+                    <p class="text-sm text-slate-500 line-clamp-3 mb-4">
+                        La pierre angulaire de la technologie mondiale. ASML détient le monopole absolu sur les machines de lithographie EUV indispensables aux puces modernes.
+                    </p>
+                    <div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-4">
+                        <div class="text-xs text-slate-400">Score Quality</div>
+                        <div class="text-sm font-bold text-emerald-600">25/30 💎</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="moatpicks/goog.html" class="stock-card filter-item usa cto block bg-white rounded-2xl border border-slate-200 overflow-hidden relative group" data-name="Alphabet Google GOOGL">
+                 <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-[2px] z-10 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                    <span class="bg-white text-slate-900 px-4 py-2 rounded-full font-bold text-sm shadow-xl transform translate-y-4 group-hover:translate-y-0 transition duration-300">
+                        Analyse Bientôt Disponible ⏳
+                    </span>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center border border-slate-100 p-2">
+                             <img src="media/Stocks-Logo/GOOGL.png" alt="Google" class="object-contain w-full h-full">
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="px-2 py-1 bg-slate-100 text-slate-500 text-[10px] font-bold uppercase tracking-wider rounded">CTO</span>
+                            <span class="px-2 py-1 bg-orange-50 text-orange-600 text-[10px] font-bold uppercase tracking-wider rounded">Comm</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Alphabet Inc.</h3>
+                    <p class="text-sm text-slate-500 line-clamp-3 mb-4">
+                        Le maître de la recherche et de la publicité numérique. Google et YouTube sont deux des actifs les plus puissants d'Internet, générant un cash-flow colossal.
+                    </p>
+                    <div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-4">
+                        <div class="text-xs text-slate-400">Score Quality</div>
+                        <div class="text-sm font-bold text-emerald-600">25/30 💎</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="moatpicks/ma.html" class="stock-card filter-item usa cto block bg-white rounded-2xl border border-slate-200 overflow-hidden relative group" data-name="Mastercard MA">
+                 <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-[2px] z-10 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                    <span class="bg-white text-slate-900 px-4 py-2 rounded-full font-bold text-sm shadow-xl transform translate-y-4 group-hover:translate-y-0 transition duration-300">
+                        Analyse Bientôt Disponible ⏳
+                    </span>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center border border-slate-100 p-2">
+                             <img src="media/Stocks-Logo/MA.png" alt="Mastercard" class="object-contain w-full h-full">
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="px-2 py-1 bg-slate-100 text-slate-500 text-[10px] font-bold uppercase tracking-wider rounded">CTO</span>
+                            <span class="px-2 py-1 bg-emerald-50 text-emerald-600 text-[10px] font-bold uppercase tracking-wider rounded">Finance</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Mastercard</h3>
+                    <p class="text-sm text-slate-500 line-clamp-3 mb-4">
+                        Un duopole mondial avec des marges indécentes. Mastercard ne prête pas d'argent, elle est le péage sur l'autoroute des transactions mondiales.
+                    </p>
+                    <div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-4">
+                        <div class="text-xs text-slate-400">Score Quality</div>
+                        <div class="text-sm font-bold text-emerald-600">26/30 💎</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="moatpicks/v.html" class="stock-card filter-item usa cto block bg-white rounded-2xl border border-slate-200 overflow-hidden relative group" data-name="Visa V">
+                 <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-[2px] z-10 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                    <span class="bg-white text-slate-900 px-4 py-2 rounded-full font-bold text-sm shadow-xl transform translate-y-4 group-hover:translate-y-0 transition duration-300">
+                        Analyse Bientôt Disponible ⏳
+                    </span>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center border border-slate-100 p-2">
+                             <img src="media/Stocks-Logo/V.png" alt="Visa" class="object-contain w-full h-full">
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="px-2 py-1 bg-slate-100 text-slate-500 text-[10px] font-bold uppercase tracking-wider rounded">CTO</span>
+                            <span class="px-2 py-1 bg-emerald-50 text-emerald-600 text-[10px] font-bold uppercase tracking-wider rounded">Finance</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Visa Inc.</h3>
+                    <p class="text-sm text-slate-500 line-clamp-3 mb-4">
+                        Le leader incontesté des paiements. Une rentabilité, une sécurité et une croissance régulière qui en font un pilier de tout portefeuille Quality.
+                    </p>
+                    <div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-4">
+                        <div class="text-xs text-slate-400">Score Quality</div>
+                        <div class="text-sm font-bold text-emerald-600">26/30 💎</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="moatpicks/nvda.html" class="stock-card filter-item usa cto block bg-white rounded-2xl border border-slate-200 overflow-hidden relative group" data-name="NVIDIA NVDA">
+                 <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-[2px] z-10 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                    <span class="bg-white text-slate-900 px-4 py-2 rounded-full font-bold text-sm shadow-xl transform translate-y-4 group-hover:translate-y-0 transition duration-300">
+                        Analyse Bientôt Disponible ⏳
+                    </span>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center border border-slate-100 p-2">
+                             <img src="media/Stocks-Logo/NVDA.png" alt="Nvidia" class="object-contain w-full h-full">
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="px-2 py-1 bg-slate-100 text-slate-500 text-[10px] font-bold uppercase tracking-wider rounded">CTO</span>
+                            <span class="px-2 py-1 bg-indigo-50 text-indigo-600 text-[10px] font-bold uppercase tracking-wider rounded">Tech</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">NVIDIA Corp.</h3>
+                    <p class="text-sm text-slate-500 line-clamp-3 mb-4">
+                        Le moteur de l'Intelligence Artificielle. Avec ses GPU et son écosystème CUDA, Nvidia possède une avance technologique considérable sur un marché en explosion.
+                    </p>
+                    <div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-4">
+                        <div class="text-xs text-slate-400">Score Quality</div>
+                        <div class="text-sm font-bold text-emerald-600">24/30 💎</div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="./media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        let currentFilter = 'all';
+
+        function setFilter(c) {
+            currentFilter = c;
+            
+            // Gestion des boutons actifs
+            var btns = document.getElementsByClassName("filter-btn");
+            for (var j = 0; j < btns.length; j++) {
+                btns[j].classList.remove("active");
+            }
+            // Trouver le bouton cliqué (via event)
+            if(event) event.currentTarget.classList.add("active");
+
+            applyFilters();
+        }
+
+        function filterStocks() {
+            // Appelé quand on tape dans la barre de recherche
+            applyFilters();
+        }
+
+        function applyFilters() {
+            var input, filter, cards, card, name, i, categoryMatch, searchMatch;
+            input = document.getElementById('searchInput');
+            filter = input.value.toUpperCase();
+            cards = document.getElementsByClassName("stock-card");
+
+            for (i = 0; i < cards.length; i++) {
+                card = cards[i];
+                name = card.getAttribute('data-name').toUpperCase(); // On utilise l'attribut data-name pour la recherche
+
+                // 1. Vérifier si correspond au Filtre Catégorie
+                if (currentFilter === 'all') {
+                    categoryMatch = true;
+                } else {
+                    categoryMatch = card.classList.contains(currentFilter);
+                }
+
+                // 2. Vérifier si correspond à la Recherche
+                if (name.indexOf(filter) > -1) {
+                    searchMatch = true;
+                } else {
+                    searchMatch = false;
+                }
+
+                // Si les DEUX conditions sont vraies, on affiche
+                if (categoryMatch && searchMatch) {
+                    card.classList.remove("hidden-card");
+                } else {
+                    card.classList.add("hidden-card");
+                }
+            }
+        }
+        
+        // Init
+        setFilter('all');
+    </script>
+
+</body>
+</html>

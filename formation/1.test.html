@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen Module 1 : Les Bases | Formation StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles Quiz */
+        .quiz-option {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .quiz-option:hover {
+            background-color: #f8fafc;
+            border-color: #cbd5e1;
+        }
+        /* États après validation */
+        .quiz-option.correct {
+            background-color: #dcfce7; /* Green-100 */
+            border-color: #10b981; /* Green-500 */
+            color: #166534; /* Green-800 */
+        }
+        .quiz-option.wrong {
+            background-color: #fee2e2; /* Red-100 */
+            border-color: #ef4444; /* Red-500 */
+            color: #991b1b; /* Red-800 */
+            opacity: 0.7;
+        }
+        .explanation {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 h-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <span class="font-heading font-bold text-xl text-slate-900">StocksPickeur</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <nav class="flex gap-6">
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
+                    <a href="../formation.html" class="text-sm font-medium text-indigo-600 font-bold transition">Formation</a>
+                </nav>
+                <div class="h-6 w-px bg-slate-200"></div>
+                <a href="../formation.html" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Connexion
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-indigo-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="1.0.html" class="hover:text-indigo-600 transition">Module 1</a></li>
+                <li>/</li>
+                <li class="text-indigo-600 font-medium">Examen Final</li>
+            </ol>
+        </nav>
+
+        <div class="mb-12 border-b border-slate-200 pb-8 text-center">
+            <span class="inline-block py-1 px-3 rounded-full bg-indigo-50 text-indigo-600 text-xs font-bold uppercase tracking-wider mb-4 border border-indigo-100">
+                Validation des Acquis
+            </span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mb-4">Quiz Module 1 : Les Bases 🎓</h1>
+            <p class="text-slate-500 text-lg max-w-xl mx-auto text-justify">
+                Avez-vous bien assimilé les concepts fondamentaux de l'investissement ? Répondez à ces 10 questions pour passer au module suivant.
+            </p>
+        </div>
+
+        <form id="quizForm" class="space-y-10">
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="single" data-correct="b">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">1</span>
+                    Quelle est la définition fondamentale d'un investissement ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q1" value="a" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Acheter quelque chose pour le revendre plus cher le lendemain.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q1" value="b" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Renoncer à une consommation immédiate pour obtenir un bénéfice futur.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q1" value="c" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Épargner de l'argent sur un compte courant pour qu'il soit en sécurité.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-indigo-50 text-indigo-800 p-5 rounded-xl border border-indigo-100">
+                    <strong>💡 Réponse : B.</strong> Investir est un arbitrage temporel. Le trading (A) est de la spéculation, et l'épargne (C) ne produit pas de richesse et perd face à l'inflation.
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="single" data-correct="c">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
+                    Quelle est la différence entre un Actif et un Passif (selon l'investisseur) ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q2" value="a" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Un actif est un bien immobilier, un passif est une dette.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q2" value="b" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Un actif est ce que je possède, un passif est ce que je dois.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q2" value="c" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Un actif met de l'argent dans ma poche, un passif en sort.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-indigo-50 text-indigo-800 p-5 rounded-xl border border-indigo-100">
+                    <strong>💡 Réponse : C.</strong> C'est la définition clé de Robert Kiyosaki. Votre voiture ou votre résidence principale (si elle ne rapporte rien) sont souvent des passifs car elles coûtent de l'argent chaque mois.
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="multiple" data-correct="a,c">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">3</span>
+                    Quels sont des exemples d'ACTIFS parmi cette liste ? (Plusieurs réponses possibles)
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q3" value="a" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Une action LVMH qui verse des dividendes.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q3" value="b" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Votre voiture personnelle utilisée pour les loisirs.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q3" value="c" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Un appartement mis en location.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q3" value="d" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Un abonnement Netflix.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-indigo-50 text-indigo-800 p-5 rounded-xl border border-indigo-100">
+                    <strong>💡 Réponse : A et C.</strong> L'action et l'appartement rapportent de l'argent. La voiture et l'abonnement sont des dépenses (Passifs).
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="single" data-correct="a">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">4</span>
+                    Pourquoi l'inflation est-elle l'ennemi de l'épargnant ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q4" value="a" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Elle réduit le pouvoir d'achat de l'argent qui dort.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q4" value="b" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Elle fait baisser les taux d'intérêt des livrets.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q4" value="c" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Elle oblige à payer plus d'impôts.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-indigo-50 text-indigo-800 p-5 rounded-xl border border-indigo-100">
+                    <strong>💡 Réponse : A.</strong> Si l'inflation est de 3%, vos 100€ ne permettront d'acheter que pour 97€ de marchandises l'année suivante. C'est une érosion silencieuse.
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="multiple" data-correct="b,c">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">5</span>
+                    Quelles sont les fausses croyances (mythes) qui empêchent d'investir ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q5" value="a" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Il faut commencer le plus tôt possible.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q5" value="b" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>La Bourse est un Casino (jeu de hasard).</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q5" value="c" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Il faut être riche pour commencer à investir.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-indigo-50 text-indigo-800 p-5 rounded-xl border border-indigo-100">
+                    <strong>💡 Réponse : B et C.</strong> Commencer tôt (A) est une vérité, pas un mythe. Les deux autres sont des excuses fausses.
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="single" data-correct="b">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">6</span>
+                    Quel est l'avantage principal des actions par rapport à l'immobilier ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q6" value="a" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>On peut utiliser l'effet de levier du crédit bancaire.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q6" value="b" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Elles sont liquides (vendables en un clic) et totalement passives.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q6" value="c" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Elles ne comportent aucun risque de perte en capital.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-indigo-50 text-indigo-800 p-5 rounded-xl border border-indigo-100">
+                    <strong>💡 Réponse : B.</strong> L'immobilier a l'avantage du crédit (A), mais il est illiquide et demande de la gestion. Les actions offrent la liberté et la liquidité.
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="single" data-correct="c">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">7</span>
+                    Pourquoi faut-il commencer à investir le plus tôt possible ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q7" value="a" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Parce que la bourse monte toujours en ligne droite.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q7" value="b" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Pour éviter de payer des impôts plus tard.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q7" value="c" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Pour profiter de la puissance exponentielle des intérêts composés.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-indigo-50 text-indigo-800 p-5 rounded-xl border border-indigo-100">
+                    <strong>💡 Réponse : C.</strong> C'est l'effet "Boule de Neige". Le temps est le facteur le plus puissant de l'équation d'enrichissement.
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="multiple" data-correct="a,c">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">8</span>
+                    Quelles sont les 2 manières de gagner de l'argent avec une action ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q8" value="a" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>La plus-value (le prix monte).</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q8" value="b" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Le salaire versé par l'entreprise.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q8" value="c" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Le dividende (part des bénéfices).</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-indigo-50 text-indigo-800 p-5 rounded-xl border border-indigo-100">
+                    <strong>💡 Réponse : A et C.</strong> En tant qu'actionnaire, vous n'êtes pas salarié, vous êtes propriétaire. Vous touchez la croissance et/ou le dividende.
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="single" data-correct="b">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">9</span>
+                    Quelle est la performance historique moyenne de la Bourse (S&P 500) ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q9" value="a" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Environ 3% par an (comme le Livret A).</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q9" value="b" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Environ 8% à 10% par an.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q9" value="c" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Environ 50% par an.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-indigo-50 text-indigo-800 p-5 rounded-xl border border-indigo-100">
+                    <strong>💡 Réponse : B.</strong> Sur le très long terme, la bourse bat l'inflation et l'immobilier avec un rendement moyen proche de 10% (dividendes réinvestis).
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="single" data-correct="b">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">10</span>
+                    Quel est le principal moteur du système de retraite par répartition actuel ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q10" value="a" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>L'argent épargné par chaque retraité durant sa vie.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q10" value="b" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Les cotisations des travailleurs actifs d'aujourd'hui.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q10" value="c" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Les profits de la Bourse.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-indigo-50 text-indigo-800 p-5 rounded-xl border border-indigo-100">
+                    <strong>💡 Réponse : B.</strong> C'est un système de solidarité intergénérationnelle. C'est pour cela qu'il est fragile face au vieillissement de la population.
+                </div>
+            </div>
+
+            <div class="text-center pt-8">
+                <button type="button" onclick="checkQuiz()" class="bg-indigo-600 text-white font-bold py-4 px-12 rounded-full hover:bg-indigo-700 transition shadow-lg shadow-indigo-200 transform active:scale-95 text-lg w-full sm:w-auto">
+                    Soumettre mes réponses
+                </button>
+                
+                <div id="resultBox" class="hidden mt-12 p-8 bg-slate-900 rounded-2xl text-white shadow-2xl">
+                    <h2 class="text-3xl font-heading font-extrabold mb-2">Résultat : <span id="scoreDisplay" class="text-emerald-400">0/10</span></h2>
+                    <p id="scoreMessage" class="text-slate-300 mb-8 text-lg">Message...</p>
+                    
+                    <a href="2.0.html" id="nextModuleBtn" class="hidden inline-block bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-10 rounded-full transition transform hover:-translate-y-1 shadow-lg shadow-emerald-500/30">
+                        Passer au Module 2 →
+                    </a>
+                    <a href="1.1.html" id="retryBtn" class="hidden inline-block bg-slate-700 hover:bg-slate-600 text-white font-bold py-4 px-10 rounded-full transition transform hover:-translate-y-1">
+                        Relire le Module 1 ↺
+                    </a>
+                </div>
+            </div>
+
+        </form>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function checkQuiz() {
+            let score = 0;
+            const totalQuestions = 10;
+            const questions = document.querySelectorAll('.question-block');
+            
+            questions.forEach(block => {
+                const type = block.dataset.type; // 'single' ou 'multiple'
+                const correct = block.dataset.correct.split(','); // Array des bonnes réponses ['a', 'b']
+                const inputs = block.querySelectorAll('input');
+                let isCorrect = false;
+
+                // Reset styles
+                block.querySelectorAll('.quiz-option').forEach(opt => {
+                    opt.classList.remove('correct', 'wrong');
+                    opt.style.cursor = 'default';
+                    opt.querySelector('input').disabled = true;
+                });
+
+                if (type === 'single') {
+                    // Logique Radio
+                    inputs.forEach(input => {
+                        if (input.checked) {
+                            if (correct.includes(input.value)) {
+                                isCorrect = true;
+                                input.parentElement.classList.add('correct');
+                            } else {
+                                input.parentElement.classList.add('wrong');
+                            }
+                        }
+                        // Highlight correct answer
+                        if (correct.includes(input.value)) {
+                            input.parentElement.classList.add('correct');
+                        }
+                    });
+                } else {
+                    // Logique Checkbox (Strict : Tout bon, rien de faux)
+                    let userAnswers = [];
+                    inputs.forEach(input => {
+                        if(input.checked) userAnswers.push(input.value);
+                    });
+                    
+                    // Vérifier si userAnswers est identique à correct
+                    // 1. Même longueur
+                    // 2. Toutes les réponses user sont dans correct
+                    const allCorrect = userAnswers.length === correct.length && userAnswers.every(val => correct.includes(val));
+
+                    if (allCorrect) {
+                        isCorrect = true;
+                    }
+
+                    // Coloration
+                    inputs.forEach(input => {
+                        // Si coché et correct -> Vert
+                        if (input.checked && correct.includes(input.value)) {
+                            input.parentElement.classList.add('correct');
+                        }
+                        // Si coché et faux -> Rouge
+                        else if (input.checked && !correct.includes(input.value)) {
+                            input.parentElement.classList.add('wrong');
+                        }
+                        // Si pas coché mais c'était une bonne réponse -> Vert (pour montrer)
+                        else if (!input.checked && correct.includes(input.value)) {
+                            input.parentElement.classList.add('correct');
+                        }
+                    });
+                }
+
+                if (isCorrect) score++;
+
+                // Show explanation
+                block.querySelector('.explanation').style.display = 'block';
+            });
+
+            // Afficher le résultat
+            const resultBox = document.getElementById('resultBox');
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            const scoreMessage = document.getElementById('scoreMessage');
+            const nextBtn = document.getElementById('nextModuleBtn');
+            const retryBtn = document.getElementById('retryBtn');
+
+            resultBox.classList.remove('hidden');
+            scoreDisplay.textContent = score + "/" + totalQuestions;
+
+            // Scroll vers le bas
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            if (score >= 7) { // 70% pour valider
+                scoreMessage.textContent = "Félicitations ! Vous maîtrisez les bases de l'investissement. Vous êtes prêt(e) pour le Module 2.";
+                nextBtn.classList.remove('hidden');
+                retryBtn.classList.add('hidden');
+            } else {
+                scoreMessage.textContent = "Certains concepts semblent encore flous. Prenez le temps de relire le module pour partir sur des bases solides.";
+                nextBtn.classList.add('hidden');
+                retryBtn.classList.remove('hidden');
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.5 Les 2 Prismes de la Stratégie Quality | Formation StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles pour le contenu du cours */
+        .prose p { margin-bottom: 1.5rem; line-height: 1.8; color: #475569; }
+        .prose h4 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-top: 3rem; margin-bottom: 1.5rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .prose strong { color: #0f172a; font-weight: 600; }
+        .prose ul, .prose ol { list-style: none; padding-left: 0; }
+        .prose li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
+        .prose ul li::before { content: "•"; color: #4f46e5; font-weight: bold; position: absolute; left: 0; }
+        
+        /* Lightbox */
+        #imageViewer { backdrop-filter: blur(10px); }
+        .clickable-image { cursor: zoom-in; transition: transform 0.2s; }
+        .clickable-image:hover { transform: scale(1.01); }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 h-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <span class="font-heading font-bold text-xl text-slate-900">StocksPickeur</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <nav class="flex gap-6">
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
+                    <a href="../formation.html" class="text-sm font-medium text-indigo-600 font-bold transition">Formation</a>
+                </nav>
+                <div class="h-6 w-px bg-slate-200"></div>
+                <a href="../formation.html" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Connexion
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-indigo-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="4.0.html" class="hover:text-indigo-600 transition">Module 4</a></li>
+                <li>/</li>
+                <li class="text-indigo-600 font-medium">Chapitre 4.5</li>
+            </ol>
+        </nav>
+
+        <div class="mb-12 border-b border-slate-200 pb-8">
+            <span class="text-indigo-600 font-bold tracking-wider uppercase text-xs">Module 4 • La Stratégie Quality</span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">4.5. Les 2 Prismes de la Stratégie Quality 👓</h1>
+        </div>
+
+        <article class="prose prose-slate max-w-none text-justify">
+            
+            <p>Nous entrons maintenant dans la phase pratique. Vous avez compris la théorie (le Moat, la performance), mais concrètement, comment analyse-t-on une entreprise ? Par où commencer quand on ouvre un rapport financier de 200 pages pour ne pas être submergé ?</p>
+            <p>La réponse réside dans une méthodologie stricte, divisée en deux temps. Pour sélectionner une action, nous allons la passer à travers <strong>deux prismes successifs</strong>. C'est un entonnoir : le premier prisme sert à éliminer massivement le bruit, le second sert à valider l'excellence.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/quantitative-qualitative.png')">
+                <img src="../media/Formation/quantitative-qualitative.png" 
+                     alt="Schéma de l'entonnoir d'analyse : Quantitatif puis Qualitatif" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Notre méthode de sélection : On filtre large avec les chiffres, puis on analyse finement le business.</figcaption>
+            </figure>
+
+            <div class="grid md:grid-cols-2 gap-6 my-10">
+                <div class="bg-indigo-50 p-6 rounded-2xl border border-indigo-100 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-indigo-200 text-indigo-800 text-xs font-bold px-3 py-1 rounded-bl-lg">ÉTAPE 1</div>
+                    <div class="text-4xl mb-4">🧮</div>
+                    <h5 class="text-lg font-bold text-indigo-900 mb-2">L'Analyse Quantitative</h5>
+                    <p class="text-sm text-indigo-800 mb-4">"Les chiffres sont-ils excellents ?"</p>
+                    <ul class="text-xs text-indigo-700 space-y-1 text-left">
+                        <li>⏱️ <strong>Durée :</strong> 5 à 10 minutes</li>
+                        <li>🎯 <strong>But :</strong> Éliminer 90% du marché</li>
+                        <li>🔧 <strong>Outil :</strong> Screeners, Ratios, Notation /30</li>
+                    </ul>
+                </div>
+                <div class="bg-emerald-50 p-6 rounded-2xl border border-emerald-100 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-emerald-200 text-emerald-800 text-xs font-bold px-3 py-1 rounded-bl-lg">ÉTAPE 2</div>
+                    <div class="text-4xl mb-4">🕵️‍♂️</div>
+                    <h5 class="text-lg font-bold text-emerald-900 mb-2">L'Analyse Qualitative</h5>
+                    <p class="text-sm text-emerald-800 mb-4">"Le business est-il durable ?"</p>
+                    <ul class="text-xs text-emerald-700 space-y-1 text-left">
+                        <li>⏱️ <strong>Durée :</strong> Plusieurs heures</li>
+                        <li>🎯 <strong>But :</strong> Valider la pérennité</li>
+                        <li>🔧 <strong>Outil :</strong> Rapports annuels, Interviews, Moat</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h4>Prisme n°1 : L'Analyse Quantitative (Le Tamis) 🏗️</h4>
+            <p>C'est la première barrière. Elle est froide, mathématique et impitoyable. Ici, il n'y a pas de place pour les sentiments ou les belles histoires marketing. On regarde les chiffres, et seulement les chiffres.</p>
+            <p><strong>Pourquoi commencer par là ?</strong> Parce que c'est une question d'efficacité. Il existe plus de 50 000 actions cotées dans le monde. Vous ne pouvez pas lire 50 000 rapports annuels. L'analyse quantitative est un filtre rapide qui permet d'écarter immédiatement les entreprises médiocres, endettées ou non rentables.</p>
+            <p>Si une entreprise ne passe pas ce test (par exemple, si sa marge nette est trop faible ou sa dette trop élevée), on s'arrête tout de suite. On ne perd pas une seconde de plus. C'est le principe du <strong>"Non, suivant !"</strong>.</p>
+            <p>Dans les chapitres suivants (4.6 à 4.11), je vais vous donner mon système de notation précis sur 30 points pour automatiser cette étape. Nous vérifierons :</p>
+            <ul>
+                <li><strong>La Croissance :</strong> Le chiffre d'affaires monte-t-il régulièrement ?</li>
+                <li><strong>La Rentabilité :</strong> Les marges sont-elles élevées ? Le ROIC est-il supérieur à la moyenne ?</li>
+                <li><strong>La Santé Financière :</strong> Le bilan est-il solide ? Y a-t-il assez de cash pour survivre à une crise ?</li>
+            </ul>
+
+            <h4>Prisme n°2 : L'Analyse Qualitative (L'Enquête) 🔍</h4>
+            <p>Une fois qu'une entreprise a réussi le test des chiffres, elle atterrit dans votre "Watchlist" (Liste de surveillance). C'est là que le vrai travail commence. Les chiffres nous disent <em>ce qui s'est passé</em> (le passé), mais l'analyse qualitative nous aide à deviner <em>ce qui va se passer</em> (le futur).</p>
+            <p>C'est une étape plus subjective, plus artistique. C'est une enquête de détective. Vous devez comprendre le business model en profondeur pour répondre à des questions vitales :</p>
+            <ul>
+                <li><strong>Le Moat :</strong> Pourquoi les clients achètent-ils chez eux et pas chez le concurrent ? Est-ce durable ?</li>
+                <li><strong>Le Management :</strong> Le PDG est-il compétent ? Est-il honnête ? Possède-t-il beaucoup d'actions de sa propre entreprise (Skin in the game) ?</li>
+                <li><strong>Les Risques :</strong> Une nouvelle technologie (comme l'IA) peut-elle tuer ce business ? Y a-t-il un risque politique ou légal ?</li>
+            </ul>
+            <p>Cette étape prend du temps. C'est pour cela qu'on ne la fait que sur les entreprises qui ont déjà prouvé leur excellence financière.</p>
+
+            <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-xl my-8">
+                <p class="font-bold text-indigo-900 mb-2">Pourquoi l'un ne marche pas sans l'autre ? ⚠️</p>
+                <p class="text-sm text-indigo-800 m-0">
+                    C'est l'erreur classique des investisseurs amateurs : ne regarder qu'un seul côté de la pièce.<br><br>
+                    ❌ <strong>Quantitatif seul (Le piège du comptable) :</strong> Vous achetez une entreprise car elle a un PER bas et de gros dividendes passés. Mais vous n'avez pas vu que son brevet expire l'année prochaine ou que son PDG est incompétent. C'est le "Value Trap". Les chiffres regardent le rétroviseur, pas la route.<br><br>
+                    ❌ <strong>Qualitatif seul (Le piège du rêveur) :</strong> Vous achetez une entreprise parce que le produit est "génial" et que le PDG est charismatique à la télé (Hype). Mais vous n'avez pas vu qu'elle brûle tout son cash et qu'elle n'est pas rentable. C'est la bulle spéculative qui éclate.
+                </p>
+            </div>
+
+            <p>La stratégie Quality, c'est l'union sacrée de ces deux mondes. Nous voulons des chiffres en béton armé (Quantitatif) soutenus par une forteresse économique imprenable et un excellent capitaine (Qualitatif).</p>
+
+            <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-8 mt-12 shadow-sm">
+                <h5 class="text-xl font-bold text-emerald-800 mb-4 flex items-center">
+                    <span class="bg-emerald-200 text-emerald-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">🔑</span> 
+                    Ce qu'il faut retenir
+                </h5>
+                <p class="text-emerald-900 m-0 leading-relaxed">
+                    Ne soyez pas schizophrène avec votre argent. Chaque stratégie a ses règles.<br>
+                    Si vous choisissez le <strong>Quality Investing</strong> (comme nous), vous devez accepter de ne pas acheter les actions "bradées" en faillite (Value) et de ne pas courir après la dernière "hype" spéculative du moment (Momentum).<br>
+                    Votre avantage concurrentiel sera la <strong>patience</strong> et la <strong>sélectivité</strong> sur la qualité intrinsèque du business.
+                </p>
+            </div>
+
+        </article>
+
+        <div class="flex justify-between items-center mt-16 pt-8 border-t border-slate-200">
+            <a href="4.4.html" class="text-slate-500 hover:text-indigo-600 font-medium transition flex items-center group">
+                <span class="group-hover:-translate-x-1 transition-transform mr-2">←</span> Chapitre Précédent
+            </a>
+            <a href="4.6.html" class="bg-indigo-600 text-white px-6 py-3 rounded-full font-bold hover:bg-indigo-700 transition shadow-lg shadow-indigo-200 flex items-center group">
+                Chapitre Suivant<span class="group-hover:translate-x-1 transition-transform ml-2">→</span>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <div id="imageViewer" class="fixed inset-0 z-[60] hidden bg-slate-900/90 backdrop-blur-sm transition-opacity duration-300" onclick="closeViewer()">
+        <span class="absolute top-5 right-8 text-white text-5xl cursor-pointer hover:text-slate-300 transition">&times;</span>
+        <img class="m-auto block max-w-[95%] max-h-[90vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded shadow-2xl" id="enlargedImg">
+    </div>
+
+    <script>
+        // Gestion de la Lightbox
+        var modal = document.getElementById("imageViewer");
+        var modalImg = document.getElementById("enlargedImg");
+
+        function openViewer(src) {
+            modal.style.display = "block";
+            modalImg.src = src;
+            document.body.style.overflow = "hidden"; // Empêche le scroll
+        }
+
+        function closeViewer() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto"; // Réactive le scroll
+        }
+        
+        // Fermer avec la touche Echap
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeViewer();
+            }
+        });
+    </script>
+
+</body>
+</html>
