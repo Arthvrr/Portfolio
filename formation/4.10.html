@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.10 Analyse Quantitative : La Solvabilité | Formation StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles pour le contenu du cours */
+        .prose p { margin-bottom: 1.5rem; line-height: 1.8; color: #475569; }
+        .prose h4 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-top: 3rem; margin-bottom: 1.5rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .prose strong { color: #0f172a; font-weight: 600; }
+        .prose ul, .prose ol { list-style: none; padding-left: 0; }
+        .prose li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
+        .prose ul li::before { content: "•"; color: #4f46e5; font-weight: bold; position: absolute; left: 0; }
+        
+        /* Lightbox */
+        #imageViewer { backdrop-filter: blur(10px); }
+        .clickable-image { cursor: zoom-in; transition: transform 0.2s; }
+        .clickable-image:hover { transform: scale(1.01); }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 h-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <span class="font-heading font-bold text-xl text-slate-900">StocksPickeur</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <nav class="flex gap-6">
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
+                    <a href="../formation.html" class="text-sm font-medium text-indigo-600 font-bold transition">Formation</a>
+                </nav>
+                <div class="h-6 w-px bg-slate-200"></div>
+                <a href="../formation.html" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Connexion
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-indigo-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="4.0.html" class="hover:text-indigo-600 transition">Module 4</a></li>
+                <li>/</li>
+                <li class="text-indigo-600 font-medium">Chapitre 4.10</li>
+            </ol>
+        </nav>
+
+        <div class="mb-12 border-b border-slate-200 pb-8">
+            <span class="text-indigo-600 font-bold tracking-wider uppercase text-xs">Module 4 • La Stratégie Quality</span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">4.10. Analyse Quantitative : La Solvabilité 🛡️</h1>
+        </div>
+
+        <article class="prose prose-slate max-w-none text-justify">
+            
+            <p>Nous avons vu la Croissance (le moteur) et la Rentabilité (l'efficacité). Il reste un élément vital à vérifier avant d'investir le moindre euro : <strong>La Survie</strong>.</p>
+            <p> Une entreprise peut croître très vite et être très rentable sur le papier, mais faire faillite du jour au lendemain si elle est étouffée par sa dette. En période de taux d'intérêt bas, la dette est indolore. Mais quand les taux montent ou qu'une crise économique frappe, la dette devient un poison mortel.</p>
+            <p>Dans le pilier "Solvabilité", nous jouons le rôle du banquier prudent. Nous voulons dormir tranquilles en sachant que nos entreprises ne risquent pas la faillite.</p>
+
+            <h4>Critère 1 : Le Ratio Dette / EBITDA (Le Levier) ⚖️</h4>
+            <p>Ce ratio est souvent appelé <strong>"Leverage"</strong> (Levier) par les analystes financiers. C'est le thermomètre absolu de la dette.</p>
+            <p>Pourquoi "Levier" ? Parce que la dette agit comme un levier physique : elle amplifie tout. Si l'entreprise va bien, la dette booste ses résultats (elle investit l'argent des autres pour grandir). Mais si l'entreprise va mal, la dette l'écrase sous son poids.</p>
+            <p>Ce ratio compare la dette totale de l'entreprise à l'argent qu'elle gagne grâce à son activité opérationnelle (EBITDA). Pour faire simple, cela répond à la question : <em>"Combien d'années de travail faudrait-il à l'entreprise pour rembourser intégralement ses dettes si elle y consacrait 100% de ses profits ?"</em></p>
+
+            <div class="bg-slate-50 border-l-4 border-slate-800 p-6 rounded-r-xl my-8">
+                <strong class="text-slate-900 block mb-2 text-xl">La Formule du Debt-to-EBITDA</strong>
+                <div class="text-lg font-mono text-indigo-600 bg-white inline-block px-4 py-2 rounded border border-indigo-100 mb-2 shadow-sm">
+                    Leverage = Dette Nette Totale / EBITDA
+                </div>
+            </div>
+
+            <p><strong>💡 Comprendre l'EBITDA :</strong> Derrière cet acronyme barbare (<em>Earnings Before Interest, Taxes, Depreciation, and Amortization</em>) se cache une idée simple : c'est le <strong>bénéfice brut d'exploitation</strong>. C'est l'argent généré par la vente des produits, avant de payer les impôts, les intérêts aux banques et avant de compter l'usure des machines (amortissements). C'est la mesure la plus pure de la capacité d'une entreprise à cracher du cash grâce à son activité.</p>
+
+            <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-xl my-8">
+                <strong class="text-indigo-900 block mb-2">Warren Buffett sur la Dette 🧠</strong>
+                <p class="italic text-indigo-800 m-0">"J'ai vu plus de gens échouer à cause de l'alcool et de l'effet de levier (dette) - le levier étant de l'argent emprunté. Vous n'avez pas vraiment besoin de levier dans ce monde. Si vous êtes intelligent, vous gagnerez beaucoup d'argent sans emprunter."</p>
+            </div>
+
+            <p>Si vous gagnez 50 000€ par an et que vous avez 50 000€ de dettes, votre ratio est de <strong>1</strong>. C'est très sain, vous pouvez théoriquement tout rembourser en un an de travail. <br>
+            Si vous avez 250 000€ de dettes avec le même salaire, votre ratio est de <strong>5</strong>. Là, vous êtes en danger mortel. Le moindre accident de la vie (perte de revenu), et comme vos mensualités de remboursement sont fixes, vous êtes en faillite personnelle.</p>
+
+            <div class="p-4 border border-slate-200 rounded-lg bg-white mt-4">
+                <strong class="text-indigo-600">🎯 Le Test Quality :</strong><br>
+                ✅ <strong>+2 points</strong> si le ratio est inférieur à <strong>1</strong> (Bilan Forteresse).<br>
+                ⚠️ <strong>+1 point</strong> si le ratio est inférieur à <strong>2</strong> (Très sain).<br>
+                ❌ <strong>+0 point</strong> sinon (Au-dessus de 2, la dette commence à peser).
+            </div>
+
+            <h4>Critère 2 : Le Ratio Dette / Capitaux Propres (Debt-to-Equity) 🏦</h4>
+            <p>Ce ratio mesure la structure financière : "À qui appartient vraiment l'entreprise ? Aux actionnaires ou à la banque ?"</p>
+            <p>Il compare l'argent apporté par les créanciers (la Dette) à l'argent qui appartient aux actionnaires (les Capitaux Propres ou Equity). C'est un indicateur d'indépendance.</p>
+
+            <div class="bg-slate-50 border-l-4 border-slate-800 p-6 rounded-r-xl my-8">
+                <strong class="text-slate-900 block mb-2 text-xl">La Formule du Debt-to-Equity</strong>
+                <div class="text-lg font-mono text-indigo-600 bg-white inline-block px-4 py-2 rounded border border-indigo-100 mb-2 shadow-sm">
+                    D/E = Dette Totale / Capitaux Propres (Equity)
+                </div>
+            </div>
+
+            <p><strong>💡 Comprendre les Capitaux Propres (Equity) :</strong> C'est la "valeur nette" de l'entreprise. Imaginez que l'entreprise vende tout ce qu'elle possède (usines, stocks, brevets) et rembourse toutes ses dettes. Ce qu'il reste à la fin, c'est l'Equity. C'est l'argent qui appartient réellement aux actionnaires. Si le Debt-to-Equity est élevé, cela veut dire que l'entreprise a été achetée majoritairement avec l'argent de la banque, pas avec celui des propriétaires.</p>
+
+            <p>Si le ratio est élevé (par exemple 5), cela signifie que pour chaque euro apporté par les actionnaires, l'entreprise a emprunté 5 euros à la banque. C'est une stratégie très agressive. Si tout va bien, le rendement pour l'actionnaire est dopé. Mais si les affaires ralentissent, les banquiers peuvent prendre le contrôle de l'entreprise ou forcer sa liquidation pour récupérer leur mise.</p>
+            
+            <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-xl my-8">
+                <strong class="text-indigo-900 block mb-2">Peter Lynch sur la Faillite 🧠</strong>
+                <p class="italic text-indigo-800 m-0">"Il est très difficile de faire faillite si vous n'avez pas de dettes."</p>
+            </div>
+
+            <p>Nous cherchons des entreprises conservatrices qui se financent principalement grâce à leurs propres bénéfices réinvestis (autofinancement) plutôt qu'en allant mendier de l'argent à la banque.</p>
+
+            <div class="p-4 border border-slate-200 rounded-lg bg-white mt-4">
+                <strong class="text-indigo-600">🎯 Le Test Quality :</strong><br>
+                ✅ <strong>+2 points</strong> si le ratio est inférieur à <strong>1</strong> (Plus de capitaux propres que de dettes).<br>
+                ⚠️ <strong>+1 point</strong> si le ratio est inférieur à <strong>2</strong>.<br>
+                ❌ <strong>+0 point</strong> sinon.
+            </div>
+
+            <h4>Critère 3 : La Couverture des Intérêts (Interest Coverage) 🚑</h4>
+            <p>C'est le ratio de la survie immédiate. Contrairement aux deux précédents qui regardent le "stock" total de dette, celui-ci regarde le "flux" de paiement à la fin du mois.</p>
+            <p>Imaginez que vous ayez un énorme crédit immobilier. Ce qui compte au quotidien pour ne pas être saisi, ce n'est pas de savoir que vous devez 500 000€ à la banque, c'est de savoir si votre salaire mensuel couvre largement votre mensualité de 2000€.</p>
+
+            <div class="bg-slate-50 border-l-4 border-slate-800 p-6 rounded-r-xl my-8">
+                <strong class="text-slate-900 block mb-2 text-xl">La Formule de la Couverture des Intérêts</strong>
+                <div class="text-lg font-mono text-indigo-600 bg-white inline-block px-4 py-2 rounded border border-indigo-100 mb-2 shadow-sm">
+                    Coverage = Résultat Opérationnel (EBIT) / Charges d'Intérêts
+                </div>
+            </div>
+
+            <p><strong>💡 Comprendre l'EBIT et les Charges d'Intérêts :</strong><br>
+            • <strong>EBIT (Earnings Before Interest and Taxes) :</strong> C'est le bénéfice d'exploitation. C'est presque comme l'EBITDA, mais on a retiré l'usure des machines (amortissements). C'est le profit "réel" de l'activité.<br>
+            • <strong>Charges d'Intérêts :</strong> C'est le coût de la dette. C'est le montant des intérêts que l'entreprise doit payer chaque année à ses créanciers, juste pour avoir le droit de garder l'argent emprunté.</p>
+
+            <p>Ce chiffre indique combien de fois l'entreprise peut payer ses intérêts avec son bénéfice actuel.</p>
+            <ul>
+                <li>Si ce ratio est de <strong>1</strong> : L'entreprise utilise 100% de son bénéfice juste pour payer les intérêts de sa dette. Elle ne garde rien pour elle. Elle travaille littéralement pour la banque. C'est une entreprise "Zombie".</li>
+                <li>Si ce ratio est de <strong>5</strong> : C'est correct, mais en cas de crise majeure (bénéfices divisés par 3), elle sera en difficulté.</li>
+                <li>Si ce ratio est de <strong>50</strong> : C'est une forteresse. Même si ses bénéfices s'effondrent de 90%, elle pourra encore payer ses dettes sans trembler.</li>
+            </ul>
+
+            <div class="p-4 border border-slate-200 rounded-lg bg-white mt-4">
+                <strong class="text-indigo-600">🎯 Le Test Quality :</strong><br>
+                ✅ <strong>+2 points</strong> si le ratio est supérieur à <strong>30</strong> (Sécurité absolue).<br>
+                ⚠️ <strong>+1 point</strong> si le ratio est supérieur à <strong>15</strong> (Très confortable).<br>
+                ❌ <strong>+0 point</strong> sinon.
+            </div>
+
+            <h4>🛠️ Où trouver ces données ? (Tuto GuruFocus)</h4>
+            <p>Toutes ces informations cruciales sur la santé financière se trouvent également sur <strong>GuruFocus</strong> (et la plupart des sites financiers).</p>
+            
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/leverage-debt-equity-interest-coverage-gurufocus.png')">
+                <img src="../media/Formation/leverage-debt-equity-interest-coverage-gurufocus.png" 
+                     alt="Tableau de solidité financière GuruFocus montrant les ratios de dette" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Trouvez ces infos dans le tableau "Financial Strength" sur GuruFocus</figcaption>
+            </figure>
+
+
+            <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-8 mt-12 shadow-sm">
+                <h5 class="text-xl font-bold text-emerald-800 mb-4 flex items-center">
+                    <span class="bg-emerald-200 text-emerald-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">🔑</span> 
+                    Ce qu'il faut retenir
+                </h5>
+                <p class="text-emerald-900 m-0 leading-relaxed">
+                    La règle numéro 1 de Warren Buffett est : <em>"Ne perdez pas d'argent"</em>. La cause numéro 1 de la perte définitive d'argent (faillite) est la <strong>Dette</strong>.<br>
+                    En sélectionnant uniquement des entreprises avec un <strong>Bilan Forteresse</strong> (peu de dettes, capacité de remboursement énorme), vous éliminez quasiment tout risque de voir votre investissement tomber à zéro. C'est la ceinture de sécurité de votre portefeuille.
+                </p>
+            </div>
+
+        </article>
+
+        <div class="flex justify-between items-center mt-16 pt-8 border-t border-slate-200">
+            <a href="4.9.html" class="text-slate-500 hover:text-indigo-600 font-medium transition flex items-center group">
+                <span class="group-hover:-translate-x-1 transition-transform mr-2">←</span> Chapitre Précédent
+            </a>
+            <a href="4.11.html" class="bg-indigo-600 text-white px-6 py-3 rounded-full font-bold hover:bg-indigo-700 transition shadow-lg shadow-indigo-200 flex items-center group">
+                Chapitre Suivant<span class="group-hover:translate-x-1 transition-transform ml-2">→</span>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <div id="imageViewer" class="fixed inset-0 z-[60] hidden bg-slate-900/90 backdrop-blur-sm transition-opacity duration-300" onclick="closeViewer()">
+        <span class="absolute top-5 right-8 text-white text-5xl cursor-pointer hover:text-slate-300 transition">&times;</span>
+        <img class="m-auto block max-w-[95%] max-h-[90vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded shadow-2xl" id="enlargedImg">
+    </div>
+
+    <script>
+        // Gestion de la Lightbox
+        var modal = document.getElementById("imageViewer");
+        var modalImg = document.getElementById("enlargedImg");
+
+        function openViewer(src) {
+            modal.style.display = "block";
+            modalImg.src = src;
+            document.body.style.overflow = "hidden"; // Empêche le scroll
+        }
+
+        function closeViewer() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto"; // Réactive le scroll
+        }
+        
+        // Fermer avec la touche Echap
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeViewer();
+            }
+        });
+    </script>
+
+</body>
+</html>
