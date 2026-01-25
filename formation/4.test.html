@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen Module 4 : La Stratégie Quality | Formation StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles Quiz */
+        .quiz-option {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .quiz-option:hover {
+            background-color: #eef2ff; /* Indigo-50 */
+            border-color: #a5b4fc; /* Indigo-300 */
+        }
+        /* États après validation */
+        .quiz-option.correct {
+            background-color: #dcfce7; /* Green-100 */
+            border-color: #10b981; /* Green-500 */
+            color: #166534; /* Green-800 */
+        }
+        .quiz-option.wrong {
+            background-color: #fee2e2; /* Red-100 */
+            border-color: #ef4444; /* Red-500 */
+            color: #991b1b; /* Red-800 */
+            opacity: 0.7;
+        }
+        .explanation {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 h-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <span class="font-heading font-bold text-xl text-slate-900">StocksPickeur</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <nav class="flex gap-6">
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
+                    <a href="../formation.html" class="text-sm font-medium text-indigo-600 font-bold transition">Formation</a>
+                </nav>
+                <div class="h-6 w-px bg-slate-200"></div>
+                <a href="../formation.html" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Connexion
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-indigo-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="4.0.html" class="hover:text-indigo-600 transition">Module 4</a></li>
+                <li>/</li>
+                <li class="text-indigo-600 font-medium">Examen Final</li>
+            </ol>
+        </nav>
+
+        <div class="mb-12 border-b border-slate-200 pb-8 text-center">
+            <span class="inline-block py-1 px-3 rounded-full bg-indigo-50 text-indigo-600 text-xs font-bold uppercase tracking-wider mb-4 border border-indigo-100">
+                Certification Quality
+            </span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mb-4">Quiz Module 4 : La Stratégie Quality 💎</h1>
+            <p class="text-slate-500 text-lg max-w-xl mx-auto text-justify">
+                Avez-vous l'œil pour repérer les entreprises d'exception ? Moat, ROIC, Dividendes... Vérifions si vous êtes prêt à sélectionner les champions de demain.
+            </p>
+        </div>
+
+        <form id="quizForm" class="space-y-10">
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="single" data-correct="b">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">1</span>
+                    Selon l'étude du BCG (Chapitre 4.2), quel est le moteur principal de la performance d'une action sur 10 ans ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q1" value="a" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>L'expansion du multiple de valorisation (PER qui monte).</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q1" value="b" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>La croissance fondamentale (Chiffre d'Affaires et Bénéfices).</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q1" value="c" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Les dividendes uniquement.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-indigo-50 text-indigo-800 p-5 rounded-xl border border-indigo-100">
+                    <strong>💡 Réponse : B.</strong> Sur le long terme (10 ans+), 74% de la performance s'explique par la croissance du business. La spéculation (multiple) devient négligeable.
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="multiple" data-correct="a,c,d">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
+                    Parmi ces propositions, lesquelles sont de vrais types de "Moat" (Avantage Concurrentiel) ? (Plusieurs réponses possibles)
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q2" value="a" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>L'Effet de Réseau (Network Effect).</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q2" value="b" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Un management charismatique à la télévision.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q2" value="c" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Les Coûts de Changement (Switching Costs).</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q2" value="d" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Les Actifs Intangibles (Marque, Brevets).</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-indigo-50 text-indigo-800 p-5 rounded-xl border border-indigo-100">
+                    <strong>💡 Réponse : A, C et D.</strong> Être connu ou avoir un bon PDG ne suffit pas. Un vrai Moat est une barrière structurelle (comme Visa, Microsoft ou Hermès).
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="single" data-correct="a">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">3</span>
+                    Que signifie un ROIC (Return On Invested Capital) de 25% ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q3" value="a" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>L'entreprise est une machine à cash : pour chaque euro investi dans son activité, elle génère 25 centimes de profit par an.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q3" value="b" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>L'entreprise reverse 25% de ses bénéfices en dividendes.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q3" value="c" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>L'action va monter de 25% cette année.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-indigo-50 text-indigo-800 p-5 rounded-xl border border-indigo-100">
+                    <strong>💡 Réponse : A.</strong> Le ROIC mesure l'efficacité interne. C'est le "taux d'intérêt" du compte épargne de l'entreprise. Au-dessus de 15%, c'est excellent.
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="multiple" data-correct="b,c">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">4</span>
+                    Quels sont les signaux d'alarme (Red Flags) au niveau de la Solvabilité ? (Plusieurs réponses)
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q4" value="a" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Un ratio Dette / EBITDA inférieur à 1.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q4" value="b" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Un ratio Dette / EBITDA supérieur à 4 ou 5.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q4" value="c" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Une couverture des intérêts (Interest Coverage) inférieure à 2.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-indigo-50 text-indigo-800 p-5 rounded-xl border border-indigo-100">
+                    <strong>💡 Réponse : B et C.</strong> Une dette trop élevée (>4x EBITDA) ou une incapacité à payer les intérêts (<2x) sont des signes avant-coureurs de faillite.
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="single" data-correct="b">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">5</span>
+                    Pourquoi la croissance du Chiffre d'Affaires (Revenue) est-elle plus fiable que la croissance du Bénéfice Net ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q5" value="a" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Elle ne l'est pas, le bénéfice est plus important.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q5" value="b" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Parce qu'on ne peut pas "truquer" les ventes, alors qu'on peut embellir le bénéfice en coupant les coûts (R&D, Marketing) temporairement.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q5" value="c" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Parce que le Chiffre d'Affaires inclut les taxes.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-indigo-50 text-indigo-800 p-5 rounded-xl border border-indigo-100">
+                    <strong>💡 Réponse : B.</strong> "Revenue is Vanity, Profit is Sanity", mais la croissance des ventes prouve la demande réelle des clients. Couper les coûts pour augmenter le profit a une limite.
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="single" data-correct="c">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">6</span>
+                    Qu'est-ce qu'un "Yield Trap" (Piège de rendement) ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q6" value="a" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Une action qui ne verse pas de dividende.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q6" value="b" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Une action dont le dividende augmente trop vite.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q6" value="c" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Une action avec un rendement très élevé (>8%) causé par la chute du cours, souvent signe d'une future coupe du dividende.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-indigo-50 text-indigo-800 p-5 rounded-xl border border-indigo-100">
+                    <strong>💡 Réponse : C.</strong> Méfiez-vous des rendements mirobolants. Le marché n'est pas stupide, s'il offre 10%, c'est que le risque est immense.
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="multiple" data-correct="a,c">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">7</span>
+                    Pour valider la pérennité du dividende, quels ratios devez-vous vérifier ? (Plusieurs réponses)
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q7" value="a" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Le Payout Ratio (sur les Bénéfices) qui doit idéalement être < 60%.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q7" value="b" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Le rendement immédiat (Yield) qui doit être le plus haut possible.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q7" value="c" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Le FCF Payout Ratio (sur le Cash Flow) qui est la vraie sécurité.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-indigo-50 text-indigo-800 p-5 rounded-xl border border-indigo-100">
+                    <strong>💡 Réponse : A et C.</strong> Un dividende sûr est un dividende bien couvert par les bénéfices et surtout par le Cash Flow. Le rendement (B) n'est pas un gage de sécurité.
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="single" data-correct="a">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">8</span>
+                    Dans l'analyse qualitative, que signifie "Skin in the Game" pour le management ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q8" value="a" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Le PDG possède une part significative des actions de l'entreprise, alignant ses intérêts avec les vôtres.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q8" value="b" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Le PDG prend des risques inconsidérés.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q8" value="c" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>L'entreprise investit beaucoup en marketing.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-indigo-50 text-indigo-800 p-5 rounded-xl border border-indigo-100">
+                    <strong>💡 Réponse : A.</strong> Nous voulons des propriétaires, pas des mercenaires. Un PDG qui joue son propre argent prendra de meilleures décisions à long terme.
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="multiple" data-correct="a,b">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">9</span>
+                    À quoi sert l'exercice de l'Anti-Thèse (Pre-Mortem) ? (Plusieurs réponses)
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q9" value="a" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>À lutter contre le biais de confirmation en cherchant activement ce qui pourrait tuer l'entreprise.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q9" value="b" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>À identifier les risques structurels (Régulation, Disruption technologique, Dépendance client).</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q9" value="c" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>À se décourager d'investir dans n'importe quelle action.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-indigo-50 text-indigo-800 p-5 rounded-xl border border-indigo-100">
+                    <strong>💡 Réponse : A et B.</strong> "Invert, always invert". Si vous ne trouvez pas de risque, c'est que vous n'avez pas assez cherché.
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="single" data-correct="b">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">10</span>
+                    Quel est le concept de "Yield on Cost" (Rendement sur Coût) ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q10" value="a" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Le rendement du dividende affiché aujourd'hui sur Google Finance.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q10" value="b" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Le rendement réel de votre investissement initial, qui augmente chaque année si l'entreprise augmente son dividende.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q10" value="c" class="accent-indigo-600 w-5 h-5 flex-shrink-0">
+                        <span>Le coût des frais de courtage divisé par le rendement.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-indigo-50 text-indigo-800 p-5 rounded-xl border border-indigo-100">
+                    <strong>💡 Réponse : B.</strong> C'est la magie de la croissance du dividende. Vous achetez une action à 2% de rendement, mais 10 ans plus tard, elle vous rapporte 8% ou 10% par rapport à votre mise de départ.
+                </div>
+            </div>
+
+            <div class="text-center pt-8">
+                <button type="button" onclick="checkQuiz()" class="bg-indigo-600 text-white font-bold py-4 px-12 rounded-full hover:bg-indigo-700 transition shadow-lg shadow-indigo-200 transform active:scale-95 text-lg w-full sm:w-auto">
+                    Soumettre mes réponses
+                </button>
+                
+                <div id="resultBox" class="hidden mt-12 p-8 bg-slate-900 rounded-2xl text-white shadow-2xl">
+                    <h2 class="text-3xl font-heading font-extrabold mb-2">Résultat : <span id="scoreDisplay" class="text-emerald-400">0/10</span></h2>
+                    <p id="scoreMessage" class="text-slate-300 mb-8 text-lg">Message...</p>
+                    
+                    <a href="5.0.html" id="nextModuleBtn" class="hidden inline-block bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-10 rounded-full transition transform hover:-translate-y-1 shadow-lg shadow-emerald-500/30">
+                        Découvrir le Module 5 : La Valorisation →
+                    </a>
+                    <a href="4.1.html" id="retryBtn" class="hidden inline-block bg-slate-700 hover:bg-slate-600 text-white font-bold py-4 px-10 rounded-full transition transform hover:-translate-y-1">
+                        Réviser le Module 4 ↺
+                    </a>
+                </div>
+            </div>
+
+        </form>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function checkQuiz() {
+            let score = 0;
+            const totalQuestions = 10;
+            const questions = document.querySelectorAll('.question-block');
+            
+            questions.forEach(block => {
+                const type = block.dataset.type; // 'single' ou 'multiple'
+                const correct = block.dataset.correct.split(','); // Array des bonnes réponses ['a', 'b']
+                const inputs = block.querySelectorAll('input');
+                let isCorrect = false;
+
+                // Reset styles
+                block.querySelectorAll('.quiz-option').forEach(opt => {
+                    opt.classList.remove('correct', 'wrong');
+                    opt.style.cursor = 'default';
+                    opt.querySelector('input').disabled = true;
+                });
+
+                if (type === 'single') {
+                    // Logique Radio
+                    inputs.forEach(input => {
+                        if (input.checked) {
+                            if (correct.includes(input.value)) {
+                                isCorrect = true;
+                                input.parentElement.classList.add('correct');
+                            } else {
+                                input.parentElement.classList.add('wrong');
+                            }
+                        }
+                        // Montrer la bonne réponse
+                        if (correct.includes(input.value)) {
+                            input.parentElement.classList.add('correct');
+                        }
+                    });
+                } else {
+                    // Logique Checkbox (Strict : Tout bon, rien de faux, rien de manquant)
+                    let userAnswers = [];
+                    inputs.forEach(input => {
+                        if(input.checked) userAnswers.push(input.value);
+                    });
+                    
+                    // Vérifier si userAnswers est identique à correct (trier pour comparer)
+                    userAnswers.sort();
+                    const correctSorted = [...correct].sort();
+                    
+                    const allCorrect = JSON.stringify(userAnswers) === JSON.stringify(correctSorted);
+
+                    if (allCorrect) {
+                        isCorrect = true;
+                    }
+
+                    // Coloration
+                    inputs.forEach(input => {
+                        // Si coché et correct -> Vert
+                        if (input.checked && correct.includes(input.value)) {
+                            input.parentElement.classList.add('correct');
+                        }
+                        // Si coché et faux -> Rouge
+                        else if (input.checked && !correct.includes(input.value)) {
+                            input.parentElement.classList.add('wrong');
+                        }
+                        // Si pas coché mais c'était une bonne réponse -> Vert (pour montrer ce qu'il fallait cocher)
+                        else if (!input.checked && correct.includes(input.value)) {
+                            input.parentElement.classList.add('correct');
+                        }
+                    });
+                }
+
+                if (isCorrect) score++;
+
+                // Afficher l'explication
+                block.querySelector('.explanation').style.display = 'block';
+            });
+
+            // Afficher le résultat global
+            const resultBox = document.getElementById('resultBox');
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            const scoreMessage = document.getElementById('scoreMessage');
+            const nextBtn = document.getElementById('nextModuleBtn');
+            const retryBtn = document.getElementById('retryBtn');
+
+            resultBox.classList.remove('hidden');
+            scoreDisplay.textContent = score + "/" + totalQuestions;
+
+            // Scroll vers le bas
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            if (score >= 7) { // 70% pour valider
+                scoreMessage.textContent = "Félicitations ! Vous avez intégré l'état d'esprit Quality. Vous savez distinguer une entreprise médiocre d'une pépite. Mais attention, une pépite payée trop cher reste un mauvais investissement. C'est le sujet du prochain module : La Valorisation.";
+                nextBtn.classList.remove('hidden');
+                retryBtn.classList.add('hidden');
+            } else {
+                scoreMessage.textContent = "Certains concepts (Moat, ROIC, Dette) sont encore flous ? Ne vous inquiétez pas, c'est normal, ce sont des sujets denses. Je vous conseille de relire les chapitres concernés avant de passer à la suite, car la Valorisation repose sur ces bases.";
+                nextBtn.classList.add('hidden');
+                retryBtn.classList.remove('hidden');
+            }
+        }
+    </script>
+
+</body>
+</html>

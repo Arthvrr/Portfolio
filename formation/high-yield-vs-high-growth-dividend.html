@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Match des Dividendes | StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        .input-field {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #e2e8f0;
+            background-color: #f8fafc;
+            transition: all 0.2s;
+            color: #1e293b;
+            font-weight: 500;
+        }
+        .input-field:focus {
+            outline: none;
+            border-color: #6366f1;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+        .input-label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 h-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <span class="font-heading font-bold text-xl text-slate-900">StocksPickeur</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <nav class="flex gap-6">
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
+                    <a href="../formation.html" class="text-sm font-medium text-indigo-600 font-bold transition">Formation</a>
+                </nav>
+                <div class="h-6 w-px bg-slate-200"></div>
+                <a href="../formation.html" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Connexion
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-indigo-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="../formation/4.0.html" class="hover:text-indigo-600 transition">Module 4</a></li>
+                <li>/</li>
+                <li class="text-indigo-600 font-medium">Comparateur Dividendes</li>
+            </ol>
+        </nav>
+
+        <div class="text-center mb-12">
+            <span class="inline-block py-1 px-3 rounded-full bg-indigo-50 text-indigo-600 text-xs font-bold uppercase tracking-wider mb-4 border border-indigo-100">
+                La Tortue vs Le Lièvre
+            </span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mb-4">Le Match des Dividendes 🐢🐇</h1>
+            <p class="text-lg text-slate-500 max-w-2xl mx-auto">
+                Vaut-il mieux un gros rendement qui stagne, ou un petit rendement qui explose ? La réponse mathématique en une seconde.
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8">
+            
+            <div class="lg:col-span-4 space-y-6">
+                
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h3 class="font-bold text-slate-900 text-lg mb-6 border-b border-slate-100 pb-4">Paramètres</h3>
+                    <div class="mb-4">
+                        <label class="input-label text-slate-500">Capital Investi (€)</label>
+                        <input type="number" id="initialCapital" class="input-field" value="10000">
+                    </div>
+                    <div class="mb-4">
+                        <label class="input-label text-slate-500 flex justify-between">
+                            Durée (Années) <span id="yearsDisplay" class="text-indigo-600">20 ans</span>
+                        </label>
+                        <input type="range" id="years" min="5" max="40" value="20" class="w-full mt-2 accent-indigo-600 h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border-l-4 border-l-amber-500 border-y border-r border-slate-200 shadow-sm">
+                    <h3 class="font-bold text-amber-600 text-lg mb-4 flex items-center">
+                        <span class="bg-amber-100 w-8 h-8 rounded-full flex items-center justify-center mr-2 text-sm">A</span>
+                        Haut Rendement
+                    </h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="input-label text-amber-700">Rendement Initial</label>
+                            <input type="number" id="yieldA" class="input-field border-amber-200 focus:border-amber-500 focus:shadow-amber-100" value="5" step="0.1">
+                        </div>
+                        <div>
+                            <label class="input-label text-amber-700">Croissance (%)</label>
+                            <input type="number" id="growthA" class="input-field border-amber-200 focus:border-amber-500 focus:shadow-amber-100" value="2" step="0.5">
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-2 italic">Ex: Télécoms, Banques matures, Tabac.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border-l-4 border-l-indigo-500 border-y border-r border-slate-200 shadow-sm">
+                    <h3 class="font-bold text-indigo-600 text-lg mb-4 flex items-center">
+                        <span class="bg-indigo-100 w-8 h-8 rounded-full flex items-center justify-center mr-2 text-sm">B</span>
+                        Forte Croissance
+                    </h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="input-label text-indigo-700">Rendement Initial</label>
+                            <input type="number" id="yieldB" class="input-field border-indigo-200 focus:border-indigo-500 focus:shadow-indigo-100" value="2" step="0.1">
+                        </div>
+                        <div>
+                            <label class="input-label text-indigo-700">Croissance (%)</label>
+                            <input type="number" id="growthB" class="input-field border-indigo-200 focus:border-indigo-500 focus:shadow-indigo-100" value="12" step="0.5">
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-2 italic">Ex: Visa, Microsoft, LVMH.</p>
+                </div>
+
+                <button onclick="calculateComparison()" class="w-full bg-slate-900 text-white font-bold py-3 px-4 rounded-xl hover:bg-slate-800 transition shadow-lg shadow-slate-300 transform active:scale-95">
+                    Lancer le Duel ⚔️
+                </button>
+
+            </div>
+
+            <div class="lg:col-span-8 space-y-6">
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-amber-50 p-5 rounded-xl border border-amber-100 text-center relative overflow-hidden">
+                        <div class="text-xs font-bold text-amber-700 uppercase tracking-wider mb-2">Rente annuelle (Fin)</div>
+                        <div class="text-3xl font-heading font-bold text-amber-600" id="resIncomeA">-- €</div>
+                        <div class="mt-3 inline-block bg-white px-3 py-1 rounded-full text-xs font-bold text-amber-600 shadow-sm border border-amber-100">
+                            YoC: <span id="resYocA">--%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-indigo-50 p-5 rounded-xl border border-indigo-100 text-center relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-16 h-16 bg-indigo-200 rounded-full -mr-8 -mt-8 opacity-50"></div>
+                        <div class="text-xs font-bold text-indigo-700 uppercase tracking-wider mb-2">Rente annuelle (Fin)</div>
+                        <div class="text-3xl font-heading font-bold text-indigo-600" id="resIncomeB">-- €</div>
+                        <div class="mt-3 inline-block bg-white px-3 py-1 rounded-full text-xs font-bold text-indigo-600 shadow-sm border border-indigo-100">
+                            YoC: <span id="resYocB">--%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 rounded-xl p-6 shadow-lg text-white text-center">
+                    <h4 class="font-bold text-lg mb-2">⏳ Le Verdict</h4>
+                    <p class="text-slate-300" id="crossOverText">
+                        Calcul en cours...
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm h-[400px]">
+                    <canvas id="dividendChart"></canvas>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h4 class="font-bold text-slate-900 mb-2 flex items-center">
+                        <span class="bg-slate-100 text-xl w-8 h-8 flex items-center justify-center rounded mr-2">🧠</span>
+                        Comprendre le résultat
+                    </h4>
+                    <p class="text-sm text-slate-600 text-justify leading-relaxed">
+                        Au début, la stratégie <strong>Haut Rendement</strong> (Orange) semble gagnante car elle paie beaucoup tout de suite. Mais elle s'essouffle vite car sa croissance couvre à peine l'inflation.<br><br>
+                        La stratégie <strong>Forte Croissance</strong> (Bleu) démarre doucement, mais grâce aux intérêts composés internes, elle finit par exploser à la hausse. C'est ce qu'on appelle l'effet "Crosse de Hockey". Sur le très long terme, la croissance bat toujours le rendement initial.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // Variables Inputs
+        const capitalInput = document.getElementById('initialCapital');
+        const yearsRange = document.getElementById('years');
+        const yearsDisplay = document.getElementById('yearsDisplay');
+        
+        const yieldAInput = document.getElementById('yieldA');
+        const growthAInput = document.getElementById('growthA');
+        
+        const yieldBInput = document.getElementById('yieldB');
+        const growthBInput = document.getElementById('growthB');
+
+        let myChart = null;
+
+        // Listeners
+        yearsRange.addEventListener('input', function() {
+            yearsDisplay.textContent = this.value + " ans";
+            calculateComparison();
+        });
+
+        [capitalInput, yieldAInput, growthAInput, yieldBInput, growthBInput].forEach(item => {
+            item.addEventListener('input', calculateComparison);
+        });
+
+        function calculateComparison() {
+            const P = parseFloat(capitalInput.value) || 0;
+            const t = parseFloat(yearsRange.value) || 0;
+            
+            const yA = (parseFloat(yieldAInput.value) || 0) / 100;
+            const gA = (parseFloat(growthAInput.value) || 0) / 100;
+            
+            const yB = (parseFloat(yieldBInput.value) || 0) / 100;
+            const gB = (parseFloat(growthBInput.value) || 0) / 100;
+
+            const labels = [];
+            const dataA = [];
+            const dataB = [];
+            
+            let crossOverYear = null;
+
+            // Calcul année par année
+            for (let i = 0; i <= t; i++) {
+                labels.push("Année " + i);
+                
+                // Formule : Dividende = Capital * RendementInitial * (1 + Croissance)^Année
+                let incomeA = (P * yA) * Math.pow(1 + gA, i);
+                let incomeB = (P * yB) * Math.pow(1 + gB, i);
+                
+                dataA.push(incomeA);
+                dataB.push(incomeB);
+
+                // Détection du croisement (si B était inférieur et devient supérieur)
+                if (crossOverYear === null && incomeB > incomeA && i > 0) {
+                    crossOverYear = i;
+                }
+            }
+
+            // Résultats Finaux (Dernière année)
+            const finalIncomeA = dataA[dataA.length-1];
+            const finalIncomeB = dataB[dataB.length-1];
+            
+            // Yield on Cost (Rente Finale / Capital Initial)
+            const yocA = (finalIncomeA / P) * 100;
+            const yocB = (finalIncomeB / P) * 100;
+
+            const formatter = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+
+            document.getElementById('resIncomeA').textContent = formatter.format(finalIncomeA);
+            document.getElementById('resYocA').textContent = yocA.toFixed(1) + "%";
+            
+            document.getElementById('resIncomeB').textContent = formatter.format(finalIncomeB);
+            document.getElementById('resYocB').textContent = yocB.toFixed(1) + "%";
+
+            // Texte de Verdict
+            const verdictBox = document.getElementById('crossOverText');
+            if (finalIncomeB > finalIncomeA) {
+                if (crossOverYear) {
+                    verdictBox.innerHTML = `La stratégie <span class="text-indigo-400 font-bold">Croissance</span> dépasse la stratégie Rendement à l'année <strong class="text-white text-xl">${crossOverYear}</strong>.<br>C'est le prix de la patience.`;
+                } else {
+                    verdictBox.innerHTML = `La stratégie Croissance est déjà gagnante dès le départ (vérifiez vos taux).`;
+                }
+            } else {
+                verdictBox.innerHTML = `Sur ${t} ans, la stratégie <span class="text-amber-400 font-bold">Haut Rendement</span> reste devant.<br>La croissance de la stratégie B n'est pas assez forte pour rattraper le retard.`;
+            }
+
+            updateChart(labels, dataA, dataB);
+        }
+
+        function updateChart(labels, dataA, dataB) {
+            const ctx = document.getElementById('dividendChart').getContext('2d');
+
+            if (myChart) myChart.destroy();
+
+            myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Rente High Yield',
+                            data: dataA,
+                            borderColor: '#f59e0b', // Amber-500
+                            backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                            borderWidth: 3,
+                            pointRadius: 0,
+                            fill: false
+                        },
+                        {
+                            label: 'Rente High Growth',
+                            data: dataB,
+                            borderColor: '#4f46e5', // Indigo-600
+                            backgroundColor: 'rgba(79, 70, 229, 0.1)',
+                            borderWidth: 3,
+                            pointRadius: 0,
+                            fill: true // On remplit sous la courbe gagnante (souvent) pour l'effet visuel
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: { mode: 'index', intersect: false },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { callback: function(value) { return value + ' €'; } }
+                        },
+                        x: { grid: { display: false } }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) { label += ': '; }
+                                    if (context.parsed.y !== null) {
+                                        label += new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(context.parsed.y);
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', calculateComparison);
+    </script>
+</body>
+</html>

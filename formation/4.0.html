@@ -4,13 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Module 4 : La Stratégie Quality | Formation StocksPickeur</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
     <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
     <style>
         body { font-family: 'Inter', sans-serif; }
         h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .chapter-card:hover { transform: translateY(-2px); border-color: #6366f1; }
+        .chapter-card:hover { transform: translateY(-2px); border-color: #4f46e5; } /* Indigo-600 */
+        
+        /* Séparateur de section */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            margin: 3rem 0 1.5rem 0;
+            color: #94a3b8; /* Slate-400 */
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .section-divider::before, .section-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: #e2e8f0; /* Slate-200 */
+        }
+        .section-divider::before { margin-right: 1rem; }
+        .section-divider::after { margin-left: 1rem; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-600 antialiased">
@@ -27,7 +51,7 @@
                     <a href="../formation.html" class="text-sm font-medium text-indigo-600 font-bold transition">Formation</a>
                 </nav>
                 <div class="h-6 w-px bg-slate-200"></div>
-                <a href="formation.html" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                <a href="../formation.html" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
                     </svg>
@@ -38,54 +62,95 @@
     </header>
 
     <main class="pt-32 pb-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <a href="../formation.html" class="inline-flex items-center text-sm text-slate-400 hover:text-indigo-600 mb-8 transition"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" /></svg> Retour au programme</a>
+        
+        <a href="../formation.html" class="inline-flex items-center text-sm text-slate-400 hover:text-indigo-600 mb-8 transition group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 group-hover:-translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+            </svg> 
+            Retour au programme
+        </a>
+
         <div class="mb-12">
-            <span class="text-indigo-600 font-bold tracking-wider uppercase text-xs">Module 4</span>
+            <span class="inline-block py-1 px-3 rounded-full bg-indigo-50 text-indigo-600 text-xs font-bold uppercase tracking-wider mb-4 border border-indigo-100">Module 4</span>
             <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">La Stratégie Quality 💎</h1>
-            <p class="text-lg text-slate-500 text-justify">
-                Dans ce module 4, on plonge au cœur de la stratégie Quality, l’approche qui vise à identifier des entreprises d’exception capables de battre le marché sur le long terme. Tu découvriras ce qui fait réellement la performance d’une action en Bourse, ainsi que le concept fondamental de MOAT, ces avantages concurrentiels durables qui protègent les meilleures entreprises. <br>
-                Le module te donnera ensuite une méthode claire et structurée pour analyser une société à travers les 3 prismes de la stratégie Quality et un système de notation simple et efficace. Croissance, rentabilité, solvabilité et dividendes seront décortiqués pour t’aider à prendre des décisions rationnelles et cohérentes. <br>
-                Enfin, on complétera l’analyse chiffrée par une analyse qualitative approfondie afin de comprendre le business, le management et la solidité du modèle économique. À la fin de ce module, tu disposeras d’une vraie méthode pour sélectionner des entreprises de qualité et investir avec confiance sur le long terme 💎📈
+            <p class="text-lg text-slate-500 text-justify leading-relaxed">
+                Dans ce module 4, on plonge au cœur de la stratégie Quality, l’approche qui vise à identifier des entreprises d’exception capables de battre le marché sur le long terme. Tu découvriras ce qui fait réellement la performance d’une action en Bourse, ainsi que le concept fondamental de MOAT, ces avantages concurrentiels durables qui protègent les meilleures entreprises. <br><br>
+                Le module te donnera ensuite une méthode claire et structurée pour analyser une société à travers les 3 prismes de la stratégie Quality et un système de notation simple et efficace. Croissance, rentabilité, solvabilité et dividendes seront décortiqués pour t’aider à prendre des décisions rationnelles et cohérentes.
             </p>
         </div>
+
         <div class="space-y-4">
+            
+            <div class="section-divider">Cours & Théorie</div>
+
             <a href="4.1.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold group-hover:bg-indigo-600 group-hover:text-white transition">4.1</div><div><h3 class="font-bold text-slate-900 text-lg">Pourquoi le Quality Investing ? 🏆</h3></div></div><div class="text-slate-300 group-hover:text-indigo-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-lg group-hover:bg-indigo-600 group-hover:text-white transition">4.1</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-indigo-600 transition">Pourquoi le Quality Investing ? 🏆</h3></div></div><div class="text-slate-300 group-hover:text-indigo-600 transition">➔</div>
             </a>
             <a href="4.2.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold group-hover:bg-indigo-600 group-hover:text-white transition">4.2</div><div><h3 class="font-bold text-slate-900 text-lg">Le Moteur de la performance d'une action en Bourse 🚂</h3></div></div><div class="text-slate-300 group-hover:text-indigo-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-lg group-hover:bg-indigo-600 group-hover:text-white transition">4.2</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-indigo-600 transition">Le Moteur de la performance 🚂</h3></div></div><div class="text-slate-300 group-hover:text-indigo-600 transition">➔</div>
             </a>
             <a href="4.3.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold group-hover:bg-indigo-600 group-hover:text-white transition">4.3</div><div><h3 class="font-bold text-slate-900 text-lg">Introduction au MOAT 🏰</h3></div></div><div class="text-slate-300 group-hover:text-indigo-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-lg group-hover:bg-indigo-600 group-hover:text-white transition">4.3</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-indigo-600 transition">Introduction au MOAT 🏰</h3></div></div><div class="text-slate-300 group-hover:text-indigo-600 transition">➔</div>
             </a>
             <a href="4.4.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold group-hover:bg-indigo-600 group-hover:text-white transition">4.4</div><div><h3 class="font-bold text-slate-900 text-lg">Les 5 Types de MOAT 🏰</h3></div></div><div class="text-slate-300 group-hover:text-indigo-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-lg group-hover:bg-indigo-600 group-hover:text-white transition">4.4</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-indigo-600 transition">Les 5 Types de MOAT 🛡️</h3></div></div><div class="text-slate-300 group-hover:text-indigo-600 transition">➔</div>
             </a>
             <a href="4.5.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold group-hover:bg-indigo-600 group-hover:text-white transition">4.5</div><div><h3 class="font-bold text-slate-900 text-lg">Les 2 Prismes de la Stratégie Quality 👓</h3></div></div><div class="text-slate-300 group-hover:text-indigo-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-lg group-hover:bg-indigo-600 group-hover:text-white transition">4.5</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-indigo-600 transition">Les 2 Prismes de la Stratégie Quality 👓</h3></div></div><div class="text-slate-300 group-hover:text-indigo-600 transition">➔</div>
             </a>
             <a href="4.6.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold group-hover:bg-indigo-600 group-hover:text-white transition">4.6</div><div><h3 class="font-bold text-slate-900 text-lg">Mon Système de Notation 📝</h3></div></div><div class="text-slate-300 group-hover:text-indigo-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-lg group-hover:bg-indigo-600 group-hover:text-white transition">4.6</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-indigo-600 transition">Mon Système de Notation 📝</h3></div></div><div class="text-slate-300 group-hover:text-indigo-600 transition">➔</div>
             </a>
             <a href="4.7.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold group-hover:bg-indigo-600 group-hover:text-white transition">4.7</div><div><h3 class="font-bold text-slate-900 text-lg">Analyse Quantitative : Les Bases 🏗️</h3></div></div><div class="text-slate-300 group-hover:text-indigo-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-lg group-hover:bg-indigo-600 group-hover:text-white transition">4.7</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-indigo-600 transition">Analyse Quantitative : Les Bases 🏗️</h3></div></div><div class="text-slate-300 group-hover:text-indigo-600 transition">➔</div>
             </a>
              <a href="4.8.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold group-hover:bg-indigo-600 group-hover:text-white transition">4.8</div><div><h3 class="font-bold text-slate-900 text-lg">Analyse Quantitative : La Croissance 🚀</h3></div></div><div class="text-slate-300 group-hover:text-indigo-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-lg group-hover:bg-indigo-600 group-hover:text-white transition">4.8</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-indigo-600 transition">Analyse Quantitative : La Croissance 🚀</h3></div></div><div class="text-slate-300 group-hover:text-indigo-600 transition">➔</div>
             </a>
              <a href="4.9.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold group-hover:bg-indigo-600 group-hover:text-white transition">4.9</div><div><h3 class="font-bold text-slate-900 text-lg">Analyse Quantitative : La Rentabilité 💰</h3></div></div><div class="text-slate-300 group-hover:text-indigo-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-lg group-hover:bg-indigo-600 group-hover:text-white transition">4.9</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-indigo-600 transition">Analyse Quantitative : La Rentabilité 💰</h3></div></div><div class="text-slate-300 group-hover:text-indigo-600 transition">➔</div>
             </a>
              <a href="4.10.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold group-hover:bg-indigo-600 group-hover:text-white transition">4.10</div><div><h3 class="font-bold text-slate-900 text-lg">Analyse Quantitative : La Solvabilité 🛡️</h3></div></div><div class="text-slate-300 group-hover:text-indigo-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-lg group-hover:bg-indigo-600 group-hover:text-white transition">4.10</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-indigo-600 transition">Analyse Quantitative : La Solvabilité 🛡️</h3></div></div><div class="text-slate-300 group-hover:text-indigo-600 transition">➔</div>
             </a>
              <a href="4.11.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold group-hover:bg-indigo-600 group-hover:text-white transition">4.11</div><div><h3 class="font-bold text-slate-900 text-lg">Analyse Quantitative : Le Dividende 🍇</h3></div></div><div class="text-slate-300 group-hover:text-indigo-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-lg group-hover:bg-indigo-600 group-hover:text-white transition">4.11</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-indigo-600 transition">Analyse Quantitative : Le Dividende 🍇</h3></div></div><div class="text-slate-300 group-hover:text-indigo-600 transition">➔</div>
             </a>
              <a href="4.12.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold group-hover:bg-indigo-600 group-hover:text-white transition">4.12</div><div><h3 class="font-bold text-slate-900 text-lg">Analyse Qualitative 🕵️‍♂️</h3></div></div><div class="text-slate-300 group-hover:text-indigo-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-lg group-hover:bg-indigo-600 group-hover:text-white transition">4.12</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-indigo-600 transition">L'Analyse Qualitative 🧠</h3></div></div><div class="text-slate-300 group-hover:text-indigo-600 transition">➔</div>
             </a>
         </div>
+
+        <div class="space-y-4">
+            <div class="section-divider">Outils & Simulateurs</div>
+
+            <a href="../calculators/high-yield-vs-high-growth-dividend.html" target="_blank" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group hover:shadow-md">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-2xl group-hover:bg-amber-600 group-hover:text-white transition">⚔️</div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-lg group-hover:text-amber-600 transition">Comparateur de Rente</h3>
+                        <p class="text-sm text-slate-500">Haut Rendement vs Forte Croissance : Qui gagne ?</p>
+                    </div>
+                </div>
+                <div class="text-slate-300 group-hover:text-amber-600 transition">➔</div>
+            </a>
+        </div>
+
+        <div class="space-y-4 mt-12">
+            <div class="section-divider">Validation</div>
+
+            <a href="4.test.html" class="chapter-card flex items-center justify-between bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-lg transition duration-300 group hover:bg-slate-800 transform hover:-translate-y-1">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center font-bold text-xl">💎</div>
+                    <div>
+                        <h3 class="font-bold text-white text-lg">Examen Final du Module 4</h3>
+                        <p class="text-sm text-slate-400">Validez votre maîtrise de la stratégie Quality.</p>
+                    </div>
+                </div>
+                <div class="text-slate-500 group-hover:text-white transition">➔</div>
+            </a>
+        </div>
+
     </main>
 
     <footer class="bg-slate-950 py-12 border-t border-slate-900">
