@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculateur Quality Score | StocksPickeur</title>
+    <title>Calculateur Quality Score (/30) | StocksPickeur</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -57,17 +57,17 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 
-                <a href="index.html" class="flex items-center gap-3 group">
-                    <img src="./media/Logo/Logo-White.png" alt="Logo StocksPickeur" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <a href="../index.html" class="flex items-center gap-3 group">
+                    <img src="../media/Logo/Logo-White.png" alt="Logo StocksPickeur" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
                     <span class="font-heading font-bold text-xl text-slate-900 tracking-tight">StocksPickeur</span>
                 </a>
 
                 <div class="hidden md:flex items-center gap-8">
                     <nav class="flex gap-6">
                         <a href="calculator.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Calculateur</a>
-                        <a href="portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
-                        <a href="moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Analyses</a>
-                        <a href="formation.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Formation</a>
+                        <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
+                        <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Analyses</a>
+                        <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Formation</a>
                     </nav>
 
                     <div class="h-6 w-px bg-slate-200"></div>
@@ -99,7 +99,7 @@
             </span>
             <h1 class="text-3xl md:text-5xl font-heading font-extrabold text-slate-900 mb-4">Le Score Quality 💎</h1>
             <p class="text-lg text-slate-500 max-w-2xl mx-auto">
-                Analysez objectivement n'importe quelle entreprise avec nos 15 critères quantitatifs. Si le score est bon, vous pouvez passer à l'analyse qualitative.
+                Analysez objectivement n'importe quelle entreprise avec nos 15 critères quantitatifs d'excellence.
             </p>
         </div>
 
@@ -150,28 +150,16 @@
                     
                     <div class="space-y-4">
                         <div class="input-group">
-                            <label class="label-text">Années de croissance du Chiffre d'Affaires (CA)</label>
-                            <select id="growth_sales" class="input-field" onchange="calculateScore()">
-                                <option value="0">Moins de 7 ans</option>
-                                <option value="1">Entre 7 et 9 ans (+1 pt)</option>
-                                <option value="2">10 ans sur 10 (Sans faute) (+2 pts)</option>
-                            </select>
+                            <label class="label-text">Années de croissance du Chiffre d'Affaires (0 à 10)</label>
+                            <input type="number" id="growth_sales" class="input-field" min="0" max="10" placeholder="Ex: 10" oninput="calculateScore()">
                         </div>
                         <div class="input-group">
-                            <label class="label-text">Années de croissance du BPA (EPS)</label>
-                            <select id="growth_eps" class="input-field" onchange="calculateScore()">
-                                <option value="0">Moins de 7 ans</option>
-                                <option value="1">Entre 7 et 9 ans (+1 pt)</option>
-                                <option value="2">10 ans sur 10 (+2 pts)</option>
-                            </select>
+                            <label class="label-text">Années de croissance du BPA (EPS) (0 à 10)</label>
+                            <input type="number" id="growth_eps" class="input-field" min="0" max="10" placeholder="Ex: 9" oninput="calculateScore()">
                         </div>
                         <div class="input-group">
-                            <label class="label-text">Années de croissance du Free Cash Flow (FCF)</label>
-                            <select id="growth_fcf" class="input-field" onchange="calculateScore()">
-                                <option value="0">Moins de 7 ans</option>
-                                <option value="1">Entre 7 et 9 ans (+1 pt)</option>
-                                <option value="2">10 ans sur 10 (+2 pts)</option>
-                            </select>
+                            <label class="label-text">Années de croissance du Free Cash Flow (0 à 10)</label>
+                            <input type="number" id="growth_fcf" class="input-field" min="0" max="10" placeholder="Ex: 8" oninput="calculateScore()">
                         </div>
                     </div>
                 </div>
@@ -311,21 +299,32 @@
             scoreBase += parseInt(document.getElementById('base_shares').value);
             scoreBase += parseInt(document.getElementById('base_div').value);
 
-            // --- 2. CROISSANCE ---
-            scoreGrowth += parseInt(document.getElementById('growth_sales').value);
-            scoreGrowth += parseInt(document.getElementById('growth_eps').value);
-            scoreGrowth += parseInt(document.getElementById('growth_fcf').value);
+            // --- 2. CROISSANCE (Nouvelle logique 0-10) ---
+            // CA
+            let g_sales = parseInt(document.getElementById('growth_sales').value) || 0;
+            if (g_sales == 10) scoreGrowth += 2;
+            else if (g_sales >= 7) scoreGrowth += 1;
+            
+            // EPS
+            let g_eps = parseInt(document.getElementById('growth_eps').value) || 0;
+            if (g_eps == 10) scoreGrowth += 2;
+            else if (g_eps >= 7) scoreGrowth += 1;
+
+            // FCF
+            let g_fcf = parseInt(document.getElementById('growth_fcf').value) || 0;
+            if (g_fcf == 10) scoreGrowth += 2;
+            else if (g_fcf >= 7) scoreGrowth += 1;
 
             // --- 3. RENTABILITÉ ---
             // Marge Nette: >35% (+2), >20% (+1)
             let net = parseFloat(document.getElementById('val_net_margin').value) || 0;
             if(net >= 35) scoreProfit += 2; else if(net >= 20) scoreProfit += 1;
 
-            // FCF Margin: >35% (+2), >20% (+1)
+            // FCF Margin: >30% (+2), >20% (+1) -- AJUSTÉ selon demande précédente
             let fcfM = parseFloat(document.getElementById('val_fcf_margin').value) || 0;
-            if(fcfM >= 35) scoreProfit += 2; else if(fcfM >= 20) scoreProfit += 1;
+            if(fcfM >= 30) scoreProfit += 2; else if(fcfM >= 20) scoreProfit += 1;
 
-            // ROIC: >30% (+2), >15% (+1)
+            // ROIC: >30% (+2), >15% (+1) -- AJUSTÉ selon demande précédente
             let roic = parseFloat(document.getElementById('val_roic').value) || 0;
             if(roic >= 30) scoreProfit += 2; else if(roic >= 15) scoreProfit += 1;
 

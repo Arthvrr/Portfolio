@@ -176,20 +176,20 @@ var annualInvested = [0,5350,6400,16500]; //liste qui stocke le nombres d'euros 
 
 var walletEndYear = [0,5792.03,8946.56,22579.97]; //liste qui stocke la valeur du portefeuille à la fin de chaque année
 
-var ASMLCotation = [100,67,50,100,100];
-var GOOGLCotation = [100,67,33,100,67];
-var MACotation = [67,100,100,50,100];
-var MSFTCotation = [100,100,67,100,67];
-var NVDACotation = [100,100,100,100,100];
-var VCotation = [67,67,83,100,100];
+var ASMLCotation = [100,67,67,100,100];
+var GOOGLCotation = [100,67,50,100,67];
+var MACotation = [67,50,100,50,100];
+var MSFTCotation = [100,67,67,100,67];
+var NVDACotation = [100,50,100,100,100];
+var VCotation = [67,50,83,100,100];
 var stocksCotation = [ASMLCotation,GOOGLCotation,MACotation,MSFTCotation,NVDACotation,VCotation];
 
-var ASMLScore = 25;
-var GOOGLScore = 22;
-var MAScore = 25;
-var MSFTScore = 26;
-var NVDAScore = 30;
-var VScore = 25;
+var ASMLScore = 26;
+var GOOGLScore = 23;
+var MAScore = 22;
+var MSFTScore = 25;
+var NVDAScore = 27;
+var VScore = 22;
 var stocksScore = [ASMLScore, GOOGLScore, MAScore,MSFTScore,NVDAScore,VScore];
 
 var annualMarketReturnPercent = [-19.44,24.23,23.31,15.96]; //retour annuels du S&P500 en pourcent (source : https://www.macrotrends.net/2526/sp-500-historical-annual-returns)
@@ -2620,7 +2620,7 @@ function draw33(stocksScore, valuationScore, tickerOfShares) {
                 x: {
                     title: { display: true, text: 'Score de Qualité (sur 30)' },
                     min: 15, // On zoome sur la partie intéressante
-                    max: 32
+                    max: 30
                 },
                 y: {
                     title: { display: true, text: 'Score de Valorisation' },
