@@ -88,24 +88,6 @@
             <p>En investissement, il existe une règle de bon sens : <em>"Winners keep winning"</em> (Les gagnants continuent de gagner). Le cours de bourse est le juge de paix ultime. Si une action stagne depuis 5 ans alors que le reste du marché monte, il y a souvent une raison profonde (mauvais management, secteur en déclin, perte de parts de marché).</p>
             <p>Pourquoi investir dans une action risquée si elle rapporte moins qu'un simple ETF S&P 500 ? Notre objectif est de battre le marché (Alpha). Si l'action ne bat pas le marché historiquement, elle part avec un handicap.</p>
 
-            <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-xl my-8">
-                <strong class="text-indigo-900 block mb-2">🛠️ Comment vérifier ? (Tuto Google Finance)</strong>
-                <p class="text-sm text-indigo-800 m-0">
-                    1. Allez sur <a href="https://www.google.com/finance" target="_blank" class="underline font-bold">Google Finance</a>.<br>
-                    2. Tapez le nom de l'action (ex: Broadcom).<br>
-                    3. Cliquez sur l'échelle de temps <strong>"5 ans"</strong>.<br>
-                    4. Cliquez sur le bouton "Comparer à" et tapez <strong>.INX</strong> (c'est le code du S&P 500).<br>
-                    5. Regardez si la ligne bleue (votre action) est au-dessus de la ligne du marché.
-                </p>
-            </div>
-
-            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/broadcom-vs-s&p500.png')">
-                <img src="../media/Formation/broadcom-vs-s&p500.png" 
-                     alt="Graphique comparatif Broadcom vs S&P 500 sur 5 ans" 
-                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
-                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Exemple parfait avec Broadcom (Bleu) qui écrase littéralement le S&P 500 (Jaune) sur 5 ans. C'est un signe de force relative immense.</figcaption>
-            </figure>
-
             <div class="p-4 border border-slate-200 rounded-lg bg-white mt-4">
                 <strong class="text-indigo-600">🎯 Le Test Quality :</strong><br>
                 ✅ <strong>+2 points</strong> si l'action bat le S&P 500.<br>
@@ -116,14 +98,6 @@
             <p>Nous avons dédié un chapitre entier à ce mécanisme puissant (voir <a href="3.6.html" class="text-indigo-600 font-bold hover:underline">Chapitre 3.6 : Les Rachats d'Actions</a>). Pour rappel, lorsqu'une entreprise rachète ses propres actions pour les annuler, elle augmente mécaniquement votre part du gâteau sans que vous ayez à dépenser un centime.</p>
             <p>À l'inverse, si le nombre d'actions augmente chaque année (Dilution), c'est un très mauvais signe. Cela signifie que l'entreprise imprime de nouvelles actions pour se financer ou pour payer ses employés, ce qui réduit la valeur de <em>votre</em> investissement.</p>
             <p>Nous cherchons des "Cannibales", des entreprises qui se mangent elles-mêmes pour enrichir les actionnaires restants.</p>
-
-            <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-xl my-8">
-                <strong class="text-indigo-900 block mb-2">🛠️ Où trouver l'info ?</strong>
-                <p class="text-sm text-indigo-800 m-0">
-                    Allez sur <strong>GuruFocus</strong> > Onglet "Financials" > Ligne "Shares Outstanding (Basic/Diluted)".<br>
-                    Regardez la tendance sur 10 ans. La courbe doit descendre.
-                </p>
-            </div>
 
             <div class="p-4 border border-slate-200 rounded-lg bg-white mt-4">
                 <strong class="text-indigo-600">🎯 Le Test Quality :</strong><br>
@@ -141,25 +115,54 @@
                 <li><strong>Diversification par Segment (Produit) :</strong> Si une entreprise ne vend qu'un seul produit (ex: un médicament unique), elle peut faire faillite si un concurrent sort un meilleur produit. Si elle a plusieurs divisions indépendantes, elle est pérenne.</li>
             </ul>
 
-            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/aapl-sales-segmentation.png')">
-                <img src="../media/Formation/aapl-sales-segmentation.png" 
-                     alt="Segmentation du Chiffre d'Affaires d'Apple par produit et par région" 
-                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
-                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">L'exemple d'Apple : Bien que l'iPhone (Bleu) soit dominant, les Services (Vert) prennent de plus en plus de place. Géographiquement, c'est très équilibré entre Amériques, Europe et Chine.</figcaption>
-            </figure>
-
-            <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-xl my-8">
-                <strong class="text-indigo-900 block mb-2">🛠️ Où trouver l'info ?</strong>
-                <p class="text-sm text-indigo-800 m-0">
-                    Sur <strong>GuruFocus</strong>, allez sur la page "Summary" et descendez jusqu'au bloc "Revenue Breakdown". Vous verrez les camemberts par Géographie et par Produit.
-                </p>
-            </div>
-
             <div class="p-4 border border-slate-200 rounded-lg bg-white mt-4">
                 <strong class="text-indigo-600">🎯 Le Test Quality :</strong><br>
                 ✅ <strong>+2 points</strong> si l'entreprise est bien diversifiée (plusieurs produits, plusieurs continents).<br>
                 ⚠️ <strong>+1 point</strong> si elle est diversifiée sur un seul axe (ex: Monde entier mais 1 seul produit).<br>
                 ❌ <strong>+0 point</strong> si elle dépend d'un seul client, un seul pays ou un seul produit.
+            </div>
+
+            <h4 id="tools" class="mt-16 mb-8 text-2xl font-extrabold text-slate-900 border-b border-slate-200 pb-4">🛠️ La Boîte à Outils : Où trouver ces données ?</h4>
+            
+            <p>Voici comment récupérer les informations pour valider ce premier pilier.</p>
+
+            <div class="mb-12">
+                <h5 class="font-bold text-lg text-indigo-700 mb-2">1. Comparer la Performance (Google Finance)</h5>
+                <p class="text-sm text-slate-600 mb-4">
+                    Allez sur <strong>Google Finance</strong>, tapez votre action, cliquez sur <strong>"5 ans"</strong>, puis sur <strong>"Comparer à"</strong> et ajoutez <strong>.INX</strong> (S&P 500).
+                </p>
+                <figure class="group cursor-pointer" onclick="openViewer('../media/Formation/broadcom-vs-s&p500.png')">
+                    <img src="../media/Formation/broadcom-vs-s&p500.png" 
+                         alt="Graphique comparatif Broadcom vs S&P 500 sur 5 ans" 
+                         class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                    <figcaption class="text-center text-sm text-slate-400 mt-2 italic">Si la courbe bleue (votre action) est au-dessus de la jaune (S&P 500), c'est gagné.</figcaption>
+                </figure>
+            </div>
+
+            <div class="mb-12">
+                <h5 class="font-bold text-lg text-indigo-700 mb-2">2. Vérifier les Rachats d'Actions (FinanceCharts)</h5>
+                <p class="text-sm text-slate-600 mb-4">
+                    Allez sur la page de l'action, puis sur l'onglet <strong>"Shares Outstanding"</strong>. La courbe doit descendre vers le bas à droite.
+                </p>
+                <figure class="group cursor-pointer" onclick="openViewer('../media/Formation/msft-shares-outstanding.png')">
+                    <img src="../media/Formation/msft-shares-outstanding.png" 
+                         alt="Graphique du nombre d'actions en circulation de Microsoft" 
+                         class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                    <figcaption class="text-center text-sm text-slate-400 mt-2 italic">Exemple parfait : Microsoft réduit son nombre d'actions régulièrement, enrichissant les actionnaires.</figcaption>
+                </figure>
+            </div>
+
+            <div class="mb-12">
+                <h5 class="font-bold text-lg text-indigo-700 mb-2">3. Analyser la Diversification (GuruFocus)</h5>
+                <p class="text-sm text-slate-600 mb-4">
+                    Sur <strong>GuruFocus</strong>, dans l'onglet "Summary", descendez jusqu'à <strong>"Revenue Breakdown"</strong>.
+                </p>
+                <figure class="group cursor-pointer" onclick="openViewer('../media/Formation/aapl-sales-segmentation.png')">
+                    <img src="../media/Formation/aapl-sales-segmentation.png" 
+                         alt="Segmentation du Chiffre d'Affaires d'Apple par produit et par région" 
+                         class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                    <figcaption class="text-center text-sm text-slate-400 mt-2 italic">Visez un équilibre entre les couleurs du camembert, tant au niveau géographique que produits.</figcaption>
+                </figure>
             </div>
 
             <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-8 mt-12 shadow-sm">

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.13 Cas Pratique : Microsoft | Formation StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles pour le contenu du cours */
+        .prose p { margin-bottom: 1.5rem; line-height: 1.8; color: #475569; }
+        .prose h4 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-top: 3rem; margin-bottom: 1.5rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .prose strong { color: #0f172a; font-weight: 600; }
+        .prose ul, .prose ol { list-style: none; padding-left: 0; }
+        .prose li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
+        .prose ul li::before { content: "•"; color: #4f46e5; font-weight: bold; position: absolute; left: 0; }
+        
+        /* Lightbox */
+        #imageViewer { backdrop-filter: blur(10px); }
+        .clickable-image { cursor: zoom-in; transition: transform 0.2s; }
+        .clickable-image:hover { transform: scale(1.01); }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 h-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <span class="font-heading font-bold text-xl text-slate-900">StocksPickeur</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <nav class="flex gap-6">
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
+                    <a href="../formation.html" class="text-sm font-medium text-indigo-600 font-bold transition">Formation</a>
+                </nav>
+                <div class="h-6 w-px bg-slate-200"></div>
+                <a href="../formation.html" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Connexion
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-indigo-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="4.0.html" class="hover:text-indigo-600 transition">Module 4</a></li>
+                <li>/</li>
+                <li class="text-indigo-600 font-medium">Chapitre 4.13</li>
+            </ol>
+        </nav>
+
+        <div class="mb-12 border-b border-slate-200 pb-8">
+            <div class="flex items-center gap-4 mb-4">
+                <img src="../media/Stocks-Logo/MSFT.png" alt="Logo Microsoft" class="w-16 h-16 rounded-xl shadow-md p-2 bg-white">
+                <div>
+                    <span class="text-indigo-600 font-bold tracking-wider uppercase text-xs">Module 4 • La Stratégie Quality</span>
+                    <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-1">4.13. Cas Pratique : Analyse de Microsoft 💻</h1>
+                </div>
+            </div>
+            <p class="text-lg text-slate-500 max-w-2xl text-justify">
+                La théorie, c'est bien. La pratique, c'est mieux. Appliquons ensemble notre grille de notation sur l'une des plus belles entreprises du monde pour voir ce qu'elle a dans le ventre.
+            </p>
+        </div>
+
+        <article class="prose prose-slate max-w-none text-justify">
+            
+            <p>Pour ce cas pratique, nous allons analyser <strong>Microsoft (Ticker: MSFT)</strong>. C'est l'archétype de l'entreprise "Quality" : dominante, rentable et incontournable. Mais mérite-t-elle la note maximale de 30/30 ? Vérifions-le, critère par critère.</p>
+
+            <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-6 mb-10">
+                <h3 class="font-heading font-bold text-xl text-indigo-900 mb-4 flex items-center">
+                    <span class="w-8 h-8 rounded-full bg-indigo-200 text-indigo-800 flex items-center justify-center mr-3 text-sm">1</span>
+                    Partie 1 : L'Analyse Quantitative 🧮
+                </h3>
+                <p class="text-indigo-800 mb-0">Nous allons passer les 5 piliers au crible : Bases, Croissance, Rentabilité, Solvabilité, Dividende.</p>
+            </div>
+
+            <h4>Pilier 1 : Les Bases (Fondations)</h4>
+            
+            <p><strong>1. Performance vs S&P 500 (5 ans) :</strong> Le juge de paix. Est-ce que l'action bat le marché ?</p>
+            <figure class="my-6 group cursor-pointer" onclick="openViewer('../media/Formation/msft-vs-s&p500.png')">
+                <img src="../media/Formation/msft-vs-s&p500.png" class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover">
+                <figcaption class="text-center text-sm text-slate-400 mt-2 italic">Microsoft (+100%) bat le S&P 500 (+86%) sur 5 ans. C'est validé.</figcaption>
+            </figure>
+            <div class="text-emerald-600 font-bold mb-6">👉 Note : +2 points</div>
+
+            <p><strong>2. Rachats d'actions (Buybacks) :</strong> Est-ce que Microsoft nous dilue ou nous enrichit ?</p>
+            <figure class="my-6 group cursor-pointer" onclick="openViewer('../media/Formation/msft-shares-outstanding.png')">
+                <img src="../media/Formation/msft-shares-outstanding.png" class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover">
+                <figcaption class="text-center text-sm text-slate-400 mt-2 italic">La courbe descend régulièrement (-1.48% sur 5 ans). C'est un "Cannibale" qui rachète ses titres.</figcaption>
+            </figure>
+            <div class="text-emerald-600 font-bold mb-6">👉 Note : +2 points</div>
+
+            <p><strong>3. Diversification du CA :</strong> Microsoft dépend-elle d'un seul produit ?</p>
+            <figure class="my-6 group cursor-pointer" onclick="openViewer('../media/Formation/msft-revenue-segmentation.png')">
+                <img src="../media/Formation/msft-revenue-segmentation.png" class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover">
+                <figcaption class="text-center text-sm text-slate-400 mt-2 italic">L'équilibre est parfait entre le Cloud (Azure), la Productivité (Office) et le Personal Computing (Windows/Xbox). Géographiquement, c'est aussi équilibré (50% USA / 50% Monde).</figcaption>
+            </figure>
+            <div class="text-emerald-600 font-bold mb-6">👉 Note : +2 points (Doublement diversifié)</div>
+
+            <div class="p-4 bg-slate-100 rounded-lg text-center font-bold text-slate-700 mb-12">
+                Score Bases : 6 / 6
+            </div>
+
+            <hr class="border-slate-200 my-12">
+
+            <h4>Pilier 2 : La Croissance (Moteur)</h4>
+
+            <p><strong>1. Croissance du Chiffre d'Affaires (Sales) :</strong> La "Top Line".</p>
+            <figure class="my-6 group cursor-pointer" onclick="openViewer('../media/Formation/msft-10yrs-revenue.png')">
+                <img src="../media/Formation/msft-10yrs-revenue.png" class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover">
+                <figcaption class="text-center text-sm text-slate-400 mt-2 italic">Un escalier parfait. Aucune année de baisse sur 10 ans. C'est une machine de guerre.</figcaption>
+            </figure>
+            <div class="text-emerald-600 font-bold mb-6">👉 Note : +2 points</div>
+
+            <p><strong>2. Croissance du BPA (EPS) :</strong> Le profit par action.</p>
+            <figure class="my-6 group cursor-pointer" onclick="openViewer('../media/Formation/msft-10yrs-eps.png')">
+                <img src="../media/Formation/msft-10yrs-eps.png" class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover">
+                <figcaption class="text-center text-sm text-slate-400 mt-2 italic">Une petite baisse comptable en 2018 (due à une réforme fiscale, non opérationnelle), mais la tendance de fond est exponentielle.</figcaption>
+            </figure>
+            <div class="text-amber-600 font-bold mb-6">👉 Note : +1 point</div>
+
+            <p><strong>3. Croissance du Free Cash Flow :</strong> L'argent réel.</p>
+            <figure class="my-6 group cursor-pointer" onclick="openViewer('../media/Formation/msft-10yrs-fcf.png')">
+                <img src="../media/Formation/msft-10yrs-fcf.png" class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover">
+                <figcaption class="text-center text-sm text-slate-400 mt-2 italic">Une légère baisse récente due aux investissements massifs (CAPEX) dans l'IA, mais le niveau reste stratosphérique (70 Milliards $ / an !).</figcaption>
+            </figure>
+            <div class="text-amber-600 font-bold mb-6">👉 Note : +1 point</div>
+
+            <div class="p-4 bg-slate-100 rounded-lg text-center font-bold text-slate-700 mb-12">
+                Score Croissance : 4 / 6
+            </div>
+
+            <hr class="border-slate-200 my-12">
+
+            <h4>Pilier 3 : La Rentabilité (Efficacité)</h4>
+
+            <p>Regardons le tableau de bord de la rentabilité sur GuruFocus :</p>
+            <figure class="my-6 group cursor-pointer" onclick="openViewer('../media/Formation/msft-profitability.png')">
+                <img src="../media/Formation/msft-profitability.png" class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover">
+            </figure>
+
+            <ul class="space-y-4">
+                <li>
+                    <strong>Marge Nette : 35.71%</strong>. <br>
+                    C'est monumental pour une entreprise de cette taille. > 35% = Excellence absolue.
+                    <div class="text-emerald-600 font-bold">👉 Note : +2 points</div>
+                </li>
+                <li>
+                    <strong>FCF Margin : 26.55%</strong>. <br>
+                    C'est très solide (>20%), mais en dessous du seuil d'excellence de 35%. L'investissement dans l'IA pèse temporairement.
+                    <div class="text-amber-600 font-bold">👉 Note : +1 point</div>
+                </li>
+                <li>
+                    <strong>ROIC : 22.43%</strong>. <br>
+                    Le retour sur capitaux est excellent (>15%), mais n'atteint pas le seuil mythique des 30% des entreprises ultra-légères.
+                    <div class="text-amber-600 font-bold">👉 Note : +1 point</div>
+                </li>
+            </ul>
+
+            <div class="p-4 bg-slate-100 rounded-lg text-center font-bold text-slate-700 mb-12">
+                Score Rentabilité : 4 / 6
+            </div>
+
+            <hr class="border-slate-200 my-12">
+
+            <h4>Pilier 4 : La Solvabilité (Sécurité)</h4>
+
+            <p>Le bilan de Microsoft est légendaire. C'est l'une des deux seules entreprises US notées AAA (mieux que le gouvernement américain !).</p>
+            <figure class="my-6 group cursor-pointer" onclick="openViewer('../media/Formation/msft-solvability.png')">
+                <img src="../media/Formation/msft-solvability.png" class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover">
+            </figure>
+
+            <ul class="space-y-4">
+                <li><strong>Debt-to-Equity : 0.17</strong> (< 1). Quasiment pas de dette par rapport aux fonds propres. <span class="text-emerald-600 font-bold">👉 +2 points</span></li>
+                <li><strong>Debt-to-EBITDA : 0.36</strong> (< 1). Elle pourrait rembourser toutes ses dettes en 4 mois de travail. Bilan Forteresse. <span class="text-emerald-600 font-bold">👉 +2 points</span></li>
+                <li><strong>Interest Coverage : 54.35</strong> (> 30). Elle couvre ses intérêts 54 fois. Risque de faillite : Nul. <span class="text-emerald-600 font-bold">👉 +2 points</span></li>
+            </ul>
+
+            <div class="p-4 bg-slate-100 rounded-lg text-center font-bold text-slate-700 mb-12">
+                Score Solvabilité : 6 / 6
+            </div>
+
+            <hr class="border-slate-200 my-12">
+
+            <h4>Pilier 5 : Le Dividende (Rente)</h4>
+
+            <figure class="my-6 group cursor-pointer" onclick="openViewer('../media/Formation/msft-dividend.png')">
+                <img src="../media/Formation/msft-dividend.png" class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover">
+            </figure>
+
+            <ul class="space-y-4">
+                <li><strong>Payout Ratio : 24.68%</strong> (< 30%). Très sécurisé, énorme marge de manœuvre. <span class="text-emerald-600 font-bold">👉 +2 points</span></li>
+                <li><strong>FCF Payout Ratio : 33.16%</strong> (> 30% mais < 50%). Le cash couvre largement le dividende. <span class="text-amber-600 font-bold">👉 +1 point</span></li>
+                <li><strong>Croissance 5 ans (CAGR) : 10.18%</strong> (> 10%). C'est un "Dividend Grower" parfait qui bat l'inflation. <span class="text-emerald-600 font-bold">👉 +2 points</span></li>
+            </ul>
+
+            <div class="p-4 bg-slate-100 rounded-lg text-center font-bold text-slate-700 mb-12">
+                Score Dividende : 5 / 6
+            </div>
+
+            <div class="bg-slate-900 text-white rounded-2xl p-8 text-center shadow-xl mb-16 transform hover:scale-[1.01] transition">
+                <h3 class="text-2xl font-bold mb-2">VERDICT QUANTITATIF</h3>
+                <div class="text-6xl font-heading font-black text-emerald-400 mb-2">25 / 30</div>
+                <p class="text-slate-400 uppercase tracking-widest text-sm font-bold">EXCELLENCE ABSOLUE 💎</p>
+                <p class="mt-4 text-slate-300 text-sm max-w-lg mx-auto">Microsoft frôle la perfection. C'est l'un des scores les plus élevés de tout le marché. Financièrement, c'est intouchable.</p>
+            </div>
+
+            <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-6 mb-10">
+                <h3 class="font-heading font-bold text-xl text-emerald-900 mb-4 flex items-center">
+                    <span class="w-8 h-8 rounded-full bg-emerald-200 text-emerald-800 flex items-center justify-center mr-3 text-sm">2</span>
+                    Partie 2 : L'Analyse Qualitative 🧠
+                </h3>
+                <p class="text-emerald-800 mb-0">Les chiffres sont parfaits. Mais le business est-il durable ?</p>
+            </div>
+
+            <h4>1. Le Business Model (Simple ?)</h4>
+            <p>Microsoft vend 3 choses essentielles :</p>
+            <ul class="list-disc pl-5 space-y-2">
+                <li><strong>La Productivité (Office 365) :</strong> Word, Excel, Teams. C'est l'OS du travail mondial. Revenus par abonnements (SaaS) ultra-récurrents.</li>
+                <li><strong>L'Infrastructure (Azure) :</strong> Le Cloud. C'est l'usine invisible qui fait tourner internet et les entreprises. Croissance forte.</li>
+                <li><strong>Le PC & Gaming (Windows/Xbox) :</strong> Une vache à lait mature qui génère du cash pour financer le reste.</li>
+            </ul>
+            <p><strong>Verdict :</strong> C'est du B2B (Business to Business), c'est de l'abonnement, c'est indispensable. On valide.</p>
+
+            <h4>2. Le Moat (Douves)</h4>
+            <p>Microsoft possède les douves les plus larges du monde :</p>
+            <ul class="list-disc pl-5 space-y-2">
+                <li><strong>Switching Costs (Coûts de changement) :</strong> Essayez de dire à une entreprise de 10 000 employés de quitter Excel et Outlook pour passer sur une alternative gratuite. C'est impossible. Le coût de formation et le risque de chaos sont trop grands. Ils sont "piégés".</li>
+                <li><strong>Effet de Réseau :</strong> LinkedIn (le seul réseau pro), GitHub (où tous les codes du monde sont stockés).</li>
+            </ul>
+            <p><strong>Verdict :</strong> Wide Moat (Douve large). C'est un château imprenable.</p>
+
+            <h4>3. Le Management</h4>
+            <p>Satya Nadella (PDG depuis 2014) est considéré comme l'un des meilleurs PDG de l'histoire. Il a pris une entreprise vieillissante (l'ère Ballmer) et l'a transformée en leader du Cloud et de l'IA.</p>
+            <p><strong>Skin in the game ?</strong> Il n'est pas le fondateur (Bill Gates est parti), mais il détient pour plusieurs centaines de millions de dollars d'actions. Ses intérêts sont alignés.</p>
+
+            <h4>4. Les Risques (Anti-Thèse)</h4>
+            <p>Rien n'est sans risque. Pour Microsoft :</p>
+            <ul class="list-disc pl-5 space-y-2">
+                <li><strong>Régulation (Antitrust) :</strong> Comme Google ou Apple, Microsoft est si gros que les États veulent limiter sa puissance (surtout dans le rachat de jeux vidéo comme Activision).</li>
+                <li><strong>Disruption IA :</strong> Ironiquement, l'IA (ChatGPT/Bing) pourrait menacer son vieux modèle de recherche ou changer la façon dont on utilise Windows. Mais Microsoft est leader ici grâce à son investissement dans OpenAI.</li>
+            </ul>
+
+            <div class="bg-indigo-50 border border-indigo-100 rounded-2xl p-8 mt-12 shadow-sm">
+                <h5 class="text-xl font-bold text-indigo-800 mb-4 flex items-center">
+                    <span class="bg-indigo-200 text-indigo-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">⚖️</span> 
+                    Conclusion Finale
+                </h5>
+                <p class="text-indigo-900 m-0 leading-relaxed">
+                    <strong>Microsoft est l'archétype de l'action Quality.</strong><br>
+                    Avec un score de <strong>27/30</strong>, un Moat infranchissable (Excel/Azure) et un bilan noté AAA, c'est une action de fond de portefeuille idéale.<br>
+                    Le seul problème ? <strong>Tout le monde le sait.</strong> La qualité a un prix. Une telle entreprise se paie rarement "pas cher". C'est là qu'intervient notre prochain module : comment savoir si le prix actuel (la valorisation) est acceptable pour entrer ?
+                </p>
+            </div>
+
+        </article>
+
+        <div class="flex justify-between items-center mt-16 pt-8 border-t border-slate-200">
+            <a href="4.12.html" class="text-slate-500 hover:text-indigo-600 font-medium transition flex items-center group">
+                <span class="group-hover:-translate-x-1 transition-transform mr-2">←</span> Chapitre Précédent
+            </a>
+            <a href="5.0.html" class="bg-slate-900 text-white px-6 py-3 rounded-full font-bold hover:bg-slate-800 transition shadow-lg shadow-slate-300 flex items-center group">
+                Module Suivant : La Valorisation<span class="group-hover:translate-x-1 transition-transform ml-2">→</span>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <div id="imageViewer" class="fixed inset-0 z-[60] hidden bg-slate-900/90 backdrop-blur-sm transition-opacity duration-300" onclick="closeViewer()">
+        <span class="absolute top-5 right-8 text-white text-5xl cursor-pointer hover:text-slate-300 transition">&times;</span>
+        <img class="m-auto block max-w-[95%] max-h-[90vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded shadow-2xl" id="enlargedImg">
+    </div>
+
+    <script>
+        // Gestion de la Lightbox
+        var modal = document.getElementById("imageViewer");
+        var modalImg = document.getElementById("enlargedImg");
+
+        function openViewer(src) {
+            modal.style.display = "block";
+            modalImg.src = src;
+            document.body.style.overflow = "hidden"; // Empêche le scroll
+        }
+
+        function closeViewer() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto"; // Réactive le scroll
+        }
+        
+        // Fermer avec la touche Echap
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeViewer();
+            }
+        });
+    </script>
+
+</body>
+</html>
