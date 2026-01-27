@@ -39,24 +39,40 @@
 </head>
 <body class="bg-slate-50 text-slate-600 antialiased">
 
-    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 h-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
-            <a href="../index.html" class="flex items-center gap-3 group">
-                <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
-                <span class="font-heading font-bold text-xl text-slate-900">StocksPickeur</span>
-            </a>
-            <div class="hidden md:flex items-center gap-8">
-                <nav class="flex gap-6">
-                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
-                    <a href="../formation.html" class="text-sm font-medium text-indigo-600 font-bold transition">Formation</a>
-                </nav>
-                <div class="h-6 w-px bg-slate-200"></div>
-                <a href="../formation.html" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
-                    </svg>
-                    Connexion
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <a href="../index.html" class="flex items-center gap-3 group">
+                    <img src="../media/Logo/Logo-White.png" alt="Logo StocksPickeur" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                    <span class="font-heading font-bold text-xl text-slate-900 tracking-tight">StocksPickeur</span>
                 </a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <nav class="flex gap-6">
+                        <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Calculateur</a>
+                        <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
+                        <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Analyses</a>
+                        <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Formation</a>
+                    </nav>
+
+                    <div class="h-6 w-px bg-slate-200"></div>
+
+                    <a href="#.html" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                        </svg>
+                        Connexion
+                    </a>
+                </div>
+
+                <div class="md:hidden">
+                    <button class="text-slate-500 hover:text-slate-900">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
@@ -76,6 +92,20 @@
         <div class="mb-12 border-b border-slate-200 pb-8">
             <span class="text-indigo-600 font-bold tracking-wider uppercase text-xs">Module 4 • La Stratégie Quality</span>
             <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">4.11. Analyse Quantitative : Le Dividende 🍇</h1>
+        </div>
+
+        <div class="mb-10 not-prose"> 
+            <div class="flex items-center gap-2 mb-4">
+                <span class="bg-indigo-100 text-indigo-700 w-8 h-8 flex items-center justify-center rounded-lg text-lg">📺</span>
+                <h3 class="font-heading font-bold text-lg text-slate-900">Résumé du chapitre en vidéo</h3>
+            </div>
+            
+            <div class="rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-slate-900 aspect-video">
+                <video controls class="w-full h-full object-cover" preload="metadata">
+                    <source src="videos/4.11.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+            </div>
         </div>
 
         <article class="prose prose-slate max-w-none text-justify">
