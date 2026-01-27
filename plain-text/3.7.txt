@@ -1,0 +1,78 @@
+Si vous vivez en Europe et que vous achetez des actions américaines (comme Microsoft, Apple ou Visa), vous avez un partenaire invisible dans votre investissement :
+Le Taux de Change.
+Vous ne le voyez pas toujours, mais il travaille en coulisse chaque seconde. Il peut soit booster votre performance, soit la grignoter silencieusement. C'est ce qu'on appelle le "Risque de Change" (Currency Risk).
+1. Le Double Pari 🎰
+Il faut bien comprendre une chose : quand vous achetez une action américaine avec vos Euros, vous faites en réalité
+deux investissements simultanés
+:
+Le pari sur l'entreprise :
+Vous pariez que le cours de l'action (en Dollars) va monter.
+Le pari sur la devise :
+Vous pariez (souvent sans le savoir) que le Dollar va se renforcer par rapport à l'Euro.
+Concrètement, votre courtier prend vos Euros, les change en Dollars sur le marché des devises (Forex), et utilise ces Dollars pour acheter l'action à New York.
+2. La Mécanique : Comment ça impacte votre portefeuille ? ⚙️
+C'est une mécanique de vases communicants. La valeur de votre portefeuille en Euros dépend de la force relative entre l'Euro (€) et le Dollar ($).
+Le taux le plus suivi est la paire
+EUR/USD
+(Combien de Dollars je reçois pour 1 Euro).
+Exemple : Si EUR/USD = 1,10, cela signifie que 1€ vaut 1,10$.
+Les 2 Scénarios possibles :
+🟢
+Scénario favorable (Le Dollar monte) :
+Si l'Euro s'affaiblit (il passe de 1,10$ à 1,00$), cela veut dire que le Dollar devient plus fort. Vos actions américaines valent alors
+plus cher
+une fois converties en Euros. C'est un bonus gratuit !
+🔴
+Scénario défavorable (L'Euro monte) :
+Si l'Euro se renforce (il passe de 1,10$ à 1,20$), le Dollar devient plus faible. Vos actions américaines valent
+moins cher
+une fois converties en Euros. Le taux de change mange une partie de vos gains boursiers.
+3. La Formule de Conversion 🧮
+Pour savoir combien vaut réellement votre action américaine dans votre poche (en Euros), voici le calcul que fait votre courtier :
+🧮 Valeur en Euros (Portefeuille)
+Valeur € = Prix de l'action ($) / Taux de change (EUR/USD)
+Exemple : Vous possédez une action Apple à 200$.
+Si le taux est de 1,10$ pour 1€ : Votre action vaut
+181,81€
+(200 / 1,10).
+Si le taux monte à 1,25$ (Euro fort) : Votre action ne vaut plus que
+160,00€
+(200 / 1,25).
+👉 L'action Apple n'a pas bougé, mais vous avez "perdu" 21€ juste à cause de la devise !
+4. Faut-il s'en inquiéter ? (L'approche Quality) 🧘
+À court terme, les devises sont très volatiles. Mais pour un investisseur long terme (5, 10 ans+), nous considérons que l'impact est neutre ou gérable.
+L'Effet Tampon :
+Souvent, quand les bourses chutent (crise), le Dollar sert de valeur refuge et monte. Cela permet d'atténuer la baisse de votre portefeuille en Euros. Le Dollar agit comme un airbag.
+Les entreprises sont internationales :
+Une entreprise comme Microsoft vend ses logiciels partout dans le monde. Elle encaisse des Euros, des Yens, des Livres... Elle est elle-même diversifiée en devises.
+Nous ne cherchons pas à prédire le Forex (c'est impossible). Nous acceptons cette volatilité comme faisant partie du jeu.
+5. Question fréquente : Faut-il choisir "EUR Hedged" (Couvert) ? 🛡️
+Si vous achetez des ETFs (ou certains fonds), vous verrez parfois la mention
+"EUR Hedged"
+. Cela signifie que le fonds prend une assurance pour annuler l'effet de la devise. Si le Dollar baisse, vous ne perdez rien.
+Faut-il le faire ? Ma réponse est NON.
+❌
+Ça coûte cher :
+L'assurance n'est pas gratuite. Elle grignote un peu de performance chaque année.
+❌
+C'est inutile à long terme :
+Sur 15 ou 20 ans, les variations de change tendent à s'équilibrer (retour à la moyenne).
+Pour un portefeuille d'actions (risqué), la variation de la devise est une goutte d'eau comparée à la variation des cours. Restez simple : achetez en direct (Non-Hedged).
+[euro-dollar.png]
+Le taux de change euro/dollar a tendance a revenir à un équilibre sur le long terme
+6. Attention aux frais cachés du courtier ! 🕵️‍♂️
+Le taux de change officiel est une chose, mais le taux que votre courtier vous applique en est une autre.
+La plupart des courtiers prennent une commission de change (souvent entre 0,25% et 1%) à chaque fois que vous convertissez vos Euros en Dollars pour acheter une action US.
+⚠️ Le Piège des Allers-Retours :
+Si vous vendez une action Apple (en $) pour racheter une action Microsoft (en $), mais que votre compte repasse par l'Euro entre les deux, vous payez deux fois les frais de change !
+Conseil :
+Si possible, ouvrez un compte "multidevises" ou conservez vos liquidités en Dollars (USD) pour éviter de repasser par la case conversion (et taxes) inutilement.
+🔑
+Ce qu'il faut retenir
+N'ayez pas peur d'investir aux USA à cause du taux de change.
+🔹
+La règle simple :
+Quand le Dollar est fort (Euro faible), votre portefeuille en Euros gonfle. Quand le Dollar est faible (Euro fort), votre portefeuille en Euros souffre un peu.
+🔹
+Ne couvrez pas :
+Inutile d'essayer de se protéger (Hedging) pour un portefeuille d'actions long terme. Sur 10 ans, la performance viendra de la qualité des entreprises, pas de la fluctuation de la monnaie.

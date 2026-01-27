@@ -1,0 +1,91 @@
+Maintenant que nous avons validé les bases, il est temps de regarder sous le capot pour voir si le moteur est puissant. En bourse, si une entreprise ne grandit pas, elle meurt. L'inflation augmente ses coûts chaque année ; si ses revenus n'augmentent pas plus vite, ses marges se font grignoter.
+Nous allons analyser la croissance à travers trois indicateurs clés. Pour valider une entreprise "Quality", nous ne voulons pas une croissance explosive d'un an (trop risqué), mais une croissance
+régulière et ininterrompue
+sur une décennie.
+Critère 1 : La Croissance du Chiffre d'Affaires (Sales) 🌍
+Le Chiffre d'Affaires (CA), c'est l'argent total qui rentre dans les caisses avant de payer la moindre facture. C'est la preuve que les clients achètent les produits. On l'appelle la "Top Line" (la ligne du haut du compte de résultat).
+💡 CA vs Bénéfice Net : Ne confondez pas !
+Il est vital de distinguer ces deux notions :
+🔹
+Chiffre d'Affaires (Revenue) :
+C'est la taille du gâteau. C'est la quantité de produits vendus × le prix. Si le CA augmente, c'est que l'entreprise vend plus ou plus cher. C'est la vérité commerciale.
+🔹
+Bénéfice Net (Net Income) :
+C'est ce qui reste à la fin (Bottom Line) après avoir tout payé. Une entreprise peut augmenter son bénéfice
+sans
+augmenter ses ventes, simplement en virant des gens ou en coupant la R&D (optimisation des coûts).
+👉 C'est pour cela que nous regardons d'abord la croissance du CA. On ne peut pas "tricher" indéfiniment sur les ventes. Si le CA stagne, l'entreprise finira par stagner.
+Une croissance du CA sur 10 ans prouve que l'entreprise opère sur un marché porteur et qu'elle prend des parts de marché à ses concurrents.
+Peter Lynch 🧠
+"Si vous pouvez suivre une seule donnée, suivez les bénéfices. À long terme, le cours de l'action suivra toujours les bénéfices."
+🎯 Le Test Quality :
+✅
++2 points
+si le CA a augmenté chaque année sur les 10 dernières années.
+⚠️
++1 point
+si la croissance est présente sur au moins 7 années sur 10.
+❌
++0 point
+sinon.
+Critère 2 : La Croissance du Bénéfice Par Action (EPS) 📈
+Vendre plus, c'est bien. Mais gagner plus d'argent, c'est mieux. Le Bénéfice Par Action (BPA, ou
+Earnings Per Share - EPS
+) est le juge de paix pour l'actionnaire. C'est le profit net divisé par le nombre d'actions.
+🧮 Le Bénéfice par Action - BPA (Earning per Shares - EPS)
+EPS = Bénéfice Net (Net Income) / Nombre d'actions
+Une entreprise en Bourse a 2 façons d'augmenter son Bénéfice par Action : en augmentant la valeur du numérateur, c'est-à-dire son Bénéfice Net. La seconde option est en baissant son dénominateur, le nombre d'actions en circulation, donc via le rachat d'actions ! Une entreprise Quality fait en généralement les 2 en même temps pour booster son EPS.
+Sur le long terme,
+le prix de l'action suit toujours la courbe de l'EPS
+. C'est mathématique.
+🎯 Le Test Quality :
+✅
++2 points
+si l'EPS a augmenté chaque année sur les 10 dernières années.
+⚠️
++1 point
+si la croissance est présente sur au moins 7 années sur 10.
+❌
++0 point
+sinon.
+Critère 3 : La Croissance du Free Cash Flow (FCF) 💰
+C'est mon indicateur préféré. On dit souvent :
+"Revenue is vanity, Profit is sanity, but Cash is King"
+. Le Bénéfice Net est une opinion comptable (on peut le manipuler avec des amortissements). Le Free Cash Flow est un fait.
+C'est l'argent "cash" qui reste réellement dans la poche de l'entreprise une fois qu'elle a payé tous ses investissements nécessaires.
+🧮 Le Flux de Trésorerie Disponible (Free-Cash-Flow - FCF)
+FCF = Cash Flow Opérationnel - CAPEX
+Le CAPEX, ou Capital Expenditure, c'est l'argent dépensé pour acheter, entretenir ou améliorer des actifs physiques (usines, machines, ordinateurs, bâtiments). Si une entreprise doit dépenser tout son cash en CAPEX juste pour réparer ses vieilles usines (comme une compagnie aérienne), elle n'a pas de Free Cash Flow. Elle survit, mais elle ne crée pas de richesse pour vous. Nous cherchons des entreprises avec beaucoup de FCF et peu de CAPEX obligatoire.
+Une entreprise dont le FCF grandit sur 10 ans est une machine à cash qui a les moyens de payer des dividendes croissants, de racheter ses actions ou de faire des acquisitions sans s'endetter.
+🎯 Le Test Quality :
+✅
++2 points
+si le FCF a augmenté chaque année sur les 10 dernières années.
+⚠️
++1 point
+si la croissance est présente sur au moins 7 années sur 10.
+❌
++0 point
+sinon.
+🛠️ Comment vérifier tout ça gratuitement ? (Tuto roic.ai)
+Pas besoin de payer des terminaux Bloomberg à 20 000€. Le site
+roic.ai
+est un outil gratuit et minimaliste incroyable qui vous donne 15 ans d'historique en un clin d'œil.
+Voici comment lire le graphique "Financials" (ex: Mastercard) :
+[MA-roic.ai.png]
+On voit clairement l'escalier montant régulier sur 15 ans. Dans le cadre de notre analyse, on regarde sur 10 ans.
+🟡
+Gross Profit / Sales (Ligne Jaune/Orange) :
+C'est votre Chiffre d'Affaires. On veut voir un escalier qui monte.
+🔵
+Free Cash Flow (Ligne Bleu Clair) :
+C'est votre FCF. Il doit suivre la même tendance.
+🔴
+Basic EPS (Ligne Rose) :
+C'est votre Bénéfice par Action. Vérifiez qu'il grandit aussi vite (voire plus vite) que le reste. On ne le voit pas sur l'image ici présente car il est beaucoup plus petit que les 2 autres, étant donné qu'il est divisé par le nombre d'actions en circulation.
+🔑
+Ce qu'il faut retenir
+La croissance est la preuve de la réussite commerciale. Ne vous laissez pas impressionner par une seule bonne année.
+Nous cherchons la
+consistance
+. Une entreprise qui arrive à faire croître simultanément ses Ventes (CA), ses Bénéfices (EPS) et son Cash (FCF) pendant 10 ans sans interruption est une perle rare qui mérite un score maximal dans notre section Croissance.

@@ -1,0 +1,83 @@
+En Bourse, il n'y a pas une seule "bonne" façon d'investir. C'est comme en sport : certaines équipes jouent l'attaque à outrance, d'autres la défense bétonnée. Chaque investisseur doit choisir son camp en fonction de sa psychologie et de ses objectifs.
+Historiquement, on distingue 5 grandes approches majeures. Il est crucial de les connaître pour ne pas mélanger des styles qui sont contradictoires.
+1. La Stratégie "Value" (La Chasse aux Soldes) 🏷️
+C'est l'approche historique popularisée par Benjamin Graham (le mentor de Warren Buffett). L'idée est d'acheter 1€ pour 50 centimes.
+La Philosophie :
+On cherche des entreprises sous-évaluées, "moches", ou temporairement en difficulté, que le marché délaisse injustement. On regarde surtout le bilan comptable et les actifs tangibles (usines, stocks, immobilier).
+Le Profil :
+Secteurs industriels, Automobile, Bancaire, Énergie.
+⚠️ Le Risque (Value Trap) :
+Le piège classique est d'acheter une action parce qu'elle est "pas chère" (faible PER), sans voir que son business model est en train de mourir. Une entreprise de journaux papier ou de charbon peut sembler très peu chère, mais si ses bénéfices baissent à jamais, ce n'est pas une bonne affaire. C'est une stratégie qui demande une expertise comptable pointue.
+2. La Stratégie "Growth" (La Croissance Pure) 🚀
+C'est l'opposé exact de la Value. Ici, le prix payé importe peu, c'est la vitesse de développement qui compte.
+La Philosophie :
+On achète les leaders de demain. Souvent, ces entreprises ne font pas encore de bénéfices, mais leur Chiffre d'Affaires explose (+30%, +50% par an). On paie très cher aujourd'hui pour espérer des profits colossaux dans 10 ans.
+Le Profil :
+Tech disruptive, Intelligence Artificielle, Biotech, Logiciels SaaS récents.
+⚠️ Le Risque :
+La volatilité est extrême. Comme l'action est "pricée pour la perfection", la moindre déception sur les résultats peut faire chuter le cours de -20% ou -30% en une journée. Si la croissance ralentit, la sanction est immédiate.
+3. La Stratégie "Dividende" (Le Rendement) 🐄
+C'est l'approche souvent privilégiée par les investisseurs qui cherchent un complément de revenus.
+La Philosophie :
+On se focalise sur le flux de trésorerie (Cashflow). On cible des entreprises matures qui n'ont plus beaucoup de croissance, et qui reversent donc la majorité de leurs bénéfices aux actionnaires.
+Le Profil :
+Télécoms, Assurances, Foncières cotées (Immobilier), Tabac.
+⚠️ Le Risque :
+C'est souvent un piège en termes de performance totale.
+1.
+Fiscalité :
+C'est la stratégie la plus lourdement taxée (chaque versement est imposé).
+2.
+Capital :
+Souvent, le cours de ces actions stagne ou baisse lentement sur le long terme. Gagner 5% de dividende pour perdre 5% sur le cours de l'action revient à une opération nulle (avant impôts !).
+4. La Stratégie "Momentum" (Suivre la Tendance) 🏄‍♂️
+C'est une stratégie basée sur la physique newtonienne appliquée à la finance : "Un objet en mouvement tend à rester en mouvement".
+La Philosophie :
+On ne regarde pas les fondamentaux (bénéfices, dettes). On regarde uniquement le prix. On achète ce qui monte, et on vend ce qui baisse. L'idée est d'attraper le train en marche : "Acheter haut pour revendre encore plus haut".
+Le Profil :
+Tout ce qui "buzz" ou qui est dans une tendance haussière forte à un instant T (Crypto, IA, Énergies vertes selon les cycles).
+⚠️ Le Risque :
+C'est une stratégie de timing. "La tendance est votre amie jusqu'à ce qu'elle se retourne". Quand la musique s'arrête, la chute est brutale. De plus, cela demande beaucoup d'achats-ventes, ce qui génère énormément de frais de courtage et de taxes.
+5. La Stratégie "Quality" (L'Excellence Fondamentale) 💎
+C'est celle que nous allons développer dans cette formation. Elle se situe à la croisée des chemins.
+La Philosophie :
+L'objectif n'est pas d'acheter "le moins cher" (Value) ni "le plus rapide" (Growth). L'objectif est d'acheter "le meilleur". On cherche des entreprises à la rentabilité exceptionnelle, avec peu de dettes, des marges élevées et une position dominante (Moat).
+Le Profil :
+Entreprises établies, très rentables, avec une croissance régulière et prévisible (souvent Tech, Luxe, Santé, Services financiers).
+L'Approche :
+On accepte de payer un prix correct (souvent un peu plus cher que la moyenne) pour acquérir un actif de qualité supérieure qui composera ses intérêts sur la durée avec moins de risques de faillite.
+L'évolution de Warren Buffett 🧠
+Buffett a commencé par la stratégie
+Value
+(acheter des "megots de cigare" pas chers).
+Mais il est devenu l'homme le plus riche du monde en pivotant vers la stratégie
+Quality
+, grâce à son associé Charlie Munger qui lui a dit cette phrase célèbre :
+"Il vaut mieux acheter une entreprise merveilleuse à un prix correct, qu'une entreprise correcte à un prix merveilleux."
+6. L'Investissement Passif (Indiciel / ETF) 🛌
+Enfin, il existe une stratégie pour ceux qui refusent de choisir :
+Acheter tout le marché.
+La Philosophie :
+"Ne cherchez pas une aiguille dans la botte de foin, achetez la botte de foin entière" (John Bogle). On part du principe que battre le marché est trop difficile. On achète donc un ETF (panier d'actions) qui réplique le S&P 500 ou le Monde entier.
+L'Avantage :
+C'est la stratégie qui demande le moins d'effort et qui garantit la performance moyenne du marché (historiquement 8-10%/an). C'est une excellente base, mais ce n'est pas du Stock Picking.
+⚠️ Le Danger Mortel : Le "Style Drift" (La Girouette)
+Le pire ennemi de l'investisseur n'est pas le marché, c'est lui-même. Une erreur classique est de changer de stratégie tous les 6 mois en fonction de la mode.
+🔹 Janvier : "Je veux des dividendes sûrs."
+🔹 Juin (La Tech explose) : "Je vends mes dividendes pour acheter de l'IA (Growth) !"
+🔹 Décembre (La Tech corrige) : "C'est trop risqué, je vends tout pour acheter du Value pas cher."
+👉
+Résultat :
+Vous achetez toujours au plus haut et vendez au plus bas.
+Choisissez une stratégie et tenez-la pendant 10 ans, qu'il pleuve ou qu'il vente.
+🔑
+Ce qu'il faut retenir
+Ne soyez pas schizophrène avec votre argent. Chaque stratégie a ses règles.
+Si vous choisissez le
+Quality Investing
+(comme nous), vous devez accepter de ne pas acheter les actions "bradées" en faillite (Value) et de ne pas courir après la dernière "hype" spéculative du moment (Momentum).
+Votre avantage concurrentiel sera la
+patience
+et la
+sélectivité
+sur la qualité intrinsèque du business.

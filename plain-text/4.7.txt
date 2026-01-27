@@ -1,0 +1,83 @@
+Bienvenue dans le premier pilier de notre système de notation. Avant de regarder si une entreprise grandit vite (Croissance) ou si elle gagne beaucoup d'argent (Rentabilité), nous devons vérifier ses fondations.
+Le pilier "Bases" sert à répondre à une question simple :
+Est-ce que cette entreprise respecte ses actionnaires et mérite ma confiance ?
+Nous allons analyser 3 critères cruciaux qui rapportent chacun jusqu'à 2 points dans votre Scorecard.
+Critère 1 : L'Action bat-elle le S&P 500 sur 5 ans ? 🏆
+En investissement, il existe une règle de bon sens :
+"Winners keep winning"
+(Les gagnants continuent de gagner). Le cours de bourse est le juge de paix ultime. Si une action stagne depuis 5 ans alors que le reste du marché monte, il y a souvent une raison profonde (mauvais management, secteur en déclin, perte de parts de marché).
+Pourquoi investir dans une action risquée si elle rapporte moins qu'un simple ETF S&P 500 ? Notre objectif est de battre le marché (Alpha). Si l'action ne bat pas le marché historiquement, elle part avec un handicap.
+🎯 Le Test Quality :
+✅
++2 points
+si l'action bat le S&P 500.
+❌
++0 point
+si elle fait moins bien.
+Critère 2 : L'entreprise rachète-t-elle ses actions ? 🍰
+Nous avons dédié un chapitre entier à ce mécanisme puissant (voir
+Chapitre 3.6 : Les Rachats d'Actions
+). Pour rappel, lorsqu'une entreprise rachète ses propres actions pour les annuler, elle augmente mécaniquement votre part du gâteau sans que vous ayez à dépenser un centime.
+À l'inverse, si le nombre d'actions augmente chaque année (Dilution), c'est un très mauvais signe. Cela signifie que l'entreprise imprime de nouvelles actions pour se financer ou pour payer ses employés, ce qui réduit la valeur de
+votre
+investissement.
+Nous cherchons des "Cannibales", des entreprises qui se mangent elles-mêmes pour enrichir les actionnaires restants.
+🎯 Le Test Quality :
+✅
++2 points
+si le nombre d'actions diminue (Rachat).
+⚠️
++1 point
+si le nombre est stable.
+❌
++0 point
+si le nombre augmente (Dilution).
+Critère 3 : Le Chiffre d'Affaires est-il diversifié ? 🌍
+En investissement, la concentration crée la richesse, mais la diversification protège cette richesse. Une entreprise Quality ne doit pas être fragile. Elle ne doit pas dépendre d'un seul pays ou d'un seul produit.
+Nous analysons la diversification sous deux angles :
+Diversification Géographique :
+Si 100% du chiffre d'affaires vient de Chine, l'entreprise est soumise au risque politique chinois. Si elle vend aux USA, en Europe et en Asie, elle est robuste. Si une région va mal, les autres compensent.
+Diversification par Segment (Produit) :
+Si une entreprise ne vend qu'un seul produit (ex: un médicament unique), elle peut faire faillite si un concurrent sort un meilleur produit. Si elle a plusieurs divisions indépendantes, elle est pérenne.
+🎯 Le Test Quality :
+✅
++2 points
+si l'entreprise est bien diversifiée (plusieurs produits, plusieurs continents).
+⚠️
++1 point
+si elle est diversifiée sur un seul axe (ex: Monde entier mais 1 seul produit).
+❌
++0 point
+si elle dépend d'un seul client, un seul pays ou un seul produit.
+🛠️ La Boîte à Outils : Où trouver ces données ?
+Voici comment récupérer les informations pour valider ce premier pilier.
+1. Comparer la Performance (Google Finance)
+Allez sur
+Google Finance
+, tapez votre action, cliquez sur
+"5 ans"
+, puis sur
+"Comparer à"
+et ajoutez
+.INX
+(S&P 500).
+[broadcom-vs-s&p500.png]
+Si la courbe bleue (votre action) est au-dessus de la jaune (S&P 500), c'est gagné.
+2. Vérifier les Rachats d'Actions (FinanceCharts)
+Allez sur la page de l'action, puis sur l'onglet
+"Shares Outstanding"
+. La courbe doit descendre vers le bas à droite.
+[msft-shares-outstanding.png]
+Exemple parfait : Microsoft réduit son nombre d'actions régulièrement, enrichissant les actionnaires.
+3. Analyser la Diversification (GuruFocus)
+Sur
+GuruFocus
+, dans l'onglet "Summary", descendez jusqu'à
+"Revenue Breakdown"
+.
+[aapl-sales-segmentation.png]
+Visez un équilibre entre les couleurs du camembert, tant au niveau géographique que produits.
+🔑
+Ce qu'il faut retenir
+Avant même de regarder la croissance ou les marges, assurez-vous que le "moteur" est sain.
+Une entreprise Quality est une entreprise qui a déjà prouvé sa supériorité face au marché (S&P 500), qui respecte ses actionnaires en ne les diluant pas (Buybacks), et qui a construit une forteresse diversifiée pour résister aux chocs locaux (Diversification). Si ces bases sont là, on peut creuser la suite.

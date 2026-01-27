@@ -1,0 +1,94 @@
+Dans le chapitre précédent, nous avons vérifié si l'entreprise grandissait (Croissance). C'est le moteur. Mais une voiture avec un gros moteur qui consomme 100 litres au kilomètre n'ira pas loin. En finance, c'est pareil.
+Une entreprise peut vendre pour 1 milliard d'euros de produits... mais perdre de l'argent sur chaque vente. Dans ce chapitre, nous allons vérifier
+l'efficacité
+du business model. Pour chaque euro qui entre dans la caisse, combien reste-t-il réellement dans la poche des actionnaires à la fin ?
+Nous allons être extrêmement exigeants. Les critères que je vais vous donner sont des standards "Olympiques". Peu d'entreprises les atteignent, mais celles qui y parviennent sont des machines à cash exceptionnelles.
+Critère 1 : La Marge Nette (Net Margin) 🍰
+C'est l'indicateur le plus simple et le plus connu. Il mesure le pourcentage de bénéfice net par rapport au chiffre d'affaires total. C'est ce qu'il reste "en bas de la page" une fois que tout le monde a été payé (fournisseurs, employés, État, banques).
+La Formule de la Marge Nette
+Marge Nette (%) = (Bénéfice Net / Chiffre d'Affaires) x 100
+Imaginez que vous vendiez une limonade à 1€.
+Si, une fois le citron, l'eau, le sucre, le stand et les impôts payés, il vous reste 0,05€, votre marge est de
+5%
+. C'est le modèle de la grande distribution (Carrefour, Walmart) ou de l'automobile : ils doivent vendre des volumes énormes pour gagner leur vie. C'est fragile. Si le prix du citron monte un peu, ils sont en perte.
+Si, pour la même limonade à 1€, il vous reste 0,35€, votre marge est de
+35%
+. C'est le modèle du Luxe (Hermès) ou du Logiciel (Microsoft). Même si les coûts augmentent, vous restez très rentable.
+Pourquoi c'est crucial ?
+Une marge élevée est la preuve ultime d'un
+"Moat"
+(Avantage Concurrentiel). Cela signifie que l'entreprise a un "Pricing Power" : elle peut vendre cher sans que ses clients ne fuient, car son produit est unique ou indispensable.
+🎯 Le Test Quality (Standards Élevés) :
+✅
++2 points
+si la Marge Nette est supérieure à
+30%
+⚠️
++1 point
+si la Marge Nette est supérieure à
+20%
+❌
++0 point
+sinon.
+Critère 2 : La Marge de Free Cash Flow (FCF Margin) 💧
+Le bénéfice comptable peut être manipulé ou trompeur. Certaines entreprises affichent de beaux bénéfices sur le papier, mais n'ont pas un sou en banque car elles doivent tout réinvestir dans des usines coûteuses (CAPEX) juste pour survivre.
+La
+FCF Margin
+est le détecteur de mensonges. Elle nous dit combien de cash réel (sonnant et trébuchant) l'entreprise génère pour chaque euro de vente.
+La Formule de la FCF Margin
+FCF Margin (%) = (Free Cash Flow / Chiffre d'Affaires) x 100
+Une entreprise avec une forte marge FCF est une "Cash Machine". Elle n'a pas besoin de beaucoup d'investissements pour tourner (Asset Light). Elle transforme ses ventes directement en liquidités disponibles. Elle peut utiliser ce trésor de guerre pour vous verser des dividendes, racheter ses actions ou racheter des concurrents sans s'endetter.
+🎯 Le Test Quality :
+✅
++2 points
+si la FCF Margin est supérieure à
+30%
+.
+⚠️
++1 point
+si la FCF Margin est supérieure à
+20%
+.
+❌
++0 point
+sinon.
+Critère 3 : Le ROIC (Return On Invested Capital) 👑
+C'est sans doute le ratio le plus important, le chouchou de Warren Buffett et Terry Smith. Le ROIC (Retour sur Capitaux Investis) mesure
+le talent du PDG
+à faire fructifier l'argent.
+Imaginez que l'entreprise soit une machine. Le PDG prend de l'argent (venant des actionnaires ou de la banque) et l'injecte dans la machine (pour construire une usine, ouvrir un magasin, lancer un logiciel). Le ROIC mesure le rendement de cet investissement.
+La Formule du ROIC
+ROIC (%) = NOPAT / Capitaux Investis
+Note : NOPAT = Net Operating Profit After Tax (Profit opérationnel après impôts).
+L'Analogie du Compte Épargne :
+Si une entreprise a un ROIC de 20%, cela signifie que chaque euro qu'elle garde et réinvestit dans son business lui rapporte 20% par an. C'est exceptionnel. C'est bien mieux que de vous verser un dividende que vous placeriez sur un livret A à 3% !
+C'est ce ratio qui permet la magie des intérêts composés internes. Regardez la différence de richesse créée sur 10 ans entre une entreprise à haut ROIC (30%) et une entreprise à faible ROIC (10%) :
+[high-vs-low-roic.png]
+L'entreprise avec un ROIC de 30% écrase littéralement l'autre entreprise sur la durée. C'est la puissance du réinvestissement efficace.
+🎯 Le Test Quality :
+✅
++2 points
+si le ROIC est supérieur à
+30%
+⚠️
++1 point
+si le ROIC est supérieur à
+15%
+❌
++0 point
+sinon.
+🛠️ Où trouver ces données ? (Tuto GuruFocus)
+Pas besoin de sortir votre calculatrice scientifique. Le site
+GuruFocus
+calcule tout cela pour vous. Allez sur la fiche d'une entreprise, et regardez le tableau de droite nommé
+"Profitability Rank"
+.
+[net-margin-fcf-margin-roic-gurufocus.png]
+GuruFocus vous donne les chiffres clés en un coup d'œil
+Vous n'avez qu'à lire les lignes encadrées en rouge :
+🔑
+Ce qu'il faut retenir
+La croissance sans rentabilité est une course vers le précipice (regardez Uber pendant des années). Nous voulons des entreprises qui transforment leurs ventes en or massif.
+Nos standards sont volontairement
+extrêmes
+(>35% de marge, >30% de ROIC). C'est normal si beaucoup d'entreprises échouent à ce test. C'est fait pour. Nous ne voulons investir que dans le top 1% mondial.

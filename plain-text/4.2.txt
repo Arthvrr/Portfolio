@@ -1,0 +1,64 @@
+Pourquoi une action monte-t-elle ? Si vous posez la question à un débutant, il vous répondra probablement :
+"Parce qu'il y a plus d'acheteurs que de vendeurs"
+. C'est techniquement vrai, mais c'est comme dire qu'un avion vole "parce qu'il ne touche pas le sol". Cela n'explique rien sur la cause profonde.
+Pour réussir avec la stratégie Quality, vous devez comprendre la mécanique interne du prix. Vous devez arrêter de regarder le tableau des scores (le cours de bourse) pour vous intéresser à ce qui se passe sur le terrain (l'entreprise).
+1. La Machine à Voter vs La Machine à Peser ⚖️
+Il existe une schizophrénie temporelle en Bourse. Le moteur qui fait bouger le prix d'une action change radicalement selon l'horizon de temps que vous regardez.
+Benjamin Graham (Le Père de l'Investissement) 🧠
+"À court terme, le marché est une machine à voter. À long terme, c'est une machine à peser."
+🗳️
+Court terme (Machine à voter) :
+Le prix dépend de la popularité, des rumeurs, de la peur, des taux d'intérêt et des multiples de valorisation (PER). C'est de la psychologie pure. Une action peut perdre 20% en un mois simplement parce que les investisseurs sont de mauvaise humeur, même si l'entreprise va très bien.
+⚖️
+Long terme (Machine à peser) :
+Le prix dépend
+exclusivement
+des résultats financiers de l'entreprise. Le cours de bourse finit toujours par s'aligner sur la courbe des bénéfices.
+Regardez ce graphique fascinant du S&P 500 sur plus de 70 ans. Il compare le cours de l'indice (Ligne verte) avec les bénéfices des entreprises (Ligne bleue).
+[s&p500 earnings vs price.jpg]
+Exhibit 119 : Le prix (Vert) suit inexorablement les bénéfices (Bleu) sur le long terme.
+Ce que ce graphique nous prouve :
+Parfois, la ligne verte s'éloigne de la ligne bleue (bulles spéculatives ou krachs excessifs), mais comme un chien tenu en laisse par son maître, elle finit toujours par revenir vers la ligne bleue.
+Si les bénéfices montent, le cours montera. C'est une loi physique de la finance.
+2. La Formule Magique du TSR (Total Shareholder Return) 🧮
+Si nous décomposons la performance d'une action, nous obtenons une formule très précise. Votre gain total (TSR) dépend de trois moteurs, et seulement trois :
+🧮 Le Total Shareholder Return
+TSR = (Croissance des Bénéfices) + (Dividendes) +/- (Changement de Valorisation)
+Le piège, c'est que l'importance de ces trois moteurs s'inverse avec le temps. Une étude majeure réalisée par le BCG et Morgan Stanley sur le S&P 500 entre 1990 et 2009 a décortiqué les sources de performance selon la durée de détention. Les résultats sont stupéfiants.
+3. L'Analyse Temporelle : Pourquoi le Chiffre d'Affaires est Roi 👑
+Regardez attentivement le graphique ci-dessous. Il décompose ce qui crée la performance d'une action sur 1 an, 3 ans, 5 ans et 10 ans.
+[croissance-ca.png]
+Sur 10 ans, 74% de la performance vient de la croissance organique (CA), alors que le multiple (Jaune) devient négligeable.
+Analyse détaillée du graphique :
+🟡
+Sur 1 an (Le Court Terme) :
+Regardez la barre jaune.
+46%
+de la performance vient du changement de multiple (P/E). C'est-à-dire du changement d'humeur du marché. C'est de la spéculation. Les fondamentaux (barre verte) ne comptent que pour 29%.
+🟢
+Sur 10 ans (Le Long Terme) :
+La situation s'inverse totalement. La barre jaune (spéculation) s'effondre à 5%. La barre verte (Croissance du Chiffre d'Affaires) devient gigantesque et explique
+74%
+de votre gain final !
+La conclusion Quality est limpide :
+Si vous investissez pour 10 ans,
+ne perdez pas votre temps à essayer de deviner si l'action est "un peu trop chère" (Le P/E).
+Concentrez toute votre énergie à trouver des entreprises capables de faire croître leur Chiffre d'Affaires (Ventes) de manière durable.
+4. Pourquoi la Croissance des Ventes (Top Line) est-elle supérieure ? 🚀
+Dans la formule du profit, il y a deux leviers : augmenter les ventes (Croissance) ou réduire les coûts (Optimisation des marges).
+Pourquoi le graphique montre-t-il que le Chiffre d'Affaires (Barre verte) est plus puissant que l'amélioration des marges (Barre bleue, 15%) ?
+Les marges ont une limite physique :
+Une entreprise ne peut pas réduire ses coûts indéfiniment. Une marge nette ne dépassera jamais 100%. Il y a un plafond de verre.
+Le Chiffre d'Affaires n'a pas de limite :
+Amazon peut vendre pour 1 milliard, puis 100 milliards, puis 500 milliards. La croissance des ventes est
+exponentielle
+et théoriquement infinie.
+C'est pour cela que dans la stratégie Quality, nous cherchons des "Compounders" : des entreprises dont le moteur de ventes ne cale jamais.
+Le Secret de Thomas Phelps (100 to 1 in the Stock Market) 💎
+"Pour faire x100 sur une action, vous n'avez pas besoin d'acheter au plus bas et de vendre au plus haut. Vous avez besoin d'acheter une entreprise qui va multiplier ses bénéfices par 100, et de ne jamais la vendre."
+🔑
+Ce qu'il faut retenir
+Le moteur de votre richesse n'est pas la spéculation sur le multiple (acheter pas cher), mais la
+croissance intrinsèque
+de l'entreprise.
+Sur le long terme, le cours de l'action convergera toujours vers la croissance des bénéfices. Votre mission d'investisseur Quality est donc simple : trouver les entreprises capables de faire croître leur chiffre d'affaires et leurs bénéfices année après année, et les garder pour laisser la magie opérer.

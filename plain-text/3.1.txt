@@ -1,0 +1,158 @@
+Si vous parlez d'investissement autour de vous, on vous dira probablement :
+"Prends un ETF et ne t'embête pas"
+. C'est un conseil sage pour 90% de la population qui ne veut pas consacrer une minute à ses finances.
+Mais si vous êtes ici, c'est que vous faites partie des 10% restants. Vous avez compris que la "moyenne" ne mène pas à la liberté financière rapide. Pourquoi, fondamentalement, choisissons-nous la voie difficile du
+Stock Picking
+(sélection d'actions) ? Ce n'est pas par orgueil, c'est pour des raisons mathématiques et stratégiques précises.
+1. La Performance : Briser le plafond de verre de la "Moyenne" 🚀
+Commençons par une vérité qui dérange :
+Un ETF est conçu pour vous donner la performance moyenne
+. Ni plus, ni moins.
+En achetant un ETF S&P 500, vous achetez la performance globale de l'économie américaine. Historiquement, cela tourne autour de 9% ou 10% par an. C'est excellent comparé à un livret d'épargne. Mais c'est aussi un
+plafond de verre
+. Par définition, vous ne battrez jamais le marché avec un ETF, puisque vous
+êtes
+le marché.
+L'objectif du Stock Picking est la
+sur-performance (l'Alpha)
+. En sélectionnant minutieusement les meilleures entreprises (Quality) et en écartant les médiocres, nous visons un rendement de 12%, 15%, voire 20% par an.
+Pourquoi se battre pour "quelques pourcents" ? (L'Effet Ciseau) ✂️
+Vous vous demandez peut-être :
+"Est-ce que ça vaut vraiment la peine de passer des heures à éplucher des rapports financiers juste pour passer de 10% de rentabilité (la moyenne du marché) à 12% ?"
+La réponse est un grand
+OUI
+. Notre cerveau humain est piégé : il pense de manière linéaire, alors que les intérêts composés fonctionnent de manière exponentielle. On sous-estime toujours l'impact massif d'un "petit" écart de rendement sur une longue période.
+Regardons les mathématiques froides sur une carrière d'investisseur de
+30 ans
+avec un capital de
+20 000€
+:
+🔵
+À 10% (Moyenne historique du Marché) :
+Votre capital devient
+348 988 €
+.
+C'est un excellent résultat, vous avez multiplié votre mise par 17.
+🔴
+À 12% (Votre performance cible) :
+Votre capital devient
+599 198 €
+.
+Vous frôlez les 600 000 €.
+Regardez bien l'écart. Juste
+2% de différence
+par an, cela semble dérisoire... Mais au final, cela crée un surplus de
+plus de 250 000 €
+dans votre poche !  C'est un quart de million que vous gagnez "en plus", simplement en ayant sélectionné des entreprises de meilleure qualité que la moyenne. C'est pour aller chercher ce bonus colossal que nous faisons l'effort d'apprendre le Stock Picking.
+[percentage-difference.png]
+Au plus le temps passe, au plus l'écart se creuse entre les performances
+🚀 Passez à l'action :
+Vous pensez que gagner 2% de plus par an est négligeable ?
+J'ai créé un outil pour vous prouver mathématiquement le contraire.
+Cliquez ici pour tester le Calculateur de Surperformance
+2. L'Asymétrie du Risque : Le pouvoir infini du "Multibagger" ✨
+C'est le concept le plus puissant en Bourse, et c'est une spécificité unique aux actions individuelles. Le risque et la récompense ne sont pas symétriques.
+ multibagger
+nom masculin
+(Concept popularisé par le légendaire Peter Lynch)
+Désigne une action dont le cours a été multiplié plusieurs fois (x2, x10, x100).
+Exemple :
+Une action achetée 10€ qui vaut aujourd'hui 100€ est un "10-bagger".
+Comparons les produits :
+🛡️
+Obligation :
+Votre gain est plafonné. Vous prêtez 100€, on vous rend 100€ + 4% d'intérêts. Vous ne ferez jamais fortune avec ça.
+🧺
+ETF :
+La performance est diluée. Si Apple fait x10, mais que Apple ne représente que 6% de l'ETF, votre ETF ne montera que très peu. Les gagnants sont tirés vers le bas par les perdants du panier.
+🧱
+Action individuelle :
+C'est ici que la magie opère.
+Le scénario du pire :
+L'entreprise fait faillite. Vous perdez votre mise (100%). Vous ne pouvez pas perdre plus que ce que vous avez mis.
+Le scénario du meilleur :
+Il n'y a
+aucune limite
+. L'action peut faire +200%, +1000%, +10 000%.
+Mathématiquement :
+Vous pouvez avoir tort 5 fois (perdre 5x 100€) et avoir raison une seule fois sur une "pépite" (gagner 1x 1000€), vous êtes quand même gagnant au total. Une seule action exceptionnelle peut payer pour toutes vos erreurs et financer votre retraite. C'est impossible avec un ETF.
+[multibagger-example.png]
+Nvidia, Apple et Netflix sont des exemples typiques de multibaggers
+3. Le Tri Sélectif : Arrêtez d'acheter des "Pommes Pourries" 🍎
+C'est le défaut structurel des indices boursiers : ils sont
+aveugles
+. Un indice comme le CAC 40 ou le S&P 500 contient les plus grosses entreprises, point final. Il ne regarde pas si l'entreprise est rentable, si elle est endettée, ou si son secteur est en train de mourir.
+L'Analogie du Panier de Fruits 🧺
+"L'investisseur ETF arrive au marché et dit au vendeur :
+'Donnez-moi le panier complet, je prends tout'
+. Il rentre chez lui avec de belles fraises, mais aussi des bananes écrasées et des pommes pourries qu'il a payées le même prix.
+L'investisseur Actions (Vous) arrive au marché, examine les fruits un par un, et dit :
+'Je prends juste ces 15 fraises parfaites. Gardez le reste.'
+"
+En achetant un ETF Monde, vous investissez mécaniquement dans des secteurs en déclin (presse papier, énergies fossiles polluantes, banques mal gérées...). Avec le Stock Picking, vous avez un
+droit de veto
+. Vous pouvez décider de n'investir QUE dans les entreprises ultra-rentables, avec des bilans sains et une croissance forte (Quality). Vous éliminez le gras pour ne garder que le muscle.
+4. Zéro Frais de détention : L'efficience fiscale 🏰
+C'est un détail qui coûte cher sur 30 ans. L'intermédiation a un prix.
+ETF (Frais cachés) :
+Comme il y a une équipe (BlackRock, Amundi...) et des serveurs informatiques pour gérer le panier d'actions à votre place, ils prélèvent des frais de gestion (TER) directement sur la performance. C'est souvent entre 0,20% et 0,60% par an. Cela semble invisible, mais sur un patrimoine de 500 000€, c'est
+1 000€ à 3 000€ qui disparaissent chaque année
+de votre poche.
+Actions en direct (Gratuité) :
+Être propriétaire ne coûte rien. Vous payez des frais de courtage une seule fois au moment de l'achat (parfois 1€ ou 2€), et c'est tout. Ensuite, vous pouvez garder l'action 10 ans, 20 ans ou 50 ans : cela vous coûtera
+0€ de frais de garde
+. 100% de la performance et 100% des dividendes atterrissent dans votre poche. C'est le véhicule le plus pur.
+5. La Propriété et la Conviction : Investir dans le réel ❤️
+Enfin, ne sous-estimez jamais la psychologie. La Bourse est volatile. Il y aura des années à -20%. Quand tout s'effondre, qu'est-ce qui est le plus facile à conserver sans paniquer ?
+Une ligne abstraite sur un écran nommée
+"Amundi MSCI World UCITS ETF DR (C)"
+dont vous ne connaissez pas le contenu exact ?
+Ou des parts de
+LVMH
+,
+Microsoft
+et
+Air Liquide
+, des entreprises dont vous connaissez les produits, dont vous avez lu les bilans, et dont vous savez qu'elles continueront à vendre leurs services l'année prochaine ?
+Investir en direct, c'est redevenir un
+propriétaire
+. Vous ne jouez pas avec des tickets de loto. Vous détenez des parts d'entreprises réelles. Cette "conviction" est votre armure psychologique. Elle vous permet de dormir tranquille et même de renforcer vos positions quand le marché baisse, là où les investisseurs ETF paniquent souvent car ils ne savent pas ce qu'ils détiennent vraiment.
+6. L'Aveuglement du Prix : L'ETF est un "Robot Bête" 🤖
+En investissement, il existe une règle de bon sens que tout commerçant connaît :
+"Il faut acheter bas et vendre haut"
+. Le problème ?
+Les ETF sont programmés pour faire exactement l'inverse.
+La majorité des ETF sont "pondérés par la capitalisation". Cela signifie que plus une entreprise est chère et grosse, plus l'ETF est
+obligé
+d'en acheter. C'est un mécanisme pervers :
+🎈
+En période de bulle :
+Si une action devient surévaluée (son prix monte bien au-delà de sa valeur réelle), elle pèse plus lourd dans l'indice. L'ETF, tel un robot sans cerveau, va donc en acheter
+encore plus
+au pire moment, alimentant la bulle.
+📉
+En période de soldes :
+Si une entreprise magnifique voit son prix baisser temporairement (une aubaine pour nous !), elle pèse moins lourd. L'ETF va donc mécaniquement en vendre ou en acheter moins.
+L'ETF est "insensible au prix" (Price Insensitive). Il ne se demande jamais :
+"Est-ce que c'est trop cher pour ce que c'est ?"
+. Il achète au prix du marché, quel qu'il soit.
+Le Stock Picker, lui, garde son esprit critique. Si une entreprise est géniale mais que son prix est délirant, il n'achète pas. Il attend. Cette capacité à dire "Non" est votre meilleure protection contre les krachs.
+🔑
+Ce qu'il faut retenir
+Nous choisissons les actions non pas pour le plaisir de la complexité, mais pour l'optimisation maximale.
+1.
+Performance :
+Pour dépasser la moyenne du marché.
+2.
+Mathématiques :
+Pour profiter de l'effet illimité des "Multibaggers".
+3.
+Qualité :
+Pour filtrer les mauvaises entreprises (pommes pourries).
+4.
+Coût :
+Pour éviter les frais de gestion récurrents.
+5.
+Rationalité :
+Pour acheter la valeur réelle et éviter de surpayer les bulles.
+C'est la voie royale de l'enrichissement, à condition d'accepter de se former.

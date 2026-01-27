@@ -1,0 +1,168 @@
+Nous arrivons au dernier pilier de notre score :
+Le Dividende
+. Pour beaucoup d'investisseurs, c'est la cerise sur le gâteau, la récompense tangible qui tombe sur le compte en banque.
+Mais attention : un dividende peut être un piège. Un rendement trop élevé (8% ou 10%) est souvent le signe d'une entreprise en détresse dont le cours s'est effondré. Dans la stratégie Quality, nous ne cherchons pas le rendement le plus haut, nous cherchons le rendement le plus
+sûr
+et le plus
+croissant
+.
+John D. Rockefeller 🧠
+"Savez-vous quelle est la seule chose qui me donne du plaisir ? C'est de voir mes dividendes arriver."
+Voici les 3 critères pour vérifier que le dividende est pérenne et qu'il ne sera pas coupé à la prochaine crise.
+Critère 1 : Le Payout Ratio (sur les Bénéfices) 🥧
+C'est la part du gâteau (les bénéfices) que l'entreprise décide de rendre aux actionnaires. C'est l'indicateur numéro 1 de la sécurité du dividende.
+Si une entreprise gagne 10€ par action et vous reverse 9€, son Payout Ratio est de 90%. Elle ne garde presque rien pour investir dans son futur, rénover ses usines ou survivre à un coup dur. Au moindre pépin, elle devra couper le dividende.
+La Formule du Payout Ratio
+Payout Ratio (%) = Dividende par Action / Bénéfice Net par Action (EPS)
+Nous préférons les entreprises qui ont la main légère. Un ratio faible signifie que l'entreprise a de la marge. Même si ses bénéfices chutent de 30% l'année prochaine, elle pourra continuer à vous payer sans problème. De plus, cela signifie qu'elle garde beaucoup d'argent pour financer sa croissance future.
+🎯 Le Test Quality :
+✅
++2 points
+si le ratio est inférieur à
+30%
+(Sécurité maximale).
+⚠️
++1 point
+si le ratio est inférieur à
+50%
+(Sain et équilibré).
+❌
++0 point
+si le ratio dépasse 50% (Commence à être généreux mais plus risqué).
+Critère 2 : Le Payout Ratio du FCF (La Vérité du Cash) 💧
+Comme nous l'avons vu précédemment, le Bénéfice Net est une opinion comptable. Le Free Cash Flow (FCF) est un fait. On ne paie pas des dividendes avec des bénéfices comptables, on les paie avec du vrai cash.
+Il arrive parfois qu'une entreprise affiche des bénéfices (grâce à des jeux d'écriture), mais que ses caisses soient vides à cause d'investissements lourds (CAPEX). Si elle verse un dividende dans cette situation, elle doit
+s'endetter
+pour le payer. C'est ce qu'on appelle un "dividende non financé". C'est un schéma de Ponzi légal qui finit toujours mal.
+La Formule du FCF Payout Ratio
+FCF Payout (%) = Dividende Total Versé / Free Cash Flow
+Ce ratio est le
+garde-fou ultime
+. Il vérifie que le dividende est payé avec l'argent qui reste
+vraiment
+dans la caisse après avoir tout payé. C'est le critère le plus important pour la pérennité.
+🎯 Le Test Quality :
+✅
++2 points
+si le ratio est inférieur à
+30%
+.
+⚠️
++1 point
+si le ratio est inférieur à
+50%
+.
+❌
++0 point
+sinon.
+Critère 3 : La Croissance du Dividende (5 ans) 📈
+L'ennemi silencieux de l'investisseur de rendement, c'est l'
+inflation
+. Si vous touchez 100€ de dividende chaque année pendant 20 ans, vous vous appauvrissez, car ces 100€ permettront d'acheter de moins en moins de choses.
+Pour protéger votre pouvoir d'achat, votre dividende
+doit
+augmenter chaque année, idéalement plus vite que l'inflation. C'est ici que la magie opère : la croissance du dividende fonctionne exactement comme les intérêts composés. Une augmentation de 10% par an semble faible au début, mais c'est exponentiel.
+Au bout de 10 ou 15 ans, votre petite rente de départ se transforme en avalanche de cash. C'est ce qu'on appelle le
+Yield on Cost
+: le rendement par rapport à votre prix d'achat initial explose.
+Geraldine Weiss (La Grande Dame des Dividendes) 🧠
+"La seule chose qui m'intéresse, c'est un dividende qui augmente. C'est le seul signe tangible qu'une entreprise va vraiment bien."
+🚀 Haut Rendement vs Forte Croissance : Le match
+Vous hésitez entre une action qui rapporte 5% (qui augmente lentement de 2%) et une action qui rapporte 2% (mais qui augmente de 12%/an) ?
+J'ai créé un simulateur pour voir qui gagne sur le long terme. Le résultat est souvent choquant.
+Lancer le Comparateur de Rente
+🎯 Le Test Quality :
+✅
++2 points
+si la croissance annuelle moyenne (sur 5 ans) est supérieure à
+10%
+.
+⚠️
++1 point
+si la croissance est supérieure à
+5%
+(Bat l'inflation).
+❌
++0 point
+sinon.
+🛠️ Où trouver ces données ? (Tuto FinanceCharts)
+Pour l'analyse du dividende, j'adore utiliser
+FinanceCharts.com
+. C'est gratuit, visuel et très précis.
+Allez sur la page de l'action (ex: Microsoft), et cliquez sur l'onglet
+"Dividends"
+. Vous y trouverez ce tableau magique :
+[payout-ratio-fcf-payout-ratio-cagr-financecharts.png]
+FinanceCharts vous donne tout en un coup d'œil. J'ai encadré en rouge les 3 lignes qui nous intéressent .
+PAYOUT RATIO :
+Pour le critère 1.
+FCF PAYOUT RATIO :
+Pour le critère 2 (souvent plus difficile à trouver ailleurs !).
+CAGR 5Y (Compound Annual Growth Rate) :
+C'est la croissance moyenne du dividende sur 5 ans. Pour le critère 3.
+4. Le Piège du Haut Rendement (Yield Trap) 🪤
+Il faut briser un mythe tenace :
+On se fiche du rendement actuel du dividende.
+Ce qui compte, c'est la croissance et la qualité du bilan.
+Un rendement très élevé (8%, 10%) est souvent un signe de détresse. C'est le marché qui hurle "Attention !". Si une entreprise verse tout son cash aux actionnaires, c'est qu'elle ne sait pas quoi en faire pour se développer. Elle sacrifie son futur pour payer une rente aujourd'hui.
+Regardons les preuves concrètes avec deux analyses comparatives :
+[dividend-grower-vs-high-yield.png]
+Grower vs High Yield : Le match des fondamentaux
+Ce tableau résume parfaitement pourquoi les "Growers" (colonne de gauche) sont fondamentalement supérieurs aux "High Yields" (colonne de droite). C'est un combat inégal :
+Dette (Leverage) :
+Les Growers sont peu endettés (flèche verte), ils ont le choix. Les High Yield sont souvent étouffés par la dette (flèche rouge) qu'ils utilisent pour maintenir artificiellement leur dividende.
+Payout Ratio :
+Les Growers conservent une marge de sécurité importante (flèche verte). Les High Yield distribuent presque tout ce qu'ils gagnent (flèche rouge), se mettant en danger mortel au moindre coup dur économique.
+Free Cash Flow :
+C'est le moteur de la guerre. Il augmente chez les Growers (signe de santé), il baisse ou stagne chez les High Yield (signe de déclin).
+Risque de Coupe :
+Faible pour les Growers, très élevé pour les High Yield dès que le vent tourne. Une coupe de dividende fait souvent chuter le cours de l'action de -30% en une journée.
+[high-yield-vs-high-growth-dividend.png]
+Exemple réel : Visa (Vert) écrase Verizon (Noir) sur la durée
+Regardez ce graphique fascinant qui compare l'évolution du rendement sur coût (Yield on Cost) entre deux géants :
+Verizon
+(Telecom, High Yield) et
+Visa
+(Fintech, High Growth).
+⚫
+Verizon (Barres Noires) :
+En 2008, elle offrait un gros dividende de départ (environ 4%). C'est alléchant pour un débutant. Mais regardez les barres noires : elles stagnent. 15 ans plus tard, en 2023, votre rendement sur coût est à peine monté à 5%. L'inflation a mangé tout votre gain réel.
+🟢
+Visa (Barres Vertes) :
+En 2008, le dividende était minuscule (0,2%, presque invisible). Beaucoup l'auraient ignoré. Mais grâce à une croissance de 15-20% par an, regardez la barre verte exploser ! En 2023, le rendement sur votre mise de départ dépasse les
+12%
+! Visa a fini par écraser Verizon, non seulement en performance du cours, mais aussi en cash versé.
+5. Le Concept Secret : Le Yield on Cost (YoC) 🧙‍♂️
+C'est l'indicateur préféré de Warren Buffett, et la raison pour laquelle il ne vendra jamais ses actions Coca-Cola. C'est la clé pour comprendre l'exemple Visa ci-dessus.
+Le
+Yield on Cost
+(Rendement sur Coût) mesure votre rendement personnel réel par rapport à l'argent que vous avez sorti de votre poche il y a 10 ans, et non par rapport au prix actuel de l'action affiché sur Google.
+La Formule du Yield on Cost
+YoC (%) = (Dividende Actuel / Votre Prix d'Achat Original) × 100
+Imaginez que vous achetez une action à
+100€
+qui verse
+2€
+de dividende (Rendement 2%).
+L'entreprise est un "Dividend Grower". Elle augmente son dividende de 15% par an.
+Au bout de 10 ans, le dividende annuel est devenu
+8€
+.
+👉 Le rendement affiché en bourse est peut-être toujours de 2% (car le prix de l'action a probablement quadruplé pour atteindre 400€), mais VOTRE rendement personnel est de :
+(8€ / 100€) = 8%
+.
+Vous touchez 8% d'intérêts sur votre mise de départ, chaque année, à vie. C'est ça, la puissance de la croissance. Warren Buffett touche aujourd'hui plus de
+50%
+de rendement par an sur ses premières actions Coca-Cola !
+[buffett-cola.jpeg]
+Warren n'est pas prêt de vendre ses actions Coca-Cola !
+🔑
+Ce qu'il faut retenir
+Un excellent dividende n'est pas un dividende élevé, c'est un dividende qui vous laisse dormir tranquille.
+Nous visons le triptyque magique :
+Faible Payout
+(Sécurité),
+Couvert par le FCF
+(Réalité) et
+Forte Croissance
+(Protection contre l'inflation). Si une entreprise coche ces trois cases, c'est une machine à rente exceptionnelle.

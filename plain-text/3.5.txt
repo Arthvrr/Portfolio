@@ -1,0 +1,72 @@
+C'est la question à un million de dollars. Vous mettez de l'argent sur une plateforme, vous achetez des parts d'entreprises... et ensuite ? Comment votre patrimoine grossit-il réellement ?
+Il n'existe que deux moteurs pour créer de la richesse en bourse. Comprendre la mécanique précise de ces deux moteurs (et surtout leur fiscalité) est ce qui différencie souvent l'amateur qui stagne du professionnel qui s'enrichit.
+1. Les Dividendes (La Rente) 💰
+Pour un débutant, c'est souvent le concept le plus séduisant. C'est du cash qui tombe sur le compte.
+Le principe :
+Lorsqu'une entreprise réalise des bénéfices à la fin de l'année, elle a le choix de redistribuer une partie de cet argent à ses propriétaires (vous, les actionnaires). C'est le dividende.
+Mais attention, ce n'est pas de l'argent magique ! Au moment précis où le dividende est versé,
+le prix de l'action chute mécaniquement du montant du dividende
+. C'est un simple transfert de votre poche gauche (valeur de l'action) vers votre poche droite (cash disponible).
+Pour analyser un dividende, vous devez maîtriser deux formules vitales :
+🧮 1. Le Rendement du Dividende (Yield)
+Rendement (%) = ( Dividende Annuel / Prix de l'action ) × 100
+Le rendement vous dit combien vous gagnez. Mais est-ce durable ? Pour le savoir, il faut regarder le taux de distribution :
+🧮 2. Le Taux de Distribution du Dividende (Payout Ratio)
+Payout Ratio (%) = ( Dividende par action / Bénéfice Net par action ) × 100
+La règle Quality :
+Nous préférons les entreprises avec un Payout Ratio
+faible
+(en dessous de 30% ou 40%). Cela signifie qu'elles gardent la majorité de l'argent pour croître, plutôt que de tout distribuer.
+[payout-ratio.png]
+Au plus le Payout Ratio d'une boite est faible, au plus elle dispose de cash pour financer de nouveaux projets
+2. La Plus-Value (La Croissance) 🚀
+C'est le deuxième moteur : acheter une action 100€ et la revendre 200€. Mais pourquoi une action monte-t-elle ?
+À court terme (1 an), le prix bouge à cause des émotions, des news et des multiples de valorisation (le P/E, que nous verrons plus tard). Mais à long terme, il n'y a qu'un seul patron :
+La Croissance du Business.
+[croissance-ca.png]
+Sur 10 ans, 74% de la performance boursière vient de la croissance du Chiffre d'Affaires !
+Regardez attentivement le graphique ci-dessus. C'est la preuve ultime de notre stratégie :
+🟦
+Sur 1 an :
+La performance est aléatoire (ce sont les multiples de valorisation en jaune qui dominent). C'est de la spéculation.
+🟩
+Sur 10 ans :
+La barre verte devient gigantesque.
+74% de votre gain viendra du fait que l'entreprise vend plus de produits et services (Chiffre d'Affaires).
+C'est logique : si Microsoft double ses ventes de logiciels, ses bénéfices vont doubler, et mécaniquement, le prix de l'action va finir par doubler pour refléter cette réalité.
+3. Mon Retour d'Expérience : Pourquoi j'ai choisi la Croissance 💎
+Je vais être transparent. À mes débuts, j'étais obsédé par les dividendes. Je cherchais des rendements de 5% ou 6%. Je me disais : "C'est du sûr".
+Le problème ?
+Les entreprises qui versent 6% de rendement sont souvent des entreprises qui ne grandissent plus (le fameux graphique vert ci-dessus est plat pour elles). Elles vous rendent l'argent car elles ne savent pas quoi en faire.
+J'ai alors opéré un virage vers la stratégie
+Quality Growth
+. J'ai accepté d'acheter des actions qui versent très peu de dividendes (0,5% ou 0%), mais qui réinvestissent tout pour faire exploser leur Chiffre d'Affaires.
+Le résultat :
+Je bats le marché depuis 2 ans consécutifs.
+📊 Aujourd'hui,
+95% de mes gains totaux
+proviennent de la
+plus-value latente
+(la hausse du prix), et non des dividendes.
+Voir la preuve en graphique ici
+.
+4. L'Argument Fiscal (Le Turbo) 🏛️
+Il y a une dernière raison mathématique de préférer la plus-value : la fiscalité.
+Le Dividende est taxé tout de suite :
+Dès qu'il touche votre compte, l'État prend sa part (souvent 30%). Cela freine votre effet boule de neige chaque année.
+La Plus-Value Latente n'est PAS taxée :
+Tant que vous ne vendez pas l'action, vous ne payez pas d'impôt (dans la plupart des pays et enveloppes). Votre argent brut continue de travailler pour vous.
+⚠️ Point Fiscalité (Mise à jour 2026) :
+En
+Belgique
+, la plus-value sur actions (qui était à 0%) est taxée à 10% depuis 2026. En
+France
+, c'est la Flat Tax (30%) hors PEA.
+La leçon est la même partout :
+Moins on vend, moins on paie, plus on s'enrichit.
+🔑
+Ce qu'il faut retenir
+Nous ne sommes pas là pour toucher une petite rente trimestrielle. Nous sommes là pour posséder des parts d'entreprises qui vont doubler ou tripler de taille.
+Mon conseil :
+Laissez courir vos gains.
+Ne coupez pas un cheval gagnant. Je suis en phase d'accumulation et je ne vendrai une partie de mon portefeuille que dans très longtemps, pour financer un projet de vie majeur (maison, mariage), une fois que les intérêts composés auront fait le travail pour moi.

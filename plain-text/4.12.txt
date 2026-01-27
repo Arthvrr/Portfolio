@@ -1,0 +1,95 @@
+Félicitations ! Si vous êtes arrivé jusqu'ici, c'est que l'entreprise que vous analysez a passé avec succès tous nos filtres quantitatifs. Elle affiche une belle croissance, une rentabilité solide, un bilan sain et une politique de dividende intelligente. Sur le papier, c'est une formule 1 prête à gagner la course.
+Mais attention : les chiffres ne sont que le rétroviseur. Ils nous disent avec précision ce qui s'est passé hier, mais ils sont muets sur ce qui va se passer demain. Pour regarder devant, nous devons poser la calculatrice et utiliser notre bon sens, notre logique et notre compréhension du monde. C'est l'étape de l'
+Analyse Qualitative
+.
+Ici, il n'y a plus de "+2 points" ou de score automatique. C'est à vous de jouer le détective. Nous allons disséquer l'entreprise en 4 étapes cruciales pour vérifier si le succès du passé a des chances de durer 10 ans de plus.
+Étape 1 : Comprendre le Business Model 🏪
+C'est la règle d'or absolue de Peter Lynch, et pourtant tant d'investisseurs l'ignorent. Vous devez être capable d'expliquer comment l'entreprise gagne de l'argent en une phrase simple à un enfant de 10 ans. Si vous ne pouvez pas le faire, c'est que vous ne comprenez pas le business. Et si vous ne comprenez pas le business, vous ne saurez pas faire la différence entre un problème temporaire (opportunité d'achat) et un problème structurel (vente panique) quand l'action chutera.
+Peter Lynch 🧠
+"N'investissez jamais dans quelque chose que vous ne pouvez pas illustrer avec un crayon."
+La complexité est l'ennemie de l'investisseur. Une banque qui fait du trading de dérivés obscurs ("Black Box") est beaucoup plus risquée qu'une entreprise qui vend du dentifrice ou des abonnements logiciels. Nous cherchons la simplicité, la récurrence et la prévisibilité. Plus le business est simple, moins il y a de choses qui peuvent casser.
+💡 Les questions à se poser pour comprendre le business :
+🔹
+Que vendent-ils exactement ?
+Est-ce un produit physique (iPhone, Nike), un service (Consulting), ou de la propriété intellectuelle (Licences Disney) ? Comprenez la nature du produit.
+🔹
+Qui sont les clients ?
+Le grand public (B2C - ex: Coca-Cola) ? D'autres entreprises (B2B - ex: Salesforce) ? Ou l'État (B2G - ex: Lockheed Martin) ? Le B2B est souvent plus "sticky" (difficile de changer) que le B2C où les modes changent vite.
+🔹
+Est-ce récurrent ?
+C'est LA question vitale pour la visibilité. Est-ce que le client doit racheter le produit tous les mois (Netflix, L'Oréal, croquettes pour chien) ou tous les 10 ans (Voiture, Toiture) ? Nous voulons de la récurrence pour dormir tranquille.
+🔹
+Est-ce scalable ?
+Pour gagner deux fois plus, doivent-ils embaucher deux fois plus de gens et construire deux fois plus d'usines (mauvais scaling), ou peuvent-ils vendre le même logiciel à un million de personnes sans coût supplémentaire (bon scaling) ?
+Étape 2 : Évaluer le MOAT (L'Avantage Concurrentiel) 🏰
+Nous avons longuement détaillé ce concept crucial dans les chapitres
+4.3
+et
+4.4
+. Je ne vais pas tout répéter ici, mais souvenez-vous de l'essentiel : en capitalisme, les profits attirent les requins.
+Si une entreprise est très rentable, des concurrents vont arriver pour copier son modèle et casser les prix. Le
+MOAT
+est la seule chose qui empêche cela d'arriver. Sans MOAT, vos belles marges d'aujourd'hui seront vos pertes de demain.
+Retournez voir les chapitres précédents pour identifier si votre entreprise possède un
+Network Effect
+, des
+Switching Costs
+, des
+Intangibles
+, des
+Efficient Scales
+ou un
+Cost Advantage
+. Si vous n'arrivez pas à identifier clairement l'un de ces 5 avantages, passez votre chemin.
+👉 le chapitre qui introduit le concept de MOAT
+ici
+👉 le chapitre qui présent les 5 types de MOAT
+ici
+Étape 3 : Analyser le Management (Skin in the Game) 🤝
+C'est souvent l'étape la plus négligée par les débutants qui ne regardent que les graphiques, pourtant c'est crucial. Qui pilote l'avion ? Investir en bourse, ce n'est pas parier sur un ticker qui clignote, c'est devenir partenaire minoritaire d'une entreprise réelle.
+Vous voulez des partenaires honnêtes, compétents et, surtout, qui ont les mêmes intérêts que vous. Nous cherchons ce qu'on appelle le
+"Skin in the Game"
+(Jouer sa peau).
+Nous voulons que le PDG soit aussi un actionnaire important. S'il possède pour 100 millions d'euros d'actions de sa propre boîte, il ne va pas prendre de décisions stupides pour gagner un petit bonus à court terme. Il ne va pas détruire la réputation de la boîte pour un profit immédiat. Il pensera comme un propriétaire, sur 10 ou 20 ans, car sa fortune personnelle en dépend.
+[founder-led-companies.jpeg]
+Les entreprises dirigées par leurs fondateurs surperforment massivement le reste du marché sur le long terme.
+💡 Les questions à se poser sur la gouvernance :
+🔹
+Est-ce une entreprise familiale ou dirigée par le fondateur ?
+(Ex: LVMH avec Arnault, Amazon avec Bezos, Meta avec Zuckerberg). C'est le Saint Graal de l'alignement des intérêts. Ils ne travaillent pas pour le salaire, ils travaillent pour l'héritage.
+🔹
+Combien d'actions détient le PDG ?
+Vérifiez l' "Insider Ownership". On veut voir un PDG qui détient beaucoup d'actions. S'il vend toutes ses actions dès qu'il les reçoit (via ses stock-options), fuyez. S'il n'a pas confiance en son entreprise, pourquoi devriez-vous avoir confiance ?
+🔹
+Comment sont-ils payés ?
+Lisez le rapport annuel. Le bonus est-il lié à la simple croissance du chiffre d'affaires (dangereux, pousse aux acquisitions stupides pour grossir) ou au ROIC / Bénéfice par action (sain, pousse à la rentabilité réelle) ?
+Étape 4 : L'Anti-Thèse (Qu'est-ce qui peut tuer la boîte ?) 💀
+Pour finir, il faut forcer sa nature et devenir pessimiste. Charlie Munger disait :
+"Invert, always invert"
+(Inversez, inversez toujours). Au lieu de chercher toutes les raisons pour lesquelles l'action va monter, forcez-vous à chercher activement pourquoi elle pourrait s'effondrer.
+Si vous ne trouvez aucun défaut, c'est que vous n'avez pas assez cherché. Aucune entreprise n'est parfaite. L'objectif ici est de faire un "Pre-Mortem" : Imaginez que nous sommes dans 10 ans et que l'entreprise a fait faillite ou a perdu 80% de sa valeur. Quelle en a été la cause ?
+Charlie Munger 🧠
+"Tout ce que je veux savoir, c'est où je vais mourir, pour ne jamais y aller."
+💡 Les questions qui font mal (mais qui sauvent) :
+🔹
+Le risque de Disruption Technologique :
+Existe-t-il une nouvelle technologie, même balbutiante, qui rend leur produit inutile ? (Ex: Kodak avec le numérique, ou la TV câblée face au streaming). Ne sous-estimez jamais le progrès.
+🔹
+Le risque Régulatoire :
+L'État pourrait-il casser le business d'un coup de crayon ? (Ex: Lois antitrust contre Google, interdictions dans le Tabac, régulation des prix dans la Santé). Si le profit dépend du bon vouloir politique, c'est fragile.
+🔹
+La concentration client :
+Est-ce qu'un seul client (par exemple Apple pour un fournisseur de puces) représente plus de 10% ou 20% du chiffre d'affaires ? Si ce client décide de changer de crémerie, l'entreprise s'effondre.
+🔹
+Le "Key Man Risk" (L'homme clé) :
+Si le PDG visionnaire meurt demain, la boîte survit-elle ? C'est une question légitime pour Tesla avec Elon Musk ou Berkshire avec Warren Buffett. La culture est-elle plus forte que l'homme ?
+🔑
+Ce qu'il faut retenir
+L'analyse qualitative est ce qui vous permet de dormir tranquille pendant les krachs boursiers. Les chiffres vous disent si l'entreprise est "bon marché", mais l'analyse qualitative vous dit si elle est "solide".
+Nous cherchons la combinaison rare : un
+Business Simple et Prévisible
+, protégé par un
+Moat Infranchissable
+, et piloté par des
+Fondateurs Fanatiques
+qui jouent leur propre argent. Si vous trouvez cela, gardez l'action pour la vie.

@@ -1,0 +1,119 @@
+Nous avons vu la Croissance (le moteur) et la Rentabilité (l'efficacité). Il reste un élément vital à vérifier avant d'investir le moindre euro :
+La Survie
+.
+Une entreprise peut croître très vite et être très rentable sur le papier, mais faire faillite du jour au lendemain si elle est étouffée par sa dette. En période de taux d'intérêt bas, la dette est indolore. Mais quand les taux montent ou qu'une crise économique frappe, la dette devient un poison mortel.
+Dans le pilier "Solvabilité", nous jouons le rôle du banquier prudent. Nous voulons dormir tranquilles en sachant que nos entreprises ne risquent pas la faillite.
+Critère 1 : Le Ratio Dette / EBITDA (Le Levier) ⚖️
+Ce ratio est souvent appelé
+"Leverage"
+(Levier) par les analystes financiers. C'est le thermomètre absolu de la dette.
+Pourquoi "Levier" ? Parce que la dette agit comme un levier physique : elle amplifie tout. Si l'entreprise va bien, la dette booste ses résultats (elle investit l'argent des autres pour grandir). Mais si l'entreprise va mal, la dette l'écrase sous son poids.
+Ce ratio compare la dette totale de l'entreprise à l'argent qu'elle gagne grâce à son activité opérationnelle (EBITDA). Pour faire simple, cela répond à la question :
+"Combien d'années de travail faudrait-il à l'entreprise pour rembourser intégralement ses dettes si elle y consacrait 100% de ses profits ?"
+La Formule du Debt-to-EBITDA
+Leverage = Dette Nette Totale / EBITDA
+💡 Comprendre l'EBITDA :
+Derrière cet acronyme barbare (
+Earnings Before Interest, Taxes, Depreciation, and Amortization
+) se cache une idée simple : c'est le
+bénéfice brut d'exploitation
+. C'est l'argent généré par la vente des produits, avant de payer les impôts, les intérêts aux banques et avant de compter l'usure des machines (amortissements). C'est la mesure la plus pure de la capacité d'une entreprise à cracher du cash grâce à son activité.
+Warren Buffett sur la Dette 🧠
+"J'ai vu plus de gens échouer à cause de l'alcool et de l'effet de levier (dette) - le levier étant de l'argent emprunté. Vous n'avez pas vraiment besoin de levier dans ce monde. Si vous êtes intelligent, vous gagnerez beaucoup d'argent sans emprunter."
+Si vous gagnez 50 000€ par an et que vous avez 50 000€ de dettes, votre ratio est de
+1
+. C'est très sain, vous pouvez théoriquement tout rembourser en un an de travail.
+Si vous avez 250 000€ de dettes avec le même salaire, votre ratio est de
+5
+. Là, vous êtes en danger mortel. Le moindre accident de la vie (perte de revenu), et comme vos mensualités de remboursement sont fixes, vous êtes en faillite personnelle.
+🎯 Le Test Quality :
+✅
++2 points
+si le ratio est inférieur à
+1
+(Bilan Forteresse).
+⚠️
++1 point
+si le ratio est inférieur à
+2
+(Très sain).
+❌
++0 point
+sinon (Au-dessus de 2, la dette commence à peser).
+Critère 2 : Le Ratio Dette / Capitaux Propres (Debt-to-Equity) 🏦
+Ce ratio mesure la structure financière : "À qui appartient vraiment l'entreprise ? Aux actionnaires ou à la banque ?"
+Il compare l'argent apporté par les créanciers (la Dette) à l'argent qui appartient aux actionnaires (les Capitaux Propres ou Equity). C'est un indicateur d'indépendance.
+La Formule du Debt-to-Equity
+D/E = Dette Totale / Capitaux Propres (Equity)
+💡 Comprendre les Capitaux Propres (Equity) :
+C'est la "valeur nette" de l'entreprise. Imaginez que l'entreprise vende tout ce qu'elle possède (usines, stocks, brevets) et rembourse toutes ses dettes. Ce qu'il reste à la fin, c'est l'Equity. C'est l'argent qui appartient réellement aux actionnaires. Si le Debt-to-Equity est élevé, cela veut dire que l'entreprise a été achetée majoritairement avec l'argent de la banque, pas avec celui des propriétaires.
+Si le ratio est élevé (par exemple 5), cela signifie que pour chaque euro apporté par les actionnaires, l'entreprise a emprunté 5 euros à la banque. C'est une stratégie très agressive. Si tout va bien, le rendement pour l'actionnaire est dopé. Mais si les affaires ralentissent, les banquiers peuvent prendre le contrôle de l'entreprise ou forcer sa liquidation pour récupérer leur mise.
+Peter Lynch sur la Faillite 🧠
+"Il est très difficile de faire faillite si vous n'avez pas de dettes."
+Nous cherchons des entreprises conservatrices qui se financent principalement grâce à leurs propres bénéfices réinvestis (autofinancement) plutôt qu'en allant mendier de l'argent à la banque.
+🎯 Le Test Quality :
+✅
++2 points
+si le ratio est inférieur à
+1
+(Plus de capitaux propres que de dettes).
+⚠️
++1 point
+si le ratio est inférieur à
+2
+.
+❌
++0 point
+sinon.
+Critère 3 : La Couverture des Intérêts (Interest Coverage) 🚑
+C'est le ratio de la survie immédiate. Contrairement aux deux précédents qui regardent le "stock" total de dette, celui-ci regarde le "flux" de paiement à la fin du mois.
+Imaginez que vous ayez un énorme crédit immobilier. Ce qui compte au quotidien pour ne pas être saisi, ce n'est pas de savoir que vous devez 500 000€ à la banque, c'est de savoir si votre salaire mensuel couvre largement votre mensualité de 2000€.
+La Formule de la Couverture des Intérêts
+Coverage = Résultat Opérationnel (EBIT) / Charges d'Intérêts
+💡 Comprendre l'EBIT et les Charges d'Intérêts :
+•
+EBIT (Earnings Before Interest and Taxes) :
+C'est le bénéfice d'exploitation. C'est presque comme l'EBITDA, mais on a retiré l'usure des machines (amortissements). C'est le profit "réel" de l'activité.
+•
+Charges d'Intérêts :
+C'est le coût de la dette. C'est le montant des intérêts que l'entreprise doit payer chaque année à ses créanciers, juste pour avoir le droit de garder l'argent emprunté.
+Ce chiffre indique combien de fois l'entreprise peut payer ses intérêts avec son bénéfice actuel.
+Si ce ratio est de
+1
+: L'entreprise utilise 100% de son bénéfice juste pour payer les intérêts de sa dette. Elle ne garde rien pour elle. Elle travaille littéralement pour la banque. C'est une entreprise "Zombie".
+Si ce ratio est de
+5
+: C'est correct, mais en cas de crise majeure (bénéfices divisés par 3), elle sera en difficulté.
+Si ce ratio est de
+50
+: C'est une forteresse. Même si ses bénéfices s'effondrent de 90%, elle pourra encore payer ses dettes sans trembler.
+🎯 Le Test Quality :
+✅
++2 points
+si le ratio est supérieur à
+30
+(Sécurité absolue).
+⚠️
++1 point
+si le ratio est supérieur à
+15
+(Très confortable).
+❌
++0 point
+sinon.
+🛠️ Où trouver ces données ? (Tuto GuruFocus)
+Toutes ces informations cruciales sur la santé financière se trouvent également sur
+GuruFocus
+(et la plupart des sites financiers).
+[leverage-debt-equity-interest-coverage-gurufocus.png]
+Trouvez ces infos dans le tableau "Financial Strength" sur GuruFocus
+🔑
+Ce qu'il faut retenir
+La règle numéro 1 de Warren Buffett est :
+"Ne perdez pas d'argent"
+. La cause numéro 1 de la perte définitive d'argent (faillite) est la
+Dette
+.
+En sélectionnant uniquement des entreprises avec un
+Bilan Forteresse
+(peu de dettes, capacité de remboursement énorme), vous éliminez quasiment tout risque de voir votre investissement tomber à zéro. C'est la ceinture de sécurité de votre portefeuille.

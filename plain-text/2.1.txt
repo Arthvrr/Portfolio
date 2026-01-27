@@ -1,0 +1,119 @@
+Avant de savoir
+comment
+acheter, il faut comprendre
+où
+nous mettons les pieds. Quand on parle de "La Bourse", l'imaginaire collectif voit souvent des graphiques incompréhensibles, des hommes stressés en bretelles à Wall Street ou un casino géant.
+Effacez cette image. La Bourse est en réalité un concept beaucoup plus simple et beaucoup plus ancien. C'est tout simplement
+un grand marché
+, exactement comme le marché aux légumes de votre village, sauf qu'au lieu d'y vendre des tomates ou des poulets, on y vend des parts d'entreprises.
+ bourse
+nom féminin
+(du latin
+bursa
+, cuir, et du nom de la famille
+Van der Beurze
+)
+Lieu public où se réunissent les banquiers, les négociants et les agents de change pour traiter des affaires.
+Marché organisé où s'échangent des biens standardisés (matières premières) ou des actifs financiers (actions, obligations).
+Le saviez-vous ?
+Le mot "Bourse" vient de la famille
+Van der Beurze
+à Bruges (Belgique) au XIIIe siècle. C'est sur la place devant leur auberge que les marchands de toute l'Europe se réunissaient pour échanger leurs créances. Le blason de la famille arborait... trois bourses en cuir !
+1. La Naissance : Une histoire de navires et d'épices 🚢
+Pour comprendre le fonctionnement actuel, il faut remonter à l'année
+1602
+, à Amsterdam. À l'époque, le commerce des épices avec l'Asie (les Indes) rapportait des fortunes, mais c'était une activité extrêmement risquée. Les navires pouvaient couler, être attaqués par des pirates ou saisis par des ennemis.
+Financer un navire tout seul coûtait trop cher et était trop dangereux pour un seul marchand. S'il perdait son navire, il était ruiné. Les Hollandais ont alors eu une idée de génie qui a inventé le capitalisme moderne : la
+Société Anonyme
+.
+Ils ont créé la
+Compagnie Néerlandaise des Indes Orientales
+(la VOC). Au lieu de chercher un seul investisseur riche, ils ont proposé à des milliers de citoyens d'Amsterdam de donner un peu d'argent. En échange de cet argent, les citoyens recevaient un papier officiel : une
+"Action"
+(Share).
+Ce papier prouvait qu'ils étaient propriétaires d'une fraction de la compagnie.
+Ce papier leur donnait le droit de recevoir une part des bénéfices futurs (les dividendes) si les navires revenaient chargés d'épices.
+La Bourse était née : un système permettant de diviser la propriété d'une entreprise en milliers de petits morceaux pour financer de grands projets.
+[premiere-bourse-amsterdam.jpg]
+La cour de la Bourse d'Amsterdam au XVIIe siècle : le berceau de l'investissement moderne.
+2. À quoi sert la Bourse aujourd'hui ? (Le Marché Primaire)
+Le principe est resté exactement le même. Imaginez une entreprise comme
+Tesla
+ou
+Airbnb
+à leurs débuts. Pour grandir, construire des usines et conquérir le monde, elles ont besoin de milliards de dollars. Elles ont deux choix :
+Aller voir la banque :
+La banque prête l'argent, mais il faut rembourser avec des intérêts, ce qui pèse sur les finances.
+Aller en Bourse (IPO) :
+L'entreprise vend une partie de son capital au public. Elle récupère des milliards de cash qu'elle n'aura jamais à rembourser. En échange, elle accepte de partager ses futurs bénéfices et le pouvoir de décision avec de nouveaux actionnaires (vous).
+C'est ce qu'on appelle le
+Marché Primaire
+(le marché du "neuf"). C'est le seul moment où l'argent va directement de la poche de l'investisseur vers la poche de l'entreprise.
+3. La Bourse au quotidien (Le Marché Secondaire)
+C'est là que la majorité des échanges ont lieu, et c'est ce que vous ferez 99% du temps. Une fois que les actions ont été émises par l'entreprise, les investisseurs se les échangent entre eux.
+Pour bien comprendre, prenons l'analogie du
+Marché de l'Occasion Automobile
+:
+Quand
+Peugeot
+vend une voiture neuve, l'argent va chez Peugeot (Marché Primaire).
+Si vous revendez cette Peugeot à votre voisin 2 ans plus tard, l'argent va de la poche du voisin à la vôtre. Peugeot ne touche rien sur cette transaction. Pourtant, la "cote" (le prix) de la voiture dépend toujours de la réputation de la marque Peugeot.
+La Bourse (Wall Street, Euronext Paris) est ce gigantesque marché de l'occasion. Quand vous achetez une action Apple aujourd'hui, vous ne l'achetez pas à l'entreprise Apple, mais à un autre investisseur (à Tokyo, New York ou Berlin) qui a décidé de vendre la sienne. La Bourse est simplement le lieu sécurisé qui met en relation l'acheteur et le vendeur.
+L'Analogie du Supermarché 🛒
+"Imaginez un supermarché où les prix changent chaque seconde selon l'envie des clients. Si tout le monde veut des bananes, le prix de la banane explose. Si personne ne veut de poireaux, le prix s'effondre. En Bourse, remplacez les bananes par des actions Apple et les poireaux par des entreprises en difficulté. C'est la loi de l'Offre et de la Demande."
+4. Ne confondez pas "La Bourse" et "Les Indices" 📊
+Aux informations, vous entendez souvent :
+"La Bourse de Paris a pris 1% aujourd'hui"
+. En réalité, le journaliste fait un raccourci. Il parle d'un
+Indice Boursier
+(le CAC 40).
+Imaginez que la Bourse soit une gigantesque bibliothèque contenant des milliers de livres (les entreprises). Il est impossible de lire tous les livres en même temps pour savoir si la bibliothèque est "joyeuse" ou "triste".
+Pour prendre la température du marché en un coup d'œil, on a inventé des
+Indices
+. Ce sont des paniers virtuels qui regroupent les entreprises les plus représentatives :
+🇺🇸 Le S&P 500 :
+L'indice roi. Il représente les 500 plus grandes entreprises américaines (Apple, Microsoft, Amazon...). S'il monte, l'économie américaine va bien.
+🇫🇷 Le CAC 40 :
+Il représente les 40 plus grandes entreprises françaises cotées à Paris (LVMH, TotalEnergies, L'Oréal...).
+🌍 Le MSCI World :
+Un indice qui regroupe 1600 entreprises de 23 pays développés.
+[msci-world-composition.png]
+L'indice MSCI World représente 1600 sociétés différentes de pas moins de 23 pays développés
+Retenez ceci :
+L'indice est un thermomètre. Il donne la "tendance" générale. Mais il est tout à fait possible que le CAC 40 monte alors que l'action que vous possédez baisse. Vous n'achetez pas "la Bourse", vous achetez des entreprises spécifiques
+dans
+la Bourse (ou des ETF qui copient ces indices, comme nous le verrons plus tard).
+5. La Capitalisation Boursière (L'analogie de la Pizza) 🍕
+Voici un piège dans lequel tombent 100% des débutants. Posez-vous cette question :
+"Est-ce qu'une action à 10€ est moins chère qu'une action à 1000€ ?"
+La réponse instinctive est "Oui".
+La réponse financière est "On ne peut pas savoir".
+Le prix d'une action, seul, ne veut rien dire sur la valeur de l'entreprise. Pour connaître la vraie valeur (le prix de l'étiquette de toute l'entreprise), il faut regarder la
+Capitalisation Boursière
+.
+🧮 La Capitalisation Boursière
+Prix de l'action × Nombre d'actions total = Valeur de l'entreprise
+Prenons l'exemple de la Pizza pour comprendre :
+Entreprise A :
+Une pizza coupée en 4 parts. Chaque part coûte 5€.
+Prix de la pizza totale = 4 × 5€ =
+20€
+.
+Entreprise B :
+La
+même
+pizza, mais coupée en 100 petites parts. Chaque part coûte 0,50€.
+Prix de la pizza totale = 100 × 0,50€ =
+50€
+.
+Dans cet exemple, la part de l'entreprise B ne coûte que 50 centimes (elle a l'air "pas chère"), mais l'entreprise B vaut en réalité plus du double de l'entreprise A (50€ contre 20€) !
+En Bourse, c'est pareil. Ne regardez jamais uniquement le prix affiché (le cours). Regardez toujours la capitalisation (la taille de la pizza). C'est ce qui distingue les "Small Caps" (petites entreprises) des "Large Caps" (géants comme Apple ou Google).
+[pizza.jpg]
+La valeur totale (la pizza) importe plus que le prix d'une seule part.
+🔑
+Ce qu'il faut retenir
+La Bourse est un marché où s'échangent des parts de propriété, et non un casino. Ne confondez pas le marché global avec les
+Indices
+(CAC 40, S&P 500) qui ne sont que des thermomètres de tendance. Enfin, ne jugez jamais la cherté d'une action à son prix unitaire, mais toujours à sa
+Capitalisation Boursière
+(la valeur totale de l'entreprise).

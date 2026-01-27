@@ -1,0 +1,111 @@
+Le plus grand ennemi de l'investisseur, c'est la subjectivité. Quand on aime une marque (parce qu'on utilise ses produits), on a tendance à ignorer ses défauts financiers. C'est le "Biais de confirmation".
+Pour contrer cela, j'ai développé une méthode froide, mathématique et implacable : le
+StocksPickeur Score
+. L'objectif est de transformer l'analyse d'une entreprise complexe en une note simple sur
+30 points
+. Cela nous permet de comparer objectivement Apple, LVMH et TotalEnergies sur un pied d'égalité.
+1. La Structure : 5 Piliers, 15 Critères 🏛️
+Pour juger la qualité intrinsèque d'un business, il ne suffit pas de regarder s'il est rentable. Il faut une vision à 360 degrés. Mon système repose sur 5 piliers fondamentaux, qui correspondent aux organes vitaux de l'entreprise :
+1
+Bases
+L'entreprise est-elle solide et respectueuse de ses actionnaires ?
+2
+Croissance
+Le business grandit-il sainement sur la durée ?
+3
+Rentabilité
+Les marges sont-elles élevées et protégées (Moat) ?
+4
+Solvabilité
+L'entreprise risque-t-elle la faillite (Dette) ?
+5
+Dividende
+Le retour aux actionnaires est-il sûr et croissant ?
+Chaque pilier contient
+3 critères précis
+(que nous détaillerons dans les prochains chapitres). Cela fait donc 15 critères au total (5 x 3 = 15).
+2. Le Barème : L'Exigence Binaire (+2 / +1 / +0) ⚖️
+Pour chaque critère, je ne laisse pas de place à l'interprétation. Soit l'entreprise est excellente, soit elle est correcte, soit elle est médiocre.
++2
+L'Excellence (Quality)
+Le critère respecte le standard le plus élevé. C'est le "Best in Class".
+Exemple : Une marge nette supérieure à 20%.
++1
+La Moyenne (Correct)
+L'entreprise ne brille pas, mais elle n'est pas en danger. C'est acceptable.
+Exemple : Une marge nette entre 10% et 20%.
+0
+L'Échec (Médiocre)
+L'entreprise échoue sur ce point. C'est une faiblesse structurelle.
+Exemple : Une marge nette inférieure à 10%.
+Le Calcul Final :
+Avec 15 critères pouvant rapporter jusqu'à 2 points chacun, le score maximal théorique est de
+30/30
+. Ce score est un filtre puissant. Il ne vous dit pas "achetez maintenant", mais il vous dit "cette entreprise mérite votre attention".
+3. Comment interpréter le Score ? 📊
+Une fois l'analyse terminée (ce que nous ferons ensemble avec le Calculateur), vous obtiendrez une note globale. Voici ma grille de lecture personnelle :
+🏆 Score > 24/30 (Top Tier)
+C'est la crème de la crème. Des entreprises exceptionnelles ("Compounders") qui cochent presque toutes les cases de la qualité. Elles forment le cœur de mon portefeuille.
+✅ Score entre 18 et 24 (Investissable)
+De très bonnes entreprises, solides, mais avec quelques faiblesses mineures ou une croissance plus modérée. Elles restent d'excellents candidats à l'investissement.
+❌ Score < 18/30 (À éviter)
+Trop de drapeaux rouges. Marges faibles, dette trop élevée ou croissance absente. Sauf cas très particulier (turnaround), je passe mon chemin. Il y a trop d'autres opportunités pour perdre son temps ici.
+4. L'importance du Profil (Le Radar) 🕸️
+Attention, le score total ne dit pas tout. Deux entreprises peuvent obtenir
+20/30
+et pourtant être radicalement différentes. C'est pour cela que je visualise le résultat sous forme de graphique Radar, bien pratique pour visualiser en un coup d'oeil les forces et faiblesses d'une entreprise.
+[radar-chart.jpg]
+2 profils différents : À gauche une "Growth" (Croissance), à droite une "Yield" (Dividende).
+Le Profil "Croissance" (Violet) :
+Cette entreprise maximise les piliers
+Croissance
+et
+Rentabilité
+, mais sacrifie le
+Dividende
+(car elle réinvestit tout). C'est parfait pour construire un patrimoine.
+Le Profil "Rente" (Orange) :
+Cette entreprise maximise le
+Dividende
+et la
+Rentabilité
+, mais a une
+Croissance
+plus faible et semble plus endettée. C'est idéal pour sécuriser un patrimoine et toucher des revenus.
+Il est crucial de comprendre la
+forme
+du score pour savoir si l'entreprise correspond à votre objectif personnel.
+5. La Fréquence : Quand noter ? 📅
+Une entreprise est un organisme vivant. Un score de 28/30 en 2020 ne vaut plus rien en 2025. Nokia était un 30/30 avant l'iPhone.
+Le travail d'analyse ne se fait pas une seule fois. Pour garder un portefeuille sain, je recommande de mettre à jour vos scores :
+Idéalement :
+Tous les trimestres, lors de la publication des résultats financiers.
+Au minimum :
+Une fois par an, à la lecture du rapport annuel.
+Si le score d'une entreprise de votre portefeuille chute (par exemple, elle passe de 25 à 17 car sa dette explose et ses marges s'effondrent), c'est un signal d'alarme. Il faut peut-être vendre avant que le marché ne sanctionne le prix.
+6. Où trouver les données ? (Ma Stack) 🛠️
+Pour remplir ce score de manière fiable, j'utilise une combinaison d'outils précis. Ne vous inquiétez pas, vous apprendrez à les utiliser dans les prochains chapitres, mais voici ma "boîte à outils" officielle :
+🔍
+Google Finance
+Comparatif S&P 500
+📈
+Roic.ai
+Courbes de Croissance
+🧙‍♂️
+GuruFocus
+Ratios &Rentabilité
+💸
+FinanceCharts
+Dividendes & Rachats d'Actions
+Dans les chapitres suivants (4.7 à 4.11), nous allons ouvrir le capot. Je vais vous expliquer un par un les 15 critères, comment les trouver sur ces sites et pourquoi ils sont là. Préparez votre calculatrice (ou utilisez celle fournie sur le site) !
+🔑
+Ce qu'il faut retenir
+Ne soyez pas schizophrène avec votre argent. Chaque stratégie a ses règles.
+Si vous choisissez le
+Quality Investing
+(comme nous), vous devez accepter de ne pas acheter les actions "bradées" en faillite (Value) et de ne pas courir après la dernière "hype" spéculative du moment (Momentum).
+Votre avantage concurrentiel sera la
+patience
+et la
+sélectivité
+sur la qualité intrinsèque du business.

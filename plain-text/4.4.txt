@@ -1,0 +1,115 @@
+Maintenant que vous avez compris que le
+Moat
+(Avantage Concurrentiel Durable) est la clé de voûte de la richesse boursière, nous devons entrer dans le détail. Tous les châteaux ne se ressemblent pas. Certains sont protégés par des montagnes infranchissables, d'autres par des armées d'élite, d'autres encore par des secrets de fabrication.
+En économie, il existe 5 grandes catégories de Moats identifiés par Morningstar et popularisés par Pat Dorsey. Savoir identifier
+lequel
+protège votre entreprise est crucial, car cela vous permet de surveiller la solidité de votre investissement.
+[types-of-moat.jpg]
+Les 5 Piliers de la protection économique. Une entreprise Quality en possède au moins un.
+1. Les Actifs Intangibles (La Marque, les Brevets) ✨
+C'est le type de Moat le plus visible, mais parfois le plus difficile à quantifier. Il regroupe tout ce qui n'est pas "physique" mais qui permet à l'entreprise de vendre plus cher que ses concurrents.
+La Marque (Brand Power) :
+C'est la capacité de faire payer le consommateur plus cher pour un produit identique, juste pour le logo. C'est le "Pricing Power" pur.
+Exemple :
+Tiffany's
+peut vendre une bague de fiançailles 30% plus cher que le bijoutier du coin, simplement parce que la boîte est bleue.
+Coca-Cola
+vend de l'eau sucrée plus cher que la marque distributeur.
+Les Brevets (Patents) :
+C'est une protection légale temporaire. Pendant 20 ans, personne n'a le droit de copier votre invention. C'est vital dans la santé.
+Exemple :
+Sanofi
+ou
+Novo Nordisk
+vendent des médicaments exclusifs sans concurrence directe tant que le brevet tient.
+Les Licences Réglementaires :
+C'est l'autorisation exclusive de l'État pour opérer. C'est un monopole légal.
+Exemple :
+Moody's
+et
+S&P Global
+sont les seules agences de notation qui comptent vraiment car la régulation bancaire exige leur tampon.
+Le Test de la Marque 🧪
+"Si je vous donne 10 milliards de dollars pour lancer une marque de soda et détrôner Coca-Cola, pouvez-vous le faire ?"
+La réponse est non. Vous pouvez créer un soda meilleur au goût, moins cher, avec plus de pub... mais vous ne pourrez pas effacer 100 ans d'histoire émotionnelle dans la tête des gens. C'est ça, un Moat Intangible.
+2. Les Coûts de Changement (Switching Costs) ⛓️
+C'est probablement le Moat le plus puissant à l'ère du numérique. L'idée est simple : une fois que le client a adopté votre produit, il devient
+trop douloureux, trop cher ou trop risqué
+d'aller voir la concurrence.
+Le client ne reste pas forcément parce qu'il vous aime, mais parce qu'il est piégé (dans le bon sens du terme pour l'investisseur). On parle d'entreprises "Sticky" (collantes).
+Intégration profonde :
+Imaginez une entreprise qui utilise
+Salesforce
+ou
+Microsoft Excel
+. Toutes ses données sont dessus, tous ses employés sont formés à l'outil. Changer de logiciel demanderait 6 mois de formation, des risques de perte de données et une paralysie de l'activité. Même si un concurrent arrive avec un produit 20% moins cher, l'entreprise ne changera pas. Le coût du changement est supérieur à l'économie réalisée.
+L'écosystème :
+Apple
+est le roi ici. Si vous avez un iPhone, une Apple Watch, des AirPods et tous vos achats sur l'App Store, passer chez Android est un cauchemar. Vous devez tout racheter et tout reconfigurer. Vous restez donc chez Apple.
+3. L'Effet de Réseau (Network Effect) 🕸️
+C'est le Saint Graal des entreprises technologiques. L'effet de réseau se produit lorsque
+la valeur d'un produit ou d'un service augmente avec le nombre d'utilisateurs.
+C'est un cercle vertueux explosif. Plus il y a de monde, plus c'est utile. Plus c'est utile, plus de nouveaux gens arrivent.
+Réseaux de paiement :
+Pourquoi les commerçants acceptent-ils
+Visa
+? Parce que tout le monde a une carte Visa. Pourquoi tout le monde a une carte Visa ? Parce que tous les commerçants l'acceptent. Pour un nouveau concurrent, briser ce duopole est impossible : personne ne veut d'une carte que personne n'accepte.
+Réseaux sociaux / Plateformes :
+Pourquoi êtes-vous sur
+Instagram
+ou
+LinkedIn
+? Parce que vos amis et collègues y sont. Un nouveau réseau social, même technologiquement supérieur, sera vide. Et personne ne va dans une boîte de nuit vide.
+Marketplaces :
+Uber
+ou
+Airbnb
+. Les chauffeurs vont là où sont les clients, et les clients vont là où il y a le plus de chauffeurs (temps d'attente réduit).
+4. L'Avantage de Coût (Cost Advantage) 📉
+Ici, l'entreprise gagne parce qu'elle est capable de produire ou de livrer son service
+moins cher
+que n'importe qui d'autre. Cela lui permet soit de vendre moins cher pour tuer la concurrence (Guerre des prix), soit de vendre au même prix mais avec une marge bien supérieure.
+Économies d'échelle :
+Costco
+ou
+Walmart
+achètent des volumes si gigantesques qu'ils obtiennent des prix fournisseurs que personne d'autre ne peut avoir. Ils écrasent les petits commerçants.
+Processus unique :
+Amazon
+a investi des milliards dans des robots et des entrepôts automatisés pendant 20 ans. Aujourd'hui, livrer un colis en 24h leur coûte quelques dollars. Pour un concurrent qui part de zéro, cela coûterait le triple. Cette efficience logistique est une douve.
+Localisation géographique :
+Une carrière de pierre ou une cimenterie (comme
+Vinci
+ou
+Lafarge
+) a un monopole local. Le ciment coûte trop cher à transporter. Si vous avez la seule carrière à 50km à la ronde, vous êtes le maître des prix.
+5. L'Échelle Efficiente (Efficient Scale) ⚖️
+C'est le Moat des "Monopoles Naturels". Il s'applique aux marchés de taille limitée où il n'y a
+mathématiquement la place que pour un ou deux acteurs
+.
+Si un nouvel acteur essayait d'entrer sur ce marché, il devrait dépenser des milliards pour construire son infrastructure, mais le marché est trop petit pour que deux acteurs soient rentables. Les deux feraient faillite. Donc, rationnellement, aucun concurrent n'essaie d'entrer.
+Infrastructures :
+Les aéroports (comme
+Aena
+ou
+ADP
+) ou les chemins de fer (comme
+Union Pacific
+aux USA). On ne va pas construire un deuxième aéroport ou une deuxième ligne de chemin de fer parallèle juste pour faire concurrence. L'acteur en place a un monopole géographique de fait.
+Utilities (Services Publics) :
+Les réseaux de distribution d'eau ou d'électricité (
+Veolia
+,
+National Grid
+). Tirer des tuyaux dans toute une ville coûte une fortune. Une fois que c'est fait, personne ne viendra poser un deuxième réseau de tuyaux concurrent.
+Gestion des déchets :
+Aux USA,
+Waste Management (WM)
+possède les décharges. Personne ne veut une nouvelle décharge près de chez soi (NIMBY - Not In My Back Yard), donc il est quasi impossible d'obtenir un permis pour en ouvrir une nouvelle. Ceux qui ont les décharges existantes ont un monopole local éternel.
+🔑
+Ce qu'il faut retenir
+Dans votre analyse d'action, vous devez être capable de cocher au moins une de ces 5 cases.
+Si une entreprise n'a ni Marque forte, ni Coûts de changement, ni Effet de réseau, ni Avantage de coût, ni Monopole de niche... alors elle n'a
+pas de Moat
+.
+Ses marges finiront par s'effondrer face à la concurrence. En tant qu'investisseur Quality, nous passons notre chemin. Nous cherchons les châteaux forts, pas les tentes de camping.

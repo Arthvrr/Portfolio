@@ -1,0 +1,95 @@
+Nous avons vu les deux manières classiques de s'enrichir : le cours qui monte grâce à la croissance (Plus-value) et le cash qui tombe (Dividende). Mais il existe une
+troisième voie
+, souvent ignorée des investisseurs européens, mais vénérée par les Américains.
+C'est ce qu'on appelle le
+Rachat d'Actions
+(ou
+Share Buyback
+). C'est le secret le mieux gardé de la performance boursière moderne.
+1. Le Concept : L'entreprise se mange elle-même 🍽️
+Imaginez une entreprise comme Apple ou Microsoft. Elles sont tellement rentables qu'elles ne savent plus quoi faire de leur cash. Elles ont déjà payé les salaires, construit les usines, financé la R&D... et il leur reste encore des dizaines de milliards sur les comptes.
+Au lieu de vous verser ce cash en dividende (ce qui déclencherait un impôt immédiat pour vous), elles vont aller sur le marché boursier, acheter leurs propres actions... et
+les détruire
+(les annuler définitivement).
+La conséquence est mathématique :
+Il y a moins d'actions en circulation.
+L'Analogie de la Pizza 🍕
+Imaginez que l'entreprise est une pizza coupée en 10 parts. Vous possédez 1 part (soit 10% de l'entreprise).
+L'entreprise décide de racheter 2 parts sur le marché et de les jeter à la poubelle. Il ne reste plus que 8 parts au total.
+Sans que vous n'ayez rien fait, et sans dépenser un centime, votre part unique ne représente plus 10%, mais
+12,5%
+de la pizza totale !
+👉
+Vous possédez une plus grosse part du gâteau, simplement parce que le gâteau a été redécoupé en moins de parts.
+2. La Mécanique : Pourquoi ça dope le cours de bourse ? 💉
+Ce n'est pas juste théorique, cela a un impact direct et violent sur le prix de l'action. Rappelez-vous que le prix d'une action suit les bénéfices par action (BPA ou EPS).
+🧮 Le Bénéfice par Action - BPA (Earning per Share - EPS)
+Bénéfice Par Action = Bénéfice Total / Nombre d'actions
+Si l'entreprise rachète ses actions, le chiffre du bas (le diviseur) diminue.
+Résultat :
+Même si le bénéfice total de l'entreprise stagne (0% de croissance), le Bénéfice
+Par Action
+augmente mécaniquement ! Et comme le prix de l'action suit le BPA, le cours monte.
+[share-buyback-performance.png]
+Depuis 2011, 40% de la performance du S&P 500 ne vient pas de la croissance du business, mais simplement des rachats d'actions ! C'est le moteur numéro 1.
+3. L'Inverse : Le Cauchemar de la Dilution 🔪
+Si le rachat d'actions est le paradis de l'investisseur, son opposé existe :
+La Dilution
+(Émission d'actions).
+Certaines entreprises (souvent les sociétés Tech non rentables ou les petits dossiers spéculatifs) font l'inverse : elles impriment de nouvelles actions pour lever de l'argent ou pour payer leurs employés (Stock-Based Compensation).
+L'effet :
+La pizza est recoupée en 12 parts au lieu de 10.
+La conséquence :
+Votre part du gâteau rétrécit. Même si l'entreprise grandit, vous gagnez moins car vous devez partager avec plus de monde.
+⚠️
+Soyez très vigilants avec les entreprises de la Silicon Valley qui affichent une grosse croissance mais qui diluent leurs actionnaires de 5% par an en distribuant des actions gratuites aux salariés.
+4. Nuance importante : Ne confondez pas avec le "Stock Split" ✂️
+Les débutants confondent souvent
+Buyback
+(Rachat) et
+Split
+(Division du nominal).
+✅
+Buyback (Rachat) :
+L'entreprise
+détruit
+des actions. Il y en a moins. C'est de la création de valeur pour vous.
+❌
+Split (Division) :
+L'entreprise coupe votre action en morceaux plus petits (ex: 1 action à 1000€ devient 10 actions à 100€). C'est purement cosmétique pour rendre l'action plus accessible. Vous n'êtes pas plus riche, vous avez juste plus de billets de petite coupure.
+[stocks-split.png]
+Le Stocks Split ne change pas votre pourcentage de participation dans une entreprise
+5. La Preuve : Les "Cannibales" battent le marché 🏆
+Les entreprises qui rachètent massivement leurs titres sont surnommées les
+"Cannibales"
+. Investir dans ces entreprises est historiquement une stratégie gagnante.
+[share-buyback-vs-s&p500.jpg]
+Les entreprises qui rendent du cash via les rachats écrasent la moyenne du marché sur le long terme.
+6. L'Arme Secrète : L'Avantage Fiscal 💸
+Voici pourquoi les investisseurs (surtout les plus riches) préfèrent souvent les rachats d'actions aux dividendes :
+C'est beaucoup plus efficace fiscalement.
+Lorsque vous recevez un dividende :
+🔴 L'argent arrive sur votre compte.
+🔴 L'État (et le fisc étranger) prélève
+immédiatement
+une taxe (la "Flat Tax" de 30% en France, ou le Précompte mobilier de 30% en Belgique).
+Lorsque l'entreprise rachète ses actions :
+🟢 L'argent reste dans l'entreprise ou sert à faire monter le cours de l'action.
+🟢
+Aucune taxe immédiate pour vous.
+Tant que vous ne vendez pas vos actions, vous ne payez rien. Vous contrôlez le moment de l'imposition (c'est ce qu'on appelle les gains en capital non réalisés).
+C'est une manière "invisible" et non-imposable de vous enrichir en continu.
+7. La Tendance : Le Rachat d'Actions explose 🚀
+Ce n'est pas une mode passagère. Les grandes entreprises américaines ont parfaitement compris ce mécanisme. Si l'on compare l'évolution des dividendes versés et des rachats d'actions sur les dernières décennies, la tendance est claire : les deux augmentent, car ce sont les deux faces d'une même pièce (le retour de cash aux actionnaires).
+[croissance-dividende.jpeg]
+Les dividendes continuent de croître régulièrement...
+[croissance-rachat-action.jpeg]
+...mais les rachats d'actions explosent littéralement aux USA !
+Comme vous le voyez sur ces graphiques, les entreprises sont de véritables machines à cracher du cash. Elles utilisent désormais les deux leviers simultanément pour récompenser leurs propriétaires. Une société "Quality" moderne ne se contente plus de verser un dividende, elle rachète aussi massivement ses titres pour soutenir son cours.
+🔑
+Ce qu'il faut retenir
+Je vais vous donner un secret de ma méthode de sélection :
+La diminution du nombre d'actions est un critère éliminatoire pour moi.
+Quand je note la qualité d'une action (nous verrons comment faire plus tard), je regarde toujours la courbe du nombre d'actions sur 5 ou 10 ans.
+📉 Si la courbe descend : C'est un feu vert (l'entreprise travaille pour moi).
+📈 Si la courbe monte (dilution) : C'est souvent un carton rouge immédiat.

@@ -1,0 +1,57 @@
+Lorsque vous cliquez sur le bouton "Acheter" ou "Vendre" chez votre courtier, vous ne parlez pas directement à un humain. Vous envoyez une instruction électronique au marché. Cette instruction s'appelle un
+Type d'Ordre
+.
+Il n'y a pas de mauvais type d'ordre. Chacun répond à un besoin spécifique selon votre priorité du moment : voulez-vous privilégier la
+rapidité
+d'exécution (être sûr d'avoir l'action) ou la
+précision
+du prix (être sûr de ne pas payer trop cher) ?
+1. L'Ordre au Marché (Priorité : Vitesse) 🚀
+C'est l'ordre le plus intuitif et le plus utilisé par les investisseurs particuliers, surtout sur les grandes entreprises.
+Le principe est simple : vous demandez au courtier d'acheter ou de vendre une quantité d'actions
+immédiatement
+, au meilleur prix disponible à la seconde où vous cliquez. C'est l'équivalent d'aller au marché et de dire au vendeur :
+"Donnez-moi 10 pommes au prix affiché actuellement, je suis pressé."
+Quand l'utiliser ?
+C'est l'ordre idéal pour les actions à
+haute liquidité
+(comme LVMH, Apple, TotalEnergies, Microsoft). Sur ces géants, il y a tellement d'échanges chaque seconde que le prix est très stable. Si vous voyez le cours à 150,00€ et que vous passez un ordre au marché, vous serez probablement exécuté à 150,00€ ou 150,01€. L'écart est négligeable et l'exécution est garantie.
+2. L'Ordre à Cours Limité (Priorité : Prix) 🎯
+Avec cet ordre, vous reprenez le contrôle total. Vous fixez une limite que le marché ne doit pas franchir.
+Concrètement, vous dites au système :
+"Je veux acheter cette action, mais je refuse de payer plus de X euros"
+. Si l'action cotée à 100€ vous intéresse, mais que vous ne voulez mettre que 99€, vous placez un ordre limité à 99€. Votre ordre va alors attendre sagement dans le carnet d'ordres.
+Si le prix descend à 99€ : Votre ordre est exécuté.
+Si le prix reste à 100€ ou monte : Votre ordre ne sera jamais exécuté et vous n'aurez pas les actions.
+Quand l'utiliser ?
+C'est utile pour les actions plus petites (Small Caps) où le prix peut varier brutalement, ou simplement si vous êtes discipliné et que vous visez un prix d'entrée précis lors d'une baisse de marché.
+3. L'Ordre à Seuil de Déclenchement "Stop Loss" (Le Parachute) 🪂
+Ici, nous entrons dans les ordres de protection (ou de tendance). On l'appelle souvent "Stop Loss" (Arrêt des pertes), car il sert historiquement à limiter la casse si une action s'effondre.
+C'est un ordre "dormant". Il reste inactif tant que le prix n'atteint pas un certain seuil que vous avez fixé (le "Trigger").
+Mécanique :
+Vous possédez une action à 100€. Vous avez peur d'un krach. Vous placez un ordre à seuil de déclenchement (vente) à 90€.
+Tant que l'action vaut 91€ ou plus, rien ne se passe. Mais si le prix touche 90€, votre ordre se réveille et se transforme instantanément en
+Ordre au Marché
+. Le système vendra vos titres au prix actuel pour vous faire sortir.
+⚠️
+Attention :
+Comme il devient un ordre "au marché", si le cours s'effondre très vite, vous pourriez être vendu un peu plus bas que 90€ (ex: 89,50€).
+4. L'Ordre à Plage de Déclenchement "Stop Limit" (Le Parachute Contrôlé) ⚙️
+C'est une version plus chirurgicale du précédent, souvent utilisée par les traders ou les investisseurs très pointilleux.
+Au lieu de définir un seul prix, vous en définissez deux :
+Le Seuil (Trigger) :
+Le prix qui déclenche l'alarme (ex: 90€).
+La Limite :
+Le prix minimum absolu auquel vous acceptez de vendre (ex: 88€).
+Le Scénario :
+L'action tombe à 90€. L'ordre se déclenche. Le système essaie de vendre. Mais contrairement au Stop Loss classique, il a une interdiction formelle de vendre en dessous de 88€.
+Cela évite de vendre à un prix ridicule lors d'un "flash crash" momentané. Le risque, c'est que si l'action passe directement de 91€ à 80€ (ce qu'on appelle un Gap), votre ordre ne passera pas et vous garderez vos actions en pleine chute.
+🔑
+Ce qu'il faut retenir
+🔹
+Pour investir sereinement sur des grosses boîtes (Quality) :
+L'Ordre au Marché est rapide et efficace. L'Ordre Limité est parfait si vous voulez chipoter sur le prix.
+🔹
+Pour protéger son capital :
+L'Ordre à Seuil de Déclenchement (Stop Loss) est votre filet de sécurité automatique.
+Ne vous compliquez pas trop la vie : 95% de vos ordres seront probablement des ordres "Limités" ou "Au Marché".
