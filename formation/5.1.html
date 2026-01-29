@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.1 La Qualité, mais à quel prix ? | Formation StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles pour le contenu du cours */
+        .prose p { margin-bottom: 1.5rem; line-height: 1.8; color: #475569; }
+        .prose h4 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-top: 3rem; margin-bottom: 1.5rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .prose strong { color: #0f172a; font-weight: 600; }
+        .prose ul, .prose ol { list-style: none; padding-left: 0; }
+        .prose li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
+        .prose ul li::before { content: "•"; color: #0ea5e9; font-weight: bold; position: absolute; left: 0; }
+        
+        /* Lightbox */
+        #imageViewer { backdrop-filter: blur(10px); }
+        .clickable-image { cursor: zoom-in; transition: transform 0.2s; }
+        .clickable-image:hover { transform: scale(1.01); }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <a href="../index.html" class="flex items-center gap-3 group">
+                    <img src="../media/Logo/Logo-White.png" alt="Logo StocksPickeur" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                    <span class="font-heading font-bold text-xl text-slate-900 tracking-tight">StocksPickeur</span>
+                </a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <nav class="flex gap-6">
+                        <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Calculateur</a>
+                        <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
+                        <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Analyses</a>
+                        <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Formation</a>
+                    </nav>
+
+                    <div class="h-6 w-px bg-slate-200"></div>
+
+                    <a href="#.html" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                        </svg>
+                        Connexion
+                    </a>
+                </div>
+
+                <div class="md:hidden">
+                    <button class="text-slate-500 hover:text-slate-900">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-emerald-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="5.0.html" class="hover:text-emerald-600 transition">Module 5</a></li>
+                <li>/</li>
+                <li class="text-emerald-600 font-medium">Chapitre 5.1</li>
+            </ol>
+        </nav>
+
+        <div class="mb-12 border-b border-slate-200 pb-8">
+            <span class="text-emerald-600 font-bold tracking-wider uppercase text-xs">Module 5 • La Valorisation</span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">5.1. La Qualité, mais à quel prix ? 🏷️</h1>
+        </div>
+
+        <div class="mb-10 not-prose"> 
+            <div class="flex items-center gap-2 mb-4">
+                <span class="bg-indigo-100 text-indigo-700 w-8 h-8 flex items-center justify-center rounded-lg text-lg">📺</span>
+                <h3 class="font-heading font-bold text-lg text-slate-900">Résumé du chapitre en vidéo</h3>
+            </div>
+            
+            <div class="rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-slate-900 aspect-video">
+                <video controls class="w-full h-full object-cover" preload="metadata">
+                    <source src="videos/5.1.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+            </div>
+        </div>
+
+        <article class="prose prose-slate max-w-none text-justify">
+            
+            <p>Dans le module précédent, nous avons accompli un travail de titan. Nous avons appris à séparer le bon grain de l'ivraie, à identifier les avantages concurrentiels (Moat), à repérer les managements alignés et à noter rigoureusement la qualité d'un business sur 30 points.</p>
+            <p>Souvenez-vous de notre étude de cas approfondie sur <strong>Microsoft</strong> (Chapitre 4.13). La conclusion de notre analyse était sans appel : avec une note quasi-parfaite de <strong>25/30</strong>, Microsoft est une machine de guerre économique absolue. Marges exceptionnelles, bilan forteresse noté AAA, croissance séculaire, positions monopolistiques...</p>
+            <p>Face à un tel constat d'excellence, votre réflexe naturel serait de vous dire : <em>"C'est génial, c'est une super entreprise, je fonce et j'achète tout de suite ! Pourquoi attendre ?"</em></p>
+            <p><strong>Arrêtez-vous tout de suite.</strong> 🛑</p>
+            <p>Si vous achetez maintenant sans vous poser plus de questions, vous risquez de commettre l'erreur la plus coûteuse et la plus frustrante de l'investisseur débutant : confondre une <strong>bonne entreprise</strong> et un <strong>bon investissement</strong>. Ce sont deux concepts totalement différents.</p>
+
+            <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-xl my-10">
+                <p class="font-bold text-indigo-900 mb-2">La Sagesse de Charlie Munger 👴</p>
+                <p class="italic text-indigo-800 m-0">“Même la meilleure entreprise du monde ne se paie pas un prix infini.”</p>
+            </div>
+
+            <h4>1. L'Analogie Immobilière : La Villa de Rêve 🏠</h4>
+            <p>Pour bien comprendre, sortons de la bourse un instant. Imaginez que vous cherchez à acheter une maison pour investir. Vous visitez une villa incroyable sur la Côte d'Azur : vue imprenable sur la mer, piscine à débordement, matériaux nobles, zéro travaux à prévoir. C'est objectivement un bien immobilier de "Qualité supérieure". Tout le monde est d'accord là-dessus.</p>
+            <p>Maintenant, imaginez que le vendeur vous en demande <strong>50 millions d'euros</strong>, alors que toutes les villas voisines, strictement identiques, se vendent aux alentours de 2 millions.</p>
+            <ul>
+                <li>Est-ce que la maison est de qualité ? <strong>OUI</strong>, indéniablement.</li>
+                <li>Est-ce que c'est un bon investissement ? <strong>NON</strong>, absolument pas.</li>
+            </ul>
+            <p>Si vous l'achetez à 50 millions, vous ne ferez jamais de plus-value. Pire, vous perdrez probablement de l'argent pendant des décennies, car vous avez "surpayé" la qualité. Même si la maison reste magnifique, votre rendement sera catastrophique.</p>
+            <p>En Bourse, c'est exactement la même chose. <strong>Le prix que vous payez détermine mathématiquement votre rendement futur.</strong></p>
+
+            <h4>2. Le Cas Microsoft : La traversée du désert (2000-2016) 🐫</h4>
+            <p>Revenons à notre exemple de Microsoft. Je vous ai dit que c'était une entreprise exceptionnelle aujourd'hui. Mais cela a toujours été le cas. En l'an 2000, Microsoft était déjà une entreprise extraordinaire. Elle avait le monopole absolu de Windows sur 95% des ordinateurs, des marges folles et une croissance explosive. Tout le monde savait que c'était "LA" boîte à posséder pour l'avenir.</p>
+            <p>Résultat ? Les investisseurs, aveuglés par la qualité et la "hype", se sont rués dessus sans regarder le prix. Ils ont propulsé sa valorisation à des sommets délirants (un PER de 60, nous verrons ce que cela signifie plus tard). Ils ont acheté l'excellence à un prix infini.</p>
+            <p>Que s'est-il passé pour celui qui a acheté cette "entreprise parfaite" à ce prix-là ?</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/msft-buy-worst-moment.png')">
+                <img src="../media/Formation/msft-buy-worst-moment.png" 
+                     alt="Graphique du cours de Microsoft entre 2000 et 2016" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Pendant 16 ans, l'action n'a rien rapporté, alors que l'entreprise triplait ses bénéfices !</figcaption>
+            </figure>
+
+            <p>Regardez bien ce graphique, il est terrifiant. Entre 2000 et 2016 :</p>
+            <ul>
+                <li>Le Chiffre d'affaires de Microsoft a <strong>triplé</strong>.</li>
+                <li>Les Bénéfices ont <strong>quadruplé</strong>.</li>
+                <li>Le cours de l'action a fait... <strong>0%</strong>.</li>
+            </ul>
+            <p>C'est ce qu'on appelle de la "Dead Money" (Argent mort). Pendant 16 longues années, l'investisseur n'a rien gagné. Son capital est resté bloqué. Pourquoi ? Parce qu'en 2000, il avait payé un prix qui intégrait déjà 16 ans de croissance future. Il a fallu attendre une décennie et demie que la réalité économique (les bénéfices) rattrape l'exubérance du prix payé au départ.</p>
+
+            <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-xl my-10">
+                <p class="font-bold text-indigo-900 mb-2">La leçon des "Nifty Fifty" 👴</p>
+                <p class="italic text-indigo-800 m-0">Dans les années 70, il y avait un groupe de 50 actions appelées les "Nifty Fifty" (Coca-Cola, McDonald's, Disney...). C'étaient des entreprises si solides qu'on disait : "On peut les acheter à n'importe quel prix et les garder pour toujours".<br>
+                Résultat ? Quand la bulle a éclaté, ces actions ont perdu 80% de leur valeur, non pas parce qu'elles ont fait faillite (elles existent toujours et dominent le monde !), mais simplement parce que leur prix était devenu déconnecté de la réalité.</p>
+            </div>
+
+            <h4>3. La Psychologie du FOMO (Pourquoi on achète trop cher ?) 😱</h4>
+            <p>Si c'est si logique, pourquoi tant de gens achètent-ils au sommet ? La réponse est psychologique : c'est le <strong>FOMO</strong> (Fear Of Missing Out - La peur de rater le train).</p>
+            <p>Quand une action monte tous les jours (comme Microsoft en 99 ou Nvidia récemment), notre cerveau reptilien panique. On voit nos voisins s'enrichir, on voit les journaux titrer sur des records, et on se dit : <em>"Si je n'achète pas maintenant, je vais rater l'occasion de ma vie, elle ne redescendra jamais !"</em>.</p>
+            <p>La Valorisation est votre <strong>bouclier émotionnel</strong> contre ce sentiment. C'est l'outil froid et rationnel qui vous permet de regarder la foule qui court et de dire : <em>"Non, c'est trop cher. Je passe mon tour."</em> C'est frustrant sur le moment, mais c'est ce qui sauve votre patrimoine sur le long terme.</p>
+
+            <h4>4. L'Entonnoir de Sélection : Où en sommes-nous ? 🌪️</h4>
+            <p>Pour bien vous situer, voici où se trouve la Valorisation dans notre processus global. C'est la <strong>dernière étape</strong>, le gardien final.</p>
+            <p>On ne cherche pas à valoriser une entreprise médiocre. On ne perd notre temps à sortir la calculatrice que si l'entreprise a survécu aux deux premières étapes de sélection (Quantitative et Qualitative) et qu'elle a obtenu une note suffisante dans notre Scorecard (comme les 25/30 de Microsoft).</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/quantitative-qualitative-valorisation.png')">
+                <img src="../media/Formation/quantitative-qualitative-valorisation.png" 
+                     alt="Schéma de l'entonnoir de sélection StocksPickeur" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">La Valorisation est le filtre ultime : elle décide si on achète maintenant ou si on met en liste de surveillance.</figcaption>
+            </figure>
+            
+            <p>Dans ce Module 5, nous allons apprendre à utiliser des outils simples mais redoutables pour ne pas répéter l'erreur de Microsoft en 2000. Nous allons apprendre à payer le "Juste Prix" (Fair Price).</p>
+
+            <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-8 mt-12 shadow-sm">
+                <h5 class="text-xl font-bold text-emerald-800 mb-4 flex items-center">
+                    <span class="bg-emerald-200 text-emerald-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">🔑</span> 
+                    Ce qu'il faut retenir
+                </h5>
+                <p class="text-emerald-900 m-0 leading-relaxed">
+                    Une entreprise excellente peut être un investissement terrible si le prix payé est trop élevé.<br>
+                    Le marché est parfois maniaque : il propose des prix exorbitants pour des entreprises parfaites.<br>
+                    En tant qu'investisseur Quality, nous acceptons de payer "un peu plus cher" pour la qualité (comme pour une belle maison), mais nous refusons de payer un prix délirant. Si la meilleure entreprise du monde est trop chère, nous ne l'achetons pas. Nous attendons.
+                </p>
+            </div>
+
+        </article>
+
+        <div class="flex justify-between items-center mt-16 pt-8 border-t border-slate-200">
+            <a href="5.0.html" class="text-slate-500 hover:text-emerald-600 font-medium transition flex items-center group">
+                <span class="group-hover:-translate-x-1 transition-transform mr-2">←</span> Introduction Module 5
+            </a>
+            <a href="5.2.html" class="bg-emerald-600 text-white px-6 py-3 rounded-full font-bold hover:bg-emerald-700 transition shadow-lg shadow-emerald-200 flex items-center group">
+                Chapitre Suivant<span class="group-hover:translate-x-1 transition-transform ml-2">→</span>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <div id="imageViewer" class="fixed inset-0 z-[60] hidden bg-slate-900/90 backdrop-blur-sm transition-opacity duration-300" onclick="closeViewer()">
+        <span class="absolute top-5 right-8 text-white text-5xl cursor-pointer hover:text-slate-300 transition">&times;</span>
+        <img class="m-auto block max-w-[95%] max-h-[90vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded shadow-2xl" id="enlargedImg">
+    </div>
+
+    <script>
+        // Gestion de la Lightbox
+        var modal = document.getElementById("imageViewer");
+        var modalImg = document.getElementById("enlargedImg");
+
+        function openViewer(src) {
+            modal.style.display = "block";
+            modalImg.src = src;
+            document.body.style.overflow = "hidden"; // Empêche le scroll
+        }
+
+        function closeViewer() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto"; // Réactive le scroll
+        }
+        
+        // Fermer avec la touche Echap
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeViewer();
+            }
+        });
+    </script>
+
+</body>
+</html>
