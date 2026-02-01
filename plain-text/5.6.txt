@@ -1,0 +1,88 @@
+Si vous avez lu le chapitre précédent sur le PER, bravo. Vous en savez déjà plus que 80% des particuliers. Mais si vous voulez faire partie du top 1% et investir comme les légendes du "Quality Investing" (Terry Smith, Warren Buffett), le PER ne suffit pas. Pire, il peut vous mentir.
+Pourquoi ? Parce que le "Bénéfice Net" (le E du PER) est une opinion comptable. Il est manipulable. Il contient des éléments virtuels (dépréciations, amortissements, jeux d'écritures).
+Il existe une vérité supérieure :
+Le CASH
+.
+Le
+Free Cash Flow (FCF)
+, c'est l'argent qui reste vraiment dans la poche de l'entreprise à la fin de l'année, une fois qu'elle a tout payé et tout réinvesti pour maintenir ses usines. On ne ment pas avec le cash. Voici les outils pour valoriser une entreprise selon sa capacité à cracher du cash.
+La citation à retenir 💬
+"Les bénéfices sont une opinion, le cash est un fait."
+—
+Alfred Rappaport
+1. Le Price-to-FCF (Le PER du Pro) 🕵️‍♂️
+C'est exactement la même logique que le PER, mais on remplace le bénéfice comptable par le Free Cash Flow. C'est un ratio beaucoup plus pur.
+🧮 1. Le Price-to-FCF
+P/FCF = Capitalisation Boursière / Free Cash Flow
+Pourquoi l'utiliser ?
+Certaines entreprises (comme Amazon pendant longtemps) affichent peu de bénéfices comptables car elles investissent massivement, mais elles génèrent des montagnes de cash. Le PER les jugerait "hors de prix" (PER de 80), alors que le P/FCF révélerait qu'elles sont raisonnables (P/FCF de 25).
+[fcf-vs-net-income.png]
+Le comptable voit des profits faibles (Barres bleues). L'investisseur avisé voit une machine à cash (Ligne verte).
+Regardez ce graphique ci-dessus. C'est le cas classique d'une entreprise en forte croissance (comme Amazon à ses débuts). Pendant des années, les profits comptables (Net Income) semblaient ridicules, donnant des PER astronomiques de 100 ou 200. Les amateurs criaient à la bulle.
+Pendant ce temps, les investisseurs professionnels regardaient la ligne verte : le Free Cash Flow explosait. L'entreprise était en réalité une machine à cash, mais elle réinvestissait tout (ce qui réduisait son bénéfice comptable). Ceux qui ont utilisé le ratio
+Price-to-FCF
+ont compris la valeur réelle et ont acheté.
+Les Niveaux à surveiller pour le Quality :
+P/FCF < 15 :
+Très bon marché (souvent signe de problème ou de soldes exceptionnelles).
+P/FCF entre 20 et 25 :
+C'est la zone "Fair Value" pour une entreprise exceptionnelle.
+P/FCF > 35 :
+Cela commence à être très tendu, sauf si la croissance est explosive (>20%/an).
+2. Le FCF Yield (L'Arme Absolue) 👑
+Si je ne devais utiliser qu'un seul ratio pour le reste de ma vie, ce serait celui-ci. C'est l'indicateur favori de
+Terry Smith
+(le Warren Buffett anglais).
+C'est simplement l'inverse du précédent. Au lieu d'un multiple (20x), on obtient un pourcentage (5%). Cela permet de comparer l'action directement avec un taux d'intérêt bancaire ou obligataire.
+🧮 2. Le Free Cash Flow Yield
+FCF Yield (%) = (Free Cash Flow / Capitalisation Boursière) × 100
+L'interprétation est limpide grâce à notre jauge :
+[fcf-yield-jauge.png]
+Ne compliquez pas tout. Utilisez ce thermomètre simple pour savoir quand agir.
+Si vous achetiez toute l'entreprise aujourd'hui, c'est le rendement cash immédiat que vous toucheriez la première année.
+Zone Verte (> 5%) :
+C'est le signal d'achat. C'est mieux que les obligations d'État (souvent à 3% ou 4%), et en plus, ce rendement va augmenter avec la croissance !
+Zone Orange (3% - 5%) :
+C'est la zone d'attente (Hold). Le prix est correct, sans plus.
+Zone Rouge (< 2%) :
+C'est dangereux. Vous acceptez un rendement initial très faible. Il faut être sûr que l'entreprise va doubler de taille très vite pour justifier ce prix.
+Vous pensez que c'est trop simple ? Que les pros utilisent des formules magiques bien plus complexes ? Détrompez-vous.
+[fcf-yield-fundsmith.jpg]
+Terry Smith gère 25 milliards de dollars. Son indicateur numéro 1 ? Le Free Cash Flow Yield.
+Voici un extrait du rapport annuel de
+Fundsmith
+. Terry Smith gère 25 milliards de dollars. Regardez la ligne encadrée : le premier indicateur qu'il montre fièrement à ses investisseurs n'est pas le PER, mais le
+Free Cash Flow Yield
+. Il cherche constamment à avoir un portefeuille avec un rendement FCF supérieur à la moyenne du marché (S&P 500). Si c'est assez bon pour le meilleur gérant anglais, c'est assez bon pour nous.
+3. Le Forward PE (Regarder le pare-brise) 🔭
+Le PER classique (Trailing PE) regarde les 12 derniers mois. C'est le rétroviseur. Or, la Bourse achète l'avenir, pas le passé.
+Le
+Forward PE
+utilise les estimations de bénéfices des analystes pour les 12
+prochains
+mois.
+🧮 3. Le Forward PE
+Forward PE = Prix Actuel / Bénéfices Futurs Estimés (N+1)
+Le Piège à éviter :
+Parfois, une action semble chère aujourd'hui (PER de 40), mais si ses bénéfices doivent doubler l'année prochaine, son Forward PE n'est que de 20. Elle est donc "moins chère" qu'il n'y paraît.
+⚠️
+Attention :
+Les estimations des analystes sont souvent fausses. Utilisez ce ratio pour vérifier si la croissance attendue justifie le prix, mais ne lui faites pas une confiance aveugle.
+4. L'EV/EBITDA (Le Multiple de l'Acquéreur) 🤝
+Ce ratio est celui utilisé par les fonds de Private Equity et les banquiers d'affaires pour racheter des entreprises entières.
+Contrairement au PER qui ignore la dette, l'EV/EBITDA prend en compte la
+Valeur d'Entreprise
+(Capitalisation + Dette - Cash). C'est le prix réel pour prendre les clés de la boutique.
+🧮 4. L'EV / EBITDA
+EV / EBITDA = (Cap + Dette Nette) / Résultat Brut d'Exploitation
+C'est le meilleur outil pour comparer deux entreprises du même secteur qui ont des structures financières différentes (l'une très endettée, l'autre riche en cash). L'EV/EBITDA remet tout le monde sur un pied d'égalité.
+🔑
+Ce qu'il faut retenir
+Ne soyez pas un investisseur superficiel qui s'arrête au PER. Les bénéfices comptables peuvent être trompeurs.
+Le
+FCF Yield
+est votre boussole la plus fiable : il vous dit combien l'investissement vous rapporte en cash réel, tout de suite. Visez > 4-5%.
+Le
+Forward PE
+vous aide à ne pas rater des entreprises en forte croissance qui semblent chères dans le rétroviseur mais sont abordables dans le pare-brise.
+Croisez toujours ces indicateurs pour avoir une vision en 3D de la valorisation.

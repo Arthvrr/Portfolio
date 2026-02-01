@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.9 Le Reverse DCF | Formation StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles pour le contenu du cours */
+        .prose p { margin-bottom: 1.5rem; line-height: 1.8; color: #475569; }
+        .prose h4 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-top: 3rem; margin-bottom: 1.5rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .prose strong { color: #0f172a; font-weight: 600; }
+        .prose ul, .prose ol { list-style: none; padding-left: 0; }
+        .prose li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
+        /* Puce verte Emerald pour ce module */
+        .prose ul li::before { content: "•"; color: #059669; font-weight: bold; position: absolute; left: 0; } 
+        
+        /* Lightbox */
+        #imageViewer { backdrop-filter: blur(10px); }
+        .clickable-image { cursor: zoom-in; transition: transform 0.2s; }
+        .clickable-image:hover { transform: scale(1.01); }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <a href="../index.html" class="flex items-center gap-3 group">
+                    <img src="../media/Logo/Logo-White.png" alt="Logo StocksPickeur" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                    <span class="font-heading font-bold text-xl text-slate-900 tracking-tight">StocksPickeur</span>
+                </a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <nav class="flex gap-6">
+                        <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition">Calculateur</a>
+                        <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition">Portefeuille</a>
+                        <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition">Analyses</a>
+                        <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition">Formation</a>
+                    </nav>
+
+                    <div class="h-6 w-px bg-slate-200"></div>
+
+                    <a href="#.html" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                        </svg>
+                        Connexion
+                    </a>
+                </div>
+
+                <div class="md:hidden">
+                    <button class="text-slate-500 hover:text-slate-900">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-emerald-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="5.0.html" class="hover:text-emerald-600 transition">Module 5</a></li>
+                <li>/</li>
+                <li class="text-emerald-600 font-medium">Chapitre 5.9</li>
+            </ol>
+        </nav>
+
+        <div class="mb-12 border-b border-slate-200 pb-8">
+            <span class="text-emerald-600 font-bold tracking-wider uppercase text-xs">Module 5 • La Valorisation</span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">5.9. Le Reverse DCF 🔄</h1>
+        </div>
+
+        <div class="mb-10 not-prose"> 
+            <div class="flex items-center gap-2 mb-4">
+                <span class="bg-indigo-100 text-indigo-700 w-8 h-8 flex items-center justify-center rounded-lg text-lg">📺</span>
+                <h3 class="font-heading font-bold text-lg text-slate-900">Résumé du chapitre en vidéo</h3>
+            </div>
+            
+            <div class="rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-slate-900 aspect-video">
+                <video controls class="w-full h-full object-cover" preload="metadata">
+                    <source src="videos/5.9.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+            </div>
+        </div>
+
+        <article class="prose prose-slate max-w-none text-justify">
+            
+            <p>Dans le chapitre précédent, nous avons appris à utiliser le DCF classique. C'est un outil puissant, mais il a une faiblesse majeure : il vous oblige à jouer les devins. Vous devez dire : <em>"Je pense que l'entreprise va croître de 12% par an pendant 10 ans"</em>.</p>
+            <p>Mais soyons honnêtes : personne n'en sait rien. Si vous vous trompez et que la croissance est de 8% au lieu de 12%, votre calcul de valeur s'effondre.</p>
+            <p>Il existe une méthode plus intelligente, plus humble et souvent plus efficace : le <strong>Reverse DCF</strong> (DCF Inversé). C'est la méthode favorite des investisseurs qui détestent faire des paris hasardeux, comme Charlie Munger.</p>
+
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-xl my-8">
+                <p class="font-bold text-blue-900 mb-2">La Philosophie de l'Inversion 🧠</p>
+                <p class="italic text-blue-800 m-0">"Inversez, inversez toujours le problème." (Invert, always invert) <br>— <strong>Charlie Munger</strong></p>
+            </div>
+
+            <h4>1. Le Concept : Ne cherchez pas le prix, cherchez les attentes 🧐</h4>
+            <p>Le DCF classique pose la question :<br>
+            <em>"Si l'entreprise croît de 10%, quel devrait être son prix ?"</em></p>
+            <p>Le Reverse DCF inverse l'équation :<br>
+            <em>"Au prix actuel de 100€, quelle croissance le marché attend-il ?"</em></p>
+            <p>Au lieu de produire une "valeur théorique" (qui peut être fausse), le Reverse DCF vous donne le <strong>taux de croissance implicite</strong> (Implied Growth Rate) intégré dans le cours de bourse. C'est une vérification de la réalité.</p>
+            
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/high-vs-low-expectations.png')">
+                <img src="../media/Formation/high-vs-low-expectations.png"                      alt="Illustration minimaliste comparant un prix élevé à une barre de saut en hauteur très haute et un prix bas à une barre basse" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">L'analogie du saut en hauteur : Un prix élevé (à gauche) impose une barre très haute. L'entreprise doit faire une performance olympique pour justifier son prix. Un prix bas (à droite) place la barre au sol : même une performance médiocre suffit.</figcaption>
+            </figure>
+
+            <p><strong>L'analogie du Saut en Hauteur est parfaite :</strong></p>
+            <ul>
+                <li><strong>DCF Classique :</strong> Vous essayez de deviner à quelle hauteur l'athlète va sauter. C'est difficile.</li>
+                <li><strong>Reverse DCF :</strong> Vous regardez à quelle hauteur la barre est <em>déjà</em> placée par le marché (le Prix). Vous n'avez plus qu'à vous demander : <em>"La barre est-elle trop haute pour lui ?"</em>.</li>
+            </ul>
+
+            <h4>2. Comment l'utiliser pour prendre une décision ? ✅</h4>
+            <p>Une fois que le Reverse DCF vous a donné le taux attendu par le marché, la décision devient binaire et simple.</p>
+
+            <div class="grid md:grid-cols-2 gap-6 my-8">
+                <div class="bg-green-50 p-6 rounded-xl border border-green-100">
+                    <h5 class="text-green-800 font-bold mt-0 mb-2">🟢 Scénario A : Sous-évaluation</h5>
+                    <p class="text-sm text-green-900 mb-2">Le Reverse DCF vous dit : "Le marché attend <strong>5%</strong> de croissance."</p>
+                    <p class="text-sm text-green-900">Vous savez que l'entreprise fait historiquement <strong>12%</strong>.</p>
+                    <p class="font-bold text-green-700 mt-4">👉 OPPORTUNITÉ.</p>
+                    <p class="text-xs text-green-800">La barre est très basse. L'entreprise peut facilement sauter par-dessus. Le marché est trop pessimiste.</p>
+                </div>
+                <div class="bg-red-50 p-6 rounded-xl border border-red-100">
+                    <h5 class="text-red-800 font-bold mt-0 mb-2">🔴 Scénario B : Surévaluation</h5>
+                    <p class="text-sm text-red-900 mb-2">Le Reverse DCF vous dit : "Le marché attend <strong>35%</strong> de croissance."</p>
+                    <p class="text-sm text-red-900">C'est énorme. Très peu d'entreprises maintiennent ce rythme.</p>
+                    <p class="font-bold text-red-700 mt-4">👉 DANGER.</p>
+                    <p class="text-xs text-red-800">La barre est placée à un niveau olympique. Au moindre faux pas (croissance de "seulement" 20%), le cours va s'effondrer.</p>
+                </div>
+            </div>
+
+            <h4>3. Étude de Cas : Nvidia vs Coca-Cola 🥊</h4>
+            <p>Pour comprendre la puissance de l'outil, comparons deux entreprises fictives aux profils opposés.</p>
+
+            <h5>Cas 1 : L'entreprise "Hype" (Ex: Nvidia en haut de cycle)</h5>
+            <p>L'action est très chère. Vous lancez un Reverse DCF. L'outil vous dit : <em>"Pour justifier ce prix, l'entreprise doit croître de <strong>42% par an</strong> pendant 10 ans."</em></p>
+            <p><strong>Votre analyse :</strong> Est-ce physiquement possible ? Une entreprise de cette taille peut-elle doubler de taille tous les 2 ans pendant une décennie ? C'est peu probable. Le prix intègre déjà la perfection. Il n'y a aucune marge de sécurité.</p>
+
+            <h5>Cas 2 : L'entreprise "Ennuyeuse" (Ex: Coca-Cola ou une Assurance)</h5>
+            <p>L'action semble stagner. Vous lancez un Reverse DCF. L'outil vous dit : <em>"Le marché attend une croissance de <strong>0%</strong> (stagnation)."</em></p>
+            <p><strong>Votre analyse :</strong> L'entreprise vend toujours des canettes, augmente ses prix avec l'inflation, et rachète ses actions. Elle fera probablement 4% ou 5% de croissance sans effort. Le marché a placé la barre au sol. C'est un investissement très sûr (Asymétrie positive).</p>
+
+            <h4>4. Le "Test de Sanité" Historique (Reality Check) 🕵️‍♂️</h4>
+            <p>Le Reverse DCF vous donne un chiffre magique, disons <strong>15%</strong>. Le marché attend que l'entreprise croisse de 15% par an. Mais est-ce beaucoup ? Est-ce réaliste ?</p>
+            <p>Pour le savoir, il faut appliquer le <strong>Test de Sanité Historique</strong>. Comparez simplement l'attente du futur (Reverse DCF) avec la réalité du passé (CAGR historique).</p>
+            
+            <p><strong>La Loi des Grands Nombres :</strong> Il est extrêmement rare qu'une entreprise accélère sa croissance en devenant géante. Normalement, la croissance ralentit avec la taille. Si le marché attend une accélération soudaine, c'est un drapeau rouge.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/abbv-cagr-5yrs.png')">
+                <img src="../media/Formation/abbv-cagr-5yrs.png"                      alt="Tableau montrant le CAGR (taux de croissance annuel) du dividende d'AbbVie sur 5 ans" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Exemple sur AbbVie : Le CAGR historique sur 5 ans est de <strong>5.87%</strong> (encadré rouge). Si le Reverse DCF vous dit que le marché attend <strong>15%</strong> de croissance, il y a un problème. Le marché est en plein délire optimiste.</figcaption>
+            </figure>
+
+            <p><strong>Le verdict du test de sanité :</strong></p>
+            <ul>
+                <li><strong>Implied Growth (Futur) < Historical CAGR (Passé) :</strong> ✅ Feu Vert. Le marché s'attend à un ralentissement, ce qui est conservateur et normal. Vous avez une marge de sécurité.</li>
+                <li><strong>Implied Growth (Futur) > Historical CAGR (Passé) :</strong> ❌ Feu Rouge. Le marché parie sur un miracle ou une accélération massive. C'est de la spéculation, pas de l'investissement.</li>
+            </ul>
+
+            <h4>5. L'outil pour le faire (Intrinsic) 💻</h4>
+            <p>Mathématiquement, le Reverse DCF consiste à isoler la variable "g" (growth) dans la formule complexe du DCF. C'est impossible à faire de tête et pénible sur Excel (il faut utiliser la fonction "Valeur Cible").</p>
+            <p>C'est pour cela que j'ai intégré cette fonctionnalité nativement dans l'application <strong>Intrinsic</strong> que vous connaissez déjà.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/intrinsic.png')">
+                <img src="../media/Formation/intrinsic.png" 
+                     alt="Capture d'écran de la fonction Reverse DCF dans l'application Intrinsic" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">En haut à gauche, l'encadré vert : "Reverse DCF (Market Expectations)". Ici, pour justifier le prix de 191$, le marché attend 17.7% de croissance.</figcaption>
+            </figure>
+
+            <p>Dans cet exemple sur l'application :</p>
+            <ul>
+                <li><strong>Prix actuel :</strong> 191.14 $</li>
+                <li><strong>Attente du marché (Reverse DCF) :</strong> 17.7% de croissance annuelle.</li>
+                <li><strong>Votre estimation (FCF Growth Rate) :</strong> 25% (dans la colonne de gauche).</li>
+                <li><strong>Verdict :</strong> L'attente du marché (17%) est INFÉRIEURE à votre estimation (25%). Le marché est plus pessimiste que vous. C'est donc potentiellement une bonne affaire (Sous-évaluée).</li>
+            </ul>
+
+            <div class="bg-slate-900 text-white p-6 rounded-xl shadow-lg my-8 text-center">
+                <p class="font-bold text-lg mb-4">🚀 Calculateur de Reverse DCF</p>
+                <p class="text-slate-300 mb-6">Testez par vous même la méthode de Reverse DCF par ici dans cet outil intégré à la Formation !</p>
+                <a href="reverse-dcf.html" target="_blank" class="inline-block bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 px-6 rounded-full transition duration-300">
+                    Cliquez ici pour tester mon Calculateur de Reverse DCF
+                </a>
+            </div>
+
+            <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-8 mt-12 shadow-sm">
+                <h5 class="text-xl font-bold text-emerald-800 mb-4 flex items-center">
+                    <span class="bg-emerald-200 text-emerald-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">🔑</span> 
+                    Ce qu'il faut retenir
+                </h5>
+                <p class="text-emerald-900 m-0 leading-relaxed">
+                    Le <strong>Reverse DCF</strong> est l'outil de vérification de la réalité (Reality Check).<br>
+                    Au lieu de deviner le futur, il calcule ce que le marché "price" actuellement (la hauteur de la barre).<br>
+                    Utilisez le <strong>Test de Sanité</strong> : Si la croissance attendue par le marché est supérieure à ce que l'entreprise a réalisé dans son passé glorieux, fuyez. C'est un piège spéculatif.
+                </p>
+            </div>
+
+        </article>
+
+        <div class="flex justify-between items-center mt-16 pt-8 border-t border-slate-200">
+            <a href="5.8.html" class="text-slate-500 hover:text-emerald-600 font-medium transition flex items-center group">
+                <span class="group-hover:-translate-x-1 transition-transform mr-2">←</span> Chapitre Précédent
+            </a>
+            <a href="5.10.html" class="bg-emerald-600 text-white px-6 py-3 rounded-full font-bold hover:bg-emerald-700 transition shadow-lg shadow-emerald-200 flex items-center group">
+                Chapitre Suivant<span class="group-hover:translate-x-1 transition-transform ml-2">→</span>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <div id="imageViewer" class="fixed inset-0 z-[60] hidden bg-slate-900/90 backdrop-blur-sm transition-opacity duration-300" onclick="closeViewer()">
+        <span class="absolute top-5 right-8 text-white text-5xl cursor-pointer hover:text-slate-300 transition">&times;</span>
+        <img class="m-auto block max-w-[95%] max-h-[90vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded shadow-2xl" id="enlargedImg">
+    </div>
+
+    <script>
+        // Gestion de la Lightbox
+        var modal = document.getElementById("imageViewer");
+        var modalImg = document.getElementById("enlargedImg");
+
+        function openViewer(src) {
+            modal.style.display = "block";
+            modalImg.src = src;
+            document.body.style.overflow = "hidden"; // Empêche le scroll
+        }
+
+        function closeViewer() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto"; // Réactive le scroll
+        }
+        
+        // Fermer avec la touche Echap
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeViewer();
+            }
+        });
+    </script>
+
+</body>
+</html>

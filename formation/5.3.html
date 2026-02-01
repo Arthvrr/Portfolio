@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5.3 La Marge de Sécurité | Formation StocksPickeur</title>
+    <title>5.3 Prix vs Valeur | Formation StocksPickeur</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -18,12 +18,10 @@
         /* Styles pour le contenu du cours */
         .prose p { margin-bottom: 1.5rem; line-height: 1.8; color: #475569; }
         .prose h4 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-top: 3rem; margin-bottom: 1.5rem; font-family: 'Plus Jakarta Sans', sans-serif; }
-        .prose h5 { font-size: 1.2rem; font-weight: 700; color: #065f46; margin-top: 2rem; margin-bottom: 1rem; font-family: 'Plus Jakarta Sans', sans-serif; }
         .prose strong { color: #0f172a; font-weight: 600; }
         .prose ul, .prose ol { list-style: none; padding-left: 0; }
         .prose li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
-        /* Puce verte Emerald pour ce module */
-        .prose ul li::before { content: "•"; color: #059669; font-weight: bold; position: absolute; left: 0; } 
+        .prose ul li::before { content: "•"; color: #0ea5e9; font-weight: bold; position: absolute; left: 0; }
         
         /* Lightbox */
         #imageViewer { backdrop-filter: blur(10px); }
@@ -52,10 +50,10 @@
 
                 <div class="hidden md:flex items-center gap-8">
                     <nav class="flex gap-6">
-                        <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition">Calculateur</a>
-                        <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition">Portefeuille</a>
-                        <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition">Analyses</a>
-                        <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition">Formation</a>
+                        <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Calculateur</a>
+                        <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
+                        <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Analyses</a>
+                        <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Formation</a>
                     </nav>
 
                     <div class="h-6 w-px bg-slate-200"></div>
@@ -93,7 +91,7 @@
 
         <div class="mb-12 border-b border-slate-200 pb-8">
             <span class="text-emerald-600 font-bold tracking-wider uppercase text-xs">Module 5 • La Valorisation</span>
-            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">5.3. La Marge de Sécurité 🛡️</h1>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">5.3. Prix vs Valeur 🏷️</h1>
         </div>
 
         <div class="mb-10 not-prose"> 
@@ -112,112 +110,75 @@
 
         <article class="prose prose-slate max-w-none text-justify">
             
-            <p>Dans le chapitre précédent, nous avons vu que votre objectif était d'acheter le "Snickers" (l'entreprise) quand son Prix était inférieur à sa Valeur. Mais il y a un problème de taille : <strong>vous n'êtes pas devin</strong>.</p>
-            <p>Calculer la Valeur Intrinsèque d'une entreprise n'est pas une science exacte comme la physique. Cela repose sur des estimations du futur. Et si vous vous trompiez ? Et si l'entreprise gagnait moins d'argent que prévu ? Et si une crise éclatait demain ?</p>
-            <p>Pour survivre à ces incertitudes, les investisseurs intelligents utilisent le concept le plus important de l'ingénierie moderne : la <strong>Marge de Sécurité</strong>.</p>
+            <p>S'il n'y avait qu'une seule leçon à retenir de toute l'histoire de la finance, ce serait celle-ci. C'est le concept qui sépare les spéculateurs (qui parient sur des courbes) des investisseurs (qui achètent des entreprises).</p>
+            <p>La confusion entre le <strong>Prix</strong> et la <strong>Valeur</strong> est la cause de 99% des pertes en Bourse.</p>
 
-            <p>En Bourse, c'est ce qui sépare un investissement serein d'un pari risqué. Regardez comment cela se matérialise graphiquement :</p>
+            <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-xl my-8">
+                <p class="font-bold text-indigo-900 mb-2">La Règle d'Or de Warren Buffett 🧠</p>
+                <p class="italic text-indigo-800 m-0">"Le Prix est ce que vous payez. La Valeur est ce que vous obtenez."</p>
+            </div>
 
-            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/margin-of-safety.png')">
-                <img src="../media/Formation/margin-of-safety.png" 
-                     alt="Graphique montrant la marge de sécurité comme la différence entre le prix et la valeur intrinsèque" 
+            <h4>1. L'Analogie du Snickers 🍫</h4>
+            <p>Pour bien comprendre cette distinction philosophique, sortons de la Bourse un instant. Prenons une barre chocolatée Snickers.</p>
+            <ul>
+                <li>Si vous l'achetez au supermarché, vous la payez <strong>0,80€</strong>.</li>
+                <li>Si vous l'achetez à la station-service, vous la payez <strong>1,50€</strong>.</li>
+                <li>Si vous l'achetez dans le minibar d'un hôtel de luxe, vous la payez <strong>4,00€</strong>.</li>
+            </ul>
+            <p>Dans les trois cas, <strong>la Valeur est identique</strong>. C'est le même produit, le même goût, les mêmes calories, fabriqué dans la même usine.</p>
+            <p>Pourtant, <strong>le Prix a varié du simple au quintuple</strong>. Le contexte a changé, mais pas la valeur intrinsèque de l'objet.</p>
+            <p>En Bourse, c'est exactement la même chose. Les actions sont des Snickers qui clignotent sur un écran. Votre but d'investisseur est d'acheter l'entreprise quand le marché vous la propose au prix du supermarché, et de refuser poliment quand il vous la propose au prix du minibar.</p>
+
+            <h4>2. La Valeur Intrinsèque (Intrinsic Value) 💎</h4>
+            <p>Si le Prix est facile à connaître (il est affiché sur Google Finance), la Valeur est invisible. On l'appelle la <strong>Valeur Intrinsèque</strong>.</p>
+            <p>C'est la valeur réelle, économique, de l'entreprise. Elle est déterminée par ses fondamentaux : ses usines, ses brevets, sa marque, sa trésorerie et surtout, les bénéfices qu'elle va générer dans le futur.</p>
+            <p>Regardez ce schéma fondamental. Il illustre le combat permanent entre le Prix (ce que demande le marché) et la Valeur (ce que ça vaut vraiment).</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/intrinsic-vs-market-value.jpg')">
+                <img src="../media/Formation/intrinsic-vs-market-value.jpg" 
+                     alt="Graphique montrant l'oscillation du prix autour de la valeur intrinsèque" 
                      class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
-                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">La zone verte (Undervalued Zone) est votre filet de sécurité. La ligne bleue est la valeur réelle, la courbe jaune est le prix du marché.</figcaption>
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">La ligne orange (Valeur) est stable et monte lentement. La ligne noire (Prix) est maniaco-dépressive.</figcaption>
             </figure>
 
-            <p>Si vous estimez qu'une action vaut 100€ (Ligne Bleue), vous ne l'achetez pas à 99€. Vous attendez qu'elle tombe dans la zone verte, vers 70€ ou 80€. Cette décote de 20% ou 30% est votre bouclier. Si votre estimation était fausse et que l'entreprise vaut finalement moins, vous ne perdrez pas d'argent car vous aviez de la marge.</p>
-
-            <div class="bg-emerald-50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-10">
-                <p class="font-bold text-emerald-900 mb-2">Warren Buffett résume tout 🧠</p>
-                <p class="italic text-emerald-800 m-0">"Si vous comprenez le chapitre 8 et le chapitre 20 de 'L'Investisseur Intelligent' (sur la marge de sécurité), vous ne perdrez pas d'argent en bourse."</p>
-            </div>
-
-            <h4>2. Le Dilemme "Quality" : Faut-il attendre les soldes ? 🏷️</h4>
-            <p>C'est ici que la stratégie <strong>Quality</strong> diffère radicalement de la stratégie <strong>Value</strong> classique.</p>
+            <p>Ce graphique raconte toute l'histoire de la Bourse :</p>
             <ul>
-                <li><strong>L'investisseur Value (Benjamin Graham) :</strong> Il veut une marge de sécurité énorme (50%). Il cherche des actions à 0,50€ qui valent 1€. Le problème ? Souvent, ce sont des entreprises médiocres ou en difficulté.</li>
-                <li><strong>L'investisseur Quality (Nous) :</strong> Nous cherchons des entreprises exceptionnelles (LVMH, Microsoft, Air Liquide).</li>
+                <li><strong>La Ligne Orange (Valeur) :</strong> Elle est calme. Elle monte doucement au fur et à mesure que l'entreprise vend plus de produits et s'améliore.</li>
+                <li><strong>La Ligne Noire (Prix) :</strong> Elle est folle. Elle oscille violemment autour de la valeur réelle, guidée par la peur (krach) et l'avidité (bulle).</li>
             </ul>
-            <p>Le problème ? <strong>Les entreprises exceptionnelles ne sont JAMAIS soldées à -50%</strong> (sauf fin du monde). Si vous attendez une marge de sécurité de 50% pour acheter du Microsoft, vous mourrez riche de patience, mais pauvre en actions. Vous n'achèterez jamais.</p>
+            <p>Votre opportunité se trouve dans les zones où la ligne noire passe <strong>en dessous</strong> de la ligne orange (Underpriced). C'est là que vous achetez le Snickers à 0,80€.</p>
 
-            <h4>3. Notre approche : La Marge de Sécurité par la Qualité 💎</h4>
-            <p>Dans notre stratégie, la marge de sécurité ne vient pas uniquement du <strong>PRIX</strong>, elle vient de la <strong>QUALITÉ</strong> du business.</p>
-            <p>Regardez la différence :</p>
-            
-            <div class="grid md:grid-cols-2 gap-6 my-8">
-                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
-                    <h5 class="font-bold text-red-600 mb-2">Entreprise Médiocre</h5>
-                    <p class="text-sm text-slate-500 mb-4">Ex: Constructeur auto endetté</p>
-                    <ul class="text-sm space-y-2">
-                        <li>📉 La valeur intrinsèque stagne ou baisse avec le temps.</li>
-                        <li>⏳ Le temps joue <strong>contre</strong> vous.</li>
-                        <li>👉 Il faut une marge de sécurité <strong>ÉNORME</strong> sur le prix (acheter à -50%) pour compenser le risque.</li>
-                    </ul>
-                </div>
-                <div class="bg-emerald-50 p-5 rounded-xl border border-emerald-100 shadow-sm">
-                    <h5 class="font-bold text-emerald-600 mb-2">Entreprise Quality</h5>
-                    <p class="text-sm text-emerald-700 mb-4">Ex: Logiciel SaaS dominant</p>
-                    <ul class="text-sm space-y-2 text-emerald-900">
-                        <li>📈 La valeur intrinsèque <strong>augmente</strong> chaque année (compounding).</li>
-                        <li>⏳ Le temps joue <strong>pour</strong> vous.</li>
-                        <li>👉 Une marge de sécurité <strong>FAIBLE</strong> (10-20%) ou un "Prix Juste" (Fair Value) suffit.</li>
-                    </ul>
-                </div>
-            </div>
+            <h4>3. Sous-évalué vs Surévalué : Le Verdict ⚖️</h4>
+            <p>En tant qu'investisseur Quality, nous passons notre temps à comparer ces deux notions. Pour chaque action que nous analysons, nous nous trouvons dans l'une de ces deux situations :</p>
 
-            <p>C'est la grande révélation : <strong>Si l'entreprise est capable de faire croître sa valeur intrinsèque de 15% par an, même si vous la payez un peu trop cher aujourd'hui, la croissance finira par "gommer" votre erreur en quelques années.</strong></p>
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/intrinsic-value.png')">
+                <img src="../media/Formation/intrinsic-value.png" 
+                     alt="Comparaison graphique entre Market Value et Intrinsic Value" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Situation 1 : Danger. Situation 2 : Opportunité.</figcaption>
+            </figure>
 
-            <h4>4. La Marge Qualitative : L'Airbag du Business 🛡️</h4>
-            <p>La marge de sécurité, ce n'est pas que des chiffres. C'est aussi la robustesse du modèle. C'est ce qu'on appelle la <strong>Marge de Sécurité Qualitative</strong>.</p>
-            <p>Un <strong>Moat puissant</strong> (Avantage Concurrentiel) est une protection en soi. Imaginez Coca-Cola. Même si l'entreprise fait une terrible erreur marketing (comme le "New Coke" dans les années 80), sa marque est si puissante qu'elle survit. Elle a le droit à l'erreur.</p>
-            <p>À l'inverse, une start-up technologique sans Moat n'a aucune marge d'erreur. Si elle sort un produit raté, elle meurt. Investir dans la Qualité, c'est investir dans des entreprises qui ont des "airbags" économiques intégrés. C'est ce qui nous permet d'accepter une marge de sécurité financière plus faible.</p>
-
-            <h4>5. La Marge Psychologique : Le Somnifère 😴</h4>
-            <p>Enfin, n'oublions jamais le facteur humain. Acheter avec une marge de sécurité a une vertu thérapeutique : cela vous permet de <strong>dormir la nuit</strong>.</p>
-            <p>Si vous achetez une action à 100€ alors que vous êtes persuadé qu'elle en vaut 150€ (vous avez donc 33% de marge) :</p>
             <ul>
-                <li>Si l'action tombe à 90€ le lendemain, vous ne paniquez pas.</li>
-                <li>Au contraire, vous vous dites : "Le marché se trompe encore plus, c'est une opportunité de renforcer !".</li>
+                <li><strong>Stock 1 (Surévalué / Overvalued) :</strong> Le Prix (colonne bleue) est bien plus haut que la Valeur réelle (colonne verte). C'est Microsoft en l'an 2000. Si vous achetez ici, vous pariez sur la spéculation. Le risque de perte est immense car la gravité finira par ramener le prix vers la valeur.</li>
+                <li><strong>Stock 2 (Sous-évalué / Undervalued) :</strong> Le Prix est inférieur à la Valeur. Le marché déprime, il a peur, il solde l'entreprise. C'est ici que se fait l'argent. Vous achetez 1€ pour 0,80€. Vous avez une "Marge de Sécurité".</li>
             </ul>
-            <p>La marge de sécurité est votre antidote contre le <strong>Panic Selling</strong>. Elle transforme la peur de la baisse en opportunité d'achat. C'est ce qui vous permet de tenir vos positions pendant les krachs boursiers, là où les autres vendent tout.</p>
 
-            <h4>6. La Règle Pratique : Quelle marge exiger ? 📏</h4>
-            <p>Voici la règle que j'applique pour déterminer ma "Zone d'Achat" (Buy Zone) en fonction de la qualité du dossier :</p>
-            
-            <div class="overflow-x-auto">
-                <table class="w-full text-sm text-left text-slate-500 border border-slate-200 rounded-lg">
-                    <thead class="text-xs text-slate-700 uppercase bg-slate-50">
-                        <tr>
-                            <th scope="col" class="px-6 py-3">Type d'entreprise</th>
-                            <th scope="col" class="px-6 py-3">Exemples</th>
-                            <th scope="col" class="px-6 py-3">Incertitude</th>
-                            <th scope="col" class="px-6 py-3 text-emerald-600 font-bold">Marge de Sécurité Requise</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="bg-white border-b hover:bg-slate-50">
-                            <td class="px-6 py-4 font-bold text-indigo-900">Ultra Quality 💎</td>
-                            <td class="px-6 py-4">Microsoft, Hermès, Costco</td>
-                            <td class="px-6 py-4 text-green-600">Très Faible</td>
-                            <td class="px-6 py-4 font-bold">0% à 10% (Fair Value)</td>
-                        </tr>
-                        <tr class="bg-white border-b hover:bg-slate-50">
-                            <td class="px-6 py-4 font-bold text-slate-900">Quality Standard</td>
-                            <td class="px-6 py-4">Starbucks, Nike, Apple</td>
-                            <td class="px-6 py-4 text-orange-500">Moyenne</td>
-                            <td class="px-6 py-4 font-bold">15% à 20%</td>
-                        </tr>
-                        <tr class="bg-white hover:bg-slate-50">
-                            <td class="px-6 py-4 font-bold text-slate-500">Cyclique / Risqué</td>
-                            <td class="px-6 py-4">Renault, Airlines, Biotech</td>
-                            <td class="px-6 py-4 text-red-600">Élevée</td>
-                            <td class="px-6 py-4 font-bold">40% à 50% (Minimum !)</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <h4>4. La notion de "Fair Value" (Le Juste Prix) 🎯</h4>
+            <p>Attention, la valorisation n'est pas une science exacte au centime près. Personne ne peut dire : <em>"L'action LVMH vaut exactement 742,15€"</em>. C'est impossible car cela dépend de l'avenir.</p>
+            <p>Nous raisonnons plutôt en termes de <strong>Zones</strong>. Imaginez une jauge de température :</p>
 
-            <p class="mt-6">Plus l'avenir de l'entreprise est prévisible (Quality), moins vous avez besoin de marge. Plus l'avenir est flou, plus vous devez exiger un prix bradé.</p>
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/price-vs-value.png')">
+                <img src="../media/Formation/price-vs-value.png" 
+                     alt="Jauge montrant les zones de sous-évaluation, juste prix et surévaluation" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Nous cherchons à acheter dans le vert, ou au pire dans le jaune (Fair Value) pour les entreprises d'exception.</figcaption>
+            </figure>
+
+            <ul>
+                <li><strong>Zone Verte (Undervalued) :</strong> C'est les soldes. C'est rare pour les entreprises de qualité, sauf en cas de crise majeure.</li>
+                <li><strong>Zone Jaune (Fair Value / About Right) :</strong> Le prix est juste. Vous ne faites pas l'affaire du siècle, mais vous ne vous faites pas arnaquer. Pour une entreprise exceptionnelle (Quality), payer le "Juste Prix" est souvent suffisant pour s'enrichir sur le long terme.</li>
+                <li><strong>Zone Rouge (Overvalued) :</strong> C'est trop cher. Même si l'entreprise est géniale, le prix intègre trop d'optimisme. Il n'y a plus de place pour l'erreur.</li>
+            </ul>
 
             <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-8 mt-12 shadow-sm">
                 <h5 class="text-xl font-bold text-emerald-800 mb-4 flex items-center">
@@ -225,9 +186,9 @@
                     Ce qu'il faut retenir
                 </h5>
                 <p class="text-emerald-900 m-0 leading-relaxed">
-                    La Marge de Sécurité est votre assurance-vie. C'est l'écart entre le Prix payé et la Valeur estimée.<br>
-                    Cependant, ne soyez pas dogmatique. Pour une entreprise "Quality" exceptionnelle qui croît chaque année, <strong>attendre une marge de sécurité de 50% est une erreur</strong> (car le prix ne descendra jamais aussi bas).<br>
-                    Acceptez de payer un "Prix Juste" pour l'excellence, et exigez un "Prix Bradé" pour le reste.
+                    Le marché est une machine maniaque qui change d'avis tous les jours sur le prix (la ligne noire). L'entreprise est une machine économique qui change lentement de valeur (la ligne orange).<br>
+                    Votre mission d'investisseur n'est pas de prédire ce que fera la ligne noire demain, mais de savoir où se trouve la ligne orange aujourd'hui. <br>
+                    <strong>Tant que le Prix < Valeur, vous êtes en sécurité.</strong>
                 </p>
             </div>
 
@@ -238,7 +199,7 @@
                 <span class="group-hover:-translate-x-1 transition-transform mr-2">←</span> Chapitre Précédent
             </a>
             <a href="5.4.html" class="bg-emerald-600 text-white px-6 py-3 rounded-full font-bold hover:bg-emerald-700 transition shadow-lg shadow-emerald-200 flex items-center group">
-                Chapitre Suivant <span class="group-hover:translate-x-1 transition-transform ml-2">→</span>
+                Chapitre Suivant<span class="group-hover:translate-x-1 transition-transform ml-2">→</span>
             </a>
         </div>
 

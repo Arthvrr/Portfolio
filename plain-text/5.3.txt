@@ -1,0 +1,70 @@
+S'il n'y avait qu'une seule leçon à retenir de toute l'histoire de la finance, ce serait celle-ci. C'est le concept qui sépare les spéculateurs (qui parient sur des courbes) des investisseurs (qui achètent des entreprises).
+La confusion entre le
+Prix
+et la
+Valeur
+est la cause de 99% des pertes en Bourse.
+La Règle d'Or de Warren Buffett 🧠
+"Le Prix est ce que vous payez. La Valeur est ce que vous obtenez."
+1. L'Analogie du Snickers 🍫
+Pour bien comprendre cette distinction philosophique, sortons de la Bourse un instant. Prenons une barre chocolatée Snickers.
+Si vous l'achetez au supermarché, vous la payez
+0,80€
+.
+Si vous l'achetez à la station-service, vous la payez
+1,50€
+.
+Si vous l'achetez dans le minibar d'un hôtel de luxe, vous la payez
+4,00€
+.
+Dans les trois cas,
+la Valeur est identique
+. C'est le même produit, le même goût, les mêmes calories, fabriqué dans la même usine.
+Pourtant,
+le Prix a varié du simple au quintuple
+. Le contexte a changé, mais pas la valeur intrinsèque de l'objet.
+En Bourse, c'est exactement la même chose. Les actions sont des Snickers qui clignotent sur un écran. Votre but d'investisseur est d'acheter l'entreprise quand le marché vous la propose au prix du supermarché, et de refuser poliment quand il vous la propose au prix du minibar.
+2. La Valeur Intrinsèque (Intrinsic Value) 💎
+Si le Prix est facile à connaître (il est affiché sur Google Finance), la Valeur est invisible. On l'appelle la
+Valeur Intrinsèque
+.
+C'est la valeur réelle, économique, de l'entreprise. Elle est déterminée par ses fondamentaux : ses usines, ses brevets, sa marque, sa trésorerie et surtout, les bénéfices qu'elle va générer dans le futur.
+Regardez ce schéma fondamental. Il illustre le combat permanent entre le Prix (ce que demande le marché) et la Valeur (ce que ça vaut vraiment).
+[intrinsic-vs-market-value.jpg]
+La ligne orange (Valeur) est stable et monte lentement. La ligne noire (Prix) est maniaco-dépressive.
+Ce graphique raconte toute l'histoire de la Bourse :
+La Ligne Orange (Valeur) :
+Elle est calme. Elle monte doucement au fur et à mesure que l'entreprise vend plus de produits et s'améliore.
+La Ligne Noire (Prix) :
+Elle est folle. Elle oscille violemment autour de la valeur réelle, guidée par la peur (krach) et l'avidité (bulle).
+Votre opportunité se trouve dans les zones où la ligne noire passe
+en dessous
+de la ligne orange (Underpriced). C'est là que vous achetez le Snickers à 0,80€.
+3. Sous-évalué vs Surévalué : Le Verdict ⚖️
+En tant qu'investisseur Quality, nous passons notre temps à comparer ces deux notions. Pour chaque action que nous analysons, nous nous trouvons dans l'une de ces deux situations :
+[intrinsic-value.jpg.png]
+Situation 1 : Danger. Situation 2 : Opportunité.
+Stock 1 (Surévalué / Overvalued) :
+Le Prix (colonne bleue) est bien plus haut que la Valeur réelle (colonne verte). C'est Microsoft en l'an 2000. Si vous achetez ici, vous pariez sur la spéculation. Le risque de perte est immense car la gravité finira par ramener le prix vers la valeur.
+Stock 2 (Sous-évalué / Undervalued) :
+Le Prix est inférieur à la Valeur. Le marché déprime, il a peur, il solde l'entreprise. C'est ici que se fait l'argent. Vous achetez 1€ pour 0,80€. Vous avez une "Marge de Sécurité".
+4. La notion de "Fair Value" (Le Juste Prix) 🎯
+Attention, la valorisation n'est pas une science exacte au centime près. Personne ne peut dire :
+"L'action LVMH vaut exactement 742,15€"
+. C'est impossible car cela dépend de l'avenir.
+Nous raisonnons plutôt en termes de
+Zones
+. Imaginez une jauge de température :
+[price-vs-value.png]
+Nous cherchons à acheter dans le vert, ou au pire dans le jaune (Fair Value) pour les entreprises d'exception.
+Zone Verte (Undervalued) :
+C'est les soldes. C'est rare pour les entreprises de qualité, sauf en cas de crise majeure.
+Zone Jaune (Fair Value / About Right) :
+Le prix est juste. Vous ne faites pas l'affaire du siècle, mais vous ne vous faites pas arnaquer. Pour une entreprise exceptionnelle (Quality), payer le "Juste Prix" est souvent suffisant pour s'enrichir sur le long terme.
+Zone Rouge (Overvalued) :
+C'est trop cher. Même si l'entreprise est géniale, le prix intègre trop d'optimisme. Il n'y a plus de place pour l'erreur.
+🔑
+Ce qu'il faut retenir
+Le marché est une machine maniaque qui change d'avis tous les jours sur le prix (la ligne noire). L'entreprise est une machine économique qui change lentement de valeur (la ligne orange).
+Votre mission d'investisseur n'est pas de prédire ce que fera la ligne noire demain, mais de savoir où se trouve la ligne orange aujourd'hui.
+Tant que le Prix < Valeur, vous êtes en sécurité.

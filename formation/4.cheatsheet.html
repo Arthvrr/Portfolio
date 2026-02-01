@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Sheet • Module 4 | StocksPickeur</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-print-color-adjust: exact; }
+        .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles spécifiques pour l'impression A4 */
+        @media print {
+            @page { margin: 0.5cm; size: A4 portrait; }
+            body { background-color: white; }
+            .no-print { display: none !important; }
+            .print-break-inside { break-inside: avoid; }
+            .shadow-sm, .shadow-md, .shadow-lg { box-shadow: none !important; border: 1px solid #e2e8f0; }
+            .bg-slate-50 { background-color: #f8fafc !important; }
+            .bg-indigo-600 { background-color: #4f46e5 !important; color: white !important; }
+            .bg-emerald-600 { background-color: #059669 !important; color: white !important; }
+            .bg-slate-900 { background-color: #0f172a !important; color: white !important; }
+            .text-white { color: white !important; }
+            .bg-emerald-100 { background-color: #d1fae5 !important; }
+            .text-emerald-800 { color: #065f46 !important; }
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-600 p-4 md:p-8 min-h-screen">
+
+    <div class="max-w-[210mm] mx-auto mb-6 flex justify-between items-center no-print">
+        <a href="4.0.html" class="flex items-center text-slate-500 hover:text-indigo-600 transition font-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Retour au cours
+        </a>
+        <button onclick="window.print()" class="bg-slate-900 text-white px-4 py-2 rounded-lg font-bold flex items-center gap-2 hover:bg-slate-800 transition shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2-2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+            </svg>
+            Imprimer la Fiche (PDF)
+        </button>
+    </div>
+
+    <div class="max-w-[210mm] mx-auto bg-white shadow-2xl rounded-xl p-8 md:p-10 border border-slate-200 relative overflow-hidden">
+        
+        <header class="flex justify-between items-end border-b-2 border-slate-900 pb-6 mb-8">
+            <div>
+                <span class="text-indigo-600 font-bold tracking-wider uppercase text-xs">Module 4 • La Méthode</span>
+                <h1 class="text-4xl font-heading font-extrabold text-slate-900 mt-1">La Stratégie Quality 💎</h1>
+                <p class="text-slate-500 text-sm mt-1">La Scorecard officielle pour noter vos actions sur 30.</p>
+            </div>
+            <div class="text-right">
+                <div class="font-heading font-bold text-xl text-slate-900 flex items-center gap-2 justify-end">
+                    <img src="../media/Logo/Logo-White.png" class="h-6 filter invert" alt="">
+                    StocksPickeur
+                </div>
+                <div class="text-xs text-slate-400 mt-1">Fiche Récapitulative v1.0</div>
+            </div>
+        </header>
+
+        <div class="flex items-center justify-between bg-slate-50 p-4 rounded-xl border border-slate-200 mb-6 print-break-inside">
+            <div class="flex items-center gap-3">
+                <span class="bg-slate-900 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">1</span>
+                <div>
+                    <strong class="block text-slate-900 text-sm">Filtre Quantitatif 🧮</strong>
+                    <span class="text-xs text-slate-500">Filtrer avec les chiffres (Score > 20/30)</span>
+                </div>
+            </div>
+            <div class="text-slate-300">➔</div>
+            <div class="flex items-center gap-3">
+                <span class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">2</span>
+                <div>
+                    <strong class="block text-slate-900 text-sm">Filtre Qualitatif 🕵️‍♂️</strong>
+                    <span class="text-xs text-slate-500">Valider le Moat & Management</span>
+                </div>
+            </div>
+            <div class="text-slate-300">➔</div>
+            <div class="flex items-center gap-3">
+                <span class="bg-emerald-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">3</span>
+                <div>
+                    <strong class="block text-slate-900 text-sm">Décision 🎯</strong>
+                    <span class="text-xs text-slate-500">Acheter ou Rejeter</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="border border-slate-300 rounded-xl overflow-hidden mb-6 print-break-inside">
+            <div class="bg-slate-900 text-white p-3 flex justify-between items-center">
+                <h3 class="font-heading font-bold text-sm uppercase tracking-wide">🏆 La Scorecard StocksPickeur (Max 30 pts)</h3>
+                <span class="text-xs bg-slate-700 px-2 py-1 rounded">Visez > 22/30</span>
+            </div>
+            
+            <table class="w-full text-xs md:text-sm">
+                <thead class="bg-slate-100 text-slate-500 font-medium border-b border-slate-200">
+                    <tr>
+                        <th class="p-3 text-left w-1/3">Pilier</th>
+                        <th class="p-3 text-left">Critère</th>
+                        <th class="p-3 text-center text-emerald-600 font-bold">Excellent (+2)</th>
+                        <th class="p-3 text-center text-amber-600 font-bold">Moyen (+1)</th>
+                        <th class="p-3 text-center text-red-600 font-bold">Mauvais (+0)</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200 text-slate-700">
+                    <tr>
+                        <td class="p-3 font-bold bg-slate-50/50" rowspan="3">1. BASES 🏗️<br><span class="text-[10px] font-normal text-slate-400">Fondations</span></td>
+                        <td class="p-2 pl-3">Performance (5 ans)</td>
+                        <td class="p-2 text-center font-medium bg-emerald-50/30">bats S&P500</td>
+                        <td class="p-2 text-center text-slate-400">-</td>
+                        <td class="p-2 text-center bg-red-50/30">≠ bats S&P500</td>
+                    </tr>
+                    <tr>
+                        <td class="p-2 pl-3">Rachat d'Actions</td>
+                        <td class="p-2 text-center font-medium bg-emerald-50/30">Oui (Diminue)</td>
+                        <td class="p-2 text-center">Stagne</td>
+                        <td class="p-2 text-center bg-red-50/30">Non (Dilution)</td>
+                    </tr>
+                    <tr>
+                        <td class="p-2 pl-3">Diversification</td>
+                        <td class="p-2 text-center font-medium bg-emerald-50/30">Équilibrée</td>
+                        <td class="p-2 text-center">Moyenne</td>
+                        <td class="p-2 text-center bg-red-50/30">Pas diversifié</td>
+                    </tr>
+
+                    <tr>
+                        <td class="p-3 font-bold bg-slate-50/50 border-t border-slate-300" rowspan="3">2. CROISSANCE 🚀<br><span class="text-[10px] font-normal text-slate-400">Le Moteur (10 ans)</span></td>
+                        <td class="p-2 pl-3 border-t border-slate-300">Chiffre d'Affaires</td>
+                        <td class="p-2 text-center font-medium bg-emerald-50/30 border-t border-slate-300">10 ans croissance</td>
+                        <td class="p-2 text-center border-t border-slate-300">>= 7 ans croissance</td>
+                        <td class="p-2 text-center bg-red-50/30 border-t border-slate-300">< 7 ans croissance</td>
+                    </tr>
+                    <tr>
+                        <td class="p-2 pl-3">BPA (EPS)</td>
+                        <td class="p-2 text-center font-medium bg-emerald-50/30 border-t border-slate-300">10 ans croissance</td>
+                        <td class="p-2 text-center border-t border-slate-300">>= 7 ans croissance</td>
+                        <td class="p-2 text-center bg-red-50/30 border-t border-slate-300">< 7 ans croissance</td>
+                    </tr>
+                    <tr>
+                        <td class="p-2 pl-3">Free Cash Flow</td>
+                        <td class="p-2 text-center font-medium bg-emerald-50/30 border-t border-slate-300">10 ans croissance</td>
+                        <td class="p-2 text-center border-t border-slate-300">>= 7 ans croissance</td>
+                        <td class="p-2 text-center bg-red-50/30 border-t border-slate-300">< 7 ans croissance</td>
+                    </tr>
+
+                    <tr>
+                        <td class="p-3 font-bold bg-slate-50/50 border-t border-slate-300" rowspan="3">3. RENTABILITÉ 💰<br><span class="text-[10px] font-normal text-slate-400">Efficacité</span></td>
+                        <td class="p-2 pl-3 border-t border-slate-300">Marge Nette</td>
+                        <td class="p-2 text-center font-medium bg-emerald-50/30 border-t border-slate-300">>= 30%</td>
+                        <td class="p-2 text-center border-t border-slate-300">>= 20%</td>
+                        <td class="p-2 text-center bg-red-50/30 border-t border-slate-300">< 20%</td>
+                    </tr>
+                    <tr>
+                        <td class="p-2 pl-3">FCF Margin</td>
+                        <td class="p-2 text-center font-medium bg-emerald-50/30 border-t border-slate-300">>= 30%</td>
+                        <td class="p-2 text-center border-t border-slate-300">>= 20%</td>
+                        <td class="p-2 text-center bg-red-50/30 border-t border-slate-300">< 20%</td>
+                    </tr>
+                    <tr>
+                        <td class="p-2 pl-3">ROIC (Retour/Invest.)</td>
+                        <td class="p-2 text-center font-medium bg-emerald-50/30">> 30%</td>
+                        <td class="p-2 text-center">>= 15%</td>
+                        <td class="p-2 text-center bg-red-50/30">< 15%</td>
+                    </tr>
+
+                    <tr>
+                        <td class="p-3 font-bold bg-slate-50/50 border-t border-slate-300" rowspan="3">4. SOLVABILITÉ 🛡️<br><span class="text-[10px] font-normal text-slate-400">Sécurité</span></td>
+                        <td class="p-2 pl-3 border-t border-slate-300">Debt / EBITDA</td>
+                        <td class="p-2 text-center font-medium bg-emerald-50/30 border-t border-slate-300">< 1</td>
+                        <td class="p-2 text-center border-t border-slate-300">< 2</td>
+                        <td class="p-2 text-center bg-red-50/30 border-t border-slate-300">>= 2</td>
+                    </tr>
+                    <tr>
+                        <td class="p-2 pl-3">Debt / Equity</td>
+                        <td class="p-2 text-center font-medium bg-emerald-50/30 border-t border-slate-300">< 1</td>
+                        <td class="p-2 text-center border-t border-slate-300">< 2</td>
+                        <td class="p-2 text-center bg-red-50/30 border-t border-slate-300">>= 2</td>
+                    </tr>
+                    <tr>
+                        <td class="p-2 pl-3">Interest Coverage</td>
+                        <td class="p-2 text-center font-medium bg-emerald-50/30">>= 30x</td>
+                        <td class="p-2 text-center">>= 15x</td>
+                        <td class="p-2 text-center bg-red-50/30">< 15x</td>
+                    </tr>
+
+                    <tr>
+                        <td class="p-3 font-bold bg-slate-50/50 border-t border-slate-300" rowspan="3">5. DIVIDENDE 🥧<br><span class="text-[10px] font-normal text-slate-400">Pérennité</span></td>
+                        <td class="p-2 pl-3 border-t border-slate-300">Payout Ratio</td>
+                        <td class="p-2 text-center font-medium bg-emerald-50/30 border-t border-slate-300">< 30%</td>
+                        <td class="p-2 text-center border-t border-slate-300">< 50%</td>
+                        <td class="p-2 text-center bg-red-50/30 border-t border-slate-300">>= 50%</td>
+                    </tr>
+                    <tr>
+                        <td class="p-2 pl-3">FCF Payout</td>
+                        <td class="p-2 text-center font-medium bg-emerald-50/30">< 30%</td>
+                        <td class="p-2 text-center">< 50%</td>
+                        <td class="p-2 text-center bg-red-50/30">>= 50%</td>
+                    </tr>
+                    <tr>
+                        <td class="p-2 pl-3">Croissance (5 ans)</td>
+                        <td class="p-2 text-center font-medium bg-emerald-50/30">>= 10% / an</td>
+                        <td class="p-2 text-center">>= 5% / an</td>
+                        <td class="p-2 text-center bg-red-50/30">< 5% / an</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="grid grid-cols-12 gap-6 print-break-inside">
+            
+            <div class="col-span-12 md:col-span-8 bg-indigo-50 rounded-xl p-4 border border-indigo-100">
+                <h3 class="font-heading font-bold text-indigo-900 mb-2 text-sm flex items-center gap-2">
+                    🏰 Analyse Qualitative : L'entreprise a-t-elle un Moat ?
+                </h3>
+                <p class="text-[10px] text-indigo-800 mb-3">Si vous ne pouvez pas cocher au moins UNE case, ne l'achetez pas.</p>
+                <div class="grid grid-cols-3 gap-2">
+                    <label class="flex items-center gap-1.5 text-[10px] text-slate-700 font-medium bg-white p-2 rounded border border-indigo-100">
+                        <input type="checkbox" class="rounded text-indigo-600"> Marque / Brevets
+                    </label>
+                    <label class="flex items-center gap-1.5 text-[10px] text-slate-700 font-medium bg-white p-2 rounded border border-indigo-100">
+                        <input type="checkbox" class="rounded text-indigo-600"> Coûts de Changement
+                    </label>
+                    <label class="flex items-center gap-1.5 text-[10px] text-slate-700 font-medium bg-white p-2 rounded border border-indigo-100">
+                        <input type="checkbox" class="rounded text-indigo-600"> Effet de Réseau
+                    </label>
+                    <label class="flex items-center gap-1.5 text-[10px] text-slate-700 font-medium bg-white p-2 rounded border border-indigo-100">
+                        <input type="checkbox" class="rounded text-indigo-600"> Avantage de Coût
+                    </label>
+                    <label class="flex items-center gap-1.5 text-[10px] text-slate-700 font-medium bg-white p-2 rounded border border-indigo-100">
+                        <input type="checkbox" class="rounded text-indigo-600"> Monopole de Niche
+                    </label>
+                </div>
+            </div>
+
+            <div class="col-span-12 md:col-span-4 bg-emerald-50 rounded-xl p-4 border border-emerald-100">
+                <h3 class="font-heading font-bold text-emerald-900 mb-2 text-sm flex items-center gap-2">
+                    🤝 Management
+                </h3>
+                <ul class="text-[10px] space-y-2 text-emerald-900">
+                    <li class="flex items-center gap-2">
+                        <input type="checkbox" class="rounded text-emerald-600"> Skin in the Game (Actionnaire ?)
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <input type="checkbox" class="rounded text-emerald-600"> Historique de succès ?
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <input type="checkbox" class="rounded text-emerald-600"> Culture honnête ?
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="mt-6 text-center">
+            <p class="text-[10px] text-slate-400">
+                &copy; 2026 StocksPickeur. Usage personnel uniquement.
+            </p>
+        </div>
+
+    </div>
+</body>
+</html>

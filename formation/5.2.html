@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5.2 Prix vs Valeur | Formation StocksPickeur</title>
+    <title>5.2 La Stratégie QARP | Formation StocksPickeur</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -21,7 +21,8 @@
         .prose strong { color: #0f172a; font-weight: 600; }
         .prose ul, .prose ol { list-style: none; padding-left: 0; }
         .prose li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
-        .prose ul li::before { content: "•"; color: #0ea5e9; font-weight: bold; position: absolute; left: 0; }
+        /* Puce verte Emerald pour ce module */
+        .prose ul li::before { content: "•"; color: #059669; font-weight: bold; position: absolute; left: 0; } 
         
         /* Lightbox */
         #imageViewer { backdrop-filter: blur(10px); }
@@ -50,10 +51,10 @@
 
                 <div class="hidden md:flex items-center gap-8">
                     <nav class="flex gap-6">
-                        <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Calculateur</a>
-                        <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
-                        <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Analyses</a>
-                        <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Formation</a>
+                        <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition">Calculateur</a>
+                        <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition">Portefeuille</a>
+                        <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition">Analyses</a>
+                        <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition">Formation</a>
                     </nav>
 
                     <div class="h-6 w-px bg-slate-200"></div>
@@ -91,7 +92,7 @@
 
         <div class="mb-12 border-b border-slate-200 pb-8">
             <span class="text-emerald-600 font-bold tracking-wider uppercase text-xs">Module 5 • La Valorisation</span>
-            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">5.2. Prix vs Valeur 🏷️</h1>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">5.2. La Stratégie QARP 🏆</h1>
         </div>
 
         <div class="mb-10 not-prose"> 
@@ -110,75 +111,77 @@
 
         <article class="prose prose-slate max-w-none text-justify">
             
-            <p>S'il n'y avait qu'une seule leçon à retenir de toute l'histoire de la finance, ce serait celle-ci. C'est le concept qui sépare les spéculateurs (qui parient sur des courbes) des investisseurs (qui achètent des entreprises).</p>
-            <p>La confusion entre le <strong>Prix</strong> et la <strong>Valeur</strong> est la cause de 99% des pertes en Bourse.</p>
+            <p>Dans le chapitre précédent, nous avons établi une vérité fondamentale : acheter de la qualité est indispensable, mais surpayer cette qualité est une erreur fatale. Cela nous amène naturellement à LA stratégie que nous appliquons chez StocksPickeur.</p>
+            <p>Cette approche a un nom précis dans le monde de la finance institutionnelle. Elle s'appelle le <strong>QARP</strong> : <em>Quality At a Reasonable Price</em> (La Qualité à Prix Raisonnable).</p>
+            <p>Le QARP n'est pas un concept marketing à la mode. C'est l'intersection mathématique la plus rentable de l'histoire boursière. C'est le point d'équilibre parfait entre deux mondes qui s'opposent souvent :</p>
+            <ul>
+                <li><strong>L'investissement "Value" pur :</strong> Qui achète des entreprises médiocres parce qu'elles sont "bradées".</li>
+                <li><strong>L'investissement "Growth/Quality" pur :</strong> Qui achète des entreprises magnifiques peu importe le prix (souvent trop cher).</li>
+            </ul>
+            <p>Le QARP prend le meilleur des deux : <strong>L'Excellence de la Qualité + La Discipline de la Value.</strong></p>
+
+            <h4>1. La Preuve par l'Histoire : Le QARP écrase tout 🥇</h4>
+            <p>Vous pourriez penser qu'acheter simplement "les meilleures entreprises" (Quality) suffit. C'est faux. L'histoire prouve qu'ajouter une contrainte de prix à votre sélection de qualité booste significativement la performance.</p>
+            <p>Regardez attentivement ce graphique de Schroders (une des plus grandes sociétés de gestion au monde). Il compare les performances cumulées depuis 1990 :</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/QARP.png')">
+                <img src="../media/Formation/QARP.png" 
+                     alt="Graphique comparant la performance de la stratégie Quality vs QARP vs MSCI UK" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">La ligne verte (QARP) surperforme largement la ligne bleue foncée (Quality) et écrase le marché (Bleu clair).</figcaption>
+            </figure>
+
+            <p><strong>L'analyse des chiffres est saisissante :</strong></p>
+            <ul>
+                <li><strong>MSCI UK (Le Marché) :</strong> 8.3% par an. C'est la moyenne.</li>
+                <li><strong>Quality (L'Excellence) :</strong> 12.9% par an. C'est très bien, car on évite les faillites.</li>
+                <li><strong>QARP (L'Excellence au bon prix) :</strong> <strong>15.7% par an.</strong> C'est phénoménal.</li>
+            </ul>
+            <p>La différence entre 12.9% et 15.7% peut sembler faible sur le papier. Mais grâce aux intérêts composés sur 30 ans, cela représente une fortune. La stratégie QARP surperforme la stratégie "Quality pure" parce qu'elle évite les périodes de "débullification" (quand une action géniale perd 30% juste parce qu'elle était trop chère).</p>
 
             <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-xl my-8">
-                <p class="font-bold text-indigo-900 mb-2">La Règle d'Or de Warren Buffett 🧠</p>
-                <p class="italic text-indigo-800 m-0">"Le Prix est ce que vous payez. La Valeur est ce que vous obtenez."</p>
+                <p class="font-bold text-indigo-900 mb-2">Le Secret de la Surperformance 🤫</p>
+                <p class="italic text-indigo-800 m-0">"Le QARP fonctionne parce qu'il profite d'une double expansion : la croissance des bénéfices de l'entreprise (le moteur) ET l'expansion des multiples de valorisation (le turbo). Quand vous achetez la qualité pas cher, le marché finit par reconnaître son erreur et revalorise le titre."</p>
             </div>
 
-            <h4>1. L'Analogie du Snickers 🍫</h4>
-            <p>Pour bien comprendre cette distinction philosophique, sortons de la Bourse un instant. Prenons une barre chocolatée Snickers.</p>
-            <ul>
-                <li>Si vous l'achetez au supermarché, vous la payez <strong>0,80€</strong>.</li>
-                <li>Si vous l'achetez à la station-service, vous la payez <strong>1,50€</strong>.</li>
-                <li>Si vous l'achetez dans le minibar d'un hôtel de luxe, vous la payez <strong>4,00€</strong>.</li>
-            </ul>
-            <p>Dans les trois cas, <strong>la Valeur est identique</strong>. C'est le même produit, le même goût, les mêmes calories, fabriqué dans la même usine.</p>
-            <p>Pourtant, <strong>le Prix a varié du simple au quintuple</strong>. Le contexte a changé, mais pas la valeur intrinsèque de l'objet.</p>
-            <p>En Bourse, c'est exactement la même chose. Les actions sont des Snickers qui clignotent sur un écran. Votre but d'investisseur est d'acheter l'entreprise quand le marché vous la propose au prix du supermarché, et de refuser poliment quand il vous la propose au prix du minibar.</p>
+            <h4>2. L'Anatomie d'une action QARP 🧬</h4>
+            <p>Concrètement, à quoi ressemble une action QARP dans les chiffres ? C'est une anomalie statistique que nous cherchons à exploiter. C'est une entreprise qui a les fondamentaux d'une Ferrari mais qui est vendue au prix d'une Audi.</p>
+            <p>Ce deuxième graphique décompose les caractéristiques financières du QARP par rapport au marché (Russell 1000) et à la Qualité pure :</p>
 
-            <h4>2. La Valeur Intrinsèque (Intrinsic Value) 💎</h4>
-            <p>Si le Prix est facile à connaître (il est affiché sur Google Finance), la Valeur est invisible. On l'appelle la <strong>Valeur Intrinsèque</strong>.</p>
-            <p>C'est la valeur réelle, économique, de l'entreprise. Elle est déterminée par ses fondamentaux : ses usines, ses brevets, sa marque, sa trésorerie et surtout, les bénéfices qu'elle va générer dans le futur.</p>
-            <p>Regardez ce schéma fondamental. Il illustre le combat permanent entre le Prix (ce que demande le marché) et la Valeur (ce que ça vaut vraiment).</p>
-
-            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/intrinsic-vs-market-value.jpg')">
-                <img src="../media/Formation/intrinsic-vs-market-value.jpg" 
-                     alt="Graphique montrant l'oscillation du prix autour de la valeur intrinsèque" 
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/Quality-Factor.png')">
+                <img src="../media/Formation/Quality-Factor.png" 
+                     alt="Graphique en barres comparant P/E, P/S et ROE pour Quality, Russell 1000 et QARP" 
                      class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
-                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">La ligne orange (Valeur) est stable et monte lentement. La ligne noire (Prix) est maniaco-dépressive.</figcaption>
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Regardez les barres violettes (QARP) : Le rendement (ROE) est presque aussi haut que la Qualité pure, mais le prix (P/E) est beaucoup plus bas !</figcaption>
             </figure>
 
-            <p>Ce graphique raconte toute l'histoire de la Bourse :</p>
+            <p>Ce graphique est la clé de voûte de notre méthode. Analysons-le ensemble :</p>
             <ul>
-                <li><strong>La Ligne Orange (Valeur) :</strong> Elle est calme. Elle monte doucement au fur et à mesure que l'entreprise vend plus de produits et s'améliore.</li>
-                <li><strong>La Ligne Noire (Prix) :</strong> Elle est folle. Elle oscille violemment autour de la valeur réelle, guidée par la peur (krach) et l'avidité (bulle).</li>
+                <li><strong>Côté PRIX (P/E Ratio - Barres de gauche) :</strong>
+                    <ul>
+                        <li>La "Qualité pure" (Bleu ciel) se paie très cher (PER de 25).</li>
+                        <li>Le marché (Gris) se paie normalement (PER de 22).</li>
+                        <li>Le <strong>QARP</strong> (Violet) se paie <strong>MOINS CHER</strong> que le marché (PER de 17) !</li>
+                    </ul>
+                </li>
+                <li><strong>Côté RENTABILITÉ (ROE % - Barres de droite) :</strong>
+                    <ul>
+                        <li>Le marché (Gris) a une rentabilité sur capitaux propres moyenne (28%).</li>
+                        <li>Le <strong>QARP</strong> (Violet) a une rentabilité <strong>EXPLOSIVE</strong> (33%), presque au niveau de la Qualité pure (38%).</li>
+                    </ul>
+                </li>
             </ul>
-            <p>Votre opportunité se trouve dans les zones où la ligne noire passe <strong>en dessous</strong> de la ligne orange (Underpriced). C'est là que vous achetez le Snickers à 0,80€.</p>
+            <p><strong>Conclusion du graphique :</strong> Avec le QARP, vous achetez une rentabilité (ROE) bien supérieure à la moyenne de marché, tout en payant un prix (PER) inférieur à la moyenne du marché. C'est l'arbitrage parfait.</p>
 
-            <h4>3. Sous-évalué vs Surévalué : Le Verdict ⚖️</h4>
-            <p>En tant qu'investisseur Quality, nous passons notre temps à comparer ces deux notions. Pour chaque action que nous analysons, nous nous trouvons dans l'une de ces deux situations :</p>
-
-            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/intrinsic-value.jpg.png')">
-                <img src="../media/Formation/intrinsic-value.jpg.png" 
-                     alt="Comparaison graphique entre Market Value et Intrinsic Value" 
-                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
-                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Situation 1 : Danger. Situation 2 : Opportunité.</figcaption>
-            </figure>
-
+            <h4>3. Pourquoi cette anomalie existe-t-elle ? 🤔</h4>
+            <p>Si c'est si évident, pourquoi tout le monde ne le fait pas ? Pourquoi le marché laisse-t-il traîner des actions aussi rentables à des prix aussi raisonnables ?</p>
+            <p>La réponse est psychologique. Les actions QARP se trouvent souvent dans des périodes de "désamour" temporaire :</p>
             <ul>
-                <li><strong>Stock 1 (Surévalué / Overvalued) :</strong> Le Prix (colonne bleue) est bien plus haut que la Valeur réelle (colonne verte). C'est Microsoft en l'an 2000. Si vous achetez ici, vous pariez sur la spéculation. Le risque de perte est immense car la gravité finira par ramener le prix vers la valeur.</li>
-                <li><strong>Stock 2 (Sous-évalué / Undervalued) :</strong> Le Prix est inférieur à la Valeur. Le marché déprime, il a peur, il solde l'entreprise. C'est ici que se fait l'argent. Vous achetez 1€ pour 0,80€. Vous avez une "Marge de Sécurité".</li>
+                <li>Une entreprise magnifique qui traverse un trimestre difficile (mais temporaire).</li>
+                <li>Un secteur entier qui est boudé par la mode du moment (ex: la santé quand tout le monde veut de l'IA).</li>
+                <li>Une entreprise complexe que les analystes ont la flemme d'étudier en profondeur.</li>
             </ul>
-
-            <h4>4. La notion de "Fair Value" (Le Juste Prix) 🎯</h4>
-            <p>Attention, la valorisation n'est pas une science exacte au centime près. Personne ne peut dire : <em>"L'action LVMH vaut exactement 742,15€"</em>. C'est impossible car cela dépend de l'avenir.</p>
-            <p>Nous raisonnons plutôt en termes de <strong>Zones</strong>. Imaginez une jauge de température :</p>
-
-            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/price-vs-value.png')">
-                <img src="../media/Formation/price-vs-value.png" 
-                     alt="Jauge montrant les zones de sous-évaluation, juste prix et surévaluation" 
-                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
-                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Nous cherchons à acheter dans le vert, ou au pire dans le jaune (Fair Value) pour les entreprises d'exception.</figcaption>
-            </figure>
-
-            <ul>
-                <li><strong>Zone Verte (Undervalued) :</strong> C'est les soldes. C'est rare pour les entreprises de qualité, sauf en cas de crise majeure.</li>
-                <li><strong>Zone Jaune (Fair Value / About Right) :</strong> Le prix est juste. Vous ne faites pas l'affaire du siècle, mais vous ne vous faites pas arnaquer. Pour une entreprise exceptionnelle (Quality), payer le "Juste Prix" est souvent suffisant pour s'enrichir sur le long terme.</li>
-                <li><strong>Zone Rouge (Overvalued) :</strong> C'est trop cher. Même si l'entreprise est géniale, le prix intègre trop d'optimisme. Il n'y a plus de place pour l'erreur.</li>
-            </ul>
+            <p>C'est là que nous intervenons. Nous profitons de la myopie du marché. Nous achetons quand les autres doutent, sachant que la qualité intrinsèque (le ROE élevé) finira toujours par faire remonter le cours.</p>
 
             <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-8 mt-12 shadow-sm">
                 <h5 class="text-xl font-bold text-emerald-800 mb-4 flex items-center">
@@ -186,9 +189,9 @@
                     Ce qu'il faut retenir
                 </h5>
                 <p class="text-emerald-900 m-0 leading-relaxed">
-                    Le marché est une machine maniaque qui change d'avis tous les jours sur le prix (la ligne noire). L'entreprise est une machine économique qui change lentement de valeur (la ligne orange).<br>
-                    Votre mission d'investisseur n'est pas de prédire ce que fera la ligne noire demain, mais de savoir où se trouve la ligne orange aujourd'hui. <br>
-                    <strong>Tant que le Prix < Valeur, vous êtes en sécurité.</strong>
+                    Le <strong>QARP</strong> (Quality At a Reasonable Price) est le nom officiel de notre stratégie.<br>
+                    Historiquement, c'est l'approche qui offre le meilleur rendement annuel (15.7%), battant à la fois le marché et la stratégie "Qualité à tout prix".<br>
+                    Notre mission dans ce module de Valorisation est de vous apprendre à identifier ces anomalies : ces moments rares où une entreprise au ROE exceptionnel se vend à un PER raisonnable.
                 </p>
             </div>
 

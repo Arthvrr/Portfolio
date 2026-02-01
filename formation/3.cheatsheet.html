@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Sheet • Module 3 | StocksPickeur</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-print-color-adjust: exact; }
+        .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles spécifiques pour l'impression A4 */
+        @media print {
+            @page { margin: 0.5cm; size: A4 portrait; }
+            body { background-color: white; }
+            .no-print { display: none !important; }
+            .print-break-inside { break-inside: avoid; }
+            .shadow-sm, .shadow-md, .shadow-lg { box-shadow: none !important; border: 1px solid #e2e8f0; }
+            .bg-slate-50 { background-color: #f8fafc !important; }
+            .bg-indigo-600 { background-color: #4f46e5 !important; color: white !important; }
+            .bg-emerald-600 { background-color: #059669 !important; color: white !important; }
+            .bg-slate-900 { background-color: #0f172a !important; color: white !important; }
+            .text-white { color: white !important; }
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-600 p-4 md:p-8 min-h-screen">
+
+    <div class="max-w-[210mm] mx-auto mb-6 flex justify-between items-center no-print">
+        <a href="3.0.html" class="flex items-center text-slate-500 hover:text-indigo-600 transition font-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Retour au cours
+        </a>
+        <button onclick="window.print()" class="bg-slate-900 text-white px-4 py-2 rounded-lg font-bold flex items-center gap-2 hover:bg-slate-800 transition shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+            </svg>
+            Imprimer la Fiche (PDF)
+        </button>
+    </div>
+
+    <div class="max-w-[210mm] mx-auto bg-white shadow-2xl rounded-xl p-8 md:p-10 border border-slate-200 relative overflow-hidden">
+        
+        <header class="flex justify-between items-end border-b-2 border-slate-900 pb-6 mb-8">
+            <div>
+                <span class="text-indigo-600 font-bold tracking-wider uppercase text-xs">Module 3 • La Mécanique</span>
+                <h1 class="text-4xl font-heading font-extrabold text-slate-900 mt-1">L'Univers des Actions</h1>
+                <p class="text-slate-500 text-sm mt-1">Les règles du jeu : Secteurs, Moteurs de prix et Stratégies.</p>
+            </div>
+            <div class="text-right">
+                <div class="font-heading font-bold text-xl text-slate-900 flex items-center gap-2 justify-end">
+                    <img src="../media/Logo/Logo-White.png" class="h-6 filter invert" alt="">
+                    StocksPickeur
+                </div>
+                <div class="text-xs text-slate-400 mt-1">Fiche Récapitulative v1.0</div>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-12 gap-6">
+
+            <div class="col-span-12 md:col-span-8 bg-slate-50 rounded-xl p-4 border border-slate-100 print-break-inside">
+                <h3 class="font-heading font-bold text-slate-900 mb-3 flex items-center gap-2 text-sm uppercase tracking-wide">
+                    <span class="bg-indigo-600 text-white w-6 h-6 rounded flex items-center justify-center text-xs">1</span>
+                    Les 5 Grandes Philosophies
+                </h3>
+                <p class="text-xs mb-3 text-slate-500">Chaque investisseur doit choisir son camp. Ne mélangez pas les styles.</p>
+                <div class="grid grid-cols-3 gap-2 text-center">
+                    <div class="bg-white p-2 rounded border border-slate-200">
+                        <strong class="block text-slate-700 text-xs">VALUE 🏷️</strong>
+                        <span class="text-[10px] block leading-tight mt-1 text-slate-400">Acheter "Pas cher"<br>(Actifs sous-cotés)</span>
+                    </div>
+                    <div class="bg-white p-2 rounded border border-slate-200">
+                        <strong class="block text-indigo-700 text-xs">QUALITY 💎</strong>
+                        <span class="text-[10px] block leading-tight mt-1 text-slate-400">Acheter "Le Meilleur"<br>(Rentabilité élevée)</span>
+                    </div>
+                    <div class="bg-white p-2 rounded border border-slate-200">
+                        <strong class="block text-slate-700 text-xs">GROWTH 🚀</strong>
+                        <span class="text-[10px] block leading-tight mt-1 text-slate-400">Acheter "La Croissance"<br>(Chiffre d'Affaires)</span>
+                    </div>
+                    <div class="bg-white p-2 rounded border border-slate-200">
+                        <strong class="block text-slate-700 text-xs">DIVIDEND 🐄</strong>
+                        <span class="text-[10px] block leading-tight mt-1 text-slate-400">Acheter "La Rente"<br>(Cashflow)</span>
+                    </div>
+                    <div class="bg-white p-2 rounded border border-slate-200">
+                        <strong class="block text-slate-700 text-xs">MOMENTUM 🏄‍♂️</strong>
+                        <span class="text-[10px] block leading-tight mt-1 text-slate-400">Suivre "La Tendance"<br>(Hausse des prix)</span>
+                    </div>
+                    <div class="bg-white p-2 rounded border border-slate-200">
+                        <strong class="block text-slate-700 text-xs">PASSIF (ETF) 🛌</strong>
+                        <span class="text-[10px] block leading-tight mt-1 text-slate-400">Acheter "Le Marché"<br>(Moyenne)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-12 md:col-span-4 bg-slate-900 text-white rounded-xl p-4 print-break-inside">
+                <h3 class="font-heading font-bold text-white mb-3 flex items-center gap-2 text-sm uppercase tracking-wide">
+                    <span class="bg-emerald-500 text-white w-6 h-6 rounded flex items-center justify-center text-xs">2</span>
+                    Enrichissement
+                </h3>
+                <ul class="space-y-3">
+                    <li class="flex items-start gap-2">
+                        <span class="text-emerald-400 text-xs mt-0.5">🚀</span>
+                        <div class="text-xs">
+                            <strong class="block text-emerald-300">1. Croissance (Prix)</strong>
+                            <span class="text-slate-400">Le moteur principal (74% des gains). Non taxé tant qu'on ne vend pas.</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-emerald-400 text-xs mt-0.5">👻</span>
+                        <div class="text-xs">
+                            <strong class="block text-emerald-300">2. Buybacks (Rachats)</strong>
+                            <span class="text-slate-400">L'entreprise se rachète elle-même. Boost mécanique du prix par action.</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-2 opacity-60">
+                        <span class="text-slate-400 text-xs mt-0.5">💰</span>
+                        <div class="text-xs">
+                            <strong class="block text-slate-300">3. Dividendes</strong>
+                            <span class="text-slate-500">Revenus passifs, mais taxés immédiatement. Freinent la croissance.</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-span-12 print-break-inside">
+                <h3 class="font-heading font-bold text-slate-900 mb-3 text-sm uppercase tracking-wide border-b border-slate-200 pb-2">
+                    🌍 Comprendre les Secteurs Économiques
+                </h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-slate-50 border border-slate-200 p-3 rounded-lg">
+                        <strong class="text-slate-800 text-xs block mb-1">✅ Asset Light (Peu de capital requis)</strong>
+                        <p class="text-[10px] text-slate-500 mb-2">Secteurs à fortes marges, faciles à faire croître.</p>
+                        <ul class="text-[11px] space-y-1 text-slate-700 list-disc list-inside">
+                            <li><strong>Tech / Logiciels :</strong> Coût de réplication nul.</li>
+                            <li><strong>Luxe :</strong> Pouvoir de prix (Pricing Power).</li>
+                            <li><strong>Santé :</strong> Indispensable même en crise.</li>
+                            <li><strong>Services Financiers :</strong> Rente sur les transactions.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-50 border border-slate-200 p-3 rounded-lg">
+                        <strong class="text-slate-800 text-xs block mb-1">⚠️ Capital Intensive (Beaucoup de capital)</strong>
+                        <p class="text-[10px] text-slate-500 mb-2">Secteurs nécessitant de lourds investissements.</p>
+                        <ul class="text-[11px] space-y-1 text-slate-700 list-disc list-inside">
+                            <li><strong>Automobile :</strong> Marges faibles, concurrence forte.</li>
+                            <li><strong>Aérien :</strong> Dépendant du pétrole et des dettes.</li>
+                            <li><strong>Banques (Retail) :</strong> Bilans complexes, régulation.</li>
+                            <li><strong>Matériaux / Energie :</strong> Cycliques et volatils.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-12 md:col-span-6 bg-white border border-slate-200 rounded-xl p-4 print-break-inside">
+                <h3 class="font-heading font-bold text-slate-900 mb-2 text-sm uppercase">⛔ Indicateurs de Risque (Red Flags)</h3>
+                <ul class="text-xs space-y-2">
+                    <li class="flex items-center gap-2 text-red-600 font-medium">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        IPO (Intro en bourse) : Manque d'historique.
+                    </li>
+                    <li class="flex items-center gap-2 text-red-600 font-medium">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                        Dilution : Le nombre d'actions augmente.
+                    </li>
+                    <li class="flex items-center gap-2 text-red-600 font-medium">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path></svg>
+                        Penny Stocks : Actions < 50M$ (Volatilité).
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-span-12 md:col-span-6 bg-white border border-slate-200 rounded-xl p-4 print-break-inside">
+                <h3 class="font-heading font-bold text-slate-900 mb-2 text-sm uppercase">✅ Indicateurs de Solidité (Green Flags)</h3>
+                <ul class="text-xs space-y-2">
+                    <li class="flex items-center gap-2 text-emerald-700 font-medium">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        Cannibale : Rachète ses actions (Buybacks).
+                    </li>
+                    <li class="flex items-center gap-2 text-emerald-700 font-medium">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        Taille : Large & Mega Caps (> 10 Mds$).
+                    </li>
+                    <li class="flex items-center gap-2 text-emerald-700 font-medium">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        Horizon : Vision long terme (> 5 ans).
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-span-12 border-t-2 border-dashed border-slate-200 pt-3 print-break-inside">
+                 <div class="flex justify-between items-center text-xs text-slate-500">
+                    <div>
+                        <strong class="text-slate-900 uppercase">🚀 Ordre au Marché</strong>
+                        <span class="block">"Je veux l'action TOUT DE SUITE" (Vitesse).</span>
+                    </div>
+                    <div>
+                        <strong class="text-slate-900 uppercase">🎯 Ordre Limité</strong>
+                        <span class="block">"Je ne paie pas plus de X €" (Précision).</span>
+                    </div>
+                 </div>
+            </div>
+
+            <div class="col-span-12 bg-indigo-50 rounded-xl p-4 border border-indigo-100 print-break-inside">
+                <h3 class="font-heading font-bold text-indigo-900 mb-2 text-sm flex items-center gap-2">
+                    🧠 Les Commandements du Module 3
+                </h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                    <label class="flex items-center gap-1.5 text-[10px] text-indigo-900 font-medium">
+                        <input type="checkbox" class="rounded text-indigo-600"> Je vise le Long Terme.
+                    </label>
+                    <label class="flex items-center gap-1.5 text-[10px] text-indigo-900 font-medium">
+                        <input type="checkbox" class="rounded text-indigo-600"> Je reste concentré.
+                    </label>
+                    <label class="flex items-center gap-1.5 text-[10px] text-indigo-900 font-medium">
+                        <input type="checkbox" class="rounded text-indigo-600"> Je coupe mes perdants.
+                    </label>
+                    <label class="flex items-center gap-1.5 text-[10px] text-indigo-900 font-medium">
+                        <input type="checkbox" class="rounded text-indigo-600"> Je laisse courir mes gagnants.
+                    </label>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-6 text-center">
+            <p class="text-[10px] text-slate-400">
+                &copy; 2026 StocksPickeur. Usage personnel uniquement.
+            </p>
+        </div>
+
+    </div>
+</body>
+</html>

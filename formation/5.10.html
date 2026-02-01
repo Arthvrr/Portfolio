@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.10 Les Types de PE | Formation StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles pour le contenu du cours */
+        .prose p { margin-bottom: 1.5rem; line-height: 1.8; color: #475569; }
+        .prose h4 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-top: 3rem; margin-bottom: 1.5rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .prose strong { color: #0f172a; font-weight: 600; }
+        .prose ul, .prose ol { list-style: none; padding-left: 0; }
+        .prose li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
+        /* Puce verte Emerald pour ce module */
+        .prose ul li::before { content: "•"; color: #059669; font-weight: bold; position: absolute; left: 0; } 
+        
+        /* Lightbox */
+        #imageViewer { backdrop-filter: blur(10px); }
+        .clickable-image { cursor: zoom-in; transition: transform 0.2s; }
+        .clickable-image:hover { transform: scale(1.01); }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <a href="../index.html" class="flex items-center gap-3 group">
+                    <img src="../media/Logo/Logo-White.png" alt="Logo StocksPickeur" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                    <span class="font-heading font-bold text-xl text-slate-900 tracking-tight">StocksPickeur</span>
+                </a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <nav class="flex gap-6">
+                        <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition">Calculateur</a>
+                        <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition">Portefeuille</a>
+                        <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition">Analyses</a>
+                        <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition">Formation</a>
+                    </nav>
+
+                    <div class="h-6 w-px bg-slate-200"></div>
+
+                    <a href="#.html" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                        </svg>
+                        Connexion
+                    </a>
+                </div>
+
+                <div class="md:hidden">
+                    <button class="text-slate-500 hover:text-slate-900">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-emerald-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="5.0.html" class="hover:text-emerald-600 transition">Module 5</a></li>
+                <li>/</li>
+                <li class="text-emerald-600 font-medium">Chapitre 5.10</li>
+            </ol>
+        </nav>
+
+        <div class="mb-12 border-b border-slate-200 pb-8">
+            <span class="text-emerald-600 font-bold tracking-wider uppercase text-xs">Module 5 • La Valorisation</span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">5.10. Les 3 Visages du PE 🎭</h1>
+        </div>
+
+        <div class="mb-10 not-prose"> 
+            <div class="flex items-center gap-2 mb-4">
+                <span class="bg-indigo-100 text-indigo-700 w-8 h-8 flex items-center justify-center rounded-lg text-lg">📺</span>
+                <h3 class="font-heading font-bold text-lg text-slate-900">Résumé du chapitre en vidéo</h3>
+            </div>
+            
+            <div class="rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-slate-900 aspect-video">
+                <video controls class="w-full h-full object-cover" preload="metadata">
+                    <source src="videos/5.10.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+            </div>
+        </div>
+
+        <article class="prose prose-slate max-w-none text-justify">
+            
+            <p>Imaginez que vous achetez une voiture d'occasion. Le vendeur vous dit : <em>"Elle consomme 5 litres au 100km"</em>. Mais de quoi parle-t-il ? De ce qu'elle a consommé l'année dernière ? De ce qu'elle consommera l'année prochaine avec un nouveau moteur ? Ou de sa moyenne sur 10 ans ?</p>
+            <p>En Bourse, c'est exactement le même problème avec le PER. Quand vous lisez "Le PER de cette action est de 20", cela ne veut rien dire si vous ne précisez pas quel type de PER vous utilisez.</p>
+            <p>Il existe trois variantes fondamentales : le <strong>Trailing PE</strong> (le passé), le <strong>Forward PE</strong> (le futur) et le <strong>PE Historique</strong> (la norme). Savoir jongler avec les trois est ce qui sépare l'amateur du professionnel.</p>
+
+            <h4>1. Le Trailing PE : Le Rétroviseur 🔙</h4>
+            <p>C'est le ratio par défaut affiché sur Yahoo Finance, Google Finance ou votre courtier quand vous ne précisez rien. "Trailing" signifie "glissant" ou "traînant". Il regarde ce qui s'est passé derrière vous.</p>
+
+            <div class="bg-slate-50 border-l-4 border-emerald-600 p-6 rounded-r-xl my-8">
+                <strong class="text-slate-900 block mb-2 text-xl">🧮 1. Le Trailing PE (Réel)</strong>
+                <div class="text-lg font-mono text-emerald-600 bg-white inline-block px-4 py-2 rounded border border-emerald-100 mb-2 shadow-sm">
+                    Trailing PE = Prix Actuel / Bénéfices Réels (12 derniers mois)
+                </div>
+            </div>
+
+            <p>Ce ratio utilise les bénéfices nets (EPS - Earnings Per Share) qui ont été <strong>réellement publiés</strong> et validés par les comptables lors des 4 derniers trimestres (TTM : Trailing Twelve Months).</p>
+            <ul>
+                <li><strong>Son avantage majeur :</strong> C'est un fait indiscutable. Il n'y a pas de devinette. Vous payez pour des résultats concrets et tangibles. C'est la mesure préférée des investisseurs prudents.</li>
+                <li><strong>Son défaut mortel :</strong> La bourse se fiche du passé. Si une entreprise a gagné des milliards l'an dernier grâce à un événement exceptionnel (vente d'un brevet, boom post-covid), son Trailing PE sera très bas (attractif), mais cela ne se reproduira pas. Vous risquez d'acheter un "faux bon plan".</li>
+            </ul>
+
+            <h4>2. Le Forward PE : Le Pare-Brise 🔭</h4>
+            <p>C'est le ratio préféré des analystes de Wall Street et des gérants de fonds. Pourquoi ? Parce que la bourse est un mécanisme d'anticipation. On achète une action aujourd'hui pour les profits qu'elle générera demain, pas pour ceux d'hier.</p>
+
+            <div class="bg-slate-50 border-l-4 border-emerald-600 p-6 rounded-r-xl my-8">
+                <strong class="text-slate-900 block mb-2 text-xl">🔭 2. Le Forward PE (Estimé)</strong>
+                <div class="text-lg font-mono text-emerald-600 bg-white inline-block px-4 py-2 rounded border border-emerald-100 mb-2 shadow-sm">
+                    Forward PE = Prix Actuel / Bénéfices Estimés (12 prochains mois)
+                </div>
+            </div>
+
+            <p>Ce ratio utilise le "Consensus des Analystes" pour les 12 prochains mois (NTM : Next Twelve Months). </p>
+            <ul>
+                <li><strong>La mécanique mathématique :</strong> Pour une entreprise en croissance (ex: Microsoft, LVMH), les bénéfices de l'an prochain sont censés être plus élevés que ceux de l'an dernier. Si le dénominateur (E) augmente, le résultat (PE) diminue. <br><em>C'est pourquoi le Forward PE est souvent plus bas que le Trailing PE pour les bonnes entreprises.</em></li>
+                <li><strong>Le piège :</strong> C'est une opinion, pas un fait. Les analystes peuvent se tromper. S'ils sont trop optimistes et que l'entreprise rate ses objectifs, le cours de l'action s'effondrera brutalement pour "re-pricer" la réalité.</li>
+            </ul>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/trailing-forward-history-pe.png')">
+                <img src="../media/Formation/trailing-forward-history-pe.png" 
+                     alt="Graphique en barres comparant le Trailing EPS (passé) et le Forward EPS (futur)" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Visualisez la différence : À gauche, ce qui est déjà arrivé (Trailing, factuel). À droite, ce qu'on espère qu'il va arriver (Forward, estimation). Le prix de l'action réagit à la partie de droite.</figcaption>
+            </figure>
+
+            <h4>3. Le PE Historique : L'Ancre de Normalité ⚓</h4>
+            <p>C'est l'indicateur secret des investisseurs "Value". Il ne regarde ni hier, ni demain, mais la <strong>moyenne</strong> des 5 ou 10 dernières années.</p>
+
+            <div class="bg-slate-50 border-l-4 border-emerald-600 p-6 rounded-r-xl my-8">
+                <strong class="text-slate-900 block mb-2 text-xl">⚓ 3. Le PE Historique (Moyenne)</strong>
+                <div class="text-lg font-mono text-emerald-600 bg-white inline-block px-4 py-2 rounded border border-emerald-100 mb-2 shadow-sm">
+                    PE Historique = Moyenne du PER sur 5 ou 10 ans
+                </div>
+            </div>
+
+            <p>Chaque entreprise a sa propre "personnalité" de valorisation. Coca-Cola se paie historiquement cher (autour de 25x les bénéfices) car c'est une valeur sûre. Une banque cyclique se paie historiquement peu cher (autour de 10x). Le PE Historique vous donne la "ligne de base" pour savoir si le prix actuel est anormal.</p>
+
+            <hr class="border-slate-200 my-12">
+
+            <h4>4. Le Grand Match : Comment comparer pour gagner ? 🥊</h4>
+            <p>Maintenant que vous avez les définitions, voici comment les utiliser stratégiquement. Ne regardez jamais un ratio seul. Comparez-les !</p>
+
+            <h5>Match A : Trailing vs Forward (Le détecteur de tendance)</h5>
+            <p>Comparez le PE du passé et celui du futur pour comprendre la dynamique attendue.</p>
+            <ul>
+                <li><strong>Si Forward PE < Trailing PE :</strong> C'est le cas idéal. Les analystes prévoient une <strong>croissance</strong> des bénéfices. (Ex: Trailing 30, Forward 20). L'entreprise devient "moins chère" avec le temps si elle tient ses promesses.</li>
+                <li><strong>Si Forward PE > Trailing PE :</strong> Attention ! Les analystes prévoient une <strong>baisse</strong> des bénéfices (déclin, récession, fin d'un cycle). L'action semble bon marché aujourd'hui (Trailing bas), mais elle est en train de devenir chère (Forward haut). C'est le signe typique d'un Value Trap.</li>
+            </ul>
+
+            <h5>Match B : PE Actuel vs PE Historique (Le détecteur de soldes) 💎</h5>
+            <p>C'est l'analyse la plus puissante pour le timing. Il existe une loi universelle en finance : le <strong>Retour à la Moyenne</strong> (Mean Reversion). Tôt ou tard, la valorisation tend à revenir vers sa moyenne historique.</p>
+            <ul>
+                <li><strong>Si PE Actuel < PE Historique :</strong> L'action est statistiquement "pas chère" par rapport à ses propres standards. C'est souvent un excellent point d'entrée, à condition que le business ne soit pas cassé.</li>
+                <li><strong>Si PE Actuel > PE Historique :</strong> L'action est en surchauffe. Le marché est euphorique. Le risque de correction est élevé pour revenir à la normale.</li>
+            </ul>
+
+            <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-xl my-8">
+                <p class="font-bold text-indigo-900 mb-2">L'Opportunité en Or</p>
+                <p class="text-indigo-800 m-0">Le setup parfait que nous cherchons chez StocksPickeur :<br>
+                1. Une entreprise de qualité qui a un Forward PE inférieur à son Trailing PE (croissance).<br>
+                2. Dont le PE Actuel est temporairement inférieur à son PE Historique (décote statistique).</p>
+            </div>
+
+            <h5>Match C : PE Actuel vs Concurrents (Le contexte)</h5>
+            <p>Enfin, regardez autour de vous. Est-ce que votre action est chère par rapport à ses rivaux directs ?</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/meta-per-vs-concurrents.png')">
+                <img src="../media/Formation/meta-per-vs-concurrents.png" 
+                     alt="Tableau comparatif des PER de Meta, Google, Apple et Amazon" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Regardez la colonne encadrée en rouge ("PE Ratio"). Meta est à 30.49x, alors que Baidu est à 44x et Reddit à 101x ! Dans ce contexte, Meta peut sembler "raisonnable" par rapport à la moyenne du secteur Tech, malgré un PER absolu élevé.</figcaption>
+            </figure>
+
+            <p>Si votre action a un PER de 20 alors que tous ses concurrents sont à 15, demandez-vous pourquoi. A-t-elle un avantage concurrentiel (Moat) majeur qui justifie cette prime de qualité ? Si la réponse est non, elle est simplement trop chère.</p>
+
+            <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-8 mt-12 shadow-sm">
+                <h5 class="text-xl font-bold text-emerald-800 mb-4 flex items-center">
+                    <span class="bg-emerald-200 text-emerald-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">🔑</span> 
+                    Ce qu'il faut retenir
+                </h5>
+                <p class="text-emerald-900 m-0 leading-relaxed">
+                    Un PER isolé ne veut rien dire. Vous devez toujours le contextualiser.<br>
+                    Utilisez le <strong>Forward PE</strong> pour valider la croissance future (attention à l'optimisme).<br>
+                    Utilisez le <strong>PE Historique</strong> pour vérifier si vous achetez en haut ou en bas de cycle de valorisation.<br>
+                    L'investissement gagnant se trouve souvent quand une entreprise de croissance (Forward bas) se vend à un prix historiquement bas (PE Historique haut).
+                </p>
+            </div>
+
+        </article>
+
+        <div class="flex justify-between items-center mt-16 pt-8 border-t border-slate-200">
+            <a href="5.9.html" class="text-slate-500 hover:text-emerald-600 font-medium transition flex items-center group">
+                <span class="group-hover:-translate-x-1 transition-transform mr-2">←</span> Chapitre Précédent
+            </a>
+            <a href="5.11.html" class="bg-emerald-600 text-white px-6 py-3 rounded-full font-bold hover:bg-emerald-700 transition shadow-lg shadow-emerald-200 flex items-center group">
+                Chapitre Suivant : Ma Stratégie Personnelle <span class="group-hover:translate-x-1 transition-transform ml-2">→</span>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <div id="imageViewer" class="fixed inset-0 z-[60] hidden bg-slate-900/90 backdrop-blur-sm transition-opacity duration-300" onclick="closeViewer()">
+        <span class="absolute top-5 right-8 text-white text-5xl cursor-pointer hover:text-slate-300 transition">&times;</span>
+        <img class="m-auto block max-w-[95%] max-h-[90vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded shadow-2xl" id="enlargedImg">
+    </div>
+
+    <script>
+        // Gestion de la Lightbox
+        var modal = document.getElementById("imageViewer");
+        var modalImg = document.getElementById("enlargedImg");
+
+        function openViewer(src) {
+            modal.style.display = "block";
+            modalImg.src = src;
+            document.body.style.overflow = "hidden"; // Empêche le scroll
+        }
+
+        function closeViewer() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto"; // Réactive le scroll
+        }
+        
+        // Fermer avec la touche Echap
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeViewer();
+            }
+        });
+    </script>
+
+</body>
+</html>

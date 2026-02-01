@@ -1,0 +1,154 @@
+Maintenant que vous avez compris l'importance de ne pas surpayer une action (la Marge de Sécurité), comment savoir si le prix affiché est "cher" ou "bon marché" ?
+Si je vous dis qu'une action coûte
+200€
+, est-ce cher ?
+Si c'est une action qui génère 1€ de bénéfice par an, c'est hors de prix (il vous faudra 200 ans pour être remboursé).
+Si c'est une action qui génère 100€ de bénéfice par an, c'est l'affaire du siècle (remboursé en 2 ans).
+Pour juger un prix, nous avons besoin d'un outil de mesure standardisé. En finance, nous utilisons des
+Ratios
+. Ce sont les thermomètres de l'investisseur. Voici les plus importants à maîtriser absolument.
+1. Le Roi des Ratios : Le PER (Price Earning Ratio) 👑
+C'est l'indicateur le plus célèbre, le plus utilisé, et le plus facile à comprendre. Vous le trouverez sur tous les sites boursiers (Google Finance, Yahoo, etc.).
+Le PER répond à la question :
+"Combien d'années de bénéfices suis-je en train de payer pour acheter cette entreprise ?"
+🧮 1. Le PER (Price Earning Ratio)
+PER = Prix de l'action / Bénéfice Net par Action (EPS)
+L'Analogie Immobilière :
+Si vous achetez un appartement à
+200 000€
+et qu'il vous rapporte
+10 000€
+de loyer net par an.
+Votre PER est de
+20
+(200 000 / 10 000).
+Cela signifie que vous payez "20 fois les loyers".
+En Bourse, si une action cote 100€ et gagne 5€ par an, son PER est de 20.
+Comment interpréter le PER ?
+PER < 15 :
+L'action est considérée comme "Bon marché" (Value). Souvent des entreprises matures, sans grande croissance, ou des entreprises en difficulté que le marché déteste.
+PER entre 15 et 25 :
+C'est la moyenne historique pour des entreprises de qualité standard.
+PER > 30 :
+L'action est "Chère" (Growth). Le marché anticipe une très forte croissance future et accepte de payer une prime élevée aujourd'hui (ex: Nvidia, Hermès).
+La citation à retenir 💬
+"Le ratio cours/bénéfice (PER) d'une entreprise justement évaluée devrait être égal à son taux de croissance."
+—
+Peter Lynch
+2. Le Piège Historique : La moyenne n'est pas une règle 📜
+Attention à ne pas être dogmatique. Beaucoup de débutants se disent
+"Je n'achète rien au-dessus d'un PER de 20"
+.
+Regardez ce graphique historique du PER moyen du marché américain (S&P 500) sur 150 ans (aussi appelé Shiller PE).
+[price-earnings-ratio.png]
+Le PER moyen oscille. En 2000 (bulle internet), il a atteint 40 (folie). En 2024, il est souvent autour de 25-30.
+On voit que la "cherté" du marché évolue. Aujourd'hui, avec la technologie et les marges élevées des GAFAM, il est normal que le PER moyen soit plus élevé qu'en 1950. Attendre que le marché revienne à un PER de 15 pourrait vous faire attendre indéfiniment.
+3. Le Piège Sectoriel : Ne comparez pas des pommes et des bananes 🍎🍌
+L'autre erreur classique est de comparer le PER d'une banque avec celui d'une entreprise technologique.
+Regardez ce classement des PER moyens par secteur :
+[pe-ratio-by-industy.png]
+L'immobilier (REITs) et la Tech se paient cher (50x). Les Banques et l'Énergie se paient peu cher (10x).
+Une banque (PER 10) n'est pas "moins chère" qu'une boite de logiciels (PER 40). C'est juste que la banque a moins de croissance et plus de risques.
+Comparez toujours une entreprise avec ses concurrents du même secteur.
+4. La Limite du PER : Il est aveugle à la croissance 🙈
+Imaginez deux entreprises :
+Entreprise A (La Poste) :
+PER de 10. Croissance de 2% par an.
+Entreprise B (Nvidia) :
+PER de 30. Croissance de 50% par an.
+Si vous ne regardez que le PER, vous achetez La Poste car c'est "moins cher". Grosse erreur ! L'entreprise B va doubler ses bénéfices très vite, rendant son prix d'achat actuel ridicule dans 3 ans.
+Pour corriger ce défaut, Peter Lynch a popularisé un super-ratio : le
+PEG
+.
+5. Le PEG Ratio (Price / Earnings / Growth) 🚀
+C'est l'arme favorite de l'investisseur Quality/Growth. Il ajoute la dimension "Vitesse" au prix.
+Le PEG vous dit si vous payez le juste prix
+par unité de croissance
+.
+🧮 2. Le Ratio PEG
+PEG = PER / Taux de Croissance Annuel des Bénéfices
+Comment l'interpréter ?
+PEG < 1 :
+Action Sous-évaluée. (Ex: PER de 20 pour une croissance de 25%). C'est le Saint Graal.
+PEG = 1 :
+Juste Prix (Fair Value). Vous payez exactement pour la croissance que vous obtenez.
+PEG > 2 :
+Action Surévaluée. Le prix est allé trop vite par rapport à la croissance réelle.
+Exemple Concret :
+Entreprise "Lente" :
+PER de 15, Croissance de 5%. -> PEG = 15/5 =
+3
+. (C'est cher pour si peu de croissance).
+Entreprise "Rapide" :
+PER de 30, Croissance de 30%. -> PEG = 30/30 =
+1
+. (C'est un prix juste).
+Grâce au PEG, vous comprenez pourquoi payer 30 fois les bénéfices pour une entreprise exceptionnelle n'est pas forcément une folie, alors que payer 15 fois pour une entreprise qui stagne est une arnaque.
+Nuance de Pro : L'Impact de la Durée
+Une question se pose souvent :
+"Puis-je acheter une action avec un PEG de 1.5 ou 2 ?"
+. La réponse est oui, si l'entreprise est une "Compounder" (Quality) qui croît longtemps.
+[example-peg-impact-of-growth-duration.png]
+Plus la croissance dure longtemps (Ligne Jaune - 9 ans), plus on peut se permettre de payer un PEG élevé au départ.
+Ce graphique est fondamental pour la stratégie Quality. Il montre que si vous êtes sûr que l'entreprise va croître pendant 9 ans (Ligne Jaune), vous pouvez vous permettre de payer un PEG de 1.8 aujourd'hui et être quand même gagnant. À l'inverse, si la croissance s'arrête dans 3 ans (Ligne Grise), même un PEG de 1 est risqué.
+La longévité de la croissance justifie un prix plus élevé.
+6. Le Price-to-Sales (Pour ceux qui ne font pas de profit) 💸
+Parfois, vous voudrez investir dans des entreprises jeunes ou technologiques qui ne font pas encore de bénéfices (donc pas de PER possible). Dans ce cas, on regarde le
+Price-to-Sales (P/S)
+: combien de fois le Chiffre d'Affaires on paie.
+🧮 3. Le Price-to-Sales (P/S)
+P/S = Capitalisation Boursière / Chiffre d'Affaires Total
+Attention, c'est un ratio dangereux. Payer 10x ou 20x le chiffre d'affaires est souvent signe de bulle spéculative.
+La citation à retenir 💬
+"À 10 fois les revenus, pour vous donner un retour sur investissement de 10 ans, je dois vous verser 100% de mes revenus en dividendes pendant 10 ans. Cela suppose que j'ai zéro coût, zéro salaire, zéro impôt, zéro R&D. Pensez-vous vraiment que c'était raisonnable ?"
+—
+Scott McNealy
+(PDG de Sun Microsystems)
+Regardons l'histoire pour se faire peur :
+Le graphique ci-dessous montre le ratio Price-to-Sales moyen du S&P 500 sur 30 ans. C'est un excellent indicateur de la "cherté" globale du marché.
+[price-to-sales-s&p500.png]
+Nous sommes actuellement sur des niveaux (3.3x) bien supérieurs au sommet de la bulle internet de 2000 (2.27x). Attention à la sélection !
+Ce graphique doit vous inciter à la prudence. En 2000, au sommet de la bulle internet, on payait en moyenne 2.27 fois le chiffre d'affaires des entreprises. Aujourd'hui, nous sommes au-dessus de 3 fois. Cela s'explique en partie par le fait que les entreprises technologiques modernes (Google, Meta) ont des marges bien meilleures qu'en 2000, mais cela reste un signal d'alarme :
+le marché ne pardonne aucune erreur à ces niveaux de valorisation.
+7. Le Earnings Yield (L'inverse du PER) 🔄
+Beaucoup de débutants ont du mal à se représenter ce que signifie "Payer 25 fois les bénéfices". Est-ce bien ? Est-ce nul ? Pour le savoir, les pros utilisent une astuce toute bête : ils inversent la fraction.
+Au lieu de faire
+Prix / Bénéfice
+, faites
+Bénéfice / Prix
+. Vous obtenez un pourcentage : le
+Earnings Yield
+(Rendement Bénéficiaire).
+🧮 4. Le Earnings Yield
+Earnings Yield (%) = (1 / PER) × 100
+Cela vous permet de comparer l'action avec d'autres investissements :
+PER de 20 :
+Earnings Yield de
+5%
+. (C'est mieux qu'un livret A).
+PER de 50 :
+Earnings Yield de
+2%
+. (C'est risqué : les obligations d'État américaines rapportent souvent plus que ça, sans aucun risque !).
+Si le rendement bénéficiaire de l'action est inférieur au taux sans risque (obligations d'État), demandez-vous pourquoi vous prenez le risque d'investir.
+8. La Valeur d'Entreprise (Enterprise Value) : La Dette Cachée 🏠
+Enfin, il y a un piège sournois avec la Capitalisation Boursière. Elle ne vous montre que le prix des actions, mais elle cache la dette.
+Reprenons l'immobilier :
+Maison A :
+Prix affiché 200 000€. Aucune dette à reprendre. Coût réel = 200 000€.
+Maison B :
+Prix affiché 100 000€ (Wow, pas cher !). Mais pour l'acheter, vous devez reprendre le crédit du vendeur de 300 000€. Coût réel = 400 000€.
+En Bourse, la Capitalisation est le "Prix affiché". L'Enterprise Value (EV) est le "Coût Réel".
+🧮 5. L'Enterprise Value (EV)
+EV = Capitalisation Boursière + Dette Nette
+C'est pour cette raison que les professionnels préfèrent souvent utiliser le ratio
+EV / EBITDA
+plutôt que le PER classique. Il permet de comparer deux entreprises en tenant compte de leur dette. Si une entreprise a un PER faible mais une dette énorme, le ratio EV/EBITDA révélera qu'elle est en fait très chère.
+🔑
+Ce qu'il faut retenir
+Les ratios sont vos lunettes pour voir le prix réel au-delà de l'étiquette en euros.
+Le PER
+est votre base : combien je paie pour les profits d'aujourd'hui ?
+Le PEG
+est votre outil de pro : le prix est-il justifié par la croissance future ?
+N'achetez jamais une action juste parce que son PER est bas (c'est souvent un piège), et n'ayez pas peur d'un PER élevé si le PEG reste proche de 1 ou 1.5. Et n'oubliez jamais de vérifier la dette avec l'EV !

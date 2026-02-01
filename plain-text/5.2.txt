@@ -1,0 +1,66 @@
+Dans le chapitre précédent, nous avons établi une vérité fondamentale : acheter de la qualité est indispensable, mais surpayer cette qualité est une erreur fatale. Cela nous amène naturellement à LA stratégie que nous appliquons chez StocksPickeur.
+Cette approche a un nom précis dans le monde de la finance institutionnelle. Elle s'appelle le
+QARP
+:
+Quality At a Reasonable Price
+(La Qualité à Prix Raisonnable).
+Le QARP n'est pas un concept marketing à la mode. C'est l'intersection mathématique la plus rentable de l'histoire boursière. C'est le point d'équilibre parfait entre deux mondes qui s'opposent souvent :
+L'investissement "Value" pur :
+Qui achète des entreprises médiocres parce qu'elles sont "bradées".
+L'investissement "Growth/Quality" pur :
+Qui achète des entreprises magnifiques peu importe le prix (souvent trop cher).
+Le QARP prend le meilleur des deux :
+L'Excellence de la Qualité + La Discipline de la Value.
+1. La Preuve par l'Histoire : Le QARP écrase tout 🥇
+Vous pourriez penser qu'acheter simplement "les meilleures entreprises" (Quality) suffit. C'est faux. L'histoire prouve qu'ajouter une contrainte de prix à votre sélection de qualité booste significativement la performance.
+Regardez attentivement ce graphique de Schroders (une des plus grandes sociétés de gestion au monde). Il compare les performances cumulées depuis 1990 :
+[QARP.png]
+La ligne verte (QARP) surperforme largement la ligne bleue foncée (Quality) et écrase le marché (Bleu clair).
+L'analyse des chiffres est saisissante :
+MSCI UK (Le Marché) :
+8.3% par an. C'est la moyenne.
+Quality (L'Excellence) :
+12.9% par an. C'est très bien, car on évite les faillites.
+QARP (L'Excellence au bon prix) :
+15.7% par an.
+C'est phénoménal.
+La différence entre 12.9% et 15.7% peut sembler faible sur le papier. Mais grâce aux intérêts composés sur 30 ans, cela représente une fortune. La stratégie QARP surperforme la stratégie "Quality pure" parce qu'elle évite les périodes de "débullification" (quand une action géniale perd 30% juste parce qu'elle était trop chère).
+Le Secret de la Surperformance 🤫
+"Le QARP fonctionne parce qu'il profite d'une double expansion : la croissance des bénéfices de l'entreprise (le moteur) ET l'expansion des multiples de valorisation (le turbo). Quand vous achetez la qualité pas cher, le marché finit par reconnaître son erreur et revalorise le titre."
+2. L'Anatomie d'une action QARP 🧬
+Concrètement, à quoi ressemble une action QARP dans les chiffres ? C'est une anomalie statistique que nous cherchons à exploiter. C'est une entreprise qui a les fondamentaux d'une Ferrari mais qui est vendue au prix d'une Audi.
+Ce deuxième graphique décompose les caractéristiques financières du QARP par rapport au marché (Russell 1000) et à la Qualité pure :
+[Quality-Factor.png]
+Regardez les barres violettes (QARP) : Le rendement (ROE) est presque aussi haut que la Qualité pure, mais le prix (P/E) est beaucoup plus bas !
+Ce graphique est la clé de voûte de notre méthode. Analysons-le ensemble :
+Côté PRIX (P/E Ratio - Barres de gauche) :
+La "Qualité pure" (Bleu ciel) se paie très cher (PER de 25).
+Le marché (Gris) se paie normalement (PER de 22).
+Le
+QARP
+(Violet) se paie
+MOINS CHER
+que le marché (PER de 17) !
+Côté RENTABILITÉ (ROE % - Barres de droite) :
+Le marché (Gris) a une rentabilité sur capitaux propres moyenne (28%).
+Le
+QARP
+(Violet) a une rentabilité
+EXPLOSIVE
+(33%), presque au niveau de la Qualité pure (38%).
+Conclusion du graphique :
+Avec le QARP, vous achetez une rentabilité (ROE) bien supérieure à la moyenne de marché, tout en payant un prix (PER) inférieur à la moyenne du marché. C'est l'arbitrage parfait.
+3. Pourquoi cette anomalie existe-t-elle ? 🤔
+Si c'est si évident, pourquoi tout le monde ne le fait pas ? Pourquoi le marché laisse-t-il traîner des actions aussi rentables à des prix aussi raisonnables ?
+La réponse est psychologique. Les actions QARP se trouvent souvent dans des périodes de "désamour" temporaire :
+Une entreprise magnifique qui traverse un trimestre difficile (mais temporaire).
+Un secteur entier qui est boudé par la mode du moment (ex: la santé quand tout le monde veut de l'IA).
+Une entreprise complexe que les analystes ont la flemme d'étudier en profondeur.
+C'est là que nous intervenons. Nous profitons de la myopie du marché. Nous achetons quand les autres doutent, sachant que la qualité intrinsèque (le ROE élevé) finira toujours par faire remonter le cours.
+🔑
+Ce qu'il faut retenir
+Le
+QARP
+(Quality At a Reasonable Price) est le nom officiel de notre stratégie.
+Historiquement, c'est l'approche qui offre le meilleur rendement annuel (15.7%), battant à la fois le marché et la stratégie "Qualité à tout prix".
+Notre mission dans ce module de Valorisation est de vous apprendre à identifier ces anomalies : ces moments rares où une entreprise au ROE exceptionnel se vend à un PER raisonnable.

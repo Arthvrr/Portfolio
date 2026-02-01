@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5.5 Les Ratios Avancés : La Vérité du Cash | Formation StocksPickeur</title>
+    <title>5.5 Les Ratios de Valorisation de base | Formation StocksPickeur</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -92,7 +92,7 @@
 
         <div class="mb-12 border-b border-slate-200 pb-8">
             <span class="text-emerald-600 font-bold tracking-wider uppercase text-xs">Module 5 • La Valorisation</span>
-            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">5.5. Les Ratios Avancés : La Vérité du Cash 💸</h1>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">5.5. Les Ratios de Valorisation de base 📏</h1>
         </div>
 
         <div class="mb-10 not-prose"> 
@@ -111,111 +111,181 @@
 
         <article class="prose prose-slate max-w-none text-justify">
             
-            <p>Si vous avez lu le chapitre précédent sur le PER, bravo. Vous en savez déjà plus que 80% des particuliers. Mais si vous voulez faire partie du top 1% et investir comme les légendes du "Quality Investing" (Terry Smith, Warren Buffett), le PER ne suffit pas. Pire, il peut vous mentir.</p>
-            <p>Pourquoi ? Parce que le "Bénéfice Net" (le E du PER) est une opinion comptable. Il est manipulable. Il contient des éléments virtuels (dépréciations, amortissements, jeux d'écritures).</p>
-            <p>Il existe une vérité supérieure : <strong>Le CASH</strong>.</p>
-            <p>Le <strong>Free Cash Flow (FCF)</strong>, c'est l'argent qui reste vraiment dans la poche de l'entreprise à la fin de l'année, une fois qu'elle a tout payé et tout réinvesti pour maintenir ses usines. On ne ment pas avec le cash. Voici les outils pour valoriser une entreprise selon sa capacité à cracher du cash.</p>
+            <p>Maintenant que vous avez compris l'importance de ne pas surpayer une action (la Marge de Sécurité), comment savoir si le prix affiché est "cher" ou "bon marché" ?</p>
+            <p>Si je vous dis qu'une action coûte <strong>200€</strong>, est-ce cher ?</p>
+            <ul>
+                <li>Si c'est une action qui génère 1€ de bénéfice par an, c'est hors de prix (il vous faudra 200 ans pour être remboursé).</li>
+                <li>Si c'est une action qui génère 100€ de bénéfice par an, c'est l'affaire du siècle (remboursé en 2 ans).</li>
+            </ul>
+            <p>Pour juger un prix, nous avons besoin d'un outil de mesure standardisé. En finance, nous utilisons des <strong>Ratios</strong>. Ce sont les thermomètres de l'investisseur. Voici les plus importants à maîtriser absolument.</p>
+
+            <h4>1. Le Roi des Ratios : Le PER (Price Earning Ratio) 👑</h4>
+            <p>C'est l'indicateur le plus célèbre, le plus utilisé, et le plus facile à comprendre. Vous le trouverez sur tous les sites boursiers (Google Finance, Yahoo, etc.).</p>
+            <p>Le PER répond à la question : <strong>"Combien d'années de bénéfices suis-je en train de payer pour acheter cette entreprise ?"</strong></p>
+
+            <div class="bg-slate-50 border-l-4 border-emerald-600 p-6 rounded-r-xl my-8">
+                <strong class="text-slate-900 block mb-2 text-xl">🧮 1. Le PER (Price Earning Ratio)</strong>
+                <div class="text-lg font-mono text-emerald-600 bg-white inline-block px-4 py-2 rounded border border-emerald-100 mb-2 shadow-sm">
+                    PER = Prix de l'action / Bénéfice Net par Action (EPS)
+                </div>
+            </div>
+
+            <p><strong>L'Analogie Immobilière :</strong></p>
+            <p>Si vous achetez un appartement à <strong>200 000€</strong> et qu'il vous rapporte <strong>10 000€</strong> de loyer net par an.</p>
+            <ul>
+                <li>Votre PER est de <strong>20</strong> (200 000 / 10 000).</li>
+                <li>Cela signifie que vous payez "20 fois les loyers".</li>
+            </ul>
+            <p>En Bourse, si une action cote 100€ et gagne 5€ par an, son PER est de 20.</p>
+
+            <p><strong>Comment interpréter le PER ?</strong></p>
+            <ul>
+                <li><strong>PER < 15 :</strong> L'action est considérée comme "Bon marché" (Value). Souvent des entreprises matures, sans grande croissance, ou des entreprises en difficulté que le marché déteste.</li>
+                <li><strong>PER entre 15 et 25 :</strong> C'est la moyenne historique pour des entreprises de qualité standard.</li>
+                <li><strong>PER > 30 :</strong> L'action est "Chère" (Growth). Le marché anticipe une très forte croissance future et accepte de payer une prime élevée aujourd'hui (ex: Nvidia, Hermès).</li>
+            </ul>
 
             <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-xl my-8">
                 <p class="font-bold text-blue-900 mb-2">La citation à retenir 💬</p>
-                <p class="italic text-blue-800 m-0">"Les bénéfices sont une opinion, le cash est un fait."<br>— <strong>Alfred Rappaport</strong></p>
+                <p class="italic text-blue-800 m-0">"Le ratio cours/bénéfice (PER) d'une entreprise justement évaluée devrait être égal à son taux de croissance."<br>— <strong>Peter Lynch</strong></p>
             </div>
 
-            <h4>1. Le Price-to-FCF (Le PER du Pro) 🕵️‍♂️</h4>
-            <p>C'est exactement la même logique que le PER, mais on remplace le bénéfice comptable par le Free Cash Flow. C'est un ratio beaucoup plus pur.</p>
-            
+            <h4>2. Le Piège Historique : La moyenne n'est pas une règle 📜</h4>
+            <p>Attention à ne pas être dogmatique. Beaucoup de débutants se disent <em>"Je n'achète rien au-dessus d'un PER de 20"</em>.</p>
+            <p>Regardez ce graphique historique du PER moyen du marché américain (S&P 500) sur 150 ans (aussi appelé Shiller PE).</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/price-earnings-ratio.png')">
+                <img src="../media/Formation/price-earnings-ratio.png" 
+                     alt="Graphique historique du Shiller PE Ratio du S&P 500" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Le PER moyen oscille. En 2000 (bulle internet), il a atteint 40 (folie). En 2024, il est souvent autour de 25-30.</figcaption>
+            </figure>
+
+            <p>On voit que la "cherté" du marché évolue. Aujourd'hui, avec la technologie et les marges élevées des GAFAM, il est normal que le PER moyen soit plus élevé qu'en 1950. Attendre que le marché revienne à un PER de 15 pourrait vous faire attendre indéfiniment.</p>
+
+            <h4>3. Le Piège Sectoriel : Ne comparez pas des pommes et des bananes 🍎🍌</h4>
+            <p>L'autre erreur classique est de comparer le PER d'une banque avec celui d'une entreprise technologique.</p>
+            <p>Regardez ce classement des PER moyens par secteur :</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/pe-ratio-by-industy.png')">
+                <img src="../media/Formation/pe-ratio-by-industy.png" 
+                     alt="Graphique des PER moyens par industrie" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">L'immobilier (REITs) et la Tech se paient cher (50x). Les Banques et l'Énergie se paient peu cher (10x).</figcaption>
+            </figure>
+
+            <p>Une banque (PER 10) n'est pas "moins chère" qu'une boite de logiciels (PER 40). C'est juste que la banque a moins de croissance et plus de risques. <strong>Comparez toujours une entreprise avec ses concurrents du même secteur.</strong></p>
+
+            <h4>4. La Limite du PER : Il est aveugle à la croissance 🙈</h4>
+            <p>Imaginez deux entreprises :</p>
+            <ul>
+                <li><strong>Entreprise A (La Poste) :</strong> PER de 10. Croissance de 2% par an.</li>
+                <li><strong>Entreprise B (Nvidia) :</strong> PER de 30. Croissance de 50% par an.</li>
+            </ul>
+            <p>Si vous ne regardez que le PER, vous achetez La Poste car c'est "moins cher". Grosse erreur ! L'entreprise B va doubler ses bénéfices très vite, rendant son prix d'achat actuel ridicule dans 3 ans.</p>
+            <p>Pour corriger ce défaut, Peter Lynch a popularisé un super-ratio : le <strong>PEG</strong>.</p>
+
+            <h4>5. Le PEG Ratio (Price / Earnings / Growth) 🚀</h4>
+            <p>C'est l'arme favorite de l'investisseur Quality/Growth. Il ajoute la dimension "Vitesse" au prix.</p>
+            <p>Le PEG vous dit si vous payez le juste prix <strong>par unité de croissance</strong>.</p>
+
             <div class="bg-slate-50 border-l-4 border-emerald-600 p-6 rounded-r-xl my-8">
-                <strong class="text-slate-900 block mb-2 text-xl">🧮 1. Le Price-to-FCF</strong>
+                <strong class="text-slate-900 block mb-2 text-xl">🧮 2. Le Ratio PEG</strong>
                 <div class="text-lg font-mono text-emerald-600 bg-white inline-block px-4 py-2 rounded border border-emerald-100 mb-2 shadow-sm">
-                    P/FCF = Capitalisation Boursière / Free Cash Flow
+                    PEG = PER / Taux de Croissance Annuel des Bénéfices
                 </div>
             </div>
 
-            <p><strong>Pourquoi l'utiliser ?</strong></p>
-            <p>Certaines entreprises (comme Amazon pendant longtemps) affichent peu de bénéfices comptables car elles investissent massivement, mais elles génèrent des montagnes de cash. Le PER les jugerait "hors de prix" (PER de 80), alors que le P/FCF révélerait qu'elles sont raisonnables (P/FCF de 25).</p>
-            
-            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/fcf-vs-net-income.png')">
-                <img src="../media/Formation/fcf-vs-net-income.png" 
-                     alt="Graphique comparant le Net Income et le Free Cash Flow" 
-                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
-                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Le comptable voit des profits faibles (Barres bleues). L'investisseur avisé voit une machine à cash (Ligne verte).</figcaption>
-            </figure>
-
-            <p>Regardez ce graphique ci-dessus. C'est le cas classique d'une entreprise en forte croissance (comme Amazon à ses débuts). Pendant des années, les profits comptables (Net Income) semblaient ridicules, donnant des PER astronomiques de 100 ou 200. Les amateurs criaient à la bulle.</p>
-            <p>Pendant ce temps, les investisseurs professionnels regardaient la ligne verte : le Free Cash Flow explosait. L'entreprise était en réalité une machine à cash, mais elle réinvestissait tout (ce qui réduisait son bénéfice comptable). Ceux qui ont utilisé le ratio <strong>Price-to-FCF</strong> ont compris la valeur réelle et ont acheté.</p>
-
-            <p><strong>Les Niveaux à surveiller pour le Quality :</strong></p>
+            <p><strong>Comment l'interpréter ?</strong></p>
             <ul>
-                <li><strong>P/FCF < 15 :</strong> Très bon marché (souvent signe de problème ou de soldes exceptionnelles).</li>
-                <li><strong>P/FCF entre 20 et 25 :</strong> C'est la zone "Fair Value" pour une entreprise exceptionnelle.</li>
-                <li><strong>P/FCF > 35 :</strong> Cela commence à être très tendu, sauf si la croissance est explosive (>20%/an).</li>
+                <li><strong>PEG < 1 :</strong> Action Sous-évaluée. (Ex: PER de 20 pour une croissance de 25%). C'est le Saint Graal.</li>
+                <li><strong>PEG = 1 :</strong> Juste Prix (Fair Value). Vous payez exactement pour la croissance que vous obtenez.</li>
+                <li><strong>PEG > 2 :</strong> Action Surévaluée. Le prix est allé trop vite par rapport à la croissance réelle.</li>
             </ul>
 
-            <h4>2. Le FCF Yield (L'Arme Absolue) 👑</h4>
-            <p>Si je ne devais utiliser qu'un seul ratio pour le reste de ma vie, ce serait celui-ci. C'est l'indicateur favori de <strong>Terry Smith</strong> (le Warren Buffett anglais).</p>
-            <p>C'est simplement l'inverse du précédent. Au lieu d'un multiple (20x), on obtient un pourcentage (5%). Cela permet de comparer l'action directement avec un taux d'intérêt bancaire ou obligataire.</p>
-
-            <div class="bg-slate-50 border-l-4 border-emerald-600 p-6 rounded-r-xl my-8">
-                <strong class="text-slate-900 block mb-2 text-xl">🧮 2. Le Free Cash Flow Yield</strong>
-                <div class="text-lg font-mono text-emerald-600 bg-white inline-block px-4 py-2 rounded border border-emerald-100 mb-2 shadow-sm">
-                    FCF Yield (%) = (Free Cash Flow / Capitalisation Boursière) × 100
-                </div>
-            </div>
-
-            <p><strong>L'interprétation est limpide grâce à notre jauge :</strong></p>
-            
-            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/fcf-yield-jauge.png')">
-                <img src="../media/Formation/fcf-yield-jauge.png" 
-                     alt="Jauge colorée indiquant les zones d'achat selon le FCF Yield" 
-                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
-                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Ne compliquez pas tout. Utilisez ce thermomètre simple pour savoir quand agir.</figcaption>
-            </figure>
-
-            <p>Si vous achetiez toute l'entreprise aujourd'hui, c'est le rendement cash immédiat que vous toucheriez la première année.</p>
+            <p><strong>Exemple Concret :</strong></p>
             <ul>
-                <li><strong>Zone Verte (> 5%) :</strong> C'est le signal d'achat. C'est mieux que les obligations d'État (souvent à 3% ou 4%), et en plus, ce rendement va augmenter avec la croissance !</li>
-                <li><strong>Zone Orange (3% - 5%) :</strong> C'est la zone d'attente (Hold). Le prix est correct, sans plus.</li>
-                <li><strong>Zone Rouge (< 2%) :</strong> C'est dangereux. Vous acceptez un rendement initial très faible. Il faut être sûr que l'entreprise va doubler de taille très vite pour justifier ce prix.</li>
+                <li><strong>Entreprise "Lente" :</strong> PER de 15, Croissance de 5%. -> PEG = 15/5 = <strong>3</strong>. (C'est cher pour si peu de croissance).</li>
+                <li><strong>Entreprise "Rapide" :</strong> PER de 30, Croissance de 30%. -> PEG = 30/30 = <strong>1</strong>. (C'est un prix juste).</li>
             </ul>
+            <p>Grâce au PEG, vous comprenez pourquoi payer 30 fois les bénéfices pour une entreprise exceptionnelle n'est pas forcément une folie, alors que payer 15 fois pour une entreprise qui stagne est une arnaque.</p>
 
-            <p>Vous pensez que c'est trop simple ? Que les pros utilisent des formules magiques bien plus complexes ? Détrompez-vous.</p>
+            <p><strong>Nuance de Pro : L'Impact de la Durée</strong></p>
+            <p>Une question se pose souvent : <em>"Puis-je acheter une action avec un PEG de 1.5 ou 2 ?"</em>. La réponse est oui, si l'entreprise est une "Compounder" (Quality) qui croît longtemps.</p>
             
-            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/fcf-yield-fundsmith.jpg')">
-                <img src="../media/Formation/fcf-yield-fundsmith.jpg" 
-                     alt="Extrait du rapport annuel de Fundsmith montrant l'utilisation du FCF Yield" 
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/example-peg-impact-of-growth-duration.png')">
+                <img src="../media/Formation/example-peg-impact-of-growth-duration.png" 
+                     alt="Graphique montrant l'impact de la durée de croissance sur le PEG" 
                      class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
-                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Terry Smith gère 25 milliards de dollars. Son indicateur numéro 1 ? Le Free Cash Flow Yield.</figcaption>
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Plus la croissance dure longtemps (Ligne Jaune - 9 ans), plus on peut se permettre de payer un PEG élevé au départ.</figcaption>
             </figure>
 
-            <p>Voici un extrait du rapport annuel de <strong>Fundsmith</strong>. Terry Smith gère 25 milliards de dollars. Regardez la ligne encadrée : le premier indicateur qu'il montre fièrement à ses investisseurs n'est pas le PER, mais le <strong>Free Cash Flow Yield</strong>. Il cherche constamment à avoir un portefeuille avec un rendement FCF supérieur à la moyenne du marché (S&P 500). Si c'est assez bon pour le meilleur gérant anglais, c'est assez bon pour nous.</p>
+            <p>Ce graphique est fondamental pour la stratégie Quality. Il montre que si vous êtes sûr que l'entreprise va croître pendant 9 ans (Ligne Jaune), vous pouvez vous permettre de payer un PEG de 1.8 aujourd'hui et être quand même gagnant. À l'inverse, si la croissance s'arrête dans 3 ans (Ligne Grise), même un PEG de 1 est risqué. <strong>La longévité de la croissance justifie un prix plus élevé.</strong></p>
 
-            <h4>3. Le Forward PE (Regarder le pare-brise) 🔭</h4>
-            <p>Le PER classique (Trailing PE) regarde les 12 derniers mois. C'est le rétroviseur. Or, la Bourse achète l'avenir, pas le passé.</p>
-            <p>Le <strong>Forward PE</strong> utilise les estimations de bénéfices des analystes pour les 12 <em>prochains</em> mois.</p>
+            <h4>6. Le Price-to-Sales (Pour ceux qui ne font pas de profit) 💸</h4>
+            <p>Parfois, vous voudrez investir dans des entreprises jeunes ou technologiques qui ne font pas encore de bénéfices (donc pas de PER possible). Dans ce cas, on regarde le <strong>Price-to-Sales (P/S)</strong> : combien de fois le Chiffre d'Affaires on paie.</p>
 
             <div class="bg-slate-50 border-l-4 border-emerald-600 p-6 rounded-r-xl my-8">
-                <strong class="text-slate-900 block mb-2 text-xl">🧮 3. Le Forward PE</strong>
+                <strong class="text-slate-900 block mb-2 text-xl">🧮 3. Le Price-to-Sales (P/S)</strong>
                 <div class="text-lg font-mono text-emerald-600 bg-white inline-block px-4 py-2 rounded border border-emerald-100 mb-2 shadow-sm">
-                    Forward PE = Prix Actuel / Bénéfices Futurs Estimés (N+1)
+                    P/S = Capitalisation Boursière / Chiffre d'Affaires Total
                 </div>
             </div>
 
-            <p><strong>Le Piège à éviter :</strong></p>
-            <p>Parfois, une action semble chère aujourd'hui (PER de 40), mais si ses bénéfices doivent doubler l'année prochaine, son Forward PE n'est que de 20. Elle est donc "moins chère" qu'il n'y paraît.</p>
-            <p>⚠️ <strong>Attention :</strong> Les estimations des analystes sont souvent fausses. Utilisez ce ratio pour vérifier si la croissance attendue justifie le prix, mais ne lui faites pas une confiance aveugle.</p>
+            <p>Attention, c'est un ratio dangereux. Payer 10x ou 20x le chiffre d'affaires est souvent signe de bulle spéculative.</p>
+            
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-xl my-8">
+                <p class="font-bold text-blue-900 mb-2">La citation à retenir 💬</p>
+                <p class="italic text-blue-800 m-0">"À 10 fois les revenus, pour vous donner un retour sur investissement de 10 ans, je dois vous verser 100% de mes revenus en dividendes pendant 10 ans. Cela suppose que j'ai zéro coût, zéro salaire, zéro impôt, zéro R&D. Pensez-vous vraiment que c'était raisonnable ?" <br>— <strong>Scott McNealy</strong> (PDG de Sun Microsystems)</p>
+            </div>
 
-            <h4>4. L'EV/EBITDA (Le Multiple de l'Acquéreur) 🤝</h4>
-            <p>Ce ratio est celui utilisé par les fonds de Private Equity et les banquiers d'affaires pour racheter des entreprises entières.</p>
-            <p>Contrairement au PER qui ignore la dette, l'EV/EBITDA prend en compte la <strong>Valeur d'Entreprise</strong> (Capitalisation + Dette - Cash). C'est le prix réel pour prendre les clés de la boutique.</p>
+            <p><strong>Regardons l'histoire pour se faire peur :</strong></p>
+            <p>Le graphique ci-dessous montre le ratio Price-to-Sales moyen du S&P 500 sur 30 ans. C'est un excellent indicateur de la "cherté" globale du marché.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/price-to-sales-s&p500.png')">
+                <img src="../media/Formation/price-to-sales-s&p500.png" 
+                     alt="Graphique historique du ratio Price-to-Sales du S&P 500" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Nous sommes actuellement sur des niveaux (3.3x) bien supérieurs au sommet de la bulle internet de 2000 (2.27x). Attention à la sélection !</figcaption>
+            </figure>
+
+            <p>Ce graphique doit vous inciter à la prudence. En 2000, au sommet de la bulle internet, on payait en moyenne 2.27 fois le chiffre d'affaires des entreprises. Aujourd'hui, nous sommes au-dessus de 3 fois. Cela s'explique en partie par le fait que les entreprises technologiques modernes (Google, Meta) ont des marges bien meilleures qu'en 2000, mais cela reste un signal d'alarme : <strong>le marché ne pardonne aucune erreur à ces niveaux de valorisation.</strong></p>
+
+            <h4>7. Le Earnings Yield (L'inverse du PER) 🔄</h4>
+            <p>Beaucoup de débutants ont du mal à se représenter ce que signifie "Payer 25 fois les bénéfices". Est-ce bien ? Est-ce nul ? Pour le savoir, les pros utilisent une astuce toute bête : ils inversent la fraction.</p>
+            <p>Au lieu de faire <code>Prix / Bénéfice</code>, faites <code>Bénéfice / Prix</code>. Vous obtenez un pourcentage : le <strong>Earnings Yield</strong> (Rendement Bénéficiaire).</p>
 
             <div class="bg-slate-50 border-l-4 border-emerald-600 p-6 rounded-r-xl my-8">
-                <strong class="text-slate-900 block mb-2 text-xl">🧮 4. L'EV / EBITDA</strong>
+                <strong class="text-slate-900 block mb-2 text-xl">🧮 4. Le Earnings Yield</strong>
                 <div class="text-lg font-mono text-emerald-600 bg-white inline-block px-4 py-2 rounded border border-emerald-100 mb-2 shadow-sm">
-                    EV / EBITDA = (Cap + Dette Nette) / Résultat Brut d'Exploitation
+                    Earnings Yield (%) = (1 / PER) × 100
                 </div>
             </div>
 
-            <p>C'est le meilleur outil pour comparer deux entreprises du même secteur qui ont des structures financières différentes (l'une très endettée, l'autre riche en cash). L'EV/EBITDA remet tout le monde sur un pied d'égalité.</p>
+            <p>Cela vous permet de comparer l'action avec d'autres investissements :</p>
+            <ul>
+                <li><strong>PER de 20 :</strong> Earnings Yield de <strong>5%</strong>. (C'est mieux qu'un livret A).</li>
+                <li><strong>PER de 50 :</strong> Earnings Yield de <strong>2%</strong>. (C'est risqué : les obligations d'État américaines rapportent souvent plus que ça, sans aucun risque !).</li>
+            </ul>
+            <p>Si le rendement bénéficiaire de l'action est inférieur au taux sans risque (obligations d'État), demandez-vous pourquoi vous prenez le risque d'investir.</p>
+
+            <h4>8. La Valeur d'Entreprise (Enterprise Value) : La Dette Cachée 🏠</h4>
+            <p>Enfin, il y a un piège sournois avec la Capitalisation Boursière. Elle ne vous montre que le prix des actions, mais elle cache la dette.</p>
+            <p>Reprenons l'immobilier :</p>
+            <ul>
+                <li><strong>Maison A :</strong> Prix affiché 200 000€. Aucune dette à reprendre. Coût réel = 200 000€.</li>
+                <li><strong>Maison B :</strong> Prix affiché 100 000€ (Wow, pas cher !). Mais pour l'acheter, vous devez reprendre le crédit du vendeur de 300 000€. Coût réel = 400 000€.</li>
+            </ul>
+            <p>En Bourse, la Capitalisation est le "Prix affiché". L'Enterprise Value (EV) est le "Coût Réel".</p>
+
+            <div class="bg-slate-50 border-l-4 border-emerald-600 p-6 rounded-r-xl my-8">
+                <strong class="text-slate-900 block mb-2 text-xl">🧮 5. L'Enterprise Value (EV)</strong>
+                <div class="text-lg font-mono text-emerald-600 bg-white inline-block px-4 py-2 rounded border border-emerald-100 mb-2 shadow-sm">
+                    EV = Capitalisation Boursière + Dette Nette
+                </div>
+            </div>
+
+            <p>C'est pour cette raison que les professionnels préfèrent souvent utiliser le ratio <strong>EV / EBITDA</strong> plutôt que le PER classique. Il permet de comparer deux entreprises en tenant compte de leur dette. Si une entreprise a un PER faible mais une dette énorme, le ratio EV/EBITDA révélera qu'elle est en fait très chère.</p>
 
             <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-8 mt-12 shadow-sm">
                 <h5 class="text-xl font-bold text-emerald-800 mb-4 flex items-center">
@@ -223,10 +293,10 @@
                     Ce qu'il faut retenir
                 </h5>
                 <p class="text-emerald-900 m-0 leading-relaxed">
-                    Ne soyez pas un investisseur superficiel qui s'arrête au PER. Les bénéfices comptables peuvent être trompeurs.<br>
-                    Le <strong>FCF Yield</strong> est votre boussole la plus fiable : il vous dit combien l'investissement vous rapporte en cash réel, tout de suite. Visez > 4-5%.<br>
-                    Le <strong>Forward PE</strong> vous aide à ne pas rater des entreprises en forte croissance qui semblent chères dans le rétroviseur mais sont abordables dans le pare-brise.<br>
-                    Croisez toujours ces indicateurs pour avoir une vision en 3D de la valorisation.
+                    Les ratios sont vos lunettes pour voir le prix réel au-delà de l'étiquette en euros.<br>
+                    <strong>Le PER</strong> est votre base : combien je paie pour les profits d'aujourd'hui ?<br>
+                    <strong>Le PEG</strong> est votre outil de pro : le prix est-il justifié par la croissance future ?<br>
+                    N'achetez jamais une action juste parce que son PER est bas (c'est souvent un piège), et n'ayez pas peur d'un PER élevé si le PEG reste proche de 1 ou 1.5. Et n'oubliez jamais de vérifier la dette avec l'EV !
                 </p>
             </div>
 
