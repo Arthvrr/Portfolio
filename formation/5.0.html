@@ -10,7 +10,27 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
         h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .chapter-card:hover { transform: translateY(-2px); border-color: #6366f1; }
+        .chapter-card:hover { transform: translateY(-2px); border-color: #059669; } /* Emerald-600 */
+        
+        /* Séparateur de section */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            margin: 3rem 0 1.5rem 0;
+            color: #94a3b8; /* Slate-400 */
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .section-divider::before, .section-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: #e2e8f0; /* Slate-200 */
+        }
+        .section-divider::before { margin-right: 1rem; }
+        .section-divider::after { margin-left: 1rem; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-600 antialiased">
@@ -26,10 +46,10 @@
 
                 <div class="hidden md:flex items-center gap-8">
                     <nav class="flex gap-6">
-                        <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Calculateur</a>
-                        <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
-                        <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Analyses</a>
-                        <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Formation</a>
+                        <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition">Calculateur</a>
+                        <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition">Portefeuille</a>
+                        <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition">Analyses</a>
+                        <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition">Formation</a>
                     </nav>
 
                     <div class="h-6 w-px bg-slate-200"></div>
@@ -55,52 +75,113 @@
 
     <main class="pt-32 pb-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <a href="../formation.html" class="inline-flex items-center text-sm text-slate-400 hover:text-emerald-600 mb-8 transition"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" /></svg> Retour au programme</a>
+        
         <div class="mb-12">
-            <span class="text-emerald-600 font-bold tracking-wider uppercase text-xs">Module 5</span>
+            <span class="inline-block py-1 px-3 rounded-full bg-emerald-50 text-emerald-600 text-xs font-bold uppercase tracking-wider mb-4 border border-emerald-100">Module 5</span>
             <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">Le Juste Prix (Valorisation) ⚖️</h1>
-            <p class="text-lg text-slate-500 max-w-3xl mx-auto leading-relaxed text-justify">
+            <p class="text-lg text-slate-500 text-justify leading-relaxed">
                 Identifier une entreprise exceptionnelle n'est que la moitié du chemin. Si vous la payez un prix délirant, même la meilleure action du monde peut devenir un investissement médiocre pendant une décennie. 
                 <br><br>
                 Dans ce module, nous allons briser le mythe selon lequel la valorisation est réservée aux experts-comptables. Vous allez apprendre à distinguer le <strong>Prix</strong> (ce que vous payez) de la <span class="text-emerald-700 font-medium">Valeur</span> (ce que vous obtenez). 
-                Nous vous armerons d'outils rationnels pour calculer le <strong>Juste Prix</strong> et agir avec la précision d'un professionnel, en achetant la qualité uniquement quand les mathématiques sont en votre faveur.
+                Nous vous armerons d'outils rationnels pour calculer le <strong>Juste Prix</strong> et agir avec la précision d'un professionnel.
             </p>
-            
         </div>
+
         <div class="space-y-4">
+            
+            <div class="section-divider">Cours & Théorie</div>
+
             <a href="#.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.1</div><div><h3 class="font-bold text-slate-900 text-lg">La Qualité, mais à quel prix ? 🏷️</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.1</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-emerald-600 transition">La Qualité, mais à quel prix ? 🏷️</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
             </a>
             <a href="#.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.2</div><div><h3 class="font-bold text-slate-900 text-lg">La Stratégie QARP 🏆</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.2</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-emerald-600 transition">La Stratégie QARP 🏆</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
             </a>
             <a href="#.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.3</div><div><h3 class="font-bold text-slate-900 text-lg">Prix vs Valeur 🏷️</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.3</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-emerald-600 transition">Prix vs Valeur 🏷️</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
             </a>
             <a href="#.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.4</div><div><h3 class="font-bold text-slate-900 text-lg">La Marge de Sécurité 👷</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.4</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-emerald-600 transition">La Marge de Sécurité 👷</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
             </a>
             <a href="#.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.5</div><div><h3 class="font-bold text-slate-900 text-lg">Les Ratios de Valorisation de base 📏</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.5</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-emerald-600 transition">Les Ratios de Valorisation de base 📏</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
             </a>
             <a href="#.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.6</div><div><h3 class="font-bold text-slate-900 text-lg">Les Ratios Avancés ⚙️</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.6</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-emerald-600 transition">Les Ratios Avancés ⚙️</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
             </a>
             <a href="#.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.7</div><div><h3 class="font-bold text-slate-900 text-lg">Le piège des Value Traps 🪤</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.7</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-emerald-600 transition">Le piège des Value Traps 🪤</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
             </a>
             <a href="#.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.8</div><div><h3 class="font-bold text-slate-900 text-lg">La Technique DCF 🧮</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.8</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-emerald-600 transition">La Technique DCF 🧮</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
             </a>
             <a href="#.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.9</div><div><h3 class="font-bold text-slate-900 text-lg">Le Reverse DCF 🔁</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.9</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-emerald-600 transition">Le Reverse DCF 🔁</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
             </a>
             <a href="#.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.10</div><div><h3 class="font-bold text-slate-900 text-lg">Les 3 Visages du PER 🎭</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.10</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-emerald-600 transition">Les 3 Visages du PER 🎭</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
             </a>
             <a href="#.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.11</div><div><h3 class="font-bold text-slate-900 text-lg">Ma Stratégie Personnelle ♟️</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.11</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-emerald-600 transition">Ma Stratégie Personnelle ♟️</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
             </a>
         </div>
+
+        <div class="space-y-4 mt-12">
+            <div class="section-divider">Outils & Simulateurs</div>
+
+            <a href="#.html" target="_blank" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group hover:shadow-md">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-2xl group-hover:bg-emerald-600 group-hover:text-white transition">🧮</div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-lg group-hover:text-emerald-600 transition">Calculateur DCF</h3>
+                        <p class="text-sm text-slate-500">Estimez la Valeur Intrinsèque de vos actions.</p>
+                    </div>
+                </div>
+                <div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
+            </a>
+
+            <a href="#.html" target="_blank" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group hover:shadow-md">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-2xl group-hover:bg-indigo-600 group-hover:text-white transition">🔮</div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-lg group-hover:text-indigo-600 transition">Reverse DCF</h3>
+                        <p class="text-sm text-slate-500">Décodez les attentes de croissance du marché.</p>
+                    </div>
+                </div>
+                <div class="text-slate-300 group-hover:text-indigo-600 transition">➔</div>
+            </a>
+        </div>
+
+        <div class="space-y-4 mt-12">
+            <div class="section-divider">Validation</div>
+
+            <a href="#.html" class="chapter-card flex items-center justify-between bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-lg transition duration-300 group hover:bg-slate-800 transform hover:-translate-y-1">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center font-bold text-xl">🎓</div>
+                    <div>
+                        <h3 class="font-bold text-white text-lg">Examen Final du Module 5</h3>
+                        <p class="text-sm text-slate-400">Validez votre expertise en Valorisation (Certification QARP).</p>
+                    </div>
+                </div>
+                <div class="text-slate-500 group-hover:text-white transition">➔</div>
+            </a>
+        </div>
+
+        <div class="space-y-4 mt-12">
+            <div class="section-divider">Synthèse</div>
+
+            <a href="#.html" target="_blank" class="chapter-card flex items-center justify-between bg-white p-5 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group hover:shadow-md hover:border-emerald-200">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-2xl group-hover:bg-emerald-600 group-hover:text-white transition duration-300">💡</div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-lg group-hover:text-emerald-700 transition">La Cheat Sheet du Module 5</h3>
+                        <p class="text-sm text-slate-500">Votre Grille de Valorisation QARP à imprimer.</p>
+                    </div>
+                </div>
+                <div class="text-slate-300 group-hover:text-emerald-600 group-hover:translate-x-1 transition duration-300">➔</div>
+            </a>
+        </div>
+
     </main>
 
     <footer class="bg-slate-950 py-12 border-t border-slate-900">

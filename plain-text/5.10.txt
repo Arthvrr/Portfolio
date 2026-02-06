@@ -1,0 +1,80 @@
+Imaginez que vous achetez une voiture d'occasion. Le vendeur vous dit :
+"Elle consomme 5 litres au 100km"
+. Mais de quoi parle-t-il ? De ce qu'elle a consommé l'année dernière ? De ce qu'elle consommera l'année prochaine avec un nouveau moteur ? Ou de sa moyenne sur 10 ans ?
+En Bourse, c'est exactement le même problème avec le PER. Quand vous lisez "Le PER de cette action est de 20", cela ne veut rien dire si vous ne précisez pas quel type de PER vous utilisez.
+Il existe trois variantes fondamentales : le
+Trailing PE
+(le passé), le
+Forward PE
+(le futur) et le
+PE Historique
+(la norme). Savoir jongler avec les trois est ce qui sépare l'amateur du professionnel.
+1. Le Trailing PE : Le Rétroviseur 🔙
+C'est le ratio par défaut affiché sur Yahoo Finance, Google Finance ou votre courtier quand vous ne précisez rien. "Trailing" signifie "glissant" ou "traînant". Il regarde ce qui s'est passé derrière vous.
+🧮 1. Le Trailing PE (Réel)
+Trailing PE = Prix Actuel / Bénéfices Réels (12 derniers mois)
+Ce ratio utilise les bénéfices nets (EPS - Earnings Per Share) qui ont été
+réellement publiés
+et validés par les comptables lors des 4 derniers trimestres (TTM : Trailing Twelve Months).
+Son avantage majeur :
+C'est un fait indiscutable. Il n'y a pas de devinette. Vous payez pour des résultats concrets et tangibles. C'est la mesure préférée des investisseurs prudents.
+Son défaut mortel :
+La bourse se fiche du passé. Si une entreprise a gagné des milliards l'an dernier grâce à un événement exceptionnel (vente d'un brevet, boom post-covid), son Trailing PE sera très bas (attractif), mais cela ne se reproduira pas. Vous risquez d'acheter un "faux bon plan".
+2. Le Forward PE : Le Pare-Brise 🔭
+C'est le ratio préféré des analystes de Wall Street et des gérants de fonds. Pourquoi ? Parce que la bourse est un mécanisme d'anticipation. On achète une action aujourd'hui pour les profits qu'elle générera demain, pas pour ceux d'hier.
+🔭 2. Le Forward PE (Estimé)
+Forward PE = Prix Actuel / Bénéfices Estimés (12 prochains mois)
+Ce ratio utilise le "Consensus des Analystes" pour les 12 prochains mois (NTM : Next Twelve Months).
+La mécanique mathématique :
+Pour une entreprise en croissance (ex: Microsoft, LVMH), les bénéfices de l'an prochain sont censés être plus élevés que ceux de l'an dernier. Si le dénominateur (E) augmente, le résultat (PE) diminue.
+C'est pourquoi le Forward PE est souvent plus bas que le Trailing PE pour les bonnes entreprises.
+Le piège :
+C'est une opinion, pas un fait. Les analystes peuvent se tromper. S'ils sont trop optimistes et que l'entreprise rate ses objectifs, le cours de l'action s'effondrera brutalement pour "re-pricer" la réalité.
+[trailing-forward-history-pe.png]
+Visualisez la différence : À gauche, ce qui est déjà arrivé (Trailing, factuel). À droite, ce qu'on espère qu'il va arriver (Forward, estimation). Le prix de l'action réagit à la partie de droite.
+3. Le PE Historique : L'Ancre de Normalité ⚓
+C'est l'indicateur secret des investisseurs "Value". Il ne regarde ni hier, ni demain, mais la
+moyenne
+des 5 ou 10 dernières années.
+⚓ 3. Le PE Historique (Moyenne)
+PE Historique = Moyenne du PER sur 5 ou 10 ans
+Chaque entreprise a sa propre "personnalité" de valorisation. Coca-Cola se paie historiquement cher (autour de 25x les bénéfices) car c'est une valeur sûre. Une banque cyclique se paie historiquement peu cher (autour de 10x). Le PE Historique vous donne la "ligne de base" pour savoir si le prix actuel est anormal.
+4. Le Grand Match : Comment comparer pour gagner ? 🥊
+Maintenant que vous avez les définitions, voici comment les utiliser stratégiquement. Ne regardez jamais un ratio seul. Comparez-les !
+Match A : Trailing vs Forward (Le détecteur de tendance)
+Comparez le PE du passé et celui du futur pour comprendre la dynamique attendue.
+Si Forward PE < Trailing PE :
+C'est le cas idéal. Les analystes prévoient une
+croissance
+des bénéfices. (Ex: Trailing 30, Forward 20). L'entreprise devient "moins chère" avec le temps si elle tient ses promesses.
+Si Forward PE > Trailing PE :
+Attention ! Les analystes prévoient une
+baisse
+des bénéfices (déclin, récession, fin d'un cycle). L'action semble bon marché aujourd'hui (Trailing bas), mais elle est en train de devenir chère (Forward haut). C'est le signe typique d'un Value Trap.
+Match B : PE Actuel vs PE Historique (Le détecteur de soldes) 💎
+C'est l'analyse la plus puissante pour le timing. Il existe une loi universelle en finance : le
+Retour à la Moyenne
+(Mean Reversion). Tôt ou tard, la valorisation tend à revenir vers sa moyenne historique.
+Si PE Actuel < PE Historique :
+L'action est statistiquement "pas chère" par rapport à ses propres standards. C'est souvent un excellent point d'entrée, à condition que le business ne soit pas cassé.
+Si PE Actuel > PE Historique :
+L'action est en surchauffe. Le marché est euphorique. Le risque de correction est élevé pour revenir à la normale.
+L'Opportunité en Or
+Le setup parfait que nous cherchons chez StocksPickeur :
+1. Une entreprise de qualité qui a un Forward PE inférieur à son Trailing PE (croissance).
+2. Dont le PE Actuel est temporairement inférieur à son PE Historique (décote statistique).
+Match C : PE Actuel vs Concurrents (Le contexte)
+Enfin, regardez autour de vous. Est-ce que votre action est chère par rapport à ses rivaux directs ?
+[meta-per-vs-concurrents.png]
+Regardez la colonne encadrée en rouge ("PE Ratio"). Meta est à 30.49x, alors que Baidu est à 44x et Reddit à 101x ! Dans ce contexte, Meta peut sembler "raisonnable" par rapport à la moyenne du secteur Tech, malgré un PER absolu élevé.
+Si votre action a un PER de 20 alors que tous ses concurrents sont à 15, demandez-vous pourquoi. A-t-elle un avantage concurrentiel (Moat) majeur qui justifie cette prime de qualité ? Si la réponse est non, elle est simplement trop chère.
+🔑
+Ce qu'il faut retenir
+Un PER isolé ne veut rien dire. Vous devez toujours le contextualiser.
+Utilisez le
+Forward PE
+pour valider la croissance future (attention à l'optimisme).
+Utilisez le
+PE Historique
+pour vérifier si vous achetez en haut ou en bas de cycle de valorisation.
+L'investissement gagnant se trouve souvent quand une entreprise de croissance (Forward bas) se vend à un prix historiquement bas (PE Historique haut).

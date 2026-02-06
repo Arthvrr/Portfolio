@@ -42,7 +42,7 @@ en dessous
 de la ligne orange (Underpriced). C'est là que vous achetez le Snickers à 0,80€.
 3. Sous-évalué vs Surévalué : Le Verdict ⚖️
 En tant qu'investisseur Quality, nous passons notre temps à comparer ces deux notions. Pour chaque action que nous analysons, nous nous trouvons dans l'une de ces deux situations :
-[intrinsic-value.jpg.png]
+[intrinsic-value.png]
 Situation 1 : Danger. Situation 2 : Opportunité.
 Stock 1 (Surévalué / Overvalued) :
 Le Prix (colonne bleue) est bien plus haut que la Valeur réelle (colonne verte). C'est Microsoft en l'an 2000. Si vous achetez ici, vous pariez sur la spéculation. Le risque de perte est immense car la gravité finira par ramener le prix vers la valeur.

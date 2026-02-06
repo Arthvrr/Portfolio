@@ -1,0 +1,182 @@
+Nous entrons maintenant dans le "Saint des Saints" de la finance. La méthode que je vais vous présenter est la seule qui est considérée comme
+théoriquement parfaite
+par les académiciens, les banquiers d'affaires, les experts en fusions-acquisitions et les analystes seniors de Wall Street.
+Il s'agit du
+DCF : Discounted Cash Flow
+(Flux de Trésorerie Actualisés).
+Jusqu'ici, nous avons utilisé des mesures
+relatives
+(comparaison avec les voisins). Le DCF est fondamentalement différent : c'est une mesure
+absolue
+. Elle ne se soucie pas de l'humeur du marché. Elle calcule ce que l'entreprise vaut intrinsèquement, comme si vous achetiez une machine à imprimer des billets, en se basant uniquement sur l'argent liquide (Cash Flow) qu'elle va générer dans le futur.
+1. Le Principe Fondamental : L'argent a un prix (Time Value of Money) ⏳
+Pour comprendre le DCF, vous devez intégrer une vérité économique absolue :
+1€ aujourd'hui vaut plus que 1€ dans 10 ans.
+Pourquoi ? Pour trois raisons majeures :
+L'inflation (Érosion monétaire) :
+Dans 10 ans, avec 1€, vous achèterez moins de pain ou d'essence qu'aujourd'hui. Votre pouvoir d'achat diminue avec le temps.
+Le coût d'opportunité (Le manque à gagner) :
+Si vous avez 1€ aujourd'hui, vous pouvez l'investir et gagner des intérêts. Si vous devez attendre 10 ans pour toucher cet euro, vous perdez 10 ans d'intérêts composés.
+Le risque (Incertitude) :
+L'avenir est par nature incertain. Une promesse de paiement dans 10 ans est beaucoup plus risquée qu'un paiement cash immédiat. L'entreprise peut faire faillite, une guerre peut éclater, ou la monnaie peut s'effondrer.
+Regardez ce schéma qui résume toute la philosophie du DCF :
+[dcf-schema.png]
+Notre but est de "ramener" (actualiser) tous les billets du futur vers la ligne du présent pour savoir combien ils valent réellement aujourd'hui.
+L'exercice du DCF consiste donc à estimer tout l'argent que l'entreprise va gagner dans le futur (les billets de droite sur le schéma), puis à appliquer une "décote" (appelée taux d'actualisation) pour savoir combien cette somme future représente en monnaie d'aujourd'hui (la Value of Asset à gauche). C'est une machine à remonter le temps financière.
+2. La Formule Mathématique (Ne fuyez pas !) 📐
+Je sais, cela ressemble à un cauchemar de cours de maths de terminale. Mais c'est plus simple qu'il n'y paraît une fois qu'on a la clé de lecture.
+[dcf-formule.png]
+Une somme de flux futurs, divisée par un taux de risque exponentiel.
+Déchiffrons les hiéroglyphes ensemble :
+CF (Cash Flow) :
+C'est le Free Cash Flow que l'entreprise va générer chaque année (Année 1, Année 2, etc.). C'est le carburant de la machine.
+r (Discount Rate) :
+C'est le taux d'actualisation (ou taux de décote). C'est la "gravité" qui réduit la valeur de l'argent futur. Plus ce taux est élevé, plus l'argent futur vaut peu aujourd'hui.
+n :
+Le nombre d'années (la distance temporelle). Plus l'argent est loin dans le temps (n grand), plus il est écrasé par le taux r.
+3. Le Choix du Taux (Discount Rate) : WACC vs Hurdle Rate ⚖️
+La question cruciale qui change tout le résultat du modèle est :
+"Quel taux 'r' dois-je utiliser pour décoter mes cash flows ?"
+C'est là que réside toute la subjectivité de l'analyse.
+Il existe deux écoles qui s'affrontent :
+A. L'Approche Académique : Le WACC (Weighted Average Cost of Capital)
+Les professionnels, les banquiers et les directeurs financiers utilisent le WACC (Coût Moyen Pondéré du Capital). C'est une formule complexe qui tente de calculer scientifiquement combien "coûte" l'argent pour l'entreprise.
+Le WACC fait une moyenne pondérée entre :
+Le coût de la dette (les intérêts payés aux banques).
+Le coût des capitaux propres (le risque exigé par les actionnaires, basé sur la volatilité de l'action ou "Bêta").
+[wacc.png]
+Le WACC est un monstre mathématique mélangeant prime de risque, taux sans risque et bêta. Heureusement, vous n'avez pas besoin de le calculer à la main (voir plus bas).
+B. L'Approche Pragmatique : Le Hurdle Rate (Taux d'Exigence)
+En tant qu'investisseur particulier, vous n'êtes pas obligé de suivre la théorie financière à la lettre. Vous pouvez utiliser votre propre "Hurdle Rate" (Taux de Seuil). C'est le rendement annuel minimum pour lequel vous acceptez de sortir votre argent de votre poche.
+"Je refuse d'investir pour moins de 10% par an."
+-> Votre taux d'actualisation est de 10%.
+"C'est une start-up risquée, je veux 15% de sécurité."
+-> Votre taux est de 15%.
+Cette méthode est plus personnelle et garantit que si l'action est "sous-évaluée" selon ce taux, elle vous offrira le rendement que VOUS désirez.
+4. La Méthode en 3 étapes 🛠️
+Dans la pratique, voici comment se déroule une analyse DCF complète :
+[dcf-explanation.jpg]
+Le modèle coupe l'avenir en deux : les 5 prochaines années (visibles) et le reste de l'éternité (Terminal Value).
+La Phase de Croissance Explicite (Années 1 à 5 ou 10) :
+On estime la croissance du Cash Flow année par année. (Exemple : "Microsoft va faire croître son cash de 15% par an pendant 5 ans car le cloud est en boom"). C'est la partie "visible" de l'iceberg.
+La Valeur Terminale (L'Éternité) :
+On ne peut pas prévoir les flux année par année jusqu'à la fin des temps. On utilise donc un raccourci mathématique pour estimer ce que vaudra l'entreprise à la fin de l'année 5. On part du principe qu'elle ne mourra pas et continuera de croître doucement (au rythme de l'économie mondiale, soit 2% ou 3%) pour l'éternité.
+⚠️ Attention : Cette "Valeur Terminale" représente souvent 70% à 80% de la valeur totale calculée !
+L'Actualisation et la Somme :
+On prend tous ces montants futurs et on les ramène à la valeur d'aujourd'hui avec notre taux (WACC). On additionne le tout, on soustrait la dette nette, on divise par le nombre d'actions, et boum : on obtient la
+Valeur Intrinsèque par action
+.
+Le Verdict 👨‍⚖️
+Si le résultat du calcul DCF est
+150€
+et que l'action cote
+100€
+sur le marché : Vous avez une opportunité d'achat "Sous-évaluée" avec une Marge de Sécurité confortable.
+Si l'action cote
+200€
+: Elle est "Surévaluée". Le marché est trop optimiste ou accepte un rendement plus faible que le vôtre.
+5. Le Problème : C'est long, complexe et risqué 🤯
+Soyons honnêtes. Le DCF est magnifique en théorie, c'est l'outil intellectuel suprême. Mais en pratique, pour un investisseur particulier, c'est une usine à gaz :
+Il faut récupérer manuellement le Cash Flow, la Dette, le Cash, le nombre d'actions sur des sites tiers.
+Il faut trouver le Bêta pour calculer le WACC (ou le deviner).
+Il faut construire un tableur Excel complexe avec des risques d'erreurs de formule.
+C'est pour cela que j'ai développé
+Intrinsic
+, une application macOS qui automatise tout : elle récupère les données via Finnhub, calcule le WACC, et génère le DCF instantanément. C'est l'outil que nous utiliserons pour gagner du temps.
+Outil MacOs
+Intrinsic
+Plus besoin d'Excel. L'app récupère les données financières en temps réel, calcule le WACC automatiquement grâce au Bêta, et vous donne la Valeur Intrinsèque + Reverse DCF en une seconde.
+Télécharger gratuitement
+[intrinsic.png]
+🚀 Pas de Mac ?
+Testez par vous même la méthode DCF par ici dans ce calculateur DCF intégré à la Formation !
+Cliquez ici pour tester mon Calculateur DCF
+🏢
+6. Étude de Cas : Valoriser "CloudSecure Inc." (Ticker: CLDS)
+Pour bien ancrer la théorie, prenons un exemple réaliste que nous allons décortiquer étape par étape. Imaginons une entreprise de cybersécurité,
+"CloudSecure Inc."
+, cotée au Nasdaq. L'action s'échange actuellement à
+100 $
+. Notre but est de savoir si c'est un bon prix.
+📊 1. Les Faits (Le Passé/Présent)
+Ces données sont extraites des rapports financiers (ou de votre app Intrinsic) :
+Free Cash Flow (TTM) :
+500 Millions $ (C'est l'argent qu'elle gagne aujourd'hui).
+Cash en banque :
+100 Millions $ (Cagnotte de guerre).
+Dette Totale :
+200 Millions $ (Ce qu'elle doit aux banques).
+Nombre d'actions :
+100 Millions.
+🧠 2. Vos Hypothèses (Le Futur)
+C'est ici que vous faites votre travail d'analyste :
+Croissance (Growth) :
++10% par an pendant 5 ans (Le secteur est porteur).
+Risque (WACC) :
+10% (C'est le taux d'actualisation que nous choisissons).
+Sortie (Exit Multiple) :
+Dans 5 ans, nous revendrons l'entreprise 20 fois son cash flow (ratio standard pour la tech).
+Étape 3 : La Projection et l'Actualisation (Le Calcul)
+Regardons année par année comment l'argent futur perd de sa valeur quand on le ramène à aujourd'hui (à cause du taux de 10%).
+Année
+Le Cash Flow monte (+10%)
+La "Gravité" agit (Discount)
+Valeur Réelle (Aujourd'hui)
+Année 1
+550 M$
+On divise par 1.10^1
+500 M$
+Année 2
+605 M$
+On divise par 1.10^2
+500 M$
+Année 3
+665 M$
+On divise par 1.10^3
+500 M$
+Année 4
+732 M$
+On divise par 1.10^4
+500 M$
+Année 5
+805 M$
+On divise par 1.10^5
+500 M$
+REVENTE (Terminal)
+16 100 M$
+(805 M$ x 20)
+On divise aussi par 1.10^5
+(car l'argent arrive dans 5 ans)
+9 997 M$
+Étape 4 : L'Addition Finale
+Maintenant, nous avons toutes les pièces du puzzle. Nous additionnons la valeur actuelle de tous les cash flows futurs (les 5 années + la revente), nous ajoutons le cash qui dort en banque, et nous remboursons la dette aux banquiers.
+Somme des 5 années (500 x 5) :
+2 500 M$
++ Valeur Terminale (Revente) :
++ 9 997 M$
+= Valeur de l'Entreprise (Enterprise Value) :
+12 497 M$
++ Cash en banque (À nous) :
++ 100 M$
+- Dette à rembourser (Aux banques) :
+- 200 M$
+= VALEUR INTRINSÈQUE TOTALE (Equity) :
+12 397 M$
+Divisé par le nombre d'actions (100 M) :
+123.97 $ / action
+💡
+Conclusion de l'analyste :
+Le marché vend cette action à
+100 $
+. Vos calculs rationnels disent qu'elle vaut
+124 $
+. Vous avez identifié une sous-évaluation de
+24%
+. C'est une opportunité d'achat rationnelle, basée non pas sur l'espoir, mais sur les mathématiques du cash flow.
+🔑
+Ce qu'il faut retenir
+Le DCF est la seule méthode qui calcule la valeur absolue d'une entreprise basée sur le futur, et non sur le passé.
+Le principe clé est l'actualisation : l'argent du futur vaut moins que l'argent d'aujourd'hui, à cause du risque et du temps.
+Bien que la théorie soit complexe (WACC, Terminal Value), des outils modernes comme
+Intrinsic
+vous permettent d'appliquer cette rigueur professionnelle instantanément, en gérant pour vous la récupération des données et les calculs complexes.

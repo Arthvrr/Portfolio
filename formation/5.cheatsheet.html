@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Sheet • Module 5 | StocksPickeur</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-print-color-adjust: exact; }
+        .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles spécifiques pour l'impression A4 */
+        @media print {
+            @page { margin: 0.5cm; size: A4 portrait; }
+            body { background-color: white; }
+            .no-print { display: none !important; }
+            .print-break-inside { break-inside: avoid; }
+            .shadow-sm, .shadow-md, .shadow-lg, .shadow-2xl { box-shadow: none !important; border: 1px solid #e2e8f0; }
+            .bg-slate-50 { background-color: #f8fafc !important; }
+            .bg-indigo-600 { background-color: #4f46e5 !important; color: white !important; }
+            .bg-emerald-600 { background-color: #059669 !important; color: white !important; }
+            .bg-slate-900 { background-color: #0f172a !important; color: white !important; }
+            .text-white { color: white !important; }
+            .bg-emerald-100 { background-color: #d1fae5 !important; }
+            .text-emerald-800 { color: #065f46 !important; }
+            .bg-red-50 { background-color: #fef2f2 !important; }
+            .bg-amber-50 { background-color: #fffbeb !important; }
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-600 p-4 md:p-8 min-h-screen">
+
+    <div class="max-w-[210mm] mx-auto mb-6 flex justify-between items-center no-print">
+        <a href="5.0.html" class="flex items-center text-slate-500 hover:text-emerald-600 transition font-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Retour au cours
+        </a>
+        <button onclick="window.print()" class="bg-slate-900 text-white px-4 py-2 rounded-lg font-bold flex items-center gap-2 hover:bg-slate-800 transition shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2-2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+            </svg>
+            Imprimer la Fiche (PDF)
+        </button>
+    </div>
+
+    <div class="max-w-[210mm] mx-auto bg-white shadow-2xl rounded-xl p-8 md:p-10 border border-slate-200 relative overflow-hidden">
+        
+        <header class="flex justify-between items-end border-b-2 border-slate-900 pb-6 mb-8">
+            <div>
+                <span class="text-emerald-600 font-bold tracking-wider uppercase text-xs">Module 5 • Le Juste Prix</span>
+                <h1 class="text-4xl font-heading font-extrabold text-slate-900 mt-1">La Valorisation QARP 🏷️</h1>
+                <p class="text-slate-500 text-sm mt-1">Quality At a Reasonable Price : La méthode pour ne jamais surpayer.</p>
+            </div>
+            <div class="text-right">
+                <div class="font-heading font-bold text-xl text-slate-900 flex items-center gap-2 justify-end">
+                    <img src="../media/Logo/Logo-White.png" class="h-6 filter invert" alt="">
+                    StocksPickeur
+                </div>
+                <div class="text-xs text-slate-400 mt-1">Fiche Récapitulative v1.0</div>
+            </div>
+        </header>
+
+        <div class="flex items-center justify-between bg-slate-50 p-4 rounded-xl border border-slate-200 mb-8 print-break-inside">
+            <div class="flex items-center gap-3">
+                <span class="bg-slate-900 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">1</span>
+                <div>
+                    <strong class="block text-slate-900 text-sm">Ratios Rapides ⚡</strong>
+                    <span class="text-xs text-slate-500">Filtrer les excès (PEG, FCF Yield)</span>
+                </div>
+            </div>
+            <div class="text-slate-300">➔</div>
+            <div class="flex items-center gap-3">
+                <span class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">2</span>
+                <div>
+                    <strong class="block text-slate-900 text-sm">Valeur Intrinsèque 💎</strong>
+                    <span class="text-xs text-slate-500">DCF & Reverse DCF (Réalité)</span>
+                </div>
+            </div>
+            <div class="text-slate-300">➔</div>
+            <div class="flex items-center gap-3">
+                <span class="bg-emerald-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">3</span>
+                <div>
+                    <strong class="block text-slate-900 text-sm">Triangulation 📐</strong>
+                    <span class="text-xs text-slate-500">Confirmer et Acheter</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-8 mb-8">
+            
+            <div class="col-span-2 border border-slate-300 rounded-xl overflow-hidden print-break-inside">
+                <div class="bg-slate-900 text-white p-3 flex justify-between items-center">
+                    <h3 class="font-heading font-bold text-sm uppercase tracking-wide">📊 La Grille de Valorisation</h3>
+                    <span class="text-xs bg-slate-700 px-2 py-1 rounded">QARP Standard</span>
+                </div>
+                
+                <table class="w-full text-xs md:text-sm">
+                    <thead class="bg-slate-100 text-slate-500 font-medium border-b border-slate-200">
+                        <tr>
+                            <th class="p-3 text-left w-1/3">Indicateur</th>
+                            <th class="p-3 text-center text-emerald-600 font-bold bg-emerald-50/50">🟢 ACHETER (Cheap)</th>
+                            <th class="p-3 text-center text-amber-600 font-bold bg-amber-50/50">🟡 CONSERVER (Fair)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 text-slate-700">
+                        <tr>
+                            <td class="p-3 font-bold">1. FCF Yield<br><span class="text-[10px] font-normal text-slate-400">Rendement Cash</span></td>
+                            <td class="p-3 text-center font-bold bg-emerald-50/30">> 5%</td>
+                            <td class="p-3 text-center bg-amber-50/30">3% à 5%</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold">2. Ratio PEG<br><span class="text-[10px] font-normal text-slate-400">Prix / Croissance</span></td>
+                            <td class="p-3 text-center font-bold bg-emerald-50/30">< 1.2</td>
+                            <td class="p-3 text-center bg-amber-50/30">1.2 à 2.0</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold">3. PER Historique<br><span class="text-[10px] font-normal text-slate-400">vs Moyenne 5 ans</span></td>
+                            <td class="p-3 text-center font-bold bg-emerald-50/30">Inférieur</td>
+                            <td class="p-3 text-center bg-amber-50/30">Égal</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold">4. Forward vs Trailing<br><span class="text-[10px] font-normal text-slate-400">Dynamique</span></td>
+                            <td class="p-3 text-center font-bold bg-emerald-50/30">Forward < Trailing</td>
+                            <td class="p-3 text-center bg-amber-50/30">Stable</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-span-1 border border-slate-200 rounded-xl p-5 bg-indigo-50/50 print-break-inside">
+                <h3 class="font-heading font-bold text-indigo-900 mb-3 text-sm flex items-center gap-2">
+                    💎 Valeur Intrinsèque (DCF)
+                </h3>
+                <p class="text-[11px] text-slate-600 mb-4 leading-relaxed">
+                    Ne vous fiez pas au PER seul. Utilisez l'app <strong>Intrinsic</strong> pour calculer la valeur réelle.
+                </p>
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center text-xs">
+                        <span class="font-bold text-slate-700">Marge de Sécurité Requise :</span>
+                    </div>
+                    <ul class="text-[10px] space-y-1 text-slate-600 pl-2 border-l-2 border-indigo-200">
+                        <li>• <strong>Ultra Quality :</strong> 0% à 10% (Fair Value OK)</li>
+                        <li>• <strong>Quality Standard :</strong> 20%</li>
+                        <li>• <strong>Cyclique / Risqué :</strong> > 40%</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-span-1 border border-slate-200 rounded-xl p-5 bg-emerald-50/50 print-break-inside">
+                <h3 class="font-heading font-bold text-emerald-900 mb-3 text-sm flex items-center gap-2">
+                    🔄 Reverse DCF (Reality Check)
+                </h3>
+                <p class="text-[11px] text-slate-600 mb-4 leading-relaxed">
+                    Quel taux de croissance le marché attend-il (Price-In) ?
+                </p>
+                <div class="bg-white p-3 rounded border border-emerald-100 shadow-sm">
+                    <div class="flex justify-between items-center text-xs mb-2">
+                        <span class="font-bold text-emerald-800">Le Feu Vert ✅</span>
+                    </div>
+                    <p class="text-[10px] text-slate-600">
+                        Quand la <strong>Croissance Implicite</strong> (attendue par le marché) est <strong>INFÉRIEURE</strong> à la croissance historique de l'entreprise.
+                    </p>
+                    <div class="text-[10px] text-center mt-2 font-mono bg-emerald-100 text-emerald-800 py-1 rounded">
+                        Implied Growth < Historical CAGR
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="border-t-2 border-slate-900 pt-6 mt-2 print-break-inside">
+            <h3 class="font-heading font-bold text-slate-900 text-sm uppercase tracking-wide mb-4">🎯 La Checklist de Décision (Triangulation)</h3>
+            
+            <div class="grid grid-cols-3 gap-4">
+                <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+                    <span class="text-xl mb-2 block">⏳</span>
+                    <h4 class="font-bold text-slate-800 text-xs mb-1">1. Test Historique</h4>
+                    <p class="text-[10px] text-slate-500">Est-ce que je paie moins cher que d'habitude ? (PER < Moyenne 5 ans)</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+                    <span class="text-xl mb-2 block">⚖️</span>
+                    <h4 class="font-bold text-slate-800 text-xs mb-1">2. Test Intrinsèque</h4>
+                    <p class="text-[10px] text-slate-500">Est-ce que Prix < Valeur (DCF) ? La marge de sécurité est-elle suffisante ?</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+                    <span class="text-xl mb-2 block">🧠</span>
+                    <h4 class="font-bold text-slate-800 text-xs mb-1">3. Sanity Check</h4>
+                    <p class="text-[10px] text-slate-500">GuruFocus (Undervalued ?) & TipRanks (Smart Score > 8 ?).</p>
+                </div>
+            </div>
+
+            <div class="mt-6 flex items-center gap-4 bg-slate-900 text-white p-4 rounded-lg">
+                <div class="text-2xl">💰</div>
+                <div>
+                    <h4 class="font-bold text-sm">Règle du "Position Sizing"</h4>
+                    <p class="text-[10px] text-slate-300 mt-1">
+                        • <strong>Fair Value :</strong> Petite ligne (1-2%) + Cash pour renforcer.<br>
+                        • <strong>Massivement Sous-évalué (>30%) + Quality :</strong> "Fat Pitch" -> Grosse ligne (4-5%) immédiate.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-6 text-center">
+            <p class="text-[10px] text-slate-400">
+                &copy; 2026 StocksPickeur. Usage personnel uniquement.
+            </p>
+        </div>
+
+    </div>
+</body>
+</html>

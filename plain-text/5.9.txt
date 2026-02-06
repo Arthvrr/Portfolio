@@ -1,0 +1,112 @@
+Dans le chapitre précédent, nous avons appris à utiliser le DCF classique. C'est un outil puissant, mais il a une faiblesse majeure : il vous oblige à jouer les devins. Vous devez dire :
+"Je pense que l'entreprise va croître de 12% par an pendant 10 ans"
+.
+Mais soyons honnêtes : personne n'en sait rien. Si vous vous trompez et que la croissance est de 8% au lieu de 12%, votre calcul de valeur s'effondre.
+Il existe une méthode plus intelligente, plus humble et souvent plus efficace : le
+Reverse DCF
+(DCF Inversé). C'est la méthode favorite des investisseurs qui détestent faire des paris hasardeux, comme Charlie Munger.
+La Philosophie de l'Inversion 🧠
+"Inversez, inversez toujours le problème." (Invert, always invert)
+—
+Charlie Munger
+1. Le Concept : Ne cherchez pas le prix, cherchez les attentes 🧐
+Le DCF classique pose la question :
+"Si l'entreprise croît de 10%, quel devrait être son prix ?"
+Le Reverse DCF inverse l'équation :
+"Au prix actuel de 100€, quelle croissance le marché attend-il ?"
+Au lieu de produire une "valeur théorique" (qui peut être fausse), le Reverse DCF vous donne le
+taux de croissance implicite
+(Implied Growth Rate) intégré dans le cours de bourse. C'est une vérification de la réalité.
+[high-vs-low-expectations.png]
+L'analogie du saut en hauteur : Un prix élevé (à gauche) impose une barre très haute. L'entreprise doit faire une performance olympique pour justifier son prix. Un prix bas (à droite) place la barre au sol : même une performance médiocre suffit.
+L'analogie du Saut en Hauteur est parfaite :
+DCF Classique :
+Vous essayez de deviner à quelle hauteur l'athlète va sauter. C'est difficile.
+Reverse DCF :
+Vous regardez à quelle hauteur la barre est
+déjà
+placée par le marché (le Prix). Vous n'avez plus qu'à vous demander :
+"La barre est-elle trop haute pour lui ?"
+.
+2. Comment l'utiliser pour prendre une décision ? ✅
+Une fois que le Reverse DCF vous a donné le taux attendu par le marché, la décision devient binaire et simple.
+🟢 Scénario A : Sous-évaluation
+Le Reverse DCF vous dit : "Le marché attend
+5%
+de croissance."
+Vous savez que l'entreprise fait historiquement
+12%
+.
+👉 OPPORTUNITÉ.
+La barre est très basse. L'entreprise peut facilement sauter par-dessus. Le marché est trop pessimiste.
+🔴 Scénario B : Surévaluation
+Le Reverse DCF vous dit : "Le marché attend
+35%
+de croissance."
+C'est énorme. Très peu d'entreprises maintiennent ce rythme.
+👉 DANGER.
+La barre est placée à un niveau olympique. Au moindre faux pas (croissance de "seulement" 20%), le cours va s'effondrer.
+3. Étude de Cas : Nvidia vs Coca-Cola 🥊
+Pour comprendre la puissance de l'outil, comparons deux entreprises fictives aux profils opposés.
+Cas 1 : L'entreprise "Hype" (Ex: Nvidia en haut de cycle)
+L'action est très chère. Vous lancez un Reverse DCF. L'outil vous dit :
+"Pour justifier ce prix, l'entreprise doit croître de
+42% par an
+pendant 10 ans."
+Votre analyse :
+Est-ce physiquement possible ? Une entreprise de cette taille peut-elle doubler de taille tous les 2 ans pendant une décennie ? C'est peu probable. Le prix intègre déjà la perfection. Il n'y a aucune marge de sécurité.
+Cas 2 : L'entreprise "Ennuyeuse" (Ex: Coca-Cola ou une Assurance)
+L'action semble stagner. Vous lancez un Reverse DCF. L'outil vous dit :
+"Le marché attend une croissance de
+0%
+(stagnation)."
+Votre analyse :
+L'entreprise vend toujours des canettes, augmente ses prix avec l'inflation, et rachète ses actions. Elle fera probablement 4% ou 5% de croissance sans effort. Le marché a placé la barre au sol. C'est un investissement très sûr (Asymétrie positive).
+4. Le "Test de Sanité" Historique (Reality Check) 🕵️‍♂️
+Le Reverse DCF vous donne un chiffre magique, disons
+15%
+. Le marché attend que l'entreprise croisse de 15% par an. Mais est-ce beaucoup ? Est-ce réaliste ?
+Pour le savoir, il faut appliquer le
+Test de Sanité Historique
+. Comparez simplement l'attente du futur (Reverse DCF) avec la réalité du passé (CAGR historique).
+La Loi des Grands Nombres :
+Il est extrêmement rare qu'une entreprise accélère sa croissance en devenant géante. Normalement, la croissance ralentit avec la taille. Si le marché attend une accélération soudaine, c'est un drapeau rouge.
+[abbv-cagr-5yrs.png]
+Exemple sur AbbVie : Le CAGR historique sur 5 ans est de
+5.87%
+(encadré rouge). Si le Reverse DCF vous dit que le marché attend
+15%
+de croissance, il y a un problème. Le marché est en plein délire optimiste.
+Le verdict du test de sanité :
+Implied Growth (Futur) < Historical CAGR (Passé) :
+✅ Feu Vert. Le marché s'attend à un ralentissement, ce qui est conservateur et normal. Vous avez une marge de sécurité.
+Implied Growth (Futur) > Historical CAGR (Passé) :
+❌ Feu Rouge. Le marché parie sur un miracle ou une accélération massive. C'est de la spéculation, pas de l'investissement.
+5. L'outil pour le faire (Intrinsic) 💻
+Mathématiquement, le Reverse DCF consiste à isoler la variable "g" (growth) dans la formule complexe du DCF. C'est impossible à faire de tête et pénible sur Excel (il faut utiliser la fonction "Valeur Cible").
+C'est pour cela que j'ai intégré cette fonctionnalité nativement dans l'application
+Intrinsic
+que vous connaissez déjà.
+[intrinsic.png]
+En haut à gauche, l'encadré vert : "Reverse DCF (Market Expectations)". Ici, pour justifier le prix de 191$, le marché attend 17.7% de croissance.
+Dans cet exemple sur l'application :
+Prix actuel :
+191.14 $
+Attente du marché (Reverse DCF) :
+17.7% de croissance annuelle.
+Votre estimation (FCF Growth Rate) :
+25% (dans la colonne de gauche).
+Verdict :
+L'attente du marché (17%) est INFÉRIEURE à votre estimation (25%). Le marché est plus pessimiste que vous. C'est donc potentiellement une bonne affaire (Sous-évaluée).
+🚀 Calculateur de Reverse DCF
+Testez par vous même la méthode de Reverse DCF par ici dans cet outil intégré à la Formation !
+Cliquez ici pour tester mon Calculateur de Reverse DCF
+🔑
+Ce qu'il faut retenir
+Le
+Reverse DCF
+est l'outil de vérification de la réalité (Reality Check).
+Au lieu de deviner le futur, il calcule ce que le marché "price" actuellement (la hauteur de la barre).
+Utilisez le
+Test de Sanité
+: Si la croissance attendue par le marché est supérieure à ce que l'entreprise a réalisé dans son passé glorieux, fuyez. C'est un piège spéculatif.

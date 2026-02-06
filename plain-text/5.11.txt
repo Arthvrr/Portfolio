@@ -1,0 +1,81 @@
+Nous arrivons à la fin de ce module dense sur la valorisation. Vous avez maintenant une boîte à outils complète : PER, DCF, Reverse DCF, WACC... C'est comme avoir un garage rempli d'outils de précision. Mais avoir des outils ne suffit pas, il faut savoir quand et comment les utiliser sans se blesser.
+Je vais être brutalement honnête avec vous.
+Je n'ai pas de "formule magique" ni de fichier Excel secret qui clignote en vert pour me dire d'acheter.
+Contrairement à l'analyse de la Qualité (Module 4) où j'utilise une grille de notation stricte sur 30 points (Moat, Management, Marges...), la Valorisation est pour moi davantage un
+Art
+qu'une Science exacte. C'est une question de nuance, de contexte et surtout de
+convergence de signaux
+.
+Voici exactement ma "Checklist Mentale" avant d'investir un seul euro de mon portefeuille personnel. Je cherche à aligner trois planètes.
+1. Le Test Historique : L'Élastique Temporel ⏳
+La première chose que je regarde, c'est le positionnement de l'action par rapport à sa propre histoire. Je compare le
+PER actuel
+au
+PER Historique
+(Moyenne 5 ans).
+La valorisation agit comme un élastique. Si elle est trop tendue (action trop chère par rapport à d'habitude), elle finira par revenir violemment en arrière (Mean Reversion). Si elle est détendue, c'est le moment d'entrer.
+Exemple : Si Microsoft se paie habituellement 30 fois les bénéfices et qu'elle tombe à 24 fois sans raison fondamentale grave, mon intérêt est immédiatement éveillé.
+2. La Valeur Intrinsèque : Le Verdict du DCF 💎
+Ensuite, je veux un chiffre absolu. Je ne veux pas savoir si c'est "moins cher qu'avant", je veux savoir si c'est "rentable". Pour cela, je lance mon application
+Intrinsic
+.
+Je me concentre particulièrement sur le
+Reverse DCF
+. Je me demande :
+"Qu'est-ce que le marché attend ?"
+. Si le prix actuel implique 5% de croissance pour une boite qui en fait 15% historiquement, je sais que j'ai une
+Marge de Sécurité
+énorme.
+3. Le Sanity Check : L'Avis des Experts 🧠
+Enfin, je reste humble. Je sais que je peux avoir des biais cognitifs ou rater une information cruciale. Je vais donc vérifier si je ne suis pas le seul à trouver cette action attractive. Je consulte deux sources externes pour valider mon intuition.
+🧘‍♂️
+GuruFocus : Le GF Value
+Je regarde leur graphique "GF Value". C'est un algorithme propriétaire très puissant. Sur l'image ci-dessous, regardez la ligne bleue (Prix) par rapport aux zones colorées.
+[msft-gf-value.png]
+Si le cours est dans la zone verte (comme ici pour MSFT), c'est considéré comme "Modestly Undervalued". C'est un feu vert.
+📊
+TipRanks : Le Consensus Analystes
+Je regarde ensuite ce que pensent les analystes de Wall Street. Je cherche un consensus "Strong Buy" et un objectif de cours (Price Target) nettement supérieur au prix actuel.
+[msft-tipranks-value.png]
+Ici, 35 analystes recommandent l'achat, 0 la vente. L'objectif moyen est de 598$, soit +52% de potentiel. C'est une confirmation massive.
+4. La Gestion de la "Watchlist" : L'Art du Frigo ❄️
+Souvent, l'entreprise est magnifique (Qualité 29/30), le Business Model est incroyable... mais la valorisation est trop chère (PER historique dépassé, GF Value en zone rouge).
+Est-ce que je l'abandonne ? Jamais.
+Je la mets "au frigo". Je l'ajoute à ma Watchlist avec une
+alerte de prix
+très précise. Je deviens un sniper.
+Parfois, il faut attendre 6 mois, 1 an, voire 2 ans. Il faut attendre un "accident de parcours", une panique de marché ou une rotation sectorielle. La patience est l'avantage concurrentiel ultime de l'investisseur particulier face aux pros qui doivent performer chaque trimestre.
+5. Le "Position Sizing" : Conviction Maximale = Mise Maximale 💰
+C'est ici que ma stratégie devient agressive. Beaucoup pensent que l'investissement est binaire (J'achète / Je n'achète pas). C'est faux. La vraie question d'un gestionnaire de portefeuille est :
+"Combien j'en prends ?"
+.
+La valorisation dicte la taille de ma position. Voici ma
+Règle de l'Opportunité
+: Si je trouve une entreprise de
+Qualité Exceptionnelle
+(Note > 25/30) qui est en même temps
+Massivement Sous-évaluée
+(Marge de sécurité > 30% confirmée par DCF et GuruFocus), alors je ne fais pas semblant.
+J'ouvre une position "Full" immédiatement
+(4% à 5% de mon portefeuille d'un coup) ou je renforce très lourdement si je l'ai déjà en portefeuille (si j'ai du cash disponible). C'est ce que Charlie Munger appelle un
+"Fat Pitch"
+. Ces occasions sont rares (une ou deux fois par an), il ne faut pas les rater avec une mise timide.
+Sous-évaluation Modérée ("Fair Price") :
+J'ouvre une petite ligne (1% ou 2%). Je prends date. Je garde du cash pour renforcer si ça baisse (DCA tactique).
+Surévalué :
+Je n'achète pas. Le risque de perte en capital est trop grand, même pour une belle entreprise.
+6. Le "Sleep Well Test" (Le Juge de Paix) 🛌
+Enfin, au-delà de tous les calculs, il y a un dernier test, purement psychologique.
+Avant de valider l'ordre, je regarde le montant et je me pose cette question :
+"Si l'action perd 20% le mois prochain, est-ce que je vais paniquer ou est-ce que je serai content d'en racheter ?"
+Si la réponse est "Je vais paniquer", c'est que je paie trop cher ou que je n'ai pas assez confiance dans la valeur intrinsèque. Je n'achète pas.
+Si la réponse est "Génial, ce sera les soldes, j'en reprends !", alors la valorisation est bonne. C'est le signe que ma conviction est fondée sur la Valeur réelle de l'entreprise, et non sur le prix affiché par le marché.
+🔑
+Ce qu'il faut retenir
+Ma stratégie n'est pas une science de fusée, c'est de la discipline.
+1. La Qualité d'abord.
+Ne perdez pas de temps à valoriser des entreprises médiocres.
+2. La Convergence ensuite.
+PER Historique + Intrinsic (DCF) + GuruFocus/TipRanks. Si les 3 feux sont verts, foncez.
+3. L'Agressivité enfin.
+Si la qualité est là et le prix est cassé, n'ayez pas peur de miser gros. C'est là que se fait la performance.
