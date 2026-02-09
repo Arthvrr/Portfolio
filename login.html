@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion | StocksPickeur</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Inter', sans-serif; } .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }</style>
+</head>
+<body class="bg-slate-50 flex items-center justify-center min-h-screen">
+
+    <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md border border-slate-200">
+        <div class="text-center mb-8">
+            <img src="media/Logo/Logo-Black.png" alt="Logo" class="h-10 mx-auto mb-4"> <h1 class="text-2xl font-heading font-bold text-slate-900">Espace Membre</h1>
+            <p class="text-slate-500 text-sm">Connectez-vous pour accéder à l'ensemble du contenu.</p>
+        </div>
+
+        <div class="flex mb-6 border-b border-slate-200">
+            <button id="tabLogin" class="w-1/2 pb-3 text-sm font-bold text-emerald-600 border-b-2 border-emerald-600 transition" onclick="switchTab('login')">Connexion</button>
+            <button id="tabRegister" class="w-1/2 pb-3 text-sm font-bold text-slate-400 hover:text-slate-600 transition" onclick="switchTab('register')">Créer un compte</button>
+        </div>
+
+        <form id="authForm" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Email</label>
+                <input type="email" id="email" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition">
+            </div>
+            
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Mot de passe</label>
+                <input type="password" id="password" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition">
+            </div>
+
+            <div id="errorMessage" class="text-red-500 text-sm text-center hidden"></div>
+
+            <button type="submit" id="submitBtn" class="w-full bg-slate-900 text-white font-bold py-3 rounded-lg hover:bg-slate-800 transition transform active:scale-95">
+                Se connecter
+            </button>
+        </form>
+    </div>
+
+    <script type="module">
+        import { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from './js/firebase-config.js';
+
+        const form = document.getElementById('authForm');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const errorMsg = document.getElementById('errorMessage');
+        const submitBtn = document.getElementById('submitBtn');
+        
+        let isLoginMode = true;
+
+        // Fonction pour changer d'onglet (visuel)
+        window.switchTab = (mode) => {
+            isLoginMode = (mode === 'login');
+            errorMsg.classList.add('hidden');
+            
+            if (isLoginMode) {
+                document.getElementById('tabLogin').className = "w-1/2 pb-3 text-sm font-bold text-emerald-600 border-b-2 border-emerald-600 transition";
+                document.getElementById('tabRegister').className = "w-1/2 pb-3 text-sm font-bold text-slate-400 hover:text-slate-600 transition";
+                submitBtn.textContent = "Se connecter";
+                submitBtn.classList.remove('bg-emerald-600', 'hover:bg-emerald-700');
+                submitBtn.classList.add('bg-slate-900', 'hover:bg-slate-800');
+            } else {
+                document.getElementById('tabRegister').className = "w-1/2 pb-3 text-sm font-bold text-emerald-600 border-b-2 border-emerald-600 transition";
+                document.getElementById('tabLogin').className = "w-1/2 pb-3 text-sm font-bold text-slate-400 hover:text-slate-600 transition";
+                submitBtn.textContent = "S'inscrire et Accéder";
+                submitBtn.classList.remove('bg-slate-900', 'hover:bg-slate-800');
+                submitBtn.classList.add('bg-emerald-600', 'hover:bg-emerald-700');
+            }
+        };
+
+        // Gestion de la soumission
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = emailInput.value;
+            const password = passwordInput.value;
+            errorMsg.classList.add('hidden');
+
+            try {
+                if (isLoginMode) {
+                    // Connexion
+                    await signInWithEmailAndPassword(auth, email, password);
+                } else {
+                    // Inscription
+                    await createUserWithEmailAndPassword(auth, email, password);
+                }
+                // Succès : Redirection vers le sommaire ou la dernière page
+                window.location.href = "index.html"; // Redirige vers le sommaire général
+            } catch (error) {
+                errorMsg.textContent = formatError(error.code);
+                errorMsg.classList.remove('hidden');
+            }
+        });
+
+        function formatError(code) {
+            switch(code) {
+                case 'auth/invalid-email': return "Adresse email invalide.";
+                case 'auth/user-disabled': return "Utilisateur désactivé.";
+                case 'auth/user-not-found': return "Aucun compte trouvé avec cet email.";
+                case 'auth/wrong-password': return "Mot de passe incorrect.";
+                case 'auth/email-already-in-use': return "Cet email est déjà utilisé.";
+                case 'auth/weak-password': return "Le mot de passe doit faire au moins 6 caractères.";
+                default: return "Une erreur est survenue : " + code;
+            }
+        }
+    </script>
+</body>
+</html>

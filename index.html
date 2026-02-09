@@ -49,7 +49,7 @@
 
                     <div class="h-6 w-px bg-slate-200"></div>
 
-                    <a href="#.html" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <a href="login.html" id="header-auth-btn" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
                         </svg>
@@ -115,7 +115,7 @@
                 
                 <div class="py-8 text-center px-4">
                     <div id="home-perf-year" class="text-3xl lg:text-4xl font-extrabold text-emerald-600 mb-1">+18,55%</div>
-                    <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Perf. 2025</div>
+                    <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Performance 2025</div>
                 </div>
 
                 <div class="py-8 text-center px-4">
@@ -182,7 +182,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="lg:flex lg:items-center lg:justify-between">
                 <div class="lg:w-1/2 mb-10 lg:mb-0">
-                    <span class="text-indigo-400 font-bold tracking-wider uppercase text-sm">Formation Gratuite</span>
+                    <span class="text-indigo-400 font-bold tracking-wider uppercase text-sm">Formation Complète</span>
                     <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mt-2 mb-6">
                         Passez au niveau supérieur.
                     </h2>
@@ -196,7 +196,7 @@
                         </li>
                         <li class="flex items-center text-slate-300">
                             <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mr-3 text-sm">✓</span>
-                            100% Gratuit (Vraiment)
+                            +50 Chapitres avec Vidéos
                         </li>
                         <li class="flex items-center text-slate-300">
                             <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mr-3 text-sm">✓</span>
@@ -310,7 +310,7 @@
         <div class="max-w-4xl mx-auto px-4 text-center">
             <h3 class="text-2xl font-bold mb-6">Soutenez le projet StocksPickeur 🤝</h3>
             <p class="text-indigo-200 mb-10 max-w-2xl mx-auto">
-                Si vous appréciez le contenu gratuit et souhaitez commencer à investir, utiliser mes liens de parrainage m'aide à maintenir le site et vous offre un bonus de bienvenue.
+                Si vous appréciez le contenu et souhaitez commencer à investir, utiliser mes liens de parrainage m'aide à maintenir le site et vous offre un bonus de bienvenue.
             </p>
             
             <div class="flex flex-col sm:flex-row justify-center gap-4">
@@ -377,5 +377,6 @@
             if(yearsEl) yearsEl.textContent = (annualReturnPercent.length + 1) + ' Ans';
         });
     </script>
+<script type="module" src="./js/auth-guard.js"></script>
 </body>
 </html>
