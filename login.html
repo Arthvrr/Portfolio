@@ -41,7 +41,8 @@
     </div>
 
     <script type="module">
-        import { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from './js/firebase-config.js';
+        // 1. IMPORT DES OUTILS DE BASE DE DONNÉES (db, doc, setDoc)
+        import { auth, db, doc, setDoc, createUserWithEmailAndPassword, signInWithEmailAndPassword } from './js/firebase-config.js';
 
         const form = document.getElementById('authForm');
         const emailInput = document.getElementById('email');
@@ -51,7 +52,6 @@
         
         let isLoginMode = true;
 
-        // Fonction pour changer d'onglet (visuel)
         window.switchTab = (mode) => {
             isLoginMode = (mode === 'login');
             errorMsg.classList.add('hidden');
@@ -71,7 +71,6 @@
             }
         };
 
-        // Gestion de la soumission
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             const email = emailInput.value;
@@ -80,15 +79,29 @@
 
             try {
                 if (isLoginMode) {
-                    // Connexion
+                    // --- CAS 1 : CONNEXION ---
                     await signInWithEmailAndPassword(auth, email, password);
                 } else {
-                    // Inscription
-                    await createUserWithEmailAndPassword(auth, email, password);
+                    // --- CAS 2 : INSCRIPTION ---
+                    
+                    // A. On crée le compte Auth (Email/Mdp)
+                    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                    const user = userCredential.user;
+
+                    // B. C'EST ICI QUE ÇA MANQUAIT : On crée la fiche dans Firestore
+                    // Cela crée un document avec l'ID de l'utilisateur et premium: false
+                    await setDoc(doc(db, "users", user.uid), {
+                        email: email,
+                        premium: false, 
+                        createdAt: new Date()
+                    });
                 }
-                // Succès : Redirection vers le sommaire ou la dernière page
-                window.location.href = "index.html"; // Redirige vers le sommaire général
+                
+                // Succès : Redirection
+                window.location.href = "index.html";
+                
             } catch (error) {
+                console.error("Erreur:", error); // Utile pour voir les erreurs dans la console (F12)
                 errorMsg.textContent = formatError(error.code);
                 errorMsg.classList.remove('hidden');
             }
@@ -102,6 +115,7 @@
                 case 'auth/wrong-password': return "Mot de passe incorrect.";
                 case 'auth/email-already-in-use': return "Cet email est déjà utilisé.";
                 case 'auth/weak-password': return "Le mot de passe doit faire au moins 6 caractères.";
+                case 'permission-denied': return "Erreur de droits d'écriture dans la base de données.";
                 default: return "Une erreur est survenue : " + code;
             }
         }

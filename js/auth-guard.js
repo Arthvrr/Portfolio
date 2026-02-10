@@ -26,7 +26,7 @@ onAuthStateChanged(auth, async (user) => {
     
     // Est-ce une page publique (Accueil, Login, Pricing...) ?
     // account.html est "semi-privé" (accessible connecté mais pas forcément payant)
-    const isPublicPage = ['index.html', 'login.html', 'calculator.html', 'portfolio.html', 'pricing.html', '/', 'moatpicks.html'].some(page => currentPath.endsWith(page));
+    const isPublicPage = ['index.html', 'login.html', 'calculator.html', 'pricing.html', '/', 'moatpicks.html'].some(page => currentPath.endsWith(page));
 
 
     if (user) {
