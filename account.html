@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Compte | StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased selection:bg-indigo-100 selection:text-indigo-700 flex flex-col min-h-screen">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="./media/Logo/Logo-White.png" alt="Logo StocksPickeur" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                    <span class="font-heading font-bold text-xl text-slate-900 tracking-tight">StocksPickeur</span>
+                </a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <nav class="flex gap-6">
+                        <a href="calculator.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Calculateur</a>
+                        <a href="portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
+                        <a href="moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Analyses</a>
+                        <a href="formation.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Formation</a>
+                    </nav>
+
+                    <div class="h-6 w-px bg-slate-200"></div>
+
+                    <a href="login.html" id="header-auth-btn" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                        </svg>
+                        Connexion
+                    </a>
+                </div>
+
+                <div class="md:hidden">
+                    <button class="text-slate-500 hover:text-slate-900">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        
+        <div class="text-center mb-12">
+            <span class="inline-block py-1 px-3 rounded-full bg-emerald-50 text-emerald-600 text-xs font-bold uppercase tracking-wider mb-4 border border-emerald-100">
+                Espace Personnel
+            </span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mb-4">Mon Compte 👤</h1>
+            <p class="text-slate-500 text-lg">Gérez vos informations de profil et votre sécurité.</p>
+        </div>
+
+        <div class="grid gap-8">
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                <h2 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                    <span class="bg-indigo-100 text-indigo-600 w-8 h-8 rounded-lg flex items-center justify-center text-sm">1</span>
+                    Informations Publiques
+                </h2>
+                
+                <form id="profileForm" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-2">Adresse Email</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" /><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" /></svg>
+                            </span>
+                            <input type="email" id="emailDisplay" disabled class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-500 cursor-not-allowed text-sm">
+                        </div>
+                        <p class="text-xs text-slate-400 mt-2 ml-1">L'email sert d'identifiant unique et ne peut pas être modifié.</p>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-2">Nom d'affichage (Pseudo)</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" /></svg>
+                            </span>
+                            <input type="text" id="displayNameInput" placeholder="Ex: Arthur B." class="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition text-sm text-slate-900 font-medium">
+                        </div>
+                    </div>
+
+                    <div class="pt-2 flex justify-end">
+                        <button type="submit" class="bg-indigo-600 text-white font-bold py-3 px-6 rounded-xl hover:bg-indigo-700 transition shadow-lg shadow-indigo-200 flex items-center gap-2">
+                            <span>Enregistrer le profil</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        </button>
+                    </div>
+                    <p id="profileMsg" class="text-center text-sm font-medium hidden p-3 rounded-lg"></p>
+                </form>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                <h2 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                    <span class="bg-emerald-100 text-emerald-600 w-8 h-8 rounded-lg flex items-center justify-center text-sm">2</span>
+                    Sécurité
+                </h2>
+                
+                <form id="passwordForm" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-2">Nouveau mot de passe</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" /></svg>
+                            </span>
+                            <input type="password" id="newPassword" placeholder="Minimum 6 caractères" required class="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition text-sm">
+                        </div>
+                    </div>
+
+                    <div class="pt-2 flex justify-end">
+                        <button type="submit" class="bg-slate-900 text-white font-bold py-3 px-6 rounded-xl hover:bg-slate-800 transition shadow-lg flex items-center gap-2">
+                            <span>Changer le mot de passe</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 14l-1 1-1 1H6v-1l-1-1 3-3V7a3 3 0 014-4z" /></svg>
+                        </button>
+                    </div>
+                    <p id="passwordMsg" class="text-center text-sm font-medium hidden p-3 rounded-lg"></p>
+                </form>
+            </div>
+
+            <div class="pt-8 flex justify-center">
+                <button id="logoutBtn" class="group flex items-center gap-2 text-red-500 hover:text-red-700 font-bold transition px-6 py-3 rounded-xl border border-red-100 hover:bg-red-50 hover:border-red-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    Se déconnecter de l'espace membre
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="./media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <script type="module">
+        // Import des fonctions nécessaires
+        import { auth, updateProfile, updatePassword, signOut, onAuthStateChanged } from './js/firebase-config.js';
+        
+        // On importe aussi le auth-guard pour le header
+        import './js/auth-guard.js'; 
+
+        const profileForm = document.getElementById('profileForm');
+        const passwordForm = document.getElementById('passwordForm');
+        const emailDisplay = document.getElementById('emailDisplay');
+        const displayNameInput = document.getElementById('displayNameInput');
+        const profileMsg = document.getElementById('profileMsg');
+        const passwordMsg = document.getElementById('passwordMsg');
+
+        // Remplir les champs au chargement
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                emailDisplay.value = user.email;
+                if (user.displayName) {
+                    displayNameInput.value = user.displayName;
+                }
+            } else {
+                // Si pas connecté, redirigé par auth-guard, mais double sécurité ici
+                window.location.href = "login.html";
+            }
+        });
+
+        // 1. Mise à jour du Profil (Pseudo)
+        profileForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const newName = displayNameInput.value;
+            profileMsg.classList.add('hidden');
+
+            try {
+                await updateProfile(auth.currentUser, { displayName: newName });
+                
+                // Message de succès
+                profileMsg.textContent = "✅ Profil mis à jour avec succès !";
+                profileMsg.className = "text-center text-sm font-medium p-3 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-100";
+                profileMsg.classList.remove('hidden');
+                
+                // Petit délai pour voir le message avant de rafraîchir le header
+                setTimeout(() => window.location.reload(), 1000); 
+            } catch (error) {
+                profileMsg.textContent = "❌ Erreur : " + error.message;
+                profileMsg.className = "text-center text-sm font-medium p-3 rounded-lg bg-red-50 text-red-700 border border-red-100";
+                profileMsg.classList.remove('hidden');
+            }
+        });
+
+        // 2. Mise à jour du Mot de passe
+        passwordForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const newPass = document.getElementById('newPassword').value;
+            passwordMsg.classList.add('hidden');
+
+            try {
+                await updatePassword(auth.currentUser, newPass);
+                
+                passwordMsg.textContent = "✅ Mot de passe modifié avec succès !";
+                passwordMsg.className = "text-center text-sm font-medium p-3 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-100";
+                passwordMsg.classList.remove('hidden');
+                
+                document.getElementById('newPassword').value = ""; // Vider le champ
+            } catch (error) {
+                if (error.code === 'auth/requires-recent-login') {
+                    passwordMsg.textContent = "⚠️ Par sécurité, veuillez vous déconnecter et vous reconnecter avant de changer votre mot de passe.";
+                    passwordMsg.className = "text-center text-sm font-medium p-3 rounded-lg bg-amber-50 text-amber-700 border border-amber-100";
+                } else {
+                    passwordMsg.textContent = "❌ Erreur : " + error.message;
+                    passwordMsg.className = "text-center text-sm font-medium p-3 rounded-lg bg-red-50 text-red-700 border border-red-100";
+                }
+                passwordMsg.classList.remove('hidden');
+            }
+        });
+
+        // 3. Déconnexion via le bouton rouge
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            if(confirm("Êtes-vous sûr de vouloir vous déconnecter ?")) {
+                signOut(auth).then(() => window.location.href = "index.html");
+            }
+        });
+    </script>
+
+</body>
+</html>

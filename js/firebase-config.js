@@ -1,11 +1,11 @@
 // js/firebase-config.js
 
-// 1. Imports officiels Firebase (Version 12.9.0)
+// 1. Imports officiels
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
-// J'ajoute ici le module "Auth" qui manquait dans ton snippet par défaut
-import { getAuth, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
+// J'ai ajouté updateProfile et updatePassword dans la liste des imports
+import { getAuth, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, updatePassword } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
 
-// 2. Ta configuration (Tes clés exactes)
+// 2. Ta configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDzBR4vZcQQy8TV6uAfBeTIpvuFB-cj9qY",
   authDomain: "stockspickeur-formation.firebaseapp.com",
@@ -18,7 +18,7 @@ const firebaseConfig = {
 
 // 3. Initialisation
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app); // On active l'authentification
+const auth = getAuth(app);
 
-// 4. Export pour utiliser ces fonctions dans tes pages
-export { auth, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword };
+// 4. Exports (avec les nouvelles fonctions)
+export { auth, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, updatePassword };
