@@ -2,8 +2,11 @@
 
 // 1. Imports officiels
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
-// J'ai ajouté updateProfile et updatePassword dans la liste des imports
 import { getAuth, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, updatePassword } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
+
+// --- NOUVEAU : Imports pour la Base de Données (Firestore) ---
+// C'est indispensable pour que auth-guard.js puisse vérifier le statut "premium"
+import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
 
 // 2. Ta configuration
 const firebaseConfig = {
@@ -19,6 +22,8 @@ const firebaseConfig = {
 // 3. Initialisation
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app); // <--- On initialise la DB ici
 
-// 4. Exports (avec les nouvelles fonctions)
-export { auth, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, updatePassword };
+// 4. Exports
+// On exporte db, doc, getDoc et setDoc pour les utiliser ailleurs (login, auth-guard, etc.)
+export { auth, db, doc, getDoc, setDoc, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, updatePassword };
