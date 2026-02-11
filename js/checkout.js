@@ -30,6 +30,7 @@ async function startCheckout() {
         const docRef = await addDoc(collectionRef, {
             mode: "payment",
             price: PRICE_ID_LIVE, 
+            allow_promotion_codes: true,
             success_url: window.location.origin + "/formation.html",
             cancel_url: window.location.origin + "/pricing.html"
         });
