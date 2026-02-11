@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ressources & Outils | StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased selection:bg-indigo-100 selection:text-indigo-700">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="./media/Logo/Logo-White.png" alt="Logo StocksPickeur" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                    <span class="font-heading font-bold text-xl text-slate-900 tracking-tight">StocksPickeur</span>
+                </a>
+                <div class="hidden md:flex items-center gap-8">
+                    <nav class="flex gap-6">
+                        <a href="calculator.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Calculateur</a>
+                        <a href="portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
+                        <a href="resources.html" class="text-sm font-medium text-indigo-600 transition font-bold">Ressources</a>
+                        <a href="moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Analyses</a>
+                        <a href="formation.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Formation</a>
+                    </nav>
+                    <div class="h-6 w-px bg-slate-200"></div>
+                    <a href="account.html" id="header-auth-btn" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                        Connexion
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 relative overflow-hidden">
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-indigo-100 rounded-full blur-3xl opacity-50 -z-10"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-emerald-100 rounded-full blur-3xl opacity-50 -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h1 class="text-4xl md:text-6xl font-heading font-extrabold text-slate-900 mb-6 tracking-tight">L'Arsenal de <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-emerald-500">l'Investisseur.</span></h1>
+                <p class="text-lg text-slate-600 leading-relaxed">Retrouvez tous les outils, applications et services que j'ai développés pour vous aider à analyser, piloter et optimiser vos investissements au quotidien.</p>
+            </div>
+
+            <div class="grid gap-12">
+                
+                <div class="bg-white rounded-3xl p-8 lg:p-12 border border-slate-200 shadow-sm flex flex-col lg:flex-row items-center gap-12 hover:shadow-xl transition duration-500">
+                    <div class="lg:w-1/2">
+                        <div class="inline-flex items-center px-3 py-1 rounded-full border border-indigo-100 bg-indigo-50 text-indigo-700 text-xs font-bold uppercase mb-6">Formation Complète</div>
+                        <h2 class="text-3xl font-bold text-slate-900 mb-6">L'Art du Quality Investing</h2>
+                        <p class="text-slate-600 mb-6 leading-relaxed text-justify">
+                            Maîtrisez l'investissement boursier de A à Z avec ma méthode complète. Apprenez à identifier les entreprises d'exception (les "Compounders"), à les valoriser précisément et à construire un portefeuille qui traverse les crises. Cette formation inclut plus de 7h de vidéos, des quiz, des templates exclusifs et l'accès à notre communauté privée.
+                        </p>
+                        <a href="formation.html" class="inline-flex items-center justify-center bg-indigo-600 text-white font-bold px-8 py-4 rounded-xl hover:bg-indigo-700 transition shadow-lg shadow-indigo-200">Accéder à la Formation ➔</a>
+                    </div>
+                    <div class="lg:w-1/2 bg-slate-100 rounded-2xl aspect-video flex items-center justify-center overflow-hidden border border-slate-200">
+                        <div class="text-center p-8">
+                            <span class="text-6xl mb-4 block">🎓</span>
+                            <span class="text-xl font-bold text-slate-800">Espace Membre Privé</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 shadow-2xl">
+                    <div class="p-8 lg:p-12">
+                        <div class="lg:flex lg:items-center lg:justify-between mb-12">
+                            <div class="lg:w-1/2">
+                                <div class="inline-flex items-center px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-xs font-bold uppercase mb-6">Application MacOS Gratuite</div>
+                                <h2 class="text-3xl font-bold text-white mb-6">Intrinsic : Votre station de valorisation</h2>
+                                <p class="text-slate-400 mb-8 leading-relaxed text-justify text-sm lg:text-base">
+                                    Intrinsic est une application MacOS native conçue pour les investisseurs qui ne veulent plus perdre de temps sur des feuilles Excel complexes. Elle automatise le calcul de la <strong>Valeur Intrinsèque</strong> via la méthode DCF (Discounted Cash Flow) et le Reverse DCF. En un clic, obtenez une vision claire du prix que vous devriez payer pour n'importe quelle action.
+                                </p>
+                                <div class="flex gap-4">
+                                    <a href="https://arthvrr.github.io/Intrinsic/" target="_blank" class="bg-blue-600 text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-500 transition shadow-lg shadow-blue-900/50">Télécharger Intrinsic</a>
+                                </div>
+                            </div>
+                            <div class="hidden lg:block lg:w-1/3">
+                                <ul class="space-y-4">
+                                    <li class="flex items-center text-slate-300 text-sm italic"><span class="text-blue-500 mr-2">✓</span> Heatmap de sensibilité 7x7</li>
+                                    <li class="flex items-center text-slate-300 text-sm italic"><span class="text-blue-500 mr-2">✓</span> Calculateur de PEG Ratio automatique</li>
+                                    <li class="flex items-center text-slate-300 text-sm italic"><span class="text-blue-500 mr-2">✓</span> Analyse de solvabilité & Dette/EBITDA</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 lg:grid-cols-5 gap-4">
+                            <img src="media/Ressources/screen1.png" alt="Intrinsic Screen 1" class="rounded-lg border border-slate-700 shadow-lg hover:scale-105 transition duration-300 cursor-zoom-in">
+                            <img src="media/Ressources/screen2.png" alt="Intrinsic Screen 2" class="rounded-lg border border-slate-700 shadow-lg hover:scale-105 transition duration-300 cursor-zoom-in">
+                            <img src="media/Ressources/screen3.png" alt="Intrinsic Screen 3" class="rounded-lg border border-slate-700 shadow-lg hover:scale-105 transition duration-300 cursor-zoom-in">
+                            <img src="media/Ressources/screen4.png" alt="Intrinsic Screen 4" class="rounded-lg border border-slate-700 shadow-lg hover:scale-105 transition duration-300 cursor-zoom-in">
+                            <img src="media/Ressources/screen5.png" alt="Intrinsic Screen 5" class="rounded-lg border border-slate-700 shadow-lg hover:scale-105 transition duration-300 cursor-zoom-in">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 lg:p-12 border border-slate-200 shadow-sm flex flex-col lg:flex-row-reverse items-center gap-12">
+                    <div class="lg:w-1/2">
+                        <div class="inline-flex items-center px-3 py-1 rounded-full border border-emerald-100 bg-emerald-50 text-emerald-700 text-xs font-bold uppercase mb-6">Accompagnement Privé</div>
+                        <h2 class="text-3xl font-bold text-slate-900 mb-6">Consultation Stratégique : Revue de Portefeuille</h2>
+                        <p class="text-slate-600 mb-6 leading-relaxed text-justify">
+                            Vous gérez déjà un portefeuille mais vous avez un doute sur sa structure ? Vous ne savez pas si vos lignes sont trop concentrées ou si vous avez acheté trop cher ? Je vous propose un appel vidéo d'une heure pour analyser en profondeur vos positions. L'objectif est simple : <strong>identifier les points de faiblesse</strong>, optimiser votre allocation et vous donner des conseils concrets pour améliorer vos rendements à long terme.
+                        </p>
+                        <div class="text-2xl font-extrabold text-slate-900 mb-6">50€ <span class="text-sm font-normal text-slate-400">/ l'heure de visio</span></div>
+                        <a href="https://calendar.app.google/tgXyQMb6d7hVxKdj9" target="_blank" class="inline-flex items-center justify-center bg-emerald-600 text-white font-bold px-8 py-4 rounded-xl hover:bg-emerald-700 transition">Réserver ma Consultation ➔</a>
+                    </div>
+                    <div class="lg:w-1/2">
+                        <img src="media/Ressources/Call Visio.png" alt="Consultation Stratégique" class="rounded-2xl shadow-lg w-full">
+                    </div>
+                </div>
+
+                <div class="bg-emerald-900 rounded-3xl p-8 lg:p-12 text-white flex flex-col lg:flex-row items-center gap-12">
+                    <div class="lg:w-1/2">
+                        <div class="inline-flex items-center px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase mb-6">Fiscalité Belge</div>
+                        <h2 class="text-3xl font-bold mb-6">MyTOB.be : Simplifiez votre fiscalité</h2>
+                        <p class="text-emerald-100/80 mb-6 leading-relaxed text-justify">
+                            En tant qu'investisseur belge utilisant des courtiers étrangers (Trade Republic, Degiro, etc.), la déclaration de la TOB (Taxe sur les Opérations de Bourse) est une obligation fastidieuse. MyTOB.be est un outil gratuit qui génère pour vous le formulaire officiel de déclaration en quelques secondes. Le site récapitule également l'ensemble des règles fiscales belges : imposition des dividendes, plus-values, et déclaration des comptes à l'étranger.
+                        </p>
+                        <a href="https://arthvrr.github.io/mytob.be/" target="_blank" class="inline-flex items-center justify-center bg-white text-emerald-900 font-bold px-8 py-4 rounded-xl hover:bg-slate-100 transition">Découvrir MyTOB.be</a>
+                    </div>
+                    <div class="lg:w-1/2">
+                        <img src="media/Ressources/Tax.jpg" alt="Fiscalité Bourse Belgique" class="rounded-2xl shadow-2xl w-full border border-emerald-800">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="./media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <script type="module" src="./js/auth-guard.js"></script>
+</body>
+</html>

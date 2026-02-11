@@ -1,14 +1,36 @@
 // js/firebase-config.js
 
-// 1. Imports officiels
+// 1. Imports officiels (APP)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
-import { getAuth, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, updatePassword } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
 
-// --- NOUVEAU : Imports pour la Base de Données (Firestore) ---
-// C'est indispensable pour que auth-guard.js puisse vérifier le statut "premium"
-import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
+// 2. Imports pour l'AUTHENTIFICATION (Login, Inscription, etc.)
+// J'ai retiré addDoc et onSnapshot d'ici car ils n'ont rien à faire dans l'auth
+import { 
+    getAuth, 
+    onAuthStateChanged, 
+    signOut, 
+    createUserWithEmailAndPassword, 
+    signInWithEmailAndPassword, 
+    updateProfile, 
+    updatePassword
+} from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
 
-// 2. Ta configuration
+// 3. Imports pour la BASE DE DONNÉES (Firestore)
+// C'est ICI qu'on ajoute addDoc et onSnapshot pour le paiement
+import { 
+    getFirestore, 
+    doc, 
+    getDoc, 
+    setDoc, 
+    collection, 
+    query, 
+    where, 
+    getDocs,
+    addDoc,       // <--- INDISPENSABLE pour créer la session de paiement
+    onSnapshot    // <--- INDISPENSABLE pour écouter la réponse de Stripe
+} from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
+
+// 4. Ta configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDzBR4vZcQQy8TV6uAfBeTIpvuFB-cj9qY",
   authDomain: "stockspickeur-formation.firebaseapp.com",
@@ -19,11 +41,34 @@ const firebaseConfig = {
   measurementId: "G-4GCEB7CTGM"
 };
 
-// 3. Initialisation
+// 5. Initialisation
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const db = getFirestore(app); // <--- On initialise la DB ici
+const db = getFirestore(app);
 
-// 4. Exports
-// On exporte db, doc, getDoc et setDoc pour les utiliser ailleurs (login, auth-guard, etc.)
-export { auth, db, doc, getDoc, setDoc, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, updatePassword };
+// 6. Exports
+// On exporte TOUT pour que tes autres fichiers (auth-guard.js, checkout.js, etc.) puissent les utiliser
+export { 
+    // Les instances
+    auth, 
+    db, 
+    
+    // Outils Firestore
+    doc, 
+    getDoc, 
+    setDoc, 
+    collection, 
+    query, 
+    where, 
+    getDocs, 
+    addDoc,       // <--- Exporté pour checkout.js
+    onSnapshot,   // <--- Exporté pour checkout.js
+    
+    // Outils Auth
+    onAuthStateChanged, 
+    signOut, 
+    createUserWithEmailAndPassword, 
+    signInWithEmailAndPassword, 
+    updateProfile, 
+    updatePassword 
+};
