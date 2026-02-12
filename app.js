@@ -118,13 +118,13 @@ var totalInvested = 16500; // montant total investi
 var totalInvestedCell = document.getElementById("invested");
 totalInvestedCell.textContent = totalInvested;
 
-var CashOnHand = 384.36; // cash disponible
+var CashOnHand = 142.41; // cash disponible
 var cashCell = document.getElementById("cash");
 cashCell.textContent = CashOnHand.toFixed(2);
 
 var tickerOfShares = ["ASML", "GOOGL","MA", "MSFT","NVDA", "V"]; // tickers
-var numberOfShares = [6, 20, 4, 8, 20, 10]; // nombres d'actions
-var pruOfShares = [689.615, 166.19625, 411.6737, 364.5375, 184.04, 274.796]; // PRU des actions
+var numberOfShares = [6, 20, 4, 9, 20, 10]; // nombres d'actions
+var pruOfShares = [689.615, 166.19625, 411.6737, 368.96, 184.04, 274.796]; // PRU des actions
 
 var stocksPrice = []; // prix actuels des actions, en $
 let totalPRU = 0;
