@@ -193,6 +193,7 @@ var VScore = 22;
 var stocksScore = [ASMLScore, GOOGLScore, MAScore,MSFTScore,NVDAScore,VScore];
 
 var annualMarketReturnPercent = [-19.44,24.23,23.31,15.96]; //retour annuels du S&P500 en pourcent (source : https://www.macrotrends.net/2526/sp-500-historical-annual-returns)
+var targetPrices = [1100,250,500,400,170,300]
 
 var weightOfStocks = []; //liste qui représente le poids de chaque action du Portefeuille en % (valeurs : [0.24,0.26,0.3,0.2])
 var weightedAverages = [];
@@ -201,10 +202,11 @@ var weightedAverages = [];
 var dividendData = Array(months.length).fill(0).map(() => Array(4).fill(0)); //Matrice qui représente qui pour chaque action le montant versé en dividende pour tout les mois
 
 
-var stocksDividendGrowth = [14, 0, 15, 9, 16, 15]; //Tableau représentant les pourcentages d'augmentation du dividende sur 5 ans des actions du portefeuille
+var stocksDividendGrowth = [14, 0, 15, 10, 16, 15]; //Tableau représentant les pourcentages d'augmentation du dividende sur 5 ans des actions du portefeuille
 var futureYears = []; //Tableau qui va contenir le nombre des 11 prochaines années (2025,2026,2027,...,2035)
 var futureDividendsReceived = []; //Tableau qui va contenir le montant brut estimé des dividendes reçu lors des 11 prochaines années
 
+var USASalesPercentage = [0.16,0.487,0.7,0.513,0.469,0.391]
 
 //FONCTIONS 
 
@@ -2632,6 +2634,281 @@ function draw33(stocksScore, valuationScore, tickerOfShares) {
 }
 
 
+
+function draw34(stocksPrice, targetPrices) {
+    var ctx = document.getElementById('34Chart').getContext('2d');
+
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: tickerOfShares,
+            datasets: [
+                {
+                    label: 'Prix Actuel',
+                    data: stocksPrice,
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)', // Bleu
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1,
+                    barPercentage: 0.6
+                },
+                {
+                    label: 'Prix Cible',
+                    data: targetPrices,
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)', // Vert Teal
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    barPercentage: 0.6
+                }
+            ]
+        },
+        options: {
+            indexAxis: 'y', // Rend le graphique horizontal
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                },
+                title: {
+                    display: true,
+                    text: 'Prix Actuel vs Prix Cible',
+                    position: 'top',
+                    font: {
+                        size: 16
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        afterBody: function(context) {
+                            // Petit calcul bonus pour le tooltip : Potentiel de hausse/baisse
+                            let index = context[0].dataIndex;
+                            let current = stocksPrice[index];
+                            let target = targetPrices[index];
+                            let upside = ((target - current) / current) * 100;
+                            return `Potentiel: ${upside > 0 ? '+' : ''}${upside.toFixed(2)}%`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    grid: {
+                        color: 'rgba(0, 0, 0, 0.05)'
+                    }
+                }
+            }
+        }
+    });
+}
+
+
+function draw35(annualReturnPercent, annualMarketReturnPercent) {
+    var ctx = document.getElementById('35Chart').getContext('2d');
+
+    // --- CALCULS DE L'ÉVOLUTION ---
+    let initialInvestment = 10000;
+    
+    // On crée les tableaux d'évolution
+    let portfolioGrowth = [];
+    let marketGrowth = [];
+
+    // Variables temporaires pour le calcul cumulé
+    let currentPortfolioValue = initialInvestment;
+    let currentMarketValue = initialInvestment;
+
+    // Boucle pour calculer la valeur année après année (Intérêts composés)
+    for (let i = 0; i < annualReturnPercent.length; i++) {
+        // Calcul Portefeuille
+        let pReturn = annualReturnPercent[i];
+        currentPortfolioValue = currentPortfolioValue * (1 + (pReturn / 100));
+        portfolioGrowth.push(parseFloat(currentPortfolioValue.toFixed(2)));
+
+        // Calcul S&P 500
+        let mReturn = annualMarketReturnPercent[i];
+        currentMarketValue = currentMarketValue * (1 + (mReturn / 100));
+        marketGrowth.push(parseFloat(currentMarketValue.toFixed(2)));
+    }
+
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: years, // Variable globale [2022, 2023, ...]
+            datasets: [
+                {
+                    label: 'Mon Portefeuille (10k investis)',
+                    data: portfolioGrowth,
+                    borderColor: 'rgba(0, 99, 27, 1)', // Vert foncé
+                    backgroundColor: 'rgba(0, 99, 27, 0.1)', // Fond vert léger
+                    borderWidth: 3,
+                    tension: 0.3, 
+                    pointRadius: 4,
+                    pointHoverRadius: 6,
+                    fill: true // On remplit sous la courbe pour l'effet "Montagne"
+                },
+                {
+                    label: 'S&P 500 (10k investis)',
+                    data: marketGrowth,
+                    borderColor: 'rgba(100, 100, 100, 1)', // Gris
+                    backgroundColor: 'rgba(0,0,0,0)', // Pas de fond
+                    borderWidth: 2,
+                    borderDash: [5, 5], // Pointillés pour le benchmark
+                    tension: 0.3,
+                    pointRadius: 3,
+                    pointHoverRadius: 5,
+                    fill: false
+                }
+            ]
+        },
+        options: {
+            maintainAspectRatio: false,
+            responsive: true,
+            interaction: {
+                mode: 'index',
+                intersect: false,
+            },
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                },
+                title: {
+                    display: true,
+                    text: '10 000€ Investi dans mon Portefeuille vs dans le S&P500',
+                    position: 'top',
+                    font: {
+                        size: 16
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            let label = context.dataset.label || '';
+                            if (label) {
+                                label += ': ';
+                            }
+                            // Formatage en Euro pour le tooltip
+                            if (context.parsed.y !== null) {
+                                label += new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(context.parsed.y);
+                            }
+                            return label;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: false, // On ne commence pas à 0 pour bien voir les écarts
+                    grid: {
+                        color: 'rgba(0, 0, 0, 0.05)'
+                    },
+                    ticks: {
+                        // Ajout du symbole € sur l'axe Y
+                        callback: function(value) {
+                            return value + ' €';
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+function draw36(USASalesPercentage) {
+    var ctx = document.getElementById('36Chart').getContext('2d');
+
+    // 1. Calcul de la moyenne pondérée du portefeuille pour les ventes USA
+    let weightedUSAAverage = 0;
+    for (let i = 0; i < USASalesPercentage.length; i++) {
+        weightedUSAAverage += USASalesPercentage[i] * weightOfStocks[i];
+    }
+    const weightedPercentage = weightedUSAAverage * 100;
+
+    // 2. Création d'un tableau de données plat pour la ligne de moyenne
+    const averageLineData = Array(tickerOfShares.length).fill(weightedPercentage);
+
+    // Calcul des données individuelles (conversion en pourcentages 0-100)
+    const usaData = USASalesPercentage.map(val => val * 100);
+    const worldData = USASalesPercentage.map(val => (1 - val) * 100);
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: tickerOfShares,
+            datasets: [
+                {
+                    label: 'Ventes USA (%)',
+                    data: usaData,
+                    backgroundColor: 'rgba(235, 184, 54, 0.7)',
+                    borderColor: 'rgba(235, 184, 54, 1)',
+                    borderWidth: 1,
+                    order: 2 // S'assure que les barres sont derrière la ligne
+                },
+                {
+                    label: 'Ventes Hors USA (%)',
+                    data: worldData,
+                    backgroundColor: 'rgba(16, 78, 185, 0.7)',
+                    borderColor: 'rgba(16, 78, 185, 1)',
+                    borderWidth: 1,
+                    order: 2
+                },
+                {
+                    label: 'Moyenne Pondérée USA',
+                    data: averageLineData,
+                    type: 'line',
+                    borderColor: 'rgba(239, 68, 68, 1)', // Rouge vif
+                    borderWidth: 3,
+                    borderDash: [5, 5], // Pointillés
+                    pointRadius: 0, // Pas de points sur la ligne
+                    fill: false,
+                    order: 1 // S'assure que la ligne est au premier plan
+                }
+            ]
+        },
+        options: {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                },
+                title: {
+                    display: true,
+                    text: 'Exposition Géographique : USA vs Reste du Monde',
+                    font: { size: 16 }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            if (context.dataset.type === 'line') {
+                                return `Moyenne PF : ${context.raw.toFixed(1)}% USA`;
+                            }
+                            return `${context.dataset.label} : ${context.raw.toFixed(1)}%`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    stacked: true,
+                },
+                y: {
+                    stacked: true,
+                    beginAtZero: true,
+                    max: 100,
+                    ticks: {
+                        callback: function(value) { return value + "%"; }
+                    }
+                }
+            }
+        }
+    });
+}
+
+
+
 function calculateSPYReturn(currentValue, startValue) {
     var returnPercent = ((currentValue - startValue) / startValue) * 100;
     return parseFloat(returnPercent.toFixed(2));
@@ -2837,6 +3114,9 @@ async function main() {
     draw31(dividendPerShares, pruOfShares, stocksPrice);
     draw32(diffListEuro, tickerOfShares);
     draw33(stocksScore, valuationScore, tickerOfShares);
+    draw34(stocksPrice, targetPrices);
+    draw35(annualReturnPercent, annualMarketReturnPercent);
+    draw36(USASalesPercentage);
 
 }
 

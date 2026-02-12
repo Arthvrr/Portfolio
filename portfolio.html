@@ -721,6 +721,10 @@
                 <canvas id="32Chart"></canvas>
             </div>
 
+            <div class="md:col-span-2 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-96 relative">
+                <canvas id="36Chart"></canvas>
+            </div>
+
             <div id="dividend" class="md:col-span-2 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-96 relative">
                 <canvas id="23Chart"></canvas>
             </div>
@@ -753,6 +757,10 @@
             <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-80 relative">
                 <canvas id="10Chart"></canvas>
             </div>
+
+            <div class="md:col-span-2 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-80 relative">
+                <canvas id="35Chart"></canvas>
+            </div>
             
             <div class="md:col-span-2 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-80 relative">
                 <canvas id="11Chart"></canvas>
@@ -775,6 +783,9 @@
 
             <div id="valuation" class="md:col-span-2 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-96 relative">
                 <canvas id="26Chart"></canvas>
+            </div>
+            <div class="md:col-span-2 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-96 relative">
+                <canvas id="34Chart"></canvas>
             </div>
 
             <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm h-80 relative">
@@ -812,71 +823,66 @@
 <script src="app.js"></script>
 <script type="module" src="./js/auth-guard.js"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // 1. On cible directement les CANVAS (et non les divs) pour éviter de prendre les conteneurs parents
-        const allCanvases = document.querySelectorAll('canvas');
+document.addEventListener('DOMContentLoaded', () => {
+const allCanvases = document.querySelectorAll('canvas');
 
-        allCanvases.forEach(canvas => {
-            // On récupère le parent direct du canvas (la "boite" blanche)
-            const container = canvas.parentElement;
+allCanvases.forEach(canvas => {
+    const container = canvas.parentElement;
 
-            // --- FILTRE 1 : Exclure les graphiques dans les accordéons ---
-            // Si le graphique est dans une classe "panel" (tes accordéons), on arrête là.
-            if (container.closest('.panel') || container.closest('.accordion')) {
-                return; 
-            }
+    if (container.closest('.panel') || container.closest('.accordion')) {
+        return; 
+    }
 
-            // --- FILTRE 2 : Sécurité supplémentaire ---
-            // On s'assure qu'on est bien sur un graphique principal (ceux qui ont une hauteur définie ou relative)
-            if (!container.classList.contains('relative')) {
-                container.classList.add('relative');
-            }
-            container.classList.add('chart-wrapper');
+    if (!container.classList.contains('relative')) {
+        container.classList.add('relative');
+    }
+    container.classList.add('chart-wrapper');
 
-            // 2. On crée le bouton
-            const btn = document.createElement('button');
-            btn.className = 'chart-expand-btn';
-            btn.innerHTML = `
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                </svg>
-            `;
-            btn.title = "Agrandir";
+    const btn = document.createElement('button');
+    btn.className = 'chart-expand-btn';
+    btn.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+        </svg>
+    `;
+    btn.title = "Agrandir";
 
-            // 3. L'action au clic
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation(); // Empêche le clic de traverser
-                
-                // On bascule le plein écran
-                container.classList.toggle('chart-fullscreen');
-                
-                const isFullscreen = container.classList.contains('chart-fullscreen');
-                
-                // Changement d'icône
-                btn.innerHTML = isFullscreen 
-                    ? `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>` 
-                    : `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" /></svg>`;
-                
-                // Style du bouton selon l'état
-                if (isFullscreen) {
-                    btn.style.top = '20px';
-                    btn.style.right = '20px';
-                    btn.style.padding = '10px';
-                    btn.style.opacity = '1';
-                    document.body.style.overflow = 'hidden'; // Bloque le scroll arrière-plan
-                } else {
-                    btn.style.top = '10px';
-                    btn.style.right = '10px';
-                    btn.style.padding = '6px';
-                    btn.style.opacity = '';
-                    document.body.style.overflow = 'auto'; // Réactive le scroll
-                }
-            });
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        
+        container.classList.toggle('chart-fullscreen');
+        const isFullscreen = container.classList.contains('chart-fullscreen');
+        
+        btn.innerHTML = isFullscreen 
+            ? `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>` 
+            : `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" /></svg>`;
+        
+        if (isFullscreen) {
+            btn.style.top = '20px';
+            btn.style.right = '20px';
+            btn.style.opacity = '1';
+            document.body.style.overflow = 'hidden';
+        } else {
+            btn.style.top = '10px';
+            btn.style.right = '10px';
+            btn.style.opacity = '';
+            document.body.style.overflow = 'auto';
+        }
 
-            // On ajoute le bouton
-            container.appendChild(btn);
-        });
+        // --- LA CORRECTION EST ICI ---
+        // On récupère l'instance du graphique Chart.js liée au canvas
+        const chartInstance = Chart.getChart(canvas);
+        if (chartInstance) {
+            // On attend un tout petit délai pour que le CSS s'applique avant de redimensionner
+            setTimeout(() => {
+                chartInstance.resize();
+            }, 10);
+        }
     });
+
+    container.appendChild(btn);
+});
+});
 </script>
 
 
