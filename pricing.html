@@ -98,18 +98,42 @@
 
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div class="text-center mb-12 max-w-3xl mx-auto">
-                <span class="text-indigo-600 font-bold tracking-wider uppercase text-sm bg-indigo-50 px-3 py-1 rounded-full border border-indigo-100">Accès Premium</span>
-                <h1 class="text-4xl md:text-5xl font-heading font-extrabold text-slate-900 mt-4 mb-6 leading-tight">
-                    Investissez en vous-même.<br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-emerald-500">Passez au niveau supérieur.</span>
-                </h1>
-                <p class="text-lg text-slate-600 leading-relaxed">
-                    Une méthode claire, des outils puissants, une communauté engagée. Ne laissez plus le hasard décider de vos rendements.
-                </p>
-            </div>
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+                
+                <div class="text-center lg:text-left">
+                    <span class="text-indigo-600 font-bold tracking-wider uppercase text-sm bg-indigo-50 px-3 py-1 rounded-full border border-indigo-100">Accès Premium</span>
+                    <h1 class="text-4xl md:text-5xl font-heading font-extrabold text-slate-900 mt-5 mb-6 leading-tight">
+                        Investissez en vous-même.<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-emerald-500">Passez au niveau supérieur.</span>
+                    </h1>
+                    <p class="text-lg text-slate-600 leading-relaxed mb-8">
+                        Une méthode claire, des outils professionnels, une communauté engagée. Ne laissez plus le hasard décider de vos rendements.
+                    </p>
+                    <div class="flex justify-center lg:justify-start">
+                        <a href="#programme-et-prix" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-bold rounded-xl text-white bg-indigo-600 hover:bg-indigo-700 transition shadow-lg shadow-indigo-500/30 transform hover:-translate-y-1">
+                            Découvrir le programme ↓
+                        </a>
+                    </div>
+                </div>
 
-            <div class="relative w-full max-w-5xl mx-auto overflow-hidden bg-white rounded-2xl border border-slate-200 shadow-sm py-8 mb-16 mask-gradient">
+                <div class="relative px-4 sm:px-0 mt-8 lg:mt-0">
+                    <div class="transform hover:scale-105 transition duration-500 relative z-10">
+                        <img src="./media/Pub/Mockup Formation.png" alt="Bundle Formation L'Art du Quality Investing" class="rounded-2xl shadow-2xl border border-slate-200/50 w-full object-cover">
+                        
+                        <div class="absolute -bottom-5 -left-5 sm:-bottom-6 sm:-left-8 bg-slate-900 border border-slate-700 p-4 rounded-xl shadow-2xl flex items-center gap-3 transform -rotate-3 hover:rotate-0 transition duration-300">
+                            <div class="text-3xl bg-indigo-500/20 p-2 rounded-lg">💎</div>
+                            <div>
+                                <div class="text-[10px] text-indigo-400 font-bold uppercase tracking-wider mb-0.5">La Bourse de A à Z</div>
+                                <div class="font-heading font-bold text-white text-sm sm:text-base">L'Art du Quality Investing</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-indigo-500/20 blur-3xl rounded-full -z-10"></div>
+                </div>
+
+            </div>
+            <div class="relative w-full max-w-5xl mx-auto overflow-hidden bg-white rounded-2xl border border-slate-200 shadow-sm py-8 mb-24 mask-gradient">
                 <div class="flex animate-scroll w-[200%] hover:pause">
                     <div class="flex gap-6 px-3 w-1/2 justify-around">
                         <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 w-80 flex-shrink-0">
@@ -191,7 +215,7 @@
                 </div>
             </div>
 
-            <div class="grid lg:grid-cols-12 gap-12 items-start">
+            <div id="programme-et-prix" class="grid lg:grid-cols-12 gap-12 items-start scroll-mt-32">
                 
                 <div class="lg:col-span-7 space-y-10">
                     
@@ -492,11 +516,9 @@
 
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                // On trouve le bouton Stripe
                 const buyBtns = document.querySelectorAll('a[href^="https://buy.stripe.com"]');
                 
                 buyBtns.forEach(btn => {
-                    // On ajoute l'email en paramètre pour que Stripe le pré-remplisse
                     const separator = btn.href.includes('?') ? '&' : '?';
                     btn.href = `${btn.href}${separator}prefilled_email=${encodeURIComponent(user.email)}`;
                 });
