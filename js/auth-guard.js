@@ -92,6 +92,11 @@ function updateButtonToLoggedState(btn, user) {
     const pseudo = user.displayName ? user.displayName : user.email.split('@')[0];
     const isInSubFolder = window.location.pathname.includes('/formation/');
     const accountLink = isInSubFolder ? "../account.html" : "account.html";
+
+    const welcomeText = document.getElementById('welcome-username');
+    if (welcomeText) {
+        welcomeText.innerText = pseudo;
+    }
     
     btn.innerHTML = `<div class="flex items-center gap-2 group">
         <div class="bg-emerald-700/50 p-1.5 rounded-full group-hover:bg-emerald-600 transition">

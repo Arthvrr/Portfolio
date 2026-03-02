@@ -12,7 +12,8 @@ import {
     createUserWithEmailAndPassword, 
     signInWithEmailAndPassword, 
     updateProfile, 
-    updatePassword
+    updatePassword,
+    sendPasswordResetEmail
 } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
 
 // 3. Imports pour la BASE DE DONNÉES (Firestore)
@@ -70,5 +71,6 @@ export {
     createUserWithEmailAndPassword, 
     signInWithEmailAndPassword, 
     updateProfile, 
-    updatePassword 
+    updatePassword,
+    sendPasswordResetEmail
 };

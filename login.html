@@ -8,11 +8,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
     <style>body { font-family: 'Inter', sans-serif; } .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }</style>
 </head>
-<body class="bg-slate-50 flex items-center justify-center min-h-screen">
+<body class="bg-slate-50 flex items-center justify-center min-h-screen relative">
 
-    <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md border border-slate-200">
+    <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md border border-slate-200 z-10">
         <div class="text-center mb-8">
-            <img src="media/Logo/Logo-Black.png" alt="Logo" class="h-10 mx-auto mb-4"> <h1 class="text-2xl font-heading font-bold text-slate-900">Espace Membre</h1>
+            <img src="media/Logo/Logo-Black.png" alt="Logo" class="h-10 mx-auto mb-4">
+            <h1 class="text-2xl font-heading font-bold text-slate-900">Espace Membre</h1>
             <p class="text-slate-500 text-sm">Connectez-vous pour accéder à l'ensemble du contenu.</p>
         </div>
 
@@ -27,34 +28,47 @@
                 <input type="email" id="email" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition">
             </div>
             
-            <div>
-                <label class="block text-sm font-medium text-slate-700 mb-1">Mot de passe</label>
+            <div id="passwordContainer">
+                <div class="flex justify-between items-center mb-1">
+                    <label class="block text-sm font-medium text-slate-700">Mot de passe</label>
+                    <button type="button" id="forgotPasswordBtn" class="text-xs text-emerald-600 hover:text-emerald-700 font-medium focus:outline-none">Mot de passe oublié ?</button>
+                </div>
                 <input type="password" id="password" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition">
             </div>
 
-            <div id="errorMessage" class="text-red-500 text-sm text-center hidden"></div>
+            <div id="messageBox" class="text-sm text-center hidden p-3 rounded-lg font-medium"></div>
 
             <button type="submit" id="submitBtn" class="w-full bg-slate-900 text-white font-bold py-3 rounded-lg hover:bg-slate-800 transition transform active:scale-95">
                 Se connecter
             </button>
         </form>
+        
+        <a href="index.html" class="block text-center mt-6 text-sm text-slate-500 hover:text-slate-900 transition">← Retour à l'accueil</a>
     </div>
 
     <script type="module">
-        // 1. IMPORT DES OUTILS DE BASE DE DONNÉES (db, doc, setDoc)
-        import { auth, db, doc, setDoc, createUserWithEmailAndPassword, signInWithEmailAndPassword } from './js/firebase-config.js';
+        // IMPORT DES OUTILS FIREBASE, INCLUANT sendPasswordResetEmail
+        import { auth, db, doc, setDoc, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from './js/firebase-config.js';
 
         const form = document.getElementById('authForm');
         const emailInput = document.getElementById('email');
         const passwordInput = document.getElementById('password');
-        const errorMsg = document.getElementById('errorMessage');
+        const messageBox = document.getElementById('messageBox');
         const submitBtn = document.getElementById('submitBtn');
+        const forgotPasswordBtn = document.getElementById('forgotPasswordBtn');
         
         let isLoginMode = true;
 
+        // Fonction pour gérer l'affichage des messages (erreur ou succès)
+        function showMessage(text, isError = true) {
+            messageBox.textContent = text;
+            messageBox.className = `text-sm text-center p-3 rounded-lg font-medium ${isError ? 'bg-red-50 text-red-600 border border-red-200' : 'bg-emerald-50 text-emerald-700 border border-emerald-200'}`;
+            messageBox.classList.remove('hidden');
+        }
+
         window.switchTab = (mode) => {
             isLoginMode = (mode === 'login');
-            errorMsg.classList.add('hidden');
+            messageBox.classList.add('hidden');
             
             if (isLoginMode) {
                 document.getElementById('tabLogin').className = "w-1/2 pb-3 text-sm font-bold text-emerald-600 border-b-2 border-emerald-600 transition";
@@ -62,48 +76,72 @@
                 submitBtn.textContent = "Se connecter";
                 submitBtn.classList.remove('bg-emerald-600', 'hover:bg-emerald-700');
                 submitBtn.classList.add('bg-slate-900', 'hover:bg-slate-800');
+                forgotPasswordBtn.style.display = "block"; // Affiche le lien en mode connexion
             } else {
                 document.getElementById('tabRegister').className = "w-1/2 pb-3 text-sm font-bold text-emerald-600 border-b-2 border-emerald-600 transition";
                 document.getElementById('tabLogin').className = "w-1/2 pb-3 text-sm font-bold text-slate-400 hover:text-slate-600 transition";
                 submitBtn.textContent = "S'inscrire et Accéder";
                 submitBtn.classList.remove('bg-slate-900', 'hover:bg-slate-800');
                 submitBtn.classList.add('bg-emerald-600', 'hover:bg-emerald-700');
+                forgotPasswordBtn.style.display = "none"; // Cache le lien en mode inscription
             }
         };
 
+        // LOGIQUE D'INSCRIPTION / CONNEXION (Inchangiée, juste améliorée pour utiliser showMessage)
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             const email = emailInput.value;
             const password = passwordInput.value;
-            errorMsg.classList.add('hidden');
+            messageBox.classList.add('hidden');
 
             try {
                 if (isLoginMode) {
-                    // --- CAS 1 : CONNEXION ---
                     await signInWithEmailAndPassword(auth, email, password);
                 } else {
-                    // --- CAS 2 : INSCRIPTION ---
-                    
-                    // A. On crée le compte Auth (Email/Mdp)
                     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
                     const user = userCredential.user;
 
-                    // B. C'EST ICI QUE ÇA MANQUAIT : On crée la fiche dans Firestore
-                    // Cela crée un document avec l'ID de l'utilisateur et premium: false
                     await setDoc(doc(db, "users", user.uid), {
                         email: email,
                         premium: false, 
                         createdAt: new Date()
                     });
                 }
-                
-                // Succès : Redirection
                 window.location.href = "index.html";
                 
             } catch (error) {
-                console.error("Erreur:", error); // Utile pour voir les erreurs dans la console (F12)
-                errorMsg.textContent = formatError(error.code);
-                errorMsg.classList.remove('hidden');
+                console.error("Erreur:", error);
+                showMessage(formatError(error.code), true);
+            }
+        });
+
+        // --- NOUVEAU : LOGIQUE "MOT DE PASSE OUBLIÉ" ---
+        forgotPasswordBtn.addEventListener('click', async () => {
+            const email = emailInput.value.trim();
+            messageBox.classList.add('hidden');
+
+            // 1. On vérifie que l'utilisateur a bien tapé un email avant de cliquer
+            if (!email) {
+                showMessage("Veuillez saisir votre adresse email ci-dessus avant de cliquer sur 'Mot de passe oublié'.", true);
+                emailInput.focus();
+                return;
+            }
+
+            // 2. On désactive le bouton temporairement pour éviter le double-clic
+            forgotPasswordBtn.disabled = true;
+            forgotPasswordBtn.innerText = "Envoi en cours...";
+
+            try {
+                // 3. L'appel magique à Firebase
+                await sendPasswordResetEmail(auth, email);
+                showMessage("Un lien de réinitialisation a été envoyé à " + email + ". Pensez à vérifier vos spams.", false);
+            } catch (error) {
+                console.error("Erreur Reset Password:", error);
+                showMessage(formatError(error.code), true);
+            } finally {
+                // 4. On réactive le bouton
+                forgotPasswordBtn.disabled = false;
+                forgotPasswordBtn.innerText = "Mot de passe oublié ?";
             }
         });
 
@@ -115,8 +153,8 @@
                 case 'auth/wrong-password': return "Mot de passe incorrect.";
                 case 'auth/email-already-in-use': return "Cet email est déjà utilisé.";
                 case 'auth/weak-password': return "Le mot de passe doit faire au moins 6 caractères.";
-                case 'permission-denied': return "Erreur de droits d'écriture dans la base de données.";
-                default: return "Une erreur est survenue : " + code;
+                case 'auth/missing-email': return "Veuillez saisir une adresse email."; // Erreur courante lors du reset
+                default: return "Une erreur est survenue. Vérifiez vos identifiants.";
             }
         }
     </script>
