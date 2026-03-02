@@ -47,116 +47,147 @@
     </div>
 
     <script type="module">
-        // IMPORT DES OUTILS FIREBASE, INCLUANT sendPasswordResetEmail
-        import { auth, db, doc, setDoc, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from './js/firebase-config.js';
+import { auth, db, doc, setDoc, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, sendEmailVerification } from './js/firebase-config.js';
 
-        const form = document.getElementById('authForm');
-        const emailInput = document.getElementById('email');
-        const passwordInput = document.getElementById('password');
-        const messageBox = document.getElementById('messageBox');
-        const submitBtn = document.getElementById('submitBtn');
-        const forgotPasswordBtn = document.getElementById('forgotPasswordBtn');
-        
-        let isLoginMode = true;
+const form = document.getElementById('authForm');
+const emailInput = document.getElementById('email');
+const passwordInput = document.getElementById('password');
+const messageBox = document.getElementById('messageBox');
+const submitBtn = document.getElementById('submitBtn');
+const forgotPasswordBtn = document.getElementById('forgotPasswordBtn');
 
-        // Fonction pour gérer l'affichage des messages (erreur ou succès)
-        function showMessage(text, isError = true) {
-            messageBox.textContent = text;
-            messageBox.className = `text-sm text-center p-3 rounded-lg font-medium ${isError ? 'bg-red-50 text-red-600 border border-red-200' : 'bg-emerald-50 text-emerald-700 border border-emerald-200'}`;
-            messageBox.classList.remove('hidden');
-        }
+let isLoginMode = true;
 
-        window.switchTab = (mode) => {
-            isLoginMode = (mode === 'login');
-            messageBox.classList.add('hidden');
+// Fonction pour afficher les messages
+function showMessage(text, isError = true) {
+    messageBox.textContent = text;
+    messageBox.className = `block text-sm text-center p-3 rounded-lg font-medium mb-4 ${isError ? 'bg-red-50 text-red-600 border border-red-200' : 'bg-emerald-50 text-emerald-700 border border-emerald-200'}`;
+}
+
+window.switchTab = (mode) => {
+    isLoginMode = (mode === 'login');
+    messageBox.className = 'hidden'; 
+    
+    if (isLoginMode) {
+        document.getElementById('tabLogin').className = "w-1/2 pb-3 text-sm font-bold text-emerald-600 border-b-2 border-emerald-600 transition";
+        document.getElementById('tabRegister').className = "w-1/2 pb-3 text-sm font-bold text-slate-400 hover:text-slate-600 transition";
+        submitBtn.textContent = "Se connecter";
+        submitBtn.classList.remove('bg-emerald-600', 'hover:bg-emerald-700');
+        submitBtn.classList.add('bg-slate-900', 'hover:bg-slate-800');
+        forgotPasswordBtn.style.display = "block";
+    } else {
+        document.getElementById('tabRegister').className = "w-1/2 pb-3 text-sm font-bold text-emerald-600 border-b-2 border-emerald-600 transition";
+        document.getElementById('tabLogin').className = "w-1/2 pb-3 text-sm font-bold text-slate-400 hover:text-slate-600 transition";
+        submitBtn.textContent = "S'inscrire et Accéder";
+        submitBtn.classList.remove('bg-slate-900', 'hover:bg-slate-800');
+        submitBtn.classList.add('bg-emerald-600', 'hover:bg-emerald-700');
+        forgotPasswordBtn.style.display = "none";
+    }
+};
+
+// GESTION DE LA SOUMISSION DU FORMULAIRE
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = emailInput.value.trim();
+    const password = passwordInput.value;
+    messageBox.className = 'hidden';
+
+    // On désactive le bouton pendant le chargement
+    submitBtn.disabled = true;
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = "Chargement...";
+
+    try {
+        if (isLoginMode) {
+            // --- CAS 1 : CONNEXION ---
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+
+            // VÉRIFICATION : L'email est-il validé ?
+            if (!user.emailVerified) {
+                await auth.signOut(); // On le déconnecte par sécurité
+                showMessage("Veuillez vérifier votre adresse email avant de vous connecter. Pensez à vérifier vos courriers indésirables (spams).", true);
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+                return; // On stoppe tout, pas de redirection !
+            }
+
+            // Si tout est bon, on redirige vers l'accueil
+            window.location.href = "index.html";
+
+        } else {
+            // --- CAS 2 : INSCRIPTION ---
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+
+            // A. On crée sa fiche dans Firestore
+            await setDoc(doc(db, "users", user.uid), {
+                email: email,
+                premium: false, 
+                createdAt: new Date()
+            });
+
+            // B. NOUVEAU : On envoie l'email de vérification automatique !
+            await sendEmailVerification(user);
+
+            // C. On déconnecte l'utilisateur pour le forcer à valider son mail avant d'entrer
+            await auth.signOut();
+
+            // D. On affiche un beau message de succès
+            showMessage("Compte créé avec succès ! Un lien de confirmation vient d'être envoyé à " + email + ". Cliquez dessus avant de vous connecter.", false);
             
-            if (isLoginMode) {
-                document.getElementById('tabLogin').className = "w-1/2 pb-3 text-sm font-bold text-emerald-600 border-b-2 border-emerald-600 transition";
-                document.getElementById('tabRegister').className = "w-1/2 pb-3 text-sm font-bold text-slate-400 hover:text-slate-600 transition";
-                submitBtn.textContent = "Se connecter";
-                submitBtn.classList.remove('bg-emerald-600', 'hover:bg-emerald-700');
-                submitBtn.classList.add('bg-slate-900', 'hover:bg-slate-800');
-                forgotPasswordBtn.style.display = "block"; // Affiche le lien en mode connexion
-            } else {
-                document.getElementById('tabRegister').className = "w-1/2 pb-3 text-sm font-bold text-emerald-600 border-b-2 border-emerald-600 transition";
-                document.getElementById('tabLogin').className = "w-1/2 pb-3 text-sm font-bold text-slate-400 hover:text-slate-600 transition";
-                submitBtn.textContent = "S'inscrire et Accéder";
-                submitBtn.classList.remove('bg-slate-900', 'hover:bg-slate-800');
-                submitBtn.classList.add('bg-emerald-600', 'hover:bg-emerald-700');
-                forgotPasswordBtn.style.display = "none"; // Cache le lien en mode inscription
-            }
-        };
-
-        // LOGIQUE D'INSCRIPTION / CONNEXION (Inchangiée, juste améliorée pour utiliser showMessage)
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const email = emailInput.value;
-            const password = passwordInput.value;
-            messageBox.classList.add('hidden');
-
-            try {
-                if (isLoginMode) {
-                    await signInWithEmailAndPassword(auth, email, password);
-                } else {
-                    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-                    const user = userCredential.user;
-
-                    await setDoc(doc(db, "users", user.uid), {
-                        email: email,
-                        premium: false, 
-                        createdAt: new Date()
-                    });
-                }
-                window.location.href = "index.html";
-                
-            } catch (error) {
-                console.error("Erreur:", error);
-                showMessage(formatError(error.code), true);
-            }
-        });
-
-        // --- NOUVEAU : LOGIQUE "MOT DE PASSE OUBLIÉ" ---
-        forgotPasswordBtn.addEventListener('click', async () => {
-            const email = emailInput.value.trim();
-            messageBox.classList.add('hidden');
-
-            // 1. On vérifie que l'utilisateur a bien tapé un email avant de cliquer
-            if (!email) {
-                showMessage("Veuillez saisir votre adresse email ci-dessus avant de cliquer sur 'Mot de passe oublié'.", true);
-                emailInput.focus();
-                return;
-            }
-
-            // 2. On désactive le bouton temporairement pour éviter le double-clic
-            forgotPasswordBtn.disabled = true;
-            forgotPasswordBtn.innerText = "Envoi en cours...";
-
-            try {
-                // 3. L'appel magique à Firebase
-                await sendPasswordResetEmail(auth, email);
-                showMessage("Un lien de réinitialisation a été envoyé à " + email + ". Pensez à vérifier vos spams.", false);
-            } catch (error) {
-                console.error("Erreur Reset Password:", error);
-                showMessage(formatError(error.code), true);
-            } finally {
-                // 4. On réactive le bouton
-                forgotPasswordBtn.disabled = false;
-                forgotPasswordBtn.innerText = "Mot de passe oublié ?";
-            }
-        });
-
-        function formatError(code) {
-            switch(code) {
-                case 'auth/invalid-email': return "Adresse email invalide.";
-                case 'auth/user-disabled': return "Utilisateur désactivé.";
-                case 'auth/user-not-found': return "Aucun compte trouvé avec cet email.";
-                case 'auth/wrong-password': return "Mot de passe incorrect.";
-                case 'auth/email-already-in-use': return "Cet email est déjà utilisé.";
-                case 'auth/weak-password': return "Le mot de passe doit faire au moins 6 caractères.";
-                case 'auth/missing-email': return "Veuillez saisir une adresse email."; // Erreur courante lors du reset
-                default: return "Une erreur est survenue. Vérifiez vos identifiants.";
-            }
+            // On repasse visuellement sur l'onglet de connexion pour qu'il soit prêt
+            switchTab('login');
+            emailInput.value = email; // On lui laisse son email pour lui faire gagner du temps
+            passwordInput.value = ""; // On vide le mot de passe
         }
+        
+    } catch (error) {
+        console.error("Erreur d'authentification:", error);
+        showMessage(formatError(error.code), true);
+    } finally {
+        submitBtn.disabled = false;
+        if (!isLoginMode) submitBtn.textContent = originalText;
+    }
+});
+
+// --- LOGIQUE MOT DE PASSE OUBLIÉ (InchAngée) ---
+forgotPasswordBtn.addEventListener('click', async (e) => {
+    e.preventDefault();
+    const email = emailInput.value.trim();
+    messageBox.className = 'hidden';
+
+    if (!email) {
+        showMessage("Veuillez saisir votre adresse email ci-dessus avant de cliquer.", true);
+        emailInput.focus();
+        return;
+    }
+
+    forgotPasswordBtn.disabled = true;
+    forgotPasswordBtn.innerText = "Envoi...";
+
+    try {
+        await sendPasswordResetEmail(auth, email);
+        showMessage("Un lien de réinitialisation a été envoyé à " + email + ". Pensez à vérifier vos spams.", false);
+    } catch (error) {
+        showMessage(formatError(error.code), true);
+    } finally {
+        forgotPasswordBtn.disabled = false;
+        forgotPasswordBtn.innerText = "Mot de passe oublié ?";
+    }
+});
+
+function formatError(code) {
+    switch(code) {
+        case 'auth/invalid-email': return "Adresse email invalide.";
+        case 'auth/user-disabled': return "Utilisateur désactivé par l'administrateur.";
+        case 'auth/invalid-credential': return "Email ou mot de passe incorrect."; // Remplace user-not-found / wrong-password sur les nouvelles versions Firebase
+        case 'auth/email-already-in-use': return "Cette adresse email possède déjà un compte.";
+        case 'auth/weak-password': return "Votre mot de passe est trop faible (min. 6 caractères).";
+        case 'auth/too-many-requests': return "Trop de tentatives. Veuillez patienter un instant.";
+        default: return "Une erreur est survenue. Code : " + code;
+    }
+}
     </script>
 </body>
 </html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos | L'histoire et la mission de StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Style pour le contenu rédigé */
+        .prose p { margin-bottom: 1.75rem; line-height: 1.85; color: #475569; font-size: 1.05rem; }
+        .prose strong { color: #0f172a; font-weight: 600; }
+        .prose h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; color: #1e293b; margin-top: 3.5rem; margin-bottom: 1.5rem; font-size: 1.75rem; tracking: -0.025em; }
+        
+        /* Style pour les images dans le texte */
+        .prose figure img { border-radius: 1rem; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -6px rgba(0, 0, 0, 0.04); border: 1px border-slate-100; }
+        .prose figcaption { text-center: center; font-size: 0.875rem; color: #94a3b8; margin-top: 0.75rem; font-style: italic; }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="media/Logo/Logo-White.png" alt="Logo StocksPickeur" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                    <span class="font-heading font-bold text-xl text-slate-900 tracking-tight">StocksPickeur</span>
+                </a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <nav class="flex gap-6">
+                        <a href="calculator.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Calculateur</a>
+                        <a href="portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
+                        <a href="moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Analyses</a>
+                        <a href="formation.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Formation</a>
+                    </nav>
+
+                    <div class="h-6 w-px bg-slate-200"></div>
+
+                    <a href="login.html" id="header-auth-btn" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                        </svg>
+                        <span id="nav-username">Connexion</span>
+                    </a>
+                </div>
+
+                <div class="md:hidden">
+                    <button class="text-slate-500 hover:text-slate-900">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="mb-20 text-center">
+            <span class="inline-block py-1 px-3 rounded-full bg-indigo-50 text-indigo-600 text-xs font-bold uppercase tracking-wider mb-4 border border-indigo-100">
+                L'histoire & la Mission
+            </span>
+            <h1 class="text-4xl md:text-5xl font-heading font-extrabold text-slate-900 mb-6 tracking-tight leading-tight">
+                Derrière le code et les chiffres : <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Le parcours du fondateur.</span>
+            </h1>
+        </div>
+
+        <article class="prose prose-slate max-w-none text-justify">
+            
+            <p class="text-xl text-slate-600 leading-relaxed font-medium mb-12 text-center prose-none">
+                Je suis un étudiant belge de 22 ans, écartelé entre deux mondes fascinants : les lignes de code informatique (mes études) et les bilans financiers des plus grandes entreprises mondiales. Ce site est le fruit de cette double passion.
+            </p>
+
+            <h3>
+                <span class="bg-indigo-100 text-indigo-600 w-12 h-12 rounded-2xl flex items-center justify-center text-2xl mr-4 inline-flex">🏔️</span>
+                2022 : L'objectif Ski, les Dividendes et la dure réalité
+            </h3>
+            <p>
+                Tout a commencé en 2022. J'avais 18 ans, j'étais étudiant, et j'avais un rêve très concret : <strong>gagner assez d'argent par moi-même pour me payer un séjour au ski avec mes amis.</strong> Je savais que mon job étudiant ne suffirait pas, alors je me suis tourné vers la Bourse. Candide et rassuré par les discours ambiants, j'ai investi mes premiers euros dans des <strong>actions à dividendes "classiques"</strong>. Mon plan ? Toucher ce fameux "revenu passif" pour financer mes vacances.
+            </p>
+
+            <figure class="my-12 flex flex-col items-center">
+                <img src="media/About/Coding.jpg" alt="Mes débuts d'investisseur en 2022" class="max-w-full md:max-w-2xl h-auto">
+                <figcaption>Le genre d'écrans sur lequel tout a commencé en 2022 : entre cours d'info et graphiques boursiers.</figcaption>
+            </figure>
+
+            <p>
+                Mais la réalité m'a vite rattrapé. J'ai compris que pour un petit portefeuille étudiant, attendre quelques centimes de dividendes par mois était une stratégie trop lente pour mon objectif. Pire encore, je me suis laissé emporter par le bruit du marché, cherchant la performance rapide, la spéculation, les rumeurs. J'ai gagné, j'ai perdu, mais j'ai surtout réalisé une chose : <strong>spéculer est un stress permanent, et ce n'était pas de l'investissement. C'était du hasard.</strong>
+            </p>
+
+            <h3>
+                <span class="bg-emerald-100 text-emerald-600 w-12 h-12 rounded-2xl flex items-center justify-center text-2xl mr-4 inline-flex">💎</span>
+                2023 : La quête de performance et la révélation "Quality"
+            </h3>
+            <p>
+                En 2023, ma motivation a changé. Je ne voulais plus seulement payer un voyage au ski, <strong>je voulais gagner plus d'argent, avoir de vraies performances et voir mon capital croître significativement.</strong> J'ai compris que pour un petit capital, la croissance était le moteur le plus puissant. C'est en dévorant les écrits de Warren Buffett, Terry Smith et François Rochon que j'ai eu ma révélation : le <strong>Quality Investing</strong>.
+            </p>
+            <p>
+                J'ai arrêté de chercher "le bon coup" pour me concentrer exclusivement sur "les entreprises merveilleuses". J'ai troqué mes actions à dividendes anémiques contre des sociétés possédant un <em>Moat</em> (avantage concurrentiel) infranchissable, des marges insolentes, une dette maîtrisée et un ROIC (retour sur capital investi) exceptionnel. Depuis ce jour, je ne traque plus les prix bas, je traque l'excellence. Cette stratégie a tout changé : mes performances ont décollé, mais surtout, <strong>ma sérénité est devenue totale.</strong>
+            </p>
+
+            <div class="bg-slate-900 text-white p-10 rounded-3xl my-12 shadow-2xl relative overflow-hidden border border-slate-800">
+                <div class="absolute top-0 right-0 -mr-10 -mt-10 w-40 h-40 rounded-full bg-indigo-500 opacity-10 blur-3xl"></div>
+                <h4 class="text-2xl font-bold mb-5 font-heading text-white m-0">Mon dogme : L'Hyper-Concentration 🎯</h4>
+                <p class="text-slate-300 m-0 leading-relaxed text-base">
+                    La diversification à outrance est souvent la béquille de l'ignorance. Si vous passez des dizaines d'heures à analyser une entreprise et que vous êtes convaincu qu'elle est parmi les 10 meilleures au monde, pourquoi iriez-vous diluer votre argent dans votre 40ème meilleure idée ? Je suis un fervent défenseur de l'hyper-concentration. Je préfère détenir une poignée d'entreprises merveilleuses que je connais par cœur, plutôt qu'un ETF indiciel rempli de sociétés médiocres. C'est en concentrant mes investissements que j'ai obtenu mes meilleures performances.
+                </p>
+            </div>
+
+            <h3>
+                <span class="bg-blue-100 text-blue-600 w-12 h-12 rounded-2xl flex items-center justify-center text-2xl mr-4 inline-flex">💻</span>
+                La Naissance de StocksPickeur : Codé par passion, pour démocratiser
+            </h3>
+            <p>
+                Enfant du numérique, j'ai vite réalisé que les outils professionnels pour pratiquer le Quality Investing étaient soit hors de prix, soit illisibles, soit inexistants. C'est ici que ma double casquette prend tout son sens. <b>Je suis un véritable passionné d'informatique et de développement.</b> Étudiant dans ce domaine, j'ai décidé de prendre le problème à bras le corps.
+            </p>
+            <p>
+                <b> Tout le site StocksPickeur, chaque calculateur, chaque base de données, chaque ligne de code de cette plateforme a été écrite et pensée par mes propres mains. </b> J'ai fusionné ma rigueur technique de développeur avec ma rationalité d'investisseur pour créer la plateforme que j'aurais voulu avoir à mes débuts.
+            </p>
+
+            <figure class="my-12 flex flex-col items-center">
+                <img src="media/About/Diamond.jpg" alt="Développement et Analyse : l'ADN de StocksPickeur" class="max-w-full md:max-w-2xl h-auto">
+                <figcaption>Trouver les meilleures boites du monde, voilà ma nouvelle mission</figcaption>
+            </figure>
+
+            <p>
+                Au-delà de mes propres besoins, une mission plus grande m'animait depuis le début : <b>démocratiser l'investissement sérieux auprès de mes proches.</b> Je voulais casser cette croyance populaire, malheureusement trop ancrée dans la génération de nos parents, que la Bourse est un casino, une loterie ou un monde réservé aux requins de la finance.
+            </p>
+            <p>
+                Je veux prouver qu'avec de la méthode, de la patience, et les bons outils, n'importe qui peut s'enrichir intelligemment en devenant propriétaire de business extraordinaires. C'est ce combat contre l'ignorance financière et pour l'hyper-concentration de qualité que je mène aujourd'hui sur Internet à travers StocksPickeur. Ma méthode est transparente, mes outils sont puissants, et ils sont désormais à votre disposition.
+            </p>
+
+            <p class="mt-12 font-extrabold text-xl text-slate-900 text-center prose-none">
+                L'enrichissement boursier n'est pas un sprint spéculatif, c'est un marathon d'entreprise.<br>Enfilez vos baskets, on est partis. 🚀
+            </p>
+
+        </article>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <script type="module" src="./js/auth-guard.js"></script>
+</body>
+</html>
