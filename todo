@@ -1,29 +1,9 @@
-- lien vers serveur discord & google sheets à la fin de la formation + d'autres outils si trouvé
-- page ressources (formation, appel client, MoatPicks,Intrincis, MyTOB.be)
 - faire un certificat quand l'user à réussi tout les quizz de tout les modules ! 
-- faire une barre de progression pour la formation
 - page articles qui résume les threads que j'ai fait sur la bourse
-- demander à gemini quoi ajouter de nouveaux
-
-- ajouter graphe haut roic 4.9.
-- refaire vidéos 4.9 dcp !!!
-
-- FAQ page d'accueil de la formation
-- ajouter avis personnes formation (call to action)
-- ajouter counter de personnes ayant pris la formation
-
-- offrir une formation à qqun
-
 - graphique transactions par an ?
-
-AJD :
-ajouter google forms dans module 0 pour récupérer avis formation
-continuer formation 6
-faire concours offrir formation à qqun
-ajouter counter de personnes ayant pris la formation (2) pour l'instant
-
-retravailler formation.html (barre de progression, bonjour "username", ...)
-
-finir 0.5 et 0.6
-créer serveur discord
-créer google sheets
+- ajouter google forms dans module 0 pour récupérer avis formation
+- faire concours offrir formation à qqun
+- ajouter counter de personnes ayant pris la formation (2) pour l'instant
+- finir 0.5 et 0.6
+- créer serveur discord
+- créer google sheets
