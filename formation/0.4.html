@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0.4. Revoir un module entier en 1 clic | Formation StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles pour le contenu du cours */
+        .prose p { margin-bottom: 1.5rem; line-height: 1.8; color: #475569; }
+        .prose h4 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-top: 3.5rem; margin-bottom: 1.5rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .prose ul, .prose ol { margin-bottom: 1.5rem; padding-left: 1rem; }
+        .prose li { margin-bottom: 0.75rem; color: #475569; position: relative; padding-left: 1.5rem; line-height: 1.7; }
+        .prose ul li::before { content: "•"; color: #334155; font-weight: bold; position: absolute; left: 0; }
+        .prose ol { list-style-type: decimal; padding-left: 2rem; }
+        .prose ol li { padding-left: 0.5rem; }
+        .prose strong { color: #0f172a; font-weight: 600; }
+        
+        /* Lightbox */
+        #imageViewer { backdrop-filter: blur(10px); }
+        .clickable-image { cursor: zoom-in; transition: transform 0.2s; }
+        .clickable-image:hover { transform: scale(1.01); }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <a href="../index.html" class="flex items-center gap-3 group">
+                    <img src="../media/Logo/Logo-White.png" alt="Logo StocksPickeur" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                    <span class="font-heading font-bold text-xl text-slate-900 tracking-tight">StocksPickeur</span>
+                </a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <nav class="flex gap-6">
+                        <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Calculateur</a>
+                        <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Portefeuille</a>
+                        <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Analyses</a>
+                        <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Formation</a>
+                    </nav>
+
+                    <div class="h-6 w-px bg-slate-200"></div>
+
+                    <a href="../login.html" id="header-auth-btn" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                        </svg>
+                        Connexion
+                    </a>
+                </div>
+
+                <div class="md:hidden">
+                    <button class="text-slate-500 hover:text-slate-900">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-slate-800 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="0.0.html" class="hover:text-slate-800 transition">Module 0</a></li>
+                <li>/</li>
+                <li class="text-slate-800 font-medium">Chapitre 0.4</li>
+            </ol>
+        </nav>
+
+        <div class="mb-12 border-b border-slate-200 pb-8">
+            <span class="text-slate-500 font-bold tracking-wider uppercase text-xs">Module 0 • Onboarding</span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">0.4. Revoir un module entier en 1 clic 💡</h1>
+        </div>
+
+        <article class="prose prose-slate max-w-none text-justify">
+            
+            <p>La Bourse est un domaine d'apprentissage dense. Au fur et à mesure que vous avancerez dans la formation StocksPickeur, vous allez accumuler une quantité phénoménale d'informations : des définitions, des ratios financiers, des formules de calcul, des critères de sélection stricts et des biais psychologiques à éviter. Il est humainement impossible de mémoriser 100% de ces données dès la première lecture.</p>
+            
+            <p>De plus, lorsque vous serez en situation réelle, face à votre écran pour analyser une nouvelle entreprise, vous n'aurez pas le temps (ni l'envie) de re-visionner deux heures de vidéo ou de relire quarante pages de texte juste pour retrouver la formule exacte du Free Cash Flow. Vous aurez besoin d'une information condensée, visuelle, et immédiatement accessible. C'est précisément pour répondre à ce besoin d'efficacité absolue que nous avons créé le système des <strong>Cheat Sheets</strong>.</p>
+
+            <h4>1. Qu'est-ce qu'une Cheat Sheet ?</h4>
+            <p>En anglais, une "Cheat Sheet" se traduit littéralement par "antisèche". Chez StocksPickeur, c'est la synthèse ultime d'un module entier. Nous avons pris l'ensemble des concepts théoriques, des tableaux de comparaison et des formules mathématiques d'un module, et nous les avons compressés de manière ultra-visuelle sur une seule et unique page.</p>
+            <p>Ces fiches récapitulatives sont conçues comme de véritables "check-lists" de pilotes de ligne. Un pilote expérimenté sait comment faire décoller son avion, mais il utilise toujours sa check-list pour s'assurer de ne rien oublier d'important. En tant qu'investisseur, ces Cheat Sheets deviendront votre outil de vérification avant chaque décision financière.</p>
+
+            <h4>2. Où trouver ces fiches de synthèse ?</h4>
+            <p>Nous avons placé ces ressources stratégiques à l'endroit où elles sont le plus utiles : à la fin de votre parcours d'apprentissage.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/formation-contenu-7.png')">
+                <img src="../media/Formation/formation-contenu-7.png" 
+                     alt="Emplacement de la Cheat Sheet" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">À la toute fin de la page d'un module, sous la section Validation, vous trouverez la section "Synthèse" abritant la Cheat Sheet correspondante.</figcaption>
+            </figure>
+
+            <p>Lorsque vous êtes sur la page d'accueil d'un module, faites défiler l'écran tout en bas. Vous trouverez une section dédiée intitulée <strong>"Synthèse"</strong>, située juste en dessous de l'Examen Final. L'idée est simple : une fois que vous avez lu tous les chapitres et validé votre Quiz avec succès, vous débloquez et consultez la Cheat Sheet pour figer définitivement vos connaissances.</p>
+
+            <h4>3. Comment les utiliser de manière optimale ?</h4>
+            <p>La digitalisation a du bon, mais l'investissement exige parfois de la matérialité. Nous vous recommandons vivement de ne pas vous contenter de regarder ces fiches sur votre écran.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/formation-contenu-8.png')">
+                <img src="../media/Formation/formation-contenu-8.png" 
+                     alt="Interface de la Cheat Sheet" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Une fiche claire et épurée, dotée d'un bouton dédié pour lancer l'impression PDF instantanément.</figcaption>
+            </figure>
+
+            <p>En ouvrant une Cheat Sheet, vous remarquerez un bouton noir très distinct en haut à droite de l'interface, indiquant <strong>"Imprimer la Fiche (PDF)"</strong>. C'est la fonctionnalité clé de cet outil.</p>
+            
+            <p>Notre conseil méthodologique le plus précieux pour ce chapitre : <strong>Imprimez-les toutes !</strong> Achetez un classeur ou un beau carnet que vous nommerez votre "Journal d'Investisseur". À chaque fin de module, imprimez la Cheat Sheet et rangez-la soigneusement. Dans quelques semaines, vous aurez entre vos mains un manuel d'investissement physique, ultra-personnalisé, et incroyablement puissant, que vous pourrez garder sur votre bureau et consulter à la moindre hésitation face aux marchés.</p>
+            
+            <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-8 mt-12 shadow-sm">
+                <h5 class="text-xl font-bold text-emerald-800 mb-4 flex items-center">
+                    <span class="bg-emerald-200 text-emerald-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">🔑</span> 
+                    Ce qu'il faut retenir
+                </h5>
+                <p class="text-emerald-900 m-0 leading-relaxed">
+                    Les Cheat Sheets sont les "antisèches" officielles de la formation, situées dans la section Synthèse tout en bas de chaque module. Elles condensent de manière très visuelle l'intégralité des concepts, règles et calculs abordés. Utilisez le bouton dédié pour les imprimer au format PDF et créez-vous un véritable carnet d'investisseur physique à garder près de vous lors de vos analyses boursières.
+                </p>
+            </div>
+
+        </article>
+
+        <div class="flex justify-between items-center mt-16 pt-8 border-t border-slate-200">
+            <a href="0.3.html" class="text-slate-500 hover:text-slate-800 font-medium transition flex items-center group">
+                <span class="group-hover:-translate-x-1 transition-transform mr-2">←</span> Chapitre Précédent
+            </a>
+            <a href="0.5.html" class="bg-slate-800 text-white px-6 py-3 rounded-full font-bold hover:bg-slate-900 transition shadow-lg shadow-slate-200 flex items-center group">
+                Chapitre Suivant <span class="group-hover:translate-x-1 transition-transform ml-2">→</span>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <div id="imageViewer" class="fixed inset-0 z-[60] hidden bg-slate-900/90 backdrop-blur-sm transition-opacity duration-300" onclick="closeViewer()">
+        <span class="absolute top-5 right-8 text-white text-5xl cursor-pointer hover:text-slate-300 transition">&times;</span>
+        <img class="m-auto block max-w-[95%] max-h-[90vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded shadow-2xl" id="enlargedImg">
+    </div>
+
+    <script>
+        // Gestion de la Lightbox
+        var modal = document.getElementById("imageViewer");
+        var modalImg = document.getElementById("enlargedImg");
+
+        function openViewer(src) {
+            modal.style.display = "block";
+            modalImg.src = src;
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeViewer() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+        
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeViewer();
+            }
+        });
+    </script>
+<script type="module" src="../js/auth-guard.js"></script>
+</body>
+</html>

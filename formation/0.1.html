@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0.1. Bienvenue dans l'aventure !!! | Formation StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles pour le contenu du cours */
+        .prose p { margin-bottom: 1.5rem; line-height: 1.8; color: #475569; }
+        .prose h4 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-top: 3rem; margin-bottom: 1rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .prose ul, .prose ol { margin-bottom: 1.5rem; padding-left: 1rem; }
+        .prose li { margin-bottom: 0.5rem; color: #475569; position: relative; padding-left: 1.5rem; }
+        .prose ul li::before { content: "•"; color: #334155; font-weight: bold; position: absolute; left: 0; }
+        .prose ol { list-style-type: decimal; padding-left: 2rem; }
+        .prose ol li { padding-left: 0.5rem; }
+        .prose strong { color: #0f172a; font-weight: 600; }
+        
+        /* Lightbox */
+        #imageViewer { backdrop-filter: blur(10px); }
+        .clickable-image { cursor: zoom-in; transition: transform 0.2s; }
+        .clickable-image:hover { transform: scale(1.01); }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <a href="../index.html" class="flex items-center gap-3 group">
+                    <img src="../media/Logo/Logo-White.png" alt="Logo StocksPickeur" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                    <span class="font-heading font-bold text-xl text-slate-900 tracking-tight">StocksPickeur</span>
+                </a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <nav class="flex gap-6">
+                        <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Calculateur</a>
+                        <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Portefeuille</a>
+                        <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Analyses</a>
+                        <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Formation</a>
+                    </nav>
+
+                    <div class="h-6 w-px bg-slate-200"></div>
+
+                    <a href="../login.html" id="header-auth-btn" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                        </svg>
+                        Connexion
+                    </a>
+                </div>
+
+                <div class="md:hidden">
+                    <button class="text-slate-500 hover:text-slate-900">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-slate-800 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="0.0.html" class="hover:text-slate-800 transition">Module 0</a></li>
+                <li>/</li>
+                <li class="text-slate-800 font-medium">Chapitre 0.1</li>
+            </ol>
+        </nav>
+
+        <div class="mb-12 border-b border-slate-200 pb-8">
+            <span class="text-slate-500 font-bold tracking-wider uppercase text-xs">Module 0 • Onboarding</span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">0.1. Bienvenue dans l'aventure !!! 🎉</h1>
+        </div>
+
+        <article class="prose prose-slate max-w-none text-justify">
+            
+            <p><strong>Félicitations et bienvenue au sein de StocksPickeur !</strong> Si vous lisez ces lignes, c'est que vous avez pris l'une des décisions les plus importantes pour votre avenir financier : celle de prendre le contrôle de votre patrimoine.</p>
+            
+            <p>Investir en bourse peut sembler intimidant. Entre le jargon technique, les graphiques illisibles, les promesses de richesse rapide sur les réseaux sociaux et la peur de perdre ses économies... il est tout à fait normal de se sentir perdu au début. Mais rassurez-vous : vous êtes exactement au bon endroit.</p>
+
+            <div class="bg-slate-100 border-l-4 border-slate-700 p-6 rounded-r-xl my-10">
+                <p class="font-bold text-slate-900 mb-2">Notre promesse 🤝</p>
+                <p class="italic text-slate-700 m-0">Ici, vous n'apprendrez pas à "trader" frénétiquement depuis votre smartphone. Vous allez apprendre à devenir le <strong>propriétaire patient</strong> des meilleures entreprises de la planète.</p>
+            </div>
+
+            <h4>1. La notion de "Temps vs Argent"</h4>
+            <p>Investir n'a pas pour but ultime d'accumuler des zéros sur un écran. Le véritable but, c'est de <strong>racheter votre temps futur</strong>. Actuellement, vous échangez votre temps contre un salaire. En investissant, vous créez une machine qui génère de l'argent sans avoir besoin de votre temps ou de votre présence. L'objectif est d'atteindre le point où le rendement de vos investissements couvre vos dépenses, vous offrant la liberté absolue de choisir comment occuper vos journées.</p>
+
+            <h4>2. Les attentes de rentabilité</h4>
+            <p>Il est primordial de casser un mythe tout de suite : la Bourse ne vous rendra pas millionnaire en six mois. Fuyez ceux qui vous promettent du +100% par an sans risque. Un excellent investisseur vise honnêtement une rentabilité de <strong>10 à 15% par an</strong> en moyenne. Cela peut sembler modeste face aux promesses d'internet, mais c'est amplement suffisant pour bâtir un empire financier sur la durée grâce à la force des intérêts composés.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/welcome-invest.jpg')">
+                <img src="../media/Formation/welcome-invest.jpg" 
+                     alt="Trading vs Investissement Serein" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">L'investissement est une construction sereine, loin de l'agitation des courbes de trading.</figcaption>
+            </figure>
+
+            <h4>3. L'importance de l'exécution</h4>
+            <p>La théorie sans la pratique ne vaut rien. Vous pouvez lire cette formation de A à Z, si vous ne passez pas à l'action, votre situation ne changera jamais. La clé du succès réside dans <strong>l'exécution</strong>. Dès que vous aurez terminé ce module d'introduction, votre premier objectif sera concret : ouvrir votre compte d'investissement (PEA ou CTO) et y transférer vos premiers 100€. L'important n'est pas la somme de départ, c'est de lancer la machine.</p>
+
+            <h4>Ce que vous allez apprendre</h4>
+            <p>Cette formation a été conçue avec un seul objectif en tête : vous rendre <strong>100% autonome</strong>. Que vous n'ayez jamais acheté une action de votre vie ou que vous cherchiez à structurer une méthode déjà existante, nous allons parcourir ensemble le chemin complet :</p>
+            <ul>
+                <li><strong>Comprendre les fondamentaux :</strong> Ce qu'est vraiment une action, comment la bourse fonctionne et pourquoi elle monte sur le long terme.</li>
+                <li><strong>La philosophie Quality :</strong> Détecter les entreprises dotées d'un "Moat" (avantage concurrentiel) infranchissable.</li>
+                <li><strong>L'analyse financière simplifiée :</strong> Savoir lire les chiffres qui comptent (et ignorer les autres) pour ne jamais surpayer une action.</li>
+                <li><strong>La psychologie de l'investisseur :</strong> Apprendre à gérer ses émotions quand les marchés s'affolent, car c'est souvent là que les grandes fortunes se construisent.</li>
+            </ul>
+            
+            <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-8 mt-12 shadow-sm">
+                <h5 class="text-xl font-bold text-emerald-800 mb-4 flex items-center">
+                    <span class="bg-emerald-200 text-emerald-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">🔑</span> 
+                    Ce qu'il faut retenir
+                </h5>
+                <p class="text-emerald-900 m-0 leading-relaxed">
+                    L'investissement a un but précis : <strong>racheter votre temps futur</strong> pour vous offrir de la liberté.
+                    Pour y arriver, ne cherchez pas le coup du siècle. Visez <strong>10 à 15% par an</strong> avec patience et régularité.
+                    Enfin, la connaissance n'est qu'un potentiel. Seule <strong>l'exécution</strong> (ouvrir son compte, faire son premier virement) compte vraiment.
+                </p>
+            </div>
+
+        </article>
+
+        <div class="flex justify-between items-center mt-16 pt-8 border-t border-slate-200">
+            <a href="0.0.html" class="text-slate-500 hover:text-slate-800 font-medium transition flex items-center group">
+                <span class="group-hover:-translate-x-1 transition-transform mr-2">←</span> Retour au programme
+            </a>
+            <a href="0.2.html" class="bg-slate-800 text-white px-6 py-3 rounded-full font-bold hover:bg-slate-900 transition shadow-lg shadow-slate-200 flex items-center group">
+                Chapitre Suivant <span class="group-hover:translate-x-1 transition-transform ml-2">→</span>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <div id="imageViewer" class="fixed inset-0 z-[60] hidden bg-slate-900/90 backdrop-blur-sm transition-opacity duration-300" onclick="closeViewer()">
+        <span class="absolute top-5 right-8 text-white text-5xl cursor-pointer hover:text-slate-300 transition">&times;</span>
+        <img class="m-auto block max-w-[95%] max-h-[90vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded shadow-2xl" id="enlargedImg">
+    </div>
+
+    <script>
+        // Gestion de la Lightbox
+        var modal = document.getElementById("imageViewer");
+        var modalImg = document.getElementById("enlargedImg");
+
+        function openViewer(src) {
+            modal.style.display = "block";
+            modalImg.src = src;
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeViewer() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+        
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeViewer();
+            }
+        });
+    </script>
+<script type="module" src="../js/auth-guard.js"></script>
+</body>
+</html>

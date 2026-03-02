@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0.3. Tester son Apprentissage | Formation StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles pour le contenu du cours */
+        .prose p { margin-bottom: 1.5rem; line-height: 1.8; color: #475569; }
+        .prose h4 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-top: 3.5rem; margin-bottom: 1.5rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .prose ul, .prose ol { margin-bottom: 1.5rem; padding-left: 1rem; }
+        .prose li { margin-bottom: 0.75rem; color: #475569; position: relative; padding-left: 1.5rem; line-height: 1.7; }
+        .prose ul li::before { content: "•"; color: #334155; font-weight: bold; position: absolute; left: 0; }
+        .prose ol { list-style-type: decimal; padding-left: 2rem; }
+        .prose ol li { padding-left: 0.5rem; }
+        .prose strong { color: #0f172a; font-weight: 600; }
+        
+        /* Lightbox */
+        #imageViewer { backdrop-filter: blur(10px); }
+        .clickable-image { cursor: zoom-in; transition: transform 0.2s; }
+        .clickable-image:hover { transform: scale(1.01); }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <a href="../index.html" class="flex items-center gap-3 group">
+                    <img src="../media/Logo/Logo-White.png" alt="Logo StocksPickeur" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                    <span class="font-heading font-bold text-xl text-slate-900 tracking-tight">StocksPickeur</span>
+                </a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <nav class="flex gap-6">
+                        <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Calculateur</a>
+                        <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Portefeuille</a>
+                        <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Analyses</a>
+                        <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Formation</a>
+                    </nav>
+
+                    <div class="h-6 w-px bg-slate-200"></div>
+
+                    <a href="../login.html" id="header-auth-btn" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                        </svg>
+                        Connexion
+                    </a>
+                </div>
+
+                <div class="md:hidden">
+                    <button class="text-slate-500 hover:text-slate-900">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-slate-800 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="0.0.html" class="hover:text-slate-800 transition">Module 0</a></li>
+                <li>/</li>
+                <li class="text-slate-800 font-medium">Chapitre 0.3</li>
+            </ol>
+        </nav>
+
+        <div class="mb-12 border-b border-slate-200 pb-8">
+            <span class="text-slate-500 font-bold tracking-wider uppercase text-xs">Module 0 • Onboarding</span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">0.3. Tester son Apprentissage 🎓</h1>
+        </div>
+
+        <article class="prose prose-slate max-w-none text-justify">
+            
+            <p>Il existe un biais psychologique très connu dans l'apprentissage que l'on appelle "l'illusion de compétence". Lorsque vous lisez un texte clair ou que vous regardez une vidéo bien expliquée, votre cerveau vous fait croire que vous maîtrisez parfaitement le sujet. Vous hochez la tête en vous disant : <em>"C'est logique, j'ai tout compris"</em>. Mais que se passe-t-il si, le lendemain, on vous demande d'expliquer ce même concept à voix haute devant une page blanche ? Bien souvent, c'est le trou noir.</p>
+            
+            <p>En Bourse, l'illusion de compétence coûte extrêmement cher. Si vous pensez avoir compris comment calculer une marge de sécurité mais que vous vous trompez dans les faits au moment d'acheter une action, c'est votre propre capital durement gagné qui s'évapore. C'est précisément pour éviter cela que la plateforme StocksPickeur intègre un système d'évaluation rigoureux.</p>
+
+            <h4>1. L'Examen Final du Module : Votre Checkpoint Obligatoire</h4>
+            <p>À la fin de chaque module d'apprentissage, vous constaterez qu'il y a une section intitulée <strong>"Validation"</strong> située juste en dessous de la liste des chapitres et des outils. C'est ici que se trouve l'Examen Final du module en cours.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/formation-contenu-4.png')">
+                <img src="../media/Formation/formation-contenu-4.png" 
+                     alt="Emplacement de l'examen final" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Vous trouverez toujours le Quiz de validation à la toute fin du programme du module.</figcaption>
+            </figure>
+
+            <p>Cet examen n'est pas là pour vous piéger, mais pour agir comme un véritable filet de sécurité. Avant de vous lancer dans le module suivant (qui s'appuiera inévitablement sur les concepts du module précédent), vous devez vous prouver à vous-même que les fondations sont solides. Considérez cet examen comme un droit de passage que vous vous accordez.</p>
+
+            <h4>2. Le format : 10 questions pour tout consolider</h4>
+            <p>Lorsque vous lancerez l'examen final, vous serez confronté à un Quiz interactif. La structure de cette évaluation a été pensée pour tester votre compréhension globale et non juste votre mémoire à court terme.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/formation-contenu-5.png')">
+                <img src="../media/Formation/formation-contenu-5.png" 
+                     alt="Interface du Quiz StocksPickeur" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Une interface de Quiz claire et sans distraction pour un maximum de concentration.</figcaption>
+            </figure>
+
+            <p>Voici les règles précises de nos examens finaux :</p>
+            <ul>
+                <li><strong>10 questions par module :</strong> Chaque examen est composé d'exactement dix questions. C'est le nombre parfait pour ne pas être trop chronophage tout en assurant une couverture complète du sujet.</li>
+                <li><strong>Un balayage complet :</strong> Ces questions portent sur <strong>l'ensemble des chapitres</strong> du module. Vous aurez donc des questions liées au premier chapitre comme au tout dernier. Rien n'est laissé au hasard.</li>
+                <li><strong>Attention aux réponses multiples :</strong> Ne vous précipitez pas ! Lisez chaque question avec une extrême attention. La finance exige de la nuance. Par conséquent, il est tout à fait possible que certaines questions n'appellent qu'une seule et unique bonne réponse, tandis que d'autres nécessiteront de cocher <strong>plusieurs réponses valides</strong> simultanément pour obtenir le point.</li>
+            </ul>
+
+            <h4>3. Le "Bac à sable" : Votre droit absolu à l'erreur</h4>
+            <p>Dédramatisons la situation immédiatement : il n'y a aucune pression. Considérez ces quiz d'évaluation comme votre <strong>bac à sable personnel</strong>. C'est l'unique endroit de cette formation (et de votre vie d'investisseur) où faire une erreur monumentale ne vous coûtera pas un seul centime.</p>
+            <p>Il vaut infiniment mieux se tromper de formule de valorisation ici, obtenir un douloureux 3/10 au quiz, et comprendre pourquoi on a fauté, plutôt que de faire cette même erreur d'appréciation demain matin sur votre véritable compte courtier avec 5 000€ de vos propres économies en jeu. Acceptez l'échec lors de ces tests, il est formateur.</p>
+
+            <h4>4. Le concept du "Quiz à livre ouvert" (Ce n'est pas l'école)</h4>
+            <p>Oubliez vos années lycée ou vos examens universitaires : chez StocksPickeur, tous les tests sont à "livre ouvert". Si vous avez un doute sur une question, que vous ne vous souvenez plus d'une définition exacte ou d'un calcul, <strong>ouvrez un nouvel onglet !</strong> Retournez lire le chapitre concerné, relisez vos notes de cours, utilisez la fonction recherche de votre navigateur.</p>
+            <p>Le but de cet examen n'est pas de tester votre capacité à apprendre par cœur de manière scolaire. Le but est de vérifier que vous savez <strong>où chercher l'information</strong> et <strong>comment l'appliquer</strong> dans un contexte précis. Dans la vraie vie, lorsque les marchés sont ouverts, un bon investisseur vérifie toujours ses données et ses calculs avant d'appuyer sur le bouton d'achat. Prenez cette habitude dès maintenant.</p>
+
+            <h4>5. La Correction Détaillée : Le vrai moment d'apprentissage</h4>
+            <p>Le but du Quiz n'est pas d'avoir une belle note pour flatter votre ego. C'est pour cette raison que l'étape de la correction est probablement la plus importante du processus.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/formation-contenu-6.png')">
+                <img src="../media/Formation/formation-contenu-6.png" 
+                     alt="Correction et Justification du Quiz" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Après validation, la plateforme ne se contente pas de vous noter : elle vous explique le pourquoi du comment.</figcaption>
+            </figure>
+
+            <p>Une fois que vous avez répondu aux 10 questions et cliqué sur le bouton de soumission, votre score final s'affichera. Mais surtout, sous chaque question, un petit encart grisé apparaîtra contenant la <strong>justification détaillée</strong> de la réponse attendue.</p>
+            
+            <p>Prenez impérativement le temps de lire ces justifications, en particulier pour les questions où vous avez commis une erreur. Vous pouvez refaire chaque examen autant de fois que vous le souhaitez. Notre recommandation ? Fixez-vous la règle d'or du <strong>8/10 minimum</strong>. Si vous obtenez un score inférieur, retournez lire les chapitres où vous avez péché, laissez reposer une nuit, et retentez votre chance le lendemain pour vous assurer que c'est définitivement acquis.</p>
+            
+            <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-8 mt-12 shadow-sm">
+                <h5 class="text-xl font-bold text-emerald-800 mb-4 flex items-center">
+                    <span class="bg-emerald-200 text-emerald-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">🔑</span> 
+                    Ce qu'il faut retenir
+                </h5>
+                <p class="text-emerald-900 m-0 leading-relaxed">
+                    Considérez l'examen de fin de module comme un bac à sable gratuit où l'erreur est permise et formatrice. Ces quiz de 10 questions sont à "livre ouvert" : vous avez le droit absolu de consulter vos notes car un bon investisseur vérifie toujours ses données. Lisez attentivement chaque question (des réponses multiples sont parfois possibles) et étudiez les justifications détaillées pour viser un score minimum de 8/10 avant de passer officiellement à la suite.
+                </p>
+            </div>
+
+        </article>
+
+        <div class="flex justify-between items-center mt-16 pt-8 border-t border-slate-200">
+            <a href="0.2.html" class="text-slate-500 hover:text-slate-800 font-medium transition flex items-center group">
+                <span class="group-hover:-translate-x-1 transition-transform mr-2">←</span> Chapitre Précédent
+            </a>
+            <a href="0.4.html" class="bg-slate-800 text-white px-6 py-3 rounded-full font-bold hover:bg-slate-900 transition shadow-lg shadow-slate-200 flex items-center group">
+                Chapitre Suivant <span class="group-hover:translate-x-1 transition-transform ml-2">→</span>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <div id="imageViewer" class="fixed inset-0 z-[60] hidden bg-slate-900/90 backdrop-blur-sm transition-opacity duration-300" onclick="closeViewer()">
+        <span class="absolute top-5 right-8 text-white text-5xl cursor-pointer hover:text-slate-300 transition">&times;</span>
+        <img class="m-auto block max-w-[95%] max-h-[90vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded shadow-2xl" id="enlargedImg">
+    </div>
+
+    <script>
+        // Gestion de la Lightbox
+        var modal = document.getElementById("imageViewer");
+        var modalImg = document.getElementById("enlargedImg");
+
+        function openViewer(src) {
+            modal.style.display = "block";
+            modalImg.src = src;
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeViewer() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+        
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeViewer();
+            }
+        });
+    </script>
+<script type="module" src="../js/auth-guard.js"></script>
+</body>
+</html>
