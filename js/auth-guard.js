@@ -24,6 +24,7 @@ onAuthStateChanged(auth, async (user) => {
     ].some(page => currentPath.endsWith(page));
 
     if (user) {
+        // Mise à jour visuelle des boutons (PC et Mobile)
         if (loginBtn) updateButtonToLoggedState(loginBtn, user);
 
         try {
@@ -93,11 +94,13 @@ function updateButtonToLoggedState(btn, user) {
     const isInSubFolder = window.location.pathname.includes('/formation/');
     const accountLink = isInSubFolder ? "../account.html" : "account.html";
 
+    // 1. Mise à jour du texte de bienvenue (si présent sur la page)
     const welcomeText = document.getElementById('welcome-username');
     if (welcomeText) {
         welcomeText.innerText = pseudo;
     }
     
+    // 2. Mise à jour du bouton PC
     btn.innerHTML = `<div class="flex items-center gap-2 group">
         <div class="bg-emerald-700/50 p-1.5 rounded-full group-hover:bg-emerald-600 transition">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -113,4 +116,17 @@ function updateButtonToLoggedState(btn, user) {
     
     const newBtn = btn.cloneNode(true);
     btn.parentNode.replaceChild(newBtn, btn);
+
+    // 3. NOUVEAU : Mise à jour du bouton Mobile (Menu Hamburger)
+    const mobileNavUsername = document.getElementById('mobile-nav-username');
+    const mobileAuthBtn = document.getElementById('mobile-auth-btn');
+    
+    if (mobileNavUsername) {
+        // Remplace "Connexion Espace Membre" par le nom de l'utilisateur
+        mobileNavUsername.textContent = pseudo; 
+    }
+    if (mobileAuthBtn) {
+        // Redirige vers account.html au lieu de login.html
+        mobileAuthBtn.href = accountLink; 
+    }
 }
