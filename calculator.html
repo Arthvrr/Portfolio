@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculateur Quality Score (/30) | StocksPickeur</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -127,6 +129,14 @@
         <div class="grid lg:grid-cols-12 gap-8">
             
             <div class="lg:col-span-7 space-y-8">
+
+                <div class="bg-indigo-50 p-6 rounded-2xl border border-indigo-100 shadow-sm relative overflow-hidden mb-8">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-indigo-500"></div>
+                    <div class="input-group mb-0 border-indigo-200 focus-within:border-indigo-500 bg-white">
+                        <label class="label-text text-indigo-900">Symbole de l'action (Ticker)</label>
+                        <input type="text" id="input-ticker" class="input-field text-lg uppercase font-bold text-indigo-900" placeholder="Ex: MSFT, LVMH, ASML..." autocomplete="off">
+                    </div>
+                </div>
                 
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
                     <div class="absolute top-0 left-0 w-1 h-full bg-slate-500"></div>
@@ -285,6 +295,48 @@
                 </div>
             </div>
 
+            </div>
+                <div class="mt-12 flex justify-center mb-12">
+            <button id="download-pdf-btn" class="bg-indigo-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-indigo-700 transition shadow-lg shadow-indigo-200 flex items-center gap-3 transform hover:-translate-y-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Sauvegarder l'Analyse en PDF
+            </button>
+        </div>
+
+        <div style="position: absolute; left: -9999px; top: 0;">
+            <div id="pdf-template" class="bg-white p-10 w-[794px] h-[1123px] text-slate-800 relative">
+                
+                <div class="flex justify-between items-end border-b-2 border-slate-100 pb-6 mb-8">
+                    <div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <img src="./media/Logo/logo-black.ico" alt="Logo" class="h-6 w-6">
+                            <span class="font-bold text-slate-900 tracking-tight">StocksPickeur</span>
+                        </div>
+                        <h1 class="text-4xl font-extrabold text-slate-900" id="pdf-ticker">TICKER</h1>
+                        <p class="text-slate-500 font-medium mt-1">Rapport d'Analyse Quality Investing</p>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-5xl font-black text-indigo-600" id="pdf-score">--/30</div>
+                        <div class="text-sm font-bold text-slate-400 uppercase tracking-widest mt-2">Score Qualité</div>
+                    </div>
+                </div>
+
+                <div class="flex justify-center mb-10 h-64">
+                    <img id="pdf-chart-img" src="" alt="Radar Chart" class="max-h-full object-contain">
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4 border-b border-slate-200 pb-2 text-slate-800">Détail des Critères</h3>
+                    <div class="grid grid-cols-2 gap-x-12 gap-y-3" id="pdf-metrics-grid">
+                        </div>
+                </div>
+                
+                <div class="absolute bottom-10 left-10 right-10 text-center text-xs text-slate-400 border-t border-slate-100 pt-4">
+                    Document généré automatiquement le <span id="pdf-date"></span> depuis le calculateur StocksPickeur. <br>Ceci ne constitue pas un conseil en investissement.
+                </div>
+            </div>
         </div>
 
     </main>
@@ -306,6 +358,109 @@
     </footer>
 
     <script>
+        
+        document.getElementById('download-pdf-btn').addEventListener('click', async () => {
+            // 1. Récupération du Ticker et du Score
+            const tickerInput = document.getElementById('input-ticker').value.trim().toUpperCase();
+            const ticker = tickerInput !== '' ? tickerInput : 'SANS TICKER';
+            
+            // Pour récupérer juste le chiffre (ex: "27") sans la balise <span>/30</span>
+            const scoreText = document.getElementById('totalScore').childNodes[0].nodeValue.trim();
+
+            document.getElementById('pdf-ticker').innerText = ticker;
+            document.getElementById('pdf-score').innerText = `${scoreText}/30`;
+            document.getElementById('pdf-date').innerText = new Date().toLocaleDateString('fr-FR');
+
+            // 2. Capture du Graphique Radar
+            const canvas = document.getElementById('qualityRadar'); 
+            if(canvas) {
+                document.getElementById('pdf-chart-img').src = canvas.toDataURL('image/png', 1.0);
+            }
+
+            // --- FONCTIONS D'AIDE POUR RÉCUPÉRER LES VALEURS ---
+            const getVal = (id) => parseFloat(document.getElementById(id).value);
+            const getStr = (id) => document.getElementById(id).value || "-";
+            // Récupère le texte du menu déroulant en enlevant les "(+1 pt)" pour que ce soit propre
+            const getSelText = (id) => {
+                const el = document.getElementById(id);
+                return el.options[el.selectedIndex].text.replace(' (+1 pt)', '').replace(' (+2 pts)', '');
+            };
+
+            // 3. Création du tableau de données avec la vraie logique de points
+            const criteriaData = [
+                // 1. Bases
+                { name: "Perf. vs S&P 500", value: getSelText('base_perf'), points: parseInt(getStr('base_perf')||0) },
+                { name: "Actions (Buybacks)", value: getSelText('base_shares'), points: parseInt(getStr('base_shares')||0) },
+                { name: "Diversification", value: getSelText('base_div'), points: parseInt(getStr('base_div')||0) },
+                
+                // 2. Croissance
+                { name: "Croissance CA (Années)", value: getStr('growth_sales') + "/10", points: getVal('growth_sales') == 10 ? 2 : (getVal('growth_sales') >= 7 ? 1 : 0) },
+                { name: "Croissance BPA (Années)", value: getStr('growth_eps') + "/10", points: getVal('growth_eps') == 10 ? 2 : (getVal('growth_eps') >= 7 ? 1 : 0) },
+                { name: "Croissance FCF (Années)", value: getStr('growth_fcf') + "/10", points: getVal('growth_fcf') == 10 ? 2 : (getVal('growth_fcf') >= 7 ? 1 : 0) },
+                
+                // 3. Rentabilité
+                { name: "Marge Nette", value: getStr('val_net_margin') + "%", points: getVal('val_net_margin') >= 35 ? 2 : (getVal('val_net_margin') >= 20 ? 1 : 0) },
+                { name: "Marge FCF", value: getStr('val_fcf_margin') + "%", points: getVal('val_fcf_margin') >= 30 ? 2 : (getVal('val_fcf_margin') >= 20 ? 1 : 0) },
+                { name: "ROIC", value: getStr('val_roic') + "%", points: getVal('val_roic') >= 30 ? 2 : (getVal('val_roic') >= 15 ? 1 : 0) },
+                
+                // 4. Solvabilité
+                { name: "Dette / EBITDA", value: getStr('val_debt_ebitda'), points: getVal('val_debt_ebitda') < 1 ? 2 : (getVal('val_debt_ebitda') < 2 ? 1 : 0) },
+                { name: "Debt / Equity", value: getStr('val_debt_equity'), points: getVal('val_debt_equity') < 1 ? 2 : (getVal('val_debt_equity') < 2 ? 1 : 0) },
+                { name: "Interest Coverage", value: getStr('val_int_coverage'), points: getVal('val_int_coverage') >= 30 ? 2 : (getVal('val_int_coverage') >= 15 ? 1 : 0) },
+                
+                // 5. Dividende
+                { name: "Payout Ratio", value: getStr('val_payout') + "%", points: getVal('val_payout') < 30 ? 2 : (getVal('val_payout') < 50 ? 1 : 0) },
+                { name: "FCF Payout Ratio", value: getStr('val_fcf_payout') + "%", points: getVal('val_fcf_payout') < 30 ? 2 : (getVal('val_fcf_payout') < 50 ? 1 : 0) },
+                { name: "Croissance Dividende", value: getStr('val_div_growth') + "%", points: getVal('val_div_growth') >= 10 ? 2 : (getVal('val_div_growth') >= 5 ? 1 : 0) },
+            ];
+
+            const metricsGrid = document.getElementById('pdf-metrics-grid');
+            metricsGrid.innerHTML = ''; 
+
+            // Injection dans le HTML du PDF
+            criteriaData.forEach(c => {
+                // Sécurité si l'utilisateur laisse une case vide
+                if (c.value.includes("NaN") || c.value === "-%" || c.value === "-/10") {
+                    c.value = "Non renseigné";
+                    c.points = 0;
+                }
+
+                let colorClass = "text-red-500 bg-red-50 border-red-100"; 
+                if (c.points === 1) colorClass = "text-blue-600 bg-blue-50 border-blue-100";
+                if (c.points === 2) colorClass = "text-emerald-600 bg-emerald-50 border-emerald-100"; 
+
+                metricsGrid.innerHTML += `
+                    <div class="flex justify-between items-center border-b border-slate-100 py-2">
+                        <span class="text-slate-600 font-medium text-sm">${c.name}</span>
+                        <span class="px-3 py-1 rounded-lg border font-bold text-sm text-right ${colorClass}">
+                            ${c.value}
+                        </span>
+                    </div>
+                `;
+            });
+
+            // 4. Génération
+            const element = document.getElementById('pdf-template');
+            
+            const opt = {
+                margin:       0,
+                filename:     `Score_${ticker}_StocksPickeur.pdf`,
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            const btn = document.getElementById('download-pdf-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '⏳ Génération du PDF...';
+            btn.classList.add('opacity-75', 'cursor-not-allowed');
+
+            await html2pdf().set(opt).from(element).save();
+
+            btn.innerHTML = originalText;
+            btn.classList.remove('opacity-75', 'cursor-not-allowed');
+        });
+
         // Sélectionne le bouton hamburger et le menu mobile
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
