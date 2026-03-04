@@ -107,7 +107,7 @@
                     <p class="text-slate-500 mt-2 text-lg">Prêt à apprendre aujourd'hui ?</p>
                 </div>
                 
-                <a href="formation/0.0.html" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-sm font-bold rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 transition transform hover:-translate-y-0.5">
+                <a href="formation/0.0.html" id="resume-btn" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-sm font-bold rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 transition transform hover:-translate-y-0.5">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
                     </svg>
@@ -407,14 +407,23 @@
 
 <script type="module" src="./js/auth-guard.js"></script>
 <script>
-// Sélectionne le bouton hamburger et le menu mobile
+    // Sélectionne le bouton hamburger et le menu mobile (Ton code existant)
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
 
-    // Ajoute un événement au clic
     btn.addEventListener('click', () => {
-        // "toggle" ajoute la classe si elle n'y est pas, ou l'enlève si elle y est
         menu.classList.toggle('hidden');
+    });
+
+    // --- NOUVEAU : GESTION DE LA REPRISE DE FORMATION ---
+    document.addEventListener('DOMContentLoaded', () => {
+        // On cherche si un chapitre a été sauvegardé dans la mémoire du navigateur
+        const lastChapter = localStorage.getItem('SP_lastChapter');
+        
+        // Si oui, on modifie le lien du bouton
+        if (lastChapter) {
+            document.getElementById('resume-btn').href = 'formation/' + lastChapter;
+        }
     });
 </script>
 </body>

@@ -130,3 +130,9 @@ function updateButtonToLoggedState(btn, user) {
         mobileAuthBtn.href = accountLink; 
     }
 }
+
+const nomChapitre = window.location.pathname.split('/').pop();
+// On accepte les formats : "1.4.html", "1.test.html", et "1.cheatsheet.html"
+if (/^\d+\.(\d+|test|cheatsheet)\.html$/.test(nomChapitre)) {
+    localStorage.setItem('SP_lastChapter', nomChapitre);
+}
