@@ -74,7 +74,12 @@ def update_headers_formation():
 
     # On parcourt tous les fichiers du sous-dossier formation/
     for nom_fichier in os.listdir(DOSSIER_CIBLE):
-        # On ne traite que les fichiers HTML (ex: 1.4.html)
+        # 🛑 NOUVEAU : On esquive les fichiers cheatsheet et test
+        if 'cheatsheet' in nom_fichier:
+            print(f"⏭️ Fichier ignoré : {nom_fichier}")
+            continue # Passe directement au fichier suivant
+
+        # On ne traite que les fichiers HTML normaux (ex: 1.4.html)
         if nom_fichier.endswith('.html'):
             chemin_fichier = os.path.join(DOSSIER_CIBLE, nom_fichier)
 
