@@ -11,6 +11,25 @@
         body { font-family: 'Inter', sans-serif; }
         h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
         .chapter-card:hover { transform: translateY(-2px); border-color: #6366f1; }
+        /* Séparateur de section */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            margin: 3rem 0 1.5rem 0;
+            color: #94a3b8; /* Slate-400 */
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .section-divider::before, .section-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: #e2e8f0; /* Slate-200 */
+        }
+        .section-divider::before { margin-right: 1rem; }
+        .section-divider::after { margin-left: 1rem; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-600 antialiased">
@@ -79,53 +98,62 @@
         <div class="mb-12">
             <span class="text-orange-600 font-bold tracking-wider uppercase text-xs">Module 6</span>
             <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">Piloter son Portefeuille 🧑‍💻</h1>
-            <p class="text-lg text-slate-500">Gestion du cash, arbitrage, fiscalité et quand acheter ou vendre.</p>
+            <p class="text-lg text-slate-500 text-justify">
+                Savoir analyser une entreprise exceptionnelle ne suffit pas pour être rentable. L'acheter au bon moment, dans la bonne enveloppe fiscale et avec la bonne pondération fait toute la différence entre un bon théoricien et un investisseur gagnant. <br><br>
+                Dans ce module, l'analyste laisse sa place au gestionnaire de portefeuille. Nous allons mettre les mains dans le cambouis pour aborder la vraie vie de l'investisseur : choix du courtier, fiscalité, gestion du cash, arbitrage, et timing parfait pour acheter ou vendre. Vous allez apprendre à construire, piloter et rééquilibrer votre portefeuille avec des processus froids et mécaniques. Fini la théorie, place à la pratique.</p>
         </div>
+
         <div class="space-y-4">
+
+            <div class="section-divider">Cours & Théorie</div>
+
             <a href="6.1.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.1</div><div><h3 class="font-bold text-slate-900 text-lg">Compte-Titre vs PEA 🥊</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.1</div><div><h3 class="font-bold text-slate-900 text-lg">Fini la Théorie : Place à l'Exécution 🚀</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
             </a>
             <a href="6.2.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.2</div><div><h3 class="font-bold text-slate-900 text-lg">Choisir son Courtier 📝</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.2</div><div><h3 class="font-bold text-slate-900 text-lg">La Meilleure Enveloppe Fiscale pour Investir ✉️</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
             </a>
             <a href="6.3.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.3</div><div><h3 class="font-bold text-slate-900 text-lg">Fiscalité Belge 🇧🇪</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.3</div><div><h3 class="font-bold text-slate-900 text-lg">Choisir son Courtier 📝</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
             </a>
-             <a href="6.4.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.4</div><div><h3 class="font-bold text-slate-900 text-lg">Fiscalité Française 🇫🇷</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
+            <a href="6.4.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
+                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.4</div><div><h3 class="font-bold text-slate-900 text-lg">Fiscalité Belge 🇧🇪</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
             </a>
-            <a href="6.5.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.5</div><div><h3 class="font-bold text-slate-900 text-lg">Combien de Lignes en Portefeuille ? 🔢</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
+             <a href="6.5.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
+                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.5</div><div><h3 class="font-bold text-slate-900 text-lg">Fiscalité Française 🇫🇷</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
             </a>
             <a href="6.6.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.6</div><div><h3 class="font-bold text-slate-900 text-lg">Gestion du Cash 💵</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.6</div><div><h3 class="font-bold text-slate-900 text-lg">Combien de Lignes en Portefeuille ? 🔢</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
             </a>
             <a href="6.7.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.7</div><div><h3 class="font-bold text-slate-900 text-lg">Le Prix de Revient Unitaire (PRU) 📊</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.7</div><div><h3 class="font-bold text-slate-900 text-lg">Gestion du Cash 💵</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
             </a>
-             <a href="6.8.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.8</div><div><h3 class="font-bold text-slate-900 text-lg">Quand Acheter et Renforcer ? 🛒</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
+            <a href="6.8.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
+                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.8</div><div><h3 class="font-bold text-slate-900 text-lg">Le Prix de Revient Unitaire (PRU) 📊</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
             </a>
              <a href="6.9.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.9</div><div><h3 class="font-bold text-slate-900 text-lg">Quand Vendre ? 🚪</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.9</div><div><h3 class="font-bold text-slate-900 text-lg">Quand Acheter et Renforcer ? 🛒</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
             </a>
              <a href="6.10.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.10</div><div><h3 class="font-bold text-slate-900 text-lg">L'Art du Rééquilibrage ⚖️</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.10</div><div><h3 class="font-bold text-slate-900 text-lg">Quand Vendre ? 🚪</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
             </a>
              <a href="6.11.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.11</div><div><h3 class="font-bold text-slate-900 text-lg">Gestion des Dividendes 🤑</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.11</div><div><h3 class="font-bold text-slate-900 text-lg">L'Art du Rééquilibrage ⚖️</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
             </a>
              <a href="6.12.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.12</div><div><h3 class="font-bold text-slate-900 text-lg">Introduction au Benchmarking 📈</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.12</div><div><h3 class="font-bold text-slate-900 text-lg">Gestion des Dividendes 🤑</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
             </a>
-            <a href="6.13.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.13</div><div><h3 class="font-bold text-slate-900 text-lg">Suivi du Portefeuille au quotidien 📅</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
+             <a href="6.13.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
+                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.13</div><div><h3 class="font-bold text-slate-900 text-lg">Introduction au Benchmarking 📈</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
             </a>
             <a href="6.14.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.14</div><div><h3 class="font-bold text-slate-900 text-lg">Les Outils que j'utilise ⚒️</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.14</div><div><h3 class="font-bold text-slate-900 text-lg">Suivi du Portefeuille au quotidien 📅</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
             </a>
             <a href="6.15.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.15</div><div><h3 class="font-bold text-slate-900 text-lg">Où investir son argent ? 🗺️</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
+                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.15</div><div><h3 class="font-bold text-slate-900 text-lg">Les Outils que j'utilise ⚒️</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
+            </a>
+            <a href="6.16.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
+                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.16</div><div><h3 class="font-bold text-slate-900 text-lg">Où investir son argent ? 🗺️</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
             </a>
         </div>
     </main>

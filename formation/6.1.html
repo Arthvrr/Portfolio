@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.1 Fini la Théorie : Place à l'Exécution | Formation StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles pour le contenu du cours */
+        .prose p { margin-bottom: 1.5rem; line-height: 1.8; color: #475569; }
+        .prose h4 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-top: 3rem; margin-bottom: 1.5rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .prose strong { color: #0f172a; font-weight: 600; }
+        .prose ul, .prose ol { list-style: none; padding-left: 0; }
+        .prose li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
+        .prose ul li::before { content: "•"; color: #ea580c; font-weight: bold; position: absolute; left: 0; }
+        
+        /* Lightbox */
+        #imageViewer { backdrop-filter: blur(10px); }
+        .clickable-image { cursor: zoom-in; transition: transform 0.2s; }
+        .clickable-image:hover { transform: scale(1.01); }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../media/Logo/Logo-White.png" alt="Logo StocksPickeur" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <span class="font-heading font-bold text-xl text-slate-900 tracking-tight">StocksPickeur</span>
+            </a>
+
+            <div class="hidden xl:flex items-center gap-8">
+                <nav class="flex gap-6">
+                    <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Calculateur</a>
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Portefeuille</a>
+                    <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Analyses</a>
+                    <a href="../resources.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Ressources</a>
+                    <a href="../articles.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Articles</a>
+                    <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Formation</a>
+                    <a href="../about.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">À Propos</a>
+                </nav>
+
+                <div class="h-6 w-px bg-slate-200"></div>
+
+                <a href="../account.html" id="header-auth-btn" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Connexion
+                </a>
+            </div>
+
+            <div class="xl:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-slate-500 hover:text-slate-900 focus:outline-none p-2">
+                    <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden xl:hidden bg-white border-b border-slate-200 shadow-xl absolute w-full">
+        <nav class="flex flex-col px-4 pt-2 pb-6 space-y-3">
+            <a href="../calculator.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Calculateur</a>
+            <a href="../portfolio.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Portefeuille</a>
+            <a href="../moatpicks.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Analyses</a>
+            <a href="../resources.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Ressources</a>
+            <a href="../articles.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Articles</a>
+            <a href="../formation.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Formation</a>
+            <a href="../about.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">À Propos</a>
+            
+            <div class="border-t border-slate-100 pt-3 mt-2">
+                <a href="../account.html" id="mobile-auth-btn" class="flex justify-center w-full bg-slate-900 text-white font-bold px-5 py-3 rounded-xl hover:bg-slate-800 transition">
+                    <span id="mobile-nav-username">Connexion Espace Membre</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+    <main class="pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-orange-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="6.0.html" class="hover:text-orange-600 transition">Module 6</a></li>
+                <li>/</li>
+                <li class="text-orange-600 font-medium">Chapitre 6.1</li>
+            </ol>
+        </nav>
+
+        <div class="mb-12 border-b border-slate-200 pb-8">
+            <span class="text-orange-600 font-bold tracking-wider uppercase text-xs">Module 6 • Piloter son Portefeuille</span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">6.1. Fini la Théorie : Place à l'Exécution 🚀</h1>
+        </div>
+
+        <div class="mb-10 not-prose"> 
+            <div class="flex items-center gap-2 mb-4">
+                <span class="bg-orange-100 text-orange-700 w-8 h-8 flex items-center justify-center rounded-lg text-lg">📺</span>
+                <h3 class="font-heading font-bold text-lg text-slate-900">Résumé du chapitre en vidéo</h3>
+            </div>
+            
+            <div class="rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-slate-900 aspect-video">
+                <video controls class="w-full h-full object-cover" preload="metadata">
+                    <source src="videos/6.1.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+            </div>
+        </div>
+
+        <article class="prose prose-slate max-w-none text-justify">
+            
+            <p>Jusqu’à présent, vous avez brillamment enfilé la casquette de l'analyste financier. Nous avons fait un travail d'orfèvre : décortiqué des bilans comptables complexes, traqué les avantages concurrentiels inébranlables (Moats), étudié la rentabilité des capitaux et modélisé des valorisations d'une précision chirurgicale. Vous avez appris à séparer le bon grain de l'ivraie, à isoler la rare élite des entreprises mondiales qui méritent réellement que vous y placiez votre capital.</p>
+            
+            <p>Mais voici la dure et froide réalité des marchés boursiers : <strong>savoir analyser une entreprise exceptionnelle ne suffit absolument pas pour gagner de l'argent.</strong></p>
+            
+            <p>L'analyse approfondie n'est en fait que le prologue de votre aventure en tant qu'investisseur. La différence fondamentale entre un brillant théoricien qui a toujours raison sur le papier, et un investisseur redoutablement rentable dans la vraie vie, se joue presque exclusivement sur un terrain bien plus pragmatique : <strong>l'exécution</strong>.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/iceberg-investissement.jpg')">
+                <img src="../media/Formation/iceberg-investissement.jpg" 
+                     alt="L'Iceberg de l'Investisseur : Analyse vs Exécution" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">La sélection d'actions n'est que la face visible de l'iceberg. Le succès à long terme réside massivement dans l'exécution.</figcaption>
+            </figure>
+
+            <p>Comme l'illustre parfaitement la métaphore de l'iceberg ci-dessus, le "Stocks Picking" et l'analyse financière ne représentent que la pointe émergée de la stratégie de l'investisseur, soit environ 10% de l'équation globale. C'est la partie intellectuellement stimulante, celle dont on parle dans les médias. Mais la véritable fondation qui soutient vos rendements à long terme, cette masse colossale cachée sous la surface, est constituée d'éléments bien moins glamour mais infiniment plus déterminants : la psychologie, la stricte maîtrise de la fiscalité, le money management rigoureux, la patience à toute épreuve, et la science de l'arbitrage.</p>
+
+            <h4>Le Fossé Comportemental : Le coût d'une mauvaise exécution 📉</h4>
+
+            <p>Pour vous convaincre de l'importance vitale de cette "partie immergée", prenons un instant pour examiner les chiffres réels. Pourquoi est-il si crucial de passer d'un simple analyste à un véritable gestionnaire méthodique ? La réponse se trouve dans le graphique ci-dessous, issu des célèbres études sur le comportement des investisseurs (souvent appelées le "Behavioral Gap").</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/average-investor-performs.png')">
+                <img src="../media/Formation/average-investor-performs.png" 
+                     alt="Graphique des performances de l'investisseur moyen sur 20 ans" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Le Fossé Comportemental : L'investisseur moyen sous-performe massivement le marché à cause d'une exécution dictée par ses émotions.</figcaption>
+            </figure>
+
+            <p>Si l'on observe les rendements annualisés sur une longue période de 20 ans (de 1996 à 2015), les actions ("Stocks") ont généré une performance moyenne de 8.19% par an. En investissant de manière passive, sans même essayer d'être intelligent, n'importe qui aurait pu s'enrichir confortablement. Cependant, sur cette même période, l'investisseur moyen ("Avg. Investor") n'a récolté qu'un maigre rendement de 2.11%. C'est non seulement catastrophique par rapport au potentiel du marché, mais c'est même inférieur au taux de l'inflation sur cette période (2.18%), ce qui signifie une perte de pouvoir d'achat réel. L'investisseur moyen a également fait moins bien que le marché obligataire (Bonds à 5.34%), que l'or (Gold à 5.17%), que les actions internationales (Int'l Stocks à 4.42%) ou encore que l'immobilier résidentiel (Homes à 3.26%) et le pétrole (Oil à 3.25%).</p>
+
+            <p><strong>Comment expliquer un tel naufrage ?</strong> La réponse tient en un mot : l'émotion. L'investisseur moyen n'a pas de plan strict. Il achète frénétiquement en haut d'un cycle par peur de rater une opportunité (FOMO), et revend en panique au creux d'un krach boursier. Son exécution est désastreuse. Il se laisse dévorer par les frais de transaction excessifs et ignore les avantages fiscaux qui s'offrent à lui. C'est exactement ce que nous allons éradiquer dans ce module.</p>
+            
+            <div class="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-r-xl my-8">
+                <p class="font-bold text-orange-900 mb-2">La citation à retenir 💬</p>
+                <p class="italic text-orange-800 m-0">"Réussir ses investissements sur toute une vie ne nécessite pas un QI stratosphérique, une vision des affaires hors du commun ou des informations secrètes. Ce qu'il faut, c'est un cadre intellectuel solide pour prendre des décisions, et la capacité d'empêcher les émotions de ronger ce cadre." <br>— <strong>Warren Buffett</strong></p>
+            </div>
+
+            <h4>Avoir raison sur le papier, mais perdre de l'argent en réalité 💔</h4>
+
+            <p>Il y a un piège cruel en investissement : il est tout à fait possible d'avoir fondamentalement <em>raison</em> sur la qualité d'une entreprise, et pourtant de détruire son capital. L'excellence d'une entreprise ne garantit pas la rentabilité de votre portefeuille si l'intendance ne suit pas.</p>
+            
+            <p>Imaginez que vous ayez déniché une pépite. L'entreprise est formidable et son action grimpe de +10% par an. L'analyste en vous exulte, il avait vu juste ! Mais regardons maintenant ce que le mauvais gestionnaire en fait : vous passez vos ordres chez une banque traditionnelle qui vous ponctionne 2% à chaque transaction. Au lieu de loger cette action dans une enveloppe fiscale optimisée (comme un PEA), vous la placez sur un Compte-Titres classique, vous amputant de 30% d'impôts sur chaque dividende et plus-value. Pire encore, au moindre hoquet du marché, vous prenez peur, vendez votre position pour la racheter 3 mois plus tard, générant encore de nouveaux frais et une perte d'opportunité.</p>
+
+            <p>Le résultat ? L'entreprise a généré +10%, mais votre rendement net, après le passage du rouleau compresseur des "frictions" (frais, impôts, mauvais timing émotionnel), finit péniblement à +2%. <strong>Vous aviez le bon diagnostic, mais l'opération a tué le patient.</strong> L'analyse génère la performance brute ; seule l'exécution mécanique protège votre performance nette.</p>
+
+            <h4>Vaincre la Paralysie de l'Analyse 🛑</h4>
+
+            <p>Un autre fléau guette ceux qui se plongent trop profondément dans l'étude des bilans financiers : la "Paralysie de l'Analyse". À force de chercher l'investissement parfait, de scruter le moindre ratio d'endettement ou d'attendre que la valorisation soit décotée au centime près, de nombreux investisseurs brillants finissent par... ne jamais investir un euro.</p>
+
+            <p>Ils restent éternellement sur le quai, regardant le train des intérêts composés s'éloigner sans eux. Ils se persuadent d'attendre que "tous les voyants macro-économiques soient au vert", que "l'incertitude politique se dissipe", ou que "le marché corrige encore un peu". Spoiler : les marchés financiers sont, par nature, construits sur l'incertitude. <strong>Le moment parfait n'existe pas.</strong></p>
+            
+            <p>Ce module a pour vocation de vous fournir des processus pour briser cette paralysie. L'exécution consiste à accepter une part de risque calculée et à appuyer sur la gâchette. Une exécution imparfaite aujourd'hui vaudra toujours infiniment plus que le plan d'investissement parfait que vous appliquerez... demain.</p>
+
+            <h4>L'Asymétrie des Décisions : Un marathon continu ⚖️</h4>
+
+            <p>Il existe une différence majeure entre la posture de l'analyste et celle du gestionnaire : l'échelle du temps. En tant qu'analyste, vous prenez la décision d'acheter une seule fois. C'est un événement ponctuel, excitant, presque cathartique. Une fois l'ordre exécuté, le travail de l'analyste est terminé.</p>
+
+            <p>Le gestionnaire de portefeuille, lui, est confronté à ce que l'on appelle "l'Asymétrie des Décisions". Tous les jours de l'année, à chaque fois que la bourse ouvre ses portes, le gestionnaire doit prendre silencieusement et consciemment la décision de <strong>ne pas vendre</strong>. Conserver une action de grande qualité (le concept même du <em>Quality Investing</em>) pendant des années demande une discipline et une force de caractère monumentales. L'exécution n'est pas un sprint vers le bouton d'achat ; c'est un marathon psychologique qui s'étale sur des décennies.</p>
+
+            <h4>De l'Analyste au Gestionnaire de Portefeuille 💼</h4>
+            <p>Trouver la bonne entreprise n'est que la moitié du chemin. L'autre moitié consiste à transformer cette conviction en un rendement sonnant et trébuchant. Pour cela, le gestionnaire de portefeuille que vous allez devenir doit répondre à des questions froides et hautement stratégiques :</p>
+            
+            <ul>
+                <li>Où allez-vous loger cette action pour que l'État ne vous ampute pas de 30% de vos gains ? Le choix de l'enveloppe est déterminant.</li>
+                <li>Chez quel courtier allez-vous opérer pour réduire vos frais de transaction à presque zéro ?</li>
+                <li>Quelle part de votre capital total (la pondération) allez-vous allouer à cette entreprise spécifique pour optimiser le ratio rendement/risque ?</li>
+                <li>Comment allez-vous déployer votre capital de manière intelligente pour tirer profit de la volatilité inévitable des marchés ?</li>
+                <li>Et surtout, quel est le processus mécanique exact qui déclenchera votre prise de bénéfices ou la clôture d'une position dans 5 ou 10 ans ?</li>
+            </ul>
+
+            <p>Dans ce sixième module, nous changeons donc officiellement de paradigme. <strong>L'analyste conceptuel laisse sa place au gestionnaire pragmatique.</strong> Fini la théorie pure, les longs rapports annuels poétiques et les modèles abstraits sur Excel. Bienvenue dans l'arène de l'exécution.</p>
+
+            <h4>Le Programme des Opérations 🗺️</h4>
+            <p>Ce module est le pont essentiel entre votre cerveau (vos convictions d'investissement durement acquises) et la réalité de votre patrimoine financier. Nous allons y aborder méthodiquement tous les aspects pragmatiques, administratifs et stratégiques de la vie quotidienne d'un investisseur :</p>
+
+            <p><strong>1. Les Fondations et l'Optimisation Fiscale :</strong> Avant d'acheter la moindre action, il faut préparer un terrain fertile. Nous allons décortiquer en détail les enveloppes fiscales (le fameux combat Compte-Titre Ordinaire vs PEA), vous guider pas à pas dans le choix stratégique de votre courtier, et démystifier les spécificités de la fiscalité belge et française. L'objectif est clair : la puissance des intérêts composés ne doit pas être entravée par une fuite de capitaux vers les impôts et les banques.</p>
+
+            <p><strong>2. Le Money Management et la Stratégie Structurelle :</strong> Construire un portefeuille robuste, ce n'est pas empiler des actions de qualité au hasard. C'est une architecture. Combien de lignes devez-vous détenir pour être suffisamment diversifié sans pour autant diluer l'impact de vos meilleures idées ? Comment gérer votre niveau de liquidités (votre Cash) pour que les inévitables krachs boursiers se transforment pour vous en opportunités d'achat historiques plutôt qu'en moments de panique ?</p>
+
+            <p><strong>3. L'Art du Timing et de l'Arbitrage Tactique :</strong> Vous allez maîtriser la notion cruciale de Prix de Revient Unitaire (PRU). Nous définirons ensemble des règles mathématiques strictes pour savoir quand entrer sur une valeur, quand renforcer agressivement une position qui chute de manière irrationnelle, et définir à l'avance le signal qui vous fera vous en séparer définitivement.</p>
+
+            <p><strong>4. Le Pilotage Opérationnel au Quotidien :</strong> Gérer un portefeuille d'actions n'est pas un jeu de hasard, c'est piloter une holding financière dont vous êtes le PDG. Nous verrons comment rééquilibrer vos lignes de manière asymétrique, comment optimiser le réinvestissement de vos flux de dividendes, et comment mesurer avec honnêteté la vraie performance de votre gestion face au marché (le Benchmarking) en utilisant les outils de pointe à votre disposition.</p>
+
+            <div class="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-r-xl my-10">
+                <p class="font-bold text-orange-900 mb-2">L'investisseur : Un pilote de ligne face aux turbulences ✈️</p>
+                <p class="italic text-orange-800 m-0">Gérer un portefeuille ne doit jamais être une source d'émotion ou de stress. Lorsqu'un avion de ligne traverse une sévère zone de turbulences (l'équivalent d'un krach boursier), le pilote ne regarde pas par la fenêtre en hurlant de panique. Il fixe calmement son tableau de bord, analyse ses instruments de vol, et suit méticuleusement sa "Checklist" de procédures d'urgence. Ce module a pour vocation de vous fournir précisément ces instruments de bord et ces "processus métiers" stricts, dignes d'un gérant de fonds professionnel, pour que vous puissiez traverser toutes les conditions de marché avec une sérénité absolue.</p>
+            </div>
+
+            <p>Le travail d'investigation de fond est derrière vous. Vous savez désormais avec certitude quoi acheter. Il est maintenant temps d'apprendre avec la même rigueur <strong>comment l'acheter</strong> et <strong>comment piloter cet actif</strong> pour les décennies à venir. Attachez vos ceintures, ouvrez grand vos instruments de navigation : on passe à l'action !</p>
+
+            <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-8 mt-12 shadow-sm">
+                <h5 class="text-xl font-bold text-emerald-800 mb-4 flex items-center">
+                    <span class="bg-emerald-200 text-emerald-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">🔑</span> 
+                    Ce qu'il faut retenir
+                </h5>
+                <p class="text-emerald-900 m-0 leading-relaxed">
+                    L'analyse vous donne l'avantage, mais l'exécution vous donne la rentabilité. Retenez que <strong>90% du succès</strong> ne vient pas du choix de l'action, mais de votre capacité à ne pas saboter votre plan par l'émotion. Passer de l'analyste au gestionnaire, c'est accepter que le "moment parfait" n'existe pas et qu'un <strong>processus industriel froid</strong> est votre meilleure arme contre le "Fossé Comportemental" qui ruine l'investisseur moyen.
+                </p>
+            </div>
+
+        </article>
+
+        <div class="flex justify-between items-center mt-16 pt-8 border-t border-slate-200">
+            <a href="6.0.html" class="text-slate-500 hover:text-orange-600 font-medium transition flex items-center group">
+                <span class="group-hover:-translate-x-1 transition-transform mr-2">←</span> Introduction Module
+            </a>
+            <a href="6.2.html" class="bg-orange-600 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-700 transition shadow-lg shadow-orange-200 flex items-center group">
+                Chapitre Suivant<span class="group-hover:translate-x-1 transition-transform ml-2">→</span>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <div id="imageViewer" class="fixed inset-0 z-[60] hidden bg-slate-900/90 backdrop-blur-sm transition-opacity duration-300" onclick="closeViewer()">
+        <span class="absolute top-5 right-8 text-white text-5xl cursor-pointer hover:text-slate-300 transition">&times;</span>
+        <img class="m-auto block max-w-[95%] max-h-[90vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded shadow-2xl" id="enlargedImg">
+    </div>
+
+    <script>
+        var modal = document.getElementById("imageViewer");
+        var modalImg = document.getElementById("enlargedImg");
+
+        function openViewer(src) {
+            modal.style.display = "block";
+            modalImg.src = src;
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeViewer() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+        
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeViewer();
+            }
+        });
+    </script>
+<script type="module" src="../js/auth-guard.js"></script>
+</body>
+</html>
