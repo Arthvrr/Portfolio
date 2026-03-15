@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.6. Combien de lignes en Portefeuille ? | Formation StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles pour le contenu du cours */
+        .prose p { margin-bottom: 1.5rem; line-height: 1.8; color: #475569; text-align: justify; }
+        .prose h4 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-top: 3rem; margin-bottom: 1.5rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .prose strong { color: #0f172a; font-weight: 600; }
+        .prose ul, .prose ol { list-style: none; padding-left: 0; }
+        .prose li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
+        .prose ul li::before { content: "•"; color: #ea580c; font-weight: bold; position: absolute; left: 0; }
+        
+        /* Lightbox */
+        #imageViewer { backdrop-filter: blur(10px); }
+        .clickable-image { cursor: zoom-in; transition: transform 0.2s; }
+        .clickable-image:hover { transform: scale(1.01); }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../media/Logo/Logo-White.png" alt="Logo StocksPickeur" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <span class="font-heading font-bold text-xl text-slate-900 tracking-tight">StocksPickeur</span>
+            </a>
+
+            <div class="hidden xl:flex items-center gap-8">
+                <nav class="flex gap-6">
+                    <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Calculateur</a>
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Portefeuille</a>
+                    <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Analyses</a>
+                    <a href="../resources.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Ressources</a>
+                    <a href="../articles.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Articles</a>
+                    <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Formation</a>
+                    <a href="../about.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">À Propos</a>
+                </nav>
+
+                <div class="h-6 w-px bg-slate-200"></div>
+
+                <a href="../account.html" id="header-auth-btn" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Connexion
+                </a>
+            </div>
+
+            <div class="xl:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-slate-500 hover:text-slate-900 focus:outline-none p-2">
+                    <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden xl:hidden bg-white border-b border-slate-200 shadow-xl absolute w-full">
+        <nav class="flex flex-col px-4 pt-2 pb-6 space-y-3">
+            <a href="../calculator.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Calculateur</a>
+            <a href="../portfolio.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Portefeuille</a>
+            <a href="../moatpicks.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Analyses</a>
+            <a href="../resources.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Ressources</a>
+            <a href="../articles.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Articles</a>
+            <a href="../formation.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Formation</a>
+            <a href="../about.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">À Propos</a>
+            
+            <div class="border-t border-slate-100 pt-3 mt-2">
+                <a href="../account.html" id="mobile-auth-btn" class="flex justify-center w-full bg-slate-900 text-white font-bold px-5 py-3 rounded-xl hover:bg-slate-800 transition">
+                    <span id="mobile-nav-username">Connexion Espace Membre</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+    <main class="pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-orange-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="6.0.html" class="hover:text-orange-600 transition">Module 6</a></li>
+                <li>/</li>
+                <li class="text-orange-600 font-medium">Chapitre 6.6</li>
+            </ol>
+        </nav>
+
+        <div class="mb-12 border-b border-slate-200 pb-8">
+            <span class="text-orange-600 font-bold tracking-wider uppercase text-xs">Module 6 • Piloter son Portefeuille</span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">6.6. Combien de lignes en Portefeuille ? 🎯</h1>
+        </div>
+
+        <div class="mb-10 not-prose"> 
+            <div class="flex items-center gap-2 mb-4">
+                <span class="bg-orange-100 text-orange-700 w-8 h-8 flex items-center justify-center rounded-lg text-lg">📺</span>
+                <h3 class="font-heading font-bold text-lg text-slate-900">Résumé du chapitre en vidéo</h3>
+            </div>
+            
+            <div class="rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-slate-900 aspect-video">
+                <video controls class="w-full h-full object-cover" preload="metadata">
+                    <source src="videos/6.6.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+            </div>
+        </div>
+
+        <article class="prose prose-slate max-w-none">
+            
+            <p><em>"Ne mettez pas tous vos œufs dans le même panier."</em></p>
+            
+            <p>C'est incontestablement le conseil financier le plus martelé au monde. L'industrie de la gestion d'actifs, les banquiers de réseau et les conseillers financiers traditionnels en ont fait un dogme absolu, une véritable religion fondée sur la peur. Leur solution universelle pour vous "protéger" du risque ? Vous faire acheter des fonds tentaculaires contenant 500, voire 3 000 entreprises différentes, en vous promettant la tranquillité d'esprit à long terme.</p>
+
+            <p>Pourtant, permettez-moi une analogie très simple pour déconstruire ce mythe. <strong>Imaginez que vous assistiez à une grande course hippique.</strong> Votre objectif absolu est de maximiser vos gains et de réaliser la meilleure performance de la journée. Allez-vous parier un petit peu d'argent sur l'intégralité des 50 chevaux présents sur la ligne de départ, du pur-sang champion du monde jusqu'au vieux poney boiteux, sous prétexte de "diversifier vos risques" ? Évidemment que non. C'est la garantie mathématique de diluer vos gains et de perdre votre capital. Un parieur professionnel va analyser les statistiques, observer l'endurance, étudier l'historique de victoires, et <strong>parier massivement sur les 2 ou 3 meilleurs chevaux</strong>. Ceux qui ont un avantage concurrentiel injuste et qui ont déjà prouvé qu'ils étaient des champions. En bourse, la logique est rigoureusement identique.</p>
+
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-xl my-8">
+                <p class="font-bold text-blue-900 mb-2">Les leçons des Maîtres 💬</p>
+                <p class="italic text-blue-800 m-0 mb-4">"Mettez tous vos œufs dans le même panier, et surveillez ce panier comme le lait sur le feu." <br>— <strong>Mark Twain / Andrew Carnegie</strong></p>
+                <p class="italic text-blue-800 m-0 mb-4">"La diversification est une protection contre l'ignorance. Elle n'a que très peu de sens pour ceux qui savent ce qu'ils font." <br>— <strong>Warren Buffett</strong></p>
+                <p class="italic text-blue-800 m-0">"L'idée que la sur-diversification a du sens pour quiconque sait réellement analyser une entreprise est absurde. Pariez gros quand vous avez les probabilités de votre côté." <br>— <strong>Charlie Munger</strong></p>
+            </div>
+
+            <p>Dans ce chapitre, nous allons balayer les idées reçues de la finance traditionnelle et vous démontrer, études quantitatives à l'appui, pourquoi la stratégie <em>StocksPickeur</em> repose sur un pilier inébranlable : <strong>la concentration extrême sur vos meilleures convictions</strong>.</p>
+
+            <h4>1. Le Piège insidieux de la "Diworsification"</h4>
+            <p>Le légendaire gérant de fonds Peter Lynch a inventé le terme génial de <em>"Diworsification"</em> (une contraction entre diversification et <em>worse</em>, qui signifie "pire" en anglais). Ce concept fondamental explique qu'à partir d'un certain seuil d'entreprises en portefeuille, ajouter de nouvelles actions ne réduit absolument plus votre niveau de risque, mais se contente de diluer fatalement vos rendements potentiels.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/standard-deviation-number-of-stocks.jpg')">
+                <img src="../media/Formation/standard-deviation-number-of-stocks.jpg" 
+                     alt="Graphique montrant la baisse de l'écart-type en fonction du nombre de titres" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition bg-white p-2">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">La mathématique du risque : le risque spécifique à une entreprise (Diversifiable Risk) chute drastiquement avec les 6 à 10 premières actions. Au-delà, la courbe s'aplatit totalement : vous ne subissez plus que le risque systémique global inhérent au marché boursier.</figcaption>
+            </figure>
+
+            <p>Observez très attentivement le graphique de l'écart-type ci-dessus. La volatilité (le risque de faillite lié à une seule entreprise) chute littéralement à la verticale lorsque vous passez d'une seule action à un portefeuille de 6 ou 10 actions. Votre portefeuille se stabilise et devient résilient. Mais regardez ce qui se passe de manière flagrante juste après : la courbe devient totalement plate. Que vous possédiez 15, 100 ou 500 actions, vous restez exposé au "Risque Systémique" inhérent au capitalisme (les récessions mondiales, les guerres, les hausses brutales des taux d'intérêt de la FED). Aucune diversification au monde ne peut éliminer le risque macroéconomique.</p>
+            
+            <p>La conclusion est sans appel, mathématique et rationnelle : <strong>Acheter la 20ème ou la 30ème action de votre liste ne vous protègera pas d'un krach boursier. Cela vous forcera simplement à allouer votre capital durement gagné à votre 30ème meilleure idée, au lieu de renforcer votre 1ère, et absolue, meilleure conviction. Pourquoi investir dans le "Moyen" quand le "Génial" est disponible ?</strong></p>
+
+            <div class="bg-slate-100 border-l-4 border-slate-500 p-6 rounded-r-xl my-8">
+                <p class="font-bold text-slate-800 mb-2">Pourquoi les professionnels sur-diversifient-ils alors ? 👔</p>
+                <p class="text-slate-700 m-0 text-sm">Si la concentration est mathématiquement supérieure, pourquoi les gérants de fonds achètent-ils 200 actions ? La réponse est le <strong>Tracking Error</strong> (le risque de s'éloigner de l'indice de référence). Un gérant de fonds ne cherche pas à maximiser votre performance, il cherche à protéger son emploi. S'il concentre son fonds sur 8 actions et qu'il sous-performe l'indice pendant une seule année, ses clients retirent leur argent et il est licencié. Pour survivre, il est obligé de "copier" l'indice en achetant les mêmes 200 actions. En tant qu'investisseur particulier, vous avez un avantage structurel déloyal : <strong>vous n'avez de comptes à rendre à personne</strong>. Vous pouvez vous permettre d'être concentré.</p>
+            </div>
+
+            <h4>2. Le Piège Psychologique : Accepter la Volatilité (Le prix de l'Alpha)</h4>
+            <p>Il est crucial de faire ici une pause sur l'aspect mental de l'investisseur. Un portefeuille hautement concentré implique obligatoirement d'accepter une volatilité plus marquée. Si vous possédez seulement 6 ou 8 actions et que l'une d'entre elles publie des résultats trimestriels qui déçoivent les analystes à court terme, elle peut chuter de 10% ou 15% en une seule séance. L'impact sur votre portefeuille global sera visible immédiatement.</p>
+
+            <p><strong>C'est le piège psychologique de la concentration : la peur panique du "rouge" sur l'écran.</strong> L'écrasante majorité des investisseurs diversifient à l'extrême non pas pour des raisons de stratégie financière, mais pour leur simple confort émotionnel. Ils préfèrent la certitude d'un portefeuille léthargique qui ne bouge presque pas, plutôt que l'incertitude d'un portefeuille hautement performant qui fluctue.</p>
+            
+            <p>Mais rappelez-vous des axiomes du Module précédent : la volatilité des cours boursiers n'est pas le risque ! Le véritable risque, c'est la perte permanente en capital due à la faillite d'une entreprise médiocre ou endettée. La baisse temporaire des cours d'un monopole de très haute qualité (qui continue de générer des milliards de Free Cash Flow) n'est pas un drame ni une erreur. C'est une <strong>opportunité d'arbitrage exceptionnelle</strong> que le marché vous offre pour renforcer votre meilleure conviction à un prix bradé.</p>
+
+            <h4>3. La Réalité Statistique : Le capitalisme est un jeu brutal</h4>
+            <p>Pourquoi est-il si financièrement dangereux d'acheter "tout le marché" ? Parce que la bourse est régie par la loi de Pareto (la règle des 80/20), poussée à son extrême le plus absolu. La théorie de la destruction créatrice de Joseph Schumpeter est une réalité quotidienne : la quasi-totalité de la richesse mondiale générée en bourse ne provient que d'une infime poignée d'entreprises d'exception, tandis que la vaste majorité de la cote stagne, se fait disrupter, ou s'effondre dans l'oubli.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/actions-us-vs-s&p500-roi.png')">
+                <img src="../media/Formation/actions-us-vs-s&p500-roi.png" 
+                     alt="71% des actions ont sous-performé le marché sur leur durée de vie" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition bg-white p-2">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Une étude choc de Ned Davis Research et Eaton Vance menée sur des décennies d'historique boursier : 71% des actions individuelles ont sous-performé l'indice S&P 500 sur leur durée de vie. Le rendement médian d'une action par rapport au marché est désastreux : -95,8 %.</figcaption>
+            </figure>
+
+            <p>Ces données institutionnelles sont glaçantes pour les partisans de l'hyper-diversification. Si vous achetez 100 entreprises au hasard, ou via un ETF équipondéré large pour "étaler vos risques", les statistiques historiques prouvent formellement que plus de 70 d'entre elles vont lamentablement sous-performer. Elles agiront comme de gigantesques boulets pour votre performance globale, et détruiront silencieusement la valeur créée par vos rares gagnants.</p>
+            
+            <p>La célèbre étude du professeur Hendrik Bessembinder a même prouvé de manière empirique que <strong>seulement 4 % des actions américaines</strong> sont responsables de l'intégralité de la richesse nette (la surperformance par rapport aux bons du trésor) créée à Wall Street depuis 1926. Les indices mondiaux (comme le MSCI World) ne montent sur le long terme que parce qu'ils sont portés à bout de bras par une poignée de monopoles inarrêtables.</p>
+
+            <p>Notre philosophie d'investissement est donc d'une limpidité absolue : <strong>En concentrant délibérément votre portefeuille sur l'Excellence (le Quality Investing), vous cherchez à identifier et capturer ces fameux 4 %, tout en filtrant impitoyablement les 96 % d'entreprises médiocres qui encombrent les indices boursiers.</strong></p>
+
+            <h4>4. Concentration = Alpha (La capture de la Surperformance)</h4>
+            <p>Pour battre durablement le marché (générer ce que l'on appelle de l'Alpha), il y a une condition mathématique indépassable : <strong>votre portefeuille doit différer significativement de la composition de l'indice de référence</strong> (ce que les professionnels appellent "l'Active Share"). Plus vous ajoutez de lignes à votre portefeuille, plus celui-se met à mimer la composition exacte du marché. Vous vous transformez alors en un ETF "déguisé", coûteux à gérer, et mathématiquement incapable de surperformer.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/rendements-maximum-vs-niveau-concentration.png')">
+                <img src="../media/Formation/rendements-maximum-vs-niveau-concentration.png" 
+                     alt="Tableau des rendements maximums en fonction du niveau de concentration" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Simulation de Monte Carlo sur 1 000 portefeuilles : Les portefeuilles très concentrés offrent les rendements potentiels maximums les plus élevés (plus de 20% annualisés). Plus l'on diversifie vers 50 ou 100 actions, plus on écrase mécaniquement sa performance maximale pour la faire confluer vers la moyenne.</figcaption>
+            </figure>
+
+            <p>Le tableau d'analyse ci-dessus démontre visuellement la puissance de la conviction. Un portefeuille extrêmement resserré offre le "Maximum Return" (rendement maximal) le plus spectaculaire. Il est la seule configuration capable d'exploiter à plein régime la croissance exponentielle des entreprises dominantes sans que celle-ci ne soit noyée dans la masse.</p>
+
+            <h4>5. La Vraie Diversification est Intrinsèque (Les Monopoles Mondialisés)</h4>
+            <p>La critique la plus éculée (et souvent assénée avec arrogance par ceux qui n'ont jamais pris la peine d'analyser un bilan comptable) contre la concentration est la suivante : <em>"Mais si tu n'as que 8 actions en portefeuille, tu prends un risque de faillite insensé, tu n'es pas du tout diversifié géographiquement ou sectoriellement !"</em> C'est un raisonnement académique qui date des années 1980.</p>
+
+            <p>Dans l'économie digitalisée et interconnectée d'aujourd'hui, acheter une entreprise de très haute qualité dotée d'un <em>Moat</em> (un avantage concurrentiel durable), c'est acheter une entité <strong>nativement, structurellement et commercialement mondialisée</strong>. L'étiquette géographique du siège social n'a plus aucune pertinence économique :</p>
+            
+            <ul>
+                <li>Prenez <strong>LVMH</strong> : L'entreprise est officiellement cotée à la Bourse de Paris, mais la France ne représente qu'une infime fraction de ses ventes. Elle tire la véritable puissance de sa croissance des nouvelles classes moyennes en Asie, des flux touristiques au Japon et des consommateurs fortunés aux États-Unis.</li>
+                <li>Prenez <strong>Microsoft</strong> : Son écosystème Cloud (Azure) et ses abonnements logiciels irriguent littéralement l'ensemble des continents et perfusent l'intégralité des secteurs de l'économie réelle (de la boulangerie locale aux complexes hospitaliers, en passant par les banques internationales et les agences gouvernementales).</li>
+            </ul>
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/LVMH-segmentation-ventes.png')">
+                <img src="../media/Formation/LVMH-segmentation-ventes.png" 
+                     alt="Tableau des rendements maximums en fonction du niveau de concentration" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">LVMH est un ETF luxe à lui tout seul.</figcaption>
+            </figure>
+
+            <p>La réalité économique est fascinante : <strong>Si vous possédez 6 à 10 monopoles mondiaux, minutieusement sélectionnés à travers quelques méga-secteurs structurants (Technologie de l'information, Santé, Luxe, Réseaux de Paiement), vous possédez de facto une part de la croissance de l'économie mondiale.</strong> Votre portefeuille hyper-concentré est infiniment plus robuste et diversifié face aux chocs asymétriques qu'un portefeuille éparpillé sur 80 petites capitalisations locales totalement dépendantes des décisions de taux d'intérêt de leur banque centrale domestique.</p>
+
+            <h4>6. Le "Sweet Spot" : Mes Conseils Personnels (De 6 à 10 lignes max)</h4>
+            <p>Si l'industrie financière traditionnelle (et les quelques études académiques qui osent s'aventurer sur le terrain de la concentration) situe le sommet théorique de l'optimisation risque/rendement autour de 10 à 15 actions, ma philosophie d'investisseur particulier StocksPickeur est beaucoup plus radicale, exigeante et assumée.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/ratio-sharpe-nombre-actions.png')">
+                <img src="../media/Formation/ratio-sharpe-nombre-actions.png" 
+                     alt="Le ratio de Sharpe (Risque/Rendement) culmine entre 10 et 15 actions" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition bg-white p-2">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">La théorie financière classique situe l'optimum absolu (le ratio de Sharpe le plus élevé) aux alentours de 15 actions. Mais pour un véritable investisseur Quality qui filtre les entreprises à l'extrême, la concentration doit être encore plus chirurgicale.</figcaption>
+            </figure>
+
+            <p><strong>Mon conseil personnel, mon standard d'excellence et ma règle d'or est la suivante : Un portefeuille boursier d'élite doit contenir un minimum vital de 6 entreprises, et un maximum absolu et infranchissable de 10 entreprises. Le nombre de lignes dans un portefeuille boursier n'est pas une science exacte, mais à mes yeux le nombre doit se situer entre 6 et 10.</strong></p>
+
+            <p>Pourquoi m'imposer une telle rigueur spartiate ? Pour une question de <strong>limite cognitive et temporelle</strong> inhérente à la nature humaine. La méthodologie du <em>Quality Investing</em> est implacable : elle exige de connaître ses entreprises sur le bout des doigts, de lire religieusement leurs rapports annuels (les 10-K), de décortiquer les bilans financiers trimestre après trimestre, de surveiller la moindre fissure dans leur avantage concurrentiel, et d'écouter les conférences de presse des PDG. </p>
+
+            <p>Le cerveau humain, même le plus brillant ou le plus entraîné, est formellement incapable d'assurer ce niveau de suivi qualitatif et approfondi sur 20 ou 25 entreprises différentes tout en conservant une vie professionnelle et personnelle à côté. Mieux vaut connaître parfaitement l'anatomie intime et la mécanique de génération de cash de 8 entreprises exceptionnelles, que de survoler avec une légèreté coupable les chiffres de 30 entreprises moyennes.</p>
+
+            <p><strong>À titre strictement personnel, je détiens actuellement très exactement 6 entreprises dans mon propre portefeuille.</strong> C'est, pour moi, le point de bascule de l'équilibre absolu. Cette ultra-concentration me permet de dormir sur mes deux oreilles car je maîtrise chaque risque associé à mes entreprises. Elle m'offre une lecture limpide et instantanée de mon allocation sectorielle. Mais surtout, elle me donne le pouvoir d'allouer des montants massifs sur mes convictions les plus profondes pour faire fructifier mon capital à des taux bien supérieurs à la léthargie moyenne des indices boursiers mondiaux.</p>
+
+            <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-8 mt-12 shadow-sm">
+                <h5 class="text-xl font-bold text-emerald-800 mb-4 flex items-center">
+                    <span class="bg-emerald-200 text-emerald-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">🔑</span> 
+                    Ce qu'il faut retenir
+                </h5>
+                <p class="text-emerald-900 m-0 leading-relaxed">
+                    La sur-diversification tue la performance : pour gagner en bourse comme aux courses, filtrez la médiocrité et pariez massivement sur les très rares champions qui ont déjà fait leurs preuves.<br>
+                    La règle d'or du Quality Investing se situe entre <strong>6 et 10 actions maximum</strong> : c'est le seul moyen de conserver un contrôle cognitif total sur vos entreprises et d'optimiser vos rendements.<br>
+                    La volatilité inhérente à cette ultra-concentration n'est pas un danger, mais le prix psychologique (et la meilleure opportunité de renforcement) pour bâtir une surperformance hors norme sur le long terme.
+                </p>
+            </div>
+
+        </article>
+
+        <div class="flex justify-between items-center mt-16 pt-8 border-t border-slate-200">
+            <a href="6.5.html" class="text-slate-500 hover:text-orange-600 font-medium transition flex items-center group">
+                <span class="group-hover:-translate-x-1 transition-transform mr-2">←</span> Chapitre Précédent
+            </a>
+            <a href="6.7.html" class="bg-orange-600 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-700 transition shadow-lg shadow-orange-200 flex items-center group">
+                Chapitre Suivant<span class="group-hover:translate-x-1 transition-transform ml-2">→</span>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <div id="imageViewer" class="fixed inset-0 z-[60] hidden bg-slate-900/90 backdrop-blur-sm transition-opacity duration-300" onclick="closeViewer()">
+        <span class="absolute top-5 right-8 text-white text-5xl cursor-pointer hover:text-slate-300 transition">&times;</span>
+        <img class="m-auto block max-w-[95%] max-h-[90vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded shadow-2xl" id="enlargedImg">
+    </div>
+
+    <script>
+        var modal = document.getElementById("imageViewer");
+        var modalImg = document.getElementById("enlargedImg");
+
+        function openViewer(src) {
+            modal.style.display = "block";
+            modalImg.src = src;
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeViewer() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+        
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeViewer();
+            }
+        });
+
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
+    </script>
+<script type="module" src="../js/auth-guard.js"></script>
+</body>
+</html>

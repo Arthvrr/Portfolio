@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Impact des Frais | StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        .input-field {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #e2e8f0;
+            background-color: #f8fafc;
+            transition: all 0.2s;
+            color: #1e293b;
+            font-weight: 500;
+        }
+        .input-field:focus {
+            outline: none;
+            border-color: #ea580c; /* Orange-600 to match module 6 */
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.1);
+        }
+        .input-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../media/Logo/Logo-White.png" alt="Logo StocksPickeur" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <span class="font-heading font-bold text-xl text-slate-900 tracking-tight">StocksPickeur</span>
+            </a>
+
+            <div class="hidden xl:flex items-center gap-8">
+                <nav class="flex gap-6">
+                    <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Calculateur</a>
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Portefeuille</a>
+                    <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Analyses</a>
+                    <a href="../resources.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Ressources</a>
+                    <a href="../articles.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Articles</a>
+                    <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Formation</a>
+                    <a href="../about.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">À Propos</a>
+                </nav>
+
+                <div class="h-6 w-px bg-slate-200"></div>
+
+                <a href="../account.html" id="header-auth-btn" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Connexion
+                </a>
+            </div>
+
+            <div class="xl:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-slate-500 hover:text-slate-900 focus:outline-none p-2">
+                    <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden xl:hidden bg-white border-b border-slate-200 shadow-xl absolute w-full">
+        <nav class="flex flex-col px-4 pt-2 pb-6 space-y-3">
+            <a href="../calculator.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Calculateur</a>
+            <a href="../portfolio.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Portefeuille</a>
+            <a href="../moatpicks.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Analyses</a>
+            <a href="../resources.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Ressources</a>
+            <a href="../articles.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Articles</a>
+            <a href="../formation.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Formation</a>
+            <a href="../about.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">À Propos</a>
+            
+            <div class="border-t border-slate-100 pt-3 mt-2">
+                <a href="../account.html" id="mobile-auth-btn" class="flex justify-center w-full bg-slate-900 text-white font-bold px-5 py-3 rounded-xl hover:bg-slate-800 transition">
+                    <span id="mobile-nav-username">Connexion Espace Membre</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+    <main class="pt-32 pb-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-orange-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="6.0.html" class="hover:text-orange-600 transition">Module 6</a></li>
+                <li>/</li>
+                <li class="text-orange-600 font-medium">L'Impact des Frais</li>
+            </ol>
+        </nav>
+
+        <div class="text-center mb-12">
+            <span class="inline-block py-1 px-3 rounded-full bg-red-50 text-red-600 text-xs font-bold uppercase tracking-wider mb-4 border border-red-100">
+                L'Ennemi Invisible
+            </span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mb-4">Le Fléau des Frais Cachés 💸</h1>
+            <p class="text-lg text-slate-500 max-w-2xl mx-auto">
+                Testez l'impact dévastateur des frais de courtage et de gestion sur votre patrimoine. Une différence de 1% peut vous coûter des dizaines de milliers d'euros sur le long terme.
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8">
+            
+            <div class="lg:col-span-4 space-y-6">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h3 class="font-bold text-slate-900 text-lg mb-6 border-b border-slate-100 pb-4">Vos Paramètres</h3>
+                    
+                    <div class="mb-4">
+                        <label class="input-label">Capital de départ (€)</label>
+                        <input type="number" id="initialCapital" class="input-field" value="10000" placeholder="Ex: 10000">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="input-label">Investissement mensuel (€)</label>
+                        <input type="number" id="monthlyAdd" class="input-field" value="300" placeholder="Ex: 300">
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="input-label flex justify-between">
+                            Durée d'investissement
+                            <span class="text-orange-600" id="yearsDisplay">30 ans</span>
+                        </label>
+                        <input type="range" id="years" min="5" max="50" value="30" class="w-full mt-2 accent-orange-500 h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
+                    </div>
+
+                    <hr class="border-slate-100 my-6">
+
+                    <div class="mb-4">
+                        <label class="input-label text-xs uppercase tracking-wide">Rendement Brut Annuel</label>
+                        <div class="relative">
+                            <input type="number" id="grossRate" class="input-field pl-3 pr-8 border-slate-300 bg-slate-50" value="9" step="0.5">
+                            <span class="absolute right-3 top-2.5 text-slate-500 font-bold">%</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-2">Le rendement de vos actions <em>avant</em> que votre banque ou courtier ne se serve.</p>
+                    </div>
+
+                    <button onclick="calculateFees()" class="w-full mt-6 bg-slate-900 text-white font-bold py-3 px-4 rounded-xl hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 transform active:scale-95">
+                        Lancer la simulation 📊
+                    </button>
+                </div>
+            </div>
+
+            <div class="lg:col-span-8 space-y-6">
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-emerald-50 p-5 rounded-xl border border-emerald-200 shadow-sm text-center relative overflow-hidden">
+                        <div class="text-xs font-bold text-emerald-700 uppercase tracking-wider mb-1">1% de Frais</div>
+                        <div class="text-2xl font-heading font-bold text-emerald-800" id="resFee1">-- €</div>
+                        <div class="text-xs text-emerald-600 mt-1">Courtier optimisé</div>
+                    </div>
+                    
+                    <div class="bg-amber-50 p-5 rounded-xl border border-amber-200 shadow-sm text-center">
+                        <div class="text-xs font-bold text-amber-700 uppercase tracking-wider mb-1">2% de Frais</div>
+                        <div class="text-2xl font-heading font-bold text-amber-800" id="resFee2">-- €</div>
+                        <div class="text-xs text-amber-600 mt-1">Courtier standard</div>
+                    </div>
+
+                    <div class="bg-red-50 p-5 rounded-xl border border-red-200 shadow-sm text-center">
+                        <div class="text-xs font-bold text-red-700 uppercase tracking-wider mb-1">3% de Frais</div>
+                        <div class="text-2xl font-heading font-bold text-red-800" id="resFee3">-- €</div>
+                        <div class="text-xs text-red-600 mt-1">Banque traditionnelle</div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm h-[400px]">
+                    <canvas id="feesChart"></canvas>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // Variables
+        const initialInput = document.getElementById('initialCapital');
+        const monthlyInput = document.getElementById('monthlyAdd');
+        const yearsRange = document.getElementById('years');
+        const yearsDisplay = document.getElementById('yearsDisplay');
+        const grossRateInput = document.getElementById('grossRate');
+        
+        let feesChart = null;
+
+        // Listeners
+        yearsRange.addEventListener('input', function() {
+            yearsDisplay.textContent = this.value + " ans";
+            calculateFees();
+        });
+        
+        // Calcul automatique au changement
+        [initialInput, monthlyInput, grossRateInput].forEach(item => {
+            item.addEventListener('input', calculateFees);
+        });
+
+        function calculateFees() {
+            const P = parseFloat(initialInput.value) || 0;
+            const PMT = parseFloat(monthlyInput.value) || 0;
+            const t = parseFloat(yearsRange.value) || 0;
+            const grossRate = parseFloat(grossRateInput.value) || 0;
+
+            const labels = [];
+            const dataFee1 = [];
+            const dataFee2 = [];
+            const dataFee3 = [];
+
+            let curFee1 = P;
+            let curFee2 = P;
+            let curFee3 = P;
+
+            // Frais annuels
+            const rate1 = Math.max(0, grossRate - 1);
+            const rate2 = Math.max(0, grossRate - 2);
+            const rate3 = Math.max(0, grossRate - 3);
+
+            for (let year = 0; year <= t; year++) {
+                labels.push("Année " + year);
+                
+                if (year === 0) {
+                    dataFee1.push(P);
+                    dataFee2.push(P);
+                    dataFee3.push(P);
+                    continue;
+                }
+
+                // Calcul mensuel composé
+                for(let m=0; m<12; m++) {
+                    curFee1 = (curFee1 + PMT) * (1 + (rate1/100)/12);
+                    curFee2 = (curFee2 + PMT) * (1 + (rate2/100)/12);
+                    curFee3 = (curFee3 + PMT) * (1 + (rate3/100)/12);
+                }
+                
+                dataFee1.push(curFee1);
+                dataFee2.push(curFee2);
+                dataFee3.push(curFee3);
+            }
+
+            // Affichage des résultats finaux
+            const formatter = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+            
+            document.getElementById('resFee1').textContent = formatter.format(dataFee1[dataFee1.length-1]);
+            document.getElementById('resFee2').textContent = formatter.format(dataFee2[dataFee2.length-1]);
+            document.getElementById('resFee3').textContent = formatter.format(dataFee3[dataFee3.length-1]);
+
+            updateChart(labels, dataFee1, dataFee2, dataFee3);
+        }
+
+        function updateChart(labels, dataFee1, dataFee2, dataFee3) {
+            const ctx = document.getElementById('feesChart').getContext('2d');
+
+            if (feesChart) feesChart.destroy();
+
+            feesChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Portefeuille (1% de frais)',
+                            data: dataFee1,
+                            borderColor: '#10b981', // Emerald-500
+                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            pointRadius: 0
+                        },
+                        {
+                            label: 'Portefeuille (2% de frais)',
+                            data: dataFee2,
+                            borderColor: '#f59e0b', // Amber-500
+                            backgroundColor: 'transparent',
+                            borderWidth: 2,
+                            fill: false,
+                            pointRadius: 0
+                        },
+                        {
+                            label: 'Portefeuille (3% de frais)',
+                            data: dataFee3,
+                            borderColor: '#ef4444', // Red-500
+                            backgroundColor: 'rgba(239, 68, 68, 0.05)',
+                            borderWidth: 2,
+                            fill: true,
+                            pointRadius: 0
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: { mode: 'index', intersect: false },
+                    scales: {
+                        y: {
+                            ticks: { callback: function(value) { return value / 1000 + ' k€'; } }
+                        },
+                        x: { grid: { display: false } }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) { label += ': '; }
+                                    if (context.parsed.y !== null) {
+                                        label += new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(context.parsed.y);
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Init
+        document.addEventListener('DOMContentLoaded', calculateFees);
+        
+        // Code du menu mobile
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
+    </script>
+<script type="module" src="../js/auth-guard.js"></script>
+</body>
+</html>

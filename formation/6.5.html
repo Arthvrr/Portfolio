@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.5. La Fiscalité Française de A à Z | Formation StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles pour le contenu du cours */
+        .prose p { margin-bottom: 1.5rem; line-height: 1.8; color: #475569; text-align: justify; }
+        .prose h4 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-top: 3rem; margin-bottom: 1.5rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .prose strong { color: #0f172a; font-weight: 600; }
+        .prose ul, .prose ol { list-style: none; padding-left: 0; }
+        .prose li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
+        .prose ul li::before { content: "•"; color: #ea580c; font-weight: bold; position: absolute; left: 0; }
+        
+        /* Lightbox */
+        #imageViewer { backdrop-filter: blur(10px); }
+        .clickable-image { cursor: zoom-in; transition: transform 0.2s; }
+        .clickable-image:hover { transform: scale(1.01); }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../media/Logo/Logo-White.png" alt="Logo StocksPickeur" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <span class="font-heading font-bold text-xl text-slate-900 tracking-tight">StocksPickeur</span>
+            </a>
+
+            <div class="hidden xl:flex items-center gap-8">
+                <nav class="flex gap-6">
+                    <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Calculateur</a>
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Portefeuille</a>
+                    <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Analyses</a>
+                    <a href="../resources.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Ressources</a>
+                    <a href="../articles.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Articles</a>
+                    <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Formation</a>
+                    <a href="../about.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">À Propos</a>
+                </nav>
+
+                <div class="h-6 w-px bg-slate-200"></div>
+
+                <a href="../account.html" id="header-auth-btn" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Connexion
+                </a>
+            </div>
+
+            <div class="xl:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-slate-500 hover:text-slate-900 focus:outline-none p-2">
+                    <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden xl:hidden bg-white border-b border-slate-200 shadow-xl absolute w-full">
+        <nav class="flex flex-col px-4 pt-2 pb-6 space-y-3">
+            <a href="../calculator.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Calculateur</a>
+            <a href="../portfolio.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Portefeuille</a>
+            <a href="../moatpicks.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Analyses</a>
+            <a href="../resources.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Ressources</a>
+            <a href="../articles.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Articles</a>
+            <a href="../formation.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Formation</a>
+            <a href="../about.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">À Propos</a>
+            
+            <div class="border-t border-slate-100 pt-3 mt-2">
+                <a href="../account.html" id="mobile-auth-btn" class="flex justify-center w-full bg-slate-900 text-white font-bold px-5 py-3 rounded-xl hover:bg-slate-800 transition">
+                    <span id="mobile-nav-username">Connexion Espace Membre</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+    <main class="pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-orange-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="6.0.html" class="hover:text-orange-600 transition">Module 6</a></li>
+                <li>/</li>
+                <li class="text-orange-600 font-medium">Chapitre 6.5</li>
+            </ol>
+        </nav>
+
+        <div class="mb-12 border-b border-slate-200 pb-8">
+            <span class="text-orange-600 font-bold tracking-wider uppercase text-xs">Module 6 • Piloter son Portefeuille</span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">6.5. La Fiscalité Française de A à Z 🇫🇷</h1>
+        </div>
+
+        <div class="mb-10 not-prose"> 
+            <div class="flex items-center gap-2 mb-4">
+                <span class="bg-orange-100 text-orange-700 w-8 h-8 flex items-center justify-center rounded-lg text-lg">📺</span>
+                <h3 class="font-heading font-bold text-lg text-slate-900">Résumé du chapitre en vidéo</h3>
+            </div>
+            
+            <div class="rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-slate-900 aspect-video">
+                <video controls class="w-full h-full object-cover" preload="metadata">
+                    <source src="videos/6.5.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+            </div>
+        </div>
+
+        <article class="prose prose-slate max-w-none">
+            
+            <p>Le système fiscal français est souvent perçu comme un labyrinthe administratif d'une complexité redoutable. Pourtant, pour l'investisseur particulier, les règles du jeu ont été considérablement clarifiées ces dernières années. Maîtriser ce cadre n'est pas une option : c'est le levier le plus puissant pour maximiser la rentabilité nette de vos investissements à long terme.</p>
+
+            <p>Contrairement à certains de ses voisins européens, la France impose structurellement les plus-values boursières. Cependant, elle offre aux résidents fiscaux français deux enveloppes distinctes, chacune répondant à des logiques et des avantages radicalement différents : le Plan d'Épargne en Actions (PEA) et le Compte-Titres Ordinaire (CTO). Décortiquons ensemble cette mécanique de précision.</p>
+
+            <h4>1. Le PEA : L'Oasis Fiscale Européenne (et ses plafonds)</h4>
+            <p>Le Plan d'Épargne en Actions est une exception culturelle et fiscale française. Il a été conçu pour inciter les Français à investir dans l'économie locale et européenne. Si vous achetez des actions d'entreprises dont le siège social est situé dans l'Espace Économique Européen (LVMH, ASML, L'Oréal, etc.), le PEA est l'enveloppe reine.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/plafonds-pea.png')">
+                <img src="../media/Formation/plafonds-pea.png" 
+                     alt="Les plafonds de versements des différents PEA" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Les limites de versements selon le type de PEA. Le PEA classique est plafonné à 150 000 €, mais les jeunes ont aussi droit à leur enveloppe dédiée.</figcaption>
+            </figure>
+
+            <p>Comme l'illustre le graphique ci-dessus, il existe plusieurs moutures du PEA, chacune avec ses propres limites de versements (attention, le plafond concerne l'argent déposé, pas la valeur totale du portefeuille qui peut, elle, croître indéfiniment) :</p>
+            <ul>
+                <li><strong>Le PEA Classique :</strong> Plafonné à 150 000 € de versements. C'est le socle de base de tout investisseur français.</li>
+                <li><strong>Le PEA-PME :</strong> Plafonné à 225 000 €, mais restreint aux petites et moyennes entreprises. Vous pouvez cumuler un PEA classique et un PEA-PME, mais la somme totale de vos versements sur les deux ne peut excéder 225 000 €.</li>
+                <li><strong>Le PEA-Jeunes (Le cadeau pour les 18-25 ans) :</strong> Si vous avez entre 18 et 25 ans et que vous êtes encore rattaché au foyer fiscal de vos parents, vous pouvez ouvrir votre propre PEA ! Il est plafonné à 20 000 €. C'est l'outil parfait pour commencer à investir tôt et, surtout, "prendre date" (lancer le chronomètre fiscal) le plus vite possible.</li>
+            </ul>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/fiscalité-pea.png')">
+                <img src="../media/Formation/fiscalité-pea.png" 
+                     alt="Comprendre les règles d'imposition des gains sur un PEA" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">La fiscalité du PEA repose entièrement sur la date anniversaire de son ouverture (le premier versement). Le cap fatidique des 5 ans change tout le paradigme d'imposition. (Note: L'image indique l'ancienne flat tax à 31,4% qui est désormais la norme depuis 2026).</figcaption>
+            </figure>
+
+            <p>La puissance du PEA réside dans son évolution temporelle. Tout se joue autour d'une date clé : le <strong>5ème anniversaire</strong> de son ouverture (date du premier dépôt en numéraire).</p>
+
+            <ul>
+                <li><strong>La phase de capitalisation (Années 0 à 5) :</strong> Tant que vous ne sortez pas d'argent du PEA, vous pouvez acheter, vendre, toucher des dividendes et réinvestir sans payer le moindre impôt. C'est un environnement fiscalement clos. Toutefois, si vous effectuez un retrait <em>avant</em> les 5 ans, c'est la sanction : le PEA est automatiquement clôturé, et vos gains sont imposés à la Flat Tax (soit 31,4 % depuis 2026).</li>
+                <li><strong>La phase d'exonération (Après 5 ans) :</strong> C'est ici que la magie opère. Tout retrait effectué après le 5ème anniversaire bénéficie d'une <strong>exonération totale d'impôt sur le revenu (IR)</strong>. Vos gains ne seront soumis qu'aux prélèvements sociaux (actuellement 18,6 %). De plus, un retrait n'entraîne plus la fermeture du plan, et vous pouvez même continuer à y faire de nouveaux versements.</li>
+            </ul>
+
+            <h4>Le "Hack" ultime : Les ETF Synthétiques dans le PEA 🧠</h4>
+            <p>La règle d'or du PEA stipule que le fonds doit être investi à 75 % minimum dans des actions d'entreprises de l'Espace Économique Européen (EEE). Pourtant, de nombreux investisseurs français utilisent leur PEA pour investir sur le marché américain (S&P 500 ou NASDAQ). Comment est-ce possible ? Grâce à la réplication synthétique.</p>
+            
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/types-réplications-etf.png')">
+                <img src="../media/Formation/types-réplications-etf.png" alt="Les types de réplication des ETF" class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Les trois méthodes de réplication d'un ETF. La réplication synthétique se distingue par l'utilisation d'un panier d'actions collatéral qui ne correspond pas à l'indice de référence, couplé à un contrat Swap.</figcaption>
+            </figure>
+
+            <p>Comme le montre l'image ci-dessus, un ETF à réplication physique achète et détient exactement les actions de l'indice qu'il suit (par exemple, les 500 entreprises du S&P 500). En revanche, l'ETF à réplication synthétique détient un panier d'actions complètement différent (le "collatéral") et utilise un contrat "Swap" avec une banque pour échanger la performance.</p>
+            
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/etf-synthétique.png')">
+                <img src="../media/Formation/etf-synthétique.png" alt="Fonctionnement d'un ETF synthétique (Swap)" class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">La mécanique du Swap : l'ETF détient un portefeuille d'actions européennes (TotalEnergies, Sanofi, Airbus...) pour être éligible au PEA, et échange leur rendement contre celui de l'indice visé via une contrepartie financière.</figcaption>
+            </figure>
+
+            <p>C'est ici qu'intervient l'ingénierie financière illustrée par ce second schéma : le gestionnaire de l'ETF (comme Amundi ou BlackRock) constitue son portefeuille de support avec au moins 75 % de grandes actions européennes (on aperçoit TotalEnergies, BNP Paribas, Sanofi). <strong>Le critère d'éligibilité au PEA est donc légalement respecté !</strong> Ensuite, l'ETF signe un Swap avec une banque : il lui cède le rendement de ces actions européennes, et la banque lui verse en échange le rendement exact de l'indice américain (ex: le S&P 500).</p>
+            
+            <p><strong>Résultat :</strong> Vous profitez de la croissance du marché américain tout en bénéficiant de l'exonération fiscale du PEA. C'est une stratégie 100 % légale et extrêmement populaire.</p>
+
+            <h4>2. Le CTO, la Flat Tax (31,4 %) et la Gestion des Moins-Values</h4>
+            <p>Si vous souhaitez acheter directement des actions individuelles américaines (Microsoft, Apple, Visa) ou asiatiques, le PEA ne vous sera d'aucune utilité. C'est ici qu'intervient le <strong>Compte-Titres Ordinaire (CTO)</strong>.</p>
+
+            <p>Le CTO n'a aucun plafond de versement, aucune contrainte géographique et aucune condition de durée. En contrepartie, il ne bénéficie d'aucune enveloppe protectrice. Depuis la récente hausse de la CSG au 1er janvier 2026, la fiscalité du CTO repose sur un PFU (Prélèvement Forfaitaire Unique) ou <strong>"Flat Tax" de 31,4 %</strong>.</p>
+
+            <p>Cette Flat Tax à 31,4 % se décompose ainsi :</p>
+            <ul>
+                <li><strong>12,8 %</strong> au titre de l'Impôt sur le Revenu (IR).</li>
+                <li><strong>18,6 %</strong> au titre des Prélèvements Sociaux (CSG, CRDS, etc., contre 17,2 % avant 2026).</li>
+            </ul>
+
+            <div class="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-xl my-8">
+                <p class="font-bold text-amber-900 mb-2">Stratégie Avancée : Le "Tax-Loss Harvesting" 📉</p>
+                <p class="text-amber-800 m-0 text-sm">On parle souvent de la taxation des gains, mais le CTO offre un mécanisme puissant pour optimiser vos pertes : le report des moins-values. Si vous vendez une action à perte sur votre CTO, cette moins-value ne s'évapore pas. Elle est <strong>reportable pendant 10 ans</strong>. Concrètement, si vous perdez 1 000 € cette année en coupant une mauvaise position, vous conservez un "crédit" qui viendra annuler 1 000 € de vos futures plus-values. Vous ne paierez donc pas les 31,4 % sur vos 1 000 prochains euros de bénéfice. Gérer stratégiquement ses pertes en fin d'année pour effacer ses gains est une pratique courante appelée <em>Tax-Loss Harvesting</em>.</p>
+            </div>
+
+            <div class="bg-emerald-50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
+                <p class="font-bold text-emerald-900 mb-2">L'alternative : Le Barème Progressif ⚖️</p>
+                <p class="text-emerald-800 m-0 text-sm">Bien que la Flat Tax (31,4 %) soit le régime par défaut, la loi française vous autorise à opter globalement pour l'imposition au barème progressif de l'impôt sur le revenu. Si vous êtes non-imposable ou dans une tranche marginale d'imposition très basse (0% ou 11%), cette option peut s'avérer mathématiquement plus avantageuse que les 12,8 % fixes de la part IR du PFU, d'autant plus qu'elle permet la déductibilité d'une partie de la CSG.</p>
+            </div>
+
+            <h4>3. La Fiscalité des Dividendes et la Double Imposition</h4>
+            <p>Percevoir des dividendes d'entreprises étrangères implique une mécanique fiscale complexe impliquant deux États souverains. Prenons l'exemple d'un investisseur français percevant un dividende de la société américaine Apple.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/fiscalite-des-dividendes-exemple.png')">
+                <img src="../media/Formation/fiscalite-des-dividendes-exemple.png" 
+                     alt="Schéma de la fiscalité d'un dividende américain en France" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">La mécanique de la double imposition et son annulation via le crédit d'impôt français, garantissant une imposition finale plafonnée à la Flat Tax. (NB: Ce schéma d'illustration se base sur l'ancien PFU à 30%, le principe mathématique reste identique avec le nouveau PFU à 31,4%).</figcaption>
+            </figure>
+
+            <p>Voici comment se déroule l'opération pas à pas :</p>
+            <ol>
+                <li><strong>La retenue à la source étrangère :</strong> L'État américain prélève immédiatement une taxe sur le dividende brut. Par défaut, celle-ci est de 30 %. Cependant, grâce à la convention fiscale franco-américaine (activable en remplissant le fameux formulaire <strong>W-8BEN</strong> chez votre courtier), cette retenue est réduite à <strong>15 %</strong>. Sur 100€ de dividendes bruts, vous recevez donc 85€ sur votre compte.</li>
+                <li><strong>L'imposition française :</strong> L'État français exige ensuite sa Flat Tax de 31,4 %... mais sur le dividende <em>brut</em> initial de 100€, soit 31,40€.</li>
+                <li><strong>Le crédit d'impôt (Le bouclier) :</strong> Pour éviter que vous ne soyez littéralement écrasé par cette double imposition, le fisc français vous accorde un <strong>crédit d'impôt</strong> équivalent à l'impôt déjà payé à l'étranger pour neutraliser la ponction américaine et ramener l'impôt total au taux exact du PFU.</li>
+            </ol>
+            <p><strong>Conclusion :</strong> Que l'action soit française ou américaine (avec un W-8BEN valide), votre imposition globale et finale sur le dividende sera toujours plafonnée aux 31,4 % de la Flat Tax. La convention fiscale neutralise la pénalité géographique.</p>
+
+            <h4>4. L'Obligation Pénale : Le Formulaire 3916 (Comptes à l'étranger)</h4>
+            <p>Si vous optez pour des courtiers modernes et compétitifs basés hors de France (comme Trade Republic en Allemagne, Scalable Capital, Interactive Brokers en Irlande, ou Degiro aux Pays-Bas), une obligation déclarative stricte s'impose à vous.</p>
+
+            <p>La loi française exige que chaque contribuable déclare l'ouverture, la détention, l'utilisation ou la clôture de comptes bancaires ou de comptes-titres ouverts à l'étranger. Cela se fait via le <strong>formulaire 3916 / 3916-bis</strong>, à annexer à votre déclaration de revenus annuelle (en mai/juin).</p>
+
+            <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-xl my-8">
+                <p class="font-bold text-red-900 mb-2">Ne jouez pas avec le Formulaire 3916 ⚠️</p>
+                <p class="text-red-800 m-0 text-sm">L'omission de cette déclaration n'est pas considérée comme un simple oubli administratif. Le fisc sanctionne la non-déclaration par une amende forfaitaire sévère de <strong>1 500 € par compte non déclaré et par année d'omission</strong> (voire 10 000 € si le compte est situé dans un État n'ayant pas conclu de convention d'assistance administrative avec la France). Sachant que les courtiers étrangers transmettent automatiquement vos données au fisc français (norme CRS), vous serez inévitablement rattrapé. Déclarez vos comptes.</p>
+            </div>
+
+            <h4>5. La Taxe sur les Transactions Financières (TTF)</h4>
+            <p>Pour être exhaustif sur le panorama fiscal français, il faut mentionner la TTF. Instituée en 2012, cette taxe s'applique lors de l'acquisition d'actions de grandes entreprises françaises dont le siège social est situé en France et dont la capitalisation boursière dépasse <strong>1 milliard d'euros</strong> (les fleurons du CAC 40 et du SBF 120).</p>
+            
+            <p>Le taux de la TTF est fixé à <strong>0,3 %</strong> du montant de l'acquisition. Elle s'ajoute à vos frais de courtage lors de l'achat. Bonne nouvelle : elle ne s'applique pas lors de la revente, ni sur les actions étrangères, ni sur l'achat d'ETF (Trackers).</p>
+
+            <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-8 mt-12 shadow-sm">
+                <h5 class="text-xl font-bold text-emerald-800 mb-4 flex items-center">
+                    <span class="bg-emerald-200 text-emerald-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">🔑</span> 
+                    Ce qu'il faut retenir
+                </h5>
+                <p class="text-emerald-900 m-0 leading-relaxed">
+                    Le PEA (et PEA-Jeunes) est l'enveloppe reine pour défiscaliser vos gains après 5 ans, et permet même d'investir aux US grâce aux ETF synthétiques.<br>
+                    Le CTO sert pour le stock picking international direct, taxé à la nouvelle Flat Tax de 31,4 %, mais offre le puissant avantage de reporter ses moins-values sur 10 ans.<br>
+                    Enfin, remplissez toujours le W-8BEN pour vos dividendes US et déclarez scrupuleusement vos courtiers étrangers (formulaire 3916) sous peine de lourdes amendes.
+                </p>
+            </div>
+
+        </article>
+
+        <div class="flex justify-between items-center mt-16 pt-8 border-t border-slate-200">
+            <a href="6.4.html" class="text-slate-500 hover:text-orange-600 font-medium transition flex items-center group">
+                <span class="group-hover:-translate-x-1 transition-transform mr-2">←</span> Chapitre Précédent
+            </a>
+            <a href="6.6.html" class="bg-orange-600 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-700 transition shadow-lg shadow-orange-200 flex items-center group">
+                Chapitre Suivant<span class="group-hover:translate-x-1 transition-transform ml-2">→</span>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <div id="imageViewer" class="fixed inset-0 z-[60] hidden bg-slate-900/90 backdrop-blur-sm transition-opacity duration-300" onclick="closeViewer()">
+        <span class="absolute top-5 right-8 text-white text-5xl cursor-pointer hover:text-slate-300 transition">&times;</span>
+        <img class="m-auto block max-w-[95%] max-h-[90vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded shadow-2xl" id="enlargedImg">
+    </div>
+
+    <script>
+        var modal = document.getElementById("imageViewer");
+        var modalImg = document.getElementById("enlargedImg");
+
+        function openViewer(src) {
+            modal.style.display = "block";
+            modalImg.src = src;
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeViewer() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+        
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeViewer();
+            }
+        });
+
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
+    </script>
+<script type="module" src="../js/auth-guard.js"></script>
+</body>
+</html>
