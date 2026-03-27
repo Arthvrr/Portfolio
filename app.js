@@ -114,11 +114,11 @@ function changeBackgroundColor(diffEuro,diffPercent){
 
 //TOUTES LES VARIABLES UTILISÉES
 
-var totalInvested = 16500; // montant total investi
+var totalInvested = 17000; // montant total investi
 var totalInvestedCell = document.getElementById("invested");
 totalInvestedCell.textContent = totalInvested;
 
-var CashOnHand = 142.41; // cash disponible
+var CashOnHand = 559.71; // cash disponible
 var cashCell = document.getElementById("cash");
 cashCell.textContent = CashOnHand.toFixed(2);
 
@@ -3036,10 +3036,10 @@ async function main() {
 
     // PERF ANNÉE EN COURS
     var tempStartYear = 22579.97;
-    var tempInvested = 0;
+    var tempInvested = 100;
     tempReturnEuro = parseFloat((totalWallet - (tempInvested + tempStartYear)).toFixed(2));
     tempReturnPercent = parseFloat(((tempReturnEuro / (tempInvested + tempStartYear)) * 100).toFixed(2));
-    var tempDividendReceived = 0;
+    var tempDividendReceived = 14;
 
     annualReturnEuro.push(tempReturnEuro);
     annualReturnPercent.push(tempReturnPercent);
