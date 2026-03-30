@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.9. DCA vs Lump Sum | Formation StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles pour le contenu du cours */
+        .prose p { margin-bottom: 1.5rem; line-height: 1.8; color: #475569; text-align: justify; }
+        .prose h4 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-top: 3rem; margin-bottom: 1.5rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .prose strong { color: #0f172a; font-weight: 600; }
+        .prose ul, .prose ol { list-style: none; padding-left: 0; }
+        .prose li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
+        .prose ul li::before { content: "•"; color: #ea580c; font-weight: bold; position: absolute; left: 0; }
+        .prose ol { counter-reset: item; }
+        .prose ol li::before { content: counter(item) "."; counter-increment: item; color: #ea580c; font-weight: bold; position: absolute; left: 0; }
+        
+        /* Lightbox */
+        #imageViewer { backdrop-filter: blur(10px); }
+        .clickable-image { cursor: zoom-in; transition: transform 0.2s; }
+        .clickable-image:hover { transform: scale(1.01); }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../media/Logo/Logo-White.png" alt="Logo StocksPickeur" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <span class="font-heading font-bold text-xl text-slate-900 tracking-tight">StocksPickeur</span>
+            </a>
+
+            <div class="hidden xl:flex items-center gap-8">
+                <nav class="flex gap-6">
+                    <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Calculateur</a>
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Portefeuille</a>
+                    <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Analyses</a>
+                    <a href="../resources.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Ressources</a>
+                    <a href="../articles.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Articles</a>
+                    <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Formation</a>
+                    <a href="../about.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">À Propos</a>
+                </nav>
+
+                <div class="h-6 w-px bg-slate-200"></div>
+
+                <a href="../account.html" id="header-auth-btn" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Connexion
+                </a>
+            </div>
+
+            <div class="xl:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-slate-500 hover:text-slate-900 focus:outline-none p-2">
+                    <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden xl:hidden bg-white border-b border-slate-200 shadow-xl absolute w-full">
+        <nav class="flex flex-col px-4 pt-2 pb-6 space-y-3">
+            <a href="../calculator.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Calculateur</a>
+            <a href="../portfolio.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Portefeuille</a>
+            <a href="../moatpicks.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Analyses</a>
+            <a href="../resources.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Ressources</a>
+            <a href="../articles.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Articles</a>
+            <a href="../formation.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Formation</a>
+            <a href="../about.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">À Propos</a>
+            
+            <div class="border-t border-slate-100 pt-3 mt-2">
+                <a href="../account.html" id="mobile-auth-btn" class="flex justify-center w-full bg-slate-900 text-white font-bold px-5 py-3 rounded-xl hover:bg-slate-800 transition">
+                    <span id="mobile-nav-username">Connexion Espace Membre</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+    <main class="pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-orange-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="6.0.html" class="hover:text-orange-600 transition">Module 6</a></li>
+                <li>/</li>
+                <li class="text-orange-600 font-medium">Chapitre 6.9</li>
+            </ol>
+        </nav>
+
+        <div class="mb-12 border-b border-slate-200 pb-8">
+            <span class="text-orange-600 font-bold tracking-wider uppercase text-xs">Module 6 • Piloter son Portefeuille</span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">6.9. DCA vs Lump Sum 🥊</h1>
+        </div>
+
+        <div class="mb-10 not-prose"> 
+            <div class="flex items-center gap-2 mb-4">
+                <span class="bg-orange-100 text-orange-700 w-8 h-8 flex items-center justify-center rounded-lg text-lg">📺</span>
+                <h3 class="font-heading font-bold text-lg text-slate-900">Résumé du chapitre en vidéo</h3>
+            </div>
+            
+            <div class="rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-slate-900 aspect-video">
+                <video controls class="w-full h-full object-cover" preload="metadata">
+                    <source src="videos/6.9.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+            </div>
+        </div>
+
+        <article class="prose prose-slate max-w-none text-justify">
+            
+            <p>Une fois que vous avez établi votre liste de convictions (Module 5), défini la structure de votre portefeuille (Chapitres 6.1 à 6.6), et organisé votre poche de liquidités (Chapitre 6.7), une question fondamentale de "déploiement tactique" se pose inévitablement. Comment concrètement injecter votre capital sur le marché ?</p>
+
+            <p>Faut-il investir la totalité de votre argent dès maintenant pour profiter immédiatement de la hausse structurelle des marchés ? Faut-il y aller progressivement, mois par mois, pour lisser les risques de volatilité à court terme ? Et que faire face à la tentation, souvent paralysante, d'attendre une crise pour acheter "au plus bas" ? L'industrie financière a théorisé ces approches à travers deux grandes méthodologies antagonistes : le <strong>DCA (Dollar Cost Averaging)</strong> et le <strong>Lump Sum Investing (LSI)</strong>. Dans ce chapitre, nous allons analyser froidement les mathématiques, les statistiques historiques et la psychologie derrière ces méthodes pour déterminer la meilleure stratégie pour un investisseur <em>Quality</em>.</p>
+
+            <h4>1. Le DCA (Dollar Cost Averaging) : La force tranquille de la discipline comportementale</h4>
+            <p>Le DCA, ou l'investissement programmé, est incontestablement la stratégie la plus connue, la plus promue par les banquiers et la plus adaptée à la psychologie de l'investisseur particulier débutant. Le principe est d'une simplicité désarmante, mais d'une efficacité redoutable : <strong>investir une somme d'argent fixe, à intervalles réguliers et prédéfinis (généralement tous les mois), indépendamment des conditions de marché, que la bourse monte ou qu'elle s'effondre.</strong></p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/dollar-cost-average.png')">
+                <img src="../media/Formation/dollar-cost-average.png" 
+                     alt="Représentation graphique du principe du Dollar Cost Averaging" 
+                     class="clickable-image rounded-xl shadow-lg w-full object-cover group-hover:opacity-95 transition bg-white">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">La mécanique mathématique du DCA : en investissant une somme fixe périodiquement, vous achetez mécaniquement moins d'actions quand les prix sont élevés, et plus d'actions quand les prix chutent. Ce processus lisse automatiquement votre Prix de Revient Unitaire (PRU) global au fil du temps.</figcaption>
+            </figure>
+
+            <p>Le DCA n'est pas seulement une méthode mathématique d'optimisation du PRU ; c'est avant tout un outil de gestion comportementale d'une puissance inouïe. Il offre trois avantages majeurs :</p>
+            <ul class="text-justify">
+                <li><strong>L'automatisation émotionnelle absolue :</strong> En configurant un virement automatique chaque mois (par exemple le lendemain de la réception de votre salaire), vous débranchez totalement vos émotions. Vous n'avez plus à vous poser la question quotidienne de savoir si le marché est "trop haut", "trop cher" ou "sur le point de kracher". Le DCA transforme l'investissement en une routine disciplinée, presque ennuyeuse, ce qui est une excellente chose en finance.</li>
+                <li><strong>La création d'une habitude d'épargne inébranlable :</strong> C'est la méthode reine pour bâtir une discipline financière. Elle oblige l'investisseur à se "payer en premier" et à allouer une part fixe de ses revenus à la construction de son patrimoine, forgeant ainsi une habitude qui vaut de l'or sur le long terme.</li>
+                <li><strong>La réduction drastique du stress psychologique :</strong> Si le marché s'effondre le lendemain de votre investissement, vous ne paniquez pas. Au contraire, vous vous réjouissez, car vous savez que votre investissement du mois suivant vous permettra d'acheter des actions d'excellentes entreprises à prix bradé. Le DCA est incontestablement la méthode la plus "safe" mentalement pour supporter la volatilité.</li>
+            </ul>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/20yrs-of-dca.png')">
+                <img src="../media/Formation/20yrs-of-dca.png" 
+                     alt="Croissance d'un portefeuille sur 20 ans de DCA hebdomadaire" 
+                     class="clickable-image rounded-xl shadow-lg w-full object-cover group-hover:opacity-95 transition bg-white">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">La puissance d'une discipline aveugle : Ce graphique simule la valeur d'un portefeuille pour un investisseur ayant simplement injecté 150 $ par semaine dans l'indice S&P 500 pendant 20 ans (de 2002 à 2022). Le résultat approche le demi-million de dollars, malgré l'exposition totale aux crises majeures de 2008 et de 2020. La méthode fonctionne de manière spectaculaire sur le long terme.</figcaption>
+            </figure>
+
+            <p>Cependant, pour être totalement pro, il faut acter une limite fondamentale : <strong>le DCA est un processus intrinsèquement lent, un marathon qui s'étale sur des décennies.</strong> Ce n'est pas une stratégie spéculative pour devenir riche rapidement. C'est un rouleau compresseur qui met des années avant que la force des intérêts composés ne surpasse réellement l'intensité de votre apport mensuel.</p>
+
+            <h4>2. Les deux variables clés qui dictent la vitesse de votre DCA</h4>
+            <p>Puisque le DCA repose sur la récurrence, le temps qu'il vous faudra pour atteindre vos objectifs financiers ambitieux (comme le seuil symbolique du million d'euros) dépendra de deux facteurs dont vous avez le contrôle total.</p>
+            
+            <p>La première variable est, bien entendu, le rendement moyen de vos actions. Nous optimisons ce facteur en ciblant l'excellence (<em>Quality Investing</em>) pour maximiser la croissance composée, comme le montrent les simulations suivantes :</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/dca-1M.png')">
+                <img src="../media/Formation/dca-1M.png" 
+                     alt="Impact du rendement annualisé sur la vitesse d'atteinte du million en DCA" 
+                     class="clickable-image rounded-xl shadow-lg w-full object-cover group-hover:opacity-95 transition bg-white">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Simulation mathématique : Plus votre rendement annualisé est élevé, plus la courbe de croissance composée devient verticale, réduisant drastiquement le temps nécessaire pour atteindre le million. En Quality Investing, nous cherchons à capturer des rendements supérieurs à la moyenne (Alpha).</figcaption>
+            </figure>
+
+            <p>Mais la variable la plus importante lors des premières années d'investissement, bien plus que le rendement, est <strong>le montant de votre apport périodique</strong>.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/how-long-dca-1M.png')">
+                <img src="../media/Formation/how-long-dca-1M.png" 
+                     alt="Distribution statistique des années nécessaires pour atteindre 1M$ selon le montant mensuel" 
+                     class="clickable-image rounded-xl shadow-lg w-full object-cover group-hover:opacity-95 transition bg-white">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">La réalité statistique : Pour un investisseur parvenant à faire un DCA massif de 2 500 $ par mois, atteindre le million prendra en moyenne 15 à 20 ans. Pour un investisseur limité à 500 $ par mois, le processus prendra mathématiquement plus de 30 ans. La croissance de votre patrimoine ira plus vite au plus la valeur investie est élevée.</figcaption>
+            </figure>
+            
+            <p>Logiquement, si votre objectif est d'accélérer drastiquement votre création de richesse en bourse, votre focus absolu ne doit pas être de trouver l'action spéculative de l'année, mais d'améliorer vos revenus actifs (votre salaire, votre entreprise) pour augmenter massivement votre capacité de DCA mensuelle.</p>
+
+            <h4>3. Le Lump Sum (LSI) : La suprématie mathématique incontestée</h4>
+            <p>Le <strong>Lump Sum Investing</strong> consiste à investir l'intégralité d'un capital disponible en une seule fois, d'un seul coup, sans lissage ni fractionnement. Si vous disposez de 10 000 € sur votre compte épargne aujourd'hui, vous achetez pour 10 000 € d'actions demain matin à l'ouverture du marché.</p>
+
+            <p>Bien que cette méthode soit souvent terrifiante pour les débutants, la science financière et les statistiques historiques sont catégoriques : <strong>le Lump Sum est mathématiquement supérieur au DCA dans la majorité des cas.</strong></p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/dca-vs-lump-sum-2.png')">
+                <img src="../media/Formation/dca-vs-lump-sum-2.png" 
+                     alt="Graphique montrant la suprématie de la performance du Lump Sum sur le DCA" 
+                     class="clickable-image rounded-xl shadow-lg w-full object-cover group-hover:opacity-95 transition bg-white">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">La preuve par les chiffres : Sur une période d'investissement longue, la ligne bleue (Lump Sum) termine presque toujours au-dessus de la ligne noire (DCA classique). Investir tout votre capital immédiatement vous permet de faire travailler l'intégralité de votre argent tout de suite.</figcaption>
+            </figure>
+
+            <p>Pourquoi le Lump Sum gagne-t-il si souvent ? L'explication est basique : les marchés boursiers mondiaux ont une tendance haussière structurelle à long terme (ils montent environ 3 années sur 4). En conservant votre argent sur un compte courant pour l'investir progressivement via le DCA, vous laissez une partie de votre capital hors du marché. Or, pendant ce temps, les entreprises exceptionnelles que vous visez génèrent des bénéfices, versent des dividendes et leur cours de bourse monte. L'argent qui n'est pas investi immédiatement subit un coût d'opportunité majeur, car il rate la puissance de la croissance composée immédiate. C'est l'adage fondamental de la finance : <strong>"Time in the market beats timing the market"</strong> (Le temps passé investi bat la tentative de deviner le timing).</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/standard-deviation-dca-vs-lump-sum.png')">
+                <img src="../media/Formation/standard-deviation-dca-vs-lump-sum.png" 
+                     alt="Graphique comparant la volatilité (Standard Deviation) entre DCA et Lump Sum" 
+                     class="clickable-image rounded-xl shadow-lg w-full object-cover group-hover:opacity-95 transition bg-white">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">La contrepartie de la performance : Si le Lump Sum (ligne bleue) rapporte généralement plus d'argent, il expose l'investisseur à une volatilité (Standard Deviation) beaucoup plus violente dès les premiers mois. Le DCA (ligne noire) offre un parcours beaucoup plus lissé et supportable émotionnellement.</figcaption>
+            </figure>
+
+            <p>La contrepartie du Lump Sum, c'est sa brutalité psychologique (illustrée par sa volatilité sur le graphique ci-dessus). Si vous investissez 100 000 € aujourd'hui et que le marché subit un krach de -20 % le mois suivant, vous encaissez une perte latente immédiate de 20 000 €. Très peu d'investisseurs ont le système nerveux nécessaire pour supporter ce choc sans revendre dans la panique, actant ainsi une perte réelle.</p>
+
+            <h4>4. L'inefficacité dramatique du "Buy the Dip" pure</h4>
+            <p>Il existe une troisième voie, souvent plébiscitée par les amateurs pensant être plus intelligents que les marchés : le <strong>Buy the Dip</strong> (acheter les creux). Cette stratégie consiste à conserver volontairement la majorité de son capital en cash, en refusant d'investir tant que le marché n'a pas subi une grosse chute (un "krach" ou un "dip"), pour acheter au plus bas.</p>
+
+            <p>C'est une hérésie financière absolue, une perte de temps et d'argent. L'inefficacité du "Buy the Dip" s'explique par deux phénomènes implacables :</p>
+            <ol class="text-justify">
+                <li><strong>Garder du cash est très mauvais :</strong> Nous l'avons prouvé au chapitre précédent (6.7), le cash est un très mauvais actif qui se fait ronger par l'inflation. En attendant un krach qui peut mettre 5 ans à arriver, votre cash perd de son pouvoir d'achat réel.</li>
+                <li><strong>Le coût d'opportunité des "Meilleurs Jours" :</strong> Le marché est imprévisible. Pendant que vous attendez une chute de -20 %, le marché peut prendre +80 %. Lorsqu'un krach de -20 % finit par arriver, vous achèterez en réalité beaucoup plus haut que le prix auquel vous auriez pu acheter des années plus tôt. Comme vu au Chapitre 3.8, ce qui génère la performance, c'est rester investi pour ne pas rater les quelques jours de hausse fulgurante qui perfusent l'intégralité du rendement composé à long terme.</li>
+            </ol>
+
+            <h4>5. Le compromis psychologique : Le "Tranching" pour les gros capitaux</h4>
+            <p>Si le DCA classique est fait pour un flux de revenu mensuel (votre salaire), que faire si vous recevez soudainement une grosse somme d'argent (une prime exceptionnelle, la vente d'un bien immobilier, un héritage, une donation) ? </p>
+
+            <p>Le Lump Sum est mathématiquement vainqueur, mais émotionnellement trop risqué pour un investisseur qui n'a pas encore l'expérience des krachs. La solution hybride des gestionnaires de fortune s'appelle le <strong>Tranching</strong> (ou le Fractionnement tactique). Cela consiste à prendre votre gros capital et à le diviser en plusieurs tranches égales (par exemple 4, 6 ou 10 tranches) que vous déploierez mécaniquement sur les mois suivants.</p>
+            
+            <p>Si vous recevez 60 000 €, vous pouvez investir 10 000 € par mois pendant 6 mois. Cela vous garantit d'être totalement investi rapidement pour capter la hausse des marchés, tout en lissant le risque psychologique d'un krach imminent. C'est l'assurance comportementale parfaite pour intégrer un capital massif sur les marchés.</p>
+
+            <h4>6. La Stratégie StocksPickeur : Le DCA Tactique et Sélectif</h4>
+            <p>Dans les faits, opposer fermement le DCA au Lump Sum n'a de sens que si vous achetez des ETFs indiciels mondiaux de manière aveugle. Dans notre méthodologie de *Quality Investing*, où nous sélectionnons des monopoles mondiaux spécifiques, la nuance est notre meilleure arme.</p>
+
+            <p><strong>Ma méthodologie personnelle StocksPickeur :</strong></p>
+            <ul class="text-justify">
+                <li>Je pratique une discipline d'épargne inébranlable en épargnant une somme fixe chaque mois issue de mes revenus (la mécanique disciplinée du DCA).</li>
+                <li><strong>Cependant, je n'investis pas cet argent à l'aveugle.</strong> J'utilise mon cash accumulé pour cibler très précisément les entreprises de ma liste de convictions (mes 6 à 10 champions) dont la valorisation est temporairement attrayante, correcte ou raisonnable ce mois-là.</li>
+                <li>Si toutes mes entreprises sont massivement surévaluées, je n'achète rien. Je laisse cet apport mensuel s'accumuler dans ma poche de <strong>Dry Powder</strong> (mon cash offensif, Chapitre 6.7).</li>
+                <li>Lorsqu'une opportunité se présente (un vrai "Dip" sur une entreprise spécifique de haute qualité qui subit une correction irrationnelle), j'opère alors un mini "Lump Sum" : je déploie agressivement mon cash accumulé sur cette action précise pour profiter des soldes de l'excellence.</li>
+            </ul>
+
+            <p>Cette approche hybride combine la discipline d'épargne inébranlable du DCA avec l'agressivité mathématique du Lump Sum et l'intelligence de valorisation du <em>Value Investing</em>.</p>
+
+            <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-8 mt-12 shadow-sm">
+                <h5 class="text-xl font-bold text-emerald-800 mb-4 flex items-center">
+                    <span class="bg-emerald-200 text-emerald-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">🔑</span> 
+                    Ce qu'il faut retenir
+                </h5>
+                <p class="text-emerald-900 m-0 leading-relaxed">
+                    Le DCA (investissement régulier) est la méthode ultime pour bâtir une habitude de fer, débrancher ses émotions et supporter la volatilité à long terme.<br>
+                    Le Lump Sum (tout investir d'un coup) offre mathématiquement un rendement supérieur dans près de 70% des cas, car il profite immédiatement de l'intégralité du temps passé investi sur le marché.<br>
+                    Le "Buy the Dip" pur est inefficace. La méthode StocksPickeur consiste à épargner mensuellement (DCA) pour accumuler du cash offensif, que l'on déploie tactiquement (Lump Sum ciblé) lors d'opportunités de valorisation intéressantes sur nos entreprises Quality.
+                </p>
+            </div>
+
+        </article>
+
+        <div class="flex justify-between items-center mt-16 pt-8 border-t border-slate-200">
+            <a href="6.8.html" class="text-slate-500 hover:text-orange-600 font-medium transition flex items-center group">
+                <span class="group-hover:-translate-x-1 transition-transform mr-2">←</span> Chapitre Précédent
+            </a>
+            <a href="6.10.html" class="bg-orange-600 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-700 transition shadow-lg shadow-orange-200 flex items-center group">
+                Chapitre Suivant<span class="group-hover:translate-x-1 transition-transform ml-2">→</span>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <div id="imageViewer" class="fixed inset-0 z-[60] hidden bg-slate-900/90 backdrop-blur-sm transition-opacity duration-300" onclick="closeViewer()">
+        <span class="absolute top-5 right-8 text-white text-5xl cursor-pointer hover:text-slate-300 transition">&times;</span>
+        <img class="m-auto block max-w-[95%] max-h-[90vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded shadow-2xl" id="enlargedImg">
+    </div>
+
+    <script>
+        var modal = document.getElementById("imageViewer");
+        var modalImg = document.getElementById("enlargedImg");
+
+        function openViewer(src) {
+            modal.style.display = "block";
+            modalImg.src = src;
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeViewer() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+        
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeViewer();
+            }
+        });
+
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
+    </script>
+<script type="module" src="../js/auth-guard.js"></script>
+</body>
+</html>

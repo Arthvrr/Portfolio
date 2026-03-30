@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.8. Le Prix de Revient Unitaire (PRU) | Formation StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles pour le contenu du cours */
+        .prose p { margin-bottom: 1.5rem; line-height: 1.8; color: #475569; text-align: justify; }
+        .prose h4 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-top: 3rem; margin-bottom: 1.5rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .prose strong { color: #0f172a; font-weight: 600; }
+        .prose ul, .prose ol { list-style: none; padding-left: 0; }
+        .prose li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
+        .prose ul li::before { content: "•"; color: #ea580c; font-weight: bold; position: absolute; left: 0; }
+        .prose ol { counter-reset: item; }
+        .prose ol li::before { content: counter(item) "."; counter-increment: item; color: #ea580c; font-weight: bold; position: absolute; left: 0; }
+        
+        /* Lightbox */
+        #imageViewer { backdrop-filter: blur(10px); }
+        .clickable-image { cursor: zoom-in; transition: transform 0.2s; }
+        .clickable-image:hover { transform: scale(1.01); }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../media/Logo/Logo-White.png" alt="Logo StocksPickeur" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <span class="font-heading font-bold text-xl text-slate-900 tracking-tight">StocksPickeur</span>
+            </a>
+
+            <div class="hidden xl:flex items-center gap-8">
+                <nav class="flex gap-6">
+                    <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Calculateur</a>
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Portefeuille</a>
+                    <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Analyses</a>
+                    <a href="../resources.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Ressources</a>
+                    <a href="../articles.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Articles</a>
+                    <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Formation</a>
+                    <a href="../about.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">À Propos</a>
+                </nav>
+
+                <div class="h-6 w-px bg-slate-200"></div>
+
+                <a href="../account.html" id="header-auth-btn" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Connexion
+                </a>
+            </div>
+
+            <div class="xl:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-slate-500 hover:text-slate-900 focus:outline-none p-2">
+                    <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden xl:hidden bg-white border-b border-slate-200 shadow-xl absolute w-full">
+        <nav class="flex flex-col px-4 pt-2 pb-6 space-y-3">
+            <a href="../calculator.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Calculateur</a>
+            <a href="../portfolio.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Portefeuille</a>
+            <a href="../moatpicks.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Analyses</a>
+            <a href="../resources.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Ressources</a>
+            <a href="../articles.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Articles</a>
+            <a href="../formation.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Formation</a>
+            <a href="../about.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">À Propos</a>
+            
+            <div class="border-t border-slate-100 pt-3 mt-2">
+                <a href="../account.html" id="mobile-auth-btn" class="flex justify-center w-full bg-slate-900 text-white font-bold px-5 py-3 rounded-xl hover:bg-slate-800 transition">
+                    <span id="mobile-nav-username">Connexion Espace Membre</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+    <main class="pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-orange-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="6.0.html" class="hover:text-orange-600 transition">Module 6</a></li>
+                <li>/</li>
+                <li class="text-orange-600 font-medium">Chapitre 6.8</li>
+            </ol>
+        </nav>
+
+        <div class="mb-12 border-b border-slate-200 pb-8">
+            <span class="text-orange-600 font-bold tracking-wider uppercase text-xs">Module 6 • Piloter son Portefeuille</span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">6.8. Le Prix de Revient Unitaire (PRU) 📊</h1>
+        </div>
+
+        <div class="mb-10 not-prose"> 
+            <div class="flex items-center gap-2 mb-4">
+                <span class="bg-orange-100 text-orange-700 w-8 h-8 flex items-center justify-center rounded-lg text-lg">📺</span>
+                <h3 class="font-heading font-bold text-lg text-slate-900">Résumé du chapitre en vidéo</h3>
+            </div>
+            
+            <div class="rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-slate-900 aspect-video">
+                <video controls class="w-full h-full object-cover" preload="metadata">
+                    <source src="videos/6.8.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+            </div>
+        </div>
+
+        <article class="prose prose-slate max-w-none text-justify">
+            
+            <p>Lorsque vous ouvrez l'application de votre courtier pour consulter votre portefeuille, votre regard est immédiatement attiré par des pourcentages verts ou rouges à côté du nom de vos entreprises. Mais comment ce pourcentage est-il calculé ? Quelle est la ligne de départ de votre investissement ?</p>
+
+            <p>La réponse tient en trois lettres : le <strong>PRU</strong>, pour <strong>Prix de Revient Unitaire</strong>. C'est la métrique la plus fondamentale de votre interface de gestion. Le PRU est le coût d'acquisition moyen pondéré d'une action que vous détenez. C'est ce chiffre précis qui détermine le seuil de rentabilité de votre position : si le cours de bourse actuel est supérieur à votre PRU, vous êtes en plus-value. S'il est inférieur, vous êtes en moins-value.</p>
+
+            <div class="bg-slate-50 border-l-4 border-slate-800 p-6 rounded-r-xl my-8">
+                <strong class="text-slate-900 block mb-2 text-xl">La Formule du Prix de Revient Unitaire (PRU)</strong>
+                <div class="text-lg font-mono text-indigo-600 bg-white inline-block px-4 py-2 rounded border border-indigo-100 mb-2 shadow-sm">
+                    (Montant total des achats + Frais de courtage) ÷ Nombre total d'actions = PRU
+                </div>
+                <p class="text-sm text-slate-500 mt-4 mb-0"><strong>Attention :</strong> Le véritable PRU intègre toujours vos frais d'achat (commissions, taxes). C'est pourquoi acheter une action de 100 € avec 2 € de frais de courtage vous donnera un PRU initial de 102 €, et non de 100 €.</p>
+            </div>
+
+            <h4>1. La force gravitationnelle : "Moyenner à la baisse"</h4>
+            <p>L'un des plus grands avantages d'un investisseur disposant de flux de revenus réguliers (ou d'une poche de liquidités, comme vu au chapitre précédent) est la capacité d'acheter une même entreprise à différents moments. Si vous achetez une action à des prix différents au fil du temps, votre PRU va s'ajuster mécaniquement.</p>
+
+            <p>Le cas d'usage le plus connu est l'action de <strong>moyenner à la baisse</strong> (<em>Averaging Down</em>). Imaginez que vous ayez acheté d'excellentes actions à 11,20 €. Quelque temps plus tard, suite à une panique macroéconomique, le cours s'effondre à 10,00 €. Au lieu de paniquer, vous profitez des soldes pour racheter un nouveau bloc d'actions. L'achat de ces nouvelles actions moins chères va littéralement "tirer" votre PRU global vers le bas.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/pru-example.jpg')">
+                <img src="../media/Formation/pru-example.jpg" 
+                     alt="Graphique montrant l'évolution du PRU lors d'achats successifs" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition bg-white p-2">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">L'impact mathématique de la moyenne. En rachetant régulièrement des actions pendant que le cours (ligne brune) fluctuait à la baisse puis à la hausse, l'investisseur a lissé son risque et obtenu un PRU extrêmement compétitif (Average cost) de 10,69.</figcaption>
+            </figure>
+
+            <p>Dans l'exemple ci-dessus, en achetant régulièrement des titres pendant la phase de baisse, l'investisseur a abaissé son Prix de Revient Unitaire à 10,69. Ainsi, lorsque le cours de l'action s'est finalement redressé à 11,50 en juin, l'investisseur était déjà en fort bénéfice depuis longtemps, car son seuil de rentabilité (son PRU) avait été abaissé.</p>
+
+            <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-xl my-8">
+                <p class="font-bold text-red-900 mb-2">Le piège mortel du couteau qui tombe 🔪</p>
+                <p class="text-red-800 m-0 text-sm">Moyenner à la baisse n'est une bonne stratégie que si, et <strong>seulement si</strong>, vous êtes intimement convaincu de l'excellence de l'entreprise (Quality Investing) et que la baisse est irrationnelle. Abaisser son PRU sur une entreprise dont les bénéfices s'effondrent et dont le modèle économique meurt, c'est ce qu'on appelle "rattraper un couteau qui tombe". Vous ne faites que jeter de l'argent frais par les fenêtres pour masquer une erreur.</p>
+            </div>
+
+            <h4>2. L'élégance de "Moyenner à la hausse" (Acheter l'excellence)</h4>
+            <p>Si moyenner à la baisse est populaire, c'est l'action de <strong>moyenner à la hausse</strong> (<em>Averaging Up</em>) qui distingue véritablement un amateur d'un professionnel en Quality Investing.</p>
+
+            <p>Supposons que vous ayez acheté des actions Microsoft à 200 €. Quelques années plus tard, Microsoft a dominé le Cloud, lancé des intelligences artificielles révolutionnaires, et son cours atteint 400 €. L'entreprise est fondamentalement meilleure aujourd'hui qu'elle ne l'était hier. Devriez-vous refuser d'en acheter davantage sous prétexte que cela ferait monter votre magnifique PRU de 200 € ? <strong>Non. C'est une erreur stratégique majeure.</strong></p>
+
+            <p>En Quality Investing, les gagnants continuent de gagner. Les entreprises exceptionnelles créent de la valeur sur des décennies. Si les fondamentaux le justifient, il faut avoir le courage d'acheter vos actions plus cher qu'hier. Oui, votre PRU va remonter, mais vous allouez votre capital à une entreprise qui a prouvé sa supériorité éclatante.</p>
+
+            <h4>3. Le Biais d'Ancrage : Le marché se moque de votre PRU</h4>
+            <p>L'un des plus grands défis de l'investisseur particulier est de se détacher émotionnellement de son interface de courtage. Le PRU génère un biais cognitif dévastateur : le <strong>Biais d'Ancrage</strong>.</p>
+
+            <p>Les investisseurs deviennent littéralement obsédés par ce chiffre de référence. Ce biais se manifeste de deux manières dramatiques :</p>
+            <ol class="text-justify">
+                <li><strong>Le refus de couper un perdant :</strong> <em>"Je ne vends pas cette action minable tant qu'elle n'est pas revenue à mon PRU, je refuse d'acter la perte."</em> Résultat : le capital reste bloqué pendant des années sur une entreprise "zombie" alors qu'il aurait pu être redéployé sur un monopole en pleine croissance.</li>
+                <li><strong>Le refus de renforcer un gagnant :</strong> <em>"Je refuse d'acheter plus de LVMH aujourd'hui, cela va ruiner mon PRU qui est si bas et réduire mon pourcentage vert de +150% à +60% !"</em> Résultat : on privilégie la satisfaction de l'ego visuel (avoir un beau pourcentage sur son écran) à la construction réelle de la richesse en euros.</li>
+            </ol>
+
+            <p>Gravevez cette règle dans le marbre : <strong>Le marché boursier ignore totalement à quel prix vous avez acheté vos actions.</strong> Le cours de bourse d'une entreprise s'ajustera sur ses bénéfices futurs, que votre PRU soit de 10 € ou de 100 €. Prenez vos décisions d'investissement en regardant les flux de trésorerie et la valorisation actuelle de l'entreprise, pas le pourcentage rouge ou vert qui s'affiche sur votre téléphone.</p>
+
+            <h4>4. Les ajustements techniques : Stock Splits et Devises</h4>
+            <p>Pour être totalement maître de votre portefeuille, vous devez comprendre deux phénomènes mécaniques fréquents qui peuvent modifier l'affichage de votre PRU sur votre application, sans pour autant que vous n'ayez acheté ou vendu la moindre action.</p>
+
+            <p><strong>Le mystère des "Stock Splits" (Division d'actions) :</strong> Les excellentes entreprises (comme Apple, Alphabet ou Amazon) voient souvent leur cours monter si haut qu'elles décident de procéder à une division de leurs actions pour rester psychologiquement accessibles aux petits portefeuilles. Si une entreprise dont l'action vaut 1 000 € annonce un "Split 10 pour 1", le cours passera mathématiquement à 100 €. Ne paniquez pas en voyant votre PRU s'effondrer le lendemain matin ! Votre courtier ajustera automatiquement votre PRU en le divisant par 10, et multipliera par 10 le nombre de vos actions. La valeur totale de votre investissement reste rigoureusement identique, c'est simplement le gâteau qui a été coupé en plus de parts.</p>
+
+            <p><strong>L'illusion d'optique du Taux de Change (L'Effet Devise) :</strong> C'est la source de panique numéro un des investisseurs débutants qui achètent des actions américaines : <em>"L'action Microsoft a fait +5 % hier à Wall Street, mais sur mon compte Trade Republic, ma ligne est dans le rouge, pourquoi ?"</em> Il faut être extrêmement vigilant sur l'affichage : la majorité des courtiers européens affichent votre PRU et votre performance dans votre devise locale (l'Euro), et non dans la devise d'origine de l'action (le Dollar). Par conséquent, <strong>votre PRU intègre le taux de change EUR/USD !</strong> Si le dollar s'affaiblit face à l'euro, cette perte de change vient plomber l'affichage de votre ligne, même si l'entreprise performe très bien de manière intrinsèque. L'inverse est aussi vrai. Vérifiez toujours si l'interface de votre courtier vous affiche votre PRU en euros ou en devises pour comprendre vos véritables performances.</p>
+
+            <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-8 mt-12 shadow-sm">
+                <h5 class="text-xl font-bold text-emerald-800 mb-4 flex items-center">
+                    <span class="bg-emerald-200 text-emerald-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">🔑</span> 
+                    Ce qu'il faut retenir
+                </h5>
+                <p class="text-emerald-900 m-0 leading-relaxed">
+                    Le PRU est la moyenne du coût d'acquisition de vos actions (frais inclus). Racheter en baisse diminue ce PRU, tandis que racheter un champion en hausse le fera monter, ce qui est une excellente stratégie.<br>
+                    Ne laissez jamais votre ego lié à votre PRU dicter vos décisions : le marché se moque totalement de votre prix d'achat initial.<br>
+                    Gardez en tête que l'affichage de votre PRU et de votre performance peut être temporairement faussé par des divisions d'actions (Stock Splits) ou par les fluctuations des devises (taux de change EUR/USD).
+                </p>
+            </div>
+
+        </article>
+
+        <div class="flex justify-between items-center mt-16 pt-8 border-t border-slate-200">
+            <a href="6.7.html" class="text-slate-500 hover:text-orange-600 font-medium transition flex items-center group">
+                <span class="group-hover:-translate-x-1 transition-transform mr-2">←</span> Chapitre Précédent
+            </a>
+            <a href="6.9.html" class="bg-orange-600 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-700 transition shadow-lg shadow-orange-200 flex items-center group">
+                Chapitre Suivant<span class="group-hover:translate-x-1 transition-transform ml-2">→</span>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <div id="imageViewer" class="fixed inset-0 z-[60] hidden bg-slate-900/90 backdrop-blur-sm transition-opacity duration-300" onclick="closeViewer()">
+        <span class="absolute top-5 right-8 text-white text-5xl cursor-pointer hover:text-slate-300 transition">&times;</span>
+        <img class="m-auto block max-w-[95%] max-h-[90vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded shadow-2xl" id="enlargedImg">
+    </div>
+
+    <script>
+        var modal = document.getElementById("imageViewer");
+        var modalImg = document.getElementById("enlargedImg");
+
+        function openViewer(src) {
+            modal.style.display = "block";
+            modalImg.src = src;
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeViewer() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+        
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeViewer();
+            }
+        });
+
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
+    </script>
+<script type="module" src="../js/auth-guard.js"></script>
+</body>
+</html>
