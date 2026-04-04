@@ -34,7 +34,7 @@ import {
 
 // 4. Ta configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDzBR4vZcQQy8TV6uAfBeTIpvuFB-cj9qY",
+  apiKey: "AIzaSyD-RqUD8hxBunFnv7HMKC8Uo2BXoYVQRQY",
   authDomain: "stockspickeur-formation.firebaseapp.com",
   projectId: "stockspickeur-formation",
   storageBucket: "stockspickeur-formation.firebasestorage.app",
