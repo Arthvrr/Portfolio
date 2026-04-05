@@ -349,6 +349,86 @@
         </div>
     </section>
 
+    <section class="py-24 bg-white border-t border-slate-100 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center px-3 py-1 rounded-full border border-indigo-100 bg-indigo-50 text-indigo-700 text-xs font-bold uppercase tracking-wide mb-4">
+                    Analyses Fondamentales
+                </div>
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-slate-900 mt-2 mb-6">
+                    Dans les coulisses des <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-emerald-500">meilleures entreprises.</span>
+                </h2>
+                <p class="text-lg text-slate-600 leading-relaxed mb-8">
+                    Découvrez <strong>MoatPicks</strong> : mes analyses approfondies des leaders mondiaux. Je décortique pour vous leurs modèles économiques, leurs avantages concurrentiels (Moats), leurs risques et ma valorisation (Fair Value). 
+                </p>
+                <a href="moatpicks.html" class="inline-flex items-center justify-center px-8 py-4 border border-slate-200 shadow-sm text-base font-bold rounded-xl text-slate-900 bg-white hover:bg-slate-50 transition transform hover:-translate-y-1">
+                    Lire mes thèses d'investissement ➔
+                </a>
+            </div>
+
+            <style>
+                @keyframes scroll {
+                    0% { transform: translateX(0); }
+                    /* On se déplace de -50% car la div contient 2 fois la liste des logos */
+                    100% { transform: translateX(-50%); } 
+                }
+                .animate-infinite-scroll {
+                    animation: scroll 40s linear infinite;
+                    width: max-content;
+                }
+                .animate-infinite-scroll:hover {
+                    animation-play-state: paused; /* Met le défilement en pause au survol */
+                }
+            </style>
+            
+            <div class="relative w-full overflow-hidden mt-8">
+                <div class="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+                <div class="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+                
+                <div class="flex animate-infinite-scroll items-center gap-16 md:gap-24 px-8">
+                    
+                    <img src="./media/Stocks-Logo/MSFT.png" alt="Microsoft" class="h-10 md:h-12 w-auto object-contain filter grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition duration-300">
+                    <img src="./media/Stocks-Logo/ASML.png" alt="ASML" class="h-10 md:h-12 w-auto object-contain filter grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition duration-300">
+                    <img src="./media/Stocks-Logo/V.png" alt="Visa" class="h-10 md:h-12 w-auto object-contain filter grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition duration-300">
+                    <img src="./media/Stocks-Logo/MA.png" alt="Mastercard" class="h-10 md:h-12 w-auto object-contain filter grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition duration-300">
+                    <img src="./media/Stocks-Logo/NVDA.png" alt="Nvidia" class="h-10 md:h-12 w-auto object-contain filter grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition duration-300">
+                    <img src="./media/Stocks-Logo/GOOGL.png" alt="Google" class="h-10 md:h-12 w-auto object-contain filter grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition duration-300">
+                    
+                    <img src="./media/Stocks-Logo/MSFT.png" alt="Microsoft" class="h-10 md:h-12 w-auto object-contain filter grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition duration-300">
+                    <img src="./media/Stocks-Logo/ASML.png" alt="ASML" class="h-10 md:h-12 w-auto object-contain filter grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition duration-300">
+                    <img src="./media/Stocks-Logo/V.png" alt="Visa" class="h-10 md:h-12 w-auto object-contain filter grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition duration-300">
+                    <img src="./media/Stocks-Logo/MA.png" alt="Mastercard" class="h-10 md:h-12 w-auto object-contain filter grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition duration-300">
+                    <img src="./media/Stocks-Logo/NVDA.png" alt="Nvidia" class="h-10 md:h-12 w-auto object-contain filter grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition duration-300">
+                    <img src="./media/Stocks-Logo/GOOGL.png" alt="Google" class="h-10 md:h-12 w-auto object-contain filter grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition duration-300">
+                
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="portfolio-popup" class="fixed bottom-6 right-6 max-w-sm w-full bg-white rounded-2xl shadow-2xl border border-slate-200 p-6 transform translate-y-[150%] opacity-0 transition-all duration-700 ease-out z-[100]">
+        <button id="close-popup" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 transition bg-slate-50 hover:bg-slate-100 rounded-full p-1">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        
+        <div class="flex items-center gap-3 mb-4 mt-1">
+            <div class="bg-indigo-100 p-2.5 rounded-xl text-indigo-600 text-xl shadow-sm">👀</div>
+            <h3 class="font-heading font-bold text-slate-900 text-lg leading-tight">Curieux de voir mes investissements ?</h3>
+        </div>
+        
+        <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+            Découvrez la composition exacte de mon portefeuille, mes lignes actuelles et mes performances en direct.
+        </p>
+        
+        <a href="portfolio.html" class="flex justify-center items-center w-full bg-slate-900 text-white font-bold py-3.5 rounded-xl hover:bg-slate-800 transition shadow-lg hover:-translate-y-0.5 transform duration-200">
+            Accéder gratuitement ➔
+        </a>
+        
+        <p class="text-[10px] text-slate-400 text-center mt-3 uppercase tracking-wider font-semibold">
+            * Nécessite un compte gratuit
+        </p>
+    </div>
+
     <footer class="bg-slate-950 py-12 border-t border-slate-900">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
@@ -409,6 +489,42 @@
             // 3. Années d'expérience
             const yearsEl = document.getElementById('home-years-count');
             if(yearsEl) yearsEl.textContent = (annualReturnPercent.length + 1) + ' Ans';
+        });
+        // --- GESTION DE LA POP-UP PORTFOLIO ---
+        const popup = document.getElementById('portfolio-popup');
+        const closeBtn = document.getElementById('close-popup');
+        const authBtnText = document.getElementById('header-auth-btn'); // On utilise le bouton du header comme indicateur
+
+        // 1. Fonction pour fermer la pop-up
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                popup.classList.remove('translate-y-0', 'opacity-100');
+                popup.classList.add('translate-y-[150%]', 'opacity-0');
+                // On enregistre dans la session pour ne plus l'embêter s'il a cliqué sur la croix
+                sessionStorage.setItem('SP_portfolioPopupClosed', 'true'); 
+            });
+        }
+
+        // 2. Déclenchement au scroll
+        window.addEventListener('scroll', () => {
+            // Si la pop-up a déjà été fermée par l'utilisateur, on annule tout
+            if (sessionStorage.getItem('SP_portfolioPopupClosed') === 'true') return;
+
+            // Astuce de pro : on vérifie si l'utilisateur est déconnecté 
+            // en regardant si le bouton du menu contient toujours le mot "Connexion"
+            const isLoggedOut = authBtnText && authBtnText.innerText.includes('Connexion');
+
+            // Si déconnecté, on calcule le scroll
+            if (isLoggedOut && popup) {
+                const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPosition = window.scrollY;
+                
+                // Si on a scrollé à plus de 50% de la page
+                if (scrollPosition / scrollHeight > 0.50) {
+                    popup.classList.remove('translate-y-[150%]', 'opacity-0');
+                    popup.classList.add('translate-y-0', 'opacity-100');
+                }
+            }
         });
     </script>
 <script type="module" src="./js/auth-guard.js"></script>

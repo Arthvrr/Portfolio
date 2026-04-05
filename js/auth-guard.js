@@ -12,23 +12,19 @@ onAuthStateChanged(auth, async (user) => {
     const loginBtn = document.getElementById('header-auth-btn');
     const currentPath = window.location.pathname;
     
-    // 1. Définition des accès
-    const isProtectedPage = currentPath.includes('formation');
-    const isPublicPage = [
-        'index.html', 
-        'login.html', 
-        'calculator.html', 
-        'pricing.html', 
-        'moatpicks.html',
-        '/'
-    ].some(page => currentPath.endsWith(page));
+    // 1. Définition des niveaux d'accès
+    // Pages Premium (Nécessite compte + paiement ou compte premium: true)
+    const isPremiumPage = currentPath.includes('formation');
+    
+    // Pages Membre Gratuit (Nécessite uniquement un compte)
+    const isAuthRequiredPage = currentPath.endsWith('portfolio.html') || currentPath.endsWith('account.html');
 
     if (user) {
         // Mise à jour visuelle des boutons (PC et Mobile)
         if (loginBtn) updateButtonToLoggedState(loginBtn, user);
 
         try {
-            console.group(`🔍 Vérification Formation : ${user.email}`);
+            console.group(`🔍 Vérification Accès : ${user.email}`);
 
             // A. Vérification du Paiement Unique (Le dossier 'payments' créé par Stripe)
             const paymentsRef = collection(db, "users", user.uid, "payments");
@@ -47,26 +43,35 @@ onAuthStateChanged(auth, async (user) => {
             }
 
             const canAccess = hasPaid || hasManualAccess;
-            console.log(canAccess ? "🟢 ACCÈS VALIDÉ" : "🔴 ACCÈS REFUSÉ");
+            console.log(canAccess ? "🟢 ACCÈS FORMATION VALIDÉ" : "🔴 ACCÈS FORMATION REFUSÉ");
             console.groupEnd();
 
-            // Redirection si l'utilisateur connecté n'a pas payé et tente d'entrer
-            if (isProtectedPage && !canAccess) {
+            // Redirection si l'utilisateur connecté n'a pas l'accès et tente d'entrer dans la formation
+            if (isPremiumPage && !canAccess) {
                 redirectToPricing();
                 return;
             }
+            
+            // Si c'est le portfolio, account.html, ou s'il a l'accès à la formation, on affiche
             revealPage();
 
         } catch (error) {
             console.error("Erreur sécurité:", error);
-            if (isProtectedPage) redirectToLogin(); else revealPage();
+            // En cas d'erreur de base de données, on sécurise en redirigeant
+            if (isPremiumPage) redirectToPricing(); 
+            else if (isAuthRequiredPage) redirectToLogin(); 
+            else revealPage();
         }
     } else {
         // Logique pour les utilisateurs NON CONNECTÉS
-        if (isProtectedPage || currentPath.endsWith('account.html')) {
+        if (isPremiumPage) {
+            // ✅ NOUVEAU : Redirige vers le tunnel de vente s'il clique sur la formation sans être connecté
+            redirectToPricing();
+        } else if (isAuthRequiredPage) {
+            // S'il veut voir le portfolio ou un compte sans être connecté, on lui demande de s'inscrire
             redirectToLogin();
         } else {
-            // Sur les pages publiques (index, pricing, etc.), on montre le bouton Login
+            // Sur les pages publiques (index, pricing, about, etc.), on montre le bouton Login et on affiche la page
             if (loginBtn) loginBtn.classList.remove('invisible');
             revealPage();
         }
