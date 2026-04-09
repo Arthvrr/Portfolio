@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.10. Quand acheter et renforcer ? | Formation StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles pour le contenu du cours */
+        .prose p { margin-bottom: 1.5rem; line-height: 1.8; color: #475569; text-align: justify; }
+        .prose h4 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-top: 3rem; margin-bottom: 1.5rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .prose strong { color: #0f172a; font-weight: 600; }
+        .prose ul, .prose ol { list-style: none; padding-left: 0; }
+        .prose li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
+        .prose ul li::before { content: "•"; color: #ea580c; font-weight: bold; position: absolute; left: 0; }
+        .prose ol { counter-reset: item; }
+        .prose ol li::before { content: counter(item) "."; counter-increment: item; color: #ea580c; font-weight: bold; position: absolute; left: 0; }
+        
+        /* Lightbox */
+        #imageViewer { backdrop-filter: blur(10px); }
+        .clickable-image { cursor: zoom-in; transition: transform 0.2s; }
+        .clickable-image:hover { transform: scale(1.01); }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../media/Logo/Logo-White.png" alt="Logo StocksPickeur" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <span class="font-heading font-bold text-xl text-slate-900 tracking-tight">StocksPickeur</span>
+            </a>
+
+            <div class="hidden xl:flex items-center gap-8">
+                <nav class="flex gap-6">
+                    <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Calculateur</a>
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Portefeuille</a>
+                    <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Analyses</a>
+                    <a href="../resources.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Ressources</a>
+                    <a href="../articles.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Articles</a>
+                    <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Formation</a>
+                    <a href="../about.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">À Propos</a>
+                </nav>
+
+                <div class="h-6 w-px bg-slate-200"></div>
+
+                <a href="../account.html" id="header-auth-btn" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Connexion
+                </a>
+            </div>
+
+            <div class="xl:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-slate-500 hover:text-slate-900 focus:outline-none p-2">
+                    <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden xl:hidden bg-white border-b border-slate-200 shadow-xl absolute w-full">
+        <nav class="flex flex-col px-4 pt-2 pb-6 space-y-3">
+            <a href="../calculator.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Calculateur</a>
+            <a href="../portfolio.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Portefeuille</a>
+            <a href="../moatpicks.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Analyses</a>
+            <a href="../resources.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Ressources</a>
+            <a href="../articles.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Articles</a>
+            <a href="../formation.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Formation</a>
+            <a href="../about.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">À Propos</a>
+            
+            <div class="border-t border-slate-100 pt-3 mt-2">
+                <a href="../account.html" id="mobile-auth-btn" class="flex justify-center w-full bg-slate-900 text-white font-bold px-5 py-3 rounded-xl hover:bg-slate-800 transition">
+                    <span id="mobile-nav-username">Connexion Espace Membre</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+    <main class="pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-orange-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="6.0.html" class="hover:text-orange-600 transition">Module 6</a></li>
+                <li>/</li>
+                <li class="text-orange-600 font-medium">Chapitre 6.10</li>
+            </ol>
+        </nav>
+
+        <div class="mb-12 border-b border-slate-200 pb-8">
+            <span class="text-orange-600 font-bold tracking-wider uppercase text-xs">Module 6 • Piloter son Portefeuille</span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">6.10. Quand acheter et renforcer ? 🛒</h1>
+        </div>
+
+        <div class="mb-10 not-prose"> 
+            <div class="flex items-center gap-2 mb-4">
+                <span class="bg-orange-100 text-orange-700 w-8 h-8 flex items-center justify-center rounded-lg text-lg">📺</span>
+                <h3 class="font-heading font-bold text-lg text-slate-900">Résumé du chapitre en vidéo</h3>
+            </div>
+            
+            <div class="rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-slate-900 aspect-video">
+                <video controls controlsList="nodownload" oncontextmenu="return false;" class="w-full h-full object-cover" preload="metadata">
+                    <source src="videos/6.10.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+            </div>
+        </div>
+
+        <article class="prose prose-slate max-w-none text-justify">
+            
+            <p>Savoir identifier une entreprise de qualité exceptionnelle est une compétence rare. Savoir estimer sa valeur intrinsèque est un atout mathématique. Mais savoir <strong>quand appuyer sur la détente</strong> pour initier une position ou renforcer une ligne existante est ce qui sépare les théoriciens des investisseurs à succès. </p>
+
+            <p>En Quality Investing, nous ne cherchons pas à "trader" la volatilité, mais à l'exploiter. La volatilité est le prix que nous payons pour obtenir des rendements supérieurs, et elle devient notre meilleure amie lorsqu'elle déconnecte temporairement le prix d'une action de sa réalité fondamentale. Dans ce chapitre, nous allons définir les protocoles stricts d'achat et de renforcement pour éviter les pièges émotionnels du marché.</p>
+
+            <h4>1. L'achat initial : L'entrée dans l'excellence</h4>
+            <p>Initier une position dans une nouvelle entreprise est un acte fort qui doit respecter trois conditions sine qua non :</p>
+            <ul class="text-justify">
+                <li><strong>La qualité est gravée dans le marbre :</strong> L'entreprise doit avoir passé avec succès le filtre des 15 critères (Module 5). Son Moat est intact, ses marges sont solides et sa direction est alignée.</li>
+                <li><strong>Le prix est attractif :</strong> On n'achète jamais une entreprise "à n'importe quel prix". L'achat intervient quand le cours de bourse offre une marge de sécurité par rapport à notre calcul de Fair Value (Chapitre 5.1).</li>
+                <li><strong>La structure du portefeuille le permet :</strong> L'achat est pertinent si le nombre de positions reste petit (portefeuille concentré, Chapitres 6.1 à 6.4). On ne "collectionne" pas les actions ; on alloue du capital là où la conviction est la plus forte.</li>
+            </ul>
+
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-xl my-8">
+                <p class="font-bold text-blue-900 mb-2">La citation à retenir 💬</p>
+                <p class="italic text-blue-800 m-0">"Il vaut beaucoup mieux acheter une entreprise extraordinaire à un prix ordinaire, qu'une entreprise ordinaire à un prix extraordinaire."<br>— <strong>Warren Buffett</strong></p>
+            </div>
+
+            <h4>2. L'art du renforcement : Accumuler quand le marché doute</h4>
+            <p>Renforcer une ligne déjà présente en portefeuille est souvent plus difficile psychologiquement que l'achat initial, car cela implique de moyenner son prix, parfois à la baisse. C'est pourtant là que se bâtissent les plus grandes fortunes. Voici quand vous devez renforcer :</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/msft-opportunity.jpg')">
+                <img src="../media/Formation/msft-opportunity.jpg" 
+                     alt="Graphique Microsoft : Cours vs Free Cash Flow Flow" 
+                     class="clickable-image rounded-xl shadow-lg w-full object-cover group-hover:opacity-95 transition bg-white p-4">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Étude de cas : Observez la déconnexion brutale. Alors que le cours de bourse subit une correction, le Free Cash Flow continue sa trajectoire ascendante. C'est la configuration de renforcement parfaite : le prix baisse alors que la capacité de l'entreprise à générer du cash s'améliore.</figcaption>
+            </figure>
+
+            <p>Un renforcement intelligent repose sur quatre piliers :</p>
+            <ul class="text-justify">
+                <li><strong>Retour à une valorisation attrayante :</strong> Une entreprise que vous aimiez à 200€ devient mathématiquement deux fois plus intéressante à 150€, si ses bénéfices n'ont pas bougé.</li>
+                <li><strong>Amélioration des fondamentaux :</strong> Si le cash-flow augmente ou que les marges s'étendent alors que le prix stagne, l'asymétrie de rendement devient explosive.</li>
+                <li><strong>Déconnexion Sentiment vs Chiffres :</strong> C'est le cas le plus fréquent. Le marché "a peur" d'un facteur macroéconomique ou d'une news court-termiste, mais les rapports financiers (les chiffres) restent excellents.</li>
+                <li><strong>Achats d'Insiders :</strong> Si les dirigeants de l'entreprise achètent massivement des titres avec leur propre argent à ces niveaux de prix, c'est un signal de confiance que vous ne devez pas ignorer.</li>
+            </ul>
+
+            <h4>3. La Matrice de décision StocksPickeur</h4>
+            <p>Pour simplifier votre pilotage, voici la matrice de réaction que vous devez appliquer froidement face aux mouvements de marché :</p>
+
+            <div class="grid md:grid-cols-3 gap-4 my-8">
+                <div class="bg-emerald-50 border border-emerald-100 p-6 rounded-xl text-center">
+                    <div class="text-2xl mb-2">📉 + ✅</div>
+                    <div class="font-bold text-emerald-800">Prix baisse + Fondamentaux OK</div>
+                    <div class="text-emerald-600 font-bold mt-2">➔ RENFORCER</div>
+                </div>
+                <div class="bg-red-50 border border-red-100 p-6 rounded-xl text-center">
+                    <div class="text-2xl mb-2">📉 + ❌</div>
+                    <div class="font-bold text-red-800">Prix baisse + Fondamentaux dégradés</div>
+                    <div class="text-red-600 font-bold mt-2">➔ ÉVITER / SORTIR</div>
+                </div>
+                <div class="bg-indigo-50 border border-indigo-100 p-6 rounded-xl text-center">
+                    <div class="text-2xl mb-2">📈 + ✅</div>
+                    <div class="font-bold text-indigo-800">Prix monte + Fondamentaux OK</div>
+                    <div class="text-indigo-600 font-bold mt-2">➔ CONSERVER</div>
+                </div>
+            </div>
+
+            <h4>4. Différencier "Moyenne à la baisse" et "Renforcement"</h4>
+            <p>Une erreur tragique des investisseurs débutants est de pratiquer la <strong>moyenne à la baisse (Averaging Down) de manière aveugle</strong>. Cela consiste à racheter des actions d'une entreprise médiocre simplement parce que son prix s'effondre, dans le seul but de diminuer artificiellement son Prix de Revient Unitaire (PRU) et d'espérer "se refaire" plus vite au moindre rebond.</p>
+            <p>C'est ce qu'on appelle attraper un couteau qui tombe. Dans notre stratégie, nous ne faisons <strong>jamais</strong> de moyenne à la baisse sur un titre dont les fondamentaux se dégradent (la fameuse case rouge de notre matrice). Nous ne faisons que <strong>renforcer</strong> nos positions sur des "Compounders" dont la valeur intrinsèque augmente, mais dont le prix a été temporairement sanctionné par la volatilité du marché.</p>
+
+            <h4>5. Le Pyramidage et le Poids Maximal</h4>
+            <p>Même face à la meilleure opportunité du monde, la gestion du risque prime toujours. Plutôt que de rentrer "All-in" sur un renforcement, utilisez la technique du <strong>Pyramidage</strong>. Cela consiste à construire sa position par paliers.</p>
+            <p>Par exemple, si vous souhaitez allouer 4 000€ supplémentaires à une position : vous pouvez entrer à 50% (2 000€) au prix actuel, garder 25% (1 000€) si le prix chute encore de 10% sans raison fondamentale, et les 25% restants pour une ultime baisse irrationnelle. </p>
+            <p>Attention cependant à votre <strong>limite de concentration</strong> (rappel du Chapitre 6.3). Définissez une règle stricte : <em>"Même si LVMH perd 30% et que c'est une affaire en or massif, je ne renforce plus si la ligne représente déjà 20% de mon portefeuille global."</em> Ne sacrifiez jamais la survie de votre portefeuille sur l'autel d'une seule bonne affaire.</p>
+
+            <h4>6. La psychologie du "Bottom" (Le point le plus bas)</h4>
+            <p>Le blocage mental le plus fréquent lors d'une baisse des marchés s'appelle le FOMO inversé (ou l'avarice). Vous voyez une entreprise de qualité dont la valorisation est excellente, mais vous hésitez à appuyer sur le bouton "Acheter". Pourquoi ? Parce que vous vous dites : <em>"Et si ça baissait encore demain de 5% ?"</em></p>
+
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-xl my-8">
+                <p class="font-bold text-blue-900 mb-2">La citation à retenir 💬</p>
+                <p class="italic text-blue-800 m-0">"N'essayez pas d'acheter au plus bas et de vendre au plus haut. Seuls les menteurs y parviennent."<br>— <strong>Bernard Baruch</strong></p>
+            </div>
+
+            <p>Retenez ceci : il est mathématiquement impossible d'attraper le "bottom" exact, sauf par une chance pure. Notre objectif n'est pas d'acheter au prix le plus bas de l'histoire, mais d'acheter <strong>en dessous de la valeur intrinsèque</strong>. Si l'action vaut 100€ et que vous l'achetez à 70€, vous faites une excellente affaire. Qu'elle descende temporairement à 65€ la semaine suivante ne change rien à la rentabilité de votre investissement à 10 ans.</p>
+
+            <h4>7. Exploiter l'erreur du marché : L'anatomie d'une déconnexion</h4>
+            <p>Pour illustrer concrètement le "combo gagnant" de notre matrice (stratégie GARP), plongeons dans l'une des déconnexions récentes les plus fascinantes du marché boursier. Les renforcements les plus lucratifs interviennent toujours lorsque vous parvenez à identifier une panique irrationnelle, où le sentiment général s'effondre alors que les fondamentaux s'envolent.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/magnificent-seven-vs-s&p500.jpeg')">
+                <img src="../media/Formation/magnificent-seven-vs-s&p500.jpeg" 
+                     alt="Graphique S&P 500 vs Mag Seven - Analyse de sentiment" 
+                     class="clickable-image rounded-xl shadow-lg w-full object-cover group-hover:opacity-95 transition bg-white p-4">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">L'illusion du marché à court terme : Ce graphique représente le rendement (Total Return) du groupe des "Magnificent Seven" (la ligne rouge). Observez cette sévère capitulation frôlant les -14%. À cet instant précis, la presse titre sur la "fin de la bulle technologique" et les investisseurs cèdent à la panique en vendant leurs meilleures actions.</figcaption>
+            </figure>
+
+            <p>Face à ce premier graphique, la réaction humaine normale est la peur. C'est l'émotion qui dicte les mouvements de marché à court terme. Mais l'investisseur <em>Quality</em> sait que le cours de bourse n'est qu'un thermomètre des humeurs. Au lieu de regarder le prix qui chute, nous devons soulever le capot et analyser la réalité du business : que font les véritables bénéfices de ces entreprises pendant cette période de "crise" ?</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/earnings-magnificient-seven-vs-s&p-500.png')">
+                <img src="../media/Formation/earnings-magnificient-seven-vs-s&p-500.png" 
+                     alt="Croissance des bénéfices attendus Mag 7 vs S&P 493" 
+                     class="clickable-image rounded-xl shadow-lg w-full object-cover group-hover:opacity-95 transition bg-white p-4">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">La réalité des fondamentaux : Pendant que les cours de ces mêmes entreprises s'effondraient sous la panique (graphique précédent), leurs perspectives de bénéfices (EPS - ligne bleue) explosaient littéralement à la hausse, écrasant le reste du marché (ligne noire). Les entreprises généraient plus de cash et renforçaient leurs monopoles.</figcaption>
+            </figure>
+
+            <p>Voici la définition même de la <strong>Déconnexion</strong>. Le prix de l'actif (ce que vous payez) baissait violemment, tandis que sa valeur intrinsèque et ses bénéfices (ce que vous obtenez) augmentaient agressivement. </p>
+            <p>C'est exactement dans cet interstice, lorsque le marché, aveuglé par des peurs macroéconomiques (taux d'intérêts, inflation), offre des leaders mondiaux avec un "discount" massif, que vous devez appuyer sur le bouton "Renforcer". Ce n'est plus un pari risqué, c'est une exécution mathématique et rationnelle du Quality Investing.</p>
+            <p><strong>Règle d'or absolue :</strong> N'oubliez jamais que cette stratégie ne fonctionne que si la partie qualitative (le Moat) reste intacte. Si une entreprise chute parce qu'elle perd un avantage concurrentiel ou que sa dette étouffe son bilan, ce n'est pas une opportunité, c'est un "Value Trap" (piège à valeur).</p>
+
+            <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-8 mt-12 shadow-sm">
+                <h5 class="text-xl font-bold text-emerald-800 mb-4 flex items-center">
+                    <span class="bg-emerald-200 text-emerald-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">🔑</span> 
+                    Ce qu'il faut retenir
+                </h5>
+                <p class="text-emerald-900 m-0 leading-relaxed">
+                    Investir, c'est avant tout un combat contre soi-même. Acheter quand tout va bien est facile, mais renforcer une ligne quand le cours affiche -15% et que Twitter hurle à la fin du monde demande une conviction de fer. Cette conviction ne s'invente pas : elle naît de votre travail d'analyse préalable. <br>
+                    Si vous avez fait vos devoirs sur le Moat et le Free Cash Flow, une baisse de prix n'est plus une source de stress, mais une opportunité de soldes sur l'excellence. Soyez l'acheteur rationnel quand le marché est émotionnel.
+                </p>
+            </div>
+
+        </article>
+
+        <div class="flex justify-between items-center mt-16 pt-8 border-t border-slate-200">
+            <a href="6.9.html" class="text-slate-500 hover:text-orange-600 font-medium transition flex items-center group">
+                <span class="group-hover:-translate-x-1 transition-transform mr-2">←</span> Chapitre Précédent
+            </a>
+            <a href="6.11.html" class="bg-orange-600 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-700 transition shadow-lg shadow-orange-200 flex items-center group">
+                Chapitre Suivant<span class="group-hover:translate-x-1 transition-transform ml-2">→</span>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <div id="imageViewer" class="fixed inset-0 z-[60] hidden bg-slate-900/90 backdrop-blur-sm transition-opacity duration-300" onclick="closeViewer()">
+        <span class="absolute top-5 right-8 text-white text-5xl cursor-pointer hover:text-slate-300 transition">&times;</span>
+        <img class="m-auto block max-w-[95%] max-h-[90vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded shadow-2xl" id="enlargedImg">
+    </div>
+
+    <script>
+        var modal = document.getElementById("imageViewer");
+        var modalImg = document.getElementById("enlargedImg");
+
+        function openViewer(src) {
+            modal.style.display = "block";
+            modalImg.src = src;
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeViewer() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+        
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeViewer();
+            }
+        });
+
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
+    </script>
+<script type="module" src="../js/auth-guard.js"></script>
+</body>
+</html>
