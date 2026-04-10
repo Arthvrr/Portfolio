@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.11. Quand Vendre ? | Formation StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles pour le contenu du cours */
+        .prose p { margin-bottom: 1.5rem; line-height: 1.8; color: #475569; text-align: justify; }
+        .prose h4 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-top: 3rem; margin-bottom: 1.5rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .prose strong { color: #0f172a; font-weight: 600; }
+        .prose ul, .prose ol { list-style: none; padding-left: 0; }
+        .prose li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
+        .prose ul li::before { content: "•"; color: #ea580c; font-weight: bold; position: absolute; left: 0; }
+        .prose ol { counter-reset: item; }
+        .prose ol li::before { content: counter(item) "."; counter-increment: item; color: #ea580c; font-weight: bold; position: absolute; left: 0; }
+        
+        /* Lightbox */
+        #imageViewer { backdrop-filter: blur(10px); }
+        .clickable-image { cursor: zoom-in; transition: transform 0.2s; }
+        .clickable-image:hover { transform: scale(1.01); }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../media/Logo/Logo-White.png" alt="Logo StocksPickeur" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <span class="font-heading font-bold text-xl text-slate-900 tracking-tight">StocksPickeur</span>
+            </a>
+
+            <div class="hidden xl:flex items-center gap-8">
+                <nav class="flex gap-6">
+                    <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Calculateur</a>
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Portefeuille</a>
+                    <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Analyses</a>
+                    <a href="../resources.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Ressources</a>
+                    <a href="../articles.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Articles</a>
+                    <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Formation</a>
+                    <a href="../about.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">À Propos</a>
+                </nav>
+
+                <div class="h-6 w-px bg-slate-200"></div>
+
+                <a href="../account.html" id="header-auth-btn" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Connexion
+                </a>
+            </div>
+
+            <div class="xl:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-slate-500 hover:text-slate-900 focus:outline-none p-2">
+                    <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden xl:hidden bg-white border-b border-slate-200 shadow-xl absolute w-full">
+        <nav class="flex flex-col px-4 pt-2 pb-6 space-y-3">
+            <a href="../calculator.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Calculateur</a>
+            <a href="../portfolio.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Portefeuille</a>
+            <a href="../moatpicks.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Analyses</a>
+            <a href="../resources.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Ressources</a>
+            <a href="../articles.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Articles</a>
+            <a href="../formation.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Formation</a>
+            <a href="../about.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">À Propos</a>
+            
+            <div class="border-t border-slate-100 pt-3 mt-2">
+                <a href="../account.html" id="mobile-auth-btn" class="flex justify-center w-full bg-slate-900 text-white font-bold px-5 py-3 rounded-xl hover:bg-slate-800 transition">
+                    <span id="mobile-nav-username">Connexion Espace Membre</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+    <main class="pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-orange-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="6.0.html" class="hover:text-orange-600 transition">Module 6</a></li>
+                <li>/</li>
+                <li class="text-orange-600 font-medium">Chapitre 6.11</li>
+            </ol>
+        </nav>
+
+        <div class="mb-12 border-b border-slate-200 pb-8">
+            <span class="text-orange-600 font-bold tracking-wider uppercase text-xs">Module 6 • Piloter son Portefeuille</span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">6.11. Quand Vendre ? 🛑</h1>
+        </div>
+
+        <div class="mb-10 not-prose"> 
+            <div class="flex items-center gap-2 mb-4">
+                <span class="bg-orange-100 text-orange-700 w-8 h-8 flex items-center justify-center rounded-lg text-lg">📺</span>
+                <h3 class="font-heading font-bold text-lg text-slate-900">Résumé du chapitre en vidéo</h3>
+            </div>
+            
+            <div class="rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-slate-900 aspect-video">
+                <video controls controlsList="nodownload" oncontextmenu="return false;" class="w-full h-full object-cover" preload="metadata">
+                    <source src="videos/6.11.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+            </div>
+        </div>
+
+        <article class="prose prose-slate max-w-none text-justify">
+            
+            <p>Savoir acheter la bonne entreprise au bon moment est une science mathématique et analytique. Mais savoir exactement quand s'en séparer est un véritable art psychologique. C'est sans doute la décision la plus complexe et la plus contre-intuitive de l'investissement en bourse.</p>
+
+            <p>Poussés par l'ego, l'impatience ou la peur de perdre leurs gains latents, l'écrasante majorité des investisseurs commettent une erreur fatale : ils coupent leurs positions gagnantes beaucoup trop tôt, et conservent leurs positions perdantes beaucoup trop longtemps en espérant secrètement qu'elles remonteront à leur prix d'achat initial. En <em>Quality Investing</em>, la décision de vente doit être diamétralement opposée : elle doit être binaire, froide, implacable, et <strong>totalement détachée des fluctuations du cours de l'action</strong>.</p>
+
+            <h4>1. La psychologie de la vente : L'erreur de couper ses fleurs</h4>
+            <p>Abordons d'emblée la pire raison de vendre une action : s'en séparer uniquement parce que son prix a fortement augmenté. Le légendaire gérant de fonds Peter Lynch décrivait ce comportement destructeur de performance comme le fait de <em>"couper ses fleurs pour arroser ses mauvaises herbes"</em>.</p>
+            <p>Si vous avez eu l'intelligence d'identifier une entreprise exceptionnelle, avec un Moat profond et des dirigeants visionnaires, et que cette entreprise fait exactement ce que vous attendiez d'elle (augmenter ses parts de marché et ses bénéfices d'année en année), pourquoi diable la vendre ? Son prix monte simplement parce que sa valeur intrinsèque monte en parallèle. <strong>Ne punissez jamais une entreprise parce qu'elle réussit brillamment.</strong> L'essence même de notre stratégie est de laisser les intérêts composés faire leur travail sur des décennies. Si une position devient "trop grosse" dans votre portefeuille à cause de son succès fulgurant, nous ne la coupons pas aveuglément : nous utilisons des techniques de "rééquilibrage" que nous étudierons en détail dans le prochain chapitre (6.12).</p>
+
+            <h4>2. Raison Valable n°1 : La fissure de l'Avantage Compétitif (Le Moat)</h4>
+            <p>La première véritable raison qui doit déclencher une vente immédiate et sans état d'âme est la destruction de la partie qualitative de votre thèse d'investissement : la perte de l'avantage concurrentiel.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/MOAT.jpeg')">
+                <img src="../media/Formation/MOAT.jpeg" 
+                     alt="Illustration du concept de Moat avec un château fort" 
+                     class="clickable-image rounded-xl shadow-lg w-full max-w-md mx-auto object-cover group-hover:opacity-95 transition bg-white p-4">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Rappel fondamental du <a href="4.3.html" class="text-orange-600 hover:underline font-medium">Chapitre 4.3</a> : Le Moat agit comme les douves d'un château fort, protégeant l'entreprise des assauts incessants de ses concurrents. Si ces douves s'assèchent, l'entreprise devient une cible facile et sa rentabilité future est condamnée.</figcaption>
+            </figure>
+
+            <p>Un <em>Compounder</em> perd son Moat lorsque des changements structurels profonds (et non de simples vents contraires temporaires) menacent sa pérennité. Les signaux d'alerte rouge sont clairs :</p>
+            <ul class="text-justify">
+                <li><strong>La disruption technologique :</strong> Un concurrent lance une innovation majeure qui rend le cœur de métier de votre entreprise obsolète (l'exemple classique de Blockbuster face au streaming, ou de Kodak face au numérique).</li>
+                <li><strong>La perte du "Pricing Power" :</strong> L'entreprise est obligée de baisser ses prix ou de faire des promotions massives pour maintenir ses ventes, prouvant que sa marque n'est plus perçue comme "Premium" par les consommateurs.</li>
+                <li><strong>Un changement de direction désastreux :</strong> Le nouveau PDG déploie très mal le capital (acquisitions hors de prix, perte de la culture d'entreprise, endettement excessif pour financer des rachats d'actions artificiels).</li>
+            </ul>
+
+            <h4>3. Raison Valable n°2 : La dégradation sévère des Fondamentaux</h4>
+            <p>La finance obéit à une loi mathématique stricte : la détérioration de la partie qualitative d'une entreprise (son Moat) finit toujours par se traduire de manière visible dans la partie quantitative (ses états financiers). Les deux sont indissociables. Si le château est attaqué, les réserves d'or s'épuisent rapidement.</p>
+            
+            <p>Vous devez acter la vente si vous observez une compression durable et structurelle des métriques clés de rentabilité que nous avons analysées au Module 5. Une mauvaise année macroéconomique est acceptable, mais une tendance baissière sur 3 ou 5 ans est une preuve de déclin.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/nike-margins.png')">
+                <img src="../media/Formation/nike-margins.png" 
+                     alt="Graphique illustrant l'effondrement des marges de Nike" 
+                     class="clickable-image rounded-xl shadow-lg w-full object-cover group-hover:opacity-95 transition bg-white p-4">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">L'anatomie d'une thèse brisée : Sur une période de 5 ans, la marge bénéficiaire nette (Net Profit Margin) de Nike a plongé de manière dramatique pour atteindre 4.84% (-62.39%). En parallèle, sa marge brute s'est également effritée de -9.10%. Cette double contraction illustre parfaitement une perte flagrante de pouvoir de fixation des prix face à une concurrence féroce.</figcaption>
+            </figure>
+
+            <p>Ces signaux quantitatifs imposent une réévaluation drastique (et souvent une vente) :</p>
+            <ul class="text-justify">
+                <li><strong>L'effondrement chronique du Free Cash Flow :</strong> L'entreprise consomme plus d'argent qu'elle n'en génère de manière systémique, détruisant la valeur pour l'actionnaire.</li>
+                <li><strong>La détérioration du bilan comptable :</strong> L'explosion incontrôlée de la dette à court terme transforme une entreprise solide en un château de cartes vulnérable aux cycles économiques.</li>
+                <li><strong>La destruction de la rentabilité des capitaux (ROIC) :</strong> L'entreprise continue d'investir des milliards de dollars en Recherche & Développement ou en marketing, mais ces investissements ne produisent plus aucun rendement additionnel.</li>
+            </ul>
+
+            <h4>4. L'Exception Stratégique : Vendre pour un "Meilleur Coût d'Opportunité"</h4>
+            <p>Il existe une unique exception à la règle absolue de l'investisseur <em>buy-and-hold</em>. Même si une entreprise de votre portefeuille se porte bien et que son Moat reste parfaitement intact, il peut s'avérer rationnel de s'en séparer. Pourquoi ? À cause du <strong>coût d'opportunité</strong>.</p>
+            <p>Imaginez que vous ayez déniché une opportunité d'investissement nettement supérieure : un leader mondial avec un Moat encore plus large, dont la valorisation vient de subir un krach totalement irrationnel. Si votre poche de liquidités (votre <em>Dry Powder</em>) est vide, vous êtes coincé. Dans ce cas très précis, vendre une entreprise mature de votre portefeuille — qui a déjà délivré une grande partie de sa performance historique — pour réallouer ce capital vers la "pépite de la décennie" est une décision tactique brillante. L'objectif global de la gestion de portefeuille est de toujours orienter votre capital vers l'asymétrie de rendement la plus explosive.</p>
+
+            <h4>5. L'Humilité de l'Investisseur : L'Erreur de la Thèse Initiale</h4>
+            <p>Parfois, l'entreprise n'a pas fondamentalement changé... C'est simplement notre analyse de départ qui était complètement fausse. L'investissement est un art probabiliste, et en tant qu'humains, nous sommes faillibles. Vous pouvez avoir surestimé la puissance d'une marque, mal calculé la valeur intrinsèque (Fair Value), ou totalement sous-estimé l'intensité de la concurrence sur un secteur d'activité.</p>
+            <p>Si vous réalisez au fil du temps que votre thèse initiale reposait sur des hypothèses erronées, il faut vendre. Immédiatement.</p>
+            <p>La plus grande erreur destructrice de richesse à ce stade est de tomber dans le <strong>Biais d'ancrage</strong> (Anchoring Bias). C'est cette petite voix insidieuse dans votre tête qui murmure : <em>"L'action affiche -20% dans mon portefeuille, je refuse d'acter la perte. Je vais la garder patiemment jusqu'à ce qu'elle remonte à mon prix d'achat pour la vendre à l'équilibre."</em></p>
+            <p>C'est une absurdité mathématique. Le marché ne sait pas à quel prix vous avez acheté cette action, et il s'en moque éperdument. Si votre thèse est fausse, vendez. Acceptez la perte, libérez votre capital, et réinvestissez cet argent dans un véritable "Compounder" qui travaillera pour vous.</p>
+
+            <h4>6. La Friction Fiscale (Le Tax Drag) : L'ennemi invisible de la vente</h4>
+            <p>Si les chapitres précédents ne vous ont pas encore convaincu de garder vos bonnes actions le plus longtemps possible, voici une raison mathématique et financière implacable : la friction fiscale (le <em>Tax Drag</em>).</p>
+            <p>Chaque fois que vous vendez une action gagnante simplement pour "prendre vos profits", vous déclenchez un événement fiscal immédiat qui ampute sévèrement votre capital. Ce capital qui part en impôts ne pourra plus jamais produire d'intérêts composés pour vous dans le futur.</p>
+            
+            <p><em>(Avertissement : Je ne suis ni expert-comptable ni avocat fiscaliste. La fiscalité est un domaine complexe qui peut évoluer rapidement. Il est impératif de vérifier les lois en vigueur ou de consulter un professionnel pour votre situation personnelle).</em></p>
+
+            <p>Prenons des exemples concrets pour illustrer l'impact massif de la fiscalité :</p>
+            <ul class="text-justify">
+                <li><strong>En France 🇫🇷 :</strong> La fiscalité par défaut sur les plus-values boursières (hors enveloppe fiscale avantageuse comme le PEA) est soumise au Prélèvement Forfaitaire Unique (PFU) dit "Flat Tax". Ce taux s'élève à 30 % au total (comprenant 12,8 % d'impôt sur le revenu et 17,2 % de prélèvements sociaux). Cela signifie que vendre une action gagnante vous ampute instantanément de près d'un tiers de vos profits bruts ! Une fine consolation réside dans le fait que l'administration fiscale française permet de déduire vos moins-values des plus-values de même nature réalisées au cours de la même année ; l'éventuel excédent de perte restant reportable pour les 10 années suivantes.</li>
+                <li><strong>En Belgique 🇧🇪 :</strong> La donne est en train de changer de manière très significative. Historiquement perçue comme un eldorado fiscal pour les investisseurs "en bon père de famille" concernant les plus-values boursières, la législation a évolué. Notamment, avec les nouvelles réformes en vigueur, les moins-values réalisées à partir du 1er janvier 2026 pourront désormais être déduites des plus-values réalisées au cours de la même année. C'est l'introduction d'un mécanisme de compensation qui rapproche la Belgique des standards de ses pays voisins.</li>
+            </ul>
+            <p>Quel que soit votre pays de résidence, la leçon magistrale reste inchangée : <strong>retarder l'imposition en conservant vos titres de qualité le plus longtemps possible (le "report d'imposition latent") est l'un des leviers d'enrichissement les plus puissants en bourse.</strong> Vendre fréquemment vous appauvrit inévitablement sur le moment.</p>
+
+            <h4>7. Le piège de la Volatilité : Ne vendez jamais pendant une correction</h4>
+            <p>Il est vital de faire la distinction ultime entre un "risque fondamental" (l'entreprise perd ses clients et va faire faillite) et la "volatilité" (le marché tout entier baisse de 15% car les investisseurs ont peur de l'inflation). Vendre une entreprise magnifique de classe mondiale simplement parce que le marché global subit une correction est une erreur impardonnable. </p>
+
+            <p>Les marchés financiers sont, par nature, volatils à court terme. Les baisses ne sont pas des anomalies, ce sont les "frais d'entrée" que vous devez payer émotionnellement pour accéder à la performance exceptionnelle des actions sur le long terme.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/perf-annuelles-vs-pertes.png')">
+                <img src="../media/Formation/perf-annuelles-vs-pertes.png" 
+                     alt="Graphique J.P. Morgan : Performances annuelles vs reculs en cours d'année" 
+                     class="clickable-image rounded-xl shadow-lg w-full object-cover group-hover:opacity-95 transition bg-white p-4">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">L'illusion du risque à court terme : Ce graphique d'analyse publié par J.P. Morgan Asset Management compare les performances de l'indice MSCI World sur l'année civile (les barres grises) par rapport aux pires reculs subis en cours d'année (les points rouges). Le constat statistique est retentissant : bien que le marché subisse un recul moyen en cours d'année très angoissant de 14.6%, les performances annuelles terminent malgré tout dans le vert pour 29 années sur les 40 étudiées. La baisse est normale.</figcaption>
+            </figure>
+
+            <p>Ce graphique est la preuve irréfutable que la volatilité intra-annuelle est inévitable. Si vous vendez vos actions de qualité sous l'effet de la panique à chaque fois qu'un point rouge apparaît sur ce graphique (une baisse de 10% ou 15% au printemps ou à l'automne), vous vous privez systématiquement des puissantes barres grises (les rendements positifs en fin d'année). En <em>Quality Investing</em>, <strong>une baisse générale des marchés n'est jamais un signal de vente, c'est une formidable opportunité d'achat pour renforcer ses positions (comme vu au chapitre 6.10).</strong></p>
+
+            <h4>8. La Règle Ultime : La Conviction face à la Baisse</h4>
+            <p>Pour résumer toute cette philosophie, voici la règle ultime qui doit guider vos décisions : <strong>ne vendez jamais tant que vous croyez fondamentalement en l'entreprise.</strong> Une baisse du cours de l'action de 10 %, 20 % ou même 40 % ne veut absolument rien dire si les fondamentaux restent solides et que le Moat est toujours en place.</p>
+            
+            <p>Le marché boursier est un outil de transfert de richesse des investisseurs impatients vers les investisseurs patients. Lorsque vous voyez votre position dans le rouge, votre premier réflexe ne doit pas être d'ouvrir votre courtier pour vendre, mais d'ouvrir les rapports financiers de l'entreprise. L'entreprise continue-t-elle de générer du cash ? Ses produits sont-ils toujours demandés par les consommateurs ? Ses avantages concurrentiels sont-ils intacts ? Si la réponse est oui, alors votre conviction doit rester inébranlable et totale. Le prix finira toujours, à long terme, par s'aligner mathématiquement sur la valeur réelle de l'entreprise. Ne laissez pas la panique ambiante ou l'irrationalité des autres investisseurs dicter vos propres décisions d'investissement.</p>
+
+            <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-8 mt-12 shadow-sm">
+                <h5 class="text-xl font-bold text-emerald-800 mb-4 flex items-center">
+                    <span class="bg-emerald-200 text-emerald-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">🔑</span> 
+                    Ce qu'il faut retenir
+                </h5>
+                <p class="text-emerald-900 m-0 leading-relaxed">
+                    La décision de vendre une position ne doit jamais, au grand jamais, être dictée par les fluctuations émotionnelles du cours de l'action ou par le bruit macroéconomique. Ne coupez pas vos entreprises gagnantes simplement pour le plaisir de sécuriser des profits et de déclencher inutilement une imposition fiscale pénalisante.<br><br>
+                    La vente ne s'envisage que dans des cas froids et analytiques : la thèse a changé (l'entreprise perd son Moat ou ses fondamentaux s'effondrent), la thèse était fausse dès le départ, ou un meilleur coût d'opportunité s'est présenté. Si l'entreprise reste exceptionnelle et que vous croyez en ses fondamentaux, fermez votre application de courtage, encaissez la volatilité avec philosophie, et laissez vos intérêts composés opérer en paix.
+                </p>
+            </div>
+
+        </article>
+
+        <div class="flex justify-between items-center mt-16 pt-8 border-t border-slate-200">
+            <a href="6.10.html" class="text-slate-500 hover:text-orange-600 font-medium transition flex items-center group">
+                <span class="group-hover:-translate-x-1 transition-transform mr-2">←</span> Chapitre Précédent
+            </a>
+            <a href="6.12.html" class="bg-orange-600 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-700 transition shadow-lg shadow-orange-200 flex items-center group">
+                Chapitre Suivant<span class="group-hover:translate-x-1 transition-transform ml-2">→</span>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <div id="imageViewer" class="fixed inset-0 z-[60] hidden bg-slate-900/90 backdrop-blur-sm transition-opacity duration-300" onclick="closeViewer()">
+        <span class="absolute top-5 right-8 text-white text-5xl cursor-pointer hover:text-slate-300 transition">&times;</span>
+        <img class="m-auto block max-w-[95%] max-h-[90vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded shadow-2xl" id="enlargedImg">
+    </div>
+
+    <script>
+        var modal = document.getElementById("imageViewer");
+        var modalImg = document.getElementById("enlargedImg");
+
+        function openViewer(src) {
+            modal.style.display = "block";
+            modalImg.src = src;
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeViewer() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+        
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeViewer();
+            }
+        });
+
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
+    </script>
+<script type="module" src="../js/auth-guard.js"></script>
+</body>
+</html>
