@@ -208,6 +208,22 @@ var futureDividendsReceived = []; //Tableau qui va contenir le montant brut esti
 
 var USASalesPercentage = [0.16,0.487,0.7,0.513,0.469,0.391]
 
+var transactionsperYear = [0,70,21,18]
+var buysPerYear = [0,37,6,11]
+var sellsPerYear = [0,12,1,3]
+var depositsPerYear = [0,20,13,4]
+var withdrawalsPerYear = [0,1,1,0]
+
+var TOBTax = 120.74;
+var DegiroTax = 119.00;
+var otherTax = 2.46;
+
+var stocksTaxes = [3637.07, 2944.82, 1526.96, 2998.43, 3174.7, 2495.34, 13140.25] //ASML, GOOGL, MA, MSFT, NVDA, V, Old Stocks
+var stocksVsNotPFTaxes = [100.73,141.47]
+
+var TransactionsAmountPerType = [25397.89, 9053.85, 17110, 110] //Achat, vente, dépôt, retrait
+
+
 //FONCTIONS 
 
 //Obtenir le taux de change Dollar-Euro avec ExchangeRate
@@ -2907,6 +2923,302 @@ function draw36(USASalesPercentage) {
     });
 }
 
+function draw37(buysPerYear, sellsPerYear, depositsPerYear, withdrawalsPerYear) {
+    var ctx = document.getElementById('37Chart').getContext('2d');
+
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: years, // L'axe X avec tes années
+            datasets: [
+                {
+                    label: 'Achat',
+                    data: buysPerYear,
+                    backgroundColor: 'rgba(147, 196, 125, 0.8)', // Vert
+                    borderColor: 'rgba(147, 196, 125, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Vente',
+                    data: sellsPerYear,
+                    backgroundColor: 'rgba(224, 102, 102, 0.8)', // Rouge
+                    borderColor: 'rgba(224, 102, 102, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Dépôt',
+                    data: depositsPerYear,
+                    backgroundColor: 'rgba(109, 158, 235, 0.8)', // Bleu
+                    borderColor: 'rgba(109, 158, 235, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Retrait',
+                    data: withdrawalsPerYear,
+                    backgroundColor: 'rgba(246, 178, 107, 0.8)', // Orange
+                    borderColor: 'rgba(246, 178, 107, 1)',
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom',
+                    reverse: true // Inverse l'ordre pour coller à l'empilement
+                },
+                title: {
+                    display: true,
+                    text: 'Nombre total de Transactions par an',
+                    position: 'top',
+                    font: {
+                        size: 16
+                    }
+                },
+                tooltip: {
+                    mode: 'index',
+                    intersect: false
+                }
+            },
+            scales: {
+                x: {
+                    stacked: true, // Empile les barres
+                },
+                y: {
+                    stacked: true, // Empile les barres
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Nombre de Transactions'
+                    }
+                }
+            }
+        }
+    });
+}
+
+function draw38(numBuys, numSells, numDeposits, numWithdrawals) {
+    var ctx = document.getElementById('38Chart').getContext('2d');
+
+    var myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Achats', 'Ventes', 'Dépôts', 'Retraits'],
+            datasets: [{
+                data: [numBuys, numSells, numDeposits, numWithdrawals],
+                backgroundColor: [
+                    'rgba(147, 196, 125, 0.8)', // Vert
+                    'rgba(224, 102, 102, 0.8)', // Rouge
+                    'rgba(109, 158, 235, 0.8)', // Bleu
+                    'rgba(246, 178, 107, 0.8)'  // Orange
+                ],
+                borderColor: [
+                    'rgba(147, 196, 125, 1)',
+                    'rgba(224, 102, 102, 1)',
+                    'rgba(109, 158, 235, 1)',
+                    'rgba(246, 178, 107, 1)'
+                ],
+                borderWidth: 2,
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            cutout: '65%',
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                },
+                title: {
+                    display: true,
+                    text: 'Répartition Globale des Transactions',
+                    position: 'top',
+                    font: {
+                        size: 16
+                    }
+                }
+            }
+        }
+    });
+}
+
+// 39. Répartition des Taxes (Reproduction de l'image)
+function draw39(TOBTax, DegiroTax, otherTax) {
+    var ctx = document.getElementById('39Chart').getContext('2d');
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['TOB', 'Taxes Degiro', 'Autre'],
+            datasets: [{
+                data: [TOBTax, DegiroTax, otherTax],
+                backgroundColor: [
+                    'rgba(66, 133, 244, 0.8)', // Bleu (TOB)
+                    'rgba(234, 67, 53, 0.8)',  // Rouge (Frais)
+                    'rgba(251, 188, 5, 0.8)'   // Jaune (Autre)
+                ],
+                borderColor: [
+                    'rgba(66, 133, 244, 1)',
+                    'rgba(234, 67, 53, 1)',
+                    'rgba(251, 188, 5, 1)'
+                ],
+                borderWidth: 1,
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            cutout: '65%',
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: true, position: 'bottom' },
+                title: { display: true, text: 'Répartition des Taxes Payées (€)', font: { size: 16 } }
+            }
+        }
+    });
+}
+
+// 40. % des Frais Wallet ou non (Reproduction de l'image)
+function draw40(stocksVsNotPFTaxes) {
+    var ctx = document.getElementById('40Chart').getContext('2d');
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Portefeuille Actuel', 'Non Portefeuille (Anciens)'],
+            datasets: [{
+                data: stocksVsNotPFTaxes,
+                backgroundColor: [
+                    'rgba(147, 196, 125, 0.8)', // Vert
+                    'rgba(194, 123, 160, 0.8)'  // Violet/Rose
+                ],
+                borderColor: [
+                    'rgba(147, 196, 125, 1)',
+                    'rgba(194, 123, 160, 1)'
+                ],
+                borderWidth: 1,
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            cutout: '65%',
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: true, position: 'bottom' },
+                title: { display: true, text: 'Pourcentage des Frais de positions du Portefeuille vs anciennes lignes', font: { size: 16 } }
+            }
+        }
+    });
+}
+
+// 41. Volume Financier généré par Action (Bar Chart)
+function draw41(stocksTaxes, tickerOfShares) {
+    var ctx = document.getElementById('41Chart').getContext('2d');
+    // On ajoute "Anciennes Lignes" à la fin du tableau de tes tickers actuels
+    var extendedLabels = [...tickerOfShares, 'Anciennes Lignes'];
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: extendedLabels,
+            datasets: [{
+                label: 'Volume de transaction (€)',
+                data: stocksTaxes,
+                backgroundColor: 'rgba(153, 102, 255, 0.5)',
+                borderColor: 'rgba(153, 102, 255, 1)',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                title: { display: true, text: 'Volume Financier historique par action (€)', font: { size: 16 } }
+            },
+            scales: {
+                y: { beginAtZero: true }
+            }
+        }
+    });
+}
+
+// 42. Montant par Type de Transaction (Polar Area)
+// Excellent pour visualiser l'asymétrie entre tes achats et tes ventes/retraits
+function draw42(TransactionsAmountPerType) {
+    var ctx = document.getElementById('42Chart').getContext('2d');
+    new Chart(ctx, {
+        type: 'polarArea',
+        data: {
+            labels: ['Achats', 'Ventes', 'Dépôts', 'Retraits'],
+            datasets: [{
+                data: TransactionsAmountPerType,
+                backgroundColor: [
+                    'rgba(147, 196, 125, 0.6)', // Vert (Achats)
+                    'rgba(224, 102, 102, 0.6)', // Rouge (Ventes)
+                    'rgba(109, 158, 235, 0.6)', // Bleu (Dépôts)
+                    'rgba(246, 178, 107, 0.6)'  // Orange (Retraits)
+                ],
+                borderColor: [
+                    'rgba(147, 196, 125, 1)',
+                    'rgba(224, 102, 102, 1)',
+                    'rgba(109, 158, 235, 1)',
+                    'rgba(246, 178, 107, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: true, position: 'bottom' },
+                title: { display: true, text: 'Montant par Type de Transaction (€)', font: { size: 16 } }
+            }
+        }
+    });
+}
+
+// 43. Flux de Capitaux (Horizontal Stacked Bar)
+// Permet de comparer tes Entrées de cash (Achats/Dépôts) avec tes Sorties (Ventes/Retraits)
+function draw43(TransactionsAmountPerType) {
+    var ctx = document.getElementById('43Chart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Mouvements en Bourse', 'Mouvements Trésorerie'],
+            datasets: [
+                {
+                    label: 'Entrées (Achat / Dépôt)',
+                    data: [TransactionsAmountPerType[0], TransactionsAmountPerType[2]],
+                    backgroundColor: 'rgba(46, 204, 113, 0.6)',
+                    borderColor: 'rgba(46, 204, 113, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Sorties (Vente / Retrait)',
+                    data: [TransactionsAmountPerType[1], TransactionsAmountPerType[3]],
+                    backgroundColor: 'rgba(231, 76, 60, 0.6)',
+                    borderColor: 'rgba(231, 76, 60, 1)',
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            indexAxis: 'y', // Graphique horizontal
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: true, position: 'bottom' },
+                title: { display: true, text: 'Flux de Capitaux : Entrées vs Sorties (€)', font: { size: 16 } }
+            },
+            scales: {
+                x: { stacked: true },
+                y: { stacked: true }
+            }
+        }
+    });
+}
+
 
 
 function calculateSPYReturn(currentValue, startValue) {
@@ -3046,14 +3358,28 @@ async function main() {
     annualDividendReceived.push(tempDividendReceived);
     annualInvested.push(totalInvested);
     walletEndYear.push(parseFloat(totalWallet.toFixed(2)));
-    //console.log("before :" + annualMarketReturnPercent);
     annualMarketReturnPercent.push(spyReturn);
-    //console.log("after :" + annualMarketReturnPercent);
 
 
     var totalDividendReceived = ((annualDividendReceived.reduce((acc, val) => acc + val, 0))).toFixed(2); //somme de la liste annualDividendReceived
     totalGainWithoutDividend = (diffEuro - totalDividendReceived).toFixed(2); //le gain total en plus-value = gain total - dividendes nets reçus
 
+    var tempBuys = 1;
+    var tempSells = 0;
+    var tempDeposits = 2;
+    var tempWithdrawals = 0;
+    var tempTransactions = (tempBuys+tempSells+tempDeposits+tempWithdrawals);
+
+    buysPerYear.push(tempBuys);
+    sellsPerYear.push(tempSells);
+    depositsPerYear.push(tempDeposits);
+    withdrawalsPerYear.push(tempWithdrawals);
+    transactionsperYear.push(tempTransactions);
+
+    var numBuys = buysPerYear.reduce((acc, valeur) => acc + valeur, 0);
+    var numSells = sellsPerYear.reduce((acc, valeur) => acc + valeur, 0);
+    var numDeposits = depositsPerYear.reduce((acc, valeur) => acc + valeur, 0);
+    var numWithdrawals = withdrawalsPerYear.reduce((acc, valeur) => acc + valeur, 0);
 
     //CHANGER COULEURS
     changeBackgroundColor(diffEuro, diffPercent);
@@ -3117,6 +3443,13 @@ async function main() {
     draw34(stocksPrice, targetPrices);
     draw35(annualReturnPercent, annualMarketReturnPercent);
     draw36(USASalesPercentage);
+    draw37(buysPerYear, sellsPerYear, depositsPerYear, withdrawalsPerYear);
+    draw38(numBuys, numSells, numDeposits, numWithdrawals);
+    draw39(TOBTax, DegiroTax, otherTax);
+    draw40(stocksVsNotPFTaxes);
+    draw41(stocksTaxes, tickerOfShares);
+    draw42(TransactionsAmountPerType);
+    draw43(TransactionsAmountPerType);
 
 }
 
