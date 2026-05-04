@@ -146,7 +146,7 @@ var tipsrankPrice = [1052.12,267.53,655.69,630.29,242,399.05]
 var stocksFairPrice = []; // Liste des scores de prix juste
 var valuationScore = []; // Score de valorisation de chaque actions
 
-var dividendPerShares = [7.42, 0.84, 3.04, 3.32, 0.04, 2.68]; // liste pour stocker les dividendes versés par actions en $
+var dividendPerShares = [7.42, 0.88, 3.04, 3.32, 0.04, 2.68]; // liste pour stocker les dividendes versés par actions en $
 
 var totalDividendPerShares = []; //liste pour stocker les dividendes versés par action en €
 
@@ -3403,8 +3403,8 @@ async function main() {
 
 
     //REMPLIR BARRES DE PROGRESSION
-    fillFirstProgressBar(totalWallet, 25000);
-    fillSecondProgressBar(tempDividendReceived, 90);
+    fillFirstProgressBar(totalWallet, 30000);
+    fillSecondProgressBar(tempDividendReceived, 100);
 
 
     //DESSINER GRAPHES
