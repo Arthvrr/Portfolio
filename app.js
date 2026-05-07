@@ -118,7 +118,7 @@ var totalInvested = 17000; // montant total investi
 var totalInvestedCell = document.getElementById("invested");
 totalInvestedCell.textContent = totalInvested;
 
-var CashOnHand = 559.86; // cash disponible
+var CashOnHand = 573.58; // cash disponible
 var cashCell = document.getElementById("cash");
 cashCell.textContent = CashOnHand.toFixed(2);
 
@@ -140,9 +140,9 @@ var diffList = [];
 var diffPercentList = [];
 
 var stocksPERatio = []; // PE Ratio de toutes les actions
-var tenyearsPERatio = [35.18,28.09,37.82,33.67,53.05,33.46] // PE Ratio médian des 10 dernières années
-var gurufocusPrice = [1071.75,188.92,583.98,488.81,235.3,316.89]
-var tipsrankPrice = [1052.12,267.53,655.69,630.29,242,399.05]
+var tenyearsPERatio = [36.05,27.75,37.76,32.85,52.81,33.48] // PE Ratio médian des 10 dernières années
+var gurufocusPrice = [1106.8,224.45,642.7,546.77,318.45,396.07]
+var tipsrankPrice = [1791.4,421.7,640.37,555.69,274.38,391.05]
 var stocksFairPrice = []; // Liste des scores de prix juste
 var valuationScore = []; // Score de valorisation de chaque actions
 
@@ -3351,7 +3351,7 @@ async function main() {
     var tempInvested = 100;
     tempReturnEuro = parseFloat((totalWallet - (tempInvested + tempStartYear)).toFixed(2));
     tempReturnPercent = parseFloat(((tempReturnEuro / (tempInvested + tempStartYear)) * 100).toFixed(2));
-    var tempDividendReceived = 14.15;
+    var tempDividendReceived = 38.59;
 
     annualReturnEuro.push(tempReturnEuro);
     annualReturnPercent.push(tempReturnPercent);
