@@ -12,7 +12,7 @@
     <link rel="icon" href="./media/Logo/logo-black.ico" type="image/x-icon">
 
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
         h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
     </style>
 
@@ -24,7 +24,7 @@
       gtag('config', 'G-5QFGNT3V2F');
     </script>
 </head>
-<body class="bg-slate-50 text-slate-600 antialiased">
+<body class="bg-slate-50 text-slate-600 antialiased selection:bg-indigo-100 selection:text-indigo-700">
 
     <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,7 +41,7 @@
                         <a href="portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
                         <a href="moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Analyses</a>
                         <a href="resources.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Ressources</a>
-                        <a href="articles.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Articles</a>
+                        <a href="articles.html" class="text-sm font-bold text-indigo-600 transition relative after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-indigo-600">Articles</a>
                         <a href="formation.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Formation</a>
                         <a href="about.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">À Propos</a>
                     </nav>
@@ -66,7 +66,7 @@
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden xl:hidden bg-white border-b border-slate-200 shadow-xl absolute w-full">
+        <div id="mobile-menu" class="hidden xl:hidden bg-white border-b border-slate-200 shadow-xl absolute w-full z-40">
             <nav class="flex flex-col px-4 pt-2 pb-6 space-y-3">
                 <a href="calculator.html" class="text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50 p-2 rounded-lg transition">Calculateur</a>
                 <a href="portfolio.html" class="text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50 p-2 rounded-lg transition">Portefeuille</a>
@@ -85,227 +85,204 @@
         </div>
     </header>
 
-    <main class="pt-32 pb-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center mb-16">
-            <span class="inline-block py-1 px-3 rounded-full bg-indigo-50 text-indigo-600 text-xs font-bold uppercase tracking-wider mb-4 border border-indigo-100">
-                Publications
+    <section class="pt-32 pb-12 relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-full max-w-3xl h-64 bg-indigo-500/10 blur-[100px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <span class="inline-flex items-center px-4 py-1.5 rounded-full border border-indigo-100 bg-indigo-50 text-indigo-700 text-xs font-bold uppercase tracking-wider mb-6">
+                Le Journal
             </span>
-            <h1 class="text-3xl md:text-5xl font-heading font-extrabold text-slate-900 mb-4 tracking-tight">Articles & Réflexions ✍️</h1>
-            <p class="text-lg text-slate-500 max-w-2xl mx-auto">
-                Retrouvez ici tous mes "Longs Formats" et analyses de fond publiés sur le réseau X (Twitter).
+            <h1 class="text-4xl md:text-5xl font-heading font-extrabold text-slate-900 mb-4 tracking-tight">Articles & Réflexions ✍️</h1>
+            <p class="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+                Plongez dans mes analyses de fond, mes décryptages de résultats trimestriels et mes "Longs Formats" exclusifs.
             </p>
         </div>
+    </section>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-            <a href="https://x.com/StocksPickeur/article/2029254048747000124" target="_blank" class="block group bg-white rounded-[2rem] border border-slate-200 shadow-sm hover:shadow-2xl hover:border-indigo-200 transition-all duration-500 overflow-hidden flex flex-col transform hover:-translate-y-1">
-                
-                <div class="w-full aspect-[5/2] relative overflow-hidden bg-slate-100 border-b border-slate-100">
-                    <img src="./media/Articles/why-msft-down-4-reasons.png" alt="Miniature Article Microsoft" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
-                    
-                    <div class="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-white p-2 rounded-full">
-                        <svg viewBox="0 0 24 24" aria-hidden="true" class="w-4 h-4 fill-current"><g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.008 5.964H5.078z"></path></g></svg>
-                    </div>
-                </div>
-
-                <div class="p-6 md:p-8 flex flex-col flex-grow">
-                    
-                    <div class="flex items-center gap-4 text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">
-                        <span class="flex items-center gap-1.5 text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-lg border border-indigo-100">
-                            📅 4 Mars 2026
-                        </span>
-                        <span class="flex items-center gap-1.5 bg-slate-100 px-3 py-1.5 rounded-lg text-slate-500">
-                            ⏳ 10 min de lecture
-                        </span>
-                    </div>
-
-                    <h2 class="text-2xl font-heading font-bold text-slate-900 group-hover:text-indigo-600 transition-colors duration-300 mb-3 leading-snug">
-                        Pourquoi l'action Microsoft (MSFT) baisse-t-elle ? 4 raisons expliquées.
-                    </h2>
-
-                    <p class="text-slate-500 text-sm leading-relaxed line-clamp-2 mb-6 flex-grow">
-                    Analyse des récents mouvements de marché et des dynamiques macroéconomiques derrière cette correction.
-                    </p>
-
-
-                    <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between text-indigo-600 font-bold text-sm">
-                        <span>Lire le thread complet</span>
-                        <span class="w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
-                            →
-                        </span>
-                    </div>
-                </div>
-            </a>
-            <a href="https://x.com/StocksPickeur/article/2032473026248249631" target="_blank" class="block group bg-white rounded-[2rem] border border-slate-200 shadow-sm hover:shadow-2xl hover:border-indigo-200 transition-all duration-500 overflow-hidden flex flex-col transform hover:-translate-y-1">
-                
-                <div class="w-full aspect-[5/2] relative overflow-hidden bg-slate-100 border-b border-slate-100">
-                    <img src="./media/Articles/RAM-nouvel-eldorado.png" alt="Miniature Article Microsoft" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
-                    
-                    <div class="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-white p-2 rounded-full">
-                        <svg viewBox="0 0 24 24" aria-hidden="true" class="w-4 h-4 fill-current"><g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.008 5.964H5.078z"></path></g></svg>
-                    </div>
-                </div>
-
-                <div class="p-6 md:p-8 flex flex-col flex-grow">
-                    
-                    <div class="flex items-center gap-4 text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">
-                        <span class="flex items-center gap-1.5 text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-lg border border-indigo-100">
-                            📅 13 Mars 2026
-                        </span>
-                        <span class="flex items-center gap-1.5 bg-slate-100 px-3 py-1.5 rounded-lg text-slate-500">
-                            ⏳ 15 min de lecture
-                        </span>
-                    </div>
-
-                    <h2 class="text-2xl font-heading font-bold text-slate-900 group-hover:text-indigo-600 transition-colors duration-300 mb-3 leading-snug">
-                        La RAM, nouvel eldorado des investisseurs ? 💡
-                    </h2>
-
-                    <p class="text-slate-500 text-sm leading-relaxed line-clamp-2 mb-6 flex-grow">
-                    Tout le monde parle des GPU et des géants du calcul, mais la mémoire RAM reste un pilier discret et essentiel de la révolution technologique actuelle.
-                    </p>
-
-
-
-
-                    <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between text-indigo-600 font-bold text-sm">
-                        <span>Lire le thread complet</span>
-                        <span class="w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
-                            →
-                        </span>
-                    </div>
-                </div>
-            </a>
-            <a href="https://x.com/StocksPickeur/status/2044721274820104319" target="_blank" class="block group bg-white rounded-[2rem] border border-slate-200 shadow-sm hover:shadow-2xl hover:border-indigo-200 transition-all duration-500 overflow-hidden flex flex-col transform hover:-translate-y-1">
-                
-                <div class="w-full aspect-[5/2] relative overflow-hidden bg-slate-100 border-b border-slate-100">
-                    <img src="./media/Articles/Earnings-ASML-Q1-2026.png" alt="Miniature Article Microsoft" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
-                    
-                    <div class="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-white p-2 rounded-full">
-                        <svg viewBox="0 0 24 24" aria-hidden="true" class="w-4 h-4 fill-current"><g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.008 5.964H5.078z"></path></g></svg>
-                    </div>
-                </div>
-
-                <div class="p-6 md:p-8 flex flex-col flex-grow">
-                    
-                    <div class="flex items-center gap-4 text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">
-                        <span class="flex items-center gap-1.5 text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-lg border border-indigo-100">
-                            📅 16 Avril 2026
-                        </span>
-                        <span class="flex items-center gap-1.5 bg-slate-100 px-3 py-1.5 rounded-lg text-slate-500">
-                            ⏳ 10 min de lecture
-                        </span>
-                    </div>
-
-                    <h2 class="text-2xl font-heading font-bold text-slate-900 group-hover:text-indigo-600 transition-colors duration-300 mb-3 leading-snug">
-                        Analyse des résultats trimestriels d'ASML Q1 2026
-                    </h2>
-
-                    <p class="text-slate-500 text-sm leading-relaxed line-clamp-2 mb-6 flex-grow">
-                    Analysons ensemble les résultats trimestriels d'ASML, véritable pilier de l'industrie des semis-conducteurs.
-                    </p>
-
-
-
-
-                    <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between text-indigo-600 font-bold text-sm">
-                        <span>Lire le thread complet</span>
-                        <span class="w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
-                            →
-                        </span>
-                    </div>
-                </div>
-            </a>
-
-            <a href="https://x.com/StocksPickeur/article/2049846288133341361" target="_blank" class="block group bg-white rounded-[2rem] border border-slate-200 shadow-sm hover:shadow-2xl hover:border-indigo-200 transition-all duration-500 overflow-hidden flex flex-col transform hover:-translate-y-1">
-                
-                <div class="w-full aspect-[5/2] relative overflow-hidden bg-slate-100 border-b border-slate-100">
-                    <img src="./media/Articles/Earnings-V-MSFT-GOOGL-MA.png" alt="Miniature Article Microsoft" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
-                    
-                    <div class="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-white p-2 rounded-full">
-                        <svg viewBox="0 0 24 24" aria-hidden="true" class="w-4 h-4 fill-current"><g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.008 5.964H5.078z"></path></g></svg>
-                    </div>
-                </div>
-
-                <div class="p-6 md:p-8 flex flex-col flex-grow">
-                    
-                    <div class="flex items-center gap-4 text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">
-                        <span class="flex items-center gap-1.5 text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-lg border border-indigo-100">
-                            📅 30 Avril 2026
-                        </span>
-                        <span class="flex items-center gap-1.5 bg-slate-100 px-3 py-1.5 rounded-lg text-slate-500">
-                            ⏳ 10 min de lecture
-                        </span>
-                    </div>
-
-                    <h2 class="text-2xl font-heading font-bold text-slate-900 group-hover:text-indigo-600 transition-colors duration-300 mb-3 leading-snug">
-                        Résultats Q2 2026 : Tout ce qu'il faut retenir sur Visa, Microsoft, Google & Mastercard en 10min !
-                    </h2>
-
-                    <p class="text-slate-500 text-sm leading-relaxed line-clamp-2 mb-6 flex-grow">
-                    Analysons ensemble les résultats trimestriels de Visa, Microsoft, Google et Mastercard ! 
-                    </p>
-
-
-
-
-                    <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between text-indigo-600 font-bold text-sm">
-                        <span>Lire le thread complet</span>
-                        <span class="w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
-                            →
-                        </span>
-                    </div>
-                </div>
-            </a>
+    <main class="pb-24">
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <a href="https://x.com/StocksPickeur/article/2052407309393895461" target="_blank" class="block group bg-white rounded-[2rem] border border-slate-200 shadow-sm hover:shadow-2xl hover:border-indigo-200 transition-all duration-500 overflow-hidden flex flex-col transform hover:-translate-y-1">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm mb-10">
                 
-                <div class="w-full aspect-[5/2] relative overflow-hidden bg-slate-100 border-b border-slate-100">
-                    <img src="./media/Articles/tout-comprendre-methode-dcf.png" alt="Miniature Article Microsoft" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
-                    
-                    <div class="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-white p-2 rounded-full">
-                        <svg viewBox="0 0 24 24" aria-hidden="true" class="w-4 h-4 fill-current"><g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.008 5.964H5.078z"></path></g></svg>
+                <div class="relative w-full md:w-96">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg class="h-5 w-5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
                     </div>
+                    <input type="text" id="searchInput" placeholder="Rechercher un article..." class="block w-full pl-10 pr-3 py-2.5 border border-slate-200 rounded-xl leading-5 bg-slate-50 placeholder-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-150 ease-in-out">
                 </div>
 
-                <div class="p-6 md:p-8 flex flex-col flex-grow">
-                    
-                    <div class="flex items-center gap-4 text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">
-                        <span class="flex items-center gap-1.5 text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-lg border border-indigo-100">
-                            📅 7 Mai 2026
-                        </span>
-                        <span class="flex items-center gap-1.5 bg-slate-100 px-3 py-1.5 rounded-lg text-slate-500">
-                            ⏳ 15 min de lecture
-                        </span>
-                    </div>
-
-                    <h2 class="text-2xl font-heading font-bold text-slate-900 group-hover:text-indigo-600 transition-colors duration-300 mb-3 leading-snug">
-                        Évaluer simplement le prix correct d'une action : TOUT comprendre sur la méthode DCF
-                    </h2>
-
-                    <p class="text-slate-500 text-sm leading-relaxed line-clamp-2 mb-6 flex-grow">
-                    Découvrons ensemble la méthode DCF, à quoi elle sert et comment BIEN l'utiliser
-                    </p>
-
-
-
-
-                    <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between text-indigo-600 font-bold text-sm">
-                        <span>Lire le thread complet</span>
-                        <span class="w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
-                            →
-                        </span>
-                    </div>
+                <div class="w-full md:w-auto flex items-center gap-2">
+                    <span class="text-sm font-medium text-slate-500 hidden sm:block">Trier par :</span>
+                    <select id="sortSelect" class="block w-full md:w-auto pl-3 pr-10 py-2.5 text-base border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-xl bg-slate-50 hover:bg-slate-100 transition cursor-pointer text-slate-700 font-medium">
+                        <option value="newest">Les plus récents</option>
+                        <option value="oldest">Les plus anciens</option>
+                        <option value="time-asc">Temps de lecture (court)</option>
+                        <option value="time-desc">Temps de lecture (long)</option>
+                    </select>
                 </div>
-            </a>
+            </div>
 
-            
+            <div id="noResults" class="hidden text-center py-12 bg-slate-50 rounded-2xl border border-slate-200 border-dashed mb-10">
+                <div class="text-4xl mb-4">🔍</div>
+                <h3 class="text-lg font-bold text-slate-900 mb-1">Aucun article trouvé</h3>
+                <p class="text-slate-500">Essayez de modifier votre recherche.</p>
+            </div>
 
-        </div>
+            <div id="articlesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-10">
+
+                <a href="https://x.com/StocksPickeur/article/2052407309393895461" target="_blank" 
+                   class="article-card block group bg-white rounded-[2rem] border border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-200 transition-all duration-500 overflow-hidden flex flex-col transform hover:-translate-y-1"
+                   data-title="évaluer simplement le prix correct d'une action : tout comprendre sur le dcf" 
+                   data-date="2026-05-07" 
+                   data-time="15">
+                    <div class="w-full aspect-[5/3] relative overflow-hidden bg-slate-100 border-b border-slate-100">
+                        <img src="./media/Articles/tout-comprendre-methode-dcf.png" alt="Miniature Article" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                        <div class="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-white p-2 rounded-full">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="w-4 h-4 fill-current"><g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.008 5.964H5.078z"></path></g></svg>
+                        </div>
+                    </div>
+                    <div class="p-6 md:p-8 flex flex-col flex-grow">
+                        <div class="flex items-center gap-3 text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 flex-wrap">
+                            <span class="text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-lg border border-indigo-100">📅 7 Mai 2026</span>
+                            <span class="bg-slate-100 px-3 py-1.5 rounded-lg text-slate-500">⏳ 15 min</span>
+                        </div>
+                        <h2 class="text-xl font-heading font-bold text-slate-900 group-hover:text-indigo-600 transition-colors duration-300 mb-3 leading-snug">
+                            Évaluer simplement le prix correct d'une action : TOUT comprendre sur le DCF
+                        </h2>
+                        <p class="text-slate-500 text-sm leading-relaxed line-clamp-3 mb-6 flex-grow">
+                            Découvrons ensemble la méthode DCF, à quoi elle sert réellement et comment BIEN l'utiliser sans se tromper.
+                        </p>
+                        <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between text-indigo-600 font-bold text-sm">
+                            <span>Lire le thread complet</span>
+                            <span class="w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">→</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://x.com/StocksPickeur/article/2049846288133341361" target="_blank" 
+                   class="article-card block group bg-white rounded-[2rem] border border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-200 transition-all duration-500 overflow-hidden flex flex-col transform hover:-translate-y-1"
+                   data-title="résultats q2 2026 visa microsoft google mastercard" 
+                   data-date="2026-04-30" 
+                   data-time="10">
+                    <div class="w-full aspect-[5/3] relative overflow-hidden bg-slate-100 border-b border-slate-100">
+                        <img src="./media/Articles/Earnings-V-MSFT-GOOGL-MA.png" alt="Miniature Article" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                        <div class="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-white p-2 rounded-full">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="w-4 h-4 fill-current"><g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.008 5.964H5.078z"></path></g></svg>
+                        </div>
+                    </div>
+                    <div class="p-6 md:p-8 flex flex-col flex-grow">
+                        <div class="flex items-center gap-3 text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 flex-wrap">
+                            <span class="text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-lg border border-indigo-100">📅 30 Avr 2026</span>
+                            <span class="bg-slate-100 px-3 py-1.5 rounded-lg text-slate-500">⏳ 10 min</span>
+                        </div>
+                        <h2 class="text-xl font-heading font-bold text-slate-900 group-hover:text-indigo-600 transition-colors duration-300 mb-3 leading-snug">
+                            Résultats Q2 2026 : Visa, Microsoft, Google & Mastercard
+                        </h2>
+                        <p class="text-slate-500 text-sm leading-relaxed line-clamp-3 mb-6 flex-grow">
+                            Analysons ensemble les résultats trimestriels de ces 4 piliers du portefeuille.
+                        </p>
+                        <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between text-indigo-600 font-bold text-sm">
+                            <span>Lire le thread complet</span>
+                            <span class="w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">→</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://x.com/StocksPickeur/status/2044721274820104319" target="_blank" 
+                   class="article-card block group bg-white rounded-[2rem] border border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-200 transition-all duration-500 overflow-hidden flex flex-col transform hover:-translate-y-1"
+                   data-title="analyse des résultats trimestriels d'asml q1 2026" 
+                   data-date="2026-04-16" 
+                   data-time="10">
+                    <div class="w-full aspect-[5/3] relative overflow-hidden bg-slate-100 border-b border-slate-100">
+                        <img src="./media/Articles/Earnings-ASML-Q1-2026.png" alt="Miniature Article" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                        <div class="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-white p-2 rounded-full">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="w-4 h-4 fill-current"><g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.008 5.964H5.078z"></path></g></svg>
+                        </div>
+                    </div>
+                    <div class="p-6 md:p-8 flex flex-col flex-grow">
+                        <div class="flex items-center gap-3 text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 flex-wrap">
+                            <span class="text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-lg border border-indigo-100">📅 16 Avr 2026</span>
+                            <span class="bg-slate-100 px-3 py-1.5 rounded-lg text-slate-500">⏳ 10 min</span>
+                        </div>
+                        <h2 class="text-xl font-heading font-bold text-slate-900 group-hover:text-indigo-600 transition-colors duration-300 mb-3 leading-snug">
+                            Analyse des résultats trimestriels d'ASML Q1 2026
+                        </h2>
+                        <p class="text-slate-500 text-sm leading-relaxed line-clamp-3 mb-6 flex-grow">
+                            Analysons ensemble les résultats d'ASML, véritable pilier mondial de l'industrie des semis-conducteurs.
+                        </p>
+                        <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between text-indigo-600 font-bold text-sm">
+                            <span>Lire le thread complet</span>
+                            <span class="w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">→</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://x.com/StocksPickeur/article/2032473026248249631" target="_blank" 
+                   class="article-card block group bg-white rounded-[2rem] border border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-200 transition-all duration-500 overflow-hidden flex flex-col transform hover:-translate-y-1"
+                   data-title="la ram nouvel eldorado des investisseurs" 
+                   data-date="2026-03-13" 
+                   data-time="15">
+                    <div class="w-full aspect-[5/3] relative overflow-hidden bg-slate-100 border-b border-slate-100">
+                        <img src="./media/Articles/RAM-nouvel-eldorado.png" alt="Miniature Article" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                        <div class="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-white p-2 rounded-full">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="w-4 h-4 fill-current"><g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.008 5.964H5.078z"></path></g></svg>
+                        </div>
+                    </div>
+                    <div class="p-6 md:p-8 flex flex-col flex-grow">
+                        <div class="flex items-center gap-3 text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 flex-wrap">
+                            <span class="text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-lg border border-indigo-100">📅 13 Mars 2026</span>
+                            <span class="bg-slate-100 px-3 py-1.5 rounded-lg text-slate-500">⏳ 15 min</span>
+                        </div>
+                        <h2 class="text-xl font-heading font-bold text-slate-900 group-hover:text-indigo-600 transition-colors duration-300 mb-3 leading-snug">
+                            La RAM, nouvel eldorado des investisseurs ? 💡
+                        </h2>
+                        <p class="text-slate-500 text-sm leading-relaxed line-clamp-3 mb-6 flex-grow">
+                            Tout le monde parle des GPU, mais la mémoire RAM reste un pilier discret et essentiel de la révolution technologique.
+                        </p>
+                        <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between text-indigo-600 font-bold text-sm">
+                            <span>Lire le thread complet</span>
+                            <span class="w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">→</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://x.com/StocksPickeur/article/2029254048747000124" target="_blank" 
+                   class="article-card block group bg-white rounded-[2rem] border border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-200 transition-all duration-500 overflow-hidden flex flex-col transform hover:-translate-y-1"
+                   data-title="pourquoi l'action microsoft msft baisse-t-elle 4 raisons expliquées" 
+                   data-date="2026-03-04" 
+                   data-time="10">
+                    <div class="w-full aspect-[5/3] relative overflow-hidden bg-slate-100 border-b border-slate-100">
+                        <img src="./media/Articles/why-msft-down-4-reasons.png" alt="Miniature Article" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                        <div class="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-white p-2 rounded-full">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="w-4 h-4 fill-current"><g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.008 5.964H5.078z"></path></g></svg>
+                        </div>
+                    </div>
+                    <div class="p-6 md:p-8 flex flex-col flex-grow">
+                        <div class="flex items-center gap-3 text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 flex-wrap">
+                            <span class="text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-lg border border-indigo-100">📅 4 Mars 2026</span>
+                            <span class="bg-slate-100 px-3 py-1.5 rounded-lg text-slate-500">⏳ 10 min</span>
+                        </div>
+                        <h2 class="text-xl font-heading font-bold text-slate-900 group-hover:text-indigo-600 transition-colors duration-300 mb-3 leading-snug">
+                            Pourquoi l'action Microsoft (MSFT) baisse-t-elle ? 4 raisons expliquées.
+                        </h2>
+                        <p class="text-slate-500 text-sm leading-relaxed line-clamp-3 mb-6 flex-grow">
+                            Analyse des récents mouvements de marché et des dynamiques macroéconomiques derrière cette correction.
+                        </p>
+                        <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between text-indigo-600 font-bold text-sm">
+                            <span>Lire le thread complet</span>
+                            <span class="w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">→</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
     </main>
 
-    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+    <footer class="bg-slate-950 py-12 border-t border-slate-900 mt-12">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
                  <img src="./media/Logo/Logo-White.png" alt="Logo" class="h-8">
@@ -329,6 +306,72 @@
 
         btn.addEventListener('click', () => {
             menu.classList.toggle('hidden');
+        });
+
+        // ----------------------------------------------------
+        // SYSTEME DE RECHERCHE ET DE TRI DES ARTICLES
+        // ----------------------------------------------------
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            const sortSelect = document.getElementById('sortSelect');
+            const grid = document.getElementById('articlesGrid');
+            const noResultsMessage = document.getElementById('noResults');
+            
+            // On récupère toutes les cartes d'articles pour pouvoir les manipuler
+            const articles = Array.from(grid.querySelectorAll('.article-card'));
+
+            // FONCTION DE TRI
+            const sortArticles = () => {
+                const sortBy = sortSelect.value;
+                
+                articles.sort((a, b) => {
+                    if (sortBy === 'newest') {
+                        return new Date(b.dataset.date) - new Date(a.dataset.date);
+                    } else if (sortBy === 'oldest') {
+                        return new Date(a.dataset.date) - new Date(b.dataset.date);
+                    } else if (sortBy === 'time-asc') {
+                        return parseInt(a.dataset.time) - parseInt(b.dataset.time);
+                    } else if (sortBy === 'time-desc') {
+                        return parseInt(b.dataset.time) - parseInt(a.dataset.time);
+                    }
+                });
+
+                // On remet les articles dans la grille dans le nouvel ordre
+                articles.forEach(article => grid.appendChild(article));
+            };
+
+            // FONCTION DE RECHERCHE
+            const filterArticles = () => {
+                const term = searchInput.value.toLowerCase().trim();
+                let visibleCount = 0;
+
+                articles.forEach(article => {
+                    const title = article.dataset.title.toLowerCase();
+                    
+                    if (title.includes(term)) {
+                        article.style.display = ''; // Affiche l'article
+                        visibleCount++;
+                    } else {
+                        article.style.display = 'none'; // Cache l'article
+                    }
+                });
+
+                // Gérer le message "Aucun résultat"
+                if (visibleCount === 0) {
+                    grid.style.display = 'none';
+                    noResultsMessage.classList.remove('hidden');
+                } else {
+                    grid.style.display = 'grid'; // Remettre la grille Tailwind
+                    noResultsMessage.classList.add('hidden');
+                }
+            };
+
+            // On écoute les événements
+            sortSelect.addEventListener('change', sortArticles);
+            searchInput.addEventListener('input', filterArticles);
+            
+            // On trie par défaut au chargement (Les plus récents)
+            sortArticles();
         });
     </script>
 </body>
