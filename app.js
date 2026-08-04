@@ -114,17 +114,17 @@ function changeBackgroundColor(diffEuro,diffPercent){
 
 //TOUTES LES VARIABLES UTILISÉES
 
-var totalInvested = 17000; // montant total investi
+var totalInvested = 17500; // montant total investi
 var totalInvestedCell = document.getElementById("invested");
 totalInvestedCell.textContent = totalInvested;
 
-var CashOnHand = 573.58; // cash disponible
+var CashOnHand = 231.85; // cash disponible
 var cashCell = document.getElementById("cash");
 cashCell.textContent = CashOnHand.toFixed(2);
 
 var tickerOfShares = ["ASML", "GOOGL","MA", "MSFT","NVDA", "V"]; // tickers
-var numberOfShares = [6, 20, 4, 9, 20, 10]; // nombres d'actions
-var pruOfShares = [689.615, 166.19625, 411.6737, 368.96, 184.04, 274.796]; // PRU des actions
+var numberOfShares = [6, 20, 6, 9, 20, 10]; // nombres d'actions
+var pruOfShares = [689.615, 166.19625, 439.615833, 368.96, 184.04, 274.796]; // PRU des actions
 
 var stocksPrice = []; // prix actuels des actions, en $
 let totalPRU = 0;
@@ -146,7 +146,7 @@ var tipsrankPrice = [1791.4,421.7,640.37,555.69,274.38,391.05]
 var stocksFairPrice = []; // Liste des scores de prix juste
 var valuationScore = []; // Score de valorisation de chaque actions
 
-var dividendPerShares = [7.42, 0.88, 3.04, 3.32, 0.04, 2.68]; // liste pour stocker les dividendes versés par actions en $
+var dividendPerShares = [7.42, 0.88, 3.04, 3.32, 1, 2.68]; // liste pour stocker les dividendes versés par actions en $
 
 var totalDividendPerShares = []; //liste pour stocker les dividendes versés par action en €
 
@@ -214,14 +214,14 @@ var sellsPerYear = [0,12,1,3]
 var depositsPerYear = [0,20,13,4]
 var withdrawalsPerYear = [0,1,1,0]
 
-var TOBTax = 120.74;
-var DegiroTax = 119.00;
+var TOBTax = 123.74;
+var DegiroTax = 121.00;
 var otherTax = 2.46;
 
-var stocksTaxes = [3637.07, 2944.82, 1526.96, 2998.43, 3174.7, 2495.34, 13140.25] //ASML, GOOGL, MA, MSFT, NVDA, V, Old Stocks
-var stocksVsNotPFTaxes = [100.73,141.47]
+var stocksTaxes = [3637.07, 2944.82, 2384, 2998.43, 3174.7, 2495.34, 13997.29] //ASML, GOOGL, MA, MSFT, NVDA, V, Old Stocks
+var stocksVsNotPFTaxes = [105.73,141.47]
 
-var TransactionsAmountPerType = [25397.89, 9053.85, 17110, 110] //Achat, vente, dépôt, retrait
+var TransactionsAmountPerType = [26254.93, 9053.85, 17610, 110] //Achat, vente, dépôt, retrait
 
 
 //FONCTIONS 
@@ -3348,10 +3348,10 @@ async function main() {
 
     // PERF ANNÉE EN COURS
     var tempStartYear = 22579.97;
-    var tempInvested = 100;
+    var tempInvested = 1000;
     tempReturnEuro = parseFloat((totalWallet - (tempInvested + tempStartYear)).toFixed(2));
     tempReturnPercent = parseFloat(((tempReturnEuro / (tempInvested + tempStartYear)) * 100).toFixed(2));
-    var tempDividendReceived = 38.59;
+    var tempDividendReceived = 41.1;
 
     annualReturnEuro.push(tempReturnEuro);
     annualReturnPercent.push(tempReturnPercent);
@@ -3364,9 +3364,9 @@ async function main() {
     var totalDividendReceived = ((annualDividendReceived.reduce((acc, val) => acc + val, 0))).toFixed(2); //somme de la liste annualDividendReceived
     totalGainWithoutDividend = (diffEuro - totalDividendReceived).toFixed(2); //le gain total en plus-value = gain total - dividendes nets reçus
 
-    var tempBuys = 1;
+    var tempBuys = 2;
     var tempSells = 0;
-    var tempDeposits = 2;
+    var tempDeposits = 3;
     var tempWithdrawals = 0;
     var tempTransactions = (tempBuys+tempSells+tempDeposits+tempWithdrawals);
 

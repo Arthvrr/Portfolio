@@ -1,10 +1,8 @@
 - faire un certificat quand l'user à réussi tout les quizz de tout les modules ! 
 - faire chapitre 4.14 les autres ratios de rentabilité
-- graphique transactions par an ?
 - ajouter counter de personnes ayant pris la formation (2) pour l'instant
 - finir 0.5 et 0.6
 - créer google sheets
-- finaliser resources.html
 - finaliser barre de progression par user : ajouter bouton "Marquer ce chapitre comme terminé" à chaque fin de chapitre, et ajuste barre de progression de l'utilisateur
 - ajouter checklist
 - refaire TOUTES les images (éviter copyright)
@@ -14,3 +12,5 @@ idées outil module 6 :
 - 1% vs 2% vs 3% de frais sur le long terme
 - 8% sur PEA vs 12% sur CTO
 - laisser ses dividendes investis vs les sortir du compte
+
+- ajouter "made by stockspickeur" sur chaque graphique de la page Portfolio
