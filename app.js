@@ -114,11 +114,11 @@ function changeBackgroundColor(diffEuro,diffPercent){
 
 //TOUTES LES VARIABLES UTILISÉES
 
-var totalInvested = 17500; // montant total investi
+var totalInvested = 18000; // montant total investi
 var totalInvestedCell = document.getElementById("invested");
 totalInvestedCell.textContent = totalInvested;
 
-var CashOnHand = 231.85; // cash disponible
+var CashOnHand = 741.29; // cash disponible
 var cashCell = document.getElementById("cash");
 cashCell.textContent = CashOnHand.toFixed(2);
 
@@ -140,9 +140,9 @@ var diffList = [];
 var diffPercentList = [];
 
 var stocksPERatio = []; // PE Ratio de toutes les actions
-var tenyearsPERatio = [36.05,27.75,37.76,32.85,52.81,33.48] // PE Ratio médian des 10 dernières années
-var gurufocusPrice = [1106.8,224.45,642.7,546.77,318.45,396.07]
-var tipsrankPrice = [1791.4,421.7,640.37,555.69,274.38,391.05]
+var tenyearsPERatio = [37.05,27.61,37.76,32.56,52.81,33.45] // PE Ratio médian des 10 dernières années
+var gurufocusPrice = [1187.73,247.65,671.21,573.25,375.41,419.22]
+var tipsrankPrice = [2391.80,424.83,661,560.52,308.69,422.78]
 var stocksFairPrice = []; // Liste des scores de prix juste
 var valuationScore = []; // Score de valorisation de chaque actions
 
@@ -176,20 +176,20 @@ var annualInvested = [0,5350,6400,16500]; //liste qui stocke le nombres d'euros 
 
 var walletEndYear = [0,5792.03,8946.56,22579.97]; //liste qui stocke la valeur du portefeuille à la fin de chaque année
 
-var ASMLCotation = [100,67,67,100,100];
-var GOOGLCotation = [100,67,50,100,67];
-var MACotation = [67,50,100,50,100];
-var MSFTCotation = [100,67,67,100,67];
-var NVDACotation = [100,50,100,100,100];
-var VCotation = [67,50,83,100,100];
+var ASMLCotation = [100,83,50,100,100];
+var GOOGLCotation = [100,67,33,100,67];
+var MACotation = [67,100,100,50,100];
+var MSFTCotation = [100,67,67,100,83];
+var NVDACotation = [100,100,100,100,100];
+var VCotation = [67,100,83,100,100];
 var stocksCotation = [ASMLCotation,GOOGLCotation,MACotation,MSFTCotation,NVDACotation,VCotation];
 
-var ASMLScore = 26;
+var ASMLScore = 27;
 var GOOGLScore = 23;
-var MAScore = 22;
+var MAScore = 25;
 var MSFTScore = 25;
-var NVDAScore = 27;
-var VScore = 22;
+var NVDAScore = 30;
+var VScore = 27;
 var stocksScore = [ASMLScore, GOOGLScore, MAScore,MSFTScore,NVDAScore,VScore];
 
 var annualMarketReturnPercent = [-19.44,24.23,23.31,15.96]; //retour annuels du S&P500 en pourcent (source : https://www.macrotrends.net/2526/sp-500-historical-annual-returns)
@@ -221,7 +221,7 @@ var otherTax = 2.46;
 var stocksTaxes = [3637.07, 2944.82, 2384, 2998.43, 3174.7, 2495.34, 13997.29] //ASML, GOOGL, MA, MSFT, NVDA, V, Old Stocks
 var stocksVsNotPFTaxes = [105.73,141.47]
 
-var TransactionsAmountPerType = [26254.93, 9053.85, 17610, 110] //Achat, vente, dépôt, retrait
+var TransactionsAmountPerType = [26254.93, 9053.85, 18110, 110] //Achat, vente, dépôt, retrait
 
 
 //FONCTIONS 
@@ -3348,10 +3348,10 @@ async function main() {
 
     // PERF ANNÉE EN COURS
     var tempStartYear = 22579.97;
-    var tempInvested = 1000;
+    var tempInvested = 1500;
     tempReturnEuro = parseFloat((totalWallet - (tempInvested + tempStartYear)).toFixed(2));
     tempReturnPercent = parseFloat(((tempReturnEuro / (tempInvested + tempStartYear)) * 100).toFixed(2));
-    var tempDividendReceived = 41.1;
+    var tempDividendReceived = 72.18;
 
     annualReturnEuro.push(tempReturnEuro);
     annualReturnPercent.push(tempReturnPercent);
@@ -3366,7 +3366,7 @@ async function main() {
 
     var tempBuys = 2;
     var tempSells = 0;
-    var tempDeposits = 3;
+    var tempDeposits = 4;
     var tempWithdrawals = 0;
     var tempTransactions = (tempBuys+tempSells+tempDeposits+tempWithdrawals);
 
@@ -3403,7 +3403,7 @@ async function main() {
 
 
     //REMPLIR BARRES DE PROGRESSION
-    fillFirstProgressBar(totalWallet, 30000);
+    fillFirstProgressBar(totalWallet, 50000);
     fillSecondProgressBar(tempDividendReceived, 100);
 
 
