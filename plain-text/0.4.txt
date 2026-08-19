@@ -1,0 +1,27 @@
+La Bourse est un domaine d'apprentissage dense. Au fur et à mesure que vous avancerez dans la formation StocksPickeur, vous allez accumuler une quantité phénoménale d'informations : des définitions, des ratios financiers, des formules de calcul, des critères de sélection stricts et des biais psychologiques à éviter. Il est humainement impossible de mémoriser 100% de ces données dès la première lecture.
+De plus, lorsque vous serez en situation réelle, face à votre écran pour analyser une nouvelle entreprise, vous n'aurez pas le temps (ni l'envie) de re-visionner deux heures de vidéo ou de relire quarante pages de texte juste pour retrouver la formule exacte du Free Cash Flow. Vous aurez besoin d'une information condensée, visuelle, et immédiatement accessible. C'est précisément pour répondre à ce besoin d'efficacité absolue que nous avons créé le système des
+Cheat Sheets
+.
+1. Qu'est-ce qu'une Cheat Sheet ?
+En anglais, une "Cheat Sheet" se traduit littéralement par "antisèche". Chez StocksPickeur, c'est la synthèse ultime d'un module entier. Nous avons pris l'ensemble des concepts théoriques, des tableaux de comparaison et des formules mathématiques d'un module, et nous les avons compressés de manière ultra-visuelle sur une seule et unique page.
+Ces fiches récapitulatives sont conçues comme de véritables "check-lists" de pilotes de ligne. Un pilote expérimenté sait comment faire décoller son avion, mais il utilise toujours sa check-list pour s'assurer de ne rien oublier d'important. En tant qu'investisseur, ces Cheat Sheets deviendront votre outil de vérification avant chaque décision financière.
+2. Où trouver ces fiches de synthèse ?
+Nous avons placé ces ressources stratégiques à l'endroit où elles sont le plus utiles : à la fin de votre parcours d'apprentissage.
+[formation-contenu-7.png]
+À la toute fin de la page d'un module, sous la section Validation, vous trouverez la section "Synthèse" abritant la Cheat Sheet correspondante.
+Lorsque vous êtes sur la page d'accueil d'un module, faites défiler l'écran tout en bas. Vous trouverez une section dédiée intitulée
+"Synthèse"
+, située juste en dessous de l'Examen Final. L'idée est simple : une fois que vous avez lu tous les chapitres et validé votre Quiz avec succès, vous débloquez et consultez la Cheat Sheet pour figer définitivement vos connaissances.
+3. Comment les utiliser de manière optimale ?
+La digitalisation a du bon, mais l'investissement exige parfois de la matérialité. Nous vous recommandons vivement de ne pas vous contenter de regarder ces fiches sur votre écran.
+[formation-contenu-8.png]
+Une fiche claire et épurée, dotée d'un bouton dédié pour lancer l'impression PDF instantanément.
+En ouvrant une Cheat Sheet, vous remarquerez un bouton noir très distinct en haut à droite de l'interface, indiquant
+"Imprimer la Fiche (PDF)"
+. C'est la fonctionnalité clé de cet outil.
+Notre conseil méthodologique le plus précieux pour ce chapitre :
+Imprimez-les toutes !
+Achetez un classeur ou un beau carnet que vous nommerez votre "Journal d'Investisseur". À chaque fin de module, imprimez la Cheat Sheet et rangez-la soigneusement. Dans quelques semaines, vous aurez entre vos mains un manuel d'investissement physique, ultra-personnalisé, et incroyablement puissant, que vous pourrez garder sur votre bureau et consulter à la moindre hésitation face aux marchés.
+🔑
+Ce qu'il faut retenir
+Les Cheat Sheets sont les "antisèches" officielles de la formation, situées dans la section Synthèse tout en bas de chaque module. Elles condensent de manière très visuelle l'intégralité des concepts, règles et calculs abordés. Utilisez le bouton dédié pour les imprimer au format PDF et créez-vous un véritable carnet d'investisseur physique à garder près de vous lors de vos analyses boursières.
