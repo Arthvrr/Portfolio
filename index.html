@@ -27,6 +27,16 @@
       gtag('js', new Date());
       gtag('config', 'G-5QFGNT3V2F');
     </script>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Spécifique à iOS (Apple) -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="StocksPickeur">
+    <link rel="apple-touch-icon" href="./media/Logo/apple-touch-icon.png">
+
 </head>
 <body class="bg-slate-50 text-slate-600 antialiased selection:bg-indigo-100 selection:text-indigo-700">
 
@@ -105,7 +115,7 @@
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-emerald-500">la Qualité.</span>
                     </h1>
                     <p class="text-lg text-slate-600 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0 text-justify">
-                        Je m'appelle Arthur, 22 ans. Je défends le <strong>Quality Investing</strong> : sélectionner les meilleures entreprises mondiales, les acheter au bon prix, et laisser le temps faire le reste.
+                        Je m'appelle Arthur, 23 ans. Je défends le <strong>Quality Investing</strong> : sélectionner les meilleures entreprises mondiales, les acheter au bon prix, et laisser le temps faire le reste.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                         <a href="formation.html" class="flex justify-center items-center px-8 py-4 border border-transparent text-base font-semibold rounded-xl text-white bg-indigo-600 hover:bg-indigo-700 md:text-lg transition shadow-lg shadow-indigo-500/30 transform hover:-translate-y-1">
@@ -696,5 +706,14 @@
         });
     </script>
 <script type="module" src="./js/auth-guard.js"></script>
+
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+        });
+    }
+    </script>
+
 </body>
 </html>

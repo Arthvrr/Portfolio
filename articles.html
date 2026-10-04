@@ -23,6 +23,16 @@
       gtag('js', new Date());
       gtag('config', 'G-5QFGNT3V2F');
     </script>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Spécifique à iOS (Apple) -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="StocksPickeur">
+    <link rel="apple-touch-icon" href="./media/Logo/apple-touch-icon.png">
+
 </head>
 <body class="bg-slate-50 text-slate-600 antialiased selection:bg-indigo-100 selection:text-indigo-700">
 
@@ -138,7 +148,7 @@
                    data-date="2026-05-07" 
                    data-time="15">
                     <div class="w-full aspect-[5/3] relative overflow-hidden bg-slate-100 border-b border-slate-100">
-                        <img src="./media/Articles/pari-décoller-portefeuille.png" alt="Miniature Article" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                        <img src="./media/Articles/pari-decoller-portefeuille.png" alt="Miniature Article" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                         <div class="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-white p-2 rounded-full">
                             <svg viewBox="0 0 24 24" aria-hidden="true" class="w-4 h-4 fill-current"><g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.008 5.964H5.078z"></path></g></svg>
                         </div>
@@ -403,5 +413,14 @@
             sortArticles();
         });
     </script>
+
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+        });
+    }
+    </script>
+
 </body>
 </html>

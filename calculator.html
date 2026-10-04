@@ -4,15 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculateur Quality Score (/30) | StocksPickeur</title>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
-    
     <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
 
     <style>
@@ -35,8 +31,10 @@
             font-size: 0.875rem;
             font-weight: 600;
             color: #475569;
-            display: block;
             margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
         .input-field {
             width: 100%;
@@ -52,6 +50,16 @@
             background-color: #fff;
         }
     </style>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Spécifique à iOS (Apple) -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="StocksPickeur">
+    <link rel="apple-touch-icon" href="./media/Logo/apple-touch-icon.png">
+
 </head>
 <body class="bg-slate-50 text-slate-600 antialiased">
 
@@ -66,7 +74,7 @@
 
             <div class="hidden xl:flex items-center gap-8">
                 <nav class="flex gap-6">
-                    <a href="calculator.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Calculateur</a>
+                    <a href="calculator.html" class="text-sm font-bold text-indigo-600 transition relative after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-indigo-600">Calculateur</a>
                     <a href="portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
                     <a href="moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Analyses</a>
                     <a href="resources.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Ressources</a>
@@ -95,9 +103,10 @@
         </div>
     </div>
 
-    <div id="mobile-menu" class="hidden xl:hidden bg-white border-b border-slate-200 shadow-xl absolute w-full">
+    <!-- MENU MOBILE -->
+    <div id="mobile-menu" class="hidden xl:hidden bg-white border-b border-slate-200 shadow-xl absolute w-full z-40">
         <nav class="flex flex-col px-4 pt-2 pb-6 space-y-3">
-            <a href="calculator.html" class="text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50 p-2 rounded-lg transition">Calculateur</a>
+            <a href="calculator.html" class="text-base font-bold text-indigo-600 bg-indigo-50 p-2 rounded-lg transition">Calculateur</a>
             <a href="portfolio.html" class="text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50 p-2 rounded-lg transition">Portefeuille</a>
             <a href="moatpicks.html" class="text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50 p-2 rounded-lg transition">Analyses</a>
             <a href="resources.html" class="text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50 p-2 rounded-lg transition">Ressources</a>
@@ -112,7 +121,7 @@
             </div>
         </nav>
     </div>
-</header>
+    </header>
 
     <main class="pt-32 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -122,22 +131,25 @@
             </span>
             <h1 class="text-3xl md:text-5xl font-heading font-extrabold text-slate-900 mb-4">Le Score Quality 💎</h1>
             <p class="text-lg text-slate-500 max-w-2xl mx-auto">
-                Analysez objectivement n'importe quelle entreprise avec nos 15 critères quantitatifs d'excellence.
+                Analysez objectivement n'importe quelle entreprise avec nos 15 critères quantitatifs d'excellence, et comparez-les sur un seul graphique.
             </p>
         </div>
 
         <div class="grid lg:grid-cols-12 gap-8">
             
+            <!-- COLONNE FORMULAIRE -->
             <div class="lg:col-span-7 space-y-8">
 
+                <!-- TICKER -->
                 <div class="bg-indigo-50 p-6 rounded-2xl border border-indigo-100 shadow-sm relative overflow-hidden mb-8">
                     <div class="absolute top-0 left-0 w-1 h-full bg-indigo-500"></div>
                     <div class="input-group mb-0 border-indigo-200 focus-within:border-indigo-500 bg-white">
-                        <label class="label-text text-indigo-900">Symbole de l'action (Ticker)</label>
+                        <label class="label-text text-indigo-900">Symbole de l'action étudiée (Ticker)</label>
                         <input type="text" id="input-ticker" class="input-field text-lg uppercase font-bold text-indigo-900" placeholder="Ex: MSFT, LVMH, ASML..." autocomplete="off">
                     </div>
                 </div>
                 
+                <!-- PILIER 1 -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
                     <div class="absolute top-0 left-0 w-1 h-full bg-slate-500"></div>
                     <h3 class="font-heading font-bold text-xl text-slate-900 mb-6 flex items-center">
@@ -147,14 +159,32 @@
                     
                     <div class="space-y-4">
                         <div class="input-group">
-                            <label class="label-text">Performance vs S&P 500 (sur 5 ans)</label>
+                            <label class="label-text">
+                                Performance vs S&P 500 (sur 5 ans)
+                                <div class="relative flex items-center group cursor-help">
+                                    <svg class="w-4 h-4 text-slate-400 hover:text-indigo-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-2.5 bg-slate-800 text-white text-xs font-normal rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 shadow-xl text-center pointer-events-none">
+                                        L'action a-t-elle surperformé la moyenne du marché américain sur les 5 dernières années ?
+                                        <div class="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-slate-800"></div>
+                                    </div>
+                                </div>
+                            </label>
                             <select id="base_perf" class="input-field" onchange="calculateScore()">
                                 <option value="0">Fait moins bien que le marché</option>
                                 <option value="2">Bat le S&P 500 (+2 pts)</option>
                             </select>
                         </div>
                         <div class="input-group">
-                            <label class="label-text">Nombre d'Actions (Buybacks)</label>
+                            <label class="label-text">
+                                Nombre d'Actions (Buybacks)
+                                <div class="relative flex items-center group cursor-help">
+                                    <svg class="w-4 h-4 text-slate-400 hover:text-indigo-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-2.5 bg-slate-800 text-white text-xs font-normal rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 shadow-xl text-center pointer-events-none">
+                                        L'entreprise détruit-elle ses propres actions pour augmenter votre pourcentage de propriété ?
+                                        <div class="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-slate-800"></div>
+                                    </div>
+                                </div>
+                            </label>
                             <select id="base_shares" class="input-field" onchange="calculateScore()">
                                 <option value="0">Augmente (Dilution)</option>
                                 <option value="1">Stable / Mitigé (+1 pt)</option>
@@ -162,7 +192,16 @@
                             </select>
                         </div>
                         <div class="input-group">
-                            <label class="label-text">Diversification du Chiffre d'Affaires</label>
+                            <label class="label-text">
+                                Diversification du Chiffre d'Affaires
+                                <div class="relative flex items-center group cursor-help">
+                                    <svg class="w-4 h-4 text-slate-400 hover:text-indigo-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-2.5 bg-slate-800 text-white text-xs font-normal rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 shadow-xl text-center pointer-events-none">
+                                        L'entreprise dépend-elle d'un seul pays ou d'un seul produit pour générer son argent ?
+                                        <div class="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-slate-800"></div>
+                                    </div>
+                                </div>
+                            </label>
                             <select id="base_div" class="input-field" onchange="calculateScore()">
                                 <option value="0">Pas diversifié (Risqué)</option>
                                 <option value="1">Diversifié (Géo OU Segments) (+1 pt)</option>
@@ -172,29 +211,58 @@
                     </div>
                 </div>
 
+                <!-- PILIER 2 -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
                     <div class="absolute top-0 left-0 w-1 h-full bg-emerald-500"></div>
                     <h3 class="font-heading font-bold text-xl text-slate-900 mb-6 flex items-center">
                         <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mr-3 text-sm">2</span>
-                        Croissance (Historique 10 ans)
+                        Croissance (Historique 5-10 ans)
                     </h3>
                     
                     <div class="space-y-4">
                         <div class="input-group">
-                            <label class="label-text">Années de croissance du Chiffre d'Affaires (0 à 10)</label>
-                            <input type="number" id="growth_sales" class="input-field" min="0" max="10" placeholder="Ex: 10" oninput="calculateScore()">
+                            <label class="label-text">
+                                Croissance moyenne du Chiffre d'Affaires (%)
+                                <div class="relative flex items-center group cursor-help">
+                                    <svg class="w-4 h-4 text-slate-400 hover:text-indigo-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-2.5 bg-slate-800 text-white text-xs font-normal rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 shadow-xl text-center pointer-events-none">
+                                        Les ventes pures de l'entreprise. Supérieur à 10% prouve que la demande augmente fortement.
+                                        <div class="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-slate-800"></div>
+                                    </div>
+                                </div>
+                            </label>
+                            <input type="number" id="growth_sales" class="input-field" placeholder="Ex: 12" oninput="calculateScore()">
                         </div>
                         <div class="input-group">
-                            <label class="label-text">Années de croissance du BPA (EPS) (0 à 10)</label>
-                            <input type="number" id="growth_eps" class="input-field" min="0" max="10" placeholder="Ex: 9" oninput="calculateScore()">
+                            <label class="label-text">
+                                Croissance moyenne du BPA (EPS) (%)
+                                <div class="relative flex items-center group cursor-help">
+                                    <svg class="w-4 h-4 text-slate-400 hover:text-indigo-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-2.5 bg-slate-800 text-white text-xs font-normal rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 shadow-xl text-center pointer-events-none">
+                                        Bénéfice Par Action. Mesure si la croissance des ventes se transforme bien en croissance des profits réels.
+                                        <div class="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-slate-800"></div>
+                                    </div>
+                                </div>
+                            </label>
+                            <input type="number" id="growth_eps" class="input-field" placeholder="Ex: 15" oninput="calculateScore()">
                         </div>
                         <div class="input-group">
-                            <label class="label-text">Années de croissance du Free Cash Flow (0 à 10)</label>
-                            <input type="number" id="growth_fcf" class="input-field" min="0" max="10" placeholder="Ex: 8" oninput="calculateScore()">
+                            <label class="label-text">
+                                Croissance moyenne du Free Cash Flow (%)
+                                <div class="relative flex items-center group cursor-help">
+                                    <svg class="w-4 h-4 text-slate-400 hover:text-indigo-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-2.5 bg-slate-800 text-white text-xs font-normal rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 shadow-xl text-center pointer-events-none">
+                                        Le cash libre généré. L'indicateur de rentabilité le plus difficile à manipuler comptablement.
+                                        <div class="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-slate-800"></div>
+                                    </div>
+                                </div>
+                            </label>
+                            <input type="number" id="growth_fcf" class="input-field" placeholder="Ex: 11" oninput="calculateScore()">
                         </div>
                     </div>
                 </div>
 
+                <!-- PILIER 3 -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
                     <div class="absolute top-0 left-0 w-1 h-full bg-amber-500"></div>
                     <h3 class="font-heading font-bold text-xl text-slate-900 mb-6 flex items-center">
@@ -204,20 +272,48 @@
                     
                     <div class="grid grid-cols-2 gap-4">
                         <div class="input-group">
-                            <label class="label-text">Marge Nette (%)</label>
+                            <label class="label-text">
+                                Marge Nette (%)
+                                <div class="relative flex items-center group cursor-help">
+                                    <svg class="w-4 h-4 text-slate-400 hover:text-indigo-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-48 p-2.5 bg-slate-800 text-white text-xs font-normal rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 shadow-xl text-center pointer-events-none">
+                                        Ce qu'il reste dans la poche sur 100€ vendus après impôts et toutes dépenses.
+                                        <div class="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-slate-800"></div>
+                                    </div>
+                                </div>
+                            </label>
                             <input type="number" id="val_net_margin" class="input-field" placeholder="Ex: 25" oninput="calculateScore()">
                         </div>
                         <div class="input-group">
-                            <label class="label-text">FCF Margin (%)</label>
+                            <label class="label-text">
+                                FCF Margin (%)
+                                <div class="relative flex items-center group cursor-help">
+                                    <svg class="w-4 h-4 text-slate-400 hover:text-indigo-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-48 p-2.5 bg-slate-800 text-white text-xs font-normal rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 shadow-xl text-center pointer-events-none">
+                                        Efficacité brute à transformer le Chiffre d'Affaires en véritable Cash-Flow.
+                                        <div class="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-slate-800"></div>
+                                    </div>
+                                </div>
+                            </label>
                             <input type="number" id="val_fcf_margin" class="input-field" placeholder="Ex: 20" oninput="calculateScore()">
                         </div>
                     </div>
                     <div class="input-group">
-                        <label class="label-text">ROIC (%)</label>
+                        <label class="label-text">
+                            ROIC (%)
+                            <div class="relative flex items-center group cursor-help">
+                                <svg class="w-4 h-4 text-slate-400 hover:text-indigo-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-2.5 bg-slate-800 text-white text-xs font-normal rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 shadow-xl text-center pointer-events-none">
+                                    Retour sur Capitaux Investis. La métrique la plus importante de l'investissement Qualité (> 15% requis).
+                                    <div class="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-slate-800"></div>
+                                </div>
+                            </div>
+                        </label>
                         <input type="number" id="val_roic" class="input-field border-indigo-300" placeholder="Ex: 32" oninput="calculateScore()">
                     </div>
                 </div>
 
+                <!-- PILIER 4 -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
                     <div class="absolute top-0 left-0 w-1 h-full bg-red-500"></div>
                     <h3 class="font-heading font-bold text-xl text-slate-900 mb-6 flex items-center">
@@ -227,20 +323,48 @@
                     
                     <div class="grid grid-cols-2 gap-4">
                         <div class="input-group">
-                            <label class="label-text">Dette / EBITDA</label>
+                            <label class="label-text">
+                                Dette / EBITDA
+                                <div class="relative flex items-center group cursor-help">
+                                    <svg class="w-4 h-4 text-slate-400 hover:text-indigo-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-48 p-2.5 bg-slate-800 text-white text-xs font-normal rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 shadow-xl text-center pointer-events-none">
+                                        Nombre d'années de bénéfices opérationnels nécessaires pour rembourser toute la dette.
+                                        <div class="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-slate-800"></div>
+                                    </div>
+                                </div>
+                            </label>
                             <input type="number" id="val_debt_ebitda" class="input-field" placeholder="Ex: 0.8" step="0.1" oninput="calculateScore()">
                         </div>
                         <div class="input-group">
-                            <label class="label-text">Debt / Equity</label>
+                            <label class="label-text">
+                                Debt / Equity
+                                <div class="relative flex items-center group cursor-help">
+                                    <svg class="w-4 h-4 text-slate-400 hover:text-indigo-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-48 p-2.5 bg-slate-800 text-white text-xs font-normal rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 shadow-xl text-center pointer-events-none">
+                                        Ratio d'endettement par rapport aux capitaux propres. Doit être inférieur à 1 de préférence.
+                                        <div class="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-slate-800"></div>
+                                    </div>
+                                </div>
+                            </label>
                             <input type="number" id="val_debt_equity" class="input-field" placeholder="Ex: 0.5" step="0.1" oninput="calculateScore()">
                         </div>
                     </div>
                     <div class="input-group">
-                        <label class="label-text">Interest Coverage</label>
+                        <label class="label-text">
+                            Interest Coverage
+                            <div class="relative flex items-center group cursor-help">
+                                <svg class="w-4 h-4 text-slate-400 hover:text-indigo-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-2.5 bg-slate-800 text-white text-xs font-normal rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 shadow-xl text-center pointer-events-none">
+                                    Combien de fois le bénéfice permet de payer les intérêts annuels de la dette. > 15 est excellent.
+                                    <div class="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-slate-800"></div>
+                                </div>
+                            </div>
+                        </label>
                         <input type="number" id="val_int_coverage" class="input-field" placeholder="Ex: 40" oninput="calculateScore()">
                     </div>
                 </div>
 
+                <!-- PILIER 5 -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
                     <div class="absolute top-0 left-0 w-1 h-full bg-blue-500"></div>
                     <h3 class="font-heading font-bold text-xl text-slate-900 mb-6 flex items-center">
@@ -250,22 +374,50 @@
                     
                     <div class="grid grid-cols-2 gap-4">
                         <div class="input-group">
-                            <label class="label-text">Payout Ratio (%)</label>
+                            <label class="label-text">
+                                Payout Ratio (%)
+                                <div class="relative flex items-center group cursor-help">
+                                    <svg class="w-4 h-4 text-slate-400 hover:text-indigo-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-48 p-2.5 bg-slate-800 text-white text-xs font-normal rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 shadow-xl text-center pointer-events-none">
+                                        Pourcentage des bénéfices nets versé sous forme de dividendes aux actionnaires.
+                                        <div class="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-slate-800"></div>
+                                    </div>
+                                </div>
+                            </label>
                             <input type="number" id="val_payout" class="input-field" placeholder="Ex: 40" oninput="calculateScore()">
                         </div>
                         <div class="input-group">
-                            <label class="label-text">FCF Payout (%)</label>
+                            <label class="label-text">
+                                FCF Payout (%)
+                                <div class="relative flex items-center group cursor-help">
+                                    <svg class="w-4 h-4 text-slate-400 hover:text-indigo-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-48 p-2.5 bg-slate-800 text-white text-xs font-normal rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 shadow-xl text-center pointer-events-none">
+                                        Même principe que le Payout Ratio, mais calculé sur le Cash Flow Libre (plus réaliste).
+                                        <div class="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-slate-800"></div>
+                                    </div>
+                                </div>
+                            </label>
                             <input type="number" id="val_fcf_payout" class="input-field" placeholder="Ex: 35" oninput="calculateScore()">
                         </div>
                     </div>
                     <div class="input-group">
-                        <label class="label-text">Croissance Dividende 5 ans (%)</label>
+                        <label class="label-text">
+                            Croissance Dividende 5 ans (%)
+                            <div class="relative flex items-center group cursor-help">
+                                <svg class="w-4 h-4 text-slate-400 hover:text-indigo-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-2.5 bg-slate-800 text-white text-xs font-normal rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 shadow-xl text-center pointer-events-none">
+                                    Vitesse à laquelle l'entreprise augmente son dividende par action chaque année.
+                                    <div class="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-slate-800"></div>
+                                </div>
+                            </div>
+                        </label>
                         <input type="number" id="val_div_growth" class="input-field" placeholder="Ex: 12" oninput="calculateScore()">
                     </div>
                 </div>
 
             </div>
 
+            <!-- COLONNE RESULTAT -->
             <div class="lg:col-span-5 space-y-6">
                 <div class="sticky top-24">
                     
@@ -275,73 +427,75 @@
                         <h4 class="text-indigo-300 uppercase tracking-widest text-xs font-bold mb-2">Score Final</h4>
                         <div class="text-6xl font-heading font-black mb-2" id="totalScore">0<span class="text-2xl text-slate-500">/30</span></div>
                         
-                        <div id="verdictBadge" class="inline-block px-4 py-1 rounded-full bg-slate-800 text-slate-400 text-sm font-bold border border-slate-700 mt-2">
+                        <div id="verdictBadge" class="inline-block px-4 py-1 rounded-full bg-slate-800 text-slate-400 text-sm font-bold border border-slate-700 mt-2 mb-4">
                             En attente...
                         </div>
 
-                        <p class="text-slate-400 text-sm mt-6 italic" id="verdictText">
-                            Remplissez les 5 piliers pour obtenir l'analyse.
-                        </p>
+                        <div class="bg-slate-800/50 rounded-xl p-4 border border-slate-700/50 text-left">
+                            <p class="text-slate-300 text-sm leading-relaxed" id="verdictText">
+                                Remplissez les 5 piliers à gauche pour obtenir l'analyse complète de l'entreprise.
+                            </p>
+                        </div>
                     </div>
 
-                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm mt-6">
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm mt-6 relative">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="text-sm font-bold text-slate-900">Empreinte Quality</h4>
+                            <!-- Bouton Télécharger PNG -->
+                            <button id="download-png-btn" class="text-xs font-bold text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-lg hover:bg-indigo-100 transition flex items-center gap-1.5">
+                                📸 <span class="hidden sm:inline">Télécharger PNG</span>
+                            </button>
+                        </div>
                         <canvas id="qualityRadar"></canvas>
                     </div>
 
-                    <button onclick="resetForm()" class="w-full mt-4 text-slate-400 hover:text-slate-600 text-sm font-medium transition">
-                        ↺ Réinitialiser le formulaire
-                    </button>
+                    <div class="flex gap-3 mt-6">
+                        <button onclick="saveAnalysis()" class="flex-1 bg-indigo-600 text-white px-4 py-3 rounded-xl font-bold hover:bg-indigo-700 transition shadow-md shadow-indigo-200 flex items-center justify-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" /></svg>
+                            Sauvegarder l'Analyse
+                        </button>
+                        <button onclick="resetForm()" class="bg-slate-100 text-slate-500 px-4 py-3 rounded-xl font-bold hover:bg-slate-200 hover:text-slate-700 transition flex items-center justify-center" title="Réinitialiser">
+                            ↺
+                        </button>
+                    </div>
 
                 </div>
             </div>
 
-            </div>
-                <div class="mt-12 flex justify-center mb-12">
-            <button id="download-pdf-btn" class="bg-indigo-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-indigo-700 transition shadow-lg shadow-indigo-200 flex items-center gap-3 transform hover:-translate-y-1">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                </svg>
-                Sauvegarder l'Analyse en PDF
-            </button>
         </div>
 
-        <div style="position: absolute; left: -9999px; top: 0;">
-            <div id="pdf-template" class="bg-white p-10 w-[794px] h-[1123px] text-slate-800 relative">
-                
-                <div class="flex justify-between items-end border-b-2 border-slate-100 pb-6 mb-8">
-                    <div>
-                        <div class="flex items-center gap-2 mb-2">
-                            <img src="./media/Logo/logo-black.ico" alt="Logo" class="h-6 w-6">
-                            <span class="font-bold text-slate-900 tracking-tight">StocksPickeur</span>
-                        </div>
-                        <h1 class="text-4xl font-extrabold text-slate-900" id="pdf-ticker">TICKER</h1>
-                        <p class="text-slate-500 font-medium mt-1">Rapport d'Analyse Quality Investing</p>
-                    </div>
-                    <div class="text-right">
-                        <div class="text-5xl font-black text-indigo-600" id="pdf-score">--/30</div>
-                        <div class="text-sm font-bold text-slate-400 uppercase tracking-widest mt-2">Score Qualité</div>
-                    </div>
-                </div>
-
-                <div class="flex justify-center mb-10 h-64">
-                    <img id="pdf-chart-img" src="" alt="Radar Chart" class="max-h-full object-contain">
-                </div>
-
+        <!-- SECTION COMPARATEUR (SAUVEGARDES) -->
+        <div id="saved-analyses-section" class="mt-20 hidden">
+            <div class="flex justify-between items-end mb-6">
                 <div>
-                    <h3 class="text-xl font-bold mb-4 border-b border-slate-200 pb-2 text-slate-800">Détail des Critères</h3>
-                    <div class="grid grid-cols-2 gap-x-12 gap-y-3" id="pdf-metrics-grid">
-                        </div>
+                    <h3 class="font-heading font-bold text-2xl text-slate-900">Vos analyses sauvegardées</h3>
+                    <p class="text-slate-500 text-sm mt-1">Comparez visuellement jusqu'à 5 actions sur le graphique Radar ci-dessus.</p>
                 </div>
-                
-                <div class="absolute bottom-10 left-10 right-10 text-center text-xs text-slate-400 border-t border-slate-100 pt-4">
-                    Document généré automatiquement le <span id="pdf-date"></span> depuis le calculateur StocksPickeur. <br>Ceci ne constitue pas un conseil en investissement.
-                </div>
+                <button onclick="clearAllAnalyses()" class="text-xs font-bold text-red-600 bg-red-50 px-4 py-2 rounded-lg hover:bg-red-100 transition">
+                    Tout effacer
+                </button>
+            </div>
+            
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-50 border-b border-slate-200 text-xs font-bold text-slate-500 uppercase tracking-wider">
+                            <th class="px-6 py-4">Ticker</th>
+                            <th class="px-6 py-4">Score Total</th>
+                            <th class="px-6 py-4">Atout Majeur</th>
+                            <th class="px-6 py-4 text-right">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="saved-analyses-body" class="divide-y divide-slate-100">
+                        <!-- Rempli en JS -->
+                    </tbody>
+                </table>
             </div>
         </div>
 
     </main>
 
-    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+    <footer class="bg-slate-950 py-12 border-t border-slate-900 mt-12">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
                  <img src="./media/Logo/Logo-White.png" alt="Logo" class="h-8">
@@ -358,259 +512,175 @@
     </footer>
 
     <script>
-        
-        document.getElementById('download-pdf-btn').addEventListener('click', async () => {
-            // 1. Récupération du Ticker et du Score
-            const tickerInput = document.getElementById('input-ticker').value.trim().toUpperCase();
-            const ticker = tickerInput !== '' ? tickerInput : 'SANS TICKER';
-            
-            // Pour récupérer juste le chiffre (ex: "27") sans la balise <span>/30</span>
-            const scoreText = document.getElementById('totalScore').childNodes[0].nodeValue.trim();
-
-            document.getElementById('pdf-ticker').innerText = ticker;
-            document.getElementById('pdf-score').innerText = `${scoreText}/30`;
-            document.getElementById('pdf-date').innerText = new Date().toLocaleDateString('fr-FR');
-
-            // 2. Capture du Graphique Radar
-            const canvas = document.getElementById('qualityRadar'); 
-            if(canvas) {
-                document.getElementById('pdf-chart-img').src = canvas.toDataURL('image/png', 1.0);
-            }
-
-            // --- FONCTIONS D'AIDE POUR RÉCUPÉRER LES VALEURS ---
-            const getVal = (id) => parseFloat(document.getElementById(id).value);
-            const getStr = (id) => document.getElementById(id).value || "-";
-            // Récupère le texte du menu déroulant en enlevant les "(+1 pt)" pour que ce soit propre
-            const getSelText = (id) => {
-                const el = document.getElementById(id);
-                return el.options[el.selectedIndex].text.replace(' (+1 pt)', '').replace(' (+2 pts)', '');
-            };
-
-            // 3. Création du tableau de données avec la vraie logique de points
-            const criteriaData = [
-                // 1. Bases
-                { name: "Perf. vs S&P 500", value: getSelText('base_perf'), points: parseInt(getStr('base_perf')||0) },
-                { name: "Actions (Buybacks)", value: getSelText('base_shares'), points: parseInt(getStr('base_shares')||0) },
-                { name: "Diversification", value: getSelText('base_div'), points: parseInt(getStr('base_div')||0) },
-                
-                // 2. Croissance
-                { name: "Croissance CA (Années)", value: getStr('growth_sales') + "/10", points: getVal('growth_sales') == 10 ? 2 : (getVal('growth_sales') >= 7 ? 1 : 0) },
-                { name: "Croissance BPA (Années)", value: getStr('growth_eps') + "/10", points: getVal('growth_eps') == 10 ? 2 : (getVal('growth_eps') >= 7 ? 1 : 0) },
-                { name: "Croissance FCF (Années)", value: getStr('growth_fcf') + "/10", points: getVal('growth_fcf') == 10 ? 2 : (getVal('growth_fcf') >= 7 ? 1 : 0) },
-                
-                // 3. Rentabilité
-                { name: "Marge Nette", value: getStr('val_net_margin') + "%", points: getVal('val_net_margin') >= 35 ? 2 : (getVal('val_net_margin') >= 20 ? 1 : 0) },
-                { name: "Marge FCF", value: getStr('val_fcf_margin') + "%", points: getVal('val_fcf_margin') >= 30 ? 2 : (getVal('val_fcf_margin') >= 20 ? 1 : 0) },
-                { name: "ROIC", value: getStr('val_roic') + "%", points: getVal('val_roic') >= 30 ? 2 : (getVal('val_roic') >= 15 ? 1 : 0) },
-                
-                // 4. Solvabilité
-                { name: "Dette / EBITDA", value: getStr('val_debt_ebitda'), points: getVal('val_debt_ebitda') < 1 ? 2 : (getVal('val_debt_ebitda') < 2 ? 1 : 0) },
-                { name: "Debt / Equity", value: getStr('val_debt_equity'), points: getVal('val_debt_equity') < 1 ? 2 : (getVal('val_debt_equity') < 2 ? 1 : 0) },
-                { name: "Interest Coverage", value: getStr('val_int_coverage'), points: getVal('val_int_coverage') >= 30 ? 2 : (getVal('val_int_coverage') >= 15 ? 1 : 0) },
-                
-                // 5. Dividende
-                { name: "Payout Ratio", value: getStr('val_payout') + "%", points: getVal('val_payout') < 30 ? 2 : (getVal('val_payout') < 50 ? 1 : 0) },
-                { name: "FCF Payout Ratio", value: getStr('val_fcf_payout') + "%", points: getVal('val_fcf_payout') < 30 ? 2 : (getVal('val_fcf_payout') < 50 ? 1 : 0) },
-                { name: "Croissance Dividende", value: getStr('val_div_growth') + "%", points: getVal('val_div_growth') >= 10 ? 2 : (getVal('val_div_growth') >= 5 ? 1 : 0) },
-            ];
-
-            const metricsGrid = document.getElementById('pdf-metrics-grid');
-            metricsGrid.innerHTML = ''; 
-
-            // Injection dans le HTML du PDF
-            criteriaData.forEach(c => {
-                // Sécurité si l'utilisateur laisse une case vide
-                if (c.value.includes("NaN") || c.value === "-%" || c.value === "-/10") {
-                    c.value = "Non renseigné";
-                    c.points = 0;
-                }
-
-                let colorClass = "text-red-500 bg-red-50 border-red-100"; 
-                if (c.points === 1) colorClass = "text-blue-600 bg-blue-50 border-blue-100";
-                if (c.points === 2) colorClass = "text-emerald-600 bg-emerald-50 border-emerald-100"; 
-
-                metricsGrid.innerHTML += `
-                    <div class="flex justify-between items-center border-b border-slate-100 py-2">
-                        <span class="text-slate-600 font-medium text-sm">${c.name}</span>
-                        <span class="px-3 py-1 rounded-lg border font-bold text-sm text-right ${colorClass}">
-                            ${c.value}
-                        </span>
-                    </div>
-                `;
-            });
-
-            // 4. Génération
-            const element = document.getElementById('pdf-template');
-            
-            const opt = {
-                margin:       0,
-                filename:     `Score_${ticker}_StocksPickeur.pdf`,
-                image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 2, useCORS: true },
-                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
-
-            const btn = document.getElementById('download-pdf-btn');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '⏳ Génération du PDF...';
-            btn.classList.add('opacity-75', 'cursor-not-allowed');
-
-            await html2pdf().set(opt).from(element).save();
-
-            btn.innerHTML = originalText;
-            btn.classList.remove('opacity-75', 'cursor-not-allowed');
-        });
-
-        // Sélectionne le bouton hamburger et le menu mobile
+        // Gestion du menu mobile
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
-
-        // Ajoute un événement au clic
-        btn.addEventListener('click', () => {
-            // "toggle" ajoute la classe si elle n'y est pas, ou l'enlève si elle y est
-            menu.classList.toggle('hidden');
-        });
+        btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
+        
         let myChart = null;
+        
+        // Palette de couleurs pour les sauvegardes (jusqu'à 5)
+        const radarColors = [
+            { bg: 'rgba(16, 185, 129, 0.2)', border: '#10b981' }, // Emerald
+            { bg: 'rgba(244, 63, 94, 0.2)', border: '#f43f5e' },  // Rose
+            { bg: 'rgba(245, 158, 11, 0.2)', border: '#f59e0b' }, // Amber
+            { bg: 'rgba(14, 165, 233, 0.2)', border: '#0ea5e9' }, // Sky
+            { bg: 'rgba(168, 85, 247, 0.2)', border: '#a855f7' }  // Purple
+        ];
 
+        // Charger les analyses depuis le LocalStorage
+        let savedAnalyses = JSON.parse(localStorage.getItem('stocksAnalyses')) || [];
+
+        // Plugin Chart.js pour forcer un fond blanc à l'export PNG
+        const whiteBackgroundPlugin = {
+            id: 'customCanvasBackgroundColor',
+            beforeDraw: (chart, args, options) => {
+                const {ctx} = chart;
+                ctx.save();
+                ctx.globalCompositeOperation = 'destination-over';
+                ctx.fillStyle = options.color || '#ffffff';
+                ctx.fillRect(0, 0, chart.width, chart.height);
+                ctx.restore();
+            }
+        };
+
+        // --- CALCUL DU SCORE ET UPDATE UI ---
         function calculateScore() {
-            let scoreBase = 0;
-            let scoreGrowth = 0;
-            let scoreProfit = 0;
-            let scoreSolvency = 0;
-            let scoreDividend = 0;
+            let scoreBase = 0; let scoreGrowth = 0; let scoreProfit = 0; let scoreSolvency = 0; let scoreDividend = 0;
 
-            // --- 1. LES BASES ---
+            // 1. BASES
             scoreBase += parseInt(document.getElementById('base_perf').value);
             scoreBase += parseInt(document.getElementById('base_shares').value);
             scoreBase += parseInt(document.getElementById('base_div').value);
 
-            // --- 2. CROISSANCE (Nouvelle logique 0-10) ---
-            // CA
-            let g_sales = parseInt(document.getElementById('growth_sales').value) || 0;
-            if (g_sales == 10) scoreGrowth += 2;
-            else if (g_sales >= 7) scoreGrowth += 1;
-            
-            // EPS
-            let g_eps = parseInt(document.getElementById('growth_eps').value) || 0;
-            if (g_eps == 10) scoreGrowth += 2;
-            else if (g_eps >= 7) scoreGrowth += 1;
+            // 2. CROISSANCE
+            let g_sales = parseFloat(document.getElementById('growth_sales').value);
+            if (!isNaN(g_sales)) { if (g_sales >= 10) scoreGrowth += 2; else if (g_sales >= 5) scoreGrowth += 1; }
+            let g_eps = parseFloat(document.getElementById('growth_eps').value);
+            if (!isNaN(g_eps)) { if (g_eps >= 10) scoreGrowth += 2; else if (g_eps >= 5) scoreGrowth += 1; }
+            let g_fcf = parseFloat(document.getElementById('growth_fcf').value);
+            if (!isNaN(g_fcf)) { if (g_fcf >= 10) scoreGrowth += 2; else if (g_fcf >= 5) scoreGrowth += 1; }
 
-            // FCF
-            let g_fcf = parseInt(document.getElementById('growth_fcf').value) || 0;
-            if (g_fcf == 10) scoreGrowth += 2;
-            else if (g_fcf >= 7) scoreGrowth += 1;
-
-            // --- 3. RENTABILITÉ ---
-            // Marge Nette: >35% (+2), >20% (+1)
+            // 3. RENTABILITÉ
             let net = parseFloat(document.getElementById('val_net_margin').value) || 0;
             if(net >= 35) scoreProfit += 2; else if(net >= 20) scoreProfit += 1;
-
-            // FCF Margin: >30% (+2), >20% (+1) -- AJUSTÉ selon demande précédente
             let fcfM = parseFloat(document.getElementById('val_fcf_margin').value) || 0;
             if(fcfM >= 30) scoreProfit += 2; else if(fcfM >= 20) scoreProfit += 1;
-
-            // ROIC: >30% (+2), >15% (+1) -- AJUSTÉ selon demande précédente
             let roic = parseFloat(document.getElementById('val_roic').value) || 0;
             if(roic >= 30) scoreProfit += 2; else if(roic >= 15) scoreProfit += 1;
 
-            // --- 4. SOLVABILITÉ ---
-            // Debt/EBITDA: <1 (+2), <2 (+1)
+            // 4. SOLVABILITÉ
             let d_ebitda = parseFloat(document.getElementById('val_debt_ebitda').value);
-            if(!isNaN(d_ebitda)) {
-                if(d_ebitda < 1) scoreSolvency += 2; else if(d_ebitda < 2) scoreSolvency += 1;
-            }
-
-            // Debt/Equity: <1 (+2), <2 (+1)
+            if(!isNaN(d_ebitda)) { if(d_ebitda < 1) scoreSolvency += 2; else if(d_ebitda < 2) scoreSolvency += 1; }
             let d_equity = parseFloat(document.getElementById('val_debt_equity').value);
-            if(!isNaN(d_equity)) {
-                if(d_equity < 1) scoreSolvency += 2; else if(d_equity < 2) scoreSolvency += 1;
-            }
-
-            // Interest Coverage: >30 (+2), >15 (+1)
+            if(!isNaN(d_equity)) { if(d_equity < 1) scoreSolvency += 2; else if(d_equity < 2) scoreSolvency += 1; }
             let cov = parseFloat(document.getElementById('val_int_coverage').value) || 0;
             if(cov >= 30) scoreSolvency += 2; else if(cov >= 15) scoreSolvency += 1;
 
-            // --- 5. DIVIDENDE ---
-            // Payout: <30% (+2), <50% (+1)
+            // 5. DIVIDENDE
             let payout = parseFloat(document.getElementById('val_payout').value);
-            if(!isNaN(payout)) {
-                if(payout < 30) scoreDividend += 2; else if(payout < 50) scoreDividend += 1;
-            }
-
-            // FCF Payout: <30% (+2), <50% (+1)
+            if(!isNaN(payout)) { if(payout < 30) scoreDividend += 2; else if(payout < 50) scoreDividend += 1; }
             let fcf_payout = parseFloat(document.getElementById('val_fcf_payout').value);
-            if(!isNaN(fcf_payout)) {
-                if(fcf_payout < 30) scoreDividend += 2; else if(fcf_payout < 50) scoreDividend += 1;
-            }
-
-            // Growth 5y: >10% (+2), >5% (+1)
+            if(!isNaN(fcf_payout)) { if(fcf_payout < 30) scoreDividend += 2; else if(fcf_payout < 50) scoreDividend += 1; }
             let div_g = parseFloat(document.getElementById('val_div_growth').value) || 0;
             if(div_g >= 10) scoreDividend += 2; else if(div_g >= 5) scoreDividend += 1;
 
             // TOTAL
             let total = scoreBase + scoreGrowth + scoreProfit + scoreSolvency + scoreDividend;
 
-            // MISE À JOUR UI
             document.getElementById('totalScore').innerHTML = `${total}<span class="text-2xl text-slate-500">/30</span>`;
             
-            updateVerdict(total);
-            updateChart(scoreBase, scoreGrowth, scoreProfit, scoreSolvency, scoreDividend);
+            const pillars = [
+                { name: "ses Fondations", score: scoreBase },
+                { name: "sa Croissance", score: scoreGrowth },
+                { name: "sa Rentabilité", score: scoreProfit },
+                { name: "sa Solvabilité", score: scoreSolvency },
+                { name: "son Dividende", score: scoreDividend }
+            ];
+
+            updateVerdict(total, pillars);
+            updateChart([scoreBase, scoreGrowth, scoreProfit, scoreSolvency, scoreDividend]);
+            renderSavedAnalysesTable(); // Refresh table
         }
 
-        function updateVerdict(score) {
+        function updateVerdict(score, pillars) {
             const badge = document.getElementById('verdictBadge');
             const text = document.getElementById('verdictText');
 
+            // Trier les piliers du meilleur au pire pour générer le texte
+            let sortedPillars = [...pillars].sort((a, b) => b.score - a.score);
+            let best = sortedPillars[0];
+            let worst = sortedPillars[4];
+
+            if (score === 0) {
+                badge.className = "inline-block px-4 py-1 rounded-full bg-slate-800 text-slate-400 text-sm font-bold border border-slate-700 mt-2 mb-4";
+                badge.textContent = "EN ATTENTE...";
+                text.innerHTML = "Remplissez les 5 piliers à gauche pour obtenir l'analyse complète de l'entreprise.";
+                return;
+            }
+
             if (score >= 25) {
-                badge.className = "inline-block px-4 py-1 rounded-full bg-emerald-500 text-white text-sm font-bold border border-emerald-400 mt-2 shadow-[0_0_15px_rgba(16,185,129,0.5)]";
+                badge.className = "inline-block px-4 py-1 rounded-full bg-emerald-500 text-white text-sm font-bold border border-emerald-400 mt-2 mb-4 shadow-[0_0_15px_rgba(16,185,129,0.5)]";
                 badge.textContent = "EXCELLENCE 💎";
-                text.innerHTML = "Une entreprise d'exception. Vous pouvez passer à l'analyse qualitative sereinement.";
-                text.className = "text-emerald-400 text-sm mt-6 font-medium";
+                text.innerHTML = `Une entreprise d'exception aux fondamentaux très robustes. Son atout majeur réside dans <strong class="text-emerald-400">${best.name}</strong> avec un score de ${best.score}/6. Même son point le "plus faible", à savoir <strong class="text-slate-400">${worst.name}</strong> (${worst.score}/6), reste tout à fait qualitatif. Vous pouvez l'intégrer à votre portefeuille sereinement.`;
             } else if (score >= 20) {
-                badge.className = "inline-block px-4 py-1 rounded-full bg-indigo-500 text-white text-sm font-bold border border-indigo-400 mt-2";
+                badge.className = "inline-block px-4 py-1 rounded-full bg-indigo-500 text-white text-sm font-bold border border-indigo-400 mt-2 mb-4";
                 badge.textContent = "TRÈS SOLIDE ✅";
-                text.innerHTML = "Une très belle entreprise. Vérifiez juste les points faibles.";
-                text.className = "text-indigo-300 text-sm mt-6 font-medium";
+                text.innerHTML = `Une très belle entreprise avec de réels atouts concurrentiels, notamment <strong class="text-indigo-400">${best.name}</strong> qui excelle (${best.score}/6). Vérifiez tout de même attentivement <strong class="text-slate-400">${worst.name}</strong> (${worst.score}/6) qui est son point d'attention principal avant de valider votre achat.`;
             } else if (score >= 15) {
-                badge.className = "inline-block px-4 py-1 rounded-full bg-amber-500 text-white text-sm font-bold border border-amber-400 mt-2";
+                badge.className = "inline-block px-4 py-1 rounded-full bg-amber-500 text-white text-sm font-bold border border-amber-400 mt-2 mb-4";
                 badge.textContent = "MOYENNE ⚠️";
-                text.innerHTML = "Il y a du bon et du moins bon. Attention aux fondamentaux.";
-                text.className = "text-amber-400 text-sm mt-6 font-medium";
+                text.innerHTML = `Une entreprise au profil mitigé. Si <strong class="text-amber-400">${best.name}</strong> tire la note globale vers le haut (${best.score}/6), la situation est en revanche beaucoup plus tendue et risquée concernant <strong class="text-slate-400">${worst.name}</strong> (${worst.score}/6). Prudence recommandée.`;
             } else {
-                badge.className = "inline-block px-4 py-1 rounded-full bg-red-500 text-white text-sm font-bold border border-red-400 mt-2";
+                badge.className = "inline-block px-4 py-1 rounded-full bg-red-500 text-white text-sm font-bold border border-red-400 mt-2 mb-4";
                 badge.textContent = "À FUIR ❌";
-                text.innerHTML = "Les chiffres ne sont pas bons. Ne perdez pas votre temps.";
-                text.className = "text-red-400 text-sm mt-6 font-medium";
+                text.innerHTML = `Les chiffres ne sont pas bons du tout. Malgré un léger sursaut du côté de <strong class="text-red-400">${best.name}</strong>, l'entreprise est lourdement plombée par <strong class="text-slate-400">${worst.name}</strong> (${worst.score}/6). À fuir totalement pour un investisseur de qualité.`;
             }
         }
 
-        function updateChart(s1, s2, s3, s4, s5) {
+        function updateChart(currentScores) {
             const ctx = document.getElementById('qualityRadar').getContext('2d');
-
             if (myChart) myChart.destroy();
+
+            // Dataset de l'analyse "En cours"
+            let datasets = [{
+                label: 'Analyse en cours',
+                data: currentScores,
+                fill: true,
+                backgroundColor: 'rgba(79, 70, 229, 0.2)', // Indigo transparent
+                borderColor: '#4f46e5', // Indigo solid
+                pointBackgroundColor: '#fff',
+                pointBorderColor: '#4f46e5',
+                borderWidth: 2
+            }];
+
+            // Ajouter les datasets des analyses sauvegardées
+            savedAnalyses.forEach((analysis, index) => {
+                let color = radarColors[index % radarColors.length];
+                datasets.push({
+                    label: analysis.ticker + ` (${analysis.total}/30)`,
+                    data: analysis.scores,
+                    fill: true,
+                    backgroundColor: 'rgba(0,0,0,0)', // Pas de fond pour ne pas surcharger la vue
+                    borderColor: color.border,
+                    pointBackgroundColor: '#fff',
+                    pointBorderColor: color.border,
+                    borderWidth: 2,
+                    borderDash: [5, 5] // Trait pointillé pour les comparatifs
+                });
+            });
 
             myChart = new Chart(ctx, {
                 type: 'radar',
                 data: {
                     labels: ['Bases', 'Croissance', 'Rentabilité', 'Solvabilité', 'Dividende'],
-                    datasets: [{
-                        label: 'Profil Quality',
-                        data: [s1, s2, s3, s4, s5],
-                        fill: true,
-                        backgroundColor: 'rgba(79, 70, 229, 0.2)', // Indigo transparent
-                        borderColor: '#4f46e5', // Indigo solid
-                        pointBackgroundColor: '#fff',
-                        pointBorderColor: '#4f46e5',
-                        pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: '#4f46e5'
-                    }]
+                    datasets: datasets
                 },
                 options: {
-                    elements: { line: { tension: 0 } },
+                    elements: { line: { tension: 0.1 } },
                     scales: {
                         r: {
-                            min: 0,
-                            max: 6,
+                            min: 0, max: 6,
                             ticks: { stepSize: 1, display: false },
                             grid: { color: '#e2e8f0' },
                             pointLabels: {
@@ -619,21 +689,149 @@
                             }
                         }
                     },
-                    plugins: { legend: { display: false } }
-                }
+                    plugins: { 
+                        legend: { 
+                            display: true, 
+                            position: 'bottom',
+                            labels: { usePointStyle: true, boxWidth: 8 }
+                        },
+                        customCanvasBackgroundColor: { color: 'white' }
+                    }
+                },
+                plugins: [whiteBackgroundPlugin] // Activation du plugin de fond blanc
+            });
+        }
+
+        // --- SAUVEGARDE & GESTION ---
+        function saveAnalysis() {
+            let ticker = document.getElementById('input-ticker').value.trim().toUpperCase() || 'INCONNU';
+            
+            // Pour récupérer le score pur sans le span HTML
+            const scoreText = document.getElementById('totalScore').childNodes[0].nodeValue.trim();
+            const total = parseInt(scoreText);
+
+            if(total === 0) {
+                alert("Veuillez remplir quelques critères avant de sauvegarder !");
+                return;
+            }
+
+            if (savedAnalyses.length >= 5) {
+                alert("Vous avez atteint la limite de 5 actions en comparaison. Supprimez-en une depuis le tableau en bas de page.");
+                return;
+            }
+
+            // Recalculer le meilleur pilier pour le tableau
+            const pillars = [
+                { name: "Fondations", score: myChart.data.datasets[0].data[0] },
+                { name: "Croissance", score: myChart.data.datasets[0].data[1] },
+                { name: "Rentabilité", score: myChart.data.datasets[0].data[2] },
+                { name: "Solvabilité", score: myChart.data.datasets[0].data[3] },
+                { name: "Dividende", score: myChart.data.datasets[0].data[4] }
+            ];
+            pillars.sort((a, b) => b.score - a.score);
+
+            const newAnalysis = {
+                id: Date.now(),
+                ticker: ticker,
+                total: total,
+                bestPillar: pillars[0].name,
+                scores: [...myChart.data.datasets[0].data]
+            };
+
+            savedAnalyses.push(newAnalysis);
+            localStorage.setItem('stocksAnalyses', JSON.stringify(savedAnalyses));
+            
+            // On reset le formulaire et on re-render
+            resetForm();
+            // Scroll en bas pour montrer que c'est ajouté
+            document.getElementById('saved-analyses-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function deleteAnalysis(id) {
+            savedAnalyses = savedAnalyses.filter(a => a.id !== id);
+            localStorage.setItem('stocksAnalyses', JSON.stringify(savedAnalyses));
+            calculateScore(); // Re-render
+        }
+
+        function clearAllAnalyses() {
+            if(confirm("Êtes-vous sûr de vouloir supprimer toutes vos sauvegardes ?")) {
+                savedAnalyses = [];
+                localStorage.removeItem('stocksAnalyses');
+                calculateScore(); // Re-render
+            }
+        }
+
+        function renderSavedAnalysesTable() {
+            const section = document.getElementById('saved-analyses-section');
+            const tbody = document.getElementById('saved-analyses-body');
+            
+            if (savedAnalyses.length === 0) {
+                section.classList.add('hidden');
+                return;
+            }
+            
+            section.classList.remove('hidden');
+            tbody.innerHTML = '';
+
+            savedAnalyses.forEach((analysis, index) => {
+                let colorClass = "text-indigo-600 bg-indigo-50";
+                if(analysis.total >= 25) colorClass = "text-emerald-600 bg-emerald-50";
+                else if(analysis.total < 15) colorClass = "text-red-600 bg-red-50";
+
+                let tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-50 transition";
+                tr.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap font-bold text-slate-900 flex items-center gap-2">
+                        <div class="w-3 h-3 rounded-full" style="background-color: ${radarColors[index % radarColors.length].border}"></div>
+                        ${analysis.ticker}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold ${colorClass}">
+                            ${analysis.total}/30
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500 font-medium">
+                        ⭐ ${analysis.bestPillar}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-right">
+                        <button onclick="deleteAnalysis(${analysis.id})" class="text-red-500 hover:text-red-700 font-medium text-sm transition">
+                            Supprimer
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
             });
         }
 
         function resetForm() {
-            document.querySelectorAll('input').forEach(i => i.value = '');
+            document.querySelectorAll('input:not(#input-ticker)').forEach(i => i.value = '');
             document.querySelectorAll('select').forEach(s => s.selectedIndex = 0);
             calculateScore();
         }
 
-        // Init empty chart
+        // --- EXPORT PNG ---
+        document.getElementById('download-png-btn').addEventListener('click', function() {
+            const canvas = document.getElementById('qualityRadar');
+            const link = document.createElement('a');
+            const ticker = document.getElementById('input-ticker').value.trim().toUpperCase() || 'COMPARAISON';
+            link.download = `Radar_${ticker}_StocksPickeur.png`;
+            link.href = canvas.toDataURL('image/png', 1.0);
+            link.click();
+        });
+
+        // Init
         document.addEventListener('DOMContentLoaded', calculateScore);
 
     </script>
 <script type="module" src="./js/auth-guard.js"></script>
+
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+        });
+    }
+    </script>
+
 </body>
 </html>

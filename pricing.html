@@ -50,6 +50,16 @@
       gtag('js', new Date());
       gtag('config', 'G-5QFGNT3V2F');
     </script>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Spécifique à iOS (Apple) -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="StocksPickeur">
+    <link rel="apple-touch-icon" href="./media/Logo/apple-touch-icon.png">
+
 </head>
 <body class="bg-slate-50 text-slate-600 antialiased selection:bg-indigo-100 selection:text-indigo-700 flex flex-col min-h-screen">
 
@@ -554,6 +564,14 @@
                 });
             }
         });
+    </script>
+
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+        });
+    }
     </script>
 
 </body>
