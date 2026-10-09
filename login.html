@@ -143,13 +143,14 @@ form.addEventListener('submit', async (e) => {
             // C. On déconnecte l'utilisateur pour le forcer à valider son mail avant d'entrer
             await auth.signOut();
 
-            // D. On affiche un beau message de succès
-            showMessage("Compte créé avec succès ! Un lien de confirmation vient d'être envoyé à " + email + ". Cliquez dessus avant de vous connecter.", false);
-            
-            // On repasse visuellement sur l'onglet de connexion pour qu'il soit prêt
+            // D. On repasse visuellement sur l'onglet de connexion d'abord !
             switchTab('login');
             emailInput.value = email; // On lui laisse son email pour lui faire gagner du temps
             passwordInput.value = ""; // On vide le mot de passe
+
+            // E. ENSUITE on affiche le beau message de succès (pour écraser le 'hidden' du switchTab)
+            showMessage("Compte créé avec succès ! Un lien de confirmation vient d'être envoyé à " + email + ". Cliquez dessus avant de vous connecter.", false);
+
         }
         
     } catch (error) {
