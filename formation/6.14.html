@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.14. Le Suivi au Quotidien | Formation StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles pour le contenu du cours */
+        .prose p { margin-bottom: 1.5rem; line-height: 1.8; color: #475569; text-align: justify; }
+        .prose h4 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-top: 3.5rem; margin-bottom: 1.5rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .prose strong { color: #0f172a; font-weight: 600; }
+        .prose em { color: #334155; font-style: italic; }
+        .prose ul, .prose ol { list-style: none; padding-left: 0; }
+        .prose li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
+        .prose ul li::before { content: "•"; color: #ea580c; font-weight: bold; position: absolute; left: 0; }
+        .prose ol { counter-reset: item; }
+        .prose ol li::before { content: counter(item) "."; counter-increment: item; color: #ea580c; font-weight: bold; position: absolute; left: 0; }
+        
+        /* Lightbox */
+        #imageViewer { backdrop-filter: blur(10px); }
+        .clickable-image { cursor: zoom-in; transition: transform 0.2s; }
+        .clickable-image:hover { transform: scale(1.01); }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased selection:bg-orange-100 selection:text-orange-700">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../media/Logo/Logo-White.png" alt="Logo StocksPickeur" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <span class="font-heading font-bold text-xl text-slate-900 tracking-tight">StocksPickeur</span>
+            </a>
+
+            <div class="hidden xl:flex items-center gap-8">
+                <nav class="flex gap-6">
+                    <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Calculateur</a>
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Portefeuille</a>
+                    <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Analyses</a>
+                    <a href="../resources.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Ressources</a>
+                    <a href="../articles.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Articles</a>
+                    <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Formation</a>
+                    <a href="../about.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">À Propos</a>
+                </nav>
+
+                <div class="h-6 w-px bg-slate-200"></div>
+
+                <a href="../account.html" id="header-auth-btn" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Connexion
+                </a>
+            </div>
+
+            <div class="xl:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-slate-500 hover:text-slate-900 focus:outline-none p-2">
+                    <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden xl:hidden bg-white border-b border-slate-200 shadow-xl absolute w-full z-40">
+        <nav class="flex flex-col px-4 pt-2 pb-6 space-y-3">
+            <a href="../calculator.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Calculateur</a>
+            <a href="../portfolio.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Portefeuille</a>
+            <a href="../moatpicks.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Analyses</a>
+            <a href="../resources.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Ressources</a>
+            <a href="../articles.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Articles</a>
+            <a href="../formation.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Formation</a>
+            <a href="../about.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">À Propos</a>
+            
+            <div class="border-t border-slate-100 pt-3 mt-2">
+                <a href="../account.html" id="mobile-auth-btn" class="flex justify-center w-full bg-slate-900 text-white font-bold px-5 py-3 rounded-xl hover:bg-slate-800 transition">
+                    <span id="mobile-nav-username">Connexion Espace Membre</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+    <main class="pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-orange-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="6.0.html" class="hover:text-orange-600 transition">Module 6</a></li>
+                <li>/</li>
+                <li class="text-orange-600 font-medium">Chapitre 6.14</li>
+            </ol>
+        </nav>
+
+        <div class="mb-12 border-b border-slate-200 pb-8">
+            <span class="text-orange-600 font-bold tracking-wider uppercase text-xs">Module 6 • Piloter son Portefeuille</span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">6.14. Le Suivi au Quotidien 🧐</h1>
+        </div>
+
+        <div class="mb-10 not-prose"> 
+            <div class="flex items-center gap-2 mb-4">
+                <span class="bg-orange-100 text-orange-700 w-8 h-8 flex items-center justify-center rounded-lg text-lg">📺</span>
+                <h3 class="font-heading font-bold text-lg text-slate-900">Résumé du chapitre en vidéo</h3>
+            </div>
+            
+            <div class="rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-slate-900 aspect-video">
+                <video controls controlsList="nodownload" oncontextmenu="return false;" class="w-full h-full object-cover" preload="metadata">
+                    <source src="videos/6.14.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+            </div>
+        </div>
+
+        <article class="prose prose-slate max-w-none text-justify">
+            
+            <p>Nous touchons ici au paradoxe le plus complexe et le plus contre-intuitif de l'investissement en bourse. Une fois le travail d'analyse rigoureux effectué et les actions méticuleusement achetées, la meilleure chose à faire pour un investisseur est, mathématiquement parlant, de ne absolument rien faire. L'investissement performant à long terme est par nature une activité passive, silencieuse, et presque ennuyeuse. Et pourtant, notre cerveau humain, câblé pour l'action, l'adrénaline et la gratification immédiate, refuse obstinément l'inactivité.</p>
+
+            <p>Dans ce chapitre, nous allons définir la routine parfaite, sobre et redoutable de l'investisseur <em>Quality</em>. Comment surveiller son portefeuille efficacement sans sombrer dans l'obsession ? Quelles informations méritent réellement notre temps de cerveau disponible, et lesquelles ne sont que du bruit destructeur de richesse ?</p>
+
+            <h4>1. L'Obsession du Prix : Le Piège Émotionnel du Débutant</h4>
+            <p>Le syndrome le plus répandu chez les investisseurs qui débutent en bourse est l'incapacité viscérale à détacher leurs yeux de leur application de courtage. Il est totalement inutile de regarder son portefeuille tous les jours, toutes les heures, ou toutes les secondes lors de l'ouverture haletante des marchés américains. C'est une habitude non seulement stérile, mais profondément nocive pour votre santé mentale et financière.</p>
+
+            <p>Le marché boursier à court terme est irrationnel, régi par les algorithmes de trading haute fréquence et les émotions exacerbées de millions de participants. Benjamin Graham a immortalisé ce concept avec sa célèbre allégorie de <strong>Mr. Market</strong>. Imaginez que vous soyez associé avec un individu bipolaire nommé Mr. Market. Chaque jour, il vient frapper à votre porte pour vous proposer un prix différent pour vos parts. Les jours de panique médiatique, il est dépressif et vous brade ses parts pour une misère. Les jours d'euphorie irrationnelle, il est maniaque et vous réclame des sommes astronomiques.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/follow-business-not-price.png')">
+                <img src="../media/Formation/follow-business-not-price.png" 
+                     alt="Le cours de l'action versus les fondamentaux du business" 
+                     class="clickable-image rounded-xl shadow-lg w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 font-medium">L'illusion du court terme : Le cours de l'action (en pointillés) est erratique et imprévisible. Seuls les fondamentaux de l'entreprise (la ligne pleine) importent sur le long terme.</figcaption>
+            </figure>
+
+            <p>Le légendaire gérant Peter Lynch résumait cette dynamique avec une justesse implacable : <em>"Dans l'investissement, l'estomac est bien plus important que le cerveau"</em>. Si vous regardez le prix de vos actions tous les jours, vous écoutez Mr. Market. Vous subirez la volatilité de plein fouet et finirez inévitablement par céder à la panique. Gravez cette phrase dans votre esprit : <strong>L'investisseur Quality ne suit pas le cours de l'action, il suit le business de l'entreprise.</strong></p>
+
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-xl my-8">
+                <p class="font-bold text-blue-900 mb-2">La citation à retenir 💬</p>
+                <p class="italic text-blue-800 m-0">"À court terme, le marché boursier est une machine à voter, mais à long terme, c'est une machine à peser."<br>— <strong>Benjamin Graham</strong></p>
+            </div>
+
+            <h4>2. Le Bruit vs L'Information : Le Régime Médiatique</h4>
+            <p>Pour suivre efficacement le business, il faut d'abord apprendre à trier l'information de manière drastique. Les médias financiers traditionnels (chaînes d'information en continu, presse économique grand public) vivent de l'attention et de la sensationnalisation. Ils produisent un flux ininterrompu de "bruit" macroéconomique : les craintes d'inflation, les décisions de la Réserve Fédérale sur les taux, les tensions géopolitiques complexes, les prévisions apocalyptiques de récession...</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/bruit-vs-information.png')">
+                <img src="../media/Formation/bruit-vs-information.png" 
+                     alt="Infographie Bruit Macroéconomique vs Réalité Boursière" 
+                     class="clickable-image rounded-xl shadow-lg w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 font-medium">Le bruit macroéconomique est anxiogène par nature, mais la réalité de la performance boursière se moque bien souvent des gros titres des journaux.</figcaption>
+            </figure>
+
+            <p>Ce bruit macroéconomique est hors de votre zone d'influence et fondamentalement imprévisible. Tenter d'anticiper les soubresauts de l'économie mondiale est une mission chimérique. Ce qui doit capter 100% de votre attention, c'est la <strong>microéconomie</strong>, c'est-à-dire la santé fondamentale, tangible et mesurable des entreprises que vous détenez en portefeuille.</p>
+
+            <h4>3. Le Suivi des Earnings Trimestriels : Le Cœur du Réacteur</h4>
+            <p>La vie d'un investisseur long terme est rythmée par un événement cardinal qui a lieu quatre fois par an : la publication des résultats trimestriels (les fameux <em>Earnings</em>). C'est l'heure de vérité. Le moment sacré où la direction de l'entreprise vous ouvre ses livres de comptes, justifie ses choix stratégiques, et vous prouve que son avantage concurrentiel (le <em>Moat</em>) est toujours intact.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/quarterly-earnings.png')">
+                <img src="../media/Formation/quarterly-earnings.png" 
+                     alt="Calendrier type d'une semaine de publication de résultats trimestriels" 
+                     class="clickable-image rounded-xl shadow-lg w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 font-medium">La saison des résultats ("Earnings Season") est un marathon analytique où chaque entreprise doit justifier sa valorisation par des flux de trésorerie réels.</figcaption>
+            </figure>
+
+            <p>Le plus important de votre travail de gestion consiste à suivre et creuser ces rapports. Ne vous arrêtez jamais aux gros titres simplistes. Voici ce qu'il faut auditer avec rigueur lors de chaque trimestre :</p>
+            <ul class="text-justify">
+                <li><strong>La croissance intrinsèque :</strong> Le Chiffre d'Affaires et le FCF (Free Cash Flow) progressent-ils toujours organiquement ?</li>
+                <li><strong>La résilience des marges :</strong> Les marges se maintiennent-elles malgré l'inflation ? Une contraction des marges est le premier symptôme d'une perte de <em>Pricing Power</em>.</li>
+                <li><strong>L'allocation du capital :</strong> Le PDG utilise-t-il l'argent généré pour augmenter sainement le dividende, racheter des actions à un prix attractif, ou financer de la R&D vitale ?</li>
+                <li><strong>La "Guidance" :</strong> Quelles sont les prévisions chiffrées de la direction pour le trimestre à venir ?</li>
+            </ul>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/quarterly-earnings-expectations.jpg')">
+                <img src="../media/Formation/quarterly-earnings-expectations.jpg" 
+                     alt="Pourquoi les actions baissent même quand les profits augmentent" 
+                     class="clickable-image rounded-xl shadow-lg w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 font-medium">Le marché ne réagit pas uniquement à l'augmentation des bénéfices, il réagit aux attentes préalables des analystes. La rationalité n'y a pas sa place à court terme.</figcaption>
+            </figure>
+
+            <p>Un rappel psychologique vital : <strong>ignorez totalement la réaction du cours de l'action le jour de la publication.</strong> Wall Street est obnubilée par les attentes de court terme. Une entreprise magnifique peut annoncer des bénéfices records en hausse de +20%, et voir son action s'effondrer de -15% dans la journée simplement parce que trois analystes s'attendaient à +22%. Si vos analyses confirment que le business est sain et que le Moat s'élargit, ces chutes irrationnelles créent des opportunités historiques d'accumulation.</p>
+
+            <h4>4. Automatiser et Centraliser l'Information</h4>
+            <p>Pour rester à la pointe de l'information sans passer votre vie devant des terminaux financiers, vous devez instaurer une veille passive. La méthode la plus redoutable est de vous inscrire aux alertes e-mail directement sur les sites institutionnels (section <em>Investor Relations</em>) de vos entreprises en portefeuille.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/NVDA-mails-alert.png')">
+                <img src="../media/Formation/NVDA-mails-alert.png" 
+                     alt="Inscription aux alertes email pour les investisseurs NVIDIA" 
+                     class="clickable-image rounded-xl shadow-lg w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 font-medium">S'inscrire aux "Email Alerts" directement à la source (ici NVIDIA) garantit une information brute, sans biais médiatique.</figcaption>
+            </figure>
+
+            <p>Vous recevrez ainsi les communiqués de presse officiels, les dates de détachement des dividendes et les annonces d'acquisitions directement dans votre boîte de réception. En complément, la possibilité de suivre l'actualité via des newsletters financières ciblées et spécialisées est le moyen parfait pour être tenu au courant des analyses profondes, tout en gardant une hygiène mentale irréprochable face au bruit ambiant.</p>
+
+            <h4>5. Tenir un Journal d'Investisseur (La Thèse)</h4>
+            <p>Avant d'appuyer sur le bouton "Acheter", chaque investisseur sérieux devrait rédiger un "Journal de l'Investisseur". Ce n'est pas un exercice littéraire, mais un garde-fou psychologique. Notez, noir sur blanc, les trois ou quatre raisons fondamentales pour lesquelles vous achetez cette action aujourd'hui, et sous quelles conditions précises (perte du moat, dette toxique) vous seriez prêt à la vendre.</p>
+            
+            <p>La mémoire humaine est faillible et hautement manipulable par les émotions. Dans deux ans, si l'action perd 30% dans un marché baissier global, vous paniquerez. Relire votre thèse d'investissement, écrite à froid avec une pleine lucidité, vous rappellera instantanément que l'entreprise détient toujours un monopole technologique et génère des milliards de flux de trésorerie. C'est l'antidote absolu contre la vente à perte irrationnelle.</p>
+
+            <h4>6. La Stratégie des Prix Cibles</h4>
+            <p>Comment acheter sans vérifier le prix toutes les cinq minutes ? La réponse réside dans la définition méticuleuse de "Prix Cibles" (Target Prices).</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/target-price.png')">
+                <img src="../media/Formation/target-price.png" 
+                     alt="Comparatif entre les prix actuels et les prix cibles" 
+                     class="clickable-image rounded-xl shadow-lg w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 font-medium">Établir un prix cible pour chaque valeur permet de rester maître de ses émotions et d'acheter uniquement avec une Marge de Sécurité confortable.</figcaption>
+            </figure>
+
+            <p>Pour chaque action de votre portefeuille et celles de votre <em>Watchlist</em>, calculez une valorisation juste (la <em>Fair Value</em> via DCF ou PER historique) et appliquez-y une marge de sécurité. Configurez ensuite de simples alertes de prix automatiques chez votre courtier. Dès lors, le travail est terminé. Si l'action s'en rapproche, ou mieux, atteint ce prix cible suite à une correction du marché, vous recevez une notification et passez sereinement à l'achat. Chercher à obtenir le prix parfait absolu (le <em>bottom</em>) est une vanité qui ne génère que du stress et du temps perdu.</p>
+
+            <h4>7. Tout ce qui se mesure s'améliore : Le Dashboard Ultime</h4>
+            <p>Un entrepreneur ne gère pas son entreprise à l'instinct ; il utilise une comptabilité rigoureuse. L'investisseur doit agir de même. La maxime est célèbre et universelle : <strong>"Tout ce qui peut être mesuré peut être amélioré"</strong>.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/google-sheets.png')">
+                <img src="../media/Formation/google-sheets.png" 
+                     alt="Tableau de bord de suivi de portefeuille sur Google Sheets" 
+                     class="clickable-image rounded-xl shadow-lg w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 font-medium">Un tableau de bord complet permet de visualiser la croissance de la "boule de neige", l'évolution du FCF, et la montée en puissance des dividendes.</figcaption>
+            </figure>
+
+            <p>Vous devez impérativement tracer toutes vos métriques pour visualiser la croissance de votre patrimoine : le montant exact de vos dividendes nets reçus chaque mois, le coût de chaque transaction, l'évolution de votre <em>Yield on Cost</em>, et votre diversification sectorielle. Malheureusement, les courtiers traditionnels offrent des interfaces pauvres et limitées. Que vous utilisiez un Tracker Google Sheets perfectionné, ou que vous optiez pour des applications de gestion patrimoniale de nouvelle génération <em>(comme l'application BlueChip que nous avons développée spécifiquement pour le Quality Investing sur macOS)</em>, l'important est de disposer d'un outil visuel puissant qui transforme vos données brutes en décisions claires.</p>
+
+            <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-8 mt-12 shadow-sm">
+                <h5 class="text-xl font-bold text-emerald-800 mb-4 flex items-center">
+                    <span class="bg-emerald-200 text-emerald-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">🔑</span> 
+                    Ce qu'il faut retenir
+                </h5>
+                <p class="text-emerald-900 m-0 leading-relaxed">
+                    La patience est la vertu cardinale de l'investisseur. Observer les cotations quotidiennes est un poison mental ; focalisez-vous exclusivement sur la solidité du business et fuyez le bruit macroéconomique des médias.<br><br>
+                    Le cœur de votre suivi doit s'articuler autour des publications de résultats trimestriels. Lisez les rapports, décryptez les analyses de fond et scrutez l'évolution des flux de trésorerie et de l'allocation du capital par le management.<br><br>
+                    Fixez vos prix cibles en amont, tenez un journal pour justifier rationnellement vos achats, et automatisez votre veille informationnelle (newsletters, alertes email). Enfin, mesurez méticuleusement vos progrès via un Dashboard adapté. L'excellence en bourse ne réside pas dans la frénésie transactionnelle, mais dans la discipline implacable d'une routine bien orchestrée.
+                </p>
+            </div>
+
+        </article>
+
+        <div class="flex justify-between items-center mt-16 pt-8 border-t border-slate-200">
+            <a href="6.13.html" class="text-slate-500 hover:text-orange-600 font-medium transition flex items-center group">
+                <span class="group-hover:-translate-x-1 transition-transform mr-2">←</span> Chapitre Précédent
+            </a>
+            <a href="6.15.html" class="bg-orange-600 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-700 transition shadow-lg shadow-orange-200 flex items-center group">
+                Chapitre Suivant<span class="group-hover:translate-x-1 transition-transform ml-2">→</span>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <div id="imageViewer" class="fixed inset-0 z-[60] hidden bg-slate-900/90 backdrop-blur-sm transition-opacity duration-300" onclick="closeViewer()">
+        <span class="absolute top-5 right-8 text-white text-5xl cursor-pointer hover:text-slate-300 transition">&times;</span>
+        <img class="m-auto block max-w-[95%] max-h-[90vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded shadow-2xl" id="enlargedImg">
+    </div>
+
+    <script>
+        var modal = document.getElementById("imageViewer");
+        var modalImg = document.getElementById("enlargedImg");
+
+        function openViewer(src) {
+            modal.style.display = "block";
+            modalImg.src = src;
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeViewer() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+        
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeViewer();
+            }
+        });
+
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
+    </script>
+<script type="module" src="../js/auth-guard.js"></script>
+</body>
+</html>
