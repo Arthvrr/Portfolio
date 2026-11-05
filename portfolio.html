@@ -660,6 +660,79 @@
                 <div class="accordion p-4 md:p-6 hover:bg-slate-50 cursor-pointer transition">
                     <div class="grid grid-cols-2 md:grid-cols-8 gap-4 items-center">
                         <div class="col-span-1 flex items-center gap-3">
+                            <img src="../media/Stocks-Logo/TSM.png" alt="TSM" class="w-10 h-10 object-contain rounded-lg bg-slate-50 p-1 border border-slate-100">
+                            <span class="md:hidden font-bold">TSM</span>
+                        </div>
+                        <div class="hidden md:block col-span-1 font-bold text-slate-900" id="ticker">TSM</div>
+                        <div class="col-span-1 md:col-span-1 text-right text-slate-600"><span class="md:hidden text-xs text-slate-400 mr-1">Qté:</span><span id="shares"></span></div>
+                        <div class="col-span-1 md:col-span-1 text-right text-slate-600 hidden md:block" id="average-price"></div>
+                        <div class="col-span-1 md:col-span-1 text-right font-medium text-slate-900" id="price"></div>
+                        <div class="col-span-1 md:col-span-1 text-right font-bold text-slate-900" id="value"></div>
+                        <div class="col-span-1 md:col-span-1 text-right font-bold" id="perf-euro"></div>
+                        <div class="col-span-1 md:col-span-1 text-right font-bold rounded-lg px-2 py-1 text-xs md:text-sm" id="perf-percent"></div>
+                    </div>
+                </div>
+                <div class="panel bg-slate-50 border-t border-slate-100">
+                    <div class="p-6">
+                        <div class="flex space-x-4 mb-6 text-sm text-indigo-600 font-medium link-page-tsm border-b border-slate-200 pb-2 overflow-x-auto">
+                            <a href="#presentation-tsm">Présentation</a>
+                            <a href="#personnal-notice-tsm">Avis</a>
+                            <a href="#asset-risk-tsm">Atouts/Risques</a>
+                            <a href="#quality-score-tsm">Score</a>
+                        </div>
+
+                        <div class="grid lg:grid-cols-3 gap-8">
+                            <div class="lg:col-span-2 prose prose-slate text-sm text-slate-600 leading-relaxed text-justify">
+                                <h4 id="presentation-tsm" class="font-bold text-slate-900 mb-2">Présentation</h4>
+                                <p class="mb-6">Fondée en 1987, Taiwan Semiconductor Manufacturing Company (TSMC) est le pionnier et le leader mondial incontesté du modèle de fonderie pure pour les semi-conducteurs. Basée à Hsinchu, Taïwan, l'entreprise ne conçoit pas ses propres puces, mais se consacre exclusivement à la fabrication de circuits intégrés pour le compte de ses clients. Ce modèle économique unique lui a permis d'attirer et de fidéliser les géants de la technologie dits "fabless" (sans usines) tels qu'Apple, NVIDIA, AMD et Qualcomm. Aujourd'hui, TSMC est responsable de la production des puces les plus avancées de la planète, propulsant tout, des smartphones haut de gamme aux supercalculateurs d'intelligence artificielle. <br><br>
+                                L'avantage compétitif colossal de TSMC repose sur son avance technologique écrasante et les barrières à l'entrée astronomiques de son industrie. Graver des puces à des échelles nanométriques (3nm et moins) exige des dizaines de milliards de dollars d'investissements annuels (CapEx) et un savoir-faire industriel que seuls quelques acteurs peuvent soutenir. TSMC capte plus de 60% des parts de marché mondiales de la fonderie, créant un effet d'échelle qui lui permet de réinvestir massivement en R&D, creusant ainsi l'écart avec ses rares concurrents comme Samsung ou Intel.</p>
+                                
+                                <h4 id="personnal-notice-tsm" class="font-bold text-slate-900 mb-2">Avis Personnel</h4>
+                                <p class="mb-6">TSMC est sans conteste l'entreprise la plus stratégique au monde. Elle est le cœur battant de l'industrie technologique moderne. Investir dans TSMC, c'est investir de manière diversifiée sur toutes les tendances lourdes de notre époque : l'intelligence artificielle, l'Internet des objets, la 5G, et la conduite autonome. Plutôt que de parier sur le concepteur de puces qui remportera la course, TSMC est "le vendeur de pelles" de cette ruée vers l'or numérique : peu importe qui conçoit la meilleure puce, c'est TSMC qui la fabriquera. <br><br>
+                                Sur le plan fondamental, TSMC est un pur chef-d'œuvre de la méthode Quality Investing. L'entreprise affiche une croissance constante de ses revenus, propulsée par une demande insatiable en puissance de calcul. Mais ce qui fascine le plus, c'est sa rentabilité. Maintenir une marge nette dépassant régulièrement les 38% et un ROIC supérieur à 20% tout en devant investir des dizaines de milliards dans de nouvelles usines (fabs) est un tour de force financier unique au monde. Son modèle "pure-play" garantit à ses clients (comme NVIDIA ou Apple) qu'elle ne concourra jamais avec leurs propres produits finis, cimentant ainsi une relation de confiance indéfectible et un moat extrêmement profond. <br><br>
+                                Le seul véritable point noir de TSMC n'est pas financier, mais géopolitique. Basée à Taïwan, l'entreprise opère sous la menace constante d'une intervention militaire ou de sanctions de la part de la Chine continentale. La chaîne d'approvisionnement mondiale est si dépendante de l'île qu'une perturbation aurait des conséquences dévastatrices. Conscient de ce risque et sous la pression occidentale, le management a amorcé une diversification géographique en construisant de nouvelles usines aux États-Unis (Arizona), au Japon et en Europe, bien que le cœur technologique restera à Taïwan. De plus, l'industrie des semi-conducteurs reste cyclique par nature, liée aux ventes de smartphones et d'ordinateurs. <br><br>
+                                Malgré ce risque macroéconomique, la valorisation de TSMC est souvent très attractive (un PER historiquement modeste) précisément à cause de cette décote géopolitique. Avec une note exceptionnelle de 26/30, des barrières à l'entrée insurmontables, un bilan irréprochable et un dividende en croissance, TSMC est l'addition parfaite pour solidifier la composante technologique du portefeuille, en captant l'intégralité de la valeur de la révolution de l'IA à sa source.</p>
+
+                                <h4 id="asset-risk-tsm" class="font-bold text-slate-900 mb-2">Atouts et Risques</h4>
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100">
+                                        <div class="text-xs font-bold text-emerald-700 uppercase mb-3">✅ Atouts</div>
+                                        <ul class="text-xs text-emerald-900 space-y-2 asset-list">
+                                            <li>Monopole des puces avancées (IA)</li>
+                                            <li>Modèle de fonderie "pure-play"</li>
+                                            <li>Barrières à l'entrée colossales</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-red-50 p-4 rounded-xl border border-red-100">
+                                        <div class="text-xs font-bold text-red-700 uppercase mb-3">⚠️ Risques</div>
+                                        <ul class="text-xs text-red-900 space-y-2 risk-list">
+                                            <li>Risque géopolitique (Chine/Taïwan)</li>
+                                            <li>Intensité capitalistique (CapEx)</li>
+                                            <li>Cyclicité du marché des puces</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-1">
+                                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm h-fit">
+                                    <div class="text-center font-bold mb-2 text-slate-900">Score Qualité</div>
+                                    <div class="h-64 relative" id="quality-score-tsm">
+                                        <canvas id="44Chart"></canvas>
+                                    </div>
+                                    <div class="text-center text-xs text-slate-400 mt-4 border-t border-slate-100 pt-3">
+                                        Détenue depuis : <span class="font-bold text-slate-600">9 octobre 2026</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="accordion p-4 md:p-6 hover:bg-slate-50 cursor-pointer transition">
+                    <div class="grid grid-cols-2 md:grid-cols-8 gap-4 items-center">
+                        <div class="col-span-1 flex items-center gap-3">
                             <img src="../media/Stocks-Logo/V.png" alt="V" class="w-10 h-10 object-contain rounded-lg bg-slate-50 p-1 border border-slate-100">
                             <span class="md:hidden font-bold">V</span>
                         </div>

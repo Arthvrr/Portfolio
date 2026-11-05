@@ -90,7 +90,7 @@ function changeBackgroundColor(diffEuro,diffPercent){
     if (diffEuro > 0){
         returnEuroCell.style.backgroundColor = 'rgba(0, 99, 27,0.5)';
     } 
-    else if (value < 0) {
+    else if (diffEuro < 0) {
         returnEuroCell.style.backgroundColor = 'rgba(255, 99, 132, 0.5)';
     }
     else {
@@ -100,7 +100,7 @@ function changeBackgroundColor(diffEuro,diffPercent){
     if (diffPercent > 0){
         returnPercentCell.style.backgroundColor = 'rgba(0, 99, 27,0.5)';
     } 
-    else if (value < 0) {
+    else if (diffEuro < 0) {
         returnPercentCell.style.backgroundColor = 'rgba(255, 99, 132, 0.5)';
     }
     else {
@@ -114,17 +114,17 @@ function changeBackgroundColor(diffEuro,diffPercent){
 
 //TOUTES LES VARIABLES UTILISÉES
 
-var totalInvested = 18000; // montant total investi
+var totalInvested = 19000; // montant total investi
 var totalInvestedCell = document.getElementById("invested");
 totalInvestedCell.textContent = totalInvested;
 
-var CashOnHand = 763.02; // cash disponible
+var CashOnHand = 148.16; // cash disponible
 var cashCell = document.getElementById("cash");
 cashCell.textContent = CashOnHand.toFixed(2);
 
-var tickerOfShares = ["ASML", "GOOGL","MA", "MSFT","NVDA", "V"]; // tickers
-var numberOfShares = [6, 20, 6, 9, 20, 10]; // nombres d'actions
-var pruOfShares = [689.615, 166.19625, 439.615833, 368.96, 184.04, 274.796]; // PRU des actions
+var tickerOfShares = ["ASML", "GOOGL","MA", "MSFT","NVDA","TSM", "V"]; // tickers
+var numberOfShares = [6, 20, 6, 9, 20,4, 10]; // nombres d'actions
+var pruOfShares = [689.615, 166.19625, 439.615833, 368.96, 184.04,451.39, 274.796]; // PRU des actions
 
 var stocksPrice = []; // prix actuels des actions, en $
 let totalPRU = 0;
@@ -140,13 +140,13 @@ var diffList = [];
 var diffPercentList = [];
 
 var stocksPERatio = []; // PE Ratio de toutes les actions
-var tenyearsPERatio = [37.05,27.61,37.76,32.56,52.81,33.45] // PE Ratio médian des 10 dernières années
-var gurufocusPrice = [1187.73,247.65,671.21,573.25,375.41,419.22]
-var tipsrankPrice = [2391.80,424.83,661,560.52,308.69,422.78]
+var tenyearsPERatio = [37.05,27.61,37.76,32.56,52.81,20.5,33.45] // PE Ratio médian des 10 dernières années
+var gurufocusPrice = [1187.73,247.65,671.21,573.25,375.41,375.06,419.22]
+var tipsrankPrice = [2391.80,424.83,661,560.52,308.69,883,422.78]
 var stocksFairPrice = []; // Liste des scores de prix juste
 var valuationScore = []; // Score de valorisation de chaque actions
 
-var dividendPerShares = [7.42, 0.88, 3.04, 3.32, 1, 2.68]; // liste pour stocker les dividendes versés par actions en $
+var dividendPerShares = [7.42, 0.88, 3.04, 3.32, 1,4.07,2.68]; // liste pour stocker les dividendes versés par actions en $
 
 var totalDividendPerShares = []; //liste pour stocker les dividendes versés par action en €
 
@@ -176,24 +176,26 @@ var annualInvested = [0,5350,6400,16500]; //liste qui stocke le nombres d'euros 
 
 var walletEndYear = [0,5792.03,8946.56,22579.97]; //liste qui stocke la valeur du portefeuille à la fin de chaque année
 
-var ASMLCotation = [100,83,50,100,100];
+var ASMLCotation = [67,83,50,100,100];
 var GOOGLCotation = [100,67,33,100,67];
-var MACotation = [67,100,100,50,100];
-var MSFTCotation = [100,67,67,100,83];
+var MACotation = [67,100,100,33,100];
+var MSFTCotation = [100,67,67,100,67];
 var NVDACotation = [100,100,100,100,100];
+var TSMCotation = [67,100,83,100,83];
 var VCotation = [67,100,83,100,100];
-var stocksCotation = [ASMLCotation,GOOGLCotation,MACotation,MSFTCotation,NVDACotation,VCotation];
+var stocksCotation = [ASMLCotation,GOOGLCotation,MACotation,MSFTCotation,NVDACotation,TSMCotation,VCotation];
 
-var ASMLScore = 27;
+var ASMLScore = 24;
 var GOOGLScore = 23;
-var MAScore = 25;
-var MSFTScore = 25;
+var MAScore = 24;
+var MSFTScore = 24;
 var NVDAScore = 30;
+var TSMScore = 26;
 var VScore = 27;
-var stocksScore = [ASMLScore, GOOGLScore, MAScore,MSFTScore,NVDAScore,VScore];
+var stocksScore = [ASMLScore, GOOGLScore, MAScore,MSFTScore,NVDAScore,TSMScore,VScore];
 
 var annualMarketReturnPercent = [-19.44,24.23,23.31,15.96]; //retour annuels du S&P500 en pourcent (source : https://www.macrotrends.net/2526/sp-500-historical-annual-returns)
-var targetPrices = [1100,250,500,400,170,300]
+var targetPrices = [1200,250,500,400,170,400,300]
 
 var weightOfStocks = []; //liste qui représente le poids de chaque action du Portefeuille en % (valeurs : [0.24,0.26,0.3,0.2])
 var weightedAverages = [];
@@ -202,11 +204,11 @@ var weightedAverages = [];
 var dividendData = Array(months.length).fill(0).map(() => Array(4).fill(0)); //Matrice qui représente qui pour chaque action le montant versé en dividende pour tout les mois
 
 
-var stocksDividendGrowth = [14, 0, 15, 10, 16, 15]; //Tableau représentant les pourcentages d'augmentation du dividende sur 5 ans des actions du portefeuille
+var stocksDividendGrowth = [14, 0, 15, 10, 16,16, 15]; //Tableau représentant les pourcentages d'augmentation du dividende sur 5 ans des actions du portefeuille
 var futureYears = []; //Tableau qui va contenir le nombre des 11 prochaines années (2025,2026,2027,...,2035)
 var futureDividendsReceived = []; //Tableau qui va contenir le montant brut estimé des dividendes reçu lors des 11 prochaines années
 
-var USASalesPercentage = [0.16,0.487,0.7,0.513,0.469,0.391]
+var USASalesPercentage = [0.125,0.482,0.29,0.515,0.693,0.744,0.391]
 
 var transactionsperYear = [0,70,21,18]
 var buysPerYear = [0,37,6,11]
@@ -214,14 +216,14 @@ var sellsPerYear = [0,12,1,3]
 var depositsPerYear = [0,20,13,4]
 var withdrawalsPerYear = [0,1,1,0]
 
-var TOBTax = 123.74;
-var DegiroTax = 121.00;
+var TOBTax = 129.4;
+var DegiroTax = 126.00;
 var otherTax = 2.46;
 
-var stocksTaxes = [3637.07, 2944.82, 2384, 2998.43, 3174.7, 2495.34, 13997.29] //ASML, GOOGL, MA, MSFT, NVDA, V, Old Stocks
+var stocksTaxes = [3637.07, 2944.82, 2384, 2998.43, 3174.7,1616.72, 2495.34, 13997.29] //ASML, GOOGL, MA, MSFT, NVDA, TSM, V, Old Stocks
 var stocksVsNotPFTaxes = [105.73,141.47]
 
-var TransactionsAmountPerType = [26254.93, 9053.85, 18110, 110] //Achat, vente, dépôt, retrait
+var TransactionsAmountPerType = [27871.65, 9053.85, 19110, 110] //Achat, vente, dépôt, retrait
 
 
 //FONCTIONS 
@@ -431,7 +433,8 @@ function calculateDividendPerMonth() {
     var monthGOOGL = ["Mars","Juin","Septembre","Décembre"];
     var monthMA = ["Février","Mai","Août","Novembre"];
     var monthMSFT = ["Mars","Juin","Septembre","Décembre"];
-    var monthNVDA = ["Mars","Juin","Septembre","Décembre"];
+    var monthNVDA = ["Avril","Juin","Octobre","Décembre"];
+    var monthTSM = ["Janvier","Avril","Juillet","Octobre"];
     var monthV = ["Mars","Juin","Septembre","Décembre"];
 
     for (let i = 0; i < months.length; i++) {
@@ -456,8 +459,11 @@ function calculateDividendPerMonth() {
         if (monthNVDA.includes(currentMonth)) {
             monthlyDividend += totalDividendPerShares[4] / 4;
         }
-        if (monthV.includes(currentMonth)) {
+        if (monthTSM.includes(currentMonth)) {
             monthlyDividend += totalDividendPerShares[5] / 4;
+        }
+        if (monthV.includes(currentMonth)) {
+            monthlyDividend += totalDividendPerShares[6] / 4;
         }
         toAdd = Number(monthlyDividend.toFixed(2));
         // Stocker le dividende total pour ce mois
@@ -484,7 +490,8 @@ function calculateStackedDividendPerMonth() {
     var monthGOOGL = ["Mars","Juin","Septembre","Décembre"];
     var monthMA = ["Février", "Mai", "Août", "Novembre"];
     var monthMSFT = ["Mars", "Juin", "Septembre", "Décembre"];
-    var monthNVDA = ["Mars", "Juin", "Septembre", "Décembre"];
+    var monthNVDA = ["Avril","Juin","Octobre","Décembre"];
+    var monthTSM = ["Janvier","Avril","Juillet","Octobre"];
     var monthV = ["Mars", "Juin", "Septembre", "Décembre"];
 
     for (let i = 0; i < months.length; i++) {
@@ -496,7 +503,8 @@ function calculateStackedDividendPerMonth() {
         dividendData[i][2] = monthMA.includes(currentMonth) ? Number((totalDividendPerShares[2]/4).toFixed(2)) : 0;
         dividendData[i][3] = monthMSFT.includes(currentMonth) ? Number((totalDividendPerShares[3]/4).toFixed(2)) : 0;
         dividendData[i][4] = monthNVDA.includes(currentMonth) ? Number((totalDividendPerShares[4]/4).toFixed(2)) : 0;
-        dividendData[i][5] = monthV.includes(currentMonth) ? Number((totalDividendPerShares[5]/4).toFixed(2)) : 0;
+        dividendData[i][5] = monthTSM.includes(currentMonth) ? Number((totalDividendPerShares[5]/4).toFixed(2)) : 0;
+        dividendData[i][6] = monthV.includes(currentMonth) ? Number((totalDividendPerShares[6]/4).toFixed(2)) : 0;
     }
     return dividendData;
 }
@@ -805,6 +813,7 @@ function draw3(finalValueOfStocks) {
                     'rgba(128, 0, 128, 0.5)',
                     'rgba(255, 143, 0, 0.5)',
                     'rgba(210, 180, 140, 0.5)',
+                    'rgba(25, 25, 112, 0.5)',
                     'rgba(255, 205, 86, 0.5)'
                 ],
                 borderColor: [
@@ -814,6 +823,7 @@ function draw3(finalValueOfStocks) {
                     'rgba(128, 0, 128, 1)',
                     'rgba(255, 143, 0, 1)',
                     'rgba(210, 180, 140, 1)',
+                    'rgba(25, 25, 112, 1)',
                     'rgba(255, 205, 86, 1)'
                 ],
                 borderWidth: 2
@@ -1001,6 +1011,7 @@ function draw6(yieldOfShares) {
                     'rgba(128, 0, 128, 0.5)',
                     'rgba(255, 143, 0, 0.5)',
                     'rgba(210, 180, 140, 0.5)',
+                    'rgba(25, 25, 112, 0.5)',
                     'rgba(255, 205, 86, 0.5)'
                 ],
                 borderColor: [
@@ -1010,6 +1021,7 @@ function draw6(yieldOfShares) {
                     'rgba(128, 0, 128, 1)',
                     'rgba(255, 143, 0, 1)',
                     'rgba(210, 180, 140, 1)',
+                    'rgba(25, 25, 112, 1)',
                     'rgba(255, 205, 86, 1)'
                 ],
                 borderWidth: 3,
@@ -1055,7 +1067,8 @@ function draw7(dividendData) {
     var dividendMA = dividendData.map(data => data[2]);
     var dividendMSFT = dividendData.map(data => data[3]);
     var dividendNVDA = dividendData.map(data => data[4]);
-    var dividendV = dividendData.map(data => data[5]);
+    var dividendTSM = dividendData.map(data => data[5]);
+    var dividendV = dividendData.map(data => data[6]);
 
     var myChart = new Chart(ctx, {
         type: 'bar',
@@ -1095,6 +1108,13 @@ function draw7(dividendData) {
                     data: dividendNVDA,
                     backgroundColor: 'rgba(210, 180, 140, 0.5)', // Couleur pour NVDA
                     borderColor: 'rgba(210, 180, 140, 1)',
+                    borderWidth: 2
+                },
+                {
+                    label: 'TSM',
+                    data: dividendTSM,
+                    backgroundColor: 'rgba(25, 25, 112, 0.5)', // Couleur pour TSM
+                    borderColor: 'rgba(25, 25, 112, 1)',
                     borderWidth: 2
                 },
                 {
@@ -1531,35 +1551,35 @@ function draw16(stocksCotation) {
             datasets: [
                 {
                     label: 'Bases',
-                    data: [stocksCotation[0][0], stocksCotation[1][0], stocksCotation[2][0], stocksCotation[3][0],stocksCotation[4][0], stocksCotation[5][0]],
+                    data: [stocksCotation[0][0], stocksCotation[1][0], stocksCotation[2][0], stocksCotation[3][0], stocksCotation[4][0], stocksCotation[5][0], stocksCotation[6][0]],
                     backgroundColor: 'rgba(255, 99, 132, 0.5)',
                     borderColor: 'rgba(255, 99, 132, 1)',
                     borderWidth: 2
                 },
                 {
                     label: 'Croissance',
-                    data: [stocksCotation[0][1], stocksCotation[1][1], stocksCotation[2][1], stocksCotation[3][1],stocksCotation[4][1], stocksCotation[5][1]],
+                    data: [stocksCotation[0][1], stocksCotation[1][1], stocksCotation[2][1], stocksCotation[3][1], stocksCotation[4][1], stocksCotation[5][1], stocksCotation[6][1]],
                     backgroundColor: 'rgba(54, 162, 235, 0.5)',
                     borderColor: 'rgba(54, 162, 235, 1)',
                     borderWidth: 2
                 },
                 {
                     label: 'Rentabilité',
-                    data: [stocksCotation[0][2], stocksCotation[1][2], stocksCotation[2][2], stocksCotation[3][2],stocksCotation[4][2], stocksCotation[5][2]],
+                    data: [stocksCotation[0][2], stocksCotation[1][2], stocksCotation[2][2], stocksCotation[3][2], stocksCotation[4][2], stocksCotation[5][2], stocksCotation[6][2]],
                     backgroundColor: 'rgba(255, 205, 86, 0.5)',
                     borderColor: 'rgba(255, 205, 86, 1)',
                     borderWidth: 2
                 },
                 {
                     label: 'Solvabilité',
-                    data: [stocksCotation[0][3], stocksCotation[1][3], stocksCotation[2][3], stocksCotation[3][3],stocksCotation[4][3], stocksCotation[5][3]],
+                    data: [stocksCotation[0][3], stocksCotation[1][3], stocksCotation[2][3], stocksCotation[3][3], stocksCotation[4][3], stocksCotation[5][3], stocksCotation[6][3]],
                     backgroundColor: 'rgba(75, 192, 192, 0.5)',
                     borderColor: 'rgba(75, 192, 192, 1)',
                     borderWidth: 2
                 },
                 {
                     label: 'Dividende',
-                    data: [stocksCotation[0][4], stocksCotation[1][4], stocksCotation[2][4], stocksCotation[3][4],stocksCotation[4][4], stocksCotation[5][4]],
+                    data: [stocksCotation[0][4], stocksCotation[1][4], stocksCotation[2][4], stocksCotation[3][4], stocksCotation[4][4], stocksCotation[5][4], stocksCotation[6][4]],
                     backgroundColor: 'rgba(153, 102, 255, 0.5)',
                     borderColor: 'rgba(153, 102, 255, 1)',
                     borderWidth: 2
@@ -1640,8 +1660,15 @@ function draw17(stocksCotations) {
                     tension: 0.5
                 },
                 {
-                    label: 'V',
+                    label: 'TSM',
                     data: stocksCotations[5],
+                    backgroundColor: 'rgba(25, 25, 112, 0.5)',
+                    borderColor: 'rgba(25, 25, 112, 1)',
+                    tension: 0.5
+                },
+                {
+                    label: 'V',
+                    data: stocksCotations[6],
                     backgroundColor: 'rgba(255, 205, 86, 0.5)',
                     borderColor: 'rgba(255, 205, 86, 1)',
                     tension: 0.5
@@ -2368,6 +2395,7 @@ function draw30(weightOfStocks, diffPercentList) {
         'rgba(128, 0, 128, 1)',
         'rgba(255, 143, 0, 1)',
         'rgba(210, 180, 140, 1)',
+        'rgba(25, 25, 112, 1)',
         'rgba(255, 205, 86, 1)'
     ];
     var backgroundColors = [
@@ -2376,6 +2404,7 @@ function draw30(weightOfStocks, diffPercentList) {
         'rgba(128, 0, 128, 0.5)',
         'rgba(255, 143, 0, 0.5)',
         'rgba(210, 180, 140, 0.5)',
+        'rgba(25, 25, 112, 0.5)',
         'rgba(255, 205, 86, 0.5)'
     ];
 
@@ -2594,6 +2623,7 @@ function draw33(stocksScore, valuationScore, tickerOfShares) {
         'rgba(128, 0, 128, 1)',
         'rgba(255, 143, 0, 1)',
         'rgba(210, 180, 140, 1)',
+        'rgba(25, 25, 112, 1)',
         'rgba(255, 205, 86, 1)'
     ];
     var backgroundColors = [
@@ -2602,6 +2632,7 @@ function draw33(stocksScore, valuationScore, tickerOfShares) {
         'rgba(128, 0, 128, 0.5)',
         'rgba(255, 143, 0, 0.5)',
         'rgba(210, 180, 140, 0.5)',
+        'rgba(25, 25, 112, 0.5)',
         'rgba(255, 205, 86, 0.5)'
     ];
 
@@ -3219,6 +3250,49 @@ function draw43(TransactionsAmountPerType) {
     });
 }
 
+function draw44(stocksCotation) {
+    var ctx = document.getElementById('44Chart').getContext('2d');
+
+    var myChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: ['Bases', 'Croissance', 'Rentabilité', 'Solvabilité', 'Dividende'],
+            datasets: [{
+                label: 'ScoreCard TSM',
+                data: stocksCotation,
+                backgroundColor: 'rgba(25, 25, 112, 0.5)',
+                borderColor: 'rgba(25, 25, 112, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false,
+                    position: 'bottom'
+                },
+                title: {
+                    display: false,
+                    text: "ScoreCard de l'Action",
+                    position: 'top',
+                    font: {
+                        size: 16
+                    }
+                }
+            },
+            scale: {
+                ticks: {
+                    beginAtZero: true,
+                },
+                min: 0,
+                max: 100,
+                stepSize: 20
+            }
+        }
+    });
+}
+
 
 
 function calculateSPYReturn(currentValue, startValue) {
@@ -3348,10 +3422,10 @@ async function main() {
 
     // PERF ANNÉE EN COURS
     var tempStartYear = 22579.97;
-    var tempInvested = 1500;
+    var tempInvested = 2500;
     tempReturnEuro = parseFloat((totalWallet - (tempInvested + tempStartYear)).toFixed(2));
     tempReturnPercent = parseFloat(((tempReturnEuro / (tempInvested + tempStartYear)) * 100).toFixed(2));
-    var tempDividendReceived = 90.07;
+    var tempDividendReceived = 99.59;
 
     annualReturnEuro.push(tempReturnEuro);
     annualReturnPercent.push(tempReturnPercent);
@@ -3364,9 +3438,9 @@ async function main() {
     var totalDividendReceived = ((annualDividendReceived.reduce((acc, val) => acc + val, 0))).toFixed(2); //somme de la liste annualDividendReceived
     totalGainWithoutDividend = (diffEuro - totalDividendReceived).toFixed(2); //le gain total en plus-value = gain total - dividendes nets reçus
 
-    var tempBuys = 2;
+    var tempBuys = 3;
     var tempSells = 0;
-    var tempDeposits = 4;
+    var tempDeposits = 5;
     var tempWithdrawals = 0;
     var tempTransactions = (tempBuys+tempSells+tempDeposits+tempWithdrawals);
 
@@ -3450,6 +3524,7 @@ async function main() {
     draw41(stocksTaxes, tickerOfShares);
     draw42(TransactionsAmountPerType);
     draw43(TransactionsAmountPerType);
+    draw44(TSMCotation);
 
 }
 
