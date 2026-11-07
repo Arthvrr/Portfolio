@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.15. Les Outils que j'utilise | Formation StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles pour le contenu du cours */
+        .prose p { margin-bottom: 1.5rem; line-height: 1.8; color: #475569; text-align: justify; }
+        .prose h4 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-top: 3.5rem; margin-bottom: 1.5rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .prose h5.sub-tool { font-size: 1.2rem; font-weight: 700; color: #0f172a; margin-top: 2.25rem; margin-bottom: 1rem; font-family: 'Plus Jakarta Sans', sans-serif; display: flex; align-items: center; gap: 0.5rem; }
+        .prose strong { color: #0f172a; font-weight: 600; }
+        .prose em { color: #334155; font-style: italic; }
+        .prose ul, .prose ol { list-style: none; padding-left: 0; }
+        .prose li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
+        .prose ul li::before { content: "•"; color: #ea580c; font-weight: bold; position: absolute; left: 0; }
+        .prose ol { counter-reset: item; }
+        .prose ol li::before { content: counter(item) "."; counter-increment: item; color: #ea580c; font-weight: bold; position: absolute; left: 0; }
+        
+        /* Lightbox */
+        #imageViewer { backdrop-filter: blur(10px); }
+        .clickable-image { cursor: zoom-in; transition: transform 0.2s; }
+        .clickable-image:hover { transform: scale(1.01); }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased selection:bg-orange-100 selection:text-orange-700">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../media/Logo/Logo-White.png" alt="Logo StocksPickeur" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <span class="font-heading font-bold text-xl text-slate-900 tracking-tight">StocksPickeur</span>
+            </a>
+
+            <div class="hidden xl:flex items-center gap-8">
+                <nav class="flex gap-6">
+                    <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Calculateur</a>
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Portefeuille</a>
+                    <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Analyses</a>
+                    <a href="../resources.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Ressources</a>
+                    <a href="../articles.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Articles</a>
+                    <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Formation</a>
+                    <a href="../about.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">À Propos</a>
+                </nav>
+
+                <div class="h-6 w-px bg-slate-200"></div>
+
+                <a href="../account.html" id="header-auth-btn" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Connexion
+                </a>
+            </div>
+
+            <div class="xl:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-slate-500 hover:text-slate-900 focus:outline-none p-2">
+                    <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden xl:hidden bg-white border-b border-slate-200 shadow-xl absolute w-full z-40">
+        <nav class="flex flex-col px-4 pt-2 pb-6 space-y-3">
+            <a href="../calculator.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Calculateur</a>
+            <a href="../portfolio.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Portefeuille</a>
+            <a href="../moatpicks.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Analyses</a>
+            <a href="../resources.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Ressources</a>
+            <a href="../articles.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Articles</a>
+            <a href="../formation.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Formation</a>
+            <a href="../about.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">À Propos</a>
+            
+            <div class="border-t border-slate-100 pt-3 mt-2">
+                <a href="../account.html" id="mobile-auth-btn" class="flex justify-center w-full bg-slate-900 text-white font-bold px-5 py-3 rounded-xl hover:bg-slate-800 transition">
+                    <span id="mobile-nav-username">Connexion Espace Membre</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+    <main class="pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-orange-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="6.0.html" class="hover:text-orange-600 transition">Module 6</a></li>
+                <li>/</li>
+                <li class="text-orange-600 font-medium">Chapitre 6.15</li>
+            </ol>
+        </nav>
+
+        <div class="mb-12 border-b border-slate-200 pb-8">
+            <span class="text-orange-600 font-bold tracking-wider uppercase text-xs">Module 6 • Piloter son Portefeuille</span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">6.15. Les Outils que j'utilise 🛠️</h1>
+        </div>
+
+        <div class="mb-10 not-prose"> 
+            <div class="flex items-center gap-2 mb-4">
+                <span class="bg-orange-100 text-orange-700 w-8 h-8 flex items-center justify-center rounded-lg text-lg">📺</span>
+                <h3 class="font-heading font-bold text-lg text-slate-900">Résumé du chapitre en vidéo</h3>
+            </div>
+            
+            <div class="rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-slate-900 aspect-video">
+                <video controls controlsList="nodownload" oncontextmenu="return false;" class="w-full h-full object-cover" preload="metadata">
+                    <source src="videos/6.15.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+            </div>
+        </div>
+
+        <article class="prose prose-slate max-w-none text-justify">
+            
+            <p>Dans l'industrie financière moderne, il existe un mythe tenace selon lequel la surperformance boursière serait réservée à une élite équipée de terminaux informatiques coûtant des dizaines de milliers d'euros par an, à l'image du célèbre terminal Bloomberg. Pire encore, une multitude de plateformes web tentent aujourd'hui de convaincre les investisseurs particuliers qu'il est indispensable de souscrire à des abonnements mensuels onéreux — souvent facturés entre 30 € et 100 € par mois — pour accéder à de simples ratios financiers ou suivre l'évolution de leur patrimoine.</p>
+
+            <p>En tant qu'investisseur rationnel, nous savons à quel point chaque euro compte. Payer 50 € par mois pour un logiciel d'analyse, c'est se priver de 600 € par an qui auraient pu être investis dans d'excellentes entreprises et profiter de la magie des intérêts composés pendant vingt ans. La vérité est implacable : <strong>toutes les données financières des entreprises cotées sont publiques par obligation légale.</strong> Il est donc strictement inutile pour un investisseur particulier de payer pour accéder à de la donnée brute qui est accessible gratuitement sur Internet, à condition de savoir où chercher et de connaître les bons sites.</p>
+
+            <p>Dans ce chapitre, je vous ouvre les coulisses de ma boîte à outils personnelle. Tous les outils que je vais vous présenter ici sont <strong>100% gratuits</strong>. Pour organiser notre flux de travail de manière professionnelle et méthodique, nous allons distinguer quatre grands piliers :</p>
+            <ol class="text-justify">
+                <li><strong>Le suivi des fondamentaux :</strong> pour disséquer les bilans et calculer notre Score Quality.</li>
+                <li><strong>Le suivi des <em>Earnings</em> :</strong> pour analyser les publications trimestrielles et lire les transcriptions.</li>
+                <li><strong>Le suivi des mouvements des gérants de fonds :</strong> pour observer les achats et ventes des meilleurs investisseurs de la planète.</li>
+                <li><strong>Le suivi du portefeuille au quotidien :</strong> pour piloter nos positions, nos dividendes et notre performance globale.</li>
+            </ol>
+
+            <h4>1. Le Suivi des Fondamentaux : Disséquer la Qualité</h4>
+            <p>Avant d'investir le moindre centime dans une entreprise, nous devons auditer son historique financier sur une décennie. Croissance du chiffre d'affaires, évolution du bénéfice par action (EPS), génération de Free Cash Flow, retour sur capitaux investis (ROIC), niveau d'endettement et rachats d'actions : toutes ces métriques constituent le socle de notre méthode <em>Quality Investing</em>. Voici les trois plateformes gratuites que j'utilise pour extraire ces données en quelques secondes.</p>
+
+            <h5 class="sub-tool">📊 A. FinanceCharts.com : La visualisation instantanée</h5>
+            <p><strong>FinanceCharts.com</strong> est sans doute l'un des sites les plus ergonomiques et complets pour évaluer rapidement une action américaine. Là où la plupart des sites gratuits vous limitent aux trois dernières années d'historique comptable, FinanceCharts vous permet de visualiser toutes les métriques fondamentales clés sur 5, 10, voire 20 ans sous forme de graphiques interactifs d'une clarté remarquable.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/financecharts.png')">
+                <img src="../media/Formation/financecharts.png" 
+                     alt="Interface et graphiques fondamentaux sur FinanceCharts.com" 
+                     class="clickable-image rounded-xl shadow-lg w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 font-medium">FinanceCharts permet de visualiser en un clin d'œil la régularité de la croissance, des marges et des dividendes sur une décennie entière.</figcaption>
+            </figure>
+
+            <p>En tapant simplement le <em>ticker</em> d'une entreprise, vous accédez immédiatement aux taux de croissance annuels moyens (CAGR), à l'évolution du nombre d'actions en circulation (idéal pour vérifier les <em>buybacks</em>), aux ratios de distribution des dividendes (<em>Payout Ratio</em> et <em>FCF Payout Ratio</em>) ainsi qu'aux multiples de valorisation historiques. C'est mon point d'entrée favori pour remplir rapidement le Calculateur Quality Score.</p>
+
+            <h5 class="sub-tool">🔍 B. GuruFocus.com : L'encyclopédie des ratios financiers</h5>
+            <p><strong>GuruFocus.com</strong> est une véritable mine d'or analytique qui rivalise avec les terminaux professionnels. Le site agrège une quantité phénoménale de données sur la rentabilité, la solvabilité et la valorisation intrinsèque des entreprises mondiales. C'est sur GuruFocus que vous trouverez les indicateurs les plus pointus, tels que la comparaison directe entre le <strong>ROIC</strong> et le <strong>WACC</strong> (coût moyen pondéré du capital), le ratio <em>Debt-to-EBITDA</em>, ou encore l'<em>Interest Coverage</em>.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/gurufocus.png')">
+                <img src="../media/Formation/gurufocus.png" 
+                     alt="Tableau de bord fondamental sur GuruFocus.com" 
+                     class="clickable-image rounded-xl shadow-lg w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 font-medium">GuruFocus synthétise la santé financière, la rentabilité et l'endettement d'une entreprise avec une profondeur d'analyse institutionnelle.</figcaption>
+            </figure>
+
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-xl my-8">
+                <p class="font-bold text-blue-900 mb-2">L'astuce d'initié 💡</p>
+                <p class="text-blue-800 m-0">GuruFocus impose une limite de consultation gratuite : après avoir ouvert quelques pages d'entreprises sur votre navigateur habituel, un bandeau bloquant vous demandera de souscrire à un abonnement payant. Pour contourner cette restriction très simplement, <strong>ouvrez toujours GuruFocus dans une fenêtre de navigation privée (mode Incognito)</strong>. Dès que la limite est atteinte, fermez la fenêtre privée et rouvrez-en une nouvelle : le compteur repart à zéro, vous offrant un accès illimité et 100% gratuit !</p>
+            </div>
+
+            <h5 class="sub-tool">📑 C. ROIC.ai : Les états financiers bruts sur 15 ans</h5>
+            <p>Pour les puristes qui aiment plonger directement dans les tableaux de chiffres bruts (inspirés des célèbres fiches papier <em>Value Line</em> qu'utilisait Warren Buffett à ses débuts), <strong>roic.ai</strong> est une excellente ressource complémentaire. Le site compile les comptes de résultat, les bilans et les tableaux de flux de trésorerie avec un historique profond allant de 10 à plus de 15 ans sur une seule et même page épurée.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/roic.png')">
+                <img src="../media/Formation/roic.png" 
+                     alt="Historique des états financiers sur ROIC.ai" 
+                     class="clickable-image rounded-xl shadow-lg w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 font-medium">ROIC.ai aligne 15 années de données comptables brutes sans aucune distraction visuelle.</figcaption>
+            </figure>
+
+            <p>En toute transparence, je l'utilise un peu moins souvent au quotidien car le duo formé par FinanceCharts et GuruFocus réunit déjà 95% de la donnée visuelle dont j'ai besoin. Néanmoins, ROIC.ai reste un excellent favori à garder sous le coude pour vérifier l'évolution d'une ligne comptable spécifique sur le très long terme.</p>
+
+            <h4>2. Le Suivi des Earnings : Au Cœur des Publications Trimestrielles</h4>
+            <p>Comme nous l'avons martelé dans le chapitre précédent, un investisseur de qualité ne regarde pas les variations quotidiennes du prix de ses actions : il surveille l'exécution opérationnelle du business. Et cette exécution se vérifie quatre fois par an, lors de la saison des résultats trimestriels (les <em>Earnings</em>). Il est absolument indispensable et obligatoire de lire, d'analyser et de comprendre les résultats trimestriels des entreprises que nous détenons en portefeuille, ainsi que celles qui figurent dans notre <em>Watchlist</em>.</p>
+
+            <h5 class="sub-tool">🎙️ EarningsLabs.com : L'historique, les Transcripts et l'IA</h5>
+            <p>Pour accomplir ce travail de suivi sans avoir à fouiller dans des documents PDF austères de 80 pages déposés auprès de la SEC, j'utilise <strong>EarningsLabs.com</strong>. Cet outil gratuit est une véritable pépite pour suivre les publications des entreprises américaines.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/EarningsLabs.png')">
+                <img src="../media/Formation/EarningsLabs.png" 
+                     alt="Suivi des résultats trimestriels et résumés IA sur EarningsLabs.com" 
+                     class="clickable-image rounded-xl shadow-lg w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 font-medium">EarningsLabs centralise l'historique des publications trimestrielles, la transcription intégrale des conférences et un résumé généré par IA.</figcaption>
+            </figure>
+
+            <p>EarningsLabs regroupe trois fonctionnalités majeures qui font gagner un temps précieux à l'investisseur particulier :</p>
+            <ul class="text-justify">
+                <li><strong>L'historique complet des résultats :</strong> Vous visualisez trimestre après trimestre si l'entreprise a battu ou manqué les attentes de Wall Street sur son Chiffre d'Affaires et son Bénéfice Par Action (EPS), ainsi que sa régularité historique.</li>
+                <li><strong>Le <em>Transcript</em> intégral :</strong> Le site met à disposition la retranscription écrite mot à mot de la conférence téléphonique (<em>Earnings Call</em>) tenue par le PDG et le Directeur Financier, y compris la séance cruciale des questions-réponses avec les analystes des grandes banques.</li>
+                <li><strong>Le résumé intelligent par IA :</strong> Si vous manquez de temps pour lire 15 pages de retranscription en anglais, l'intelligence artificielle intégrée au site génère une synthèse structurée des annonces clés, des prévisions (<em>Guidance</em>), des vents porteurs et des défis mentionnés par la direction.</li>
+            </ul>
+
+            <p>Bien que des plateformes comme EarningsLabs soient formidables pour obtenir une vue d'ensemble rapide, évaluer la régularité d'une entreprise et vérifier si elle bat ou rate fréquemment les estimations de Wall Street, il ne faut pas perdre de vue un principe fondamental de l'investissement. <strong>La source d'information la plus pure et la plus fiable reste toujours le site officiel de l'entreprise elle-même.</strong> En tant qu'actionnaire, ou futur actionnaire, vous vous devez de visiter la section <em>"Investor Relations"</em> de la société. C'est là que vous trouverez les rapports officiels déposés auprès de la SEC (comme les fameux formulaires 10-K annuels et 10-Q trimestriels), sans aucun filtre, sans l'interprétation biaisée des journalistes financiers, et sans la simplification parfois hasardeuse de l'intelligence artificielle. Les agrégateurs vous donnent l'historique et la tendance ; le site de l'entreprise vous donne la vérité brute et les détails de l'allocation du capital.</p>
+
+            <h4>3. Le Suivi des Mouvements des Gérants de Fonds</h4>
+            <p>Nous aborderons ce sujet en profondeur dans un prochain chapitre dédié, mais sachez dès maintenant qu'aux États-Unis, tout fonds d'investissement gérant plus de 100 millions de dollars a l'obligation légale de déclarer ses positions acheteuses chaque trimestre via le formulaire <strong>13F</strong>. Observer les achats et les ventes des plus grands gérants de la planète (les "Super-Investisseurs") est une source d'inspiration exceptionnelle pour dénicher de nouvelles idées d'investissement pré-filtrées par l'élite mondiale.</p>
+
+            <h5 class="sub-tool">🏛️ A. Dataroma.com : La bible des Super-Investisseurs</h5>
+            <p>Ne vous fiez surtout pas à son design très sobre qui semble tout droit sorti des années 2000 : <strong>Dataroma.com</strong> est une référence absolue utilisée par les investisseurs fondamentaux du monde entier. Le site compile automatiquement toutes les déclarations trimestrielles d'une sélection rigoureuse des meilleurs gérants orientés <em>Value</em> et <em>Quality</em> (Warren Buffett, Terry Smith, Dev Kantesaria, Chuck Akre, Bill Ackman, Li Lu...).</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/Dataroma.png')">
+                <img src="../media/Formation/Dataroma.png" 
+                     alt="Suivi des portefeuilles des super-investisseurs sur Dataroma.com" 
+                     class="clickable-image rounded-xl shadow-lg w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 font-medium">Dataroma permet de scruter les portefeuilles des plus grands gérants mondiaux et d'identifier leurs plus fortes convictions du moment.</figcaption>
+            </figure>
+
+            <p>Dataroma est particulièrement redoutable grâce à ses statistiques croisées : vous pouvez y consulter le <strong>Top 10 des entreprises les plus détenues</strong> par ces super-investisseurs, ainsi que les <strong>10 actions les plus achetées ou vendues</strong> au cours du dernier trimestre. Mieux encore, en recherchant le <em>ticker</em> de n'importe quelle entreprise américaine, vous voyez instantanément quels grands gérants la possèdent en portefeuille, à quel poids, et s'ils ont récemment renforcé ou allégé leur position.</p>
+
+            <h5 class="sub-tool">🎯 B. StockCircle.com : Graphiques d'achats, Congrès US & Insiders</h5>
+            <p>Si vous préférez une interface beaucoup plus moderne et visuelle, <strong>StockCircle.com</strong> est le complément idéal de Dataroma. Le site permet également de décortiquer le portefeuille détaillé des grands gérants de fonds, mais il y ajoute une dimension graphique extrêmement parlante : sur la courbe du cours de l'action, vous visualisez les points exacts où le gérant a acheté ou vendu ses titres au fil des années, avec l'estimation de sa performance sur la ligne.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/StockCircle.png')">
+                <img src="../media/Formation/StockCircle.png" 
+                     alt="Visualisation des transactions des gérants et insiders sur StockCircle.com" 
+                     class="clickable-image rounded-xl shadow-lg w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 font-medium">StockCircle superpose les achats et ventes des gérants directement sur le graphique boursier et traque les transactions des dirigeants.</figcaption>
+            </figure>
+
+            <p>Le véritable atout supplémentaire de StockCircle réside dans le suivi de deux catégories d'acteurs très particulières : les <strong>membres du Congrès américain</strong> (les politiciens qui siègent dans les commissions réglementaires et dont les transactions boursières sont publiques) ainsi que les <strong>Insiders d'entreprises</strong> (les PDG, Directeurs Financiers et membres du conseil d'administration qui achètent ou vendent les actions de leur propre société). Comme le dit l'adage à Wall Street : un dirigeant peut vendre ses actions pour mille raisons personnelles, mais s'il en achète massivement avec son propre argent, il n'y a qu'une seule raison — il pense que l'action va monter.</p>
+
+            <h4>4. Le Suivi du Portefeuille au Quotidien : Piloter son Patrimoine</h4>
+            <p>Une fois nos analyses effectuées et nos actions en portefeuille, il nous faut des outils fiables pour passer nos ordres, suivre nos courbes face au marché, et surtout mesurer chirurgicalement chaque métrique de notre patrimoine. Voici les quatre outils qui composent mon écosystème de suivi quotidien.</p>
+
+            <h5 class="sub-tool">🏦 A. Mon Courtier : DEGIRO</h5>
+            <p>Pour loger mon Compte-Titres Ordinaire (CTO) et passer mes ordres d'achat, j'utilise le courtier européen <strong>DEGIRO</strong>. Soyons parfaitement honnêtes : l'interface de DEGIRO est très basique, vieillissante, et ses outils d'analyse ou de suivi de performance sont quasiment inexistants. Il est impossible d'y voir un graphique d'évolution de son portefeuille digne de ce nom, ni d'analyser ses dividendes ou son rendement sur coût.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/degiro.png')">
+                <img src="../media/Formation/degiro.png" 
+                     alt="Interface du courtier DEGIRO" 
+                     class="clickable-image rounded-xl shadow-lg w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 font-medium">L'interface de DEGIRO va à l'essentiel : parfaite pour exécuter ses ordres à frais réduits et jeter un œil rapide aux variations du jour.</figcaption>
+            </figure>
+
+            <p>Cependant, je ne demande pas à mon courtier d'être un logiciel d'analyse : je lui demande d'être fiable, sécurisé et peu coûteux en frais de courtage. Je me rends donc sur DEGIRO uniquement pour passer mes ordres d'achat ou pour consulter rapidement les performances journalières brutes de mes lignes.</p>
+
+            <h5 class="sub-tool">📈 B. Google Finance : Benchmarking rapide et synthèse IA</h5>
+            <p>Lorsque je souhaite observer rapidement l'évolution du cours d'une action ou comparer visuellement une entreprise face aux grands indices mondiaux comme le <strong>S&P 500</strong> ou le <strong>Nasdaq 100</strong>, j'utilise <strong>Google Finance</strong>. L'outil est d'une rapidité exemplaire, accessible en un clic sur ordinateur comme sur téléphone, et permet de superposer plusieurs courbes sur différentes échelles de temps.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/google-finance.png')">
+                <img src="../media/Formation/google-finance.png" 
+                     alt="Suivi de cours et comparaison d'indices sur Google Finance" 
+                     class="clickable-image rounded-xl shadow-lg w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 font-medium">Google Finance offre une lecture immédiate des graphiques boursiers et intègre désormais des résumés explicatifs par IA.</figcaption>
+            </figure>
+
+            <p>De plus, Google a récemment intégré des fonctionnalités d'intelligence artificielle très pertinentes directement sous les graphiques. En quelques lignes synthétiques, l'IA vous permet de comprendre le contexte macroéconomique du jour et vous explique factuellement pourquoi telle action ou tel secteur connaît un mouvement brusque à la hausse ou à la baisse.</p>
+            
+            <h5 class="sub-tool">🗺️ C. Finviz.com : La cartographie visuelle du marché</h5>
+            <p>Lorsque l'on a la tête plongée dans l'analyse microéconomique d'une action spécifique, il est parfois salutaire de prendre de la hauteur pour observer la dynamique globale du marché. Pour obtenir cette vision macroscopique en un seul coup d'œil, mon outil de prédilection est la carte thermique (<em>Heatmap</em>) du site <strong>Finviz.com</strong> (Financial Visualizations). C'est un outil d'une puissance visuelle redoutable, utilisé par les traders professionnels comme par les investisseurs de long terme.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/Finviz.png')">
+                <img src="../media/Formation/Finviz.png" 
+                     alt="Carte thermique du marché boursier américain sur Finviz" 
+                     class="clickable-image rounded-xl shadow-lg w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 font-medium">La Heatmap de Finviz offre une radiographie instantanée du marché, où la taille des blocs illustre la domination écrasante de la technologie.</figcaption>
+            </figure>
+
+            <p>Cette carte divise l'intégralité du S&P 500 par grands secteurs d'activité (Technologie, Santé, Finance, Consommation, etc.). La taille de chaque rectangle est strictement proportionnelle à la capitalisation boursière de l'entreprise. C'est un excellent moyen de se rendre compte visuellement du poids titanesque des géants de la tech (Apple, Microsoft, NVIDIA) par rapport au reste de l'économie. Les couleurs (du vert vif au rouge sang) vous indiquent immédiatement si le marché subit une rotation sectorielle — par exemple, si les investisseurs vendent massivement la technologie pour se réfugier dans l'énergie ou les biens de consommation courante. C'est un outil totalement gratuit qui aide à contextualiser les mouvements de votre propre portefeuille par rapport à la tendance générale.</p>
+
+
+            <h5 class="sub-tool">📗 D. Google Sheets : La liberté totale (et ses limites)</h5>
+            <p>Pendant longtemps, <strong>Google Sheets</strong> a été le pilier central du suivi de mon portefeuille. Le grand avantage d'un tableur, c'est qu'il est entièrement gratuit et <strong>personnalisable à l'infini</strong>. Vous partez d'une feuille blanche et vous pouvez absolument tout traquer selon vos propres règles : l'historique de vos transactions, votre <em>Watchlist</em>, vos modèles de valorisation DCF, ou la répartition de vos dividendes.</p>
+
+            <p>Cependant, après plusieurs années d'utilisation intensive, Google Sheets montre de sérieuses limites pour un investisseur exigeant :</p>
+            <ul class="text-justify">
+                <li><strong>Une automatisation très limitée :</strong> Les formules natives (<code>=GOOGLEFINANCE()</code>) permettent uniquement de récupérer le prix de l'action en quasi temps réel, le PER actuel et quelques données basiques. Tout le reste — dividendes, FCF, ROIC, transactions, taxes — doit être entré et maintenu manuellement à la sueur de votre front.</li>
+                <li><strong>Un travail de design fastidieux :</strong> Par défaut, un tableur est austère et peu lisible. C'est à vous de passer des dizaines d'heures à ajuster les couleurs, les bordures et les graphiques pour essayer de le rendre visuellement agréable, avec un résultat qui reste souvent artisanal.</li>
+                <li><strong>Aucune adaptabilité d'écran (Non-Responsive) :</strong> C'est son plus grand défaut technique. Un tableau de bord conçu sur l'écran de votre ordinateur devient totalement illisible sur un smartphone, ou se déforme complètement dès que vous passez d'un écran portable 13 pouces à un grand moniteur externe.</li>
+            </ul>
+
+            <h5 class="sub-tool">💎 E. BlueChip : L'Application macOS Tout-en-Un Ultime (100% Gratuite)</h5>
+            <p>C'est précisément pour répondre à la frustration causée par les interfaces médiocres des courtiers et la rigidité des tableurs Google Sheets que j'ai décidé de développer <strong>BlueChip</strong>. BlueChip est une application native de gestion de portefeuille tout-en-un, pensée par un investisseur <em>Quality</em>, spécifiquement pour les investisseurs <em>Quality</em>.</p>
+
+            <p>Au lieu d'éparpiller vos données sur dix fichiers différents, BlueChip centralise l'intégralité du contrôle de votre patrimoine au sein de <strong>14 modules intégrés</strong> d'une fluidité absolue :</p>
+            <ul class="text-justify">
+                <li><strong>Pilotage & Performance :</strong> Tableau de bord global, suivi de la croissance du portefeuille sur plusieurs années, objectifs personnalisables avec barres de progression, et module de <strong>Benchmarking</strong> complet pour mesurer votre surperformance réelle face au S&P 500.</li>
+                <li><strong>Dividendes & Cash-Flow :</strong> Suivi chirurgical des dividendes bruts et nets reçus mois par mois, calcul automatique du rendement actuel et du <em>Yield on Cost</em> (rendement sur prix de revient), et projection de votre boule de neige sur 10 ans.</li>
+                <li><strong>Qualité & Valorisation :</strong> Intégration native des <em>ScoreCards</em> de qualité (/30) avec graphiques radars, suivi des Prix Cibles, marges de sécurité, exposition géographique du chiffre d'affaires et matrice Qualité vs Valorisation.</li>
+                <li><strong>Comptabilité, Frais & Assistant IA :</strong> Historique complet de chaque transaction (achats, ventes, dépôts), audit précis des taxes et frais de courtage (TOB, frais courtier), compagnon discret dans la barre des menus du Mac, et assistant d'analyse par Intelligence Artificielle avec contexte persistant.</li>
+            </ul>
+
+            <!-- CARROUSEL INTERACTIF BLUECHIP (5 IMAGES) -->
+            <div class="my-10 not-prose">
+                <div class="relative bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-slate-800 group">
+                    
+                    <!-- Images du Carrousel -->
+                    <div class="relative w-full aspect-[16/10] bg-slate-950 flex items-center justify-center overflow-hidden">
+                        <img id="bc-slide-0" src="../media/Formation/BlueChip-1.png" alt="BlueChip - Vue d'ensemble du Dashboard" onclick="openViewer(this.src)" class="bc-slide clickable-image w-full h-full object-contain transition-opacity duration-300 opacity-100">
+                        <img id="bc-slide-1" src="../media/Formation/BlueChip-2.png" alt="BlueChip - Suivi de la performance et Benchmarking" onclick="openViewer(this.src)" class="bc-slide clickable-image w-full h-full object-contain transition-opacity duration-300 opacity-0 hidden">
+                        <img id="bc-slide-2" src="../media/Formation/BlueChip-3.png" alt="BlueChip - Analyse des Dividendes et Projections" onclick="openViewer(this.src)" class="bc-slide clickable-image w-full h-full object-contain transition-opacity duration-300 opacity-0 hidden">
+                        <img id="bc-slide-3" src="../media/Formation/BlueChip-4.png" alt="BlueChip - ScoreCard Qualité et Valorisation" onclick="openViewer(this.src)" class="bc-slide clickable-image w-full h-full object-contain transition-opacity duration-300 opacity-0 hidden">
+                        <img id="bc-slide-4" src="../media/Formation/BlueChip-5.png" alt="BlueChip - Suivi des Transactions, Frais et IA" onclick="openViewer(this.src)" class="bc-slide clickable-image w-full h-full object-contain transition-opacity duration-300 opacity-0 hidden">
+                    </div>
+
+                    <!-- Bouton Précédent -->
+                    <button type="button" onclick="changeBcSlide(-1)" class="absolute left-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-orange-600 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg border border-slate-700 transition focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+
+                    <!-- Bouton Suivant -->
+                    <button type="button" onclick="changeBcSlide(1)" class="absolute right-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-orange-600 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg border border-slate-700 transition focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+
+                    <!-- Barre inférieure : Légende & Puces -->
+                    <div class="bg-slate-900/95 border-t border-slate-800 px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-3">
+                        <span id="bc-caption" class="text-xs sm:text-sm text-slate-300 font-medium text-center sm:text-left">
+                            Aperçu 1/5 : Tableau de bord natif macOS et vue globale du portefeuille (Cliquez sur l'image pour agrandir).
+                        </span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="goToBcSlide(0)" class="bc-dot w-2.5 h-2.5 rounded-full bg-orange-500 transition-all"></button>
+                            <button type="button" onclick="goToBcSlide(1)" class="bc-dot w-2.5 h-2.5 rounded-full bg-slate-600 hover:bg-slate-400 transition-all"></button>
+                            <button type="button" onclick="goToBcSlide(2)" class="bc-dot w-2.5 h-2.5 rounded-full bg-slate-600 hover:bg-slate-400 transition-all"></button>
+                            <button type="button" onclick="goToBcSlide(3)" class="bc-dot w-2.5 h-2.5 rounded-full bg-slate-600 hover:bg-slate-400 transition-all"></button>
+                            <button type="button" onclick="goToBcSlide(4)" class="bc-dot w-2.5 h-2.5 rounded-full bg-slate-600 hover:bg-slate-400 transition-all"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p>Trois caractéristiques fondamentales distinguent BlueChip de tous les agrégateurs du marché :</p>
+            <ul class="text-justify">
+                <li><strong>Une maîtrise et une confidentialité totales :</strong> Dans BlueChip, vous entrez vos données vous-même. C'est un choix philosophique fort : vous n'avez jamais à donner les identifiants bancaires de votre courtier à un serveur tiers, vos données sont chiffrées localement sur votre machine, vous ne subissez aucun bug de synchronisation bancaire, et le fait de saisir chaque transaction ou dividende vous oblige à garder une conscience aiguë de la gestion de votre portefeuille.</li>
+                <li><strong>Conçu exclusivement pour macOS :</strong> Développée nativement pour l'écosystème Apple, l'application offre un design ultra-soigné, une réactivité instantanée et une navigation au clavier pensée pour les investisseurs exigeants.</li>
+                <li><strong>100% Gratuit :</strong> Fidèle à la philosophie de ce chapitre, BlueChip est mis à disposition gratuitement, sans abonnement caché ni vente de vos données personnelles.</li>
+            </ul>
+
+            <!-- Encart de téléchargement / Lien vers la Landing Page BlueChip -->
+            <div class="not-prose bg-gradient-to-br from-slate-900 to-slate-800 text-white p-8 rounded-2xl shadow-xl border border-slate-700 my-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div>
+                    <span class="inline-block py-1 px-3 rounded-full bg-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-wider mb-2 border border-orange-500/30">
+                        Application macOS • 100% Gratuit
+                    </span>
+                    <h4 class="font-heading font-extrabold text-2xl text-white mb-2">Découvrir BlueChip 💎</h4>
+                    <p class="text-slate-300 text-sm leading-relaxed m-0 max-w-lg">
+                        Prenez le contrôle total de vos investissements avec nos 14 modules d'analyse et de suivi patrimonial conçus sur-mesure pour le Quality Investing.
+                    </p>
+                </div>
+                <!-- Remplace le href ci-dessous par l'URL exacte de ta landing page BlueChip -->
+                <a href="https://arthvrr.github.io/BlueChip/" target="_blank" rel="noopener noreferrer" class="shrink-0 bg-orange-600 hover:bg-orange-500 text-white font-bold px-6 py-3.5 rounded-xl transition shadow-lg shadow-orange-600/30 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    Accéder au site officiel
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+            </div>
+
+            <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-8 mt-12 shadow-sm">
+                <h5 class="text-xl font-bold text-emerald-800 mb-4 flex items-center">
+                    <span class="bg-emerald-200 text-emerald-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">🔑</span> 
+                    Ce qu'il faut retenir
+                </h5>
+                <p class="text-emerald-900 m-0 leading-relaxed">
+                    Un investisseur particulier n'a absolument aucun besoin de payer des abonnements coûteux pour analyser le marché avec une rigueur professionnelle. Toute la donnée financière mondiale est accessible gratuitement si l'on structure sa boîte à outils avec intelligence.<br><br>
+                    Pour auditer les fondamentaux sur 10 à 15 ans, combinez <strong>FinanceCharts</strong>, <strong>GuruFocus</strong> (en navigation privée) et <strong>ROIC.ai</strong>. Pour ne jamais manquer une publication trimestrielle et lire les transcriptions ou leurs résumés par IA, appuyez-vous sur <strong>EarningsLabs</strong>. Pour puiser des idées d'investissement dans les portefeuilles des plus grands gérants de fonds et des dirigeants d'entreprises, consultez <strong>Dataroma</strong> et <strong>StockCircle</strong>.<br><br>
+                    Enfin, ne vous contentez pas de l'interface limitée de votre courtier : suivez vos graphiques sur <strong>Google Finance</strong> et pilotez l'intégralité de vos métriques patrimoniales avec précision sur un tableau de bord dédié comme <strong>Google Sheets</strong> ou l'application macOS gratuite <strong>BlueChip</strong>.
+                </p>
+            </div>
+
+        </article>
+
+        <div class="flex justify-between items-center mt-16 pt-8 border-t border-slate-200">
+            <a href="6.14.html" class="text-slate-500 hover:text-orange-600 font-medium transition flex items-center group">
+                <span class="group-hover:-translate-x-1 transition-transform mr-2">←</span> Chapitre Précédent
+            </a>
+            <a href="6.16.html" class="bg-orange-600 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-700 transition shadow-lg shadow-orange-200 flex items-center group">
+                Chapitre Suivant<span class="group-hover:translate-x-1 transition-transform ml-2">→</span>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <div id="imageViewer" class="fixed inset-0 z-[60] hidden bg-slate-900/90 backdrop-blur-sm transition-opacity duration-300" onclick="closeViewer()">
+        <span class="absolute top-5 right-8 text-white text-5xl cursor-pointer hover:text-slate-300 transition">&times;</span>
+        <img class="m-auto block max-w-[95%] max-h-[90vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded shadow-2xl" id="enlargedImg">
+    </div>
+
+    <script>
+        // Lightbox
+        var modal = document.getElementById("imageViewer");
+        var modalImg = document.getElementById("enlargedImg");
+
+        function openViewer(src) {
+            modal.style.display = "block";
+            modalImg.src = src;
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeViewer() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+        
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeViewer();
+            }
+        });
+
+        // Menu Mobile
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
+
+        // Carrousel BlueChip (5 images)
+        let currentBcSlide = 0;
+        const bcSlides = document.querySelectorAll('.bc-slide');
+        const bcDots = document.querySelectorAll('.bc-dot');
+        const bcCaption = document.getElementById('bc-caption');
+        const bcCaptionsText = [
+            "Aperçu 1/5 : Tableau de bord natif macOS et vue globale du portefeuille (Cliquez sur l'image pour agrandir).",
+            "Aperçu 2/5 : Suivi chirurgical des performances et Benchmarking face aux indices.",
+            "Aperçu 3/5 : Gestion des dividendes, calendrier des versements et projections long terme.",
+            "Aperçu 4/5 : ScoreCard Qualité (/30), analyse fondamentale et suivi des prix cibles.",
+            "Aperçu 5/5 : Historique des transactions, contrôle des frais et analyse IA intégrée."
+        ];
+
+        function showBcSlide(index) {
+            if (index >= bcSlides.length) currentBcSlide = 0;
+            else if (index < 0) currentBcSlide = bcSlides.length - 1;
+            else currentBcSlide = index;
+
+            bcSlides.forEach((slide, i) => {
+                if (i === currentBcSlide) {
+                    slide.classList.remove('hidden', 'opacity-0');
+                    slide.classList.add('opacity-100');
+                } else {
+                    slide.classList.add('hidden', 'opacity-0');
+                    slide.classList.remove('opacity-100');
+                }
+            });
+
+            bcDots.forEach((dot, i) => {
+                if (i === currentBcSlide) {
+                    dot.classList.remove('bg-slate-600');
+                    dot.classList.add('bg-orange-500', 'w-5');
+                } else {
+                    dot.classList.remove('bg-orange-500', 'w-5');
+                    dot.classList.add('bg-slate-600');
+                }
+            });
+
+            if (bcCaption) {
+                bcCaption.textContent = bcCaptionsText[currentBcSlide];
+            }
+        }
+
+        function changeBcSlide(step) {
+            showBcSlide(currentBcSlide + step);
+        }
+
+        function goToBcSlide(index) {
+            showBcSlide(index);
+        }
+    </script>
+<script type="module" src="../js/auth-guard.js"></script>
+</body>
+</html>
