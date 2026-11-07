@@ -6,7 +6,7 @@ style.innerHTML = `body.auth-loading { visibility: hidden; opacity: 0; } body.au
 document.head.appendChild(style);
 document.body.classList.add('auth-loading');
 
-import { auth, db, doc, getDoc, collection, query, where, getDocs, onAuthStateChanged } from './firebase-config.js';
+import { auth, db, doc, getDoc, collection, query, where, getDocs, onAuthStateChanged, storage, ref, getDownloadURL } from './firebase-config.js';
 
 onAuthStateChanged(auth, async (user) => {
     const loginBtn = document.getElementById('header-auth-btn');
@@ -54,6 +54,8 @@ onAuthStateChanged(auth, async (user) => {
             
             // Si c'est le portfolio, account.html, ou s'il a l'accès à la formation, on affiche
             revealPage();
+            
+            loadSecureVideo();
 
         } catch (error) {
             console.error("Erreur sécurité:", error);
@@ -140,4 +142,32 @@ const nomChapitre = window.location.pathname.split('/').pop();
 // On accepte les formats : "1.4.html", "1.test.html", et "1.cheatsheet.html"
 if (/^\d+\.(\d+|test|cheatsheet)\.html$/.test(nomChapitre)) {
     localStorage.setItem('SP_lastChapter', nomChapitre);
+}
+
+// --- CHARGEMENT SÉCURISÉ DE LA VIDÉO DEPUIS FIREBASE STORAGE ---
+async function loadSecureVideo() {
+    const videoSource = document.getElementById('video-source');
+    const videoElement = document.getElementById('course-video');
+    
+    if (videoSource && videoElement) {
+        // Le nom de la vidéo est stocké dans l'attribut data du HTML par notre script Python (ex: "6.16.mp4")
+        const videoName = videoSource.getAttribute('data-video-name'); 
+        
+        try {
+            // Pointe vers le fichier dans le dossier 'videos' de Firebase Storage
+            const videoRef = ref(storage, `videos/${videoName}`);
+            
+            // Récupère l'URL de téléchargement sécurisée
+            const url = await getDownloadURL(videoRef);
+            
+            // Injecte l'URL dans la balise HTML et charge la vidéo
+            videoSource.src = url;
+            videoElement.load(); 
+            console.log("🎬 Vidéo chargée avec succès depuis Firebase Storage !");
+        } catch (error) {
+            console.error("❌ Erreur de chargement de la vidéo :", error);
+            // Si la vidéo ne charge pas (pas connectée, ou supprimée), on peut cacher le lecteur
+            // videoElement.parentElement.style.display = 'none'; 
+        }
+    }
 }

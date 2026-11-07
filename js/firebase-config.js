@@ -32,6 +32,8 @@ import {
     onSnapshot    // <--- INDISPENSABLE pour écouter la réponse de Stripe
 } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
 
+import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-storage.js";
+
 // 4. Ta configuration
 const firebaseConfig = {
   apiKey: "AIzaSyD-RqUD8hxBunFnv7HMKC8Uo2BXoYVQRQY",
@@ -47,6 +49,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+const storage = getStorage(app);
 
 // 6. Exports
 // On exporte TOUT pour que tes autres fichiers (auth-guard.js, checkout.js, etc.) puissent les utiliser
@@ -65,6 +68,9 @@ export {
     getDocs, 
     addDoc,       // <--- Exporté pour checkout.js
     onSnapshot,   // <--- Exporté pour checkout.js
+    storage,
+    ref,
+    getDownloadURL,
     
     // Outils Auth
     onAuthStateChanged, 
