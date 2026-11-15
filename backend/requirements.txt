@@ -1,7 +1,8 @@
-fastapi
-uvicorn
-firebase-admin
-google-generativeai
-requests
-pydantic
-python-dotenv
+fastapi==0.109.0
+uvicorn==0.27.0
+firebase-admin==6.4.0
+google-generativeai==0.3.2
+requests==2.31.0
+pydantic==2.5.3
+python-dotenv==1.0.0
+protobuf==4.25.2
