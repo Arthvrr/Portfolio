@@ -14,7 +14,7 @@ import {
     updateProfile, 
     updatePassword,
     sendPasswordResetEmail,
-    sendEmailVerification
+    sendEmailVerification,
 } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
 
 // 3. Imports pour la BASE DE DONNÉES (Firestore)
@@ -32,7 +32,7 @@ import {
     onSnapshot    // <--- INDISPENSABLE pour écouter la réponse de Stripe
 } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
 
-import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-storage.js";
+import { getStorage, ref, getDownloadURL,uploadBytes } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-storage.js";
 
 // 4. Ta configuration
 const firebaseConfig = {
@@ -71,6 +71,7 @@ export {
     storage,
     ref,
     getDownloadURL,
+    uploadBytes,
     
     // Outils Auth
     onAuthStateChanged, 

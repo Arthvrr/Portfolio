@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Newsletter | StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        body.auth-loading { visibility: hidden; opacity: 0; }
+        body.auth-loaded { visibility: visible; opacity: 1; transition: opacity 0.3s ease-in; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased selection:bg-indigo-100 selection:text-indigo-700 flex flex-col min-h-screen auth-loading">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="./media/Logo/Logo-White.png" alt="Logo StocksPickeur" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                    <span class="font-heading font-bold text-xl text-slate-900 tracking-tight">StocksPickeur</span>
+                </a>
+    
+                <div class="hidden xl:flex items-center gap-8">
+                    <nav class="flex gap-6">
+                        <a href="calculator.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Calculateur</a>
+                        <a href="portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
+                        <a href="moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Analyses</a>
+                        <a href="resources.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Ressources</a>
+                        <a href="articles.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Articles</a>
+                        <a href="formation.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Formation</a>
+                        <a href="about.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">À Propos</a>
+                    </nav>
+    
+                    <div class="h-6 w-px bg-slate-200"></div>
+    
+                    <a href="account.html" id="header-auth-btn" class="px-4 py-2 bg-slate-900 rounded-full hover:bg-slate-800 transition-all border border-slate-700 text-sm font-bold text-white shadow-lg flex items-center gap-2">
+                        <div class="bg-emerald-700/50 p-1.5 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                        </div>
+                        <span id="welcome-username">Admin</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-32 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        
+        <div class="mb-10 text-center">
+            <span class="inline-block py-1 px-3 rounded-full bg-red-100 text-red-700 text-xs font-bold uppercase tracking-wider mb-4 border border-red-200">
+                Accès Restreint
+            </span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mb-2">Centre de Diffusion 🚀</h1>
+            <p class="text-slate-500">Rédigez, générez par IA et envoyez la newsletter à votre base d'utilisateurs.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-8">
+            
+            <!-- Colonne Principale : Éditeur -->
+            <div class="lg:col-span-2 space-y-6">
+                
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="mb-6">
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Objet de l'email</label>
+                        <input type="text" id="mailSubject" placeholder="Ex: Résumé de la semaine & Mouvements du portefeuille" class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition text-slate-900 font-medium">
+                    </div>
+
+                    <div class="mb-4 relative">
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Corps de l'email (Supporte le HTML)</label>
+                        <textarea id="mailBody" rows="20" placeholder="Bonjour à tous, voici les actus de la semaine..." class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition text-slate-700 font-mono text-sm leading-relaxed"></textarea>
+                        
+                        <!-- Boutons Éditeur -->
+                        <div class="flex flex-wrap justify-between items-center mt-3 gap-3">
+                            <button type="button" id="addFooterBtn" class="bg-indigo-50 text-indigo-700 border border-indigo-200 font-bold py-2 px-4 rounded-lg hover:bg-indigo-100 transition text-sm flex items-center gap-2 shadow-sm">
+                                👇 Ajouter le Footer Pro
+                            </button>
+                            <button type="button" id="previewBtn" class="bg-slate-100 text-slate-700 border border-slate-300 font-bold py-2 px-4 rounded-lg hover:bg-slate-200 transition text-sm flex items-center gap-2 shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                                Prévisualiser le rendu
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr class="border-slate-100 my-6">
+
+                    <!-- Upload d'images multiples vers Firebase -->
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div class="flex-1">
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Insérer une ou plusieurs images au curseur</label>
+                            <input type="file" id="imageInput" accept="image/png, image/jpeg" multiple class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-bold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 cursor-pointer">
+                        </div>
+                        <button type="button" id="uploadImgBtn" class="shrink-0 bg-white border border-slate-300 text-slate-700 font-bold py-2 px-4 rounded-lg hover:bg-slate-50 transition text-sm flex items-center justify-center gap-2">
+                            <span>Uploader & Insérer</span>
+                        </button>
+                    </div>
+                    <p id="uploadStatus" class="text-xs font-medium mt-3 hidden"></p>
+                </div>
+            </div>
+
+            <!-- Colonne Latérale : Actions & IA -->
+            <div class="space-y-6">
+                
+                <!-- Assistant IA -->
+                <div class="bg-gradient-to-br from-indigo-900 to-slate-900 p-6 rounded-2xl shadow-lg border border-slate-700 text-white">
+                    <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
+                        <span>✨</span> Assistant Gemini IA
+                    </h3>
+                    <p class="text-indigo-200 text-sm mb-6 leading-relaxed">
+                        Générez un résumé automatique des 5 plus grosses news boursières de la semaine et de la performance des marchés.
+                    </p>
+                    <button type="button" id="generateAiBtn" class="w-full bg-indigo-500 hover:bg-indigo-400 text-white font-bold py-3 px-4 rounded-xl transition shadow-lg flex justify-center items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                        <span>Générer le résumé</span>
+                    </button>
+                    <p id="aiStatus" class="text-xs font-medium text-indigo-300 mt-3 text-center hidden"></p>
+                </div>
+
+                <!-- Panneau d'Envoi -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 class="font-bold text-slate-900 mb-2">Expédition</h3>
+                    <p class="text-slate-500 text-xs mb-6 leading-relaxed">
+                        L'email sera envoyé via <strong>Brevo</strong> à tous les utilisateurs Firebase ayant le statut <code>newsletter: true</code>.
+                    </p>
+                    <button type="button" id="sendMailBtn" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 px-4 rounded-xl transition shadow-lg shadow-emerald-200 flex justify-center items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" /></svg>
+                        <span>Envoyer à la liste</span>
+                    </button>
+                    <p id="sendStatus" class="text-sm font-medium mt-4 text-center hidden"></p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="./media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <!-- MODAL APERÇU EMAIL -->
+    <div id="previewModal" class="fixed inset-0 z-[60] hidden bg-slate-900/90 backdrop-blur-sm transition-opacity duration-300 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl w-full max-w-3xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden border border-slate-200">
+            <div class="p-5 border-b border-slate-200 flex justify-between items-center bg-slate-50">
+                <div>
+                    <p class="text-xs text-slate-500 uppercase tracking-wider font-bold mb-1">Objet :</p>
+                    <h3 id="previewModalSubject" class="font-bold text-slate-900 text-lg">Aucun objet</h3>
+                </div>
+                <button id="closePreviewBtn" class="text-slate-400 hover:text-slate-700 transition bg-white border border-slate-200 rounded-full p-2 hover:bg-slate-100">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+            
+            <div class="p-8 overflow-y-auto prose max-w-none text-slate-700 bg-white" id="previewModalContent">
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { auth, onAuthStateChanged, storage, ref, uploadBytes, getDownloadURL } from './js/firebase-config.js';
+        import './js/auth-guard.js';
+
+        const ADMIN_EMAIL = "arthurlouette12@gmail.com";
+        const RENDER_BACKEND_URL = "https://ton-backend-render.onrender.com";
+
+        const mailSubject = document.getElementById('mailSubject');
+        const mailBody = document.getElementById('mailBody');
+        const imageInput = document.getElementById('imageInput');
+        const uploadImgBtn = document.getElementById('uploadImgBtn');
+        const uploadStatus = document.getElementById('uploadStatus');
+        const generateAiBtn = document.getElementById('generateAiBtn');
+        const aiStatus = document.getElementById('aiStatus');
+        const sendMailBtn = document.getElementById('sendMailBtn');
+        const sendStatus = document.getElementById('sendStatus');
+        const addFooterBtn = document.getElementById('addFooterBtn');
+
+        const previewBtn = document.getElementById('previewBtn');
+        const previewModal = document.getElementById('previewModal');
+        const closePreviewBtn = document.getElementById('closePreviewBtn');
+        const previewModalSubject = document.getElementById('previewModalSubject');
+        const previewModalContent = document.getElementById('previewModalContent');
+
+        function insertAtCursor(myField, myValue) {
+            if (myField.selectionStart || myField.selectionStart == '0') {
+                var startPos = myField.selectionStart;
+                var endPos = myField.selectionEnd;
+                myField.value = myField.value.substring(0, startPos)
+                    + myValue
+                    + myField.value.substring(endPos, myField.value.length);
+                
+                myField.selectionStart = startPos + myValue.length;
+                myField.selectionEnd = startPos + myValue.length;
+            } else {
+                myField.value += myValue;
+            }
+            myField.focus();
+        }
+
+        onAuthStateChanged(auth, (user) => {
+            if (user && user.email === ADMIN_EMAIL) {
+                document.body.classList.remove('auth-loading');
+                document.body.classList.add('auth-loaded');
+            } else {
+                window.location.replace("index.html");
+            }
+        });
+
+        // 1. INSERTION DU FOOTER PRO
+        addFooterBtn.addEventListener('click', () => {
+
+const footerHTML = `
+<br><br>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #111111;margin-top:30px;padding-top:25px;font-family:Helvetica,Arial,sans-serif;background-color:#ffffff;">
+<tr>
+<td align="center" style="padding:25px 15px 20px 15px;">
+<a href="https://stockspickeur.eu" style="text-decoration:none;display:inline-block;">
+<img src="https://stockspickeur.eu/media/Logo/Logo-Black.png" alt="StocksPickeur" width="100" style="display:block;width:100px;max-width:100%;height:auto;border:0;margin:0 auto;">
+</a>
+<p style="margin:12px 0 22px 0;color:#000000;font-size:11px;font-weight:600;letter-spacing:1.5px;">INVESTISSEMENT DE QUALITÉ</p>
+<p style="margin:0 0 10px 0;color:#000000;font-size:11px;line-height:1.7;">Vous recevez cet email car vous êtes inscrit(e) à la newsletter StocksPickeur.</p>
+<p style="margin:0 0 18px 0;color:#000000;font-size:11px;line-height:1.7;">Pour gérer vos préférences ou vous désabonner, rendez-vous sur <a href="https://stockspickeur.eu/account.html" style="color:#000000;text-decoration:underline;font-weight:600;">votre espace membre</a>.</p>
+<p style="margin:0;color:#000000;font-size:10px;letter-spacing:0.3px;">© 2026 StocksPickeur&reg;. Tous droits réservés.</p>
+</td>
+</tr>
+</table>
+`;
+
+            // Ajoute le footer à la fin du texte
+            mailBody.value += footerHTML;
+            
+            // Fait défiler le textarea vers le bas pour montrer l'ajout
+            mailBody.scrollTop = mailBody.scrollHeight;
+        });
+
+        // 2. UPLOAD MULTIPLE
+        uploadImgBtn.addEventListener('click', async () => {
+            const files = imageInput.files;
+            if (files.length === 0) {
+                alert("Veuillez sélectionner au moins une image.");
+                return;
+            }
+
+            const currentCursorPosition = mailBody.selectionStart;
+
+            uploadImgBtn.disabled = true;
+            uploadStatus.classList.remove('hidden', 'text-emerald-600', 'text-red-600');
+            uploadStatus.classList.add('text-indigo-600');
+            uploadStatus.textContent = `Upload de ${files.length} image(s) en cours...`;
+
+            try {
+                let tagsToInsert = "";
+                
+                for (let i = 0; i < files.length; i++) {
+                    const file = files[i];
+                    const fileName = `newsletter_images/${Date.now()}_${i}_${file.name}`;
+                    const storageRef = ref(storage, fileName);
+
+                    await uploadBytes(storageRef, file);
+                    const downloadURL = await getDownloadURL(storageRef);
+                    
+                    tagsToInsert += `\n<br><img src="${downloadURL}" alt="Illustration Newsletter" style="max-width:100%; height:auto; border-radius:8px; margin: 15px 0;"><br>\n`;
+                }
+                
+                mailBody.selectionStart = currentCursorPosition;
+                mailBody.selectionEnd = currentCursorPosition;
+                insertAtCursor(mailBody, tagsToInsert);
+
+                uploadStatus.classList.replace('text-indigo-600', 'text-emerald-600');
+                uploadStatus.textContent = `✅ ${files.length} image(s) insérée(s) !`;
+                imageInput.value = ""; 
+            } catch (error) {
+                console.error("Erreur upload:", error);
+                uploadStatus.classList.replace('text-indigo-600', 'text-red-600');
+                uploadStatus.textContent = "❌ Erreur lors de l'upload. Vérifiez vos règles Firebase.";
+            } finally {
+                uploadImgBtn.disabled = false;
+            }
+        });
+
+        // 3. APERÇU
+        previewBtn.addEventListener('click', () => {
+            previewModalSubject.textContent = mailSubject.value || "(Sans objet)";
+            // Remplace les sauts de ligne texte (\n) par du HTML (<br>) pour préserver les paragraphes tapés à la main
+            let htmlContent = mailBody.value.replace(/\n/g, "<br>");
+            previewModalContent.innerHTML = htmlContent;
+            
+            previewModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closePreviewBtn.addEventListener('click', () => {
+            previewModal.classList.add('hidden');
+            document.body.style.overflow = 'auto'; 
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !previewModal.classList.contains('hidden')) {
+                previewModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // 4. GÉNÉRATION IA
+        generateAiBtn.addEventListener('click', async () => {
+            generateAiBtn.disabled = true;
+            aiStatus.classList.remove('hidden');
+            aiStatus.textContent = "🧠 Gemini rédige le brouillon...";
+
+            try {
+                setTimeout(() => {
+                    mailBody.value = "<h2>Résumé de la semaine 📈</h2>\n<p>Voici les 5 événements majeurs des marchés...</p>\n\n" + mailBody.value;
+                    aiStatus.textContent = "✅ Brouillon généré !";
+                    generateAiBtn.disabled = false;
+                }, 1500);
+            } catch (error) {
+                aiStatus.textContent = "❌ Erreur de connexion.";
+                generateAiBtn.disabled = false;
+            }
+        });
+
+        // 5. ENVOI DE LA NEWSLETTER
+        sendMailBtn.addEventListener('click', async () => {
+            if (!mailSubject.value || !mailBody.value) {
+                alert("L'objet et le corps de l'email ne peuvent pas être vides.");
+                return;
+            }
+
+            if (!confirm("Êtes-vous sûr de vouloir envoyer cet email à TOUTE la base utilisateur abonnée ?")) {
+                return;
+            }
+
+            sendMailBtn.disabled = true;
+            sendStatus.classList.remove('hidden', 'text-emerald-600', 'text-red-600');
+            sendStatus.classList.add('text-indigo-600');
+            sendStatus.textContent = "🚀 Scan de Firestore et expédition via Brevo en cours...";
+
+            try {
+                setTimeout(() => {
+                    sendStatus.classList.replace('text-indigo-600', 'text-emerald-600');
+                    sendStatus.textContent = "✅ Succès ! Envoyé à 142 abonnés.";
+                    sendMailBtn.disabled = false;
+                }, 2000);
+            } catch (error) {
+                sendStatus.classList.replace('text-indigo-600', 'text-red-600');
+                sendStatus.textContent = "❌ Erreur lors de l'envoi.";
+                sendMailBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

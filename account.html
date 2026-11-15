@@ -14,6 +14,28 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
         h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Toggle Switch CSS */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #68D391;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #10B981; /* Tailwind emerald-500 */
+        }
+        .toggle-checkbox {
+            right: 4px;
+            z-index: 1;
+            border-color: #e2e8f0;
+            transition: all 0.3s;
+        }
+        .toggle-label {
+            width: 3rem;
+            height: 1.5rem;
+            background-color: #cbd5e1;
+            border-radius: 9999px;
+            transition: all 0.3s;
+        }
     </style>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
@@ -26,13 +48,10 @@
 
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json">
-
-    <!-- Spécifique à iOS (Apple) -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="StocksPickeur">
     <link rel="apple-touch-icon" href="./media/Logo/apple-touch-icon.png">
-
 </head>
 <body class="bg-slate-50 text-slate-600 antialiased selection:bg-indigo-100 selection:text-indigo-700 flex flex-col min-h-screen">
 
@@ -77,6 +96,7 @@
     </div>
 
     <div id="mobile-menu" class="hidden xl:hidden bg-white border-b border-slate-200 shadow-xl absolute w-full">
+        <!-- Reste du menu mobile (identique) -->
         <nav class="flex flex-col px-4 pt-2 pb-6 space-y-3">
             <a href="calculator.html" class="text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50 p-2 rounded-lg transition">Calculateur</a>
             <a href="portfolio.html" class="text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50 p-2 rounded-lg transition">Portefeuille</a>
@@ -106,6 +126,7 @@
         </div>
 
         <div class="grid gap-8">
+            <!-- 1. Informations Publiques -->
             <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
                 <h2 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
                     <span class="bg-indigo-100 text-indigo-600 w-8 h-8 rounded-lg flex items-center justify-center text-sm">1</span>
@@ -144,9 +165,32 @@
                 </form>
             </div>
 
+            <!-- 2. Préférences de Communication -->
             <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
                 <h2 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-                    <span class="bg-emerald-100 text-emerald-600 w-8 h-8 rounded-lg flex items-center justify-center text-sm">2</span>
+                    <span class="bg-blue-100 text-blue-600 w-8 h-8 rounded-lg flex items-center justify-center text-sm">2</span>
+                    Préférences de communication
+                </h2>
+                
+                <div class="flex items-center justify-between p-4 border border-slate-100 bg-slate-50/50 rounded-xl">
+                    <div>
+                        <h3 class="text-sm font-bold text-slate-900">Newsletter StocksPickeur</h3>
+                        <p class="text-xs text-slate-500 mt-1 max-w-sm">Recevez un résumé hebdomadaire exclusif des actualités boursières (généré par IA) et mes analyses de marché directement dans votre boîte mail.</p>
+                    </div>
+                    
+                    <!-- Le Toggle Switch -->
+                    <div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+                        <input type="checkbox" name="toggle" id="newsletterToggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+                        <label for="newsletterToggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                    </div>
+                </div>
+                <p id="newsletterMsg" class="text-right text-xs font-medium text-emerald-600 mt-2 hidden transition-opacity opacity-0">Préférence mise à jour.</p>
+            </div>
+
+            <!-- 3. Sécurité -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                <h2 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                    <span class="bg-emerald-100 text-emerald-600 w-8 h-8 rounded-lg flex items-center justify-center text-sm">3</span>
                     Sécurité
                 </h2>
                 
@@ -171,6 +215,22 @@
                 </form>
             </div>
 
+            <!-- 4. Zone Administrateur (Invisible pour les utilisateurs normaux) -->
+            <div id="adminPanel" class="bg-indigo-50 p-8 rounded-2xl shadow-sm border border-indigo-200 hidden">
+                <h2 class="text-xl font-bold text-indigo-900 mb-6 flex items-center gap-2">
+                    <span class="bg-indigo-600 text-white w-8 h-8 rounded-lg flex items-center justify-center text-sm">👑</span>
+                    Espace Administrateur
+                </h2>
+                
+                <p class="text-sm text-indigo-700 mb-6">Gérez les communications globales et la diffusion de la newsletter.</p>
+
+                <a href="send_mail.html" class="inline-flex justify-center items-center gap-2 w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-xl hover:bg-indigo-700 transition shadow-lg shadow-indigo-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" /></svg>
+                    Accéder au Centre de Diffusion
+                </a>
+            </div>
+
+            <!-- Déconnexion -->
             <div class="pt-8 flex justify-center">
                 <button id="logoutBtn" class="group flex items-center gap-2 text-red-500 hover:text-red-700 font-bold transition px-6 py-3 rounded-xl border border-red-100 hover:bg-red-50 hover:border-red-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -180,7 +240,6 @@
                 </button>
             </div>
         </div>
-
     </main>
 
     <footer class="bg-slate-950 py-12 border-t border-slate-900 mt-auto">
@@ -200,10 +259,7 @@
     </footer>
 
     <script type="module">
-        // Import des fonctions nécessaires
-        import { auth, updateProfile, updatePassword, signOut, onAuthStateChanged } from './js/firebase-config.js';
-        
-        // On importe aussi le auth-guard pour le header
+        import { auth, db, updateProfile, updatePassword, signOut, onAuthStateChanged, doc, getDoc, setDoc } from './js/firebase-config.js';
         import './js/auth-guard.js'; 
 
         const profileForm = document.getElementById('profileForm');
@@ -212,17 +268,72 @@
         const displayNameInput = document.getElementById('displayNameInput');
         const profileMsg = document.getElementById('profileMsg');
         const passwordMsg = document.getElementById('passwordMsg');
+        
+        // Eléments Newsletter
+        const newsletterToggle = document.getElementById('newsletterToggle');
+        const newsletterMsg = document.getElementById('newsletterMsg');
+
+        let currentUser = null;
 
         // Remplir les champs au chargement
-        onAuthStateChanged(auth, (user) => {
+        onAuthStateChanged(auth, async (user) => {
             if (user) {
+                currentUser = user;
                 emailDisplay.value = user.email;
                 if (user.displayName) {
                     displayNameInput.value = user.displayName;
+                    // Affiche le panneau Admin uniquement pour Arthur
+                    if (user.email === "arthurlouette12@gmail.com") {
+                        document.getElementById('adminPanel').classList.remove('hidden');
+                    }
                 }
+                
+                // Charger le statut de la newsletter depuis Firestore
+                try {
+                    const userDocRef = doc(db, "users", user.uid);
+                    const docSnap = await getDoc(userDocRef);
+                    if (docSnap.exists()) {
+                        const data = docSnap.data();
+                        // Si le champ n'existe pas encore, on le met à 'true' par défaut pour les nouveaux inscrits
+                        newsletterToggle.checked = data.newsletter !== false; 
+                    } else {
+                        // Si le document n'existe pas, on le crée avec newsletter activée
+                        await setDoc(userDocRef, { newsletter: true, email: user.email }, { merge: true });
+                        newsletterToggle.checked = true;
+                    }
+                } catch (error) {
+                    console.error("Erreur lecture newsletter:", error);
+                }
+                
             } else {
-                // Si pas connecté, redirigé par auth-guard, mais double sécurité ici
                 window.location.href = "login.html";
+            }
+        });
+
+        // Gestion du changement de la Newsletter
+        newsletterToggle.addEventListener('change', async (e) => {
+            if(!currentUser) return;
+            const isSubscribed = e.target.checked;
+            
+            try {
+                const userDocRef = doc(db, "users", currentUser.uid);
+                await setDoc(userDocRef, { newsletter: isSubscribed }, { merge: true });
+                
+                // Feedback visuel
+                newsletterMsg.textContent = isSubscribed ? "Vous êtes abonné à la newsletter ! 📈" : "Désabonnement pris en compte. 🛑";
+                newsletterMsg.classList.remove('hidden', 'text-emerald-600', 'text-slate-500');
+                newsletterMsg.classList.add(isSubscribed ? 'text-emerald-600' : 'text-slate-500');
+                newsletterMsg.classList.replace('opacity-0', 'opacity-100');
+                
+                setTimeout(() => {
+                    newsletterMsg.classList.replace('opacity-100', 'opacity-0');
+                    setTimeout(() => newsletterMsg.classList.add('hidden'), 300); // Cacher après transition
+                }, 3000);
+                
+            } catch (error) {
+                console.error("Erreur maj newsletter:", error);
+                alert("Une erreur est survenue.");
+                e.target.checked = !isSubscribed; // Revert si erreur
             }
         });
 
@@ -234,13 +345,9 @@
 
             try {
                 await updateProfile(auth.currentUser, { displayName: newName });
-                
-                // Message de succès
                 profileMsg.textContent = "✅ Profil mis à jour avec succès !";
                 profileMsg.className = "text-center text-sm font-medium p-3 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-100";
                 profileMsg.classList.remove('hidden');
-                
-                // Petit délai pour voir le message avant de rafraîchir le header
                 setTimeout(() => window.location.reload(), 1000); 
             } catch (error) {
                 profileMsg.textContent = "❌ Erreur : " + error.message;
@@ -257,12 +364,10 @@
 
             try {
                 await updatePassword(auth.currentUser, newPass);
-                
                 passwordMsg.textContent = "✅ Mot de passe modifié avec succès !";
                 passwordMsg.className = "text-center text-sm font-medium p-3 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-100";
                 passwordMsg.classList.remove('hidden');
-                
-                document.getElementById('newPassword').value = ""; // Vider le champ
+                document.getElementById('newPassword').value = "";
             } catch (error) {
                 if (error.code === 'auth/requires-recent-login') {
                     passwordMsg.textContent = "⚠️ Par sécurité, veuillez vous déconnecter et vous reconnecter avant de changer votre mot de passe.";
@@ -275,21 +380,12 @@
             }
         });
 
-        // 3. Déconnexion via le bouton rouge
+        // 3. Déconnexion
         document.getElementById('logoutBtn').addEventListener('click', () => {
             if(confirm("Êtes-vous sûr de vouloir vous déconnecter ?")) {
                 signOut(auth).then(() => window.location.href = "index.html");
             }
         });
     </script>
-
-    <script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js');
-        });
-    }
-    </script>
-
 </body>
 </html>
