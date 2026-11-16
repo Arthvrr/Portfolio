@@ -41,6 +41,10 @@ class MailRequest(BaseModel):
     subject: str
     htmlContent: str
 
+@app.get("/")
+async def root():
+    return {"status": "API StocksPickeur en ligne 🟢"}
+
 @app.post("/generate-newsletter")
 async def generate_newsletter():
     try:
