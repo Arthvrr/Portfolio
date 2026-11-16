@@ -180,7 +180,8 @@
         import './js/auth-guard.js';
 
         const ADMIN_EMAIL = "arthurlouette12@gmail.com";
-        const RENDER_BACKEND_URL = "https://stockspickeur-api.onrender.com";
+        // L'URL de ton API Render
+        const RENDER_BACKEND_URL = "https://stockspickeur-api.onrender.com"; 
 
         const mailSubject = document.getElementById('mailSubject');
         const mailBody = document.getElementById('mailBody');
@@ -226,8 +227,7 @@
 
         // 1. INSERTION DU FOOTER PRO
         addFooterBtn.addEventListener('click', () => {
-
-const footerHTML = `
+            const footerHTML = `
 <br><br>
 <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #111111;margin-top:30px;padding-top:25px;font-family:Helvetica,Arial,sans-serif;background-color:#ffffff;">
 <tr>
@@ -243,11 +243,7 @@ const footerHTML = `
 </tr>
 </table>
 `;
-
-            // Ajoute le footer à la fin du texte
             mailBody.value += footerHTML;
-            
-            // Fait défiler le textarea vers le bas pour montrer l'ajout
             mailBody.scrollTop = mailBody.scrollHeight;
         });
 
@@ -299,7 +295,6 @@ const footerHTML = `
         // 3. APERÇU
         previewBtn.addEventListener('click', () => {
             previewModalSubject.textContent = mailSubject.value || "(Sans objet)";
-            // Remplace les sauts de ligne texte (\n) par du HTML (<br>) pour préserver les paragraphes tapés à la main
             let htmlContent = mailBody.value.replace(/\n/g, "<br>");
             previewModalContent.innerHTML = htmlContent;
             
@@ -319,25 +314,41 @@ const footerHTML = `
             }
         });
 
-        // 4. GÉNÉRATION IA
+        // 4. GÉNÉRATION IA (Connexion à l'API Render)
         generateAiBtn.addEventListener('click', async () => {
             generateAiBtn.disabled = true;
-            aiStatus.classList.remove('hidden');
-            aiStatus.textContent = "🧠 Gemini rédige le brouillon...";
+            aiStatus.classList.remove('hidden', 'text-red-500');
+            aiStatus.classList.add('text-indigo-300');
+            // Le premier appel peut prendre 30s si Render est en veille
+            aiStatus.textContent = "🧠 Gemini rédige le brouillon... (Jusqu'à 30s si le serveur se réveille)";
 
             try {
-                setTimeout(() => {
-                    mailBody.value = "<h2>Résumé de la semaine 📈</h2>\n<p>Voici les 5 événements majeurs des marchés...</p>\n\n" + mailBody.value;
-                    aiStatus.textContent = "✅ Brouillon généré !";
-                    generateAiBtn.disabled = false;
-                }, 1500);
+                const response = await fetch(`${RENDER_BACKEND_URL}/generate-newsletter`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Erreur HTTP: ${response.status}`);
+                }
+
+                const data = await response.json();
+                
+                // On ajoute le brouillon généré par Gemini au début du texte
+                mailBody.value = data.ai_draft + "\n\n" + mailBody.value;
+                
+                aiStatus.classList.replace('text-indigo-300', 'text-emerald-500');
+                aiStatus.textContent = "✅ Brouillon généré !";
             } catch (error) {
-                aiStatus.textContent = "❌ Erreur de connexion.";
+                console.error("Erreur IA:", error);
+                aiStatus.classList.replace('text-indigo-300', 'text-red-500');
+                aiStatus.textContent = "❌ Erreur de connexion avec l'API.";
+            } finally {
                 generateAiBtn.disabled = false;
             }
         });
 
-        // 5. ENVOI DE LA NEWSLETTER
+        // 5. ENVOI DE LA NEWSLETTER (Connexion à l'API Render)
         sendMailBtn.addEventListener('click', async () => {
             if (!mailSubject.value || !mailBody.value) {
                 alert("L'objet et le corps de l'email ne peuvent pas être vides.");
@@ -354,14 +365,29 @@ const footerHTML = `
             sendStatus.textContent = "🚀 Scan de Firestore et expédition via Brevo en cours...";
 
             try {
-                setTimeout(() => {
+                const response = await fetch(`${RENDER_BACKEND_URL}/send-newsletter`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        subject: mailSubject.value,
+                        // Remplacement des sauts de ligne pour un vrai rendu HTML dans l'email
+                        htmlContent: mailBody.value.replace(/\n/g, "<br>")
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
                     sendStatus.classList.replace('text-indigo-600', 'text-emerald-600');
-                    sendStatus.textContent = "✅ Succès ! Envoyé à 142 abonnés.";
-                    sendMailBtn.disabled = false;
-                }, 2000);
+                    sendStatus.textContent = `✅ Succès ! Envoyé à ${data.sent_count} abonné(s).`;
+                } else {
+                    throw new Error(data.detail || "Erreur inconnue API");
+                }
             } catch (error) {
+                console.error("Erreur Envoi:", error);
                 sendStatus.classList.replace('text-indigo-600', 'text-red-600');
-                sendStatus.textContent = "❌ Erreur lors de l'envoi.";
+                sendStatus.textContent = "❌ Erreur lors de l'envoi : " + error.message;
+            } finally {
                 sendMailBtn.disabled = false;
             }
         });
