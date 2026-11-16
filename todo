@@ -3,25 +3,13 @@
 - finaliser barre de progression par user : ajouter bouton "Marquer ce chapitre comme terminé" à chaque fin de chapitre, et ajuste barre de progression de l'utilisateur
 - ajouter checklist
 
-
-FINIR module 6 : 
-- lump sum vs dca
-- 1% vs 2% vs 3% de frais sur le long terme
-- 8% sur PEA vs 12% sur CTO
-- laisser ses dividendes investis vs les sortir du compte
-- investir à 18 ans vs investir dès le plus jeune âge
-
 - faire newsletter mensuelle avec calcul automatique du portefeuille et de sa performance tout les 1er du mois
-- ajouter bouton s'abonner/se désabonner de la newsletter
-
-- refaire de plus long tests pour chaque module
+- pouvoir modifier les données du portefeuille si connecté en étant admin
+- dark mode
 
 A CORRIGER/AJOUTER FORMATION :
 
 - 4.8 Croissances
 - 4.14 autres ratios de rentabilité (ajout)
 - 5.8 améliorer pub Intrinsic
-
-AUTRES : 
-- email automatique 5 news de la semaine en bourse + perf portefeuille vs s&p500
-- connecter api gemini à mon compte
+- de plus longs tests pour chaque module

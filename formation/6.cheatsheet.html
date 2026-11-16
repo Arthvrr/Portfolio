@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Sheet • Module 6 | StocksPickeur</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-print-color-adjust: exact; }
+        .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles spécifiques pour l'impression A4 */
+        @media print {
+            @page { margin: 0.5cm; size: A4 portrait; }
+            body { background-color: white; }
+            .no-print { display: none !important; }
+            .print-break-inside { break-inside: avoid; }
+            .shadow-sm, .shadow-md, .shadow-lg, .shadow-2xl { box-shadow: none !important; border: 1px solid #e2e8f0; }
+            .bg-slate-50 { background-color: #f8fafc !important; }
+            .bg-orange-600 { background-color: #ea580c !important; color: white !important; }
+            .bg-emerald-600 { background-color: #059669 !important; color: white !important; }
+            .bg-slate-900 { background-color: #0f172a !important; color: white !important; }
+            .text-white { color: white !important; }
+            .bg-orange-50 { background-color: #fff7ed !important; }
+            .text-orange-800 { color: #9a3412 !important; }
+            .border-orange-200 { border-color: #fed7aa !important; }
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-600 p-4 md:p-8 min-h-screen">
+
+    <div class="max-w-[210mm] mx-auto mb-6 flex justify-between items-center no-print">
+        <a href="6.0.html" class="flex items-center text-slate-500 hover:text-orange-600 transition font-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Retour au cours
+        </a>
+        <button onclick="window.print()" class="bg-slate-900 text-white px-4 py-2 rounded-lg font-bold flex items-center gap-2 hover:bg-slate-800 transition shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2-2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+            </svg>
+            Imprimer la Fiche (PDF)
+        </button>
+    </div>
+
+    <div class="max-w-[210mm] mx-auto bg-white shadow-2xl rounded-xl p-8 md:p-10 border border-slate-200 relative overflow-hidden">
+
+        <!-- HEADER -->
+        <div class="border-b-2 border-slate-900 pb-4 mb-6 print-break-inside">
+            <div class="flex justify-between items-end">
+                <div>
+                    <span class="text-orange-600 font-bold tracking-wider uppercase text-[10px]">Module 6 • Synthèse</span>
+                    <h1 class="text-2xl font-heading font-extrabold text-slate-900">Le Manifeste du Gestionnaire 🧑‍💻</h1>
+                </div>
+                <div class="text-right">
+                    <span class="text-[10px] text-slate-400">StocksPickeur Quality Investing</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-6 mb-6">
+            
+            <!-- COLONNE GAUCHE -->
+            <div class="space-y-6">
+                
+                <!-- Bloc 1 : Architecture du Portefeuille -->
+                <div class="border border-slate-200 rounded-xl overflow-hidden print-break-inside">
+                    <div class="bg-slate-900 text-white p-2.5 flex items-center gap-2">
+                        <span>🏛️</span>
+                        <h3 class="font-heading font-bold text-[11px] uppercase tracking-wide">1. Architecture du Portefeuille</h3>
+                    </div>
+                    <div class="p-4 bg-slate-50 space-y-3">
+                        <div class="bg-white p-3 rounded border border-slate-200 shadow-sm">
+                            <h4 class="font-bold text-slate-800 text-[11px] mb-1 text-orange-600">L'Enveloppe Fiscale</h4>
+                            <p class="text-[10px] text-slate-600 leading-tight">
+                                <strong>🇫🇷 France :</strong> CTO (Flat Tax 30%) pour capturer l'excellence US/Monde. Le PEA (17.2%) est top, mais limité à l'Europe.<br>
+                                <strong>🇧🇪 Belgique :</strong> CTO. Attention, depuis 2026, 10% de taxe sur les plus-values au-delà de 10 000€/an !
+                            </p>
+                        </div>
+                        <div class="bg-white p-3 rounded border border-slate-200 shadow-sm">
+                            <h4 class="font-bold text-slate-800 text-[11px] mb-1 text-orange-600">Concentration (Le Dogme)</h4>
+                            <p class="text-[10px] text-slate-600 leading-tight">
+                                <strong>6 à 10 actions maximum.</strong> Au-delà, vous diluez vos "Compounders" avec des idées médiocres (Diworsification). L'hyper-diversification tue l'Alpha.
+                            </p>
+                        </div>
+                        <div class="bg-white p-3 rounded border border-slate-200 shadow-sm">
+                            <h4 class="font-bold text-slate-800 text-[11px] mb-1 text-orange-600">La Juridiction</h4>
+                            <p class="text-[10px] text-slate-600 leading-tight">
+                                Privilégiez les États-Unis (Monnaie forte, État de droit, Marché géant). <strong>On ne sort des US que pour acheter un monopole mondial absolu</strong> (ex: LVMH, ASML, TSMC).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bloc 2 : L'Argent et le Temps -->
+                <div class="border border-slate-200 rounded-xl overflow-hidden print-break-inside">
+                    <div class="bg-slate-900 text-white p-2.5 flex items-center gap-2">
+                        <span>⏳</span>
+                        <h3 class="font-heading font-bold text-[11px] uppercase tracking-wide">2. L'Argent et le Temps</h3>
+                    </div>
+                    <div class="p-4 bg-slate-50 space-y-3">
+                        <div class="bg-white p-3 rounded border border-slate-200 shadow-sm flex items-start gap-2">
+                            <span class="text-lg">🥊</span>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-[11px] mb-1">DCA vs Lump Sum</h4>
+                                <p class="text-[10px] text-slate-600 leading-tight">
+                                    Mathématiquement, le <strong>Lump Sum</strong> gagne (Time in the market). Psychologiquement, le <strong>DCA (ou Tranching)</strong> protège de la panique. La stratégie StocksPickeur : Épargner tous les mois en cash, et l'injecter massivement (Lump Sum tactique) quand une valorisation devient attrayante.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-3 rounded border border-slate-200 shadow-sm flex items-start gap-2">
+                            <span class="text-lg">🔄</span>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-[11px] mb-1">Le Pouvoir du DRIP</h4>
+                                <p class="text-[10px] text-slate-600 leading-tight">
+                                    En phase de croissance, <strong>réinvestissez TOUJOURS 100% de vos dividendes</strong>. Garder les dividendes en cash détruit l'exponentielle des intérêts composés. Cherchez la croissance du dividende (DPS), pas le haut rendement ("High Yield" = Danger).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- COLONNE DROITE -->
+            <div class="space-y-6">
+
+                <!-- Bloc 3 : L'Exécution Tactique (Matrice) -->
+                <div class="border border-slate-200 rounded-xl overflow-hidden print-break-inside">
+                    <div class="bg-slate-900 text-white p-2.5 flex items-center gap-2">
+                        <span>🎯</span>
+                        <h3 class="font-heading font-bold text-[11px] uppercase tracking-wide">3. L'Exécution Tactique</h3>
+                    </div>
+                    <div class="p-4 bg-white">
+                        <h4 class="font-bold text-slate-800 text-[11px] mb-3 text-center">Matrice d'Achat & Renforcement</h4>
+                        
+                        <div class="grid grid-cols-2 gap-2 mb-4">
+                            <div class="bg-emerald-50 border border-emerald-200 p-2 rounded text-center">
+                                <span class="text-xs font-bold text-emerald-800 block mb-1">Prix 📉 + Fondamentaux ✅</span>
+                                <span class="text-[10px] text-emerald-600 font-bold uppercase">Renforcer (Soldes)</span>
+                            </div>
+                            <div class="bg-red-50 border border-red-200 p-2 rounded text-center">
+                                <span class="text-xs font-bold text-red-800 block mb-1">Prix 📉 + Fondamentaux ❌</span>
+                                <span class="text-[10px] text-red-600 font-bold uppercase">Ne pas moyenner à la baisse</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-50 p-3 rounded border border-slate-200 shadow-sm mt-3">
+                            <h4 class="font-bold text-slate-800 text-[11px] mb-1 text-red-600">Quand Vendre ? (La Règle de Fer)</h4>
+                            <p class="text-[10px] text-slate-600 leading-tight">
+                                Ne coupez JAMAIS vos fleurs parce que l'action a fait +20%. On ne vend que si :<br>
+                                <strong>1. La thèse est brisée (Perte du MOAT).</strong><br>
+                                <strong>2. Notre analyse de départ était fausse (Pas d'ego).</strong><br>
+                                <strong>3. Un meilleur coût d'opportunité se présente.</strong><br>
+                                Vendre pour prendre ses profits génère un "Tax Drag" (Friction Fiscale) qui tue la performance.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bloc 4 : La Caisse à Outils -->
+                <div class="border border-slate-200 rounded-xl overflow-hidden print-break-inside">
+                    <div class="bg-slate-900 text-white p-2.5 flex items-center gap-2">
+                        <span>🛠️</span>
+                        <h3 class="font-heading font-bold text-[11px] uppercase tracking-wide">4. La Boîte à Outils 100% Gratuite</h3>
+                    </div>
+                    <div class="p-4 bg-slate-50">
+                        <ul class="text-[10px] space-y-2 text-slate-700">
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+                                <strong>FinanceCharts & GuruFocus :</strong> Pour auditer l'historique financier sur 15 ans.
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+                                <strong>EarningsLabs :</strong> Pour lire les Transcripts des PDG et les résumés trimestriels par IA.
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+                                <strong>Dataroma & StockCircle :</strong> Pour cloner l'élite (Suivre les achats/ventes des Superinvestisseurs via les 13F).
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+                                <strong>BlueChip / Google Sheets :</strong> Pour tracker la valeur, les dividendes et le PRU au centime près.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- PROTOCOLE DE CRISE -->
+        <div class="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-xl print-break-inside">
+            <div class="flex items-start gap-3">
+                <span class="text-2xl">🚨</span>
+                <div>
+                    <h3 class="font-bold text-orange-900 text-[12px] mb-1 uppercase">Protocole de Crise (Drawdown > 20%)</h3>
+                    <p class="text-[10px] text-orange-800 leading-tight">
+                        <strong>1. Fermer le courtier :</strong> Ignorer la cotation quotidienne (le bruit de Mr. Market).<br>
+                        <strong>2. Ouvrir le rapport d'entreprise :</strong> L'entreprise génère-t-elle toujours du Free Cash Flow ? Le Moat est-il intact ?<br>
+                        <strong>3. Relire le Journal :</strong> Pourquoi ai-je acheté ? Si la thèse est valide, déployer le <em>Dry Powder</em> (Cash offensif) pour renforcer à bas prix.<br>
+                        <em>Ne vendez jamais vos "Compounders" pendant une correction de marché. L'inaction est une stratégie puissante.</em>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-6 text-center">
+            <p class="text-[10px] text-slate-400">
+                &copy; 2026 StocksPickeur. Usage personnel uniquement.
+            </p>
+        </div>
+
+    </div>
+<script type="module" src="../js/auth-guard.js"></script>
+</body>
+</html>

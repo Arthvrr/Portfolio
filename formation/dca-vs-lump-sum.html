@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DCA vs Lump Sum | Simulateur StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        .input-field {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #e2e8f0;
+            background-color: #f8fafc;
+            transition: all 0.2s;
+            color: #1e293b;
+            font-weight: 500;
+        }
+        .input-field:focus {
+            outline: none;
+            border-color: #f97316; /* Orange-500 pour StocksPickeur */
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+        }
+        .input-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="../index.html" class="flex items-center gap-3 group">
+                    <img src="../media/Logo/Logo-White.png" alt="Logo StocksPickeur" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                    <span class="font-heading font-bold text-xl text-slate-900 tracking-tight">StocksPickeur</span>
+                </a>
+                <div class="hidden xl:flex items-center gap-8">
+                    <nav class="flex gap-6">
+                        <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Calculateur</a>
+                        <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Portefeuille</a>
+                        <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Analyses</a>
+                        <a href="../resources.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Ressources</a>
+                        <a href="../articles.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Articles</a>
+                        <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Formation</a>
+                        <a href="../about.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">À Propos</a>
+                    </nav>
+                    <div class="h-6 w-px bg-slate-200"></div>
+                    <a href="../account.html" id="header-auth-btn" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" /></svg>
+                        Connexion
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-orange-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="6.0.html" class="hover:text-orange-600 transition">Module 6</a></li>
+                <li>/</li>
+                <li class="text-orange-600 font-medium">Simulateur DCA vs Lump Sum</li>
+            </ol>
+        </nav>
+
+        <div class="text-center mb-12">
+            <span class="inline-block py-1 px-3 rounded-full bg-orange-50 text-orange-600 text-xs font-bold uppercase tracking-wider mb-4 border border-orange-100">
+                La Preuve par les Mathématiques
+            </span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mb-4">DCA vs Lump Sum 🥊</h1>
+            <p class="text-lg text-slate-500 max-w-2xl mx-auto">
+                "Time in the market beats timing the market". Découvrez pourquoi investir tout votre capital immédiatement (Lump Sum) génère mathématiquement plus de valeur que de le lisser sur plusieurs années (DCA).
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8">
+            
+            <div class="lg:col-span-4 space-y-6">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h3 class="font-bold text-slate-900 text-lg mb-6 border-b border-slate-100 pb-4">Vos Hypothèses de Base</h3>
+                    
+                    <div class="mb-4">
+                        <label class="input-label">Capital initial disponible (€)</label>
+                        <input type="number" id="initialCapital" class="input-field" value="60000" placeholder="Ex: 60000">
+                        <p class="text-xs text-slate-400 mt-1">La somme totale que vous avez en banque aujourd'hui.</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="input-label">Rendement annuel estimé (%)</label>
+                        <input type="number" id="rate" class="input-field" value="9" step="0.5">
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="input-label">Horizon d'investissement (Années)</label>
+                        <input type="range" id="horizon" min="5" max="40" value="20" class="w-full accent-slate-500 h-2 bg-slate-200 rounded-lg cursor-pointer">
+                        <div class="text-right text-sm text-slate-500 font-bold" id="horizonVal">20 ans</div>
+                    </div>
+
+                    <hr class="border-slate-100 my-6">
+
+                    <h3 class="font-bold text-slate-900 text-lg mb-4">Paramètres du DCA</h3>
+
+                    <div class="mb-6">
+                        <label class="input-label text-orange-600">Durée du fractionnement DCA</label>
+                        <input type="range" id="dcaYears" min="1" max="10" value="5" class="w-full accent-orange-500 h-2 bg-orange-100 rounded-lg cursor-pointer">
+                        <div class="text-right text-sm text-orange-500 font-bold" id="dcaYearsVal">5 ans</div>
+                        <p class="text-xs text-slate-500 mt-2 italic">Vous étalez votre capital de <span id="txtCapital">60 000</span> € sur <span id="txtDcaYears">5</span> ans, soit <span id="txtMonthlyDCA" class="font-bold">1 000</span> € investis par mois, le reste dormant à 0 %.</p>
+                    </div>
+
+                    <button onclick="calculateComparison()" class="w-full bg-slate-900 text-white font-bold py-3 px-4 rounded-xl hover:bg-slate-800 transition shadow-lg flex items-center justify-center gap-2 transform active:scale-95">
+                        Lancer la Simulation 📈
+                    </button>
+                </div>
+            </div>
+
+            <div class="lg:col-span-8 space-y-6">
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white p-5 rounded-xl border-l-4 border-l-orange-500 shadow-sm relative">
+                        <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Stratégie 1 : LUMP SUM</div>
+                        <div class="text-sm text-slate-500 mb-2">Tout investi le Jour 1</div>
+                        <div class="text-3xl font-heading font-bold text-orange-600" id="resLumpSum">-- €</div>
+                    </div>
+                    
+                    <div class="bg-white p-5 rounded-xl border-l-4 border-l-slate-400 shadow-sm relative">
+                        <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Stratégie 2 : DCA sur <span id="resDcaYears">5</span> ans</div>
+                        <div class="text-sm text-slate-500 mb-2">Investissement lissé mois par mois</div>
+                        <div class="text-3xl font-heading font-bold text-slate-600" id="resDca">-- €</div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 rounded-xl p-6 border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 shadow-lg">
+                    <div>
+                        <h4 class="font-bold text-white text-lg">La Suprématie du Lump Sum :</h4>
+                        <p class="text-sm text-slate-400">Garder du cash non-investi (DCA) représente un coût d'opportunité majeur face à un marché haussier.</p>
+                    </div>
+                    <div class="text-4xl font-heading font-bold text-emerald-400 bg-slate-800/50 px-6 py-3 rounded-lg border border-slate-700 whitespace-nowrap" id="resDiff">
+                        + -- €
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm h-[400px]">
+                    <canvas id="comparisonChart"></canvas>
+                </div>
+
+                <div class="text-sm text-slate-600 bg-orange-50 p-5 rounded-xl border border-orange-100 leading-relaxed">
+                    <strong class="text-orange-700 block mb-2">💡 La Conclusion StocksPickeur (Chapitre 6.9) :</strong>
+                    Mathématiquement, le <strong>Lump Sum</strong> est systématiquement gagnant dans un marché haussier car 100% de votre capital travaille dès le premier jour (Time in the Market). 
+                    Cependant, le <strong>DCA</strong> ou le <em>Tranching</em> (investir sur 6 à 12 mois) est l'outil parfait pour gérer la psychologie humaine et éviter de paniquer si le marché fait -20% juste après avoir investi un gros capital.
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const initialCapitalInput = document.getElementById('initialCapital');
+        const rateInput = document.getElementById('rate');
+        const horizonInput = document.getElementById('horizon');
+        const horizonDisplay = document.getElementById('horizonVal');
+        const dcaYearsInput = document.getElementById('dcaYears');
+        const dcaYearsDisplay = document.getElementById('dcaYearsVal');
+        
+        let chartInstance = null;
+
+        // UI Updates
+        function updateUI() {
+            horizonDisplay.textContent = horizonInput.value + " ans";
+            
+            // Le DCA ne peut pas durer plus longtemps que l'horizon d'investissement
+            if (parseInt(dcaYearsInput.value) > parseInt(horizonInput.value)) {
+                dcaYearsInput.value = horizonInput.value;
+            }
+            dcaYearsDisplay.textContent = dcaYearsInput.value + " an" + (dcaYearsInput.value > 1 ? "s" : "");
+            document.getElementById('resDcaYears').textContent = dcaYearsInput.value;
+            document.getElementById('txtDcaYears').textContent = dcaYearsInput.value;
+
+            const capital = parseFloat(initialCapitalInput.value) || 0;
+            const formatter = new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 0 });
+            document.getElementById('txtCapital').textContent = formatter.format(capital);
+            
+            const months = parseInt(dcaYearsInput.value) * 12;
+            const monthlyDCA = capital / months;
+            document.getElementById('txtMonthlyDCA').textContent = formatter.format(monthlyDCA);
+        }
+
+        horizonInput.addEventListener('input', () => { updateUI(); calculateComparison(); });
+        dcaYearsInput.addEventListener('input', () => { updateUI(); calculateComparison(); });
+        initialCapitalInput.addEventListener('input', () => { updateUI(); calculateComparison(); });
+        rateInput.addEventListener('input', calculateComparison);
+
+        function calculateComparison() {
+            updateUI();
+            
+            const capital = parseFloat(initialCapitalInput.value) || 0;
+            const rate = parseFloat(rateInput.value) || 0;
+            const totalYears = parseInt(horizonInput.value);
+            const dcaYears = parseInt(dcaYearsInput.value);
+
+            const monthlyRate = rate / 100 / 12;
+            const totalMonths = totalYears * 12;
+            const dcaMonths = dcaYears * 12;
+            const monthlyDCAAmount = capital / dcaMonths;
+
+            const labels = [];
+            const dataLumpSum = [];
+            const dataDCA = [];
+
+            let currentLumpSum = capital;
+            let currentDCA_Invested = 0;
+            let currentDCA_Cash = capital;
+
+            // Enregistrer l'année 0
+            labels.push("Année 0");
+            dataLumpSum.push(capital);
+            dataDCA.push(capital); // Au départ, le portefeuille DCA vaut tout le cash
+
+            for (let year = 1; year <= totalYears; year++) {
+                labels.push("Année " + year);
+                
+                for (let m = 1; m <= 12; m++) {
+                    const monthIndex = (year - 1) * 12 + m;
+                    
+                    // Lump Sum : le capital total compose chaque mois
+                    currentLumpSum = currentLumpSum * (1 + monthlyRate);
+
+                    // DCA : Transfert du cash vers l'investissement
+                    if (monthIndex <= dcaMonths) {
+                        currentDCA_Cash -= monthlyDCAAmount;
+                        currentDCA_Invested += monthlyDCAAmount;
+                    }
+                    // La partie investie compose
+                    currentDCA_Invested = currentDCA_Invested * (1 + monthlyRate);
+                }
+                
+                dataLumpSum.push(currentLumpSum);
+                dataDCA.push(currentDCA_Invested + currentDCA_Cash);
+            }
+
+            const finalLumpSum = dataLumpSum[dataLumpSum.length - 1];
+            const finalDCA = dataDCA[dataDCA.length - 1];
+            const difference = finalLumpSum - finalDCA;
+
+            const formatter = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+
+            document.getElementById('resLumpSum').textContent = formatter.format(finalLumpSum);
+            document.getElementById('resDca').textContent = formatter.format(finalDCA);
+            document.getElementById('resDiff').textContent = "+ " + formatter.format(difference);
+
+            renderChart(labels, dataLumpSum, dataDCA);
+        }
+
+        function renderChart(labels, dataLumpSum, dataDCA) {
+            const ctx = document.getElementById('comparisonChart').getContext('2d');
+
+            if (chartInstance) chartInstance.destroy();
+
+            chartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Lump Sum (Tout de suite)',
+                            data: dataLumpSum,
+                            borderColor: '#f97316', // Orange-500
+                            backgroundColor: 'rgba(249, 115, 22, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            pointRadius: 0,
+                            tension: 0.2
+                        },
+                        {
+                            label: 'DCA (Lissage en douceur)',
+                            data: dataDCA,
+                            borderColor: '#94a3b8', // Slate-400
+                            backgroundColor: 'rgba(148, 163, 184, 0.1)',
+                            borderWidth: 2,
+                            borderDash: [5, 5],
+                            fill: true,
+                            pointRadius: 0,
+                            tension: 0.2
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: { mode: 'index', intersect: false },
+                    scales: {
+                        y: {
+                            ticks: { callback: function(value) { return value / 1000 + ' k€'; } }
+                        },
+                        x: { grid: { display: false } }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) { label += ': '; }
+                                    if (context.parsed.y !== null) {
+                                        label += new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(context.parsed.y);
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateUI();
+            calculateComparison();
+        });
+    </script>
+<script type="module" src="../js/auth-guard.js"></script>
+</body>
+</html>

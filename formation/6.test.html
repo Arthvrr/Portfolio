@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen Module 6 : Piloter son Portefeuille | Formation StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Styles Quiz */
+        .quiz-option {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .quiz-option:hover {
+            background-color: #fff7ed; /* Orange-50 */
+            border-color: #fdba74; /* Orange-300 */
+        }
+        /* États après validation */
+        .quiz-option.correct {
+            background-color: #dcfce7; /* Green-100 */
+            border-color: #10b981; /* Green-500 */
+            color: #166534; /* Green-800 */
+        }
+        .quiz-option.wrong {
+            background-color: #fee2e2; /* Red-100 */
+            border-color: #ef4444; /* Red-500 */
+            color: #991b1b; /* Red-800 */
+            opacity: 0.7;
+        }
+        .explanation {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../media/Logo/Logo-White.png" alt="Logo StocksPickeur" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                <span class="font-heading font-bold text-xl text-slate-900 tracking-tight">StocksPickeur</span>
+            </a>
+
+            <div class="hidden xl:flex items-center gap-8">
+                <nav class="flex gap-6">
+                    <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Calculateur</a>
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Portefeuille</a>
+                    <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Analyses</a>
+                    <a href="../resources.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Ressources</a>
+                    <a href="../articles.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Articles</a>
+                    <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Formation</a>
+                    <a href="../about.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">À Propos</a>
+                </nav>
+
+                <div class="h-6 w-px bg-slate-200"></div>
+
+                <a href="../account.html" id="header-auth-btn" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Connexion
+                </a>
+            </div>
+        </div>
+    </div>
+    </header>
+
+    <main class="pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-orange-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="6.0.html" class="hover:text-orange-600 transition">Module 6</a></li>
+                <li>/</li>
+                <li class="text-orange-600 font-medium">Examen Final</li>
+            </ol>
+        </nav>
+
+        <div class="mb-12 border-b border-slate-200 pb-8 text-center">
+            <span class="inline-block py-1 px-3 rounded-full bg-orange-50 text-orange-600 text-xs font-bold uppercase tracking-wider mb-4 border border-orange-100">
+                Certification de Gestionnaire
+            </span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mb-4">Quiz Module 6 : Piloter son Portefeuille 🧑‍💻</h1>
+            <p class="text-slate-500 text-lg max-w-xl mx-auto text-justify">
+                Savez-vous maîtriser l'allocation de capital, choisir la bonne enveloppe fiscale et ignorer le bruit du marché ? Prouvez que vous êtes un véritable gestionnaire.
+            </p>
+        </div>
+
+        <form id="quizForm" class="space-y-10">
+
+            <!-- Question 1 -->
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="single" data-correct="b">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">1</span>
+                    En matière de fiscalité française, pourquoi le PEA n'est-il pas toujours la meilleure solution absolue ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q1" value="a" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>Parce qu'il est taxé à 30% (Flat Tax) dès le premier jour.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q1" value="b" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>Parce qu'il limite l'univers d'investissement aux actions européennes, or le surplus de performance boursière des excellentes actions américaines (sur CTO) surpasse souvent l'avantage fiscal.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q1" value="c" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>Parce qu'on ne peut y placer que 10 000 euros maximum.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-orange-50 text-orange-800 p-5 rounded-xl border border-orange-100">
+                    <strong>💡 Réponse : B.</strong> Il ne faut jamais sacrifier la qualité du sous-jacent (l'entreprise) sur l'autel de la fiscalité. L'impôt se paie sur une plus-value, encore faut-il en avoir une grande !
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="single" data-correct="a">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
+                    Quel est le danger principal de la diversification excessive (plus de 30 ou 40 lignes) dans une approche "Quality Investing" ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q2" value="a" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>Vous diluez vos meilleures convictions (qui ont un vrai Moat) avec des dizaines d'entreprises médiocres, détruisant mathématiquement votre capacité à générer de l'Alpha.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q2" value="b" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>Il n'y a aucun danger, c'est la seule façon d'éviter la faillite.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q2" value="c" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>Cela vous oblige à payer plus d'impôts sur les dividendes.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-orange-50 text-orange-800 p-5 rounded-xl border border-orange-100">
+                    <strong>💡 Réponse : A.</strong> Si vous avez 5 excellentes idées, y ajouter votre 30ème meilleure idée pour "diversifier" ne fera que baisser la rentabilité moyenne de votre portefeuille.
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="multiple" data-correct="a,c">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">3</span>
+                    Laquelle (ou lesquelles) de ces affirmations sur le Prix de Revient Unitaire (PRU) sont justes ? (Plusieurs réponses)
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q3" value="a" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>C'est le prix moyen d'achat de vos actions, en tenant compte des renforcements successifs.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q3" value="b" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>C'est le prix auquel vous devez absolument revendre votre action.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q3" value="c" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>Renforcer une position à la baisse (moyenner à la baisse) diminue mathématiquement votre PRU global.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-orange-50 text-orange-800 p-5 rounded-xl border border-orange-100">
+                    <strong>💡 Réponse : A et C.</strong> Moyenner à la baisse (Buy the dip) est puissant, à condition absolue que l'entreprise soit de qualité et que sa thèse fondamentale ne soit pas brisée !
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="single" data-correct="c">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">4</span>
+                    Vous héritez de 50 000 €. Selon les statistiques boursières, quelle est la méthode qui offre historiquement la meilleure performance mathématique ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q4" value="a" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>Le DCA pur : 500 € par mois pendant 8 ans.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q4" value="b" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>Buy the Dip : Conserver l'argent en cash pendant 5 ans en attendant le prochain krach.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q4" value="c" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>Lump Sum Investing (LSI) : Tout investir le jour 1.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-orange-50 text-orange-800 p-5 rounded-xl border border-orange-100">
+                    <strong>💡 Réponse : C.</strong> Les marchés sont structurellement haussiers. Garder du cash hors du marché induit un énorme "coût d'opportunité". (Même si, pour rassurer la psychologie d'un débutant, un lissage "Tranching" sur 6 mois est souvent recommandé).
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="single" data-correct="b">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">5</span>
+                    Quelle est la RÈGLE D'OR absolue pour décider de revendre une action en "Quality Investing" ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q5" value="a" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>Dès que l'action a fait +20%, on prend ses profits ("On ne fait jamais faillite en prenant ses bénéfices").</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q5" value="b" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>On vend UNIQUEMENT si la thèse d'investissement initiale est brisée (le MOAT disparaît, fraude comptable, changement destructeur de management).</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q5" value="c" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>Dès qu'une récession économique est annoncée à la télévision.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-orange-50 text-orange-800 p-5 rounded-xl border border-orange-100">
+                    <strong>💡 Réponse : B.</strong> Comme pour l'affaire Valeant de Bill Ackman, on coupe sans pitié si l'entreprise n'est plus ce qu'elle était. Mais on ne vend JAMAIS juste parce qu'un krach fait baisser le prix de l'action.
+                </div>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="single" data-correct="a">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">6</span>
+                    Qu'est-ce que le DRIP (Dividend Reinvestment Plan) et pourquoi est-il vital en phase de capitalisation ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q6" value="a" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>C'est le réinvestissement automatique des dividendes. Cela permet d'acheter de nouvelles actions qui verseront à leur tour des dividendes, créant un effet boule de neige exponentiel.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q6" value="b" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>C'est une taxe spéciale sur les dividendes étrangers.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q6" value="c" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>C'est le fait d'encaisser ses dividendes sur son compte courant pour se payer un restaurant mensuel.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-orange-50 text-orange-800 p-5 rounded-xl border border-orange-100">
+                    <strong>💡 Réponse : A.</strong> Si vous consommez vos dividendes, vous détruisez la courbe des intérêts composés. Les ETF "Capitalisants" effectuent d'ailleurs cette tâche automatiquement pour vous.
+                </div>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="single" data-correct="a">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">7</span>
+                    À quoi servent des outils comme Dataroma ou les rapports 13F américains (Chapitre 6.18) ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q7" value="a" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>À identifier des entreprises d'exception en observant ce qu'achètent les superinvestisseurs, pour ensuite mener notre propre analyse.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q7" value="b" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>À faire du copy-trading aveugle sans comprendre l'entreprise.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q7" value="c" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>À déclarer nos propres impôts.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-orange-50 text-orange-800 p-5 rounded-xl border border-orange-100">
+                    <strong>💡 Réponse : A.</strong> Cloner intelligemment consiste à s'inspirer des génies pour remplir notre pipeline d'idées, mais jamais à acheter une boîte dont on ne comprend pas le modèle économique.
+                </div>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="multiple" data-correct="a,c">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">8</span>
+                    Quelles sont les pires erreurs à faire lorsque l'on gère de l'argent pour le futur de ses enfants ? (Plusieurs réponses)
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q8" value="a" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>Laisser l'argent dormir sur un Livret A ou compte épargne pendant 18 ans.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q8" value="b" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>Placer l'argent mensuellement sur un ETF S&P 500 capitalisant.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="checkbox" name="q8" value="c" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>Donner l'argent à l'enfant à ses 18 ans sans exiger qu'il suive une solide éducation financière (Risque "Shirtsleeves to Shirtsleeves").</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-orange-50 text-orange-800 p-5 rounded-xl border border-orange-100">
+                    <strong>💡 Réponse : A et C.</strong> L'horizon temps (18 ans) exige un placement en actions pour contrer l'inflation. Mais tout l'argent du monde ne sauvera pas un enfant qui n'a pas appris comment le gérer.
+                </div>
+            </div>
+
+            <!-- Question 9 -->
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="single" data-correct="b">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">9</span>
+                    En matière de gestion des frais de courtage (courtier), quel est l'adage à retenir de la formation ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q9" value="a" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>Il faut toujours choisir sa banque physique car c'est plus sécurisant.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q9" value="b" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>Les frais agissent comme un impôt caché permanent. Payer 2% de frais annuels détruira des centaines de milliers d'euros sur 30 ans. (La morsure invisible).</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q9" value="c" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>Les frais n'ont aucune importance si l'action fait +10% par an.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-orange-50 text-orange-800 p-5 rounded-xl border border-orange-100">
+                    <strong>💡 Réponse : B.</strong> C'est la priorité numéro 1 du gestionnaire : migrer chez un courtier en ligne low-cost pour cesser de saigner son rendement composé à petit feu.
+                </div>
+            </div>
+
+            <!-- Question 10 -->
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm question-block" data-type="single" data-correct="a">
+                <h3 class="font-bold text-slate-900 text-lg mb-6 flex items-start gap-3">
+                    <span class="bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">10</span>
+                    Quel est le statut fiscal du transfert d'un CTO de parent à enfant en France lors d'une donation notariée (avant la limite des 100 000€) ?
+                </h3>
+                <div class="space-y-3">
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q10" value="a" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>La donation "purge" totalement l'historique des plus-values latentes. Les impôts (30%) accumulés sont effacés.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q10" value="b" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>Le parent doit payer la Flat Tax avant de pouvoir donner les titres.</span>
+                    </label>
+                    <label class="quiz-option block p-4 border rounded-xl border-slate-200 flex items-center gap-4 bg-white">
+                        <input type="radio" name="q10" value="c" class="accent-orange-600 w-5 h-5 flex-shrink-0">
+                        <span>L'enfant devra payer les droits de succession au moment de la revente.</span>
+                    </label>
+                </div>
+                <div class="explanation mt-6 text-sm bg-orange-50 text-orange-800 p-5 rounded-xl border border-orange-100">
+                    <strong>💡 Réponse : A.</strong> C'est le "miracle fiscal français". Construire son patrimoine dans un CTO et le donner à ses enfants purge l'intégralité de l'imposition sur les gains boursiers (Chapitre 6.17).
+                </div>
+            </div>
+
+            <div class="text-center pt-8">
+                <button type="button" onclick="checkQuiz()" class="bg-slate-900 text-white font-bold py-4 px-12 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-200 transform active:scale-95 text-lg w-full sm:w-auto">
+                    Valider mes compétences
+                </button>
+                
+                <div id="resultBox" class="hidden mt-12 p-8 bg-slate-900 rounded-2xl text-white shadow-2xl">
+                    <h2 class="text-3xl font-heading font-extrabold mb-2">Résultat : <span id="scoreDisplay" class="text-orange-400">0/10</span></h2>
+                    <p id="scoreMessage" class="text-slate-300 mb-8 text-lg">Message...</p>
+                    
+                    <a href="6.0.html" id="retryBtn" class="inline-block bg-slate-700 hover:bg-slate-600 text-white font-bold py-4 px-10 rounded-full transition transform hover:-translate-y-1">
+                        Retour au Module 6 ↺
+                    </a>
+                </div>
+            </div>
+
+        </form>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function checkQuiz() {
+            let score = 0;
+            const totalQuestions = 10;
+            const questions = document.querySelectorAll('.question-block');
+            
+            questions.forEach(block => {
+                const type = block.dataset.type; // 'single' ou 'multiple'
+                const correct = block.dataset.correct.split(','); // Array des bonnes réponses
+                const inputs = block.querySelectorAll('input');
+                let isCorrect = false;
+
+                // Reset styles
+                block.querySelectorAll('.quiz-option').forEach(opt => {
+                    opt.classList.remove('correct', 'wrong');
+                    opt.style.cursor = 'default';
+                    opt.querySelector('input').disabled = true;
+                });
+
+                if (type === 'single') {
+                    inputs.forEach(input => {
+                        if (input.checked) {
+                            if (correct.includes(input.value)) {
+                                isCorrect = true;
+                                input.parentElement.classList.add('correct');
+                            } else {
+                                input.parentElement.classList.add('wrong');
+                            }
+                        }
+                        if (correct.includes(input.value)) {
+                            input.parentElement.classList.add('correct');
+                        }
+                    });
+                } else {
+                    let userAnswers = [];
+                    inputs.forEach(input => {
+                        if(input.checked) userAnswers.push(input.value);
+                    });
+                    
+                    userAnswers.sort();
+                    const correctSorted = [...correct].sort();
+                    
+                    const allCorrect = JSON.stringify(userAnswers) === JSON.stringify(correctSorted);
+
+                    if (allCorrect) {
+                        isCorrect = true;
+                    }
+
+                    inputs.forEach(input => {
+                        if (input.checked && correct.includes(input.value)) {
+                            input.parentElement.classList.add('correct');
+                        }
+                        else if (input.checked && !correct.includes(input.value)) {
+                            input.parentElement.classList.add('wrong');
+                        }
+                        else if (!input.checked && correct.includes(input.value)) {
+                            input.parentElement.classList.add('correct');
+                        }
+                    });
+                }
+
+                if (isCorrect) score++;
+
+                block.querySelector('.explanation').style.display = 'block';
+            });
+
+            const resultBox = document.getElementById('resultBox');
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            const scoreMessage = document.getElementById('scoreMessage');
+
+            resultBox.classList.remove('hidden');
+            scoreDisplay.textContent = score + "/" + totalQuestions;
+
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            if (score >= 8) { 
+                scoreMessage.textContent = "Félicitations, vous avez la stature d'un gestionnaire de portefeuille ! Vous savez allouer votre capital avec discipline, éviter le bruit du marché et protéger votre rentabilité contre les impôts et les frais.";
+            } else {
+                scoreMessage.textContent = "La gestion de portefeuille requiert une précision chirurgicale. Revoyez les concepts fondamentaux (PRU, DCA vs Lump Sum, Fiscalité) pour ne pas détruire l'excellent travail de valorisation que vous avez fait au Module 5.";
+            }
+        }
+    </script>
+<script type="module" src="../js/auth-guard.js"></script>
+</body>
+</html>

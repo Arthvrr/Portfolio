@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dividendes Réinvestis | Simulateur StocksPickeur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        .input-field {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #e2e8f0;
+            background-color: #f8fafc;
+            transition: all 0.2s;
+            color: #1e293b;
+            font-weight: 500;
+        }
+        .input-field:focus {
+            outline: none;
+            border-color: #f97316; /* Orange-500 */
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+        }
+        .input-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QFGNT3V2F');
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-600 antialiased">
+
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="../index.html" class="flex items-center gap-3 group">
+                    <img src="../media/Logo/Logo-White.png" alt="Logo StocksPickeur" class="h-10 w-auto filter invert group-hover:opacity-80 transition"> 
+                    <span class="font-heading font-bold text-xl text-slate-900 tracking-tight">StocksPickeur</span>
+                </a>
+                <div class="hidden xl:flex items-center gap-8">
+                    <nav class="flex gap-6">
+                        <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Calculateur</a>
+                        <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Portefeuille</a>
+                        <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Analyses</a>
+                        <a href="../resources.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Ressources</a>
+                        <a href="../articles.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Articles</a>
+                        <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Formation</a>
+                        <a href="../about.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">À Propos</a>
+                    </nav>
+                    <div class="h-6 w-px bg-slate-200"></div>
+                    <a href="../account.html" id="header-auth-btn" class="bg-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" /></svg>
+                        Connexion
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <nav class="flex text-sm text-slate-400 mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="../formation.html" class="hover:text-orange-600 transition">Formation</a></li>
+                <li>/</li>
+                <li><a href="6.0.html" class="hover:text-orange-600 transition">Module 6</a></li>
+                <li>/</li>
+                <li class="text-orange-600 font-medium">Simulateur DRIP</li>
+            </ol>
+        </nav>
+
+        <div class="text-center mb-12">
+            <span class="inline-block py-1 px-3 rounded-full bg-orange-50 text-orange-600 text-xs font-bold uppercase tracking-wider mb-4 border border-orange-100">
+                La Huitième Merveille du Monde
+            </span>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mb-4">Le Pouvoir des Dividendes Réinvestis 🔄</h1>
+            <p class="text-lg text-slate-500 max-w-2xl mx-auto">
+                Ne sous-estimez jamais l'effet composé. Découvrez l'écart de richesse colossal qui se crée lorsque vous réinvestissez automatiquement vos dividendes au lieu de les garder en cash.
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8">
+            
+            <div class="lg:col-span-4 space-y-6">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h3 class="font-bold text-slate-900 text-lg mb-6 border-b border-slate-100 pb-4">Vos Hypothèses</h3>
+                    
+                    <div class="mb-4">
+                        <label class="input-label">Capital initial (€)</label>
+                        <input type="number" id="initialCapital" class="input-field" value="10000" placeholder="Ex: 10000">
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="input-label">Investissement mensuel (€)</label>
+                        <input type="number" id="monthly" class="input-field" value="300" placeholder="Ex: 300">
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="input-label text-slate-700">Croissance annuelle du cours (%)</label>
+                        <input type="number" id="growthRate" class="input-field" value="6" step="0.5">
+                        <p class="text-xs text-slate-400 mt-1">L'appréciation de la valeur de l'action seule.</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="input-label text-orange-600">Rendement du dividende (%)</label>
+                        <input type="number" id="divYield" class="input-field border-orange-200" value="3" step="0.5">
+                        <p class="text-xs text-slate-400 mt-1">Le cash reversé par l'entreprise chaque année.</p>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="input-label">Horizon d'investissement (Années)</label>
+                        <input type="range" id="horizon" min="5" max="40" value="25" class="w-full accent-slate-500 h-2 bg-slate-200 rounded-lg cursor-pointer">
+                        <div class="text-right text-sm text-slate-500 font-bold" id="horizonVal">25 ans</div>
+                    </div>
+
+                    <button onclick="calculateDRIP()" class="w-full bg-slate-900 text-white font-bold py-3 px-4 rounded-xl hover:bg-slate-800 transition shadow-lg flex items-center justify-center gap-2 transform active:scale-95">
+                        Voir l'Effet Composé 🚀
+                    </button>
+                </div>
+            </div>
+
+            <div class="lg:col-span-8 space-y-6">
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white p-5 rounded-xl border-l-4 border-l-orange-500 shadow-sm relative">
+                        <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Stratégie 1 : Dividendes Réinvestis</div>
+                        <div class="text-sm text-slate-500 mb-2">L'effet boule de neige maximal</div>
+                        <div class="text-3xl font-heading font-bold text-orange-600" id="resReinvested">-- €</div>
+                        <div class="text-xs text-slate-400 mt-2 font-medium" id="detailsReinvested">Valeur finale du portefeuille</div>
+                    </div>
+                    
+                    <div class="bg-white p-5 rounded-xl border-l-4 border-l-slate-400 shadow-sm relative">
+                        <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Stratégie 2 : Dividendes Encaissés</div>
+                        <div class="text-sm text-slate-500 mb-2">Les dividendes dorment en cash</div>
+                        <div class="text-3xl font-heading font-bold text-slate-600" id="resNotReinvested">-- €</div>
+                        <div class="text-xs text-slate-400 mt-2 font-medium" id="detailsNotReinvested">Portefeuille + Cash accumulé</div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 rounded-xl p-6 border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 shadow-lg">
+                    <div>
+                        <h4 class="font-bold text-white text-lg">La Magie du Réinvestissement (DRIP) :</h4>
+                        <p class="text-sm text-slate-400">Le rendement supplémentaire généré UNIQUEMENT parce que vos dividendes ont racheté des actions qui ont elles-mêmes versé des dividendes.</p>
+                    </div>
+                    <div class="text-4xl font-heading font-bold text-emerald-400 bg-slate-800/50 px-6 py-3 rounded-lg border border-slate-700 whitespace-nowrap" id="resDiff">
+                        + -- €
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm h-[400px]">
+                    <canvas id="dripChart"></canvas>
+                </div>
+
+                <div class="text-sm text-slate-600 bg-orange-50 p-5 rounded-xl border border-orange-100 leading-relaxed">
+                    <strong class="text-orange-700 block mb-2">💡 La Conclusion StocksPickeur (Chapitre 6.12) :</strong>
+                    Garder ses dividendes en liquidités (ou les dépenser) casse la machine des intérêts composés. Le <strong>DRIP (Dividend Reinvestment Plan)</strong> est obligatoire en phase de capitalisation. 
+                    Comme le montre le graphique, la différence à long terme n'est pas linéaire, elle est exponentielle. Privilégiez toujours les <strong>ETF capitalisants</strong> ou réinvestissez manuellement vos dividendes d'actions !
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
+                 <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-xs text-slate-500 leading-relaxed mb-8">
+                <strong class="text-slate-400">Avertissement :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement. StocksPickeur partage ses opinions personnelles et ses propres investissements. Cela ne constitue en aucun cas un conseil en investissement, une recommandation d'achat ou de vente, ni une sollicitation. Investir en bourse comporte des risques, y compris la perte totale du capital investi. Faites vos propres recherches ou consultez un conseiller financier agréé avant de prendre toute décision.
+            </div>
+
+            <p class="text-slate-600 text-sm font-medium">
+                &copy; 2026 StocksPickeur. Fait avec passion en Belgique 🇧🇪
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const initialCapitalInput = document.getElementById('initialCapital');
+        const monthlyInput = document.getElementById('monthly');
+        const growthRateInput = document.getElementById('growthRate');
+        const divYieldInput = document.getElementById('divYield');
+        const horizonInput = document.getElementById('horizon');
+        const horizonDisplay = document.getElementById('horizonVal');
+        
+        let chartInstance = null;
+
+        horizonInput.addEventListener('input', () => {
+            horizonDisplay.textContent = horizonInput.value + " ans";
+            calculateDRIP();
+        });
+
+        [initialCapitalInput, monthlyInput, growthRateInput, divYieldInput].forEach(input => {
+            input.addEventListener('input', calculateDRIP);
+        });
+
+        function calculateDRIP() {
+            const capital = parseFloat(initialCapitalInput.value) || 0;
+            const monthly = parseFloat(monthlyInput.value) || 0;
+            const growthRate = parseFloat(growthRateInput.value) || 0;
+            const divYield = parseFloat(divYieldInput.value) || 0;
+            const years = parseInt(horizonInput.value);
+
+            const monthlyGrowthRate = growthRate / 100 / 12;
+            const monthlyDivYield = divYield / 100 / 12;
+            const monthlyTotalReturn = (growthRate + divYield) / 100 / 12;
+
+            const labels = [];
+            const dataReinvested = [];
+            const dataNotReinvestedTotal = [];
+            const dataNotReinvestedPort = [];
+
+            let currentReinvested = capital;
+            let currentNotReinvestedPort = capital;
+            let totalDividendsCash = 0;
+
+            labels.push("Année 0");
+            dataReinvested.push(capital);
+            dataNotReinvestedTotal.push(capital);
+            dataNotReinvestedPort.push(capital);
+
+            for (let y = 1; y <= years; y++) {
+                labels.push("Année " + y);
+                
+                for (let m = 1; m <= 12; m++) {
+                    // Scenario 1: Reinvested (Total Return compounds)
+                    currentReinvested = (currentReinvested + monthly) * (1 + monthlyTotalReturn);
+
+                    // Scenario 2: Not Reinvested (Only Capital Growth compounds)
+                    currentNotReinvestedPort = (currentNotReinvestedPort + monthly) * (1 + monthlyGrowthRate);
+                    // Dividends are generated based on the current portfolio value, but stored in cash
+                    totalDividendsCash += currentNotReinvestedPort * monthlyDivYield;
+                }
+
+                dataReinvested.push(currentReinvested);
+                dataNotReinvestedTotal.push(currentNotReinvestedPort + totalDividendsCash);
+                dataNotReinvestedPort.push(currentNotReinvestedPort);
+            }
+
+            const finalReinvested = dataReinvested[dataReinvested.length - 1];
+            const finalNotReinvestedTotal = dataNotReinvestedTotal[dataNotReinvestedTotal.length - 1];
+            const finalNotReinvestedPort = dataNotReinvestedPort[dataNotReinvestedPort.length - 1];
+            
+            const difference = finalReinvested - finalNotReinvestedTotal;
+
+            const formatter = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+
+            document.getElementById('resReinvested').textContent = formatter.format(finalReinvested);
+            document.getElementById('resNotReinvested').textContent = formatter.format(finalNotReinvestedTotal);
+            document.getElementById('detailsNotReinvested').textContent = `Portefeuille (${formatter.format(finalNotReinvestedPort)}) + Cash (${formatter.format(totalDividendsCash)})`;
+            
+            document.getElementById('resDiff').textContent = "+ " + formatter.format(difference);
+
+            renderChart(labels, dataReinvested, dataNotReinvestedTotal, dataNotReinvestedPort);
+        }
+
+        function renderChart(labels, dataReinvested, dataNotReinvestedTotal, dataNotReinvestedPort) {
+            const ctx = document.getElementById('dripChart').getContext('2d');
+
+            if (chartInstance) chartInstance.destroy();
+
+            chartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Dividendes Réinvestis (Effet Composé Complet)',
+                            data: dataReinvested,
+                            borderColor: '#f97316', // Orange-500
+                            backgroundColor: 'rgba(249, 115, 22, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            pointRadius: 0,
+                            tension: 0.2
+                        },
+                        {
+                            label: 'Valeur Totale (Si Dividendes gardés en Cash)',
+                            data: dataNotReinvestedTotal,
+                            borderColor: '#64748b', // Slate-500
+                            backgroundColor: 'rgba(100, 116, 139, 0.05)',
+                            borderWidth: 2,
+                            borderDash: [5, 5],
+                            fill: true,
+                            pointRadius: 0,
+                            tension: 0.2
+                        },
+                        {
+                            label: 'Valeur Portefeuille Seul (Sans le cash des dividendes)',
+                            data: dataNotReinvestedPort,
+                            borderColor: '#cbd5e1', // Slate-300
+                            borderWidth: 2,
+                            fill: false,
+                            pointRadius: 0,
+                            tension: 0.2
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: { mode: 'index', intersect: false },
+                    scales: {
+                        y: {
+                            ticks: { callback: function(value) { return value / 1000 + ' k€'; } }
+                        },
+                        x: { grid: { display: false } }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) { label += ': '; }
+                                    if (context.parsed.y !== null) {
+                                        label += new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(context.parsed.y);
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', calculateDRIP);
+    </script>
+<script type="module" src="../js/auth-guard.js"></script>
+</body>
+</html>
