@@ -50,7 +50,7 @@ async def generate_newsletter():
         résumant de manière dynamique et professionnelle les 5 événements macroéconomiques et boursiers 
         majeurs de la semaine passée. Utilise des balises <h2>, <p>, <ul>, <li> et <strong>. 
         Ton ton est expert, passionné et orienté 'Quality Investing'. Ne mets pas de balises ```html au début.
-        Sois verbeux et pro !!
+        Sois verbeux et pro !! Écris moi 2-3 paragraphes par sujets.
         """
         response = model.generate_content(prompt)
         return {"ai_draft": response.text}
