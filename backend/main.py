@@ -75,7 +75,7 @@ async def send_newsletter(request: MailRequest):
             return {"error": "Aucun abonné trouvé.", "sent_count": 0}
 
         # B. Envoi via l'API Brevo
-        url = "[https://api.brevo.com/v3/smtp/email"
+        url = "https://api.brevo.com/v3/smtp/email"
         headers = {
             "accept": "application/json",
             "api-key": os.environ.get("BREVO_API_KEY"),
