@@ -23,6 +23,9 @@
         #global-progress-bar {
             transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
         }
+        .module-progress-bar-inner {
+            transition: width 0.5s ease-out;
+        }
 
         /* Séparateur de Phases */
         .phase-divider {
@@ -144,7 +147,7 @@
             <!-- Progression Globale & Statistiques (Amélioré) -->
             <div class="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm">
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6">
-                    <div class="w-full md:w-2/3">
+                    <div class="w-full md:w-3/3">
                         <div class="flex justify-between items-end mb-3">
                             <h3 class="font-bold text-slate-900 text-lg">Votre Parcours Global</h3>
                             <div class="text-2xl font-heading font-bold text-indigo-600" id="progress-percentage">0%</div>
@@ -158,20 +161,6 @@
                         <div class="flex justify-between text-xs font-medium text-slate-400 mt-2">
                             <span>Débutant</span>
                             <span>Expert Quality Investing</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Stats d'ensemble de la formation -->
-                    <div class="w-full md:w-1/3 grid grid-cols-2 gap-3 pl-0 md:pl-6 md:border-l border-slate-100">
-                        <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
-                            <span class="block text-2xl mb-1">📚</span>
-                            <span class="block text-xl font-bold text-slate-800">8</span>
-                            <span class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Modules</span>
-                        </div>
-                        <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
-                            <span class="block text-2xl mb-1">🛠️</span>
-                            <span class="block text-xl font-bold text-slate-800">10</span>
-                            <span class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Outils Pros</span>
                         </div>
                     </div>
                 </div>
@@ -225,9 +214,9 @@
 
             <a href="formation/0.0.html" class="module-card block bg-white rounded-2xl border border-slate-300 p-6 transition duration-300 group hover:shadow-md relative">
                 <!-- Checkmark dynamique (conceptuel) -->
-                <div class="absolute -right-3 -top-3 w-8 h-8 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400" title="Statut de complétion">🔒</div>
+                <div id="module-lock-0" class="absolute -right-3 -top-3 w-8 h-8 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400" title="Statut de complétion">🔒</div>
                 
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between mb-4">
                     <div class="flex items-center gap-6">
                         <div class="w-14 h-14 shrink-0 rounded-full bg-slate-800 text-white flex items-center justify-center font-heading font-bold text-xl group-hover:bg-slate-950 group-hover:scale-105 transition duration-300 shadow-sm">
                             0
@@ -251,12 +240,16 @@
                          </span>
                     </div>
                 </div>
+                <!-- Petite barre de progression du module en bas de carte -->
+                <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden mt-4">
+                    <div id="progress-bar-0" class="module-progress-bar-inner bg-slate-600 h-full rounded-full" style="width: 0%"></div>
+                </div>
             </a>
 
             <a href="formation/1.0.html" class="module-card block bg-white rounded-2xl border border-slate-200 p-6 transition duration-300 group relative">
-                <div class="absolute -right-3 -top-3 w-8 h-8 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400" title="Statut de complétion">🔒</div>
+                <div id="module-lock-1" class="absolute -right-3 -top-3 w-8 h-8 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400" title="Statut de complétion">🔒</div>
                 
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between mb-4">
                     <div class="flex items-center gap-6">
                         <div class="w-14 h-14 shrink-0 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-heading font-bold text-xl group-hover:bg-indigo-600 group-hover:text-white transition duration-300">
                             1
@@ -278,6 +271,10 @@
                          <span class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-medium group-hover:bg-indigo-50 group-hover:text-indigo-700 transition">Ouvrir →</span>
                     </div>
                 </div>
+                 <!-- Petite barre de progression du module en bas de carte -->
+                 <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden mt-4">
+                    <div id="progress-bar-1" class="module-progress-bar-inner bg-indigo-500 h-full rounded-full" style="width: 0%"></div>
+                </div>
             </a>
         </div>
 
@@ -291,9 +288,9 @@
         <div class="space-y-6">
 
             <a href="formation/2.0.html" class="module-card block bg-white rounded-2xl border border-slate-200 p-6 transition duration-300 group relative">
-                <div class="absolute -right-3 -top-3 w-8 h-8 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400">🔒</div>
+                <div id="module-lock-2" class="absolute -right-3 -top-3 w-8 h-8 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400">🔒</div>
                 
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between mb-4">
                     <div class="flex items-center gap-6">
                         <div class="w-14 h-14 shrink-0 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-heading font-bold text-xl group-hover:bg-blue-600 group-hover:text-white transition duration-300">
                             2
@@ -314,12 +311,16 @@
                         <span class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-medium group-hover:bg-blue-50 group-hover:text-blue-700 transition">Ouvrir →</span>
                    </div>
                 </div>
+                 <!-- Petite barre de progression du module en bas de carte -->
+                 <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden mt-4">
+                    <div id="progress-bar-2" class="module-progress-bar-inner bg-blue-500 h-full rounded-full" style="width: 0%"></div>
+                </div>
             </a>
 
             <a href="formation/3.0.html" class="module-card block bg-white rounded-2xl border border-slate-200 p-6 transition duration-300 group relative">
-                <div class="absolute -right-3 -top-3 w-8 h-8 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400">🔒</div>
+                <div id="module-lock-3" class="absolute -right-3 -top-3 w-8 h-8 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400">🔒</div>
 
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between mb-4">
                     <div class="flex items-center gap-6">
                         <div class="w-14 h-14 shrink-0 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center font-heading font-bold text-xl group-hover:bg-sky-600 group-hover:text-white transition duration-300">
                             3
@@ -341,6 +342,10 @@
                         <span class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-medium group-hover:bg-sky-50 group-hover:text-sky-700 transition">Ouvrir →</span>
                    </div>
                 </div>
+                 <!-- Petite barre de progression du module en bas de carte -->
+                 <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden mt-4">
+                    <div id="progress-bar-3" class="module-progress-bar-inner bg-sky-500 h-full rounded-full" style="width: 0%"></div>
+                </div>
             </a>
         </div>
 
@@ -357,7 +362,9 @@
                 <!-- Badge Module Clé -->
                 <div class="absolute top-0 right-0 bg-indigo-600 text-white text-[10px] font-bold px-3 py-1.5 rounded-bl-lg rounded-tr-xl shadow-sm z-10">CŒUR DE FORMATION</div>
                 
-                <div class="flex items-center justify-between mt-2">
+                <div class="absolute -right-3 -top-3 w-8 h-8 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 z-20" id="module-lock-4">🔒</div>
+
+                <div class="flex items-center justify-between mt-2 mb-4">
                     <div class="flex items-center gap-6">
                         <div class="w-14 h-14 shrink-0 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-heading font-bold text-xl group-hover:bg-indigo-700 group-hover:text-white transition duration-300 shadow-sm">
                             4
@@ -379,12 +386,16 @@
                         <span class="inline-flex items-center px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold group-hover:bg-indigo-600 group-hover:text-white transition">Ouvrir →</span>
                    </div>
                 </div>
+                 <!-- Petite barre de progression du module en bas de carte -->
+                 <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden mt-4">
+                    <div id="progress-bar-4" class="module-progress-bar-inner bg-indigo-500 h-full rounded-full" style="width: 0%"></div>
+                </div>
             </a>
 
             <a href="formation/5.0.html" class="module-card block bg-white rounded-2xl border border-slate-200 p-6 transition duration-300 group relative">
-                <div class="absolute -right-3 -top-3 w-8 h-8 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400">🔒</div>
+                <div id="module-lock-5" class="absolute -right-3 -top-3 w-8 h-8 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400">🔒</div>
 
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between mb-4">
                     <div class="flex items-center gap-6">
                         <div class="w-14 h-14 shrink-0 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-heading font-bold text-xl group-hover:bg-emerald-600 group-hover:text-white transition duration-300">
                             5
@@ -406,12 +417,16 @@
                         <span class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-medium group-hover:bg-emerald-50 group-hover:text-emerald-700 transition">Ouvrir →</span>
                    </div>
                 </div>
+                 <!-- Petite barre de progression du module en bas de carte -->
+                 <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden mt-4">
+                    <div id="progress-bar-5" class="module-progress-bar-inner bg-emerald-500 h-full rounded-full" style="width: 0%"></div>
+                </div>
             </a>
 
             <a href="formation/6.0.html" class="module-card block bg-white rounded-2xl border border-slate-200 p-6 transition duration-300 group relative">
-                <div class="absolute -right-3 -top-3 w-8 h-8 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400">🔒</div>
+                <div id="module-lock-6" class="absolute -right-3 -top-3 w-8 h-8 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400">🔒</div>
 
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between mb-4">
                     <div class="flex items-center gap-6">
                         <div class="w-14 h-14 shrink-0 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-heading font-bold text-xl group-hover:bg-orange-600 group-hover:text-white transition duration-300">
                             6
@@ -433,6 +448,10 @@
                         <span class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-medium group-hover:bg-orange-50 group-hover:text-orange-700 transition">Ouvrir →</span>
                    </div>
                 </div>
+                 <!-- Petite barre de progression du module en bas de carte -->
+                 <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden mt-4">
+                    <div id="progress-bar-6" class="module-progress-bar-inner bg-orange-500 h-full rounded-full" style="width: 0%"></div>
+                </div>
             </a>
         </div>
 
@@ -445,9 +464,9 @@
 
         <div class="space-y-6">
             <a href="formation/7.0.html" class="module-card block bg-white rounded-2xl border border-slate-200 p-6 transition duration-300 group relative opacity-80 hover:opacity-100">
-                <div class="absolute -right-3 -top-3 w-8 h-8 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400">🔒</div>
+                <div id="module-lock-7" class="absolute -right-3 -top-3 w-8 h-8 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400">🔒</div>
 
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between mb-4">
                     <div class="flex items-center gap-6">
                         <div class="w-14 h-14 shrink-0 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center font-heading font-bold text-xl group-hover:bg-purple-600 group-hover:text-white transition duration-300">
                             7
@@ -468,6 +487,10 @@
                     <div class="hidden md:block">
                         <span class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-medium group-hover:bg-purple-50 group-hover:text-purple-700 transition">Ouvrir →</span>
                    </div>
+                </div>
+                 <!-- Petite barre de progression du module en bas de carte -->
+                 <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden mt-4">
+                    <div id="progress-bar-7" class="module-progress-bar-inner bg-purple-500 h-full rounded-full" style="width: 0%"></div>
                 </div>
             </a>
         </div>
@@ -500,44 +523,6 @@
         menu.classList.toggle('hidden');
     });
 
-    // NOUVEAU : GESTION DE LA REPRISE DE FORMATION ET DU BOUTON INTELLIGENT
-    document.addEventListener('DOMContentLoaded', () => {
-        
-        // 1. Bouton "Reprendre la formation" Intelligent
-        const lastChapter = localStorage.getItem('SP_lastChapter');
-        const lastChapterTitle = localStorage.getItem('SP_lastChapterTitle'); // Nécessite de sauvegarder le titre dans les pages de cours
-        const resumeBtn = document.getElementById('resume-btn');
-        const resumeBtnText = document.getElementById('resume-btn-text');
-        
-        if (lastChapter && resumeBtn) {
-            resumeBtn.href = 'formation/' + lastChapter;
-            
-            // Si on a sauvegardé le titre du chapitre, on l'affiche sur le bouton
-            if(lastChapterTitle) {
-                resumeBtnText.textContent = "Continuer : " + lastChapterTitle;
-            } else {
-                resumeBtnText.textContent = "Reprendre où vous étiez";
-            }
-        }
-        
-        // 2. Récupérer le nom de l'utilisateur depuis localStorage (s'il existe)
-        const username = localStorage.getItem('SP_username');
-        if(username) {
-            document.getElementById('welcome-username').textContent = username;
-        }
-
-        // 3. Exemple de script pour la progression (Ceci dépendra de ta base de données réelle)
-        // Ici, un exemple visuel statique que tu pourras connecter à Firebase/Supabase
-        /*
-        const completedModules = [0]; // Ex: l'utilisateur a fini le module 0
-        if(completedModules.includes(0)) {
-            const mod0 = document.querySelector('a[href="formation/0.0.html"] .absolute');
-            mod0.innerHTML = '✅';
-            mod0.classList.replace('text-slate-400', 'text-emerald-500');
-            mod0.classList.add('border-emerald-500');
-        }
-        */
-    });
 </script>
 
     <script>
@@ -548,5 +533,105 @@
     }
     </script>
 
+
+<script type="module">
+    import { auth, db } from './js/firebase-config.js'; 
+    import { doc, getDoc } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
+    import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
+
+    const TOTAL_CHAPTERS_GLOBAL = 75; 
+
+    const resumeBtn = document.getElementById('resume-btn');
+    const resumeBtnText = document.getElementById('resume-btn-text');
+
+    onAuthStateChanged(auth, async (user) => {
+        if (user) {
+            const username = user.displayName || localStorage.getItem('SP_username') || "Investisseur";
+            document.getElementById('welcome-username').textContent = username;
+
+            try {
+                const docSnap = await getDoc(doc(db, "users", user.uid));
+                
+                if (docSnap.exists()) {
+                    // --- GESTION DU BOUTON REPRENDRE VIA LE DERNIER CHAPITRE VISITÉ ---
+                    const lastVisited = docSnap.data().lastVisited;
+                    
+                    if (lastVisited && lastVisited.id && lastVisited.title) {
+                        resumeBtn.href = `formation/${lastVisited.id}.html`;
+                        resumeBtnText.textContent = `Continuer : ${lastVisited.id}. ${lastVisited.title}`;
+                    } else {
+                        resumeBtn.href = `formation/0.1.html`;
+                        resumeBtnText.textContent = `Commencer la formation`;
+                    }
+
+                    // --- 1. MISE À JOUR DE LA BARRE GLOBALE ---
+                    const rawCompleted = docSnap.data().completedChapters || [];
+                    const completed = [...new Set(rawCompleted)].filter(id => /^\d+\.[1-9]\d*$/.test(id));
+
+                    const globalPercentage = Math.min(100, Math.round((completed.length / TOTAL_CHAPTERS_GLOBAL) * 100));
+                    
+                    const globalBar = document.getElementById('global-progress-bar');
+                    const globalText = document.getElementById('progress-percentage');
+                    
+                    if(globalBar && globalText) {
+                        globalBar.style.width = `${globalPercentage}%`; 
+                        globalText.textContent = `${globalPercentage}%`; 
+                    }
+
+                    // --- 2. DÉVERROUILLAGE DES CADENAS PAR MODULE & BARRES INTERNES ---
+                    const modulesConfig = [
+                        { id: 0, prefix: '0.', total: 6 },
+                        { id: 1, prefix: '1.', total: 4 },
+                        { id: 2, prefix: '2.', total: 5 },
+                        { id: 3, prefix: '3.', total: 11 },
+                        { id: 4, prefix: '4.', total: 14 },
+                        { id: 5, prefix: '5.', total: 11 },
+                        { id: 6, prefix: '6.', total: 18 },
+                        { id: 7, prefix: '7.', total: 6 }
+                    ];
+
+                    modulesConfig.forEach(mod => {
+                        const modCompletedCount = completed.filter(id => {
+                            if (!id.startsWith(mod.prefix)) return false;
+                            const chapNum = parseInt(id.split('.')[1], 10);
+                            return chapNum >= 1 && chapNum <= mod.total;
+                        }).length;
+                        
+                        const modPercentage = Math.min(100, Math.round((modCompletedCount / mod.total) * 100));
+                        
+                        const modProgressBar = document.getElementById(`progress-bar-${mod.id}`);
+                        if(modProgressBar) {
+                            modProgressBar.style.width = `${modPercentage}%`;
+                        }
+
+                        const lockIcon = document.getElementById(`module-lock-${mod.id}`);
+                        if(lockIcon) {
+                            lockIcon.classList.remove(
+                                'text-slate-400', 'bg-slate-100',
+                                'text-indigo-500', 'border-indigo-400', 'bg-indigo-50',
+                                'text-emerald-500', 'border-emerald-500', 'bg-emerald-50'
+                            );
+
+                            if(modCompletedCount >= mod.total) { 
+                                lockIcon.innerHTML = '✅';
+                                lockIcon.classList.add('text-emerald-500', 'border-emerald-500', 'bg-emerald-50');
+                            } 
+                            else if (modCompletedCount > 0) {
+                                lockIcon.innerHTML = '⏳';
+                                lockIcon.classList.add('text-indigo-500', 'border-indigo-400', 'bg-indigo-50');
+                            } 
+                            else {
+                                lockIcon.innerHTML = '🔒';
+                                lockIcon.classList.add('text-slate-400', 'bg-slate-100');
+                            }
+                        }
+                    });
+                }
+            } catch (error) {
+                console.error("Erreur de chargement progression globale :", error);
+            }
+        }
+    });
+</script>
 </body>
 </html>

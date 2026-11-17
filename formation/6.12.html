@@ -249,6 +249,17 @@
 
         </article>
 
+        <!-- Bouton de validation du chapitre -->
+        <div class="mt-16 flex justify-center border-t border-slate-200 pt-8">
+            <button id="mark-completed-btn" 
+                    data-chapter-id="6.12" 
+                    data-chapter-title="Gestion des Dividendes" 
+                    class="bg-slate-900 text-white px-8 py-4 rounded-full font-bold hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-3 transform hover:-translate-y-0.5">
+                <div id="completed-icon" class="w-6 h-6 rounded-full border-2 border-slate-400 flex items-center justify-center transition-colors"></div>
+                <span id="completed-text">Marquer ce chapitre comme terminé</span>
+            </button>
+        </div>
+
         <div class="flex justify-between items-center mt-16 pt-8 border-t border-slate-200">
             <a href="6.11.html" class="text-slate-500 hover:text-orange-600 font-medium transition flex items-center group">
                 <span class="group-hover:-translate-x-1 transition-transform mr-2">←</span> Chapitre Précédent
@@ -312,5 +323,125 @@
         }
     </script>
 <script type="module" src="../js/auth-guard.js"></script>
+<script type="module">
+    // On importe auth et db de TON fichier de config
+    import { auth, db } from '../js/firebase-config.js'; 
+    
+    // On importe les fonctions Firestore depuis la version 12.9.0 (ajout de arrayRemove)
+    import { doc, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
+    
+    import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('mark-completed-btn');
+        const icon = document.getElementById('completed-icon');
+        const text = document.getElementById('completed-text');
+        
+        if (!btn) return;
+        
+        const chapterId = btn.getAttribute('data-chapter-id');
+        const chapterTitle = btn.getAttribute('data-chapter-title');
+
+        // 1. Sauvegarde locale (ne change pas)
+        localStorage.setItem('SP_lastChapter', `${chapterId}.html`);
+        localStorage.setItem('SP_lastChapterTitle', chapterTitle);
+
+        // État local pour le toggle
+        let isCompleted = false;
+
+        // 2. Gestion Firebase
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                const userRef = doc(db, "users", user.uid);
+                
+                try {
+                    // --- NOUVEAU : Sauvegarde immédiate du chapitre visité dans Firestore ---
+                    await setDoc(userRef, {
+                        lastVisited: {
+                            id: chapterId,
+                            title: chapterTitle
+                        }
+                    }, { merge: true });
+                    // -----------------------------------------------------------------------
+                    // Vérifier si le chapitre est déjà terminé au chargement
+                    const docSnap = await getDoc(userRef);
+                    if (docSnap.exists() && docSnap.data().completedChapters?.includes(chapterId)) {
+                        isCompleted = true;
+                        setButtonCompletedState();
+                    }
+
+                    // Action au clic
+                    btn.addEventListener('click', async () => {
+                        // On désactive le bouton temporairement pour éviter les doubles clics rapides
+                        btn.style.pointerEvents = 'none';
+                        btn.style.opacity = '0.7';
+
+                        if (isCompleted) {
+                            // SI DÉJÀ TERMINÉ -> ON ANNULE
+                            isCompleted = false;
+                            setButtonUncompletedState();
+                            
+                            // On retire de Firebase
+                            if (docSnap.exists()) {
+                                await updateDoc(userRef, {
+                                    completedChapters: arrayRemove(chapterId)
+                                });
+                            }
+                        } else {
+                            // SI NON TERMINÉ -> ON VALIDE
+                            isCompleted = true;
+                            setButtonCompletedState();
+                            
+                            // On ajoute dans Firebase
+                            if (docSnap.exists()) {
+                                await updateDoc(userRef, {
+                                    completedChapters: arrayUnion(chapterId)
+                                });
+                            } else {
+                                await setDoc(userRef, {
+                                    completedChapters: [chapterId]
+                                }, { merge: true });
+                            }
+                        }
+                        
+                        // On réactive le bouton
+                        btn.style.pointerEvents = 'auto';
+                        btn.style.opacity = '1';
+                    });
+                } catch (error) {
+                    console.error("Erreur de sauvegarde de progression :", error);
+                }
+            }
+        });
+
+        // Styles quand c'est validé
+        function setButtonCompletedState() {
+            btn.classList.replace('bg-slate-900', 'bg-emerald-500');
+            btn.classList.replace('hover:bg-slate-800', 'bg-emerald-500'); // Fige le hover
+            btn.classList.replace('shadow-slate-900/20', 'shadow-emerald-500/20');
+            btn.classList.remove('transform', 'hover:-translate-y-0.5'); // Retire le petit bond
+
+            icon.classList.replace('border-slate-400', 'border-white');
+            icon.classList.add('bg-white', 'text-emerald-500');
+            icon.innerHTML = '✓'; 
+            
+            text.textContent = 'Chapitre terminé !';
+        }
+
+        // Styles quand c'est annulé (Retour à l'état de base)
+        function setButtonUncompletedState() {
+            btn.classList.replace('bg-emerald-500', 'bg-slate-900');
+            btn.classList.replace('bg-emerald-500', 'hover:bg-slate-800'); // Remet le hover sombre
+            btn.classList.replace('shadow-emerald-500/20', 'shadow-slate-900/20');
+            btn.classList.add('transform', 'hover:-translate-y-0.5'); // Remet le petit bond
+
+            icon.classList.remove('bg-white', 'text-emerald-500');
+            icon.classList.replace('border-white', 'border-slate-400');
+            icon.innerHTML = ''; 
+            
+            text.textContent = 'Marquer ce chapitre comme terminé';
+        }
+    });
+</script>
 </body>
 </html>

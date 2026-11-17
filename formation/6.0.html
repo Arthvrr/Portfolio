@@ -153,37 +153,59 @@
         <a href="../formation.html" class="inline-flex items-center text-sm text-slate-400 hover:text-orange-600 mb-8 transition"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" /></svg> Retour au programme</a>
         
         <div class="mb-12">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-                <span class="inline-block py-1.5 px-4 rounded-full bg-orange-50 text-orange-600 text-xs font-bold uppercase tracking-wider border border-orange-100 w-fit">Module 6</span>
-                
-                <!-- Barre de progression plus grande et visible -->
-                <div class="flex items-center gap-4 bg-white px-4 py-2 rounded-xl border border-slate-200 shadow-sm w-full sm:w-auto">
-                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Progression</span>
-                    <div class="w-full sm:w-48 h-3 bg-slate-100 rounded-full overflow-hidden shadow-inner border border-slate-200">
-                        <div class="w-[0%] h-full bg-orange-500 rounded-full transition-all duration-500"></div>
-                    </div>
-                    <span class="text-sm font-bold text-orange-600">0%</span>
-                </div>
-            </div>
-
+            <span class="inline-block py-1.5 px-4 rounded-full bg-orange-50 text-orange-600 text-xs font-bold uppercase tracking-wider border border-orange-100 w-fit mb-4">Module 6</span>
             <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mb-4">Piloter son Portefeuille 🧑‍💻</h1>
             <p class="text-lg text-slate-500 text-justify leading-relaxed">
                 Savoir analyser une entreprise exceptionnelle ne suffit pas pour être rentable. L'acheter au bon moment, dans la bonne enveloppe fiscale et avec la bonne pondération fait toute la différence entre un bon théoricien et un investisseur gagnant. <br><br>
                 Dans ce module, l'analyste laisse sa place au gestionnaire de portefeuille. Nous allons mettre les mains dans le cambouis pour aborder la vraie vie de l'investisseur : choix du courtier, fiscalité, gestion du cash, arbitrage, et timing parfait pour acheter ou vendre. Vous allez apprendre à construire, piloter et rééquilibrer votre portefeuille avec des processus froids et mécaniques. Fini la théorie, place à la pratique.
             </p>
 
-            <!-- "Dans ce module" replacé en bas du texte d'intro -->
-            <div class="mt-8 bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-wrap items-center justify-between gap-4">
-                <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wider">Dans ce module :</h4>
+            <!-- BLOC D'INFORMATIONS -->
+            <div class="mt-8 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wider mb-3">
+                    Dans ce module :
+                </h4>
+
                 <div class="flex flex-wrap items-center gap-6 text-sm text-slate-600">
-                    <span class="flex items-center gap-2"><span class="text-base">📚</span> <strong>18</strong> Chapitres</span>
-                    <span class="flex items-center gap-2"><span class="text-base">🛠️</span> <strong>5</strong> Simulateurs</span>
-                    <span class="flex items-center gap-2"><span class="text-base">🎓</span> <strong>1</strong> Examen</span>
-                    <span class="flex items-center gap-2"><span class="text-base">💡</span> <strong>1</strong> Cheat Sheet</span>
+                    <span class="flex items-center gap-2">
+                        <span class="text-base">📚</span> <strong>18</strong> Chapitres
+                    </span>
+                    <span class="flex items-center gap-2">
+                        <span class="text-base">🛠️</span> <strong>5</strong> Simulateurs
+                    </span>
+                    <span class="flex items-center gap-2">
+                        <span class="text-base">🎓</span> <strong>1</strong> Examen
+                    </span>
+                    <span class="flex items-center gap-2">
+                        <span class="text-base">💡</span> <strong>1</strong> Cheat Sheet
+                    </span>
                 </div>
             </div>
-        </div>
 
+            <!-- BARRE DE PROGRESSION -->
+            <div class="mt-8 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <div class="w-full">
+                    <div class="flex justify-between items-end mb-2">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                            Progression
+                        </span>
+                        <span class="text-lg font-bold text-orange-600 leading-none" id="progress-text">
+                            0%
+                        </span>
+                    </div>
+
+                    <div class="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden shadow-inner">
+                        <div
+                            id="module-progress-bar"
+                            class="h-full bg-orange-500 rounded-full transition-all duration-500"
+                            style="width: 0%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
 
         <!-- PHASE 1 : FONDATIONS & INFRASTRUCTURE -->
         <div class="section-divider group">
@@ -192,7 +214,10 @@
         </div>
 
         <div class="space-y-3">
-            <a href="6.1.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+            <a href="6.1.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group relative">
+                <!-- Cadenas / Sablier / Check -->
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="6.1" title="Statut de complétion">⌛️</div>
+                
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.1</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">Fini la Théorie : Place à l'Exécution 🚀</h3>
@@ -205,7 +230,8 @@
                 </div>
             </a>
 
-            <a href="6.2.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+            <a href="6.2.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group relative">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="6.2">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.2</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">La Meilleure Enveloppe Fiscale pour Investir ✉️</h3>
@@ -218,7 +244,8 @@
                 </div>
             </a>
 
-            <a href="6.3.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+            <a href="6.3.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group relative">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="6.3">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.3</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">(Bien) Choisir son Courtier 📝</h3>
@@ -231,7 +258,8 @@
                 </div>
             </a>
 
-            <a href="6.4.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+            <a href="6.4.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group relative">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="6.4">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.4</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">La Fiscalité Belge de A à Z 🇧🇪</h3>
@@ -244,7 +272,8 @@
                 </div>
             </a>
 
-            <a href="6.5.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+            <a href="6.5.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group relative">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="6.5">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.5</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">La Fiscalité Française de A à Z 🇫🇷</h3>
@@ -266,7 +295,8 @@
         </div>
 
         <div class="space-y-3">
-            <a href="6.6.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+            <a href="6.6.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group relative">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="6.6">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.6</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">Combien de Lignes en Portefeuille ? 🔢</h3>
@@ -279,7 +309,8 @@
                 </div>
             </a>
 
-            <a href="6.7.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+            <a href="6.7.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group relative">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="6.7">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.7</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">Gestion du Cash 💵</h3>
@@ -292,7 +323,8 @@
                 </div>
             </a>
 
-            <a href="6.8.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+            <a href="6.8.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group relative">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="6.8">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.8</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">Le Prix de Revient Unitaire (PRU) 📊</h3>
@@ -305,7 +337,8 @@
                 </div>
             </a>
 
-            <a href="6.9.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+            <a href="6.9.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group relative">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="6.9">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.9</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">DCA vs Lump Sum 🥊</h3>
@@ -318,7 +351,8 @@
                 </div>
             </a>
 
-            <a href="6.10.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+            <a href="6.10.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group relative">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="6.10">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.10</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">Quand Acheter et Renforcer ? 🛒</h3>
@@ -331,7 +365,8 @@
                 </div>
             </a>
 
-            <a href="6.11.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+            <a href="6.11.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group relative">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="6.11">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.11</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">Quand Vendre ? 🚪</h3>
@@ -344,7 +379,8 @@
                 </div>
             </a>
 
-            <a href="6.12.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+            <a href="6.12.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group relative">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="6.12">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.12</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">Gestion des Dividendes 🤑</h3>
@@ -366,7 +402,8 @@
         </div>
 
         <div class="space-y-3">
-            <a href="6.13.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+            <a href="6.13.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group relative">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="6.13">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.13</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">Introduction au Benchmarking 📈</h3>
@@ -379,7 +416,8 @@
                 </div>
             </a>
 
-            <a href="6.14.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+            <a href="6.14.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group relative">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="6.14">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.14</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">Suivi du Portefeuille au quotidien 📅</h3>
@@ -392,7 +430,8 @@
                 </div>
             </a>
 
-            <a href="6.15.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+            <a href="6.15.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group relative">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="6.15">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.15</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">Les Outils que j'utilise ⚒️</h3>
@@ -405,7 +444,8 @@
                 </div>
             </a>
 
-            <a href="6.16.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+            <a href="6.16.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group relative">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="6.16">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.16</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">Où investir son argent ? 🌍</h3>
@@ -418,7 +458,8 @@
                 </div>
             </a>
 
-            <a href="6.17.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+            <a href="6.17.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group relative">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="6.17">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.17</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">Investir pour sa famille et Héritage 👶</h3>
@@ -431,7 +472,8 @@
                 </div>
             </a>
 
-            <a href="6.18.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+            <a href="6.18.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group relative">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="6.18">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.18</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">S'inspirer des meilleurs pour réussir 🏆</h3>
@@ -555,5 +597,52 @@
         </div>
     </footer>
 <script type="module" src="../js/auth-guard.js"></script>    
+<script type="module">
+    import { auth, db } from '../js/firebase-config.js';
+    import { doc, getDoc } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
+    import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
+
+    const TOTAL_CHAPTERS = 18; 
+
+    onAuthStateChanged(auth, async (user) => {
+        if (user) {
+            try {
+                const docSnap = await getDoc(doc(db, "users", user.uid));
+                if (docSnap.exists()) {
+                    const completed = docSnap.data().completedChapters || [];
+                    
+                    // On vérifie chaque chapitre réellement présent dans le HTML
+                    const statusIcons = document.querySelectorAll('.chapter-status');
+                    let validCompletedCount = 0;
+
+                    statusIcons.forEach(icon => {
+                        const chapId = icon.getAttribute('data-chapter-id');
+                        
+                        // Si l'utilisateur a fini ce chapitre : CHECK VERT
+                        if (completed.includes(chapId)) {
+                            validCompletedCount++;
+                            icon.innerHTML = '✅';
+                            icon.classList.remove('text-slate-400');
+                            icon.classList.add('text-emerald-500', 'border-emerald-500', 'bg-emerald-50');
+                        }
+                    });
+
+                    // Calcul sécurisé (plafonné à 100% maximum)
+                    const percentage = Math.min(100, Math.round((validCompletedCount / TOTAL_CHAPTERS) * 100));
+                    
+                    const progressBar = document.getElementById('module-progress-bar'); 
+                    const progressText = document.getElementById('progress-text'); 
+                    
+                    if(progressBar && progressText) {
+                        progressBar.style.width = `${percentage}%`;
+                        progressText.textContent = `${percentage}%`;
+                    }
+                }
+            } catch (error) {
+                console.error("Erreur de chargement progression :", error);
+            }
+        }
+    });
+</script>
 </body>
 </html>
