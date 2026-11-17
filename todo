@@ -1,15 +1,24 @@
+FORMATION :
+
 - faire un certificat quand l'user à réussi tout les quizz de tout les modules ! 
 - finir 0.5 et 0.6
 - finaliser barre de progression par user : ajouter bouton "Marquer ce chapitre comme terminé" à chaque fin de chapitre, et ajuste barre de progression de l'utilisateur
 - ajouter checklist
+- stocker résultats tests de chaque module
+
+SITE :
 
 - faire newsletter mensuelle avec calcul automatique du portefeuille et de sa performance tout les 1er du mois
 - pouvoir modifier les données du portefeuille si connecté en étant admin
 - dark mode
+- demander avis claude
+- refonte page accueil en mettant plus en avant ce qu'on a en se créant un compte (accès au pf en temps réel, accès moatpicks, newsletter hebdomadaire, newsletter mensuelle)
+- page dictionnaire des termes financiers, ratios,... (termes A à Z)
 
 A CORRIGER/AJOUTER FORMATION :
 
 - 4.8 Croissances
 - 4.14 autres ratios de rentabilité (ajout)
 - 5.8 améliorer pub Intrinsic
-- de plus longs tests pour chaque module
+- de plus longs tests pour chaque module (+ de questions)
+- bouton marqué comme terminé à chaque fin de chapitre

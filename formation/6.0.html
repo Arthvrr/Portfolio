@@ -10,17 +10,44 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
         h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .chapter-card:hover { transform: translateY(-2px); border-color: #6366f1; }
-        /* Séparateur de section */
+        
+        .chapter-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .chapter-card:hover { 
+            transform: translateY(-2px); 
+            border-color: #ea580c; /* Orange-600 */
+            box-shadow: 0 10px 25px -5px rgba(234, 88, 12, 0.1), 0 8px 10px -6px rgba(234, 88, 12, 0.1);
+        }
+        
+        .chapter-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background-color: transparent;
+            transition: background-color 0.3s ease;
+        }
+
+        .chapter-card:hover::before {
+            background-color: #ea580c;
+        }
+
+        /* Séparateur de section textuel */
         .section-divider {
             display: flex;
             align-items: center;
-            margin: 3rem 0 1.5rem 0;
+            margin: 4rem 0 2rem 0;
             color: #94a3b8; /* Slate-400 */
             font-size: 0.875rem;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.1em;
         }
         .section-divider::before, .section-divider::after {
             content: "";
@@ -30,6 +57,35 @@
         }
         .section-divider::before { margin-right: 1rem; }
         .section-divider::after { margin-left: 1rem; }
+
+        /* Badge pour type de contenu */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.3rem 0.65rem;
+            border-radius: 9999px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.025em;
+        }
+        .badge-read { background-color: #fff7ed; color: #ea580c; border: 1px solid #ffedd5; } /* Orange */
+        .badge-video { background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; } /* Slate */
+
+        /* Design pour la grille des outils */
+        .tool-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .tool-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.08);
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-600 antialiased">
@@ -45,13 +101,13 @@
 
             <div class="hidden xl:flex items-center gap-8">
                 <nav class="flex gap-6">
-                    <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Calculateur</a>
-                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
-                    <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Analyses</a>
-                    <a href="../resources.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Ressources</a>
-                    <a href="../articles.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Articles</a>
-                    <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Formation</a>
-                    <a href="../about.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">À Propos</a>
+                    <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Calculateur</a>
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Portefeuille</a>
+                    <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Analyses</a>
+                    <a href="../resources.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Ressources</a>
+                    <a href="../articles.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Articles</a>
+                    <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">Formation</a>
+                    <a href="../about.html" class="text-sm font-medium text-slate-600 hover:text-orange-600 transition">À Propos</a>
                 </nav>
 
                 <div class="h-6 w-px bg-slate-200"></div>
@@ -73,17 +129,15 @@
             </div>
         </div>
     </div>
-
-    <div id="mobile-menu" class="hidden xl:hidden bg-white border-b border-slate-200 shadow-xl absolute w-full">
+    <div id="mobile-menu" class="hidden xl:hidden bg-white border-b border-slate-200 shadow-xl absolute w-full z-40">
         <nav class="flex flex-col px-4 pt-2 pb-6 space-y-3">
-            <a href="../calculator.html" class="text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50 p-2 rounded-lg transition">Calculateur</a>
-            <a href="../portfolio.html" class="text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50 p-2 rounded-lg transition">Portefeuille</a>
-            <a href="../moatpicks.html" class="text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50 p-2 rounded-lg transition">Analyses</a>
-            <a href="../resources.html" class="text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50 p-2 rounded-lg transition">Ressources</a>
-            <a href="../articles.html" class="text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50 p-2 rounded-lg transition">Articles</a>
-            <a href="../formation.html" class="text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50 p-2 rounded-lg transition">Formation</a>
-            <a href="../about.html" class="text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50 p-2 rounded-lg transition">À Propos</a>
-            
+            <a href="../calculator.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Calculateur</a>
+            <a href="../portfolio.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Portefeuille</a>
+            <a href="../moatpicks.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Analyses</a>
+            <a href="../resources.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Ressources</a>
+            <a href="../articles.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Articles</a>
+            <a href="../formation.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">Formation</a>
+            <a href="../about.html" class="text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 p-2 rounded-lg transition">À Propos</a>
             <div class="border-t border-slate-100 pt-3 mt-2">
                 <a href="../account.html" id="mobile-auth-btn" class="flex justify-center w-full bg-slate-900 text-white font-bold px-5 py-3 rounded-xl hover:bg-slate-800 transition">
                     <span id="mobile-nav-username">Connexion Espace Membre</span>
@@ -91,80 +145,401 @@
             </div>
         </nav>
     </div>
-</header>
+    </header>
 
     <main class="pt-32 pb-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Breadcrumb & Header -->
         <a href="../formation.html" class="inline-flex items-center text-sm text-slate-400 hover:text-orange-600 mb-8 transition"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" /></svg> Retour au programme</a>
+        
         <div class="mb-12">
-            <span class="text-orange-600 font-bold tracking-wider uppercase text-xs">Module 6</span>
-            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">Piloter son Portefeuille 🧑‍💻</h1>
-            <p class="text-lg text-slate-500 text-justify">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                <span class="inline-block py-1.5 px-4 rounded-full bg-orange-50 text-orange-600 text-xs font-bold uppercase tracking-wider border border-orange-100 w-fit">Module 6</span>
+                
+                <!-- Barre de progression plus grande et visible -->
+                <div class="flex items-center gap-4 bg-white px-4 py-2 rounded-xl border border-slate-200 shadow-sm w-full sm:w-auto">
+                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Progression</span>
+                    <div class="w-full sm:w-48 h-3 bg-slate-100 rounded-full overflow-hidden shadow-inner border border-slate-200">
+                        <div class="w-[0%] h-full bg-orange-500 rounded-full transition-all duration-500"></div>
+                    </div>
+                    <span class="text-sm font-bold text-orange-600">0%</span>
+                </div>
+            </div>
+
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mb-4">Piloter son Portefeuille 🧑‍💻</h1>
+            <p class="text-lg text-slate-500 text-justify leading-relaxed">
                 Savoir analyser une entreprise exceptionnelle ne suffit pas pour être rentable. L'acheter au bon moment, dans la bonne enveloppe fiscale et avec la bonne pondération fait toute la différence entre un bon théoricien et un investisseur gagnant. <br><br>
-                Dans ce module, l'analyste laisse sa place au gestionnaire de portefeuille. Nous allons mettre les mains dans le cambouis pour aborder la vraie vie de l'investisseur : choix du courtier, fiscalité, gestion du cash, arbitrage, et timing parfait pour acheter ou vendre. Vous allez apprendre à construire, piloter et rééquilibrer votre portefeuille avec des processus froids et mécaniques. Fini la théorie, place à la pratique.</p>
+                Dans ce module, l'analyste laisse sa place au gestionnaire de portefeuille. Nous allons mettre les mains dans le cambouis pour aborder la vraie vie de l'investisseur : choix du courtier, fiscalité, gestion du cash, arbitrage, et timing parfait pour acheter ou vendre. Vous allez apprendre à construire, piloter et rééquilibrer votre portefeuille avec des processus froids et mécaniques. Fini la théorie, place à la pratique.
+            </p>
+
+            <!-- "Dans ce module" replacé en bas du texte d'intro -->
+            <div class="mt-8 bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-wrap items-center justify-between gap-4">
+                <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wider">Dans ce module :</h4>
+                <div class="flex flex-wrap items-center gap-6 text-sm text-slate-600">
+                    <span class="flex items-center gap-2"><span class="text-base">📚</span> <strong>18</strong> Chapitres</span>
+                    <span class="flex items-center gap-2"><span class="text-base">🛠️</span> <strong>5</strong> Simulateurs</span>
+                    <span class="flex items-center gap-2"><span class="text-base">🎓</span> <strong>1</strong> Examen</span>
+                    <span class="flex items-center gap-2"><span class="text-base">💡</span> <strong>1</strong> Cheat Sheet</span>
+                </div>
+            </div>
         </div>
 
-        <div class="space-y-4">
 
-            <div class="section-divider">Cours & Théorie</div>
+        <!-- PHASE 1 : FONDATIONS & INFRASTRUCTURE -->
+        <div class="section-divider group">
+            <span class="bg-slate-100 text-slate-500 px-3 py-1 rounded-full text-xs mr-3 transition group-hover:bg-slate-200">Phase 1</span> 
+            Fondations & Infrastructure
+        </div>
 
-            <a href="6.1.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.1</div><div><h3 class="font-bold text-slate-900 text-lg">Fini la Théorie : Place à l'Exécution 🚀</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
+        <div class="space-y-3">
+            <a href="6.1.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.1</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">Fini la Théorie : Place à l'Exécution 🚀</h3>
+                    <p class="text-sm text-slate-500 truncate">Le fossé comportemental : pourquoi l'investisseur moyen perd de l'argent.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 7 min</span>
+                    <span class="badge badge-read">⏱️ 6 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-orange-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
             </a>
-            <a href="6.2.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.2</div><div><h3 class="font-bold text-slate-900 text-lg">La Meilleure Enveloppe Fiscale pour Investir ✉️</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
+
+            <a href="6.2.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.2</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">La Meilleure Enveloppe Fiscale pour Investir ✉️</h3>
+                    <p class="text-sm text-slate-500 truncate">Le grand duel franco-belge : ne sacrifiez plus vos rendements à l'impôt.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 9 min</span>
+                    <span class="badge badge-read">⏱️ 8 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-orange-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
             </a>
-            <a href="6.3.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.3</div><div><h3 class="font-bold text-slate-900 text-lg">(Bien) Choisir son Courtier 📝</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
+
+            <a href="6.3.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.3</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">(Bien) Choisir son Courtier 📝</h3>
+                    <p class="text-sm text-slate-500 truncate">Sécurité, régulation et frais : comment auditer l'intermédiaire de votre vie.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 6 min</span>
+                    <span class="badge badge-read">⏱️ 5 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-orange-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
             </a>
-            <a href="6.4.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.4</div><div><h3 class="font-bold text-slate-900 text-lg">La Fiscalité Belge de A à Z 🇧🇪</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
+
+            <a href="6.4.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.4</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">La Fiscalité Belge de A à Z 🇧🇪</h3>
+                    <p class="text-sm text-slate-500 truncate">Le guide de survie de l'investisseur belge (TOB, Précompte, Plus-values 2026).</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 8 min</span>
+                    <span class="badge badge-read">⏱️ 7 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-orange-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
             </a>
-             <a href="6.5.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.5</div><div><h3 class="font-bold text-slate-900 text-lg">La Fiscalité Française de A à Z 🇫🇷</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
-            </a>
-            <a href="6.6.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.6</div><div><h3 class="font-bold text-slate-900 text-lg">Combien de Lignes en Portefeuille ? 🔢</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
-            </a>
-            <a href="6.7.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.7</div><div><h3 class="font-bold text-slate-900 text-lg">Gestion du Cash 💵</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
-            </a>
-            <a href="6.8.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.8</div><div><h3 class="font-bold text-slate-900 text-lg">Le Prix de Revient Unitaire (PRU) 📊</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
-            </a>
-            <a href="6.9.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.9</div><div><h3 class="font-bold text-slate-900 text-lg">DCA vs Lump Sum 🥊</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
-            </a>
-            <a href="6.10.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.10</div><div><h3 class="font-bold text-slate-900 text-lg">Quand Acheter et Renforcer ? 🛒</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
-            </a>
-             <a href="6.11.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.11</div><div><h3 class="font-bold text-slate-900 text-lg">Quand Vendre ? 🚪</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
-            </a>
-             <a href="6.12.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.12</div><div><h3 class="font-bold text-slate-900 text-lg">Gestion des Dividendes 🤑</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
-            </a>
-             <a href="6.13.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.13</div><div><h3 class="font-bold text-slate-900 text-lg">Introduction au Benchmarking 📈</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
-            </a>
-            <a href="6.14.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.14</div><div><h3 class="font-bold text-slate-900 text-lg">Suivi du Portefeuille au quotidien 📅</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
-            </a>
-            <a href="6.15.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.15</div><div><h3 class="font-bold text-slate-900 text-lg">Les Outils que j'utilise ⚒️</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
-            </a>
-            <a href="6.16.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.16</div><div><h3 class="font-bold text-slate-900 text-lg">Où investir son argent ? 🌍</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
-            </a>
-            <a href="6.17.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.17</div><div><h3 class="font-bold text-slate-900 text-lg">Investir pour sa famille et Héritage 👶</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
-            </a>
-            <a href="6.18.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-bold group-hover:bg-orange-600 group-hover:text-white transition">6.18</div><div><h3 class="font-bold text-slate-900 text-lg">S'inspirer des meilleurs pour réussir en Bourse 🏆</h3></div></div><div class="text-slate-300 group-hover:text-orange-600 transition">➔</div>
+
+            <a href="6.5.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.5</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">La Fiscalité Française de A à Z 🇫🇷</h3>
+                    <p class="text-sm text-slate-500 truncate">Flat Tax vs Barème Progressif : optimisez légalement chaque transaction.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 8 min</span>
+                    <span class="badge badge-read">⏱️ 7 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-orange-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
             </a>
         </div>
+
+
+        <!-- PHASE 2 : ALLOCATION & STRATÉGIE -->
+        <div class="section-divider group mt-16">
+            <span class="bg-slate-100 text-slate-500 px-3 py-1 rounded-full text-xs mr-3 transition group-hover:bg-slate-200">Phase 2</span> 
+            Allocation & Stratégie
+        </div>
+
+        <div class="space-y-3">
+            <a href="6.6.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.6</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">Combien de Lignes en Portefeuille ? 🔢</h3>
+                    <p class="text-sm text-slate-500 truncate">Pourquoi la concentration prudente (6-10 actions) génère plus d'Alpha que l'hyper-diversification.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 7 min</span>
+                    <span class="badge badge-read">⏱️ 6 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-orange-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
+            </a>
+
+            <a href="6.7.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.7</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">Gestion du Cash 💵</h3>
+                    <p class="text-sm text-slate-500 truncate">Maîtrisez votre "Dry Powder" pour exploiter les krachs sans bloquer votre capital.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 6 min</span>
+                    <span class="badge badge-read">⏱️ 5 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-orange-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
+            </a>
+
+            <a href="6.8.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.8</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">Le Prix de Revient Unitaire (PRU) 📊</h3>
+                    <p class="text-sm text-slate-500 truncate">Comprendre la mathématique de votre point mort boursier.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 5 min</span>
+                    <span class="badge badge-read">⏱️ 4 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-orange-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
+            </a>
+
+            <a href="6.9.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.9</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">DCA vs Lump Sum 🥊</h3>
+                    <p class="text-sm text-slate-500 truncate">Lissage psychologique contre suprématie mathématique : choisissez votre arme.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 8 min</span>
+                    <span class="badge badge-read">⏱️ 7 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-orange-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
+            </a>
+
+            <a href="6.10.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.10</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">Quand Acheter et Renforcer ? 🛒</h3>
+                    <p class="text-sm text-slate-500 truncate">La Matrice StocksPickeur pour différencier les soldes des pièges à valeur.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 9 min</span>
+                    <span class="badge badge-read">⏱️ 8 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-orange-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
+            </a>
+
+            <a href="6.11.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.11</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">Quand Vendre ? 🚪</h3>
+                    <p class="text-sm text-slate-500 truncate">Ne coupez pas vos fleurs : les 3 seules raisons valables de vendre une action.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 8 min</span>
+                    <span class="badge badge-read">⏱️ 7 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-orange-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
+            </a>
+
+            <a href="6.12.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.12</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">Gestion des Dividendes 🤑</h3>
+                    <p class="text-sm text-slate-500 truncate">Démystification du "High Yield" et puissance absolue du réinvestissement (DRIP).</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 7 min</span>
+                    <span class="badge badge-read">⏱️ 6 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-orange-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
+            </a>
+        </div>
+
+
+        <!-- PHASE 3 : PILOTAGE & SUIVI QUOTIDIEN -->
+        <div class="section-divider group mt-16">
+            <span class="bg-slate-100 text-slate-500 px-3 py-1 rounded-full text-xs mr-3 transition group-hover:bg-slate-200">Phase 3</span> 
+            Pilotage & Suivi Quotidien
+        </div>
+
+        <div class="space-y-3">
+            <a href="6.13.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.13</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">Introduction au Benchmarking 📈</h3>
+                    <p class="text-sm text-slate-500 truncate">Le Juge de Paix : apprenez à comparer honnêtement vos performances au S&P 500.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 8 min</span>
+                    <span class="badge badge-read">⏱️ 7 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-orange-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
+            </a>
+
+            <a href="6.14.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.14</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">Suivi du Portefeuille au quotidien 📅</h3>
+                    <p class="text-sm text-slate-500 truncate">Construire une routine saine pour éviter l'obsession des cours boursiers.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 7 min</span>
+                    <span class="badge badge-read">⏱️ 6 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-orange-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
+            </a>
+
+            <a href="6.15.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.15</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">Les Outils que j'utilise ⚒️</h3>
+                    <p class="text-sm text-slate-500 truncate">De GuruFocus à BlueChip : ma boîte à outils 100% gratuite d'investisseur.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 9 min</span>
+                    <span class="badge badge-read">⏱️ 8 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-orange-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
+            </a>
+
+            <a href="6.16.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.16</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">Où investir son argent ? 🌍</h3>
+                    <p class="text-sm text-slate-500 truncate">Risques géopolitiques et biais domestique : pourquoi les USA dominent.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 11 min</span>
+                    <span class="badge badge-read">⏱️ 10 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-orange-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
+            </a>
+
+            <a href="6.17.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.17</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">Investir pour sa famille et Héritage 👶</h3>
+                    <p class="text-sm text-slate-500 truncate">Transmission de CTO : le miracle fiscal français et les règles belges.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 12 min</span>
+                    <span class="badge badge-read">⏱️ 10 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-orange-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
+            </a>
+
+            <a href="6.18.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-orange-50 group-hover:text-orange-600 transition">6.18</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-orange-600 transition">S'inspirer des meilleurs pour réussir 🏆</h3>
+                    <p class="text-sm text-slate-500 truncate">Cloner intelligemment Ackman, Akre et Kantesaria via les 13F américains.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 9 min</span>
+                    <span class="badge badge-read">⏱️ 8 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-orange-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
+            </a>
+        </div>
+
+
+        <!-- SECTION BOÎTE À OUTILS (GRID) -->
+        <div class="space-y-4 mt-20">
+            <div class="section-divider">Outils & Simulateurs</div>
+            <p class="text-sm text-slate-500 mb-6 text-center max-w-2xl mx-auto">Pratiquez les concepts du cours avec nos 5 simulateurs interactifs. Ajustez les variables et observez l'impact mathématique sur votre patrimoine.</p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Outil 1 -->
+                <a href="cto-vs-pea.html" target="_blank" class="tool-card group hover:border-orange-200">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center font-bold text-2xl group-hover:bg-orange-600 group-hover:text-white transition">⚖️</div>
+                        <svg class="w-5 h-5 text-slate-300 group-hover:text-orange-600 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">CTO vs PEA</h3>
+                    <p class="text-sm text-slate-500 flex-grow">Impôts vs Performance : calculez l'arbitrage fiscal optimal entre la France et l'international.</p>
+                </a>
+
+                <!-- Outil 2 -->
+                <a href="fees-importance.html" target="_blank" class="tool-card group hover:border-red-200">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center font-bold text-2xl group-hover:bg-red-600 group-hover:text-white transition">📉</div>
+                        <svg class="w-5 h-5 text-slate-300 group-hover:text-red-600 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">L'Impact des Frais</h3>
+                    <p class="text-sm text-slate-500 flex-grow">Visualisez la somme ahurissante que votre banque vous confisque en silence sur 20 ans.</p>
+                </a>
+
+                <!-- Outil 3 -->
+                <a href="dca-vs-lump-sum.html" target="_blank" class="tool-card group hover:border-slate-400">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-2xl group-hover:bg-slate-700 group-hover:text-white transition">🥊</div>
+                        <svg class="w-5 h-5 text-slate-300 group-hover:text-slate-700 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">DCA vs Lump Sum</h3>
+                    <p class="text-sm text-slate-500 flex-grow">Lissage psychologique vs investissement immédiat : le verdict mathématique.</p>
+                </a>
+
+                <!-- Outil 4 -->
+                <a href="dividend-reinvested.html" target="_blank" class="tool-card group hover:border-blue-200">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-2xl group-hover:bg-blue-600 group-hover:text-white transition">🔄</div>
+                        <svg class="w-5 h-5 text-slate-300 group-hover:text-blue-600 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">Le Pouvoir du DRIP</h3>
+                    <p class="text-sm text-slate-500 flex-grow">Découvrez l'effet boule de neige exponentiel du réinvestissement systématique.</p>
+                </a>
+
+                <!-- Outil 5 -->
+                <a href="invest-child.html" target="_blank" class="tool-card group hover:border-indigo-200 md:col-span-2 lg:col-span-1">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-2xl group-hover:bg-indigo-600 group-hover:text-white transition">👶</div>
+                        <svg class="w-5 h-5 text-slate-300 group-hover:text-indigo-600 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">Simulateur Enfance</h3>
+                    <p class="text-sm text-slate-500 flex-grow">Livret A vs ETF : Le choc abyssal des patrimoines aux 18 ans de votre enfant.</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- SECTION VALIDATION & SYNTHÈSE -->
+        <div class="space-y-4 mt-20">
+            <div class="section-divider">Validation & Ressources</div>
+
+            <div class="grid md:grid-cols-2 gap-4">
+                <!-- Examen -->
+                <a href="6.test.html" class="flex flex-col justify-between bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-xl transition duration-300 group hover:bg-slate-800 transform hover:-translate-y-1 relative overflow-hidden">
+                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-white/5 rounded-full blur-xl group-hover:bg-orange-500/20 transition duration-500"></div>
+                    <div class="flex items-center gap-4 mb-4 relative z-10">
+                        <div class="w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center font-bold text-xl">🎓</div>
+                        <h3 class="font-bold text-white text-lg">Examen Final</h3>
+                    </div>
+                    <p class="text-sm text-slate-400 relative z-10 mb-4">Testez vos connaissances et validez votre certification de gestionnaire de portefeuille.</p>
+                    <div class="text-orange-500 text-sm font-bold flex items-center gap-2 group-hover:translate-x-1 transition relative z-10">
+                        Passer le test <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                    </div>
+                </a>
+
+                <!-- Cheat Sheet -->
+                <a href="6.cheatsheet.html" target="_blank" class="flex flex-col justify-between bg-gradient-to-br from-orange-500 to-orange-600 p-6 rounded-2xl border border-orange-400 shadow-xl transition duration-300 group transform hover:-translate-y-1 relative overflow-hidden">
+                    <div class="absolute -right-4 -top-4 w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:bg-white/20 transition duration-500"></div>
+                    <div class="flex items-center gap-4 mb-4 relative z-10">
+                        <div class="w-12 h-12 rounded-full bg-white/20 text-white flex items-center justify-center font-bold text-2xl shadow-inner">💡</div>
+                        <h3 class="font-bold text-white text-lg">La Cheat Sheet</h3>
+                    </div>
+                    <p class="text-sm text-orange-100 relative z-10 mb-4">Le "Manifeste du Gestionnaire" : votre matrice d'achat et protocole de crise à imprimer.</p>
+                    <div class="text-white text-sm font-bold flex items-center gap-2 group-hover:translate-x-1 transition relative z-10">
+                        Ouvrir le PDF <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                    </div>
+                </a>
+            </div>
+        </div>
+
     </main>
 
-    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+    <footer class="bg-slate-950 py-12 border-t border-slate-900 mt-20">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
                  <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
@@ -179,6 +554,6 @@
             </p>
         </div>
     </footer>
-<script type="module" src="../js/auth-guard.js"></script>
+<script type="module" src="../js/auth-guard.js"></script>    
 </body>
 </html>

@@ -10,18 +10,44 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
         h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .chapter-card:hover { transform: translateY(-2px); border-color: #059669; } /* Emerald-600 */
         
-        /* Séparateur de section */
+        .chapter-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .chapter-card:hover { 
+            transform: translateY(-2px); 
+            border-color: #059669; /* Emerald-600 */
+            box-shadow: 0 10px 25px -5px rgba(5, 150, 105, 0.1), 0 8px 10px -6px rgba(5, 150, 105, 0.1);
+        }
+        
+        .chapter-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background-color: transparent;
+            transition: background-color 0.3s ease;
+        }
+
+        .chapter-card:hover::before {
+            background-color: #059669;
+        }
+
+        /* Séparateur de section textuel */
         .section-divider {
             display: flex;
             align-items: center;
-            margin: 3rem 0 1.5rem 0;
+            margin: 4rem 0 2rem 0;
             color: #94a3b8; /* Slate-400 */
             font-size: 0.875rem;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.1em;
         }
         .section-divider::before, .section-divider::after {
             content: "";
@@ -31,6 +57,35 @@
         }
         .section-divider::before { margin-right: 1rem; }
         .section-divider::after { margin-left: 1rem; }
+
+        /* Badge pour type de contenu */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.3rem 0.65rem;
+            border-radius: 9999px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.025em;
+        }
+        .badge-read { background-color: #ecfdf5; color: #059669; border: 1px solid #d1fae5; } /* Emerald */
+        .badge-video { background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; } /* Slate */
+
+        /* Design pour la grille des outils */
+        .tool-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .tool-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.08);
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-600 antialiased">
@@ -46,13 +101,13 @@
 
             <div class="hidden xl:flex items-center gap-8">
                 <nav class="flex gap-6">
-                    <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Calculateur</a>
-                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
-                    <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Analyses</a>
-                    <a href="../resources.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Ressources</a>
-                    <a href="../articles.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Articles</a>
-                    <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Formation</a>
-                    <a href="../about.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">À Propos</a>
+                    <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition">Calculateur</a>
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition">Portefeuille</a>
+                    <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition">Analyses</a>
+                    <a href="../resources.html" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition">Ressources</a>
+                    <a href="../articles.html" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition">Articles</a>
+                    <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition">Formation</a>
+                    <a href="../about.html" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition">À Propos</a>
                 </nav>
 
                 <div class="h-6 w-px bg-slate-200"></div>
@@ -74,17 +129,15 @@
             </div>
         </div>
     </div>
-
-    <div id="mobile-menu" class="hidden xl:hidden bg-white border-b border-slate-200 shadow-xl absolute w-full">
+    <div id="mobile-menu" class="hidden xl:hidden bg-white border-b border-slate-200 shadow-xl absolute w-full z-40">
         <nav class="flex flex-col px-4 pt-2 pb-6 space-y-3">
-            <a href="../calculator.html" class="text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50 p-2 rounded-lg transition">Calculateur</a>
-            <a href="../portfolio.html" class="text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50 p-2 rounded-lg transition">Portefeuille</a>
-            <a href="../moatpicks.html" class="text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50 p-2 rounded-lg transition">Analyses</a>
-            <a href="../resources.html" class="text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50 p-2 rounded-lg transition">Ressources</a>
-            <a href="../articles.html" class="text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50 p-2 rounded-lg transition">Articles</a>
-            <a href="../formation.html" class="text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50 p-2 rounded-lg transition">Formation</a>
-            <a href="../about.html" class="text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50 p-2 rounded-lg transition">À Propos</a>
-            
+            <a href="../calculator.html" class="text-base font-medium text-slate-700 hover:text-emerald-600 hover:bg-slate-50 p-2 rounded-lg transition">Calculateur</a>
+            <a href="../portfolio.html" class="text-base font-medium text-slate-700 hover:text-emerald-600 hover:bg-slate-50 p-2 rounded-lg transition">Portefeuille</a>
+            <a href="../moatpicks.html" class="text-base font-medium text-slate-700 hover:text-emerald-600 hover:bg-slate-50 p-2 rounded-lg transition">Analyses</a>
+            <a href="../resources.html" class="text-base font-medium text-slate-700 hover:text-emerald-600 hover:bg-slate-50 p-2 rounded-lg transition">Ressources</a>
+            <a href="../articles.html" class="text-base font-medium text-slate-700 hover:text-emerald-600 hover:bg-slate-50 p-2 rounded-lg transition">Articles</a>
+            <a href="../formation.html" class="text-base font-medium text-slate-700 hover:text-emerald-600 hover:bg-slate-50 p-2 rounded-lg transition">Formation</a>
+            <a href="../about.html" class="text-base font-medium text-slate-700 hover:text-emerald-600 hover:bg-slate-50 p-2 rounded-lg transition">À Propos</a>
             <div class="border-t border-slate-100 pt-3 mt-2">
                 <a href="../account.html" id="mobile-auth-btn" class="flex justify-center w-full bg-slate-900 text-white font-bold px-5 py-3 rounded-xl hover:bg-slate-800 transition">
                     <span id="mobile-nav-username">Connexion Espace Membre</span>
@@ -92,120 +145,280 @@
             </div>
         </nav>
     </div>
-</header>
+    </header>
 
     <main class="pt-32 pb-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Breadcrumb & Header -->
         <a href="../formation.html" class="inline-flex items-center text-sm text-slate-400 hover:text-emerald-600 mb-8 transition"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" /></svg> Retour au programme</a>
         
         <div class="mb-12">
-            <span class="inline-block py-1 px-3 rounded-full bg-emerald-50 text-emerald-600 text-xs font-bold uppercase tracking-wider mb-4 border border-emerald-100">Module 5</span>
-            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">Le Juste Prix (Valorisation) ⚖️</h1>
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                <span class="inline-block py-1.5 px-4 rounded-full bg-emerald-50 text-emerald-600 text-xs font-bold uppercase tracking-wider border border-emerald-100 w-fit">Module 5</span>
+                
+                <!-- Barre de progression plus grande et visible -->
+                <div class="flex items-center gap-4 bg-white px-4 py-2 rounded-xl border border-slate-200 shadow-sm w-full sm:w-auto">
+                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Progression</span>
+                    <div class="w-full sm:w-48 h-3 bg-slate-100 rounded-full overflow-hidden shadow-inner border border-slate-200">
+                        <div class="w-[0%] h-full bg-emerald-500 rounded-full transition-all duration-500"></div>
+                    </div>
+                    <span class="text-sm font-bold text-emerald-600">0%</span>
+                </div>
+            </div>
+
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mb-4">Le Juste Prix (Valorisation) ⚖️</h1>
             <p class="text-lg text-slate-500 text-justify leading-relaxed">
-                Identifier une entreprise exceptionnelle n'est que la moitié du chemin. Si vous la payez un prix délirant, même la meilleure action du monde peut devenir un investissement médiocre pendant une décennie. 
-                <br><br>
-                Dans ce module, nous allons briser le mythe selon lequel la valorisation est réservée aux experts-comptables. Vous allez apprendre à distinguer le <strong>Prix</strong> (ce que vous payez) de la <span class="text-emerald-700 font-medium">Valeur</span> (ce que vous obtenez). 
-                Nous vous armerons d'outils rationnels pour calculer le <strong>Juste Prix</strong> et agir avec la précision d'un professionnel.
+                Identifier une entreprise exceptionnelle n'est que la moitié du chemin. Si vous la payez un prix délirant, même la meilleure action du monde peut devenir un investissement médiocre pendant une décennie. <br><br>
+                Dans ce module, nous allons briser le mythe selon lequel la valorisation est réservée aux experts-comptables. Vous allez apprendre à distinguer le <strong>Prix</strong> (ce que vous payez) de la <span class="text-emerald-700 font-medium">Valeur</span> (ce que vous obtenez). Nous vous armerons d'outils rationnels pour calculer le <strong>Juste Prix</strong> et agir avec la précision d'un professionnel.
             </p>
+
+            <!-- "Dans ce module" replacé en bas du texte d'intro -->
+            <div class="mt-8 bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-wrap items-center justify-between gap-4">
+                <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wider">Dans ce module :</h4>
+                <div class="flex flex-wrap items-center gap-6 text-sm text-slate-600">
+                    <span class="flex items-center gap-2"><span class="text-base">📚</span> <strong>11</strong> Chapitres</span>
+                    <span class="flex items-center gap-2"><span class="text-base">🛠️</span> <strong>2</strong> Simulateurs</span>
+                    <span class="flex items-center gap-2"><span class="text-base">🎓</span> <strong>1</strong> Examen</span>
+                    <span class="flex items-center gap-2"><span class="text-base">💡</span> <strong>1</strong> Cheat Sheet</span>
+                </div>
+            </div>
         </div>
 
-        <div class="space-y-4">
-            
-            <div class="section-divider">Cours & Théorie</div>
 
-            <a href="5.1.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.1</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-emerald-600 transition">La Qualité, mais à quel prix ? 🏷️</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
+        <!-- PHASE 1 : CONCEPT & STRATÉGIE -->
+        <div class="section-divider group">
+            <span class="bg-slate-100 text-slate-500 px-3 py-1 rounded-full text-xs mr-3 transition group-hover:bg-slate-200">Phase 1</span> 
+            Concept & Stratégie
+        </div>
+
+        <div class="space-y-3">
+            <a href="5.1.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-emerald-50 group-hover:text-emerald-600 transition">5.1</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-emerald-600 transition">La Qualité, mais à quel prix ? 🏷️</h3>
+                    <p class="text-sm text-slate-500 truncate">Le risque de surpayer l'excellence : pourquoi la qualité ne suffit pas.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 5 min</span>
+                    <span class="badge badge-read">⏱️ 4 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-emerald-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
             </a>
-            <a href="5.2.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.2</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-emerald-600 transition">La Stratégie QARP 🏆</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
+
+            <a href="5.2.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-emerald-50 group-hover:text-emerald-600 transition">5.2</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-emerald-600 transition">La Stratégie QARP 🏆</h3>
+                    <p class="text-sm text-slate-500 truncate">Quality At a Reasonable Price : la fusion parfaite entre Value et Growth.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 6 min</span>
+                    <span class="badge badge-read">⏱️ 5 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-emerald-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
             </a>
-            <a href="5.3.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.3</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-emerald-600 transition">Prix vs Valeur 🏷️</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
+
+            <a href="5.3.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-emerald-50 group-hover:text-emerald-600 transition">5.3</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-emerald-600 transition">Prix vs Valeur 🏷️</h3>
+                    <p class="text-sm text-slate-500 truncate">Ce que vous payez vs ce que vous obtenez : la philosophie de Buffett.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 4 min</span>
+                    <span class="badge badge-read">⏱️ 3 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-emerald-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
             </a>
-            <a href="5.4.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.4</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-emerald-600 transition">La Marge de Sécurité 👷</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
-            </a>
-            <a href="5.5.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.5</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-emerald-600 transition">Les Ratios de Valorisation de base 📏</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
-            </a>
-            <a href="5.6.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.6</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-emerald-600 transition">Les Ratios Avancés ⚙️</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
-            </a>
-            <a href="5.7.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.7</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-emerald-600 transition">Le piège des Value Traps 🪤</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
-            </a>
-            <a href="5.8.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.8</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-emerald-600 transition">La Technique DCF 🧮</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
-            </a>
-            <a href="5.9.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.9</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-emerald-600 transition">Le Reverse DCF 🔁</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
-            </a>
-            <a href="5.10.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.10</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-emerald-600 transition">Les 3 Visages du PER 🎭</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
-            </a>
-            <a href="5.11.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">5.11</div><div><h3 class="font-bold text-slate-900 text-lg group-hover:text-emerald-600 transition">Ma Stratégie Personnelle ♟️</h3></div></div><div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
+
+            <a href="5.4.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-emerald-50 group-hover:text-emerald-600 transition">5.4</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-emerald-600 transition">La Marge de Sécurité 👷</h3>
+                    <p class="text-sm text-slate-500 truncate">Comment se protéger de ses propres erreurs d'analyse mathématique.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 5 min</span>
+                    <span class="badge badge-read">⏱️ 4 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-emerald-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
             </a>
         </div>
 
-        <div class="space-y-4 mt-12">
+
+        <!-- PHASE 2 : LES RATIOS ET MULTIPLES -->
+        <div class="section-divider group mt-16">
+            <span class="bg-slate-100 text-slate-500 px-3 py-1 rounded-full text-xs mr-3 transition group-hover:bg-slate-200">Phase 2</span> 
+            Les Ratios et Multiples
+        </div>
+
+        <div class="space-y-3">
+            <a href="5.5.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-emerald-50 group-hover:text-emerald-600 transition">5.5</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-emerald-600 transition">Les Ratios de Valorisation de base 📏</h3>
+                    <p class="text-sm text-slate-500 truncate">P/E Ratio, P/S, P/FCF : les indicateurs rapides pour dégrossir le terrain.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 8 min</span>
+                    <span class="badge badge-read">⏱️ 7 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-emerald-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
+            </a>
+
+            <a href="5.6.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-emerald-50 group-hover:text-emerald-600 transition">5.6</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-emerald-600 transition">Les Ratios Avancés ⚙️</h3>
+                    <p class="text-sm text-slate-500 truncate">EV/EBITDA, PEG Ratio, FCF Yield : les métriques des pros pour inclure dette et croissance.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 9 min</span>
+                    <span class="badge badge-read">⏱️ 8 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-emerald-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
+            </a>
+
+            <a href="5.7.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-emerald-50 group-hover:text-emerald-600 transition">5.7</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-emerald-600 transition">Le piège des Value Traps 🪤</h3>
+                    <p class="text-sm text-slate-500 truncate">Pourquoi ce qui n'est pas cher est parfois le pire investissement possible.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 6 min</span>
+                    <span class="badge badge-read">⏱️ 5 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-emerald-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
+            </a>
+
+            <a href="5.10.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-emerald-50 group-hover:text-emerald-600 transition">5.10</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-emerald-600 transition">Les 3 Visages du PER 🎭</h3>
+                    <p class="text-sm text-slate-500 truncate">Trailing, Forward, Historique : maîtrisez la temporalité de la valorisation.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 7 min</span>
+                    <span class="badge badge-read">⏱️ 6 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-emerald-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
+            </a>
+        </div>
+
+
+        <!-- PHASE 3 : MODÉLISATION INTRINSÈQUE -->
+        <div class="section-divider group mt-16">
+            <span class="bg-slate-100 text-slate-500 px-3 py-1 rounded-full text-xs mr-3 transition group-hover:bg-slate-200">Phase 3</span> 
+            Modélisation Intrinsèque
+        </div>
+
+        <div class="space-y-3">
+            <a href="5.8.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-emerald-50 group-hover:text-emerald-600 transition">5.8</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-emerald-600 transition">La Technique DCF 🧮</h3>
+                    <p class="text-sm text-slate-500 truncate">Discounted Cash Flow : l'arme fatale pour calculer la vraie valeur d'une entreprise.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 12 min</span>
+                    <span class="badge badge-read">⏱️ 10 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-emerald-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
+            </a>
+
+            <a href="5.9.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-emerald-50 group-hover:text-emerald-600 transition">5.9</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-emerald-600 transition">Le Reverse DCF 🔁</h3>
+                    <p class="text-sm text-slate-500 truncate">Retourner l'équation pour lire dans les pensées du marché.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 7 min</span>
+                    <span class="badge badge-read">⏱️ 6 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-emerald-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
+            </a>
+
+            <a href="5.11.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-emerald-50 group-hover:text-emerald-600 transition">5.11</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-emerald-600 transition">Ma Stratégie Personnelle (Triangulation) ♟️</h3>
+                    <p class="text-sm text-slate-500 truncate">La méthode en 3 étapes pour valider un achat avec une probabilité de succès maximale.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 9 min</span>
+                    <span class="badge badge-read">⏱️ 8 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-emerald-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
+            </a>
+        </div>
+
+
+        <!-- SECTION BOÎTE À OUTILS (GRID) -->
+        <div class="space-y-4 mt-20">
             <div class="section-divider">Outils & Simulateurs</div>
+            <p class="text-sm text-slate-500 mb-6 text-center max-w-2xl mx-auto">Pratiquez les concepts du cours avec nos 2 outils de valorisation. Calculez le Juste Prix de n'importe quelle entreprise en quelques clics.</p>
 
-            <a href="dcf-valuation.html" target="_blank" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group hover:shadow-md">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-2xl group-hover:bg-emerald-600 group-hover:text-white transition">🧮</div>
-                    <div>
-                        <h3 class="font-bold text-slate-900 text-lg group-hover:text-emerald-600 transition">Calculateur DCF</h3>
-                        <p class="text-sm text-slate-500">Estimez la Valeur Intrinsèque de vos actions.</p>
+            <div class="grid md:grid-cols-2 gap-4">
+                <!-- Outil 1 -->
+                <a href="dcf-valuation.html" target="_blank" class="tool-card group hover:border-emerald-200">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-2xl group-hover:bg-emerald-600 group-hover:text-white transition">🧮</div>
+                        <svg class="w-5 h-5 text-slate-300 group-hover:text-emerald-600 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
                     </div>
-                </div>
-                <div class="text-slate-300 group-hover:text-emerald-600 transition">➔</div>
-            </a>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">Calculateur DCF</h3>
+                    <p class="text-sm text-slate-500 flex-grow">L'arme fatale : estimez mathématiquement la Valeur Intrinsèque de vos actions.</p>
+                </a>
 
-            <a href="reverse-dcf.html" target="_blank" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group hover:shadow-md">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-2xl group-hover:bg-indigo-600 group-hover:text-white transition">🔮</div>
-                    <div>
-                        <h3 class="font-bold text-slate-900 text-lg group-hover:text-indigo-600 transition">Reverse DCF</h3>
-                        <p class="text-sm text-slate-500">Décodez les attentes de croissance du marché.</p>
+                <!-- Outil 2 -->
+                <a href="reverse-dcf.html" target="_blank" class="tool-card group hover:border-indigo-200">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-2xl group-hover:bg-indigo-600 group-hover:text-white transition">🔮</div>
+                        <svg class="w-5 h-5 text-slate-300 group-hover:text-indigo-600 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
                     </div>
-                </div>
-                <div class="text-slate-300 group-hover:text-indigo-600 transition">➔</div>
-            </a>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">Reverse DCF</h3>
+                    <p class="text-sm text-slate-500 flex-grow">Décodez les attentes de croissance (Price-In) cachées derrière le cours de la bourse.</p>
+                </a>
+            </div>
         </div>
 
-        <div class="space-y-4 mt-12">
-            <div class="section-divider">Validation</div>
+        <!-- SECTION VALIDATION & SYNTHÈSE -->
+        <div class="space-y-4 mt-20">
+            <div class="section-divider">Validation & Ressources</div>
 
-            <a href="5.test.html" class="chapter-card flex items-center justify-between bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-lg transition duration-300 group hover:bg-slate-800 transform hover:-translate-y-1">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center font-bold text-xl">🎓</div>
-                    <div>
-                        <h3 class="font-bold text-white text-lg">Examen Final du Module 5</h3>
-                        <p class="text-sm text-slate-400">Validez votre expertise en Valorisation (Certification QARP).</p>
+            <div class="grid md:grid-cols-2 gap-4">
+                <!-- Examen -->
+                <a href="5.test.html" class="flex flex-col justify-between bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-xl transition duration-300 group hover:bg-slate-800 transform hover:-translate-y-1 relative overflow-hidden">
+                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-white/5 rounded-full blur-xl group-hover:bg-emerald-500/20 transition duration-500"></div>
+                    <div class="flex items-center gap-4 mb-4 relative z-10">
+                        <div class="w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center font-bold text-xl">🎓</div>
+                        <h3 class="font-bold text-white text-lg">Examen Final</h3>
                     </div>
-                </div>
-                <div class="text-slate-500 group-hover:text-white transition">➔</div>
-            </a>
-        </div>
-
-        <div class="space-y-4 mt-12">
-            <div class="section-divider">Synthèse</div>
-
-            <a href="5.cheatsheet.html" target="_blank" class="chapter-card flex items-center justify-between bg-white p-5 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group hover:shadow-md hover:border-emerald-200">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-2xl group-hover:bg-emerald-600 group-hover:text-white transition duration-300">💡</div>
-                    <div>
-                        <h3 class="font-bold text-slate-900 text-lg group-hover:text-emerald-700 transition">La Cheat Sheet du Module 5</h3>
-                        <p class="text-sm text-slate-500">Votre Grille de Valorisation QARP à imprimer.</p>
+                    <p class="text-sm text-slate-400 relative z-10 mb-4">Testez vos connaissances et validez votre expertise QARP (Certification Valorisation).</p>
+                    <div class="text-emerald-500 text-sm font-bold flex items-center gap-2 group-hover:translate-x-1 transition relative z-10">
+                        Passer le test <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
                     </div>
-                </div>
-                <div class="text-slate-300 group-hover:text-emerald-600 group-hover:translate-x-1 transition duration-300">➔</div>
-            </a>
+                </a>
+
+                <!-- Cheat Sheet -->
+                <a href="5.cheatsheet.html" target="_blank" class="flex flex-col justify-between bg-gradient-to-br from-emerald-500 to-emerald-600 p-6 rounded-2xl border border-emerald-400 shadow-xl transition duration-300 group transform hover:-translate-y-1 relative overflow-hidden">
+                    <div class="absolute -right-4 -top-4 w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:bg-white/20 transition duration-500"></div>
+                    <div class="flex items-center gap-4 mb-4 relative z-10">
+                        <div class="w-12 h-12 rounded-full bg-white/20 text-white flex items-center justify-center font-bold text-2xl shadow-inner">💡</div>
+                        <h3 class="font-bold text-white text-lg">La Cheat Sheet</h3>
+                    </div>
+                    <p class="text-sm text-emerald-100 relative z-10 mb-4">Votre Grille de Valorisation et checklist de décision QARP prête à imprimer.</p>
+                    <div class="text-white text-sm font-bold flex items-center gap-2 group-hover:translate-x-1 transition relative z-10">
+                        Ouvrir le PDF <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                    </div>
+                </a>
+            </div>
         </div>
 
     </main>
 
-    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+    <footer class="bg-slate-950 py-12 border-t border-slate-900 mt-20">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
                  <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
@@ -222,5 +435,4 @@
     </footer>
 <script type="module" src="../js/auth-guard.js"></script>    
 </body>
-
 </html>

@@ -6,26 +6,50 @@
     <title>Module 2 : Débuter en Bourse | Formation StocksPickeur</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
-    
     <link rel="icon" href="../media/Logo/logo-black.ico" type="image/x-icon">
 
     <style>
         body { font-family: 'Inter', sans-serif; }
         h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .chapter-card:hover { transform: translateY(-2px); border-color: #2563eb; } /* Blue-600 */
         
-        /* Séparateur de section */
+        .chapter-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .chapter-card:hover { 
+            transform: translateY(-2px); 
+            border-color: #2563eb; /* Blue-600 */
+            box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.1), 0 8px 10px -6px rgba(37, 99, 235, 0.1);
+        }
+        
+        .chapter-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background-color: transparent;
+            transition: background-color 0.3s ease;
+        }
+
+        .chapter-card:hover::before {
+            background-color: #2563eb;
+        }
+
+        /* Séparateur de section textuel */
         .section-divider {
             display: flex;
             align-items: center;
-            margin: 3rem 0 1.5rem 0;
+            margin: 4rem 0 2rem 0;
             color: #94a3b8; /* Slate-400 */
             font-size: 0.875rem;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.1em;
         }
         .section-divider::before, .section-divider::after {
             content: "";
@@ -35,15 +59,36 @@
         }
         .section-divider::before { margin-right: 1rem; }
         .section-divider::after { margin-left: 1rem; }
-    </style>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QFGNT3V2F"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-5QFGNT3V2F');
-    </script>
+        /* Badge pour type de contenu */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.3rem 0.65rem;
+            border-radius: 9999px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.025em;
+        }
+        .badge-read { background-color: #eff6ff; color: #2563eb; border: 1px solid #bfdbfe; } /* Blue */
+        .badge-video { background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; } /* Slate */
+
+        /* Design pour la grille des outils */
+        .tool-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .tool-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.08);
+        }
+    </style>
 </head>
 <body class="bg-slate-50 text-slate-600 antialiased">
 
@@ -58,13 +103,13 @@
 
             <div class="hidden xl:flex items-center gap-8">
                 <nav class="flex gap-6">
-                    <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Calculateur</a>
-                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Portefeuille</a>
-                    <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Analyses</a>
-                    <a href="../resources.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Ressources</a>
-                    <a href="../articles.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Articles</a>
-                    <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Formation</a>
-                    <a href="../about.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">À Propos</a>
+                    <a href="../calculator.html" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition">Calculateur</a>
+                    <a href="../portfolio.html" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition">Portefeuille</a>
+                    <a href="../moatpicks.html" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition">Analyses</a>
+                    <a href="../resources.html" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition">Ressources</a>
+                    <a href="../articles.html" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition">Articles</a>
+                    <a href="../formation.html" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition">Formation</a>
+                    <a href="../about.html" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition">À Propos</a>
                 </nav>
 
                 <div class="h-6 w-px bg-slate-200"></div>
@@ -86,17 +131,15 @@
             </div>
         </div>
     </div>
-
-    <div id="mobile-menu" class="hidden xl:hidden bg-white border-b border-slate-200 shadow-xl absolute w-full">
+    <div id="mobile-menu" class="hidden xl:hidden bg-white border-b border-slate-200 shadow-xl absolute w-full z-40">
         <nav class="flex flex-col px-4 pt-2 pb-6 space-y-3">
-            <a href="../calculator.html" class="text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50 p-2 rounded-lg transition">Calculateur</a>
-            <a href="../portfolio.html" class="text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50 p-2 rounded-lg transition">Portefeuille</a>
-            <a href="../moatpicks.html" class="text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50 p-2 rounded-lg transition">Analyses</a>
-            <a href="../resources.html" class="text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50 p-2 rounded-lg transition">Ressources</a>
-            <a href="../articles.html" class="text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50 p-2 rounded-lg transition">Articles</a>
-            <a href="../formation.html" class="text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50 p-2 rounded-lg transition">Formation</a>
-            <a href="../about.html" class="text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50 p-2 rounded-lg transition">À Propos</a>
-            
+            <a href="../calculator.html" class="text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 p-2 rounded-lg transition">Calculateur</a>
+            <a href="../portfolio.html" class="text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 p-2 rounded-lg transition">Portefeuille</a>
+            <a href="../moatpicks.html" class="text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 p-2 rounded-lg transition">Analyses</a>
+            <a href="../resources.html" class="text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 p-2 rounded-lg transition">Ressources</a>
+            <a href="../articles.html" class="text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 p-2 rounded-lg transition">Articles</a>
+            <a href="../formation.html" class="text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 p-2 rounded-lg transition">Formation</a>
+            <a href="../about.html" class="text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 p-2 rounded-lg transition">À Propos</a>
             <div class="border-t border-slate-100 pt-3 mt-2">
                 <a href="../account.html" id="mobile-auth-btn" class="flex justify-center w-full bg-slate-900 text-white font-bold px-5 py-3 rounded-xl hover:bg-slate-800 transition">
                     <span id="mobile-nav-username">Connexion Espace Membre</span>
@@ -104,114 +147,165 @@
             </div>
         </nav>
     </div>
-</header>
+    </header>
 
     <main class="pt-32 pb-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <a href="../formation.html" class="inline-flex items-center text-sm text-slate-400 hover:text-blue-600 mb-8 transition group">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 group-hover:-translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
-            </svg> 
-            Retour au programme
-        </a>
+        <!-- Breadcrumb & Header -->
+        <a href="../formation.html" class="inline-flex items-center text-sm text-slate-400 hover:text-blue-600 mb-8 transition"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" /></svg> Retour au programme</a>
+        
+        <div class="mb-12">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                <span class="inline-block py-1.5 px-4 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-wider border border-blue-100 w-fit">Module 2</span>
+                
+                <!-- Barre de progression -->
+                <div class="flex items-center gap-4 bg-white px-4 py-2 rounded-xl border border-slate-200 shadow-sm w-full sm:w-auto">
+                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Progression</span>
+                    <div class="w-full sm:w-48 h-3 bg-slate-100 rounded-full overflow-hidden shadow-inner border border-slate-200">
+                        <div class="w-[0%] h-full bg-blue-500 rounded-full transition-all duration-500"></div>
+                    </div>
+                    <span class="text-sm font-bold text-blue-600">0%</span>
+                </div>
+            </div>
 
-        <div class="mb-12 text-justify">
-            <span class="inline-block py-1 px-3 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-wider mb-4 border border-blue-100">Module 2</span>
-            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mb-6">Débuter en Bourse 🏦</h1>
-            <p class="text-lg text-slate-500 leading-relaxed">
-                Ce deuxième module vous fait passer concrètement à l’action. On entre enfin dans le vif du sujet : la bourse, comment elle fonctionne et comment bien démarrer sans se tromper. <br>
-                Vous allez comprendre ce qu’est réellement la Bourse et pourquoi elle est incontournable, apprendre comment commencer simplement en choisissant la bonne enveloppe (PEA ou compte-titres), ainsi que le bon courtier. On fera aussi une distinction claire entre spéculation et investissement, pour éviter les pièges classiques des débutants. <br>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mb-4">Débuter en Bourse 🏦</h1>
+            <p class="text-lg text-slate-500 text-justify leading-relaxed">
+                Ce deuxième module vous fait passer concrètement à l’action. On entre enfin dans le vif du sujet : la bourse, comment elle fonctionne et comment bien démarrer sans se tromper. <br><br>
+                Vous allez comprendre ce qu’est réellement la Bourse et pourquoi elle est incontournable, apprendre comment commencer simplement en choisissant la bonne enveloppe (PEA ou compte-titres), ainsi que le bon courtier. On fera aussi une distinction claire entre spéculation et investissement, pour éviter les pièges classiques des débutants. <br><br>
                 À la fin de ce module, vous saurez où aller, quoi utiliser et surtout comment investir intelligemment, avec une approche claire, structurée et pensée pour le long terme.
             </p>
+
+            <!-- "Dans ce module" -->
+            <div class="mt-8 bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-wrap items-center justify-between gap-4">
+                <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wider">Dans ce module :</h4>
+                <div class="flex flex-wrap items-center gap-6 text-sm text-slate-600">
+                    <span class="flex items-center gap-2"><span class="text-base">📚</span> <strong>5</strong> Chapitres</span>
+                    <span class="flex items-center gap-2"><span class="text-base">🎓</span> <strong>1</strong> Examen</span>
+                    <span class="flex items-center gap-2"><span class="text-base">💡</span> <strong>1</strong> Cheat Sheet</span>
+                </div>
+            </div>
         </div>
 
-        <div class="space-y-4">
-            <div class="section-divider">Cours & Théorie</div>
 
-            <a href="2.1.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-lg group-hover:bg-blue-600 group-hover:text-white transition">2.1</div>
-                    <div>
-                        <h3 class="font-bold text-slate-900 text-lg group-hover:text-blue-600 transition">C'est quoi la Bourse ? 🏛️</h3>
-                    </div>
-                </div>
-                <div class="text-slate-300 group-hover:text-blue-600 transition">➔</div>
-            </a>
-
-            <a href="2.2.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-lg group-hover:bg-blue-600 group-hover:text-white transition">2.2</div>
-                    <div>
-                        <h3 class="font-bold text-slate-900 text-lg group-hover:text-blue-600 transition">Pourquoi la Bourse ? 🚀</h3>
-                    </div>
-                </div>
-                <div class="text-slate-300 group-hover:text-blue-600 transition">➔</div>
-            </a>
-
-            <a href="2.3.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-lg group-hover:bg-blue-600 group-hover:text-white transition">2.3</div>
-                    <div>
-                        <h3 class="font-bold text-slate-900 text-lg group-hover:text-blue-600 transition">Comment commencer à Investir ? 🏁</h3>
-                    </div>
-                </div>
-                <div class="text-slate-300 group-hover:text-blue-600 transition">➔</div>
-            </a>
-
-            <a href="2.4.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-lg group-hover:bg-blue-600 group-hover:text-white transition">2.4</div>
-                    <div>
-                        <h3 class="font-bold text-slate-900 text-lg group-hover:text-blue-600 transition">Spéculation vs Investissement ⚔️</h3>
-                    </div>
-                </div>
-                <div class="text-slate-300 group-hover:text-blue-600 transition">➔</div>
-            </a>
-
-            <a href="2.5.html" class="chapter-card flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-lg group-hover:bg-blue-600 group-hover:text-white transition">2.5</div>
-                    <div>
-                        <h3 class="font-bold text-slate-900 text-lg group-hover:text-blue-600 transition">Les différents Instruments Financiers 🧰</h3>
-                    </div>
-                </div>
-                <div class="text-slate-300 group-hover:text-blue-600 transition">➔</div>
-            </a>
+        <!-- PHASE 1 : FONDATIONS & DÉMARRAGE -->
+        <div class="section-divider group">
+            <span class="bg-slate-100 text-slate-500 px-3 py-1 rounded-full text-xs mr-3 transition group-hover:bg-slate-200">Phase 1</span> 
+            Fondations & Démarrage
         </div>
 
-        <div class="space-y-4 mt-12">
-            <div class="section-divider">Validation</div>
-
-            <a href="2.test.html" class="chapter-card flex items-center justify-between bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-lg transition duration-300 group hover:bg-slate-800 transform hover:-translate-y-1">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center font-bold text-xl">🎓</div>
-                    <div>
-                        <h3 class="font-bold text-white text-lg">Examen Final du Module 2</h3>
-                        <p class="text-sm text-slate-400">Testez vos connaissances sur la Bourse, les courtiers et les instruments.</p>
-                    </div>
+        <div class="space-y-3">
+            <a href="2.1.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-blue-50 group-hover:text-blue-600 transition">2.1</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-blue-600 transition">C'est quoi la Bourse ? 🏛️</h3>
+                    <p class="text-sm text-slate-500 truncate">Le marché aux capitaux : démystifier Wall Street et Euronext.</p>
                 </div>
-                <div class="text-slate-500 group-hover:text-white transition">➔</div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 5 min</span>
+                    <span class="badge badge-read">⏱️ 4 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-blue-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
+            </a>
+
+            <a href="2.2.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-blue-50 group-hover:text-blue-600 transition">2.2</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-blue-600 transition">Pourquoi la Bourse ? 🚀</h3>
+                    <p class="text-sm text-slate-500 truncate">L'inflation et les intérêts composés : pourquoi ne pas investir est le plus grand des risques.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 6 min</span>
+                    <span class="badge badge-read">⏱️ 5 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-blue-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
+            </a>
+
+            <a href="2.3.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-blue-50 group-hover:text-blue-600 transition">2.3</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-blue-600 transition">Comment commencer à Investir ? 🏁</h3>
+                    <p class="text-sm text-slate-500 truncate">Les étapes concrètes : de l'ouverture du compte au premier achat.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 7 min</span>
+                    <span class="badge badge-read">⏱️ 6 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-blue-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
             </a>
         </div>
 
-        <div class="space-y-4 mt-12">
-            <div class="section-divider">Synthèse</div>
 
-            <a href="2.cheatsheet.html" class="chapter-card flex items-center justify-between bg-white p-5 rounded-2xl border border-slate-200 shadow-sm transition duration-300 group hover:shadow-md hover:border-blue-200">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-2xl group-hover:bg-blue-600 group-hover:text-white transition duration-300">💡</div>
-                    <div>
-                        <h3 class="font-bold text-slate-900 text-lg group-hover:text-blue-700 transition">La Cheat Sheet du Module 2</h3>
-                        <p class="text-sm text-slate-500">Votre checklist opérationnelle : Courtiers, Fiscalité et Instruments.</p>
-                    </div>
+        <!-- PHASE 2 : INSTRUMENTS & PSYCHOLOGIE -->
+        <div class="section-divider group mt-16">
+            <span class="bg-slate-100 text-slate-500 px-3 py-1 rounded-full text-xs mr-3 transition group-hover:bg-slate-200">Phase 2</span> 
+            Instruments & Psychologie
+        </div>
+
+        <div class="space-y-3">
+            <a href="2.4.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-blue-50 group-hover:text-blue-600 transition">2.4</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-blue-600 transition">Spéculation vs Investissement ⚔️</h3>
+                    <p class="text-sm text-slate-500 truncate">La ligne rouge entre le casino (Trading) et l'actionnariat (Quality Investing).</p>
                 </div>
-                <div class="text-slate-300 group-hover:text-blue-600 group-hover:translate-x-1 transition duration-300">➔</div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 6 min</span>
+                    <span class="badge badge-read">⏱️ 5 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-blue-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
             </a>
+
+            <a href="2.5.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-blue-50 group-hover:text-blue-600 transition">2.5</div>
+                <div class="flex-1 min-w-0 pr-4">
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-blue-600 transition">Les différents Instruments Financiers 🧰</h3>
+                    <p class="text-sm text-slate-500 truncate">Actions, Obligations, ETF et Fonds Actifs : comprendre l'arsenal financier.</p>
+                </div>
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="badge badge-video">🎬 8 min</span>
+                    <span class="badge badge-read">⏱️ 7 min</span>
+                    <svg class="w-5 h-5 text-slate-300 group-hover:text-blue-600 transition transform group-hover:translate-x-1 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
+            </a>
+        </div>
+
+
+        <!-- SECTION VALIDATION & SYNTHÈSE -->
+        <div class="space-y-4 mt-20">
+            <div class="section-divider">Validation & Ressources</div>
+
+            <div class="grid md:grid-cols-2 gap-4">
+                <!-- Examen -->
+                <a href="2.test.html" class="flex flex-col justify-between bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-xl transition duration-300 group hover:bg-slate-800 transform hover:-translate-y-1 relative overflow-hidden">
+                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-white/5 rounded-full blur-xl group-hover:bg-blue-500/20 transition duration-500"></div>
+                    <div class="flex items-center gap-4 mb-4 relative z-10">
+                        <div class="w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center font-bold text-xl">🎓</div>
+                        <h3 class="font-bold text-white text-lg">Examen Final</h3>
+                    </div>
+                    <p class="text-sm text-slate-400 relative z-10 mb-4">Testez vos connaissances sur la Bourse, les courtiers et les instruments de base.</p>
+                    <div class="text-blue-400 text-sm font-bold flex items-center gap-2 group-hover:translate-x-1 transition relative z-10">
+                        Passer le test <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                    </div>
+                </a>
+
+                <!-- Cheat Sheet -->
+                <a href="2.cheatsheet.html" target="_blank" class="flex flex-col justify-between bg-gradient-to-br from-blue-500 to-blue-600 p-6 rounded-2xl border border-blue-400 shadow-xl transition duration-300 group transform hover:-translate-y-1 relative overflow-hidden">
+                    <div class="absolute -right-4 -top-4 w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:bg-white/20 transition duration-500"></div>
+                    <div class="flex items-center gap-4 mb-4 relative z-10">
+                        <div class="w-12 h-12 rounded-full bg-white/20 text-white flex items-center justify-center font-bold text-2xl shadow-inner">💡</div>
+                        <h3 class="font-bold text-white text-lg">La Cheat Sheet</h3>
+                    </div>
+                    <p class="text-sm text-blue-100 relative z-10 mb-4">Votre checklist opérationnelle : Courtiers, Fiscalité et Instruments à imprimer.</p>
+                    <div class="text-white text-sm font-bold flex items-center gap-2 group-hover:translate-x-1 transition relative z-10">
+                        Ouvrir le PDF <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                    </div>
+                </a>
+            </div>
         </div>
 
     </main>
 
-    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+    <footer class="bg-slate-950 py-12 border-t border-slate-900 mt-20">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <div class="flex items-center justify-center gap-3 mb-6 opacity-60 filter grayscale hover:grayscale-0 transition duration-500">
                  <img src="../media/Logo/Logo-White.png" alt="Logo" class="h-8">
@@ -226,6 +320,6 @@
             </p>
         </div>
     </footer>
-<script type="module" src="../js/auth-guard.js"></script>
+<script type="module" src="../js/auth-guard.js"></script>    
 </body>
 </html>
