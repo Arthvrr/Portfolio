@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5.9 Le Reverse DCF | Formation StocksPickeur</title>
+    <title>5.9 La Technique DCF | Formation StocksPickeur</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -18,6 +18,7 @@
         /* Styles pour le contenu du cours */
         .prose p { margin-bottom: 1.5rem; line-height: 1.8; color: #475569; }
         .prose h4 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-top: 3rem; margin-bottom: 1.5rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .prose h5 { font-size: 1.25rem; font-weight: 600; color: #334155; margin-top: 2rem; margin-bottom: 1rem; font-family: 'Plus Jakarta Sans', sans-serif; }
         .prose strong { color: #0f172a; font-weight: 600; }
         .prose ul, .prose ol { list-style: none; padding-left: 0; }
         .prose li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
@@ -113,7 +114,7 @@
 
         <div class="mb-12 border-b border-slate-200 pb-8">
             <span class="text-emerald-600 font-bold tracking-wider uppercase text-xs">Module 5 • La Valorisation</span>
-            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">5.9. Le Reverse DCF 🔄</h1>
+            <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mt-2 mb-4">5.9. La Technique DCF (Discounted Cash Flow) 🧮</h1>
         </div>
 
         <div class="mb-10 not-prose"> 
@@ -132,108 +133,275 @@
 
         <article class="prose prose-slate max-w-none text-justify">
             
-            <p>Dans le chapitre précédent, nous avons appris à utiliser le DCF classique. C'est un outil puissant, mais il a une faiblesse majeure : il vous oblige à jouer les devins. Vous devez dire : <em>"Je pense que l'entreprise va croître de 12% par an pendant 10 ans"</em>.</p>
-            <p>Mais soyons honnêtes : personne n'en sait rien. Si vous vous trompez et que la croissance est de 8% au lieu de 12%, votre calcul de valeur s'effondre.</p>
-            <p>Il existe une méthode plus intelligente, plus humble et souvent plus efficace : le <strong>Reverse DCF</strong> (DCF Inversé). C'est la méthode favorite des investisseurs qui détestent faire des paris hasardeux, comme Charlie Munger.</p>
+            <p>Nous entrons maintenant dans le "Saint des Saints" de la finance. La méthode que je vais vous présenter est la seule qui est considérée comme <strong>théoriquement parfaite</strong> par les académiciens, les banquiers d'affaires, les experts en fusions-acquisitions et les analystes seniors de Wall Street.</p>
+            <p>Il s'agit du <strong>DCF : Discounted Cash Flow</strong> (Flux de Trésorerie Actualisés).</p>
+            <p>Jusqu'ici, nous avons utilisé des mesures <em>relatives</em> (comparaison avec les voisins). Le DCF est fondamentalement différent : c'est une mesure <em>absolue</em>. Elle ne se soucie pas de l'humeur du marché. Elle calcule ce que l'entreprise vaut intrinsèquement, comme si vous achetiez une machine à imprimer des billets, en se basant uniquement sur l'argent liquide (Cash Flow) qu'elle va générer dans le futur.</p>
 
-            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-xl my-8">
-                <p class="font-bold text-blue-900 mb-2">La Philosophie de l'Inversion 🧠</p>
-                <p class="italic text-blue-800 m-0">"Inversez, inversez toujours le problème." (Invert, always invert) <br>— <strong>Charlie Munger</strong></p>
+            <h4>1. Le Principe Fondamental : L'argent a un prix (Time Value of Money) ⏳</h4>
+            <p>Pour comprendre le DCF, vous devez intégrer une vérité économique absolue : <strong>1€ aujourd'hui vaut plus que 1€ dans 10 ans.</strong></p>
+            <p>Pourquoi ? Pour trois raisons majeures :</p>
+            <ul>
+                <li><strong>L'inflation (Érosion monétaire) :</strong> Dans 10 ans, avec 1€, vous achèterez moins de pain ou d'essence qu'aujourd'hui. Votre pouvoir d'achat diminue avec le temps.</li>
+                <li><strong>Le coût d'opportunité (Le manque à gagner) :</strong> Si vous avez 1€ aujourd'hui, vous pouvez l'investir et gagner des intérêts. Si vous devez attendre 10 ans pour toucher cet euro, vous perdez 10 ans d'intérêts composés.</li>
+                <li><strong>Le risque (Incertitude) :</strong> L'avenir est par nature incertain. Une promesse de paiement dans 10 ans est beaucoup plus risquée qu'un paiement cash immédiat. L'entreprise peut faire faillite, une guerre peut éclater, ou la monnaie peut s'effondrer.</li>
+            </ul>
+            
+            <p>Regardez ce schéma qui résume toute la philosophie du DCF :</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/dcf-schema.png')">
+                <img src="../media/Formation/dcf-schema.png" 
+                     alt="Schéma montrant le principe de ramener les flux futurs à la valeur d'aujourd'hui" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Notre but est de "ramener" (actualiser) tous les billets du futur vers la ligne du présent pour savoir combien ils valent réellement aujourd'hui.</figcaption>
+            </figure>
+
+            <p>L'exercice du DCF consiste donc à estimer tout l'argent que l'entreprise va gagner dans le futur (les billets de droite sur le schéma), puis à appliquer une "décote" (appelée taux d'actualisation) pour savoir combien cette somme future représente en monnaie d'aujourd'hui (la Value of Asset à gauche). C'est une machine à remonter le temps financière.</p>
+
+            <h4>2. La Formule Mathématique (Ne fuyez pas !) 📐</h4>
+            <p>Je sais, cela ressemble à un cauchemar de cours de maths de terminale. Mais c'est plus simple qu'il n'y paraît une fois qu'on a la clé de lecture.</p>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/dcf-formule.png')">
+                <img src="../media/Formation/dcf-formule.png" 
+                     alt="La formule mathématique du Discounted Cash Flow" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Une somme de flux futurs, divisée par un taux de risque exponentiel.</figcaption>
+            </figure>
+
+            <p>Déchiffrons les hiéroglyphes ensemble :</p>
+            <ul>
+                <li><strong>CF (Cash Flow) :</strong> C'est le Free Cash Flow que l'entreprise va générer chaque année (Année 1, Année 2, etc.). C'est le carburant de la machine.</li>
+                <li><strong>r (Discount Rate) :</strong> C'est le taux d'actualisation (ou taux de décote). C'est la "gravité" qui réduit la valeur de l'argent futur. Plus ce taux est élevé, plus l'argent futur vaut peu aujourd'hui.</li>
+                <li><strong>n :</strong> Le nombre d'années (la distance temporelle). Plus l'argent est loin dans le temps (n grand), plus il est écrasé par le taux r.</li>
+            </ul>
+
+            <h4>3. Le Choix du Taux (Discount Rate) : WACC vs Hurdle Rate ⚖️</h4>
+            <p>La question cruciale qui change tout le résultat du modèle est : <em>"Quel taux 'r' dois-je utiliser pour décoter mes cash flows ?"</em> C'est là que réside toute la subjectivité de l'analyse.</p>
+            <p>Il existe deux écoles qui s'affrontent :</p>
+
+            <h5>A. L'Approche Académique : Le WACC (Weighted Average Cost of Capital)</h5>
+            <p>Les professionnels, les banquiers et les directeurs financiers utilisent le WACC (Coût Moyen Pondéré du Capital). C'est une formule complexe qui tente de calculer scientifiquement combien "coûte" l'argent pour l'entreprise.</p>
+            <p>Le WACC fait une moyenne pondérée entre :</p>
+            <ul class="list-disc ml-5">
+                <li>Le coût de la dette (les intérêts payés aux banques).</li>
+                <li>Le coût des capitaux propres (le risque exigé par les actionnaires, basé sur la volatilité de l'action ou "Bêta").</li>
+            </ul>
+
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/wacc.png')">
+                <img src="../media/Formation/wacc.png" 
+                     alt="Schéma explicatif du calcul du WACC" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Le WACC est un monstre mathématique mélangeant prime de risque, taux sans risque et bêta. Heureusement, vous n'avez pas besoin de le calculer à la main (voir plus bas).</figcaption>
+            </figure>
+
+            <h5>B. L'Approche Pragmatique : Le Hurdle Rate (Taux d'Exigence)</h5>
+            <p>En tant qu'investisseur particulier, vous n'êtes pas obligé de suivre la théorie financière à la lettre. Vous pouvez utiliser votre propre "Hurdle Rate" (Taux de Seuil). C'est le rendement annuel minimum pour lequel vous acceptez de sortir votre argent de votre poche.</p>
+            <ul>
+                <li><em>"Je refuse d'investir pour moins de 10% par an."</em> -> Votre taux d'actualisation est de 10%.</li>
+                <li><em>"C'est une start-up risquée, je veux 15% de sécurité."</em> -> Votre taux est de 15%.</li>
+            </ul>
+            <p>Cette méthode est plus personnelle et garantit que si l'action est "sous-évaluée" selon ce taux, elle vous offrira le rendement que VOUS désirez.</p>
+
+            <h4>4. La Méthode en 3 étapes 🛠️</h4>
+            <p>Dans la pratique, voici comment se déroule une analyse DCF complète :</p>
+            
+            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/dcf-explanation.jpg')">
+                <img src="../media/Formation/dcf-explanation.jpg" 
+                     alt="Illustration des étapes du DCF : Flux annuels + Valeur Terminale" 
+                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
+                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Le modèle coupe l'avenir en deux : les 5 prochaines années (visibles) et le reste de l'éternité (Terminal Value).</figcaption>
+            </figure>
+
+            <ol class="list-decimal pl-5 space-y-4 text-slate-700">
+                <li>
+                    <strong>La Phase de Croissance Explicite (Années 1 à 5 ou 10) :</strong> 
+                    On estime la croissance du Cash Flow année par année. (Exemple : "Microsoft va faire croître son cash de 15% par an pendant 5 ans car le cloud est en boom"). C'est la partie "visible" de l'iceberg.
+                </li>
+                <li>
+                    <strong>La Valeur Terminale (L'Éternité) :</strong> 
+                    On ne peut pas prévoir les flux année par année jusqu'à la fin des temps. On utilise donc un raccourci mathématique pour estimer ce que vaudra l'entreprise à la fin de l'année 5. On part du principe qu'elle ne mourra pas et continuera de croître doucement (au rythme de l'économie mondiale, soit 2% ou 3%) pour l'éternité.
+                    <br><em>⚠️ Attention : Cette "Valeur Terminale" représente souvent 70% à 80% de la valeur totale calculée !</em>
+                </li>
+                <li>
+                    <strong>L'Actualisation et la Somme :</strong> 
+                    On prend tous ces montants futurs et on les ramène à la valeur d'aujourd'hui avec notre taux (WACC). On additionne le tout, on soustrait la dette nette, on divise par le nombre d'actions, et boum : on obtient la <strong>Valeur Intrinsèque par action</strong>.
+                </li>
+            </ol>
+
+            <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-xl my-8">
+                <p class="font-bold text-indigo-900 mb-2">Le Verdict 👨‍⚖️</p>
+                <p class="text-indigo-800 m-0">
+                    Si le résultat du calcul DCF est <strong>150€</strong> et que l'action cote <strong>100€</strong> sur le marché : Vous avez une opportunité d'achat "Sous-évaluée" avec une Marge de Sécurité confortable.<br>
+                    Si l'action cote <strong>200€</strong> : Elle est "Surévaluée". Le marché est trop optimiste ou accepte un rendement plus faible que le vôtre.
+                </p>
             </div>
 
-            <h4>1. Le Concept : Ne cherchez pas le prix, cherchez les attentes 🧐</h4>
-            <p>Le DCF classique pose la question :<br>
-            <em>"Si l'entreprise croît de 10%, quel devrait être son prix ?"</em></p>
-            <p>Le Reverse DCF inverse l'équation :<br>
-            <em>"Au prix actuel de 100€, quelle croissance le marché attend-il ?"</em></p>
-            <p>Au lieu de produire une "valeur théorique" (qui peut être fausse), le Reverse DCF vous donne le <strong>taux de croissance implicite</strong> (Implied Growth Rate) intégré dans le cours de bourse. C'est une vérification de la réalité.</p>
-            
-            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/high-vs-low-expectations.png')">
-                <img src="../media/Formation/high-vs-low-expectations.png"                      alt="Illustration minimaliste comparant un prix élevé à une barre de saut en hauteur très haute et un prix bas à une barre basse" 
-                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
-                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">L'analogie du saut en hauteur : Un prix élevé (à gauche) impose une barre très haute. L'entreprise doit faire une performance olympique pour justifier son prix. Un prix bas (à droite) place la barre au sol : même une performance médiocre suffit.</figcaption>
-            </figure>
-
-            <p><strong>L'analogie du Saut en Hauteur est parfaite :</strong></p>
+            <h4>5. Le Problème : C'est long, complexe et risqué 🤯</h4>
+            <p>Soyons honnêtes. Le DCF est magnifique en théorie, c'est l'outil intellectuel suprême. Mais en pratique, pour un investisseur particulier, c'est une usine à gaz :</p>
             <ul>
-                <li><strong>DCF Classique :</strong> Vous essayez de deviner à quelle hauteur l'athlète va sauter. C'est difficile.</li>
-                <li><strong>Reverse DCF :</strong> Vous regardez à quelle hauteur la barre est <em>déjà</em> placée par le marché (le Prix). Vous n'avez plus qu'à vous demander : <em>"La barre est-elle trop haute pour lui ?"</em>.</li>
+                <li>Il faut récupérer manuellement le Cash Flow, la Dette, le Cash, le nombre d'actions sur des sites tiers.</li>
+                <li>Il faut trouver le Bêta pour calculer le WACC (ou le deviner).</li>
+                <li>Il faut construire un tableur Excel complexe avec des risques d'erreurs de formule.</li>
             </ul>
+            <p>C'est pour cela que j'ai développé <strong>Intrinsic</strong>, une application macOS qui automatise tout : elle récupère les données via Finnhub, calcule le WACC, et génère le DCF instantanément. C'est l'outil que nous utiliserons pour gagner du temps.</p>
 
-            <h4>2. Comment l'utiliser pour prendre une décision ? ✅</h4>
-            <p>Une fois que le Reverse DCF vous a donné le taux attendu par le marché, la décision devient binaire et simple.</p>
-
-            <div class="grid md:grid-cols-2 gap-6 my-8">
-                <div class="bg-green-50 p-6 rounded-xl border border-green-100">
-                    <h5 class="text-green-800 font-bold mt-0 mb-2">🟢 Scénario A : Sous-évaluation</h5>
-                    <p class="text-sm text-green-900 mb-2">Le Reverse DCF vous dit : "Le marché attend <strong>5%</strong> de croissance."</p>
-                    <p class="text-sm text-green-900">Vous savez que l'entreprise fait historiquement <strong>12%</strong>.</p>
-                    <p class="font-bold text-green-700 mt-4">👉 OPPORTUNITÉ.</p>
-                    <p class="text-xs text-green-800">La barre est très basse. L'entreprise peut facilement sauter par-dessus. Le marché est trop pessimiste.</p>
+            <div class="bg-slate-900 rounded-xl p-6 text-white flex flex-col md:flex-row gap-6 items-center shadow-lg border border-slate-700 my-8">
+                <div class="flex-1">
+                    <h5 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                        <span class="bg-emerald-500/20 text-emerald-300 text-xs px-2 py-1 rounded border border-emerald-500/30 uppercase tracking-wide">Outil MacOs</span>
+                        Intrinsic
+                    </h5>
+                    <p class="text-slate-300 text-sm mb-4 leading-relaxed">
+                        Plus besoin d'Excel. L'app récupère les données financières en temps réel, calcule le WACC automatiquement grâce au Bêta, et vous donne la Valeur Intrinsèque + Reverse DCF en une seconde.
+                    </p>
+                    <a href="https://arthvrr.github.io/Intrinsic/" target="_blank" class="inline-flex items-center gap-2 bg-white text-slate-900 px-4 py-2 rounded-lg font-bold text-sm hover:bg-slate-200 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                        Télécharger gratuitement
+                    </a>
                 </div>
-                <div class="bg-red-50 p-6 rounded-xl border border-red-100">
-                    <h5 class="text-red-800 font-bold mt-0 mb-2">🔴 Scénario B : Surévaluation</h5>
-                    <p class="text-sm text-red-900 mb-2">Le Reverse DCF vous dit : "Le marché attend <strong>35%</strong> de croissance."</p>
-                    <p class="text-sm text-red-900">C'est énorme. Très peu d'entreprises maintiennent ce rythme.</p>
-                    <p class="font-bold text-red-700 mt-4">👉 DANGER.</p>
-                    <p class="text-xs text-red-800">La barre est placée à un niveau olympique. Au moindre faux pas (croissance de "seulement" 20%), le cours va s'effondrer.</p>
+                <div class="w-full md:w-1/2 cursor-pointer" onclick="openViewer('../media/Formation/intrinsic.png')">
+                    <img src="../media/Formation/intrinsic.png" alt="Interface de l'application Intrinsic" class="clickable-image rounded-lg shadow-2xl border border-white/10 hover:opacity-90 transition">
                 </div>
             </div>
-
-            <h4>3. Étude de Cas : Nvidia vs Coca-Cola 🥊</h4>
-            <p>Pour comprendre la puissance de l'outil, comparons deux entreprises fictives aux profils opposés.</p>
-
-            <h5>Cas 1 : L'entreprise "Hype" (Ex: Nvidia en haut de cycle)</h5>
-            <p>L'action est très chère. Vous lancez un Reverse DCF. L'outil vous dit : <em>"Pour justifier ce prix, l'entreprise doit croître de <strong>42% par an</strong> pendant 10 ans."</em></p>
-            <p><strong>Votre analyse :</strong> Est-ce physiquement possible ? Une entreprise de cette taille peut-elle doubler de taille tous les 2 ans pendant une décennie ? C'est peu probable. Le prix intègre déjà la perfection. Il n'y a aucune marge de sécurité.</p>
-
-            <h5>Cas 2 : L'entreprise "Ennuyeuse" (Ex: Coca-Cola ou une Assurance)</h5>
-            <p>L'action semble stagner. Vous lancez un Reverse DCF. L'outil vous dit : <em>"Le marché attend une croissance de <strong>0%</strong> (stagnation)."</em></p>
-            <p><strong>Votre analyse :</strong> L'entreprise vend toujours des canettes, augmente ses prix avec l'inflation, et rachète ses actions. Elle fera probablement 4% ou 5% de croissance sans effort. Le marché a placé la barre au sol. C'est un investissement très sûr (Asymétrie positive).</p>
-
-            <h4>4. Le "Test de Sanité" Historique (Reality Check) 🕵️‍♂️</h4>
-            <p>Le Reverse DCF vous donne un chiffre magique, disons <strong>15%</strong>. Le marché attend que l'entreprise croisse de 15% par an. Mais est-ce beaucoup ? Est-ce réaliste ?</p>
-            <p>Pour le savoir, il faut appliquer le <strong>Test de Sanité Historique</strong>. Comparez simplement l'attente du futur (Reverse DCF) avec la réalité du passé (CAGR historique).</p>
-            
-            <p><strong>La Loi des Grands Nombres :</strong> Il est extrêmement rare qu'une entreprise accélère sa croissance en devenant géante. Normalement, la croissance ralentit avec la taille. Si le marché attend une accélération soudaine, c'est un drapeau rouge.</p>
-
-            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/abbv-cagr-5yrs.png')">
-                <img src="../media/Formation/abbv-cagr-5yrs.png"                      alt="Tableau montrant le CAGR (taux de croissance annuel) du dividende d'AbbVie sur 5 ans" 
-                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
-                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">Exemple sur AbbVie : Le CAGR historique sur 5 ans est de <strong>5.87%</strong> (encadré rouge). Si le Reverse DCF vous dit que le marché attend <strong>15%</strong> de croissance, il y a un problème. Le marché est en plein délire optimiste.</figcaption>
-            </figure>
-
-            <p><strong>Le verdict du test de sanité :</strong></p>
-            <ul>
-                <li><strong>Implied Growth (Futur) < Historical CAGR (Passé) :</strong> ✅ Feu Vert. Le marché s'attend à un ralentissement, ce qui est conservateur et normal. Vous avez une marge de sécurité.</li>
-                <li><strong>Implied Growth (Futur) > Historical CAGR (Passé) :</strong> ❌ Feu Rouge. Le marché parie sur un miracle ou une accélération massive. C'est de la spéculation, pas de l'investissement.</li>
-            </ul>
-
-            <h4>5. L'outil pour le faire (Intrinsic) 💻</h4>
-            <p>Mathématiquement, le Reverse DCF consiste à isoler la variable "g" (growth) dans la formule complexe du DCF. C'est impossible à faire de tête et pénible sur Excel (il faut utiliser la fonction "Valeur Cible").</p>
-            <p>C'est pour cela que j'ai intégré cette fonctionnalité nativement dans l'application <strong>Intrinsic</strong> que vous connaissez déjà.</p>
-
-            <figure class="my-10 group cursor-pointer" onclick="openViewer('../media/Formation/intrinsic.png')">
-                <img src="../media/Formation/intrinsic.png" 
-                     alt="Capture d'écran de la fonction Reverse DCF dans l'application Intrinsic" 
-                     class="clickable-image rounded-xl shadow-lg border border-slate-100 w-full object-cover group-hover:opacity-95 transition">
-                <figcaption class="text-center text-sm text-slate-400 mt-3 italic">En haut à gauche, l'encadré vert : "Reverse DCF (Market Expectations)". Ici, pour justifier le prix de 191$, le marché attend 17.7% de croissance.</figcaption>
-            </figure>
-
-            <p>Dans cet exemple sur l'application :</p>
-            <ul>
-                <li><strong>Prix actuel :</strong> 191.14 $</li>
-                <li><strong>Attente du marché (Reverse DCF) :</strong> 17.7% de croissance annuelle.</li>
-                <li><strong>Votre estimation (FCF Growth Rate) :</strong> 25% (dans la colonne de gauche).</li>
-                <li><strong>Verdict :</strong> L'attente du marché (17%) est INFÉRIEURE à votre estimation (25%). Le marché est plus pessimiste que vous. C'est donc potentiellement une bonne affaire (Sous-évaluée).</li>
-            </ul>
 
             <div class="bg-slate-900 text-white p-6 rounded-xl shadow-lg my-8 text-center">
-                <p class="font-bold text-lg mb-4">🚀 Calculateur de Reverse DCF</p>
-                <p class="text-slate-300 mb-6">Testez par vous même la méthode de Reverse DCF par ici dans cet outil intégré à la Formation !</p>
-                <a href="reverse-dcf.html" target="_blank" class="inline-block bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 px-6 rounded-full transition duration-300">
-                    Cliquez ici pour tester mon Calculateur de Reverse DCF
+                <p class="font-bold text-lg mb-4">🚀 Pas de Mac ?</p>
+                <p class="text-slate-300 mb-6">Testez par vous même la méthode DCF par ici dans ce calculateur DCF intégré à la Formation !</p>
+                <a href="dcf-valuation.html" target="_blank" class="inline-block bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 px-6 rounded-full transition duration-300">
+                    Cliquez ici pour tester mon Calculateur DCF
                 </a>
+            </div>
+
+            <div class="my-16 bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+                <h4 class="mt-0 text-2xl font-bold text-slate-800 flex items-center mb-6">
+                    <span class="bg-indigo-100 text-indigo-600 w-10 h-10 flex items-center justify-center rounded-lg mr-3 text-lg">🏢</span>
+                    6. Étude de Cas : Valoriser "CloudSecure Inc." (Ticker: CLDS)
+                </h4>
+                <p class="mb-6 leading-relaxed">
+                    Pour bien ancrer la théorie, prenons un exemple réaliste que nous allons décortiquer étape par étape. Imaginons une entreprise de cybersécurité, <strong>"CloudSecure Inc."</strong>, cotée au Nasdaq. L'action s'échange actuellement à <strong>100 $</strong>. Notre but est de savoir si c'est un bon prix.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-100">
+                        <strong class="block text-slate-900 mb-3 text-lg">📊 1. Les Faits (Le Passé/Présent)</strong>
+                        <p class="text-sm text-slate-600 mb-2">Ces données sont extraites des rapports financiers (ou de votre app Intrinsic) :</p>
+                        <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
+                            <li><strong>Free Cash Flow (TTM) :</strong> 500 Millions $ (C'est l'argent qu'elle gagne aujourd'hui).</li>
+                            <li><strong>Cash en banque :</strong> 100 Millions $ (Cagnotte de guerre).</li>
+                            <li><strong>Dette Totale :</strong> 200 Millions $ (Ce qu'elle doit aux banques).</li>
+                            <li><strong>Nombre d'actions :</strong> 100 Millions.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-emerald-50 p-5 rounded-xl border border-emerald-100">
+                        <strong class="block text-emerald-900 mb-3 text-lg">🧠 2. Vos Hypothèses (Le Futur)</strong>
+                        <p class="text-sm text-emerald-700 mb-2">C'est ici que vous faites votre travail d'analyste :</p>
+                        <ul class="list-disc pl-5 text-sm text-emerald-800 space-y-1">
+                            <li><strong>Croissance (Growth) :</strong> +10% par an pendant 5 ans (Le secteur est porteur).</li>
+                            <li><strong>Risque (WACC) :</strong> 10% (C'est le taux d'actualisation que nous choisissons).</li>
+                            <li><strong>Sortie (Exit Multiple) :</strong> Dans 5 ans, nous revendrons l'entreprise 20 fois son cash flow (ratio standard pour la tech).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h5 class="text-lg font-bold text-slate-800 mb-4">Étape 3 : La Projection et l'Actualisation (Le Calcul)</h5>
+                <p class="mb-4 text-sm text-slate-600">Regardons année par année comment l'argent futur perd de sa valeur quand on le ramène à aujourd'hui (à cause du taux de 10%).</p>
+
+                <div class="overflow-x-auto border rounded-xl border-slate-200 mb-8">
+                    <table class="w-full text-sm text-left text-slate-600 border-collapse">
+                        <thead class="text-xs text-slate-700 uppercase bg-slate-50 border-b border-slate-200">
+                            <tr>
+                                <th class="px-4 py-3">Année</th>
+                                <th class="px-4 py-3">Le Cash Flow monte (+10%)</th>
+                                <th class="px-4 py-3">La "Gravité" agit (Discount)</th>
+                                <th class="px-4 py-3 text-emerald-700 font-bold">Valeur Réelle (Aujourd'hui)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+                            <tr class="bg-white">
+                                <td class="px-4 py-3 font-medium">Année 1</td>
+                                <td class="px-4 py-3">550 M$</td>
+                                <td class="px-4 py-3 text-xs text-slate-400">On divise par 1.10^1</td>
+                                <td class="px-4 py-3 font-bold text-emerald-600">500 M$</td>
+                            </tr>
+                            <tr class="bg-white">
+                                <td class="px-4 py-3 font-medium">Année 2</td>
+                                <td class="px-4 py-3">605 M$</td>
+                                <td class="px-4 py-3 text-xs text-slate-400">On divise par 1.10^2</td>
+                                <td class="px-4 py-3 font-bold text-emerald-600">500 M$</td>
+                            </tr>
+                            <tr class="bg-white">
+                                <td class="px-4 py-3 font-medium">Année 3</td>
+                                <td class="px-4 py-3">665 M$</td>
+                                <td class="px-4 py-3 text-xs text-slate-400">On divise par 1.10^3</td>
+                                <td class="px-4 py-3 font-bold text-emerald-600">500 M$</td>
+                            </tr>
+                            <tr class="bg-white">
+                                <td class="px-4 py-3 font-medium">Année 4</td>
+                                <td class="px-4 py-3">732 M$</td>
+                                <td class="px-4 py-3 text-xs text-slate-400">On divise par 1.10^4</td>
+                                <td class="px-4 py-3 font-bold text-emerald-600">500 M$</td>
+                            </tr>
+                            <tr class="bg-white">
+                                <td class="px-4 py-3 font-medium">Année 5</td>
+                                <td class="px-4 py-3">805 M$</td>
+                                <td class="px-4 py-3 text-xs text-slate-400">On divise par 1.10^5</td>
+                                <td class="px-4 py-3 font-bold text-emerald-600">500 M$</td>
+                            </tr>
+                            <tr class="bg-indigo-50/50 border-t-2 border-indigo-100">
+                                <td class="px-4 py-3 font-bold text-indigo-900">REVENTE (Terminal)</td>
+                                <td class="px-4 py-3 font-bold text-indigo-900">16 100 M$ <span class="text-xs font-normal text-slate-500 block">(805 M$ x 20)</span></td>
+                                <td class="px-4 py-3 text-xs text-indigo-400">On divise aussi par 1.10^5<br>(car l'argent arrive dans 5 ans)</td>
+                                <td class="px-4 py-3 font-bold text-indigo-600 text-base">9 997 M$</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h5 class="text-lg font-bold text-slate-800 mb-4">Étape 4 : L'Addition Finale</h5>
+                <p class="mb-4 text-sm text-slate-600">Maintenant, nous avons toutes les pièces du puzzle. Nous additionnons la valeur actuelle de tous les cash flows futurs (les 5 années + la revente), nous ajoutons le cash qui dort en banque, et nous remboursons la dette aux banquiers.</p>
+
+                <div class="bg-white p-6 rounded-xl border-2 border-dashed border-slate-300">
+                    <div class="flex justify-between items-center text-sm py-1">
+                        <span>Somme des 5 années (500 x 5) :</span>
+                        <span class="font-mono text-slate-600">2 500 M$</span>
+                    </div>
+                    <div class="flex justify-between items-center text-sm py-1">
+                        <span>+ Valeur Terminale (Revente) :</span>
+                        <span class="font-mono text-slate-600">+ 9 997 M$</span>
+                    </div>
+                    <div class="h-px bg-slate-200 my-2"></div>
+                    <div class="flex justify-between items-center text-base font-bold text-slate-800 py-1">
+                        <span>= Valeur de l'Entreprise (Enterprise Value) :</span>
+                        <span>12 497 M$</span>
+                    </div>
+                    <div class="flex justify-between items-center text-sm py-1 text-green-600">
+                        <span>+ Cash en banque (À nous) :</span>
+                        <span class="font-mono">+ 100 M$</span>
+                    </div>
+                    <div class="flex justify-between items-center text-sm py-1 text-red-600">
+                        <span>- Dette à rembourser (Aux banques) :</span>
+                        <span class="font-mono">- 200 M$</span>
+                    </div>
+                    <div class="h-px bg-slate-800 my-3"></div>
+                    <div class="flex justify-between items-center text-lg font-extrabold text-indigo-900 mb-4">
+                        <span>= VALEUR INTRINSÈQUE TOTALE (Equity) :</span>
+                        <span>12 397 M$</span>
+                    </div>
+                    
+                    <div class="flex justify-between items-center p-4 bg-slate-100 rounded-lg">
+                        <span class="text-sm font-medium text-slate-600">Divisé par le nombre d'actions (100 M) :</span>
+                        <span class="text-2xl font-bold text-emerald-600">123.97 $ / action</span>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex items-start gap-4">
+                    <span class="text-3xl">💡</span>
+                    <div>
+                        <strong class="block text-slate-900">Conclusion de l'analyste :</strong>
+                        <p class="text-slate-600 text-sm mt-1">
+                            Le marché vend cette action à <strong>100 $</strong>. Vos calculs rationnels disent qu'elle vaut <strong>124 $</strong>. Vous avez identifié une sous-évaluation de <strong>24%</strong>. C'est une opportunité d'achat rationnelle, basée non pas sur l'espoir, mais sur les mathématiques du cash flow.
+                        </p>
+                    </div>
+                </div>
             </div>
 
             <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-8 mt-12 shadow-sm">
@@ -242,13 +410,23 @@
                     Ce qu'il faut retenir
                 </h5>
                 <p class="text-emerald-900 m-0 leading-relaxed">
-                    Le <strong>Reverse DCF</strong> est l'outil de vérification de la réalité (Reality Check).<br>
-                    Au lieu de deviner le futur, il calcule ce que le marché "price" actuellement (la hauteur de la barre).<br>
-                    Utilisez le <strong>Test de Sanité</strong> : Si la croissance attendue par le marché est supérieure à ce que l'entreprise a réalisé dans son passé glorieux, fuyez. C'est un piège spéculatif.
+                    Le DCF est la seule méthode qui calcule la valeur absolue d'une entreprise basée sur le futur, et non sur le passé.<br>
+                    Le principe clé est l'actualisation : l'argent du futur vaut moins que l'argent d'aujourd'hui, à cause du risque et du temps.<br>
+                    Bien que la théorie soit complexe (WACC, Terminal Value), des outils modernes comme <strong>Intrinsic</strong> vous permettent d'appliquer cette rigueur professionnelle instantanément, en gérant pour vous la récupération des données et les calculs complexes.
                 </p>
             </div>
 
         </article>
+
+        <div class="mt-16 flex justify-center border-t border-slate-200 pt-8">
+            <button id="mark-completed-btn" 
+                    data-chapter-id="5.9" 
+                    data-chapter-title="La Technique DCF" 
+                    class="bg-slate-900 text-white px-8 py-4 rounded-full font-bold hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 flex items-center gap-3 transform hover:-translate-y-0.5">
+                <div id="completed-icon" class="w-6 h-6 rounded-full border-2 border-slate-400 flex items-center justify-center transition-colors"></div>
+                <span id="completed-text">Marquer ce chapitre comme terminé</span>
+            </button>
+        </div>
 
         <div class="flex justify-between items-center mt-16 pt-8 border-t border-slate-200">
             <a href="5.8.html" class="text-slate-500 hover:text-emerald-600 font-medium transition flex items-center group">
@@ -306,5 +484,102 @@
         });
     </script>
 <script type="module" src="../js/auth-guard.js"></script>
+<script type="module">
+    import { auth, db } from '../js/firebase-config.js'; 
+    import { doc, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
+    import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('mark-completed-btn');
+        const icon = document.getElementById('completed-icon');
+        const text = document.getElementById('completed-text');
+        
+        if (!btn) return;
+        
+        const chapterId = btn.getAttribute('data-chapter-id');
+        const chapterTitle = btn.getAttribute('data-chapter-title');
+
+        // 1. Sauvegarde locale
+        localStorage.setItem('SP_lastChapter', `${chapterId}.html`);
+        localStorage.setItem('SP_lastChapterTitle', chapterTitle);
+
+        let isCompleted = false;
+
+        // 2. Gestion Firebase
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                const userRef = doc(db, "users", user.uid);
+                
+                try {
+                    // Sauvegarde immédiate du chapitre visité dans Firestore
+                    await setDoc(userRef, {
+                        lastVisited: {
+                            id: chapterId,
+                            title: chapterTitle
+                        }
+                    }, { merge: true });
+
+                    // Vérifier si le chapitre est déjà terminé au chargement
+                    const docSnap = await getDoc(userRef);
+                    if (docSnap.exists() && docSnap.data().completedChapters?.includes(chapterId)) {
+                        isCompleted = true;
+                        setButtonCompletedState();
+                    }
+
+                    // Action au clic (Toggle)
+                    btn.addEventListener('click', async () => {
+                        btn.style.pointerEvents = 'none';
+                        btn.style.opacity = '0.7';
+
+                        if (isCompleted) {
+                            isCompleted = false;
+                            setButtonUncompletedState();
+                            await updateDoc(userRef, {
+                                completedChapters: arrayRemove(chapterId)
+                            });
+                        } else {
+                            isCompleted = true;
+                            setButtonCompletedState();
+                            await setDoc(userRef, {
+                                completedChapters: arrayUnion(chapterId)
+                            }, { merge: true });
+                        }
+                        
+                        btn.style.pointerEvents = 'auto';
+                        btn.style.opacity = '1';
+                    });
+                } catch (error) {
+                    console.error("Erreur de sauvegarde de progression :", error);
+                }
+            }
+        });
+
+        function setButtonCompletedState() {
+            btn.classList.replace('bg-slate-900', 'bg-emerald-500');
+            btn.classList.replace('hover:bg-slate-800', 'bg-emerald-500');
+            btn.classList.replace('shadow-slate-900/20', 'shadow-emerald-500/20');
+            btn.classList.remove('transform', 'hover:-translate-y-0.5');
+
+            icon.classList.replace('border-slate-400', 'border-white');
+            icon.classList.add('bg-white', 'text-emerald-500');
+            icon.innerHTML = '✓'; 
+            
+            text.textContent = 'Chapitre terminé !';
+        }
+
+        function setButtonUncompletedState() {
+            btn.classList.replace('bg-emerald-500', 'bg-slate-900');
+            btn.classList.replace('bg-emerald-500', 'hover:bg-slate-800');
+            btn.classList.replace('shadow-emerald-500/20', 'shadow-slate-900/20');
+            btn.classList.add('transform', 'hover:-translate-y-0.5');
+
+            icon.classList.remove('bg-white', 'text-emerald-500');
+            icon.classList.replace('border-white', 'border-slate-400');
+            icon.innerHTML = ''; 
+            
+            text.textContent = 'Marquer ce chapitre comme terminé';
+        }
+    });
+</script>
 </body>
 </html>

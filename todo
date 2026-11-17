@@ -2,7 +2,6 @@ FORMATION :
 
 - faire un certificat quand l'user à réussi tout les quizz de tout les modules ! 
 - finir 0.5 et 0.6
-- finaliser barre de progression par user : ajouter bouton "Marquer ce chapitre comme terminé" à chaque fin de chapitre, et ajuste barre de progression de l'utilisateur
 - ajouter checklist
 - stocker résultats tests de chaque module
 
@@ -18,7 +17,8 @@ SITE :
 
 A CORRIGER/AJOUTER FORMATION :
 
-- 4.8 Croissances
-- 4.14 autres ratios de rentabilité (ajout)
+- 4.8 Croissances corriger ratios de critères
+- 4.12 autres ratios de rentabilité (ajout)
 - 5.8 améliorer pub Intrinsic
 - de plus longs tests pour chaque module (+ de questions)
+- retravailler screens module 0

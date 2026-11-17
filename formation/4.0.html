@@ -141,15 +141,6 @@
         <div class="mb-12">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                 <span class="inline-block py-1.5 px-4 rounded-full bg-indigo-50 text-indigo-600 text-xs font-bold uppercase tracking-wider border border-indigo-100 w-fit">Module 4</span>
-                
-                <!-- Barre de progression -->
-                <div class="flex items-center gap-4 bg-white px-4 py-2 rounded-xl border border-slate-200 shadow-sm w-full sm:w-auto">
-                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Progression</span>
-                    <div class="w-full sm:w-48 h-3 bg-slate-100 rounded-full overflow-hidden shadow-inner border border-slate-200">
-                        <div class="w-[0%] h-full bg-indigo-500 rounded-full transition-all duration-500"></div>
-                    </div>
-                    <span class="text-sm font-bold text-indigo-600">0%</span>
-                </div>
             </div>
 
             <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mb-4">La Stratégie Quality 💎</h1>
@@ -170,6 +161,30 @@
             </div>
         </div>
 
+        <!-- BARRE DE PROGRESSION -->
+        <div class="mt-8 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+            <div class="w-full">
+                <div class="flex justify-between items-end mb-2">
+                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                        Progression
+                    </span>
+                    <!-- Adapte text-orange-600 selon la couleur du module -->
+                    <span class="text-lg font-bold text-indigo-600 leading-none" id="progress-text">
+                        0%
+                    </span>
+                </div>
+
+                <div class="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden shadow-inner">
+                    <!-- Adapte bg-orange-500 selon la couleur du module -->
+                    <div
+                        id="module-progress-bar"
+                        class="h-full bg-indigo-500 rounded-full transition-all duration-500"
+                        style="width: 0%">
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <!-- PHASE 1 : CONCEPT & MOAT -->
         <div class="section-divider group">
@@ -179,6 +194,7 @@
 
         <div class="space-y-3">
             <a href="4.1.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="4.1">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-indigo-50 group-hover:text-indigo-600 transition">4.1</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-indigo-600 transition">Pourquoi le Quality Investing ? 🏆</h3>
@@ -192,9 +208,10 @@
             </a>
 
             <a href="4.2.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="4.2">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-indigo-50 group-hover:text-indigo-600 transition">4.2</div>
                 <div class="flex-1 min-w-0 pr-4">
-                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-indigo-600 transition">Le Moteur de la performance 🚂</h3>
+                    <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-indigo-600 transition">Le Moteur de la performance en Bourse 🚂</h3>
                     <p class="text-sm text-slate-500 truncate">Ce qui fait monter une action à long terme : la croissance des bénéfices par action (EPS).</p>
                 </div>
                 <div class="shrink-0 flex items-center gap-2">
@@ -205,6 +222,7 @@
             </a>
 
             <a href="4.3.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="4.3">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-indigo-50 group-hover:text-indigo-600 transition">4.3</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-indigo-600 transition">Introduction au MOAT 🏰</h3>
@@ -218,6 +236,7 @@
             </a>
 
             <a href="4.4.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="4.4">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-indigo-50 group-hover:text-indigo-600 transition">4.4</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-indigo-600 transition">Les 5 Types de MOAT 🛡️</h3>
@@ -240,6 +259,7 @@
 
         <div class="space-y-3">
             <a href="4.5.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="4.5">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-indigo-50 group-hover:text-indigo-600 transition">4.5</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-indigo-600 transition">Les 2 Prismes de la Stratégie Quality 👓</h3>
@@ -253,6 +273,7 @@
             </a>
 
             <a href="4.6.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="4.6">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-indigo-50 group-hover:text-indigo-600 transition">4.6</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-indigo-600 transition">Mon Système de Notation 📝</h3>
@@ -275,6 +296,7 @@
         </div>
 
         <a href="4.7.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+            <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="4.7">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-indigo-50 group-hover:text-indigo-600 transition">4.7</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-indigo-600 transition">Analyse Quantitative : Les Bases 🏗️</h3>
@@ -289,6 +311,7 @@
 
         <div class="space-y-3">
             <a href="4.8.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="4.8">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-indigo-50 group-hover:text-indigo-600 transition">4.8</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-indigo-600 transition">Analyse Quantitative : La Croissance 🚀</h3>
@@ -302,6 +325,7 @@
             </a>
 
             <a href="4.9.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="4.9">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-indigo-50 group-hover:text-indigo-600 transition">4.9</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-indigo-600 transition">Analyse Quantitative : La Rentabilité 💰</h3>
@@ -315,6 +339,7 @@
             </a>
 
             <a href="4.10.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="4.10">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-indigo-50 group-hover:text-indigo-600 transition">4.10</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-indigo-600 transition">Analyse Quantitative : La Solvabilité 🛡️</h3>
@@ -328,6 +353,7 @@
             </a>
 
             <a href="4.11.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="4.11">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-indigo-50 group-hover:text-indigo-600 transition">4.11</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-indigo-600 transition">Analyse Quantitative : Le Dividende 🍇</h3>
@@ -340,7 +366,8 @@
                 </div>
             </a>
             
-            <a href="4.14.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+            <a href="4.12.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="4.12">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-indigo-50 group-hover:text-indigo-600 transition">4.12</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-indigo-600 transition">Les Autres Ratios de Rentabilité 📶</h3>
@@ -362,7 +389,8 @@
         </div>
 
         <div class="space-y-3">
-            <a href="4.12.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+            <a href="4.13.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="4.13">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-indigo-50 group-hover:text-indigo-600 transition">4.13</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-indigo-600 transition">L'Analyse Qualitative 🧠</h3>
@@ -375,7 +403,8 @@
                 </div>
             </a>
 
-            <a href="4.13.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+            <a href="4.14.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="4.14">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-indigo-50 group-hover:text-indigo-600 transition">4.14</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-indigo-600 transition">Cas Pratique : Analyse de Microsoft 💻</h3>
@@ -460,5 +489,51 @@
         </div>
     </footer>
 <script type="module" src="../js/auth-guard.js"></script>    
+<script type="module">
+    import { auth, db } from '../js/firebase-config.js';
+    import { doc, getDoc } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
+    import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
+
+    // Change ce chiffre selon le module :
+    // Mod 0 = 6 | Mod 1 = 4 | Mod 2 = 5 | Mod 3 = 11 | Mod 4 = 14 | Mod 5 = 11 | Mod 6 = 18 | Mod 7 = 6
+    const TOTAL_CHAPTERS = 14; 
+
+    onAuthStateChanged(auth, async (user) => {
+        if (user) {
+            try {
+                const docSnap = await getDoc(doc(db, "users", user.uid));
+                if (docSnap.exists()) {
+                    const completed = docSnap.data().completedChapters || [];
+                    
+                    const statusIcons = document.querySelectorAll('.chapter-status');
+                    let validCompletedCount = 0;
+
+                    statusIcons.forEach(icon => {
+                        const chapId = icon.getAttribute('data-chapter-id');
+                        
+                        if (completed.includes(chapId)) {
+                            validCompletedCount++;
+                            icon.innerHTML = '✅';
+                            icon.classList.remove('text-slate-400');
+                            icon.classList.add('text-emerald-500', 'border-emerald-500', 'bg-emerald-50');
+                        }
+                    });
+
+                    const percentage = Math.min(100, Math.round((validCompletedCount / TOTAL_CHAPTERS) * 100));
+                    
+                    const progressBar = document.getElementById('module-progress-bar'); 
+                    const progressText = document.getElementById('progress-text'); 
+                    
+                    if(progressBar && progressText) {
+                        progressBar.style.width = `${percentage}%`;
+                        progressText.textContent = `${percentage}%`;
+                    }
+                }
+            } catch (error) {
+                console.error("Erreur de chargement progression :", error);
+            }
+        }
+    });
+</script>
 </body>
 </html>

@@ -150,15 +150,6 @@
         <div class="mb-12">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                 <span class="inline-block py-1.5 px-4 rounded-full bg-slate-800 text-white text-xs font-bold uppercase tracking-wider border border-slate-700 w-fit">Module 0</span>
-                
-                <!-- Barre de progression -->
-                <div class="flex items-center gap-4 bg-white px-4 py-2 rounded-xl border border-slate-200 shadow-sm w-full sm:w-auto">
-                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Progression</span>
-                    <div class="w-full sm:w-48 h-3 bg-slate-100 rounded-full overflow-hidden shadow-inner border border-slate-200">
-                        <div class="w-[0%] h-full bg-slate-700 rounded-full transition-all duration-500"></div>
-                    </div>
-                    <span class="text-sm font-bold text-slate-800">0%</span>
-                </div>
             </div>
 
             <h1 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 mb-4">Bienvenue & Mode d'Emploi 🗺️</h1>
@@ -174,6 +165,29 @@
                     <span class="flex items-center gap-2"><span class="text-base">📚</span> <strong>6</strong> Chapitres</span>
                 </div>
             </div>
+            <!-- BARRE DE PROGRESSION -->
+            <div class="mt-8 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <div class="w-full">
+                    <div class="flex justify-between items-end mb-2">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                            Progression
+                        </span>
+                        <!-- Adapte text-orange-600 selon la couleur du module -->
+                        <span class="text-lg font-bold text-slate-600 leading-none" id="progress-text">
+                            0%
+                        </span>
+                    </div>
+
+                    <div class="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden shadow-inner">
+                        <!-- Adapte bg-orange-500 selon la couleur du module -->
+                        <div
+                            id="module-progress-bar"
+                            class="h-full bg-slate-500 rounded-full transition-all duration-500"
+                            style="width: 0%">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
@@ -185,6 +199,7 @@
 
         <div class="space-y-3">
             <a href="0.1.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="0.1">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-slate-800 group-hover:text-white transition">0.1</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-slate-800 transition">Bienvenue dans l'Aventure !!! 🎉</h3>
@@ -197,6 +212,7 @@
             </a>
 
             <a href="0.2.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="0.2">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-slate-800 group-hover:text-white transition">0.2</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-slate-800 transition">Comment suivre correctement la Formation ? 📖</h3>
@@ -209,6 +225,7 @@
             </a>
 
             <a href="0.3.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="0.3">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-slate-800 group-hover:text-white transition">0.3</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-slate-800 transition">Tester son Apprentissage 🎓</h3>
@@ -221,6 +238,7 @@
             </a>
 
             <a href="0.4.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="0.4">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-slate-800 group-hover:text-white transition">0.4</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-slate-800 transition">Revoir un Module entier en 1 clic 💡</h3>
@@ -233,6 +251,7 @@
             </a>
 
             <a href="0.5.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="0.5">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-slate-800 group-hover:text-white transition">0.5</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-slate-800 transition">Rejoindre la Communauté 🤝</h3>
@@ -245,6 +264,7 @@
             </a>
 
             <a href="0.6.html" class="chapter-card flex items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm group">
+                <div class="absolute -right-2 -top-2 w-7 h-7 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center shadow-sm text-slate-400 text-xs chapter-status" data-chapter-id="0.6">⌛️</div>
                 <div class="w-10 h-10 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center font-bold text-sm shrink-0 mr-4 group-hover:bg-slate-800 group-hover:text-white transition">0.6</div>
                 <div class="flex-1 min-w-0 pr-4">
                     <h3 class="font-bold text-slate-900 text-[1.05rem] mb-0.5 truncate group-hover:text-slate-800 transition">Les Outils Exclusifs 🛠️</h3>
@@ -275,5 +295,51 @@
         </div>
     </footer>
 <script type="module" src="../js/auth-guard.js"></script>    
+<script type="module">
+    import { auth, db } from '../js/firebase-config.js';
+    import { doc, getDoc } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
+    import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
+
+    // Change ce chiffre selon le module :
+    // Mod 0 = 6 | Mod 1 = 4 | Mod 2 = 5 | Mod 3 = 11 | Mod 4 = 14 | Mod 5 = 11 | Mod 6 = 18 | Mod 7 = 6
+    const TOTAL_CHAPTERS = 6; 
+
+    onAuthStateChanged(auth, async (user) => {
+        if (user) {
+            try {
+                const docSnap = await getDoc(doc(db, "users", user.uid));
+                if (docSnap.exists()) {
+                    const completed = docSnap.data().completedChapters || [];
+                    
+                    const statusIcons = document.querySelectorAll('.chapter-status');
+                    let validCompletedCount = 0;
+
+                    statusIcons.forEach(icon => {
+                        const chapId = icon.getAttribute('data-chapter-id');
+                        
+                        if (completed.includes(chapId)) {
+                            validCompletedCount++;
+                            icon.innerHTML = '✅';
+                            icon.classList.remove('text-slate-400');
+                            icon.classList.add('text-emerald-500', 'border-emerald-500', 'bg-emerald-50');
+                        }
+                    });
+
+                    const percentage = Math.min(100, Math.round((validCompletedCount / TOTAL_CHAPTERS) * 100));
+                    
+                    const progressBar = document.getElementById('module-progress-bar'); 
+                    const progressText = document.getElementById('progress-text'); 
+                    
+                    if(progressBar && progressText) {
+                        progressBar.style.width = `${percentage}%`;
+                        progressText.textContent = `${percentage}%`;
+                    }
+                }
+            } catch (error) {
+                console.error("Erreur de chargement progression :", error);
+            }
+        }
+    });
+</script>
 </body>
 </html>
